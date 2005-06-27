@@ -1,0 +1,270 @@
+# BEGIN SHORT COPYRIGHT
+
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin install$$
+$escape #$$
+$dollar @$$
+
+$spell 
+	sln
+	omhelpexe
+	omhelpwin
+	backslashes
+	Workspace
+	exe
+	chdir
+	nmake
+	mak
+	tar tar 
+	mv
+	Mhelp
+	omhelp
+	autoexec
+	htm
+	omh
+	Microsoft
+	dir
+	subtree
+	mkdir
+	xvf
+	src
+	chmod
+	getstarted
+	gz
+	gunzip
+	Mozilla
+	Mathplayer
+	Internet
+$$
+
+
+
+$section Download and Install OMhelp$$
+$index free, install$$ 
+$index OMhelp, install$$
+$index download, OMhelp$$
+
+
+$head Notation$$
+On Windows operating systems the directory separator is
+the back slash $code \$$
+and on Unix operating systems it is the forward slash $code /$$.
+In some of the steps below the Unix and Windows cases
+are given as one set of commands (and back slashes are used
+for the directory separator). 
+In these steps the back slashes should
+be replaced by forward slashes 
+for the Unix case.
+
+
+$head Installation Directory$$
+Choose the parent directory below which OMhelp will be installed;
+for example, if you choose $code c:\$$, OMhelp will be installed 
+in the $code c:\omhelp$$ directory.
+All references to $italic parent$$ in this documentation
+should be replaced by this parent directory.
+
+$head Executing Commands$$
+All the commands listed below are executed starting in the
+$italic parent$$ directory.
+In the Windows cases, you should use a Dos box to execute the commands.
+
+
+$head Step 1: Environment Variable$$
+$index environment, variable$$
+$index variable, environment$$
+$index omhelp_dir, environment variable$$
+You must set the value of the environment variable 
+$code omhelp_dir$$ to be equal to $syntax%parent%\omhelp%$$.
+As mentioned above, 
+$italic parent$$ is the parent directory for the installation.
+
+$subhead Windows Source$$
+You could execute the command
+$syntax/
+	set omhelp_dir=/parent/\omhelp
+/$$
+You could place this command in the file $code c:\autoexec.bat$$
+so that it was executed each time a DOS box was opened.
+
+$subhead Unix Source$$
+You could execute the commands
+$syntax%
+	omhelp_dir=%parent%/omhelp
+	export omhelp_dir
+%$$
+at the bash shell prompt.
+You could place this command in the file $code ~/.profile$$
+it will be executed each time a bash shell is started.
+
+
+$head Step 2: Download Compressed OMhelp$$
+Download the current Windows version of OMhelp by selecting 
+
+$table
+$bold Installation Type$$ $cnext
+	$bold File Name$$ $rnext
+Windows Source $cnext
+	$href%
+		http://www.seanet.com/~bradbell/OMhelp.dos.tar.gz%
+		OMhelp.dos.tar.gz
+	%$$ $rnext
+Unix Source $cnext
+	$href%
+		http://www.seanet.com/~bradbell/OMhelp.unix.tar.gz%
+		OMhelp.unix.tar.gz
+	%$$
+$tend
+
+$subhead Windows Source$$
+Use $href%http://www.winzip.com%WinZip%$$ (version 7.0 or higher),
+or some other utility,
+to decompress the files in 
+$code OMhelp.dos.tar.gz$$.
+Extract the resulting files into the
+$italic parent$$ directory being sure to preserve
+the structure of the sub-directories.
+(all of the resulting files should be in the $code dos$$ subdirectory).
+Then execute the following command
+$codep
+	rename dos omhelp
+$$
+
+$subhead Unix Source$$
+Use the following commands to extract the OMhelp source code:
+$codep
+	gunzip OMhelp.unix.tar
+	tar -xvf OMhelp.unix.tar
+	mv unix omhelp
+$$
+
+$head Step 3: Build The Executable$$
+
+$subhead Windows Source$$
+You can either use $code nmake$$ or Microsoft Development Studio
+to build the executable with Microsoft C/C++ compiler.
+The following commands use $code nmake$$ to build the executable file
+$syntax%%parent%\omhelp\omhelp.exe%$$:
+$codep
+	chdir omhelp\src
+	nmake /f omhelp.mak
+$$
+The following steps use Microsoft Development Studio
+to build the executable file 
+$syntax%%parent%\omhelp\omhelp.exe%$$:
+$list number$$
+Open Microsoft Development Studio.
+$lnext
+Select $code File | Open | Project$$ an in the dialog that appears
+select the file
+$syntax%
+	%parent%\omhelp\src\src.sln
+%$$
+and then select the $code Open$$ button.
+$lnext
+Select $code Build | Build src$$. 
+$lend
+
+$subhead Unix Source$$
+The following command will build the executable file
+$syntax%%parent%\omhelp\omhelp%$$:
+$codep
+	cd omhelp/src
+	make
+$$
+
+$head Step 4: Generate Developer Documentation$$
+
+$subhead Windows Source$$
+$mindex developer documentation$$
+The following commands will generate a local copy of the 
+OMhelp developer documentation.
+$codep
+	cd omhelp\src\omh
+	RunOMhelp
+$$
+This will execute the file $code RunOMhelp.bat$$
+which uses OMhelp to create a copy of the 
+OMhelp developer documentation in the directory
+$syntax%%parent%\omhelp\src\omh\htm%$$.
+
+$subhead Unix Source$$
+The following commands will generate a local copy of the 
+OMhelp developer documentation.
+$codep
+	cd omhelp/src/omh
+	RunOMhelp
+$$
+This will execute the file $code RunOMhelp$$
+which uses OMhelp to create a copy of the 
+OMhelp developer documentation in the directory
+$syntax%%parent%\omhelp\src\omh\htm%$$.
+
+$head Step 5: Generate User Documentation$$
+The following steps will generate a local copy of the OMhelp user 
+documentation:
+
+$subhead Windows Source$$
+$codep
+	cd omhelp\omh
+	RunOMhelp
+%$$
+This will execute the file $code RunOMhelp.bat$$
+which uses OMhelp to create a copy of the 
+OMhelp user documentation in the directory
+$syntax%%parent%\omhelp\omh\htm%$$.
+
+$subhead Unix Source$$
+$codep
+	cd omhelp/omh
+	RunOMhelp
+$$
+This will execute the file $code RunOMhelp$$
+which uses OMhelp to create a copy of the 
+OMhelp user documentation in the directory
+$syntax%%parent%\omhelp\omh\htm%$$.
+
+$head Step 6: Checking Install$$
+$index check, install$$
+$index install, check$$
+Make sure OMhelp is functioning correctly by loading the file
+$syntax/
+	/parent/\omhelp\omh\htm\getstarted.htm
+/$$
+into your web browser. 
+This should be a local copy of the web page
+$pre
+	$$
+$href%http://www.seanet.com/~bradbell/omhelp/getstarted.htm%$$.
+
+
+$head Step 7: Display Latex Mathematics$$
+If you are going to use the $xref/latex/$$ command for displaying
+mathematics, you will need a browser that supports MathML.
+You can download and install the
+$href%http://www.mozilla.org%Mozilla%$$ browser for this purpose.
+Another option is to use 
+MS Internet Explorer with the
+Mathplayer plug in
+which is freely available from
+$href%http://www.dessci.com/webmath/mathplayer%Design Science%$$.
+	
+$end

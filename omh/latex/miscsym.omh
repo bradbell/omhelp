@@ -1,0 +1,140 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin MiscSym$$
+$dollar @$$
+$spell
+	xml
+	htm
+	Lamport
+	diamondsuit
+	Lamport
+	Mozilla
+$$
+
+$mindex miscellaneous symbol$$
+$index latex, miscellaneous symbol$$
+$index latex, symbol miscellaneous$$
+
+$section Miscellaneous Symbols$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex /Command/ @@/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the miscellaneous symbol specified by $italic Command$$ where 
+$italic Command$$ is one of the 
+Latex commands in the tables below.
+The following tables contain the miscellaneous symbols
+in Table 3.7 of 
+$xref/latex/Reference/Lamport/$$
+$pre
+
+$$
+The 
+$href%http://www.w3.org/TR/MathML2/025.html/%MathML standard%$$
+displays a diamondsuit as black 
+while 
+$xref/latex/Reference/Lamport's book/$$
+displays it as white.
+
+$pre
+
+$$
+Note that 
+\Box 
+is in the list of
+$xref/Mozilla/MathML/Symbols/symbols/1/$$
+that Mozilla does not display properly.
+Also note that 
+\Box and \triangle
+are in the list of
+$xref/Explorer/MathML/Symbols/symbols/1/$$
+that MS Internet Explorer does not display properly.
+
+$subhead Arrow Symbols$$
+
+$nospell
+$table
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\aleph               $cnext $latex \aleph               $$ $rend
+\hbar                $cnext $latex \hbar                $$ $rend
+\imath               $cnext $latex \imath               $$ $rend
+\jmath               $cnext $latex \jmath               $$ $rend
+\ell                 $cnext $latex \ell                 $$ $rend
+\wp                  $cnext $latex \wp                  $$ $rend
+\Re                  $cnext $latex \Re                  $$ $rend
+\Im                  $cnext $latex \Im                  $$ $rend
+\mho                 $cnext $latex \mho                 $$
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\prime               $cnext $latex \prime               $$ $rend
+\emptyset            $cnext $latex \emptyset            $$ $rend
+\nabla               $cnext $latex \nabla               $$ $rend
+\surd                $cnext $latex \surd                $$ $rend
+\top                 $cnext $latex \top                 $$ $rend
+\bot                 $cnext $latex \bot                 $$ $rend
+\angle               $cnext $latex \angle               $$
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\forall              $cnext $latex \forall              $$ $rend
+\exists              $cnext $latex \exists              $$ $rend
+\neg                 $cnext $latex \neg                 $$ $rend
+\flat                $cnext $latex \flat                $$ $rend
+\natural             $cnext $latex \natural             $$ $rend
+\sharp               $cnext $latex \sharp               $$ $rend
+\backslash           $cnext $latex \backslash           $$ $rend
+\partial             $cnext $latex \partial             $$ 
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\infty               $cnext $latex \infty               $$ $rend
+\Box                 $cnext $latex \Box                 $$ $rend
+\Diamond             $cnext $latex \Diamond             $$ $rend
+\triangle            $cnext $latex \triangle            $$ $rend
+\clubsuit            $cnext $latex \clubsuit            $$ $rend
+\diamondsuit         $cnext $latex \diamondsuit         $$ $rend
+\heartsuit           $cnext $latex \heartsuit           $$ $rend
+\spadesuit           $cnext $latex \spadesuit           $$ $rend
+$tend
+
+$tend
+$$
+
+
+$end

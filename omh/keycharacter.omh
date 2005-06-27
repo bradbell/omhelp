@@ -1,0 +1,69 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin KeyCharacter$$
+$dollar @$$
+$escape #$$
+$spell
+	OMhelp
+$$
+
+$section Changing the Command Key Character @ for an Input File $$
+
+$table
+$bold Syntax$$
+$cnext $syntax%@OMhelpKeyCharacter=%c%$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+This is the only OMhelp command that does not occur between a 
+$code @begin$$,
+$code @end$$ pair.
+It instructs OMhelp to use the single character specified by $italic c$$
+as the Command Key character 
+(in place of the default character which is the dollar sign $code @$$.)
+$pre
+
+$$
+The character $italic c$$ can not be an alphabetic letter,
+a decimal digit, or white space.
+$pre
+
+$$
+The effect of this command is limited
+by the end of the current input file.
+
+$children/
+	keycharexample.omh
+/$$
+
+$head Example$$
+The input file 
+$code
+$pre
+     $$@OMhelp$verbatim%keycharexample.omh%5%#036OMhelp%$$
+$$
+results in the following section: $xref/KeyCharExample/$$.
+
+
+
+$end

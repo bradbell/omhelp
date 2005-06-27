@@ -1,0 +1,101 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin font$$ 
+$escape #$$
+$dollar @$$
+$spell 
+	none
+$$
+
+
+$mindex font type size$$
+$mindex fixed code italic bold big small$$
+
+$section Specifying Fonts$$
+
+$table
+
+$bold Syntax$$
+$cnext
+
+$table
+$syntax/@fixed /text/@@/$$  $cnext $syntax/@code /text/@@/$$ $rnext
+$syntax/@italic /text/@@/$$ $cnext $syntax/@bold /text/@@/$$ $rnext
+$syntax/@big /text/@@/$$    $cnext $syntax/@small /text/@@/$$ 
+$tend
+
+$rnext
+$bold See Also$$
+$cnext	$xref/StartFont//getting started/$$,
+	$xref/special/$$,
+	$xref/format/$$
+$tend
+
+$fend 30$$
+
+$head Description$$
+The following table describes the meaning of each of the fonts:
+$pre
+$$
+$table
+$pre     $$ $cnext $code fixed$$  $cnext a fixed pitch font    $rnext
+            $cnext $code code$$   $cnext a computer code font  $rnext
+            $cnext $code italic$$ $cnext an italic font        $rnext
+            $cnext $code bold$$   $cnext a bold font           $rnext
+            $cnext $code big$$    $cnext a bigger font size    $rnext
+            $cnext $code small$$  $cnext a smaller font size 
+$tend
+Any sequence of commands may be present in $italic text$$; i.e.,
+there may be occurrences of the $code @$$ character.
+If a space is the first character in $italic text$$,
+it is ignored.
+
+$head Example$$
+The following table contains an example for each of the fonts:
+$pre
+$$
+$table
+$pre     $$ $cnext $bold Input$$          $cnext $bold Output$$ $rnext
+            $cnext $code @fixed Text@@$$  $cnext $fixed Text$$  $rnext
+            $cnext $code @code Text@@$$   $cnext $code Text$$ $rnext
+            $cnext $code @big  Text@@$$   $cnext $big Text$$ $rnext
+            $cnext $code @small Text@@$$  $cnext $small Text$$ $rnext
+            $cnext $code @italic Text@@$$ $cnext $italic Text$$ $rnext
+            $cnext $code @bold Text@@$$   $cnext $bold Text$$ 
+$tend
+
+$head Reference$$
+$cindex head font$$
+You can change the font in a heading
+For example, 
+$codep 
+	@code
+	@head f(x)@@
+	@@
+$$
+would result in the heading below
+
+$code
+$head f(x)$$
+$$
+This heading is the result of the example code directly above.
+
+$end

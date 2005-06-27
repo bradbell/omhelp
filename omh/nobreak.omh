@@ -1,0 +1,74 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin nobreak$$
+$spell 
+	nobreak 
+	codep
+	OMhelp
+$$
+$escape #$$
+$dollar @$$
+
+$index nobreak$$
+$cindex line break$$
+$cindex format text$$
+
+$section Do Not Break Text Into Separate Lines$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@nobreak /text/@@/$$ $rnext
+$bold See Also$$
+$cnext
+	$mref/pre/math/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+All of the characters in $italic text$$ are displayed on the same line.
+There can be no $code @$$ characters in $italic text$$.
+(Note that the $xref/pre/$$ command can be used 
+to ensure that text appears on the same line but the $code pre$$
+command changes to a 
+$xref/glossary/Uniformly Spaced Font/uniformly spaced font/$$.)
+
+$head Example$$
+The input
+$codep
+	The pone numbers are:
+	@nobreak 206 555 1212@@,
+	@nobreak 207 555 1212@@,
+	@nobreak 208 555 1212@@,
+	and
+	@nobreak 209 555 1212@@.
+$$
+would create the following output
+$pre
+	$$
+	The pone numbers are:
+	$nobreak 206 555 1212$$,
+	$nobreak 207 555 1212$$,
+	$nobreak 208 555 1212$$,
+	and
+	$nobreak 209 555 1212$$.
+
+$end

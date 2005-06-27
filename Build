@@ -1,0 +1,168 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+# Build distribution
+#
+# Check for aclocal.m4
+if [ ! -e aclocal.m4 ]
+then
+	echo "aclocal.m4 does not exist so running aclocal"
+	if [ -e configure ]
+	then
+		rm configure
+	fi
+	echo "aclocal"
+	aclocal
+else
+	echo "aclocal.m4 exists so not running aclocal"
+fi  
+#
+# Today's date in YY-MM-DD decimal digit format with leading zeros
+Today=`date +%g-%m-%d`
+#
+# Date currently in configure.ac
+AcDate=`grep "^ *AC_INIT(" configure.ac | \
+	sed -e "s/.*, *\([0-9][0-9]-[0-9][0-9]-[0-9][0-9]\) *,.*/\1/"`
+#
+# Update version 
+if [ $Today != $AcDate ]
+then
+	echo "update version in configure.ac and Doc.omh"
+	#
+	sed configure.ac > configure.tmp -e \
+	"s/(OMhelp, [0-9][0-9]-[0-9][0-9]-[0-9][0-9],/(OMhelp, $Today,/"
+	#
+	diff configure.ac  configure.tmp
+	mv   configure.tmp configure.ac
+	#
+	sed omh/overview.omh > overview.tmp -e \
+	"s/Version [0-9][0-9]-[0-9][0-9]-[0-9][0-9]/Version $Today/g"
+	#
+	sed src/main.c > main.tmp -e \
+	"s/Version [0-9][0-9]-[0-9][0-9]-[0-9][0-9]/Version $Today/g"
+	#
+	diff src/main.c main.tmp
+	mv   main.tmp src/main.c
+	#
+	# configure file is out of date
+	if [ -e configure ]
+	then
+		rm configure
+	fi
+fi
+#
+# clean out old distribution files
+if [ -e omhelp-$Today ]
+then
+	rm -r omhelp-$Today
+fi
+for file in OMhelp.dos.tar.gz OMhelp.unix.tar.gz
+do
+	if [ -e $file ]
+	then
+		rm $file
+	fi
+done
+#
+# Make sure configure is up to date
+if [ ! -e configure ]
+then
+	echo "configure does not exist so running"
+	echo "autoheader, autoconf, automake, configure, OMhelp Developer"
+	#
+	echo "autoheader"
+	autoheader
+	#
+	echo "autoconf"
+	autoconf
+	#
+	echo "automake -add-missing"
+	automake --add-missing
+	#
+	echo "configure"
+	configure 
+	#
+	# Fix Makefile for what appears to be a bug in gzip under cygwin
+	echo "FixMakefile"
+	FixMakefile
+	#
+	echo "RunOMhelp Developer"
+	RunOMhelp Developer
+else
+	echo "configure exists so not running"
+	echo "autoheader, autoconf, automake, configure, OMhelp Developer"
+fi
+#
+echo "make"
+make
+#
+echo "RunOMhelp Doc"
+RunOMhelp Doc
+#
+# build the dirtribution file omhelp-$Today.tar.gz
+make dist
+#
+# extract from compressed tar
+tar -xvzf omhelp-$Today.tar.gz 
+#
+# create the Dos version
+mv omhelp-$Today.tar.gz OMhelp.dos.tar.gz
+#
+# convert files to unix format
+for file in  omhelp-$Today/*
+do
+	dos2unix $file
+done
+for dir in \
+	src \
+	src/omh \
+	omh \
+	omh/getstarted \
+	omh/latex
+do
+	for file in omhelp-$Today/$dir/*
+	do
+		dos2unix $file
+	done
+done
+#
+# fix binary files were overwitten by dos2unix
+cp omh/getstarted/w3c_home.gif omhelp-$Today/omh/getstarted/w3c_home.gif
+#
+# Make sure that dates in certain files are in certain order
+# (necessary because of dos2unix conversion above)
+touch omhelp-$Today/aclocal.m4
+sleep 2
+touch omhelp-$Today/src/config.h.in
+sleep 2
+touch omhelp-$Today/Makefile.in
+touch omhelp-$Today/*/Makefile.in
+sleep 2
+touch omhelp-$Today/configure
+#
+# Remove config.h because it is not needed by Unix version
+rm omhelp-$Today/src/config.h
+#
+# create the Unix version
+tar -cvf OMhelp.unix.tar omhelp-$Today
+gzip OMhelp.unix.tar 
+#
+# clean up
+rm -r omhelp-$Today

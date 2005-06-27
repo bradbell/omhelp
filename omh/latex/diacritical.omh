@@ -1,0 +1,165 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin diacritical$$
+$dollar @$$
+$spell
+	xml
+	htm
+	Lamport
+	ddot
+	vec
+	Mozilla
+	widehat
+	widetilde
+$$
+
+$mindex diacritical mark above$$
+$index latex, above$$
+$index latex, diacritical$$
+$index latex, mark$$
+$mindex
+	acute
+	bar
+	breve
+	check
+	ddot
+	dot
+	hat
+	grave
+	tilde
+	vec
+	widehat
+	widetilde
+$$
+$index latex, acute$$
+$index latex, bar$$
+$index latex, breve$$
+$index latex, check$$
+$index latex, ddot$$
+$index latex, dot$$
+$index latex, hat$$
+$index latex, grave$$
+$index latex, tilde$$
+$index latex, vec$$
+$index latex, widehat$$
+$index latex, widetilde$$
+
+$section Diacritical Marks Above Other Output$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex \/name/{/commands/} @@/$$ $rend
+$cnext where $italic name$$ is 
+$code acute$$,
+$code bar$$,
+$code breve$$,
+$code check$$,
+$code ddot$$,
+$code dot$$,
+$code hat$$,
+$code grave$$,
+$code tilde$$,
+$code vec$$,
+$code widehat$$,
+or
+$code widetilde$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the specified commands
+with the diacritical mark specified by
+$italic name$$ above the output corresponding to $italic commands$$.
+(As of version 1.2b, Mozilla seems to have a problem with the 
+acute, breve, ddot, dot, grave, and vec
+cases.)
+
+$head Example$$
+The input
+$codep
+	@latex \hat{x} + \hat{y + z} @@
+$$
+results in the following output
+$pre
+	$$
+	$latex \hat{x} + \hat{y + z} $$
+The $code widehat$$ and $code widetilde$$ will stretch
+if the output corresponding to $italic commands$$ is more than
+one character long.
+The input
+$codep
+	@latex \widehat{x} + \widehat{y + z} @@
+$$
+results in the following output
+$pre
+	$$
+	$latex \widehat{x} + \widehat{y + z} $$
+
+$head Table of Diacritical Marks$$ 
+
+$nospell
+
+$table
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+
+$code \acute{x} $$     $cnext $latex \acute{x} $$  $rnext
+$code \bar{x} $$       $cnext $latex \bar{x} $$    $rnext
+$code \breve{x} $$     $cnext $latex \breve{x} $$  $rnext
+$code \check{x} $$     $cnext $latex \check{x} $$  $rnext
+$code \ddot{x} $$      $cnext $latex \ddot{x} $$   $rnext
+$code \dot{x} $$       $cnext $latex \dot{x} $$    $rnext
+$code \hat{x} $$       $cnext $latex \hat{x} $$    $rnext
+$code \grave{x} $$     $cnext $latex \grave{x} $$  $rnext
+$code \tilde{x} $$     $cnext $latex \tilde{x} $$  $rnext
+$code \vec{x} $$       $cnext $latex \vec{x}  $$   $rnext
+$code \widthat{x} $$   $cnext $latex \widehat{x}  $$   $rnext
+$code \widetilde{x} $$ $cnext $latex \widetilde{x}  $$ 
+
+$tend
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+
+$code \acute{x + y} $$     $cnext $latex \acute{x + y} $$  $rnext
+$code \bar{x + y} $$       $cnext $latex \bar{x + y} $$    $rnext
+$code \breve{x + y} $$     $cnext $latex \breve{x + y} $$  $rnext
+$code \check{x + y} $$     $cnext $latex \check{x + y} $$  $rnext
+$code \ddot{x + y} $$      $cnext $latex \ddot{x + y} $$   $rnext
+$code \dot{x + y} $$       $cnext $latex \dot{x + y} $$    $rnext
+$code \hat{x + y} $$       $cnext $latex \hat{x + y} $$    $rnext
+$code \grave{x + y} $$     $cnext $latex \grave{x + y} $$  $rnext
+$code \tilde{x + y} $$     $cnext $latex \tilde{x + y} $$  $rnext
+$code \vec{x + y} $$       $cnext $latex \vec{x + y}  $$   $rnext
+$code \widehat{x + y} $$   $cnext $latex \widehat{x + y} $$   $rnext
+$code \widetilde{x + y} $$ $cnext $latex \widetilde{x + y}  $$ 
+
+$tend
+
+$tend
+
+$$  $comment end of nospell command$$
+
+$end

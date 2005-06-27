@@ -1,0 +1,141 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin stdfun$$
+$dollar @$$
+$spell
+	xml
+	htm
+	Lamport
+$$
+
+$index standard math function$$
+$index latex, standard$$
+$index latex, function$$
+
+$section Latex Standard Mathematics Functions$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex Command @@/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the standard mathematical function specified by $italic Command$$ where 
+$italic Command$$ is one of the 
+commands listed in the table below.
+This table contains the Log-Like functions
+in Table 3.9 of
+$xref/latex/Reference/Lamport/$$:
+
+$nospell
+
+$comment ==================================================================$$
+$table
+
+$table
+$italic Command$$    $cnext $italic Diaplay$$     $rend
+\arccos              $cnext $latex \arccos              $$ $rend
+\arcsin              $cnext $latex \arcsin              $$ $rend
+\arctan              $cnext $latex \arctan              $$ $rend
+\arg                 $cnext $latex \arg                 $$
+$tend
+
+$cnext
+
+$table
+$italic Command$$    $cnext $italic Diaplay$$     $rend
+\cos                 $cnext $latex \cos                 $$ $rend
+\cosh                $cnext $latex \cosh                $$ $rend
+\cot                 $cnext $latex \cot                 $$ $rend
+\coth                $cnext $latex \coth                $$ 
+$tend
+
+$cnext
+
+$table
+$italic Command$$    $cnext $italic Diaplay$$     $rend
+\csc                 $cnext $latex \csc                 $$ $rend
+\deg                 $cnext $latex \deg                 $$ $rend
+\det                 $cnext $latex \det                 $$ $rend
+\dim                 $cnext $latex \dim                 $$ 
+$tend
+
+$cnext
+
+$table
+$italic Command$$    $cnext $italic Diaplay$$     $rend
+\exp                 $cnext $latex \exp                 $$ $rend
+\gcd                 $cnext $latex \gcd                 $$ $rend
+\hom                 $cnext $latex \hom                 $$ $rend
+\inf                 $cnext $latex \inf                 $$ 
+$tend
+
+$tend
+$comment ==================================================================$$
+$table
+
+$table
+$italic Command$$    $cnext $italic Diaplay$$     $rend
+\ker                 $cnext $latex \ker                 $$ $rend
+\lg                  $cnext $latex \lg                  $$ $rend
+\lim                 $cnext $latex \lim                 $$ $rend
+\liminf              $cnext $latex \liminf              $$ $rend
+$tend
+
+$cnext
+
+$table
+$italic Command$$    $cnext $italic Diaplay$$     $rend
+\limsup              $cnext $latex \limsup              $$ $rend
+\ln                  $cnext $latex \ln                  $$ $rend
+\log                 $cnext $latex \log                 $$ $rend
+\max                 $cnext $latex \max                 $$ $rend
+$tend
+
+$cnext
+
+$table
+$italic Command$$    $cnext $italic Diaplay$$     $rend
+\min                 $cnext $latex \min                 $$ $rend
+\Pr                  $cnext $latex \Pr                  $$ $rend
+\sec                 $cnext $latex \sec                 $$ $rend
+\sin                 $cnext $latex \sin                 $$ $rend
+$tend
+
+$cnext
+
+$table
+$italic Command$$    $cnext $italic Diaplay$$     $rend
+\sinh                $cnext $latex \sinh                $$ $rend
+\sup                 $cnext $latex \sup                 $$ $rend
+\tan                 $cnext $latex \tan                 $$ $rend
+\tanh                $cnext $latex \tanh                $$ $rend
+$tend
+
+$tend
+$comment ==================================================================$$
+
+$$
+
+$end

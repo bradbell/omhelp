@@ -1,0 +1,135 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin StartEmbed$$
+$dollar @$$
+$spell
+	Matlab
+	omhelp
+	omh
+	OMhelp
+	htm
+$$
+
+$children/
+	ViewFactorial.c.omh/
+	getstarted\Factorial.c/
+	ViewFactorial.m.omh/
+	getstarted\Factorial.m/$$
+
+$section Embedding OMhelp Commands in Source Code$$
+$index source code, embed in$$
+$index embed in, source code$$
+
+$head Introduction$$
+OMhelp is designed to be embedded in computer source code.
+In fact, it is language independent and can be can combine source
+code files in multiple languages to form one documentation system.
+Only the text between a $code @begin$$ and a $code @end$$ is processed
+by OMhelp.
+It is intended that these commands be comments in the language.
+
+
+$head A C Source Code Example$$
+$index C, embed in source code$$
+
+$subhead Factorial.c$$
+Use an editor of your choice to
+create the file $code Factorial.c$$ 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Omh Directory/
+	omh directory/$$
+the contents of which can be seen by selecting 
+$xref/ViewFactorial.c//Factorial.c/$$.
+Note that you can copy and paste the contents of
+$code Factorial.c$$ to your editor window.
+You may just copy the file $code Factorial.c$$ from the 
+$xref/getstarted/Getting Started Directory/getting started directory/$$.
+
+$subhead Example In This Web Site Context$$
+You can view the
+result of making $code Factorial.c$$
+part of the OMhelp help web site 
+by selecting 
+$xref/Factorial.c/$$.
+
+$subhead Execute OMhelp$$
+In a Dos window and 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Htm Directory/
+	htm directory/$$
+execute the following command
+$codep
+	omhelp ..\Factorial.c
+$$
+
+
+$subhead Example by Itself$$
+Use a web browser of your choosing to view the file
+$syntax%%omh%\htm\factorial.c.htm%$$.
+
+
+$head A Matlab Source Code Example$$
+$index Matlab, embed in source code$$
+
+$subhead Factorial.m$$
+Use an editor of your choice to
+create the file $code Factorial.m$$ 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Omh Directory/
+	omh directory/$$
+the contents of which can be seen by selecting 
+$xref/ViewFactorial.c//Factorial.m/$$.
+Note that you can copy and paste the contents of
+$code Factorial.m$$ to your editor window.
+You may just copy the file $code Factorial.m$$ from the 
+$xref/getstarted/Getting Started Directory/getting started directory/$$.
+
+$subhead Example In This Web Site Context$$
+You can view the
+result of making $code Factorial.m$$
+part of the OMhelp help web site 
+by selecting 
+$xref/Factorial.m/$$.
+
+$subhead Execute OMhelp$$
+In a Dos window and 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Htm Directory/
+	htm directory/$$
+execute the following command
+$codep
+	omhelp ..\Factorial.m
+$$
+
+
+$subhead Example by Itself$$
+Use a web browser of your choosing to view the file
+$syntax%%omh%\htm\factorial.m.htm%$$.
+
+$end

@@ -1,0 +1,149 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin greek$$
+$dollar @$$
+$spell
+	xml
+	htm
+	Lamport
+$$
+
+$index greek$$
+$index latex, greek$$
+$section Greek Letters$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex /Command/ @@/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the greek character specified by $italic Command$$ where 
+$italic Command$$ is one of the 
+Latex commands in the tables below.
+The following tables contain the Greek characters
+in Table 3.3 of
+$xref/latex/Reference/Lamport/$$:
+$subhead Lowercase$$
+
+$nospell
+$table
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\alpha      $cnext $latex \alpha $$      $rend
+\beta       $cnext $latex \beta $$       $rend
+\gamma      $cnext $latex \gamma $$      $rend
+\delta      $cnext $latex \delta $$      $rend
+\epsilon    $cnext $latex \epsilon $$    $rend
+\varepsilon $cnext $latex \varepsilon $$ $rend
+\zeta       $cnext $latex \zeta $$       $rend
+\eta        $cnext $latex \eta $$
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\theta      $cnext $latex \theta $$      $rend
+\vartheta   $cnext $latex \vartheta $$   $rend
+\iota       $cnext $latex \iota $$       $rend
+\kappa      $cnext $latex \kappa $$      $rend
+\lambda     $cnext $latex \lambda $$     $rend
+\mu         $cnext $latex \mu $$         $rend
+\nu         $cnext $latex \nu $$         $rend
+\xi         $cnext $latex \xi $$
+$tend
+
+$cnext
+
+$table
+$italic command$$ $cnext $italic Output$$   $rend
+\pi         $cnext $latex \pi $$         $rend
+\varpi      $cnext $latex \varpi $$      $rend
+\rho        $cnext $latex \rho $$        $rend
+\varrho     $cnext $latex \varrho $$     $rend
+\sigma      $cnext $latex \sigma  $$     $rend
+\varsigma   $cnext $latex \varsigma $$
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\tau        $cnext $latex \tau $$        $rend
+\upsilon    $cnext $latex \upsilon $$    $rend
+\phi        $cnext $latex \phi $$        $rend
+\varphi     $cnext $latex \varphi $$     $rend
+\chi        $cnext $latex \chi  $$       $rend
+\psi        $cnext $latex \psi  $$       $rend
+\omega      $cnext $latex \omega $$ 
+$tend
+
+$tend
+$$
+
+$subhead Upper Case$$
+
+$nospell
+$table
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\Gamma      $cnext $latex \Gamma $$         $rend
+\Delta      $cnext $latex \Delta  $$        $rend
+\Theta      $cnext $latex \Theta  $$
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\Lambda     $cnext $latex \Lambda $$         $rend
+\Xi         $cnext $latex \Xi     $$         $rend
+\Pi         $cnext $latex \Pi     $$
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\Sigma      $cnext $latex \Sigma   $$        $rend
+\Upsilon    $cnext $latex \Upsilon $$        $rend
+\Phi        $cnext $latex \Phi     $$
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\Psi        $cnext $latex \Psi     $$        $rend
+\Omega      $cnext $latex \Omega   $$ 
+$tend
+
+$tend
+$$
+
+
+$end

@@ -1,0 +1,290 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin Mozilla$$
+$path%..\image%.png%$$
+$dollar !$$
+$escape #$$
+$spell
+	Javascript
+	minsize
+	mspace
+	em
+	rightarrow
+	vellip
+	ddot
+	bugzilla
+	Mozilla
+	OMhelp
+	Unicode
+	amalg
+	bigcirc
+	leadsto
+	longmapsto
+	preceq
+	xml
+	mathml
+	mrow
+	mi
+	munder
+	underbrace
+	underline
+	overbrace
+	overline
+	unicodes
+	mathvariant
+	mstyle
+	msqrt
+	sim
+	div
+	fontstyle
+	nbsp
+	mtd
+	mtr
+	mtable
+	underbar
+$$
+
+
+$section Problems Using Mozilla 1.3 To Display OMhelp Output$$
+$mindex bugzilla mozilla browser display error$$
+
+$children/
+	latex\NegativeSpace.omh/$$
+
+$head Description$$
+The 
+$href%http://www.mozilla.org/Mozilla/%Mozilla%$$ 
+browser can display both XHTML and MathML commands.
+Below is a list of cases where version 1.3 of Mozilla
+appears to have problems displaying MathML commands.
+If you have any feed back,
+please send e-mail to:
+$href%mailto:bradbell@seanet.com%bradbell@seanet.com%$$.
+
+$head XHTML$$
+
+$subhead Javascript$$
+The following problem occurs when
+using Javascript with XHTML files 
+You can select this link to $execute MozillaJavascriptXml.xml$$
+which contains the following XML commands:
+$pre
+$$
+$nospell
+$codep
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='pmathml.xsl'?>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+	<head></head>
+	<body>
+		The word "Test" should (but does not) 
+		appear in the text area below:
+		<br/>
+		<form name="search">
+			<textarea name="list" rows="1" cols="20" ></textarea>
+		</form>
+		<script type='text/javascript'>
+			document.search.list.value    = "Test";
+		</script>
+	</body>
+</html>
+$$
+$$
+$pre
+$$
+As noted above, the word $code Test$$ should appear 
+in the text area, but it does not.
+
+$subhead Background Color$$
+The following problem occurs when
+setting the background color  with XML files 
+You can select the link to $execute MozillaBackgroundXml.xml$$
+which contains the following XML commands:
+$pre
+$$
+$nospell
+$codep
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='pmathml.xsl'?>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+	<head></head>
+	<body style ='background-color : rgb(210, 210, 210)'>
+		The background color around this text is a light shade of gray.
+		The problem is that when displayed by Mozilla,
+		it is surrounded by a white border.
+	</body>
+</html>
+$$
+$$
+On the other hand, HTML files 
+are displayed properly as can be seen by selecting the link
+$execute MozillaBackgroundXml.htm$$
+which contains the following HTML commands:
+$pre
+$$
+$nospell
+$codep
+<html>
+	<head></head>
+	<body style ='background-color : rgb(210, 210, 210)'>
+		The background color around this text is a light shade of gray.
+		In this case,  Mozilla does not surrounded it by a white border.
+	</body>
+</html>
+$$
+$$
+
+$head MathML$$
+
+$subhead Negative Space$$
+$mindex negative space$$
+A positive space display is demonstrated by 
+the following input
+$codep
+	<mi>=</mi><mspace width="1em"/><mi>/</mi>
+$$
+which generates the output
+$latex \[ \mathml{
+	<mi>=</mi><mspace width="1em"/><mi>/</mi>
+} \] $$
+The negative spaces do not display as expected 
+as demonstrated by the following input
+$codep
+	<mi>=</mi><mspace width="-1em"/><mi>/</mi>
+$$
+which generates the output
+$latex \[ \mathml{
+	<mi>=</mi><mspace width="-1em"/><mi>/</mi>
+} \] $$
+A formal bug report for this is given in the section
+$center
+$tref NegativeSpace$$
+$$
+
+$subhead Operator Sizes$$
+$mindex operator size$$
+The specification of the minimum size attribute
+does not seem to work for some operators
+(the $code &cap;$$ character has unicode hex value $code 02229$$).
+For example
+$codep
+	<mo minsize="2em">(</mo> 
+	<mo minsize="2em">&#x02229;</mo> 
+	<mo minsize="2em">)</mo> 
+$$
+generates the output
+$latex \[ \mathml{ 
+	<mo minsize="2em">(</mo> 
+	<mo minsize="2em">&#x02229;</mo> 
+	<mo minsize="2em">)</mo> 
+} \]$$
+
+$subhead Symbols$$
+$mindex symbol$$
+The following symbols do not seem to be displayed correctly:
+$table
+$bold Latex $$ 
+	$cnext $bold MathML$$ 
+	$cnext $bold W3 File$$ 
+	$cnext $bold W3 Image$$
+	$cnext $bold Result$$
+	$rnext
+\amalg
+	$cnext $code <mo>&#x02A3F;</mo> $$
+	$cnext $href%http://w3.org/TR/MathMl2/02A.html%02A.html%$$
+	$cnext $icon U02A3F.png$$
+	$cnext $latex \mathml{<mo>&#x02A3F;</mo>} $$
+	$rnext
+\bigcirc
+	$cnext $code <mo>&#x025EF;</mo> $$
+	$cnext $href%http://w3.org/TR/MathMl2/025.html%025.html%$$
+	$cnext $icon U025EF.png$$
+	$cnext $latex \mathml{<mo>&#x025EF;</mo>} $$
+	$rnext
+\Box
+	$cnext $code <mo>&#x025FD;</mo> $$
+	$cnext $href%http://w3.org/TR/MathMl2/025.html%025.html%$$
+	$cnext $icon U025FD.png$$
+	$cnext $latex \mathml{<mo>&#x025FD;</mo>} $$
+	$rnext
+\int
+	$cnext $code <mo>&#x0222B;</mo> $$
+	$cnext $href%http://w3.org/TR/MathMl2/022.html%022.html%$$
+	$cnext $icon U0222B.png$$
+	$cnext $latex \mathml{<mo>&#x0222B;</mo>} $$
+	$rnext
+\leadsto
+	$cnext $code <mo>&#x0219D;</mo> $$
+	$cnext $href%http://w3.org/TR/MathMl2/021.html%021.html%$$
+	$cnext $icon U0219D.png$$
+	$cnext $latex \mathml{<mo>&#x0219D;</mo>} $$
+	$rnext
+\longmapsto
+	$cnext $code <mo>&#x0F57D;</mo> $$
+	$cnext $href%http://w3.org/TR/MathMl2/0F5.html%0F5.html%$$
+	$cnext $icon U0F57D.png$$
+	$cnext $latex \mathml{<mo>&#x0F57D;</mo>} $$
+	$rnext
+\preceq
+	$cnext $code <mo>&#x02AAF;</mo> $$
+	$cnext $href%http://w3.org/TR/MathMl2/02A.html%02A.html%$$
+	$cnext $icon U02AAF.png$$
+	$cnext $latex \mathml{<mo>&#x02AAF;</mo>} $$
+	$rnext
+	
+$tend
+
+
+$subhead UnderBar $$
+$mindex underbar$$
+The UnderBar (x00332) 
+does not display at all in the context below.
+Note that the 
+UnderParenthesis (x0FE36) 
+does display and
+stretches to fit what it is under.
+The input
+$codep
+	<munder>
+		<mrow> <mi>a</mi><mo>+</mo><mi>b</mi> </mrow>
+		<mo> &#x00332; </mo>
+	</munder>
+	<mspace width="1em"/>
+	<munder>
+		<mrow> <mi>a</mi><mo>+</mo><mi>b</mi> </mrow>
+		<mo> &#x0FE36; </mo>
+	</munder>
+$$
+results in the following output
+$latex \[ \mathml{
+	<munder>
+		<mrow> <mi>a</mi><mo>+</mo><mi>b</mi> </mrow>
+		<mo> &#x00332; </mo>
+	</munder>
+	<mspace width="1em"/>
+	<munder>
+		<mrow> <mi>a</mi><mo>+</mo><mi>b</mi> </mrow>
+		<mo> &#x0FE36; </mo>
+	</munder>
+} \] $$
+
+
+$end

@@ -1,0 +1,324 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin Keyword$$
+$escape #$$
+$dollar @$$
+$aindex head$$
+$spell 
+	cindex
+	mindex
+	OMhelp
+	htm
+	omhelp
+	internet
+	keyindex
+	aindex
+	index index
+	cindex cindex
+$$
+
+
+
+$section Keyword Index$$
+
+
+$cindex Keyword index$$
+$cindex cross reference$$
+
+$mindex mindex cindex aindex$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@index /one_entry/@@/$$   $rnext
+$cnext $syntax/@mindex /multiple_entries/@@/$$  $rnext
+$cnext $syntax/@cindex /multiple_entries/@@/$$  $rnext
+$cnext $syntax/@aindex /automatic_mindex/@@/$$ $rnext
+$bold See Also$$
+$cnext 
+	$xref/StartIndex//getting started/$$,
+	$xref/_index//index/$$, 
+	$xref/_contents//contents/$$
+$tend
+
+$fend 25$$
+
+$head Description$$
+These commands add entries to the 
+$xref/_index//Keyword index/$$ 
+for the current section.
+$pre
+
+$$
+There can be no $code @$$ characters in 
+$italic one_entry$$, 
+$italic multiple_entries$$, or $italic automatic_mindex$$.
+In addition, leading and trailing
+$xref/glossary/White Space/white space/$$
+in these arguments are ignored.
+
+$head The Keyword Index$$
+The entries in the Keyword index are alphabetically ordered.
+There are two levels to this ordering and each 
+index entry has a major and minor key.
+The major key corresponds to the overall ordering.
+The minor key corresponds to the ordering with in each
+value for the major key.
+You can link to the 
+$xref/_index//Keyword index/$$ using the 
+$code _index$$ cross reference
+$xref/glossary/Cross Reference Tag/tag/$$.
+
+
+$head Keyword List$$
+$cindex Keyword list$$
+Each section has an associated Keyword list.
+This consists of all the words 
+that appear in $code index$$, $code cindex$$ or $code mindex$$ 
+commands for that section.
+Words that begin with an escape character
+will not appear in this Keyword list.
+This list of Keywords is connected to the corresponding section
+by the OMhelp search utility
+and by search engines on the internet
+(if your web site is on the internet).
+
+$head Escape Character$$
+$cindex escape character$$
+The current
+$xref/escape/$$ character is used to convey
+special meaning to the $code index$$, $code cindex$$, and $code mindex$$
+commands.
+These
+characters do not actually appear in the Keyword index or the Keyword list.
+$pre
+
+$$
+When using the $code cindex$$ and $code mindex$$ commands,
+any commas in $italic multiple_entries$$ 
+must be directly preceded by an escape character.
+
+
+$head Headings$$
+If the $code index$$, $code cindex$$ or $code mindex$$
+command occurs before any $mref/head/$$ commands 
+in the a section, 
+the corresponding links are to the entire section.
+If they occur after a $code head$$ command
+and before any $code subhead$$ commands,
+the corresponding link to the previous heading.
+If they occur after a $code subhead$$ command
+the corresponding link to the previous subheading.
+
+$subhead Example$$
+The following command appears before any of the headings in this section:
+$codep
+	@cindex Keyword index@@
+$$
+The corresponding entries in the 
+Keyword index are: 
+$pre
+	$$Keyword $pre
+		$$index
+$xref/Keyword//Keyword Index/$$
+$pre
+	$$index $pre
+		$$Keyword
+$xref/Keyword//Keyword Index/$$
+$pre
+$$
+Note that the entries above link to the entire Keyword section.
+Most of the examples below
+link to the specific subheadings with in this section.
+
+
+$head Index$$
+$cindex index command$$
+The $code index$$ command specifies a single 
+$xref/_index//Keyword index/$$ 
+entry that points to the current section.
+If there is a comma in $italic one_entry$$
+the portion of $italic one_entry$$ to the left of the
+comma specifies the major key and the part to the right
+specifies the minor key. 
+If a comma is directly preceded by the $mref/escape/$$ character,
+it is normal text and 
+does not split the key into its major and minor parts.
+
+$subhead Example$$
+$index major key$$
+$index major key, minor key$$
+$index index example for f(x#, y)$$
+The following command appears directly after the subheading above:
+$codep
+	@index major key@@
+$$
+The corresponding entry in the 
+$xref/_index//Keyword index/$$ is: 
+$pre
+	$$major key
+$xref/Keyword/Index.Example/Keyword Index: Index.Example/$$
+$pre
+
+$$
+The comma can be used to separate the major and minor keys.
+The following command appears directly after the subheading above:
+$codep
+	@index major key, minor key@@
+$$
+The corresponding entry in the 
+Keyword index is: 
+$pre
+	$$major key $pre
+		$$minor key
+$xref/Keyword/Index.Example/Keyword Index: Index.Example/$$
+$pre
+
+$$
+If you want the comma character to appear in an index entry,
+you must escape it. 
+The $xref/escape/$$ character for this section is $code #$$.
+The following command appears directly after the subheading above:
+$codep
+	@index index example for f(x#, y)@@
+$$
+The corresponding entry in the Keyword index is:
+$pre
+	$$index example for f(x, y)
+$xref/Keyword/Index.Example/Keyword Index: Index.Example/$$
+
+$head Mindex$$
+$cindex mindex command$$
+This command adds an index entry for each key word in 
+$italic multiple_entries$$.
+The index entry has the key word as its
+major key and its minor key is empty.
+$pre
+
+$$
+A key word is terminated by a 
+$xref/glossary/White Space/white space/$$
+character that is not directly preceded by an 
+$xref/escape/$$ character.
+If a key word  begins with an
+escape character, it is not included in the index entries.
+
+$subhead Example$$
+$mindex 
+	multiple 
+	major 
+	key# word
+$$
+The following command appears directly after the subheading above:
+$codep
+	@mindex 
+		multiple 
+		major 
+		key# word
+	@@
+$$
+The corresponding entries in the 
+$xref/_index//Keyword index/$$ are: 
+$pre
+	$$multiple
+$xref/Keyword/Mindex.Example/Keyword Index: Mindex.Example/$$
+$pre
+	$$major
+$xref/Keyword/Mindex.Example/Keyword Index: Mindex.Example/$$
+$pre
+	$$key word
+$xref/Keyword/Mindex.Example/Keyword Index: Mindex.Example/$$
+
+$head Aindex$$
+There are three commands that can be automatically connected
+to the $xref/Keyword/Mindex/mindex/$$ command; namely the
+$xref/section/Aindex/section/$$, 
+$xref/head/Aindex/head and subhead/$$ commands.
+If $italic automatic_mindex$$ contains the word
+"section", "head", or "subhead",
+the corresponding commands are connected until
+the next $code aindex$$ command or the end of the current section.
+If a command is connected to the $code mindex$$ command,
+the command argument is automatically used as the $italic multiple_entries$$
+argument to the $code mindex$$ command.
+
+$subhead Example$$
+The following command appears before any of the heading commands
+in this section:
+$codep
+	@aindex head@@
+$$
+The 
+$xref/_index//Keyword index/$$ entry corresponding the heading
+$bold Aindex$$ is: 
+$pre
+	$$aindex
+$italic
+$xref/Keyword/Aindex/Keyword Index: Aindex/$$
+$$
+$pre
+$$
+Note that the word Aindex has been converted to lower case.
+In general all Keyword entries created using the $code @aindex$$ command
+are converted to lower case.
+Also note that the links generated by 
+$code @aindex section$$ are to the entire section,
+$code @aindex head$$ links to the corresponding headings, and
+$code @aindex subhead$$ links to the corresponding subheading.
+
+$head Cindex$$
+$cindex cindex command$$
+This command adds an index entry for each key word in 
+$italic multiple_entries$$.
+The major key for the index entry is the Keyword.
+Its minor key is the entire string $italic multiple_entries$$.
+$pre
+
+$$
+A key word is terminated by a 
+$xref/glossary/White Space/white space/$$
+character that is not directly preceded by an escape character.
+Any key word may begin with an $mref/escape/$$ character
+in which case the index entry with it in front is not included.
+
+
+$subhead Example$$
+$cindex cindex example$$
+$cindex cindex command example$$
+The following command appears directly after the subheading above:
+$codep
+	@cindex cindex example@@
+$$
+The corresponding entries in the 
+Keyword index are: 
+$pre
+	$$cindex $pre
+		$$cindex example
+$xref/Keyword/Cindex.Example/Keyword Index: Cindex.Example/$$
+$pre
+	$$example $pre
+		$$cindex example
+$xref/Keyword/Cindex.Example/Keyword Index: Cindex.Example/$$
+$pre
+
+$$
+
+
+$end

@@ -1,0 +1,140 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin whatsNew$$
+$dollar @$$
+$spell
+	Microsoft
+	cnext
+	Spanish
+	gz
+	xref
+	readme
+	OMhelp
+	omhelp
+	dir dir
+$$
+
+$index readme, whats new$$
+$index news$$
+$index changes$$
+
+$section Changes and Additions to OMhelp$$
+
+$head Description$$
+This section contains a list of changes to 
+OMhelp (in reverse order by date). 
+Its purpose is to assist you in learning about 
+changes between versions.
+A historical record of the changes to OMhelp can be found in
+the following sections:
+
+$children/
+	whatsnew04.omh/
+	whatsnew03.omh/
+	whatsnew02.omh/
+	whatsnew01.omh/$$
+
+$center
+
+$table
+$rref whatsNew04$$
+$rref whatsNew03$$
+$rref whatsNew02$$
+$rref whatsNew01$$
+$tend
+
+$$
+
+$head 05-06-26$$
+The
+$xref/running/Setting Up Environment/-omhelp_dir dir/$$
+command was added.
+This specifies the OMhelp installation directory on the
+command line was added.
+
+$head 05-06-24$$
+OMhelp now supports Microsoft Visual C++ version 7 or higher
+(version 6 is no longer supported).
+The project files have been changed to version 7 format.
+In addition, only source code distributions are included; i.e.,
+a windows executable with out source code is no longer distributed.
+
+$head 05-05-18$$
+The use input
+$codep
+	@table
+	@bold Notation @cnext Description@@
+	@tend
+$$
+did not cause an OMhelp error but the corresponding web page
+generated an XML error (and the HTML did not display properly).
+This is because the bold command is started inside of one column
+and terminated in a different column of the table.
+This has been fixed so that OMhelp generates an error message
+in this an related cases.
+In addition, the documentation for the 
+$xref/table/$$ commands have been improved so that it explicitly states
+where row and columns start and end
+(and a nesting table example has been added).
+
+$head 05-02-17$$
+A command as was added so that one can control the
+$xref/align//alignment/$$ of data within each cell of a table.
+$pre
+
+$$
+The files $code build$$ and $code build.bat$$
+were moved to $code RunOMhelp$$ and $code RunOMhelp.bat$$
+(see $xref/install/$$).
+
+$head 05-02-15$$
+The download files and $xref/install//installation/$$ instructions
+were changed.
+All the download files now use $syntax//*/.tar.gz/$$ format which
+gives better compression and is understood by most decompression programs.
+
+
+$head 05-02-13$$
+The $xref/accent/$$ command was added to improve the display
+of Spanish text.
+
+$head 05-02-10$$
+The upper right corner now contains a link to the current frame by itself; i.e,
+displayed without the supporting navigation frames 
+and other frames for the same section. 
+The other automatically generated links, such as previous and next
+were reorganized and right (instead of left) justified.
+
+$head 05-02-05$$
+If Java Script is not enabled in a user's browser,
+and the $xref/_search//search/$$ page is entered,
+an error message is printed.
+A spelling error in this message was fixed.
+$pre
+
+$$
+If one uses long $xref/head//headings/$$ and subheadings,
+it is sometimes useful to break them up into multiple lines.
+The cross reference links have been extended so that they will
+still work for such headings and subheadings
+(see $xref/xref/Reference/xref: Reference/$$).
+
+$end

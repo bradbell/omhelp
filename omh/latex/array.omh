@@ -1,0 +1,125 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin array$$
+$escape #$$
+$dollar @$$
+$spell
+	xml
+	htm
+	Amn
+	cj
+	cn
+	clcr
+	Lamport
+	uuv
+	vw
+	uv
+	xyz
+$$
+
+$index array, latex$$
+$index latex, array$$
+$index latex, matrix$$
+$index matrix, latex$$
+
+$section The Latex Array Command$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex \begin{array}{/c1 ... cn/}/$$       $rnext
+$cnext $syntax//A(1,1)/ & /.../ & /A(1,n)/ \\/$$          $rnext
+$cnext $syntax//.../ & /.../ & /.../ \\/$$                $rnext
+$cnext $syntax//A(m,1)/ & /.../ & /A(m,n)/$$              $rnext
+$cnext $syntax/\end{array} @@/$$                          $rnext
+$bold See Also$$
+$cnext $xref/table/$$
+$tend
+
+$fend 30$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the array $italic A$$ with
+$th j$$ column is aligned according to the value of $italic cj$$ where  
+$code l$$ means align to the left,
+$code c$$ means align each to the center,
+and $code r$$ means align to the right.
+
+
+
+$head Example$$
+The input
+$codep
+	@latex 
+		\begin{array}{clcr}
+			a+b++c & uv    & x-y & 27     \\
+			a+b    & u+v   & z   & 134    \\
+			a      & 3u+vw & xyz & 2,978
+		\end{array}
+	@@
+$$
+results in the following output
+$pre
+	$$
+	$latex 
+		\begin{array}{clcr}
+			a+b++c & uv    & x-y & 27     \\
+	        	a+b    & u+v   & z   & 134    \\
+	        	a      & 3u+vw & xyz & 2,978
+		\end{array}
+	$$
+
+
+$head Row Alignment$$
+The first line in the syntax above can have the form
+$syntax/
+	@latex \begin{array}[/r/]{/c1 ... cn/}
+/$$
+In this case the value of $italic r$$ 
+specifies how each row is aligned where
+$code t$$ means align the top,
+$code c$$ means align the center,
+and $code b$$ means align the bottom.
+For example, the input
+$codep
+	@latex
+		\begin{array}[t]{cc}
+			\begin{array}{c} a \\ b \end{array}
+			&
+			\begin{array}{cc} a & b \end{array}
+		\end{array}
+	@@
+
+$$
+results in the following output
+$pre
+	$$
+	$latex
+		\begin{array}[t]{cc}
+			\begin{array}{c} a \\ b \end{array}
+			&
+			\begin{array}{cc} a & b \end{array}
+		\end{array}
+	$$
+
+
+
+$end

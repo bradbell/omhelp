@@ -1,0 +1,80 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin nospell$$
+$dollar @$$
+$spell 
+	xref 
+	OMhelp 
+	nospell 
+	codep
+$$
+
+$index nospell$$
+$mindex suspend spell check dictionary$$
+
+$section Suspending Spell Checking$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@nospell /text/@@/$$ $rnext
+$bold See Also$$
+$cnext $mref/spell/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+Sometimes there is a section of input in which
+there are words that are not in the 
+$xref/spell/Dictionary/dictionary/$$.
+If there are only a few words, the 
+$xref/spell//spell/$$ command can be used to avoid spelling errors.
+If there are many such words you may want to suspend spell
+checking for a while.
+This command suspends spell checking for all of $italic text$$
+where $italic text$$ may contain any number of commands.
+
+$head Example$$
+The following input is an example where suspension of spell checking
+is useful.
+$nospell
+$codep
+	@nospell
+	@codep
+		VarStkMar = 1
+		ConMemMag = 2
+		SurVisLev = 3
+		WndSzTot  = 4
+	@@
+	@@
+$$
+$$
+The corresponding output would be
+$nospell
+$codep
+	VarStkMar = 1
+	ConMemMag = 2
+	SurVisLev = 3
+	WndSzTot  = 4
+$$
+$$
+
+$end

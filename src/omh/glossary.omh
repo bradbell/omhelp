@@ -1,0 +1,103 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin glossary$$
+$dollar @$$
+$spell
+	crossheading
+$$
+
+$section Glossary$$
+
+$head Complete Path Specification$$
+A complete specification is a directory specification
+that begins with a forward slash, $code /$$,
+begins with a back slash, $code \$$,
+or has a colon, $code :$$, as its second character. 
+(Note that a disk specification must precede the colon.)
+
+$head Cross Reference Heading$$
+If $italic crossheading$$ is
+a cross reference heading it is a '\0' terminated character vector
+that refers to a certain location with in a section. 
+If $italic crossheading$$ is empty 
+($syntax%%crossheading%[0]%$$ is equal to '\0')
+the location is the beginning of the section.
+$pre
+
+$$
+If there is a command of the form
+$syntax%
+	@head %crossheading%@@
+%$$
+The cross reference heading refers to the location of the command
+in the section.
+$pre
+
+$$
+On the other hand,
+suppose that $italic crossheading$$
+is equal to the character string $italic heading$$,
+followed by a period ('.'),
+followed by the character string $italic subheading$$.
+Further suppose that there is a command of the form
+$syntax%
+	@head %heading%@@
+%$$
+and with in the scope of that heading (before the next $code head$$ command)
+there is a command of the form
+$syntax%
+	@subhead %subheading%@@
+%$$
+In this case $italic crossheading$$ refers to the 
+location of the $code subhead$$ command.
+
+
+$head File Extension$$
+The term file extension refers to the characters 
+that follow and include the last period; i.e., $code '.'$$,
+in the file name.
+
+$head Root File Name$$
+The term root file name refers a file name without
+its  $xref/glossary/File Extension/extension/$$.
+It may include a 
+$xref/glossary/Complete Path Specification/complete path specification/$$,
+it may be relative to one of the 
+input search $xref/InputAddPath//paths/$$,
+or it may be relative to the 
+$xref/InputInit//input local directory/$$.
+
+$head Section Tree$$
+A Section tree is specified by a $mref/SectionInfo/$$
+record that has its $code parent$$ and $code previous$$
+fields equal to $code NULL$$.
+All of the sibling (linked by the $code next$$ field)
+and children (linked by the $code children$$ field)
+are included in the tree.
+
+
+$head String$$
+A string is a $code '\0'$$ terminated character row vector.
+It is called empty, if the only character in the string
+is its terminator $code '\0'$$.
+
+
+$end

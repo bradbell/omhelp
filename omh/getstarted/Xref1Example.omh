@@ -1,0 +1,49 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin Xref1Example$$
+$spell
+	Xref
+$$
+
+$section Parent Section For Cross Referencing Examples$$
+
+$head Cross Reference Tag$$
+Each section starts with a begin command 
+that contains its cross reference tag as an argument.
+The cross reference tag for this section is Xref1Example.
+The cross reference tags for the children of this section are
+$xref/_contents/$$,
+$xref/Xref2Example/$$,
+$xref/Xref3Example/$$,
+$xref/_reference/$$,
+$xref/_index/$$, or
+$xref/_search/$$.
+Note that the sections corresponding to
+_contents,
+_reference,
+_index,
+and _search,
+are automatically generated.
+
+$contents/
+	Xref2Example.omh/$$
+
+$end

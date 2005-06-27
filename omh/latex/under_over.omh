@@ -1,0 +1,96 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin under_over$$
+$dollar @$$
+$spell
+	xml
+	htm
+	OMhelp
+	underline
+	underbrace
+	overline
+	overbrace
+	cmd
+	Mozilla
+$$
+
+$mindex under over line brace$$ 
+$index latex, overline$$
+$index latex, overbrace$$
+$index latex, underline$$
+$index latex, underbrace$$
+
+$section Latex Underline, Underbrace, Overline, and Overbrace$$
+
+$table
+$bold Syntax$$
+$cnext $syntax%@latex \%name%{%commands%}@@%$$ $rnext
+$cnext where $italic name$$ is 
+$code underline$$, 
+$code underbrace$$,
+$code overline$$,
+or
+$code overbrace$$,
+$tend
+
+
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the specified command list with the following additional
+output.
+$table
+$italic name$$ $cnext $italic Additional Output$$ $rnext
+$code underline$$  $cnext a line below stretched to match size $rnext
+$code underbrace$$ $cnext a brace below stretched to match size $rnext
+$code overline$$   $cnext a line  above stretched to match size $rnext
+$code overbrace$$  $cnext a brace above stretched to match size $rnext
+$tend
+
+$head Example$$
+
+$table
+
+$table
+$italic name$$ $cnext $italic commands$$ $cnext $italic Output$$   $rnext 
+$code underline$$  $cnext $code x$$ $cnext $latex \underline{x}  $$ $rnext
+$code underbrace$$ $cnext $code x$$ $cnext $latex \underbrace{x} $$ $rnext
+$code overline$$   $cnext $code x$$ $cnext $latex \overline{x}   $$ $rnext
+$code overbrace$$  $cnext $code x$$ $cnext $latex \overbrace{x}  $$ $rnext
+$tend
+
+$cnext
+$pre   $$
+$cnext
+
+$table
+$italic name$$ $cnext $italic commands$$ $cnext $italic Output$$   $rnext 
+$code underline$$  $cnext $code x+y$$ $cnext $latex \underline{x+y}  $$ $rnext
+$code underbrace$$ $cnext $code x+y$$ $cnext $latex \underbrace{x+y} $$ $rnext
+$code overline$$   $cnext $code x+y$$ $cnext $latex \overline{x+y}   $$ $rnext
+$code overbrace$$  $cnext $code x+y$$ $cnext $latex \overbrace{x+y}  $$ $rnext
+$tend
+
+$tend
+
+$end

@@ -1,0 +1,116 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin head$$
+$dollar @$$
+$spell 
+	xref
+	Netscape
+	aindex
+	mindex
+$$
+
+$mindex head subhead paragraph$$
+
+
+$section Paragraph Headings and Subheadings$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@head /heading/@@/$$    $rnext
+$cnext $syntax/@subhead /subheading/@@/$$ $rnext
+$bold See Also$$
+$cnext
+	$xref/StartHead//getting started/$$,
+	$xref/fend/$$
+$tend
+
+$fend 25$$
+
+$head Description$$
+A new paragraph is started and it is given the heading
+specified by $italic heading$$ or $italic subheading$$.
+There can be no $code @$$ characters in either
+$italic heading$$ or $italic subheading$$.
+In addition,
+leading and trailing
+$xref/glossary/White Space/white space/$$
+in both $italic heading$$ and $italic subheading$$ is ignored.
+
+$head Cross Reference Linking$$
+$mindex head subhead cross reference link$$
+
+You can specify a particular $italic heading$$,
+using the $xref/xref/$$ command with
+the specified $xref/xref/Example.Headings/heading/$$.
+You can specify a particular $italic subheading$$,
+using the $xref/xref/$$ command with
+the previous heading and 
+$xref/xref/Example.Subheadings/subheading/$$.
+
+$head Aindex$$
+$index aindex$$
+The $xref/keyword/Aindex/aindex/$$ command can connect
+the $code head$$ command to the $xref/keyword/Mindex/mindex/$$ command.
+(To make this connection, it must appear before the $code head$$ command.)
+If this is the case,
+each $code head$$ command automatically generates a request of the form
+$syntax/
+	@mindex /heading/@@
+/$$
+In this case,
+occurrences of the $xref/escape/$$ character in $italic heading$$
+has the special meaning defined for the $code mindex$$ command. 
+These characters do not appear in the displayed output
+nor is it part of the corresponding cross reference link text.
+$pre
+
+$$
+A similar effect can be obtained using the
+$xref/keyword/Aindex/aindex/$$ command to connect
+the $code subhead$$ command to the $xref/keyword/Mindex/mindex/$$ command.
+
+
+$head Example Heading$$
+The input
+$codep
+	@head Topic@@
+$$
+will result in the heading below:
+
+$head Topic$$
+This heading is the result of the example above.
+
+$head Example Subheading$$
+The input
+$codep
+	@subhead Topic@@
+$$
+will result in the subheading below:
+
+$subhead Topic$$
+This subheading is the result of the example above.
+
+$head Reference$$
+Be aware that certain special characters in the heading have trouble
+when used as links in certain browsers. For example, I have had trouble
+with the forward slash in a heading using Netscape 4.5 to view the results.
+
+$end

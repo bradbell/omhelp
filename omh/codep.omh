@@ -1,0 +1,95 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin codep$$
+$escape #$$
+$dollar @$$
+$spell 
+	codep 
+	pre
+$$
+
+
+$index codep$$
+$index example, text$$
+$index paragraph, #in pre-formatted code font$$
+
+$section Pre-formatted Code Text$$
+$mindex pre format text code font$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@codep /pre-formatted/@@/$$ $rnext
+$bold See Also$$
+$cnext $mref/syntax/pre/math/verbatim/$$ $rnext
+$tend
+
+$fend 20$$
+
+$head Description$$
+All of the text in $italic pre-formatted$$ is printed
+in a 
+$xref/glossary/Uniformly Spaced Font/uniformly spaced font/$$.
+There can be no $code @$$ characters in $italic pre-formatted$$.
+The $code codep$$ command uses the exact same font as
+the $xref/font//code/$$ command to signify that the text is
+compute input or output.
+(The $mref/pre/$$ command uses a font that is close to the
+normal font, but uniformly spaced.)
+
+$head Example$$
+The input
+$codep
+	@codep
+	begin
+		x = y
+	end
+	@@
+$$
+would create the following output
+$codep
+	begin
+		x = y
+	end
+$$
+$head Source Code Examples$$
+All the characters, except the end of line character,
+in the first and last line of the $code codep$$ command
+are ignored.
+This enables the inclusion of source code that is actually
+compiled.
+For example, the input
+$codep
+	@codep */
+	{
+		x = 1
+	}
+	/* @@
+$$
+would create the following output 
+$codep
+	{
+		x = 1
+	}
+$$
+This enables the $code codep$$ command and its corresponding terminating
+$code @@$$ to be commented out so that it is not included in the
+compilation.
+$end

@@ -1,0 +1,175 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin spell$$
+$dollar @$$
+$spell 
+	OMhelp 
+	cend 
+	wrd
+	dir
+	omhelp
+	lst
+	codep
+$$
+
+$index spell$$
+
+$section Excluding Words from Spell Checking$$
+
+$table
+$bold Syntax$$
+$cnext
+$syntax/@spell /word list/@@/$$ $rnext
+$bold See Also$$
+$cnext $xref/StartSpell//getting started/$$, $mref/nospell/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+A standard and local dictionary are used to check for misspelled words.
+A word is an upper or lower case letter
+followed by a sequence and lower case letters.
+For example, $code AddNumber$$ is two words namely $code Add$$
+and $code Number$$.
+Often, there are words in the text of a document that are not
+part of the standard or local  
+$xref/spell/Dictionary/dictionary/$$.
+Any words that appear in $italic word list$$ 
+will be considered correctly spelled even if they are not in 
+either of the dictionaries.
+
+$head Double Words$$
+Double words are also flagged as spelling errors.
+To be specific,
+a double word is two copies of the same word 
+(ignoring case of the first letter and longer than one letter) 
+with only
+$xref/glossary/White Space/white space/$$
+between the two copies.
+If a double word appears in $italic word list$$,
+it will be considered correctly spelled. 
+
+$head Effect Limits$$
+A $code spell$$ command has effect from the point of the command to
+the next $xref/begin//end/$$ command; i.e., the end of the section
+that the command appears in.
+If there are multiple $code spell$$ commands in a section,
+the effect is cumulative.
+
+
+
+$head Example$$
+
+$subhead One Word Errors$$
+The following commands
+$spell
+	Wordone
+	wordtwo
+	wordthree
+$$
+$codep
+	@spell
+		Wordone
+		wordtwo
+	@@
+	@codep
+		wordone 
+		Wordtwo 
+		wordthree
+	@@
+$$
+results in the following output
+$pre
+	$$$code wordone$$$pre
+	$$$code Wordtwo$$$pre 
+	$$$codecolor Red$$$code wordthree$$$pre
+$$
+$codecolor Blue$$
+In addition, an error message that identifies $code wordthree$$
+as misspelled is printed on $xref/stdout//standard output/$$.
+
+$subhead Two Word Errors$$
+The following commands
+$spell
+	word word
+	this this
+$$
+$codep
+	@spell
+		word word
+	@@
+	@codep
+		this this 
+		word word 
+	@@
+$$
+results in the following output
+$pre
+	$$$codecolor Red$$$code this this$$$pre
+	$$$codecolor Blue$$$code word word$$$pre
+$$
+In addition, an error message that identifies $code this this$$
+as a spelling error is printed on standard output.
+
+
+$head Spelling Error Output$$
+$mindex spell error output$$
+Spelling errors are printed on 
+$xref/stdout//standard output/$$.
+If the $xref/running/Debugging/-debug/$$ option is chosen,
+an alphabetic list of spelling errors
+is stored in the file 
+$xref/running/Debugging/error.wrd/$$ 
+in the current directory
+(where OMhelp is $xref/running//run/$$).
+If you change dictionaries (see below) and you get
+spelling errors with your new dictionary, 
+you can add the words in $code error.wrd$$ to your new dictionary
+to make your new dictionary compatible with your current help system.
+
+
+$head Dictionary$$
+$mindex spell dictionary english.wrd dictionary.bin local.wrd$$
+The $xref/running/OMhelp_Dir/omhelp_dir/$$
+contains the dictionaries that are used by OMhelp.
+The standard dictionary is located in a file called 
+$code english.wrd$$
+and the local dictionary is located in a file called 
+$code local.wrd$$.
+A combined binary version of these dictionaries is located in a file called
+$code dictionary.bin$$
+
+$subhead Changing Dictionary$$
+The $code english.wrd$$ file distributed with OMhelp
+is a combination of the files $syntax/words/*/.lst/$$
+from the web site:
+$pre
+	$$
+$href%http://www.bookcase.com/library/software/msdos.education.linguistics.html%$$
+$pre
+$$
+(together with all the single letters $code a$$ through $code z$$).
+If you delete the file $code dictionary.bin$$ (mentioned above),
+OMhelp will build a new version from the current version of
+$code english.wrd$$ and $code local.wrd$$.
+
+$end

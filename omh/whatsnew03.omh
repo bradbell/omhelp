@@ -1,0 +1,929 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin whatsNew03$$
+$dollar @$$
+$spell
+	cindex
+	mindex
+	dir
+	omhelp
+	Exe
+	omh
+	Exp
+	davidc
+	pmathml
+	xsl
+	newcommand
+	inline
+	mathml
+	Microsoft
+	Javascript
+	Netscape
+	unicode
+	nbsp
+	grep
+	analyzer
+	readme
+	OMhelp
+	Mozilla
+	xml
+	aindex
+	wrd
+	xref
+	codep
+	htm
+	childtable
+	nowarn
+	mi
+	mglyph
+	malignmark
+	mathvariant
+	mstyle
+	hspace
+	em
+	ex
+	cm
+	mm
+	in
+	pc
+	pt
+	argmax
+	rm
+	oint
+	Mathplayer
+	mspace
+	nobr
+	nowrap
+	bgcolor
+	textcolor
+$$
+
+$index readme$$
+
+$index whats new, most recent$$
+
+$mindex current version OMhelp$$
+
+$section Changes and Additions to OMhelp During 2003$$
+
+$head Description$$
+This section contains a list of changes to 
+OMhelp during 2003 (in reverse order by date). 
+Its purpose is to assist you in learning about 
+changes between versions.
+
+$head 12-20$$
+The arguments to the
+$xref/keyword//index, cindex, mindex/$$ commands are now case sensitive 
+and the corresponding
+$xref/_index//index/$$ entries can have both upper and lower case.
+(Before this change, all the Keywords were converted to lower case.) 
+
+$head 11-30$$
+The environment variable 
+$xref/running/Setting Up Environment/omhelp_dir/$$
+can now be defined 
+(or its definition can be overridden) using the
+windows INI file.
+
+
+$head 11-22$$
+The batch file $code omh/build.bat$$ did not function properly during 
+$xref/
+	Install/
+	Step 5: Generate User Documentation/
+	Windows Source/
+	step 5 of the Windows install procedure/
+	1
+/$$.
+This has been fixed.
+$pre
+
+$$
+The OMhelp documentation could not be built during the 
+$xref/Install/$$ procedure (on Unix) because all the
+$code htm$$ directories were write protected. 
+This has been fixed. 
+
+$head 11-17$$
+The $xref/_contents//contents/$$ section now remembers which 
+sections are open and which are closed so that when
+you return to it, its state is restored.
+$pre
+
+$$
+The executable distribution $code OMhelpExe.zip$$ had a debugging instead
+of optimized version of the executable.
+This has been fixed.
+In addition, the $code omh/build.bat$$ file
+did not work properly. This has also been fixed.
+
+$head 11-05$$
+The $xref/_contents//contents/$$ section was changed
+to display section titles instead of 
+$xref/glossary/Cross Reference Tag/cross reference tags/$$.
+
+$head 11-01$$
+The $xref/pre/$$ command was changed so that
+no extra white space is output around the command.
+This is an aid in the exact placement of text on the page.
+
+$head 10-19$$
+$href%http://www.omatrix.com%Harmonic Software%$$
+has agreed to transfer it's OMhelp copyright to Brad 
+in exchange for Brad releasing his current version 
+of OMhelp under the Gnu GPL license. 
+The $xref/install/$$ is being changed significantly in order
+to include source code and
+developer documentation for both Windows and Unix.
+
+
+$head 09-23$$
+The $code pmathml.xsl$$ style sheet with id
+$codep
+	@Id: pmathml.xsl,v 1.7 2002/09/20 08:41:40 davidc Exp @
+$$
+was crashing Mozilla version 1.4.
+This style sheet was replaced by the one with id
+$codep
+	@Id: pmathml.xsl,v 1.8 2003/06/23 14:46:44 davidc Exp @
+$$
+which was obtained from the web site
+$pre
+	$$$href%http://www.w3.org/Math/XSL/Overview-tech.html%$$
+$pre
+$$
+This seems to work with most versions of IE and Mozilla.
+
+$head 09-14$$
+There was a bug in the 
+$xref/LatexMacro//Latex macro/$$ processor that showed
+up when the arguments in the macro were used in a different
+order than their definitions. For example
+$codep
+	\newcommand{\D}[2]{ \partial_#2 #1 }
+$$
+This has been fixed.
+
+$head 08-16$$
+The words Hilbert, Lagrange, Lagrangian, supremum, 
+and infimum were added to
+$xref/spell/Dictionary/local.wrd/$$.
+
+$head 08-02$$
+The word Gaussian was added to
+$xref/spell/Dictionary/local.wrd/$$.
+
+$head 07-25$$
+The Latex error reporting was improved by detecting 
+when the following commands were not terminated:
+$table
+$bold Begin Command$$ $cnext $bold Terminate Command$$ $rnext
+$code {$$     
+	$cnext $code }$$           $rnext
+$xref/latex//\[/$$     
+	$cnext $code \]$$          $rnext
+$xref/left_right//\left/$$
+	$cnext $code \right$$      $rnext
+$xref/array//\begin{array}/$$
+	$cnext $code \end{array}$$
+$tend
+
+$head 07-18$$
+The
+$xref/running/XML/xml/$$
+$xref/running/Printable/printable/$$ version 
+was not displaying properly in Internet Explorer.
+This was fixed by including a 
+$syntax%<head>% ... %</head>%$$ command in the output file.
+
+$head 07-17$$
+In the navigation frame on the left,
+under $bold Headings$$,
+and in the case of $xref/head//subheadings/$$:
+both the heading and subheading, 
+with a $code .$$ between them,
+were displayed for the corresponding link.
+For a case with a lot of subheadings under one heading, 
+this was hard to read because the initial text for each entry was identical.
+This has been changed by indenting the subheadings under the heading
+and not repeating the heading text.
+
+
+$head 06-29$$
+There was a bug in the
+$xref/LatexMacro/$$ command whereby macros definitions
+were sometimes overwritten by new macro definitions.
+This has been fixed.
+
+$head 06-23$$
+If the 
+$xref/running/XML/-xml/$$ command line option was specified
+and character $code <$$ appeared in an 
+$xref head$$ command,
+the output file would not display.
+If the character appeared in an $xref/keyword//index/$$
+command, the index would not display.
+This has been fixed.
+
+$head 06-19$$
+There was a bug in the 
+$xref/LatexMacro/$$ expansions.
+If there was no characters following a macro invocation, 
+the last letter in the macro name would be added to the output
+just after the macro.
+For example $code @latex \name@@$$ where $code \name$$ 
+is a latex macro would have an extra $code e$$ added
+after the macro expansion.
+This has been fixed.
+ 
+
+$head 06-12$$
+The script that
+which runs all the getting started examples
+was printing out the wrong 
+$xref/GetStarted/Getting Started Directory/getting started directory/$$.
+This has been fixed.
+
+$head 06-11$$
+A getting started section for
+$xref/StartEmbed//embedding/$$ OMhelp commands in
+computer source code was added.
+
+$head 06-05$$
+An 
+$xref/latex/Inline Formulas/inline/$$ 
+command with no corresponding output
+used to generate an error message.
+Such empty commands are now legal and are
+useful for defining macros with
+$xref/LatexMacro/Definition/Global Scope/global scope/1/$$.
+
+$head 06-03$$
+The error message was not helpful when the file name in a 
+$xref/children//contents, childtable, or children/$$
+command was empty.
+This has been fixed.
+
+$head 05-23$$
+The Unix $xref/install/$$
+did not work because the case of some file names were incorrect.
+This has been fixed.
+In addition,
+the distribution procedure has been modified so that 
+it checks for this type of file name error.
+
+$head 05-22$$
+Some typographical errors in the documentation for
+Latex $xref/LatexMacro//macros/$$
+were fixed.
+A $code readme.htm$$ file was added to the distribution.
+Some temporary files that are not used were removed from
+the distribution.
+
+$head 05-20$$
+Latex
+$xref/LatexMacro//macros/$$
+were added.
+$pre
+
+$$
+Specifications were supplied for supported usage of the $xref mathml$$
+command (besides testing). In addition, the $code \#$$ escape sequence
+was added to $code mathml$$ command so it could be used
+with $xref/LatexMacro//macros/$$.
+$pre
+
+$$
+The $xref/browser//browser problems/$$ sections were moved because
+they do not just pertain to $xref latex$$ commands.
+
+$head 05-11$$
+All of the $xref/color/$$ commands were modified so that
+they could use either $xref/color/Color Names/color names/$$
+or $xref/color/RGB Values/RGB values/$$.
+The $xref/color/Textcolor/textcolor/$$ command was added
+to control the color of normal text.
+
+$head 05-10$$
+There is a problem with IE explorer whereby it will
+$xref/Explorer/XHTML/Line Wrapping/wrap lines/1/$$ at the
+$code -$$ character.
+The change on $xref/whatsnew03/05-08/05-08/$$ used the
+HTML $code <nobr>$$ command, which is non-standard, to get around
+this problem.
+This was changed to use the $code white-space: nowrap$$ style which
+is a valid command according to the style sheet and HTML standard.
+
+$head 05-09$$
+The documentation for $code english.wrd$$ and
+$xref/running/OMhelp_Dir/local.wrd/$$
+has been improved.
+In addition, 
+pointers to this documentation have been added
+to the index and search utility.
+$pre
+
+$$
+The $xref/nobreak/$$ command was added so one can ensure that 
+a sequence of text appears on the same line.
+
+$head 05-08$$
+Pre-formatted text in $mref/pre/math/verbatim/$$ commands
+(and elsewhere) could have line breaks at non-white space characters.
+For example, at the $code -$$ character.
+This has been fixed.
+
+
+$head 05-06$$
+The default background color
+was not being transferred to the table of contents.
+This problem has been fixed.
+(The default background color is
+specified by placing $xref/color/Bgcolor/bgcolor/$$ command in the 
+$xref/running/Root Section/root section/$$. )
+$pre
+
+$$
+A command line argument that specifies a web
+$xref/running/Site Name/site's name/$$
+has been added.
+This name is currently used when constructing
+the title for the page that 
+$xref/_search//searches/$$ the web site.
+It may have other uses in the future.
+$pre
+
+$$
+The command name of the command line argument $italic starting_file$$
+has been changed to $italic root$$ to signify that it contains the 
+$xref/running/Root Section/root section/$$.
+
+
+
+$head 04-30$$
+The $xref/color/Bgcolor/bgcolor/$$ 
+command was added for setting the background color.
+This command uses RGB codes instead of color names as in
+the other $xref/color/$$ commands.
+$pre
+
+$$
+A bug report about 
+$xref/Mozilla/XHTML/Background Color/background colors in Mozilla/1/$$
+was included in the documentation.
+
+$head 04-25$$
+Part of the change on $xref/whatsnew03/03-24/03-24/$$
+was that the index is not generated when there is only one section.
+This caused a memory leak that has been fixed.
+In addition,
+the release version of OMhelp was
+printing some memory allocation information only intended
+for the debugging version.
+This has also been fixed.
+
+$head 04-20$$
+The blank link between the automatic links
+and the beginning of the first frame of a section
+has been changed to a horizontal rule.
+This actually requires less horizontal space and provides better
+separation.
+The automatic links include a 
+$code this$$ link, that links the first frame to the 
+corresponding entire section.
+The alignment for the $code this$$ link,
+in frames other than the first frame, 
+has been changed to right justified form centered.
+$pre
+
+$$
+If two $xref/image/$$ files come from different directories,
+but their file names are the same,
+one would overwrite the other in the output directory.
+An error message is printed in this case and OMhelp stops.
+The test for this problem, and similar problems,
+was in error because upper and lower case
+does not matter when running OMhelp under MS Windows.
+This has been fixed.
+
+$head 04-18$$
+There was an error in the change the 
+04-16 change to the
+$xref/_search//search/$$ utility that caused
+it to not work in some older browsers.
+This has been fixed.
+
+
+$head 04-16$$
+The $xref/_search//search/$$ utility was modified so
+that it automatically detects when Javascript is disabled
+and displays an error message.
+In addition, the instructions in the search utility 
+have been improved.
+$pre
+
+$$
+The change on
+$xref/whatsnew03/03-12/03-12/$$
+placed the automatically generated links
+at the top of the first frame of a section.
+This caused there to be no space between
+the automatically generated links and the 
+title specified by the $xref/section/$$ command.
+At least one blank line is now placed 
+between the section title and any text above it.
+
+$head 04-15$$
+The words Bucy, Kalman, and Markov were added to
+$xref/spell/Dictionary/local.wrd/$$.
+
+$head 04-11$$
+Some of the MathML browser problems have been fixed
+by the browser providers.
+The sections
+$xref/Mozilla/$$ and $xref/Explorer/$$ have been changed
+to reflect this.
+
+$head 03-24$$
+In the event that there is only one section,
+the automatically generated links on the page were still being generated
+(but did not connect to anything).
+This has been fixed.
+In addition, extra files that were not being used
+are no longer generated (or are automatically removed).
+This makes the output of OMhelp much simpler
+for this one section case.
+
+$head 03-21$$
+There seems to be a problem with Mozilla's viewing 
+of XML files that use $xref/Mozilla/XHTML/Javascript/Javascript/1/$$.
+For this reason,
+both the search and table of contents use an
+HTML frame to link the XML versions.
+$pre
+
+$$
+Some versions of Microsoft Internet Explorer
+seem to be very slow at interpreting Javascript.
+For this reason, the non-printable
+table of contents was changed to reduce the 
+computation time.
+
+
+$head 03-20$$
+For the 
+$xref/running/Printable/non-printable/$$ version,
+the table of contents was changed to be
+like a file browser.
+
+$head 03-13$$
+The Javascript search utility was moved to a separate file
+instead of being embedded in the HTML files.
+This was done because it cannot be embedded in
+XML files and hence the XML must use HTML for its searching.
+Unfortunately, 
+I ran into another bug in Mozilla related to
+$xref/Mozilla/XHTML/Javascript/Javascript/1/$$,
+so the HTML searching is still necessary.
+$pre
+
+$$
+The location of the current section 
+with in the web site is now displayed at the beginning
+of the navigation frame.
+
+$head 03-12$$
+The automatically generated links to entire sections,
+such as previous and next,
+are now placed at the top of each section.
+This leaves more room in the navigation frame for heading
+and other information.
+In addition, each frame now has a link (at its beginning) 
+to the section that it appears in.
+This way one can follow from a link that just replaces a frame
+to the corresponding entire section.
+
+
+$head 03-11$$
+The previous link did not drill down to the deepest child of the
+previous section. For example,
+the previous link in the following tree mapped from 
+section number 5 to section number 3:
+$pre
+	| 1 |
+	  | children
+	  v      next
+	| 2 | ---------->  | 5 | 
+	  | children
+	  v 
+	| 3 |
+	  | children
+	  v
+	| 4 |
+$$
+
+$head 03-05$$
+The words 
+$code covariance$$, 
+$code discretization$$,
+and $code laplace$$
+was added to
+$xref/spell/Dictionary/local.wrd/$$.
+
+$head 02-23$$
+In order to make MathML work with Internet Explorer
+on $xref/whatsnew03/02-17/03-02-17/$$ 
+the $code &nbsp;$$ command was changed to its unicode value
+$code &xA0;$$.
+This does not work for HTML display on some old browsers; 
+for example, Netscape 4.5.
+This has been fixed by using $code &nbsp;$$ for HTML files
+and $code &xA0;$$ for XML files.
+
+$head 02-20$$
+There was a problem with the display of the $code \left .$$ and
+$code \right .$$ Latex commands in MS Internet Explorer due
+to some confusion about using
+$code mspace$$ as an operator.
+This has been fixed.
+
+
+$head 02-19$$
+It was possible to hang OMhelp when processing
+a $xref/latexcomment//latex comment/$$.
+For example, the input
+$codep
+	@latex x = y % first equation@@
+$$
+This has been fixed.
+$pre
+
+$$
+Documentation was added for the 
+$xref/latexcomment//latex comment/$$ command.
+$pre
+
+$$
+The 
+$xref/miscsym//\Box/$$ symbol was added to possible
+output symbols even though neither 
+$xref/Mozilla/MathML/Symbols/Mozilla/1/$$
+or 
+$xref/Explorer/MathML/Symbols/Explorer/1/$$
+display it properly.
+$pre
+
+$$
+A 
+$xref/subsup/Warning/warning/$$
+was added to the documentation for the subscript
+and superscript documentation.
+
+
+
+
+$head 02-18$$
+The display of the 
+$xref/Mozilla/MathML/UnderBar/under bar/1/$$
+in the Mozilla browser seems to be broken.
+The over bar (instead of the under parenthesis)
+is now used in its place.
+This makes the display in MS Internet Explorer better.
+$pre
+
+$$
+In the Mozilla browser, some 
+diacritical marks 
+do not work
+with the accent attribute true.
+The corresponding display has been improved by setting the accent attribute
+to false.
+$pre
+
+$$
+The $tref Explorer$$ section was started in order to track and fix
+problems using Internet Explorer.
+Starting with the $xref/latex/$$ section,
+the Explorer display for all the commands through the 
+$xref/arrowsym//arrow symbols/$$ have been checked.
+$pre
+
+$$
+The word $code internet$$ was added to
+$xref/spell/Dictionary/local.wrd/$$.
+$pre
+
+$$
+The $xref/latex/$$ $xref/miscsym//\empty/$$ command was being
+translated into the 
+proper MathML symbol.
+This has been fixed.
+
+
+$head 02-17$$
+$xref/latex//MathML/$$ output 
+generated by OMhelp can now be viewed using
+MS Internet Explorer browser.
+This requires the Mathplayer plug in
+which is freely available from.
+$href%http://www.dessci.com/webmath/mathplayer%Design Science%$$.
+
+$head 02-10$$
+Getting started examples were added for the
+$xref/StartFont//font/$$ and $xref/StartVerbatim//verbatim/$$
+commands.
+$pre
+
+$$
+The installation procedure sometimes had warning messages that did
+not correspond to any problems.
+In particular,
+grep, which is not needed, does not exist,
+and a confirmation request on deletion of the OMhelp documentation 
+directory before its recreation.
+
+$head 02-09$$
+In 
+$xref/latex/Displayed Formulas/displayed formulas/$$,
+the position of the limits for integrals 
+($xref/displaysym//\int and \oint/$$) were above and below
+instead of to the right.
+This has been fixed.
+
+$head 02-08$$
+Subscripts and superscripts following a $xref/left_right//right/$$ 
+command were not working.
+This has been fixed.
+
+$head 02-07$$
+The $code hspace$$ command added on 02-05 introduced a bug
+that gave an error message when ever the characters
+em, ex, cm, mm, in, pt, or pc appeared in the input and
+not inside an $code hspace$$ command.
+This have been fixed.
+$pre
+
+$$
+The default font for greek characters used to be italic,
+now it is the normal font.
+$pre
+
+$$
+The spacing between a sequence of 
+$xref/latexnormal/Description/Ascii Letters/ascii letters/1/$$
+has been changed.
+This enables one to create new functions,
+using $xref/latex//Latex/$$ constructs such as
+$code {\rm argmax}$$ with out extra spacing
+being added between the characters in argmax.
+
+
+$head 02-05$$
+The Latex 
+$xref/space/Hspace/hspace/$$ 
+command was added.
+$pre
+
+$$
+The $tref why$$ section was updated and improved.
+
+$head 02-04$$
+The MathML $code mi$$ command is a Token Element.
+Section 3.2.1 of the MathML version 2.0 specifications states that
+"Apart from the $code mglyph$$ element, 
+the $code malignmark$$ element is the only 
+other element allowed in the content of tokens."
+OMhelp was putting $code mstyle$$ elements inside of $code mi$$ elements
+in order to override the font selection for the $code mi$$ elements.
+This is now being done using the $code mathvariant$$ attribute to
+an $code mi$$ element.
+However, 
+it is unclear that this should work
+(see the $xref/mathml/Testing MathML Commands/Mi Font/mi font/1/$$).
+$pre
+
+$$
+The Latex $xref/space//spacing/$$ commands were added.
+
+
+$head 02-03$$
+The change made for the $code -nowarn$$ command line option
+introduce a bug in the reporting of spelling errors
+(the read font command was not terminated).
+This has been fixed.
+
+$head 02-02$$
+If the 
+$xref/running/Root Section/root section/$$
+does not have any 
+$xref/children//contents, childtable, or children/$$ commands,
+the entire web site consists of just one section.
+In this case, the navigation frame is not included along the left margin
+because there are not other sections to navigate to.
+In addition, the following web site navigation sections
+are not generated:
+$xref/_contents/$$,
+$xref/_reference/$$,
+$xref/_index/$$,
+$xref/_search/$$,
+$xref/_external/$$.
+$pre
+
+$$
+A getting starting
+$xref/StartFrame//example/$$
+for using the $xref/fend/$$ command was added to the documentation for OMhelp.
+$pre
+
+$$
+The user documentation
+$xref/install/Step 5: Generate User Documentation/build/$$ command
+would generate an error message because the links to the search
+and external sections are not defined in the printable version.
+The $xref/running/Warnings/-nowarn/$$ command line option was added
+so that these warnings could be suppressed.
+
+$head 01-30$$
+If a $xref/tref/$$ command followed a $xref/head//heading or subheading/$$
+and no other text appeared before the next heading or subheading,
+the spacing above the second heading was missing.
+This has been fixed.
+
+$head 01-29$$
+The local copy of the OMhelp documentation is no longer included
+in the Windows download file.
+This is because all the $syntax/*/.htm/$$ and $syntax/*/.xml/$$
+files make the download file significantly larger
+and they are regenerated during the 
+$xref/install/Step 5: Generate User Documentation/generate user documentation/$$
+step of the install process.
+
+$pre
+
+$$
+The change on 
+$xref/whatsnew03/01-24/03-01-04/$$
+allowed one to replace an entire window by just one frame of another window.
+When this happened, the user did not have a navigation link available.
+This has been fixed by making it illegal to replace the entire
+window with a link to a particular heading.
+
+
+$head 01-28$$
+A directory must be included in the specification for the file
+containing the
+$xref/running/Root Section/root section/$$.
+The error message and documentation about this has been improved.
+$pre
+
+$$
+If a $code @codep$$, or any other command, had a very long argument,
+the flex generated lexical analyzer spent a lot of time copying the text
+between buffers. 
+The OMhelp lexical analyzer was written directly in C
+instead of using flex to generate it.
+OMhelp now runs much faster than it used to.
+
+$head 01-25$$
+The following words were added to
+$xref/spell/Dictionary/local.wrd/$$:
+deconvolution,
+bayesian,
+exponentials,
+eigenfunction,
+eigenfunctions.
+
+$head 01-24$$
+The $xref/xref/$$ command was extended so that the 
+$xref/xref/Example/Subheadings/subheading/1/$$ 
+can be specified as a separate argument.
+This allows for placing the heading and subheadings are separate
+lines in the $code xref$$ command (which is useful when they are long).
+$pre
+
+$$
+The cross reference error message printed on $xref/stdout/$$
+were improved.
+$pre
+
+$$
+The table of examples in the
+$xref/getstarted/$$ section was improved.
+$pre
+
+$$
+The 
+$xref/GetStarted/Getting Started Directory/getting started directory/$$
+batch file $code RunAll$$
+was changed so that both the HTML and XML output is generated for
+the $xref/latex/$$ example.
+
+$head 01-21$$
+A local 
+$xref/spell/Dictionary/dictionary/$$; i.e., 
+the file $code local.wrd$$,
+was added to the default distribution.
+The following words were included in this file:
+affine,
+eigenvalue,
+eigenvalues,
+eigenvector,
+eigenvectors,
+exponentiation,
+factorization,
+fourier,
+hermitian,
+integrand,
+nonnegative,
+orthogonal,
+piecewise,
+quadrature,
+recursion,
+recursive,
+stochastic,
+variate.
+
+$head 01-20$$
+A Unix source code 
+$xref/install/$$
+version of OMhelp is now available from 
+$href%http://www.seanet.com/~bradbell%Brad's home page%$$.
+
+
+$head 01-11$$
+When the $xref/running/XML/-xml/$$ option is not present,
+spell checking of the $xref/latex/$$ command was generating a lot of errors.
+Spelling checking in this case is now automatically suspended.
+$pre
+
+$$
+If $xref/keyword/Aindex/aindex subhead/$$ is active,
+the $xref/escape/$$ character can be used to suppress words
+in a subheading from appearing in the index
+(see description of $xref/head/Aindex/aindex/$$ in $xref/head/$$).
+These escape characters were appearing in the actual subheadings.
+This has been fixed.
+$pre
+
+$$
+If there was a new line between a double word, the error message put the
+two copies of the word on different lines. This has been fixed.
+$pre
+
+$$
+Some symbols, such as infinity, were not being placed properly when
+used as limits. This has been fixed.
+
+
+$head 01-10$$
+A 
+$xref/StartXref//getting started section/$$ 
+was added
+for the $xref/image/$$ and $xref/latex/$$ commands.
+$pre
+
+$$
+The old example section, and its children were removed because the
+$xref/getstarted/$$ section provides better examples.
+
+
+$head 01-08$$
+A 
+$xref/StartXref//getting started section/$$ 
+for the $xref/xref/$$ command was added.
+
+$head 01-07$$
+The 
+$xref/latexfont//latex font/$$ commands were added.
+
+$head 01-04$$
+The $xref/left_right//left and right/$$ commands were not 
+displaying properly in Mozilla. 
+This has been fixed.
+
+$head 01-01$$
+A 
+$xref/StartIndex//getting started section/$$ 
+for the $xref/keyword//indexing commands/$$
+was added.
+
+$end

@@ -1,0 +1,223 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+There are multiple sections in this file as an example. 
+
+******************** Begin and End ************************************
+
+$begin begin$$
+$spell 
+	hypertext 
+	xref
+	OMhelp
+	underbar
+$$
+$escape #$$
+$dollar @$$
+
+
+$mindex begin end$$
+$cindex specify cross reference tag$$
+$index link, specify cross reference tag$$
+$index section$$
+
+$section Begin and End A Section$$
+
+$table
+$bold Syntax$$
+$cnext
+$syntax/@begin /tag/@@
+/. . ./
+@end/$$ $rnext
+$bold See Also$$
+$cnext $xref/StartSimple//getting started/$$
+$tend
+
+$fend 30$$
+
+$head Description$$
+OMhelp ignores all input in a file except
+between a 
+$code begin$$ command and a matching $code end$$ command.
+The cross reference 
+$xref/glossary/Cross Reference Tag/tag/$$
+for the corresponding section
+is specified by $italic tag$$.
+Leading and trailing 
+$xref/glossary/White Space/white space/$$
+is ignored and there can be no $code @$$ characters in $italic tag$$.
+
+$head Example$$
+The following input file contains two sections. 
+The first is named "First Subject" and is
+cross referenced as "one".
+The second is named "Second Subject" and is
+cross referenced as "two".
+In addition, each of the sections 
+has a cross references to the other.
+
+$pre
+	/*
+	@begin one@@
+	@section First Subject@@
+	This section is similar to
+	@xref/two//the second section/@@.
+	$$...$pre
+	@end
+	*/
+	
+	$$Other text$pre
+	
+	/*
+	@begin two@@
+	@section Second Subject@@
+	This section is similar to
+	@xref/one//the first section/@@.
+	$$...$pre
+	@end
+	*/
+	
+	$$Other text$pre
+$$
+
+$head Restrictions$$
+No two sections can have the same cross reference
+$xref/glossary/Cross Reference Tag/tag/$$.
+(Note that upper and lower case letters are considered equal
+when comparing cross reference tags).
+$pre
+
+$$
+Cross reference tags that begin with an underbar character, $code _$$,
+are reserved by OMhelp and cannot be used in $code begin$$ commands.
+$pre
+
+$$
+In addition, no cross reference tag can contain
+the substring $code _frame$$ or $code _links$$
+(where upper and lower case letters are considered equal).
+
+
+$end
+
+************************* Section **************************
+
+$begin section$$
+$dollar @$$
+$escape #$$
+$spell 
+	none
+	aindex
+	mindex
+$$
+
+$section Specify The Title For A Section$$
+$mindex section title$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@section /title/@@/$$ $rnext
+$bold See Also$$
+$cnext $xref/StartSimple//getting started/$$ 
+$tend
+
+$fend 20$$
+
+$head Description$$
+This command specifies the $italic title$$
+for the current section.
+A section starts with a $xref/begin//begin/$$ command
+and ends with an $xref/begin//end/$$ command.
+There must be one and only one $code section$$ command
+in each section.
+Leading and trailing
+$xref/glossary/White Space/white space/$$ in $italic title$$
+is ignored.
+In addition, other white space
+characters in $italic title$$ are interpreted as simple spaces.
+(The browser used to display the HTML will decide how to break the title
+into separate lines.)
+There cannot be any $code @$$ characters in $italic title$$.
+
+$head Aindex$$
+$index aindex$$
+The $xref/keyword/Aindex/aindex/$$ command can connect
+the $code section$$ command to the $xref/keyword/Mindex/mindex/$$ command.
+(To make this connection, it must appear before the $code section$$ command.)
+If this is the case,
+the $code section$$ command automatically generates a request of the form
+$syntax/
+	@mindex /title/@@
+/$$
+In this case,
+occurrences of the $xref/escape/$$ character in $italic title$$
+has the special meaning defined for the $code mindex$$ command. 
+These characters do not appear in the displayed title.
+
+$head Example$$
+The heading for this section was created with the command
+$codep
+	@section Specify The Title For A Section@@
+$$
+
+$end
+
+************************* Title **************************
+
+$begin title$$
+$spell
+	mref
+$$
+$dollar @$$
+
+$mindex section title$$
+$section Using the Title of Another Section$$
+
+$table
+$bold Syntax$$
+$cnext
+$syntax/@title /tag/@@/$$ $rnext
+$bold See Also$$ $cnext $mref/tref/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+The argument $italic tag$$ specifies the
+$xref/glossary/Cross Reference Tag/cross reference tag/$$ for
+the another section.
+The 
+$xref/section//title/$$ of the section corresponding to $italic tag$$
+is placed in the text where this command appears.
+
+
+$head Example$$
+The following input
+$codep
+	@title section@@: @mref/section/@@ 
+$$
+produces the following output
+$pre
+	$$$title section$$: $mref/section/$$ 
+$pre
+$$
+Note that $code section$$ is the $italic tag$$ in this example.
+
+$end

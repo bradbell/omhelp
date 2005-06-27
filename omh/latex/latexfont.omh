@@ -1,0 +1,111 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin latexfont$$
+$escape #$$
+$dollar @$$
+$spell
+	sf
+	tt
+	xml
+	htm
+	bf
+	div
+	sqrt
+	sim
+	rm
+	Lamport
+	Mozilla
+$$
+
+$mindex font$$
+$index latex, font$$
+
+$section Changing Latex Font$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex /font/ @@/$$ $rend
+$tend
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the Latex font command where $italic font$$ is one of the 
+commands in the following table:
+
+$table
+$italic font$$ $cnext $italic Meaning$$ $cnext Example $rnext
+               $cnext default           $cnext $latex \sqrt{x y}$$     $rnext
+\bf            $cnext bold              $cnext $latex \bf \sqrt{x y}$$ $rnext
+\rm            $cnext roman             $cnext $latex \rm \sqrt{x y}$$ $rnext
+\tt            $cnext typewriter        $cnext $latex \tt \sqrt{x y}$$ $rnext
+\sf            $cnext sans serif        $cnext $latex \sf \sqrt{x y}$$ $rnext
+$tend
+
+Note that these font commands affect all output text
+and this is different from the description in Section 3.3.8 of
+$xref/latex/Reference/Lamport's book/$$.
+
+$head Braces$$
+Latex font commands are terminated by their enclosing braces.
+For example, the input
+$codep
+	@latex 
+	\[
+	{ abc \bf abc }  abc 
+	\]
+	@@
+$$
+results in the following output
+$latex 
+\[
+	{ abc \bf abc }  abc 
+\]
+$$
+Note that the bold font is terminate by the $code }$$. 
+
+$head Arrays$$
+Latex Font commands that appear with in an entry in an array
+are limited to that entry in the array.
+For example, the input
+$codep
+	@latex
+	\[
+		\begin{array}{cc}
+			\bf \sqrt{x y} & \sqrt{x y } \\
+			\sqrt{x y}     & \sqrt{x y }
+		\end{array}
+	\]
+	@@
+$$
+results in the following output
+$latex
+\[
+	\begin{array}{cc}
+		\bf \sqrt{x y} & \sqrt{x y } \\
+		\sqrt{x y}     & \sqrt{x y }
+	\end{array}
+\]
+$$
+
+
+$end

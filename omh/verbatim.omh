@@ -1,0 +1,274 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin verbatim$$
+$spell 
+	OMhelp
+	codep
+	omh
+	href
+	http
+	www
+	seanet
+	bradbell
+	Bradley
+$$
+$escape &$$
+$dollar @$$
+
+$index verbatim$$
+$cindex source code example$$
+$cindex pre format$$
+$mindex display file$$
+
+$section Verbatim Display of All or Part of a File$$ 
+
+$table
+$bold Syntax$$ 
+$cnext $syntax/@verbatim%/filename/%@@/$$  $rnext
+$cnext $syntax/@verbatim%/filename/%/indent/%@@/$$  $rnext
+$cnext $syntax/@verbatim%/filename/%/indent/%/start/%@@/$$  $rnext
+$cnext $syntax/@verbatim%/filename/%/indent/%/start/%/stop/%@@/$$  $rnext
+$cnext $syntax/@verbatim%/filename/%/indent/%/start/%/stop/%/skip/%@@/$$  $rnext
+$bold See Also$$
+$cnext	$xref/StartVerbatim//getting started/$$,
+	$mref/include/codep/execute/$$
+$tend
+
+$fend 25$$
+
+$head Description$$
+This command will cause the specified 
+$xref/glossary/Input File Searching/input file/$$
+to be displayed
+with out any formatting; i.e., verbatim.
+This provides a way in which a single source code file
+can be used both for input to OMhelp and input to another program
+with out having OMhelp commands in the file.
+(The 
+$xref/codep/Source Code Examples/source code example/$$
+option for the $mref/codep/$$ command
+provides another way of doing this that does
+have OMhelp commands in the file.)
+$syntax/
+
+%/filename/%/indent/%/start/%/stop/%/skip/%
+/$$
+is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
+where $code %$$ can be any character that is not a letter.
+
+
+$head New Lines$$
+If $italic start$$ is $bold not$$ present,
+the verbatim output starts and ends with a new line.
+If $italic start$$ is present,
+the verbatim output
+does not start on a new line.
+This enables you to include the starting text
+just before the verbatim output and not have an extra new line
+follow the starting text in the output
+(see the Five Delimiters example below).
+
+$head Example File$$
+The file $code copyright.omh$$ contains the following text:
+
+$verbatim!copyright.omh!5!$$
+
+All of the $mref/font/$$ commands allow you to 
+have other commands nested inside of them.
+
+
+$head Filename$$
+The value of $italic filename$$ specifies the name 
+of the file that is displayed.
+
+$subhead Example$$
+The following sequence displays the file $code copyright.omh$$
+in code $mref/font/$$.
+$codep
+	@code
+	@verbatim!copyright.omh!@@
+	@@
+$$
+creates the following output
+
+$code
+$verbatim!copyright.omh!$$
+$$
+
+
+$head Indent$$
+If $italic indent$$ is present,
+it is a positive integer and specifies 
+the number of spaces to indent the output.
+
+$subhead Example$$
+The following sequence displays the file $code copyright.omh$$
+in italic $mref/font/$$ and indented five spaces.
+$codep
+	@italic
+	@verbatim!copyright.omh!5!@@
+	@@
+$$
+creates the following output
+
+$italic
+$verbatim!copyright.omh!5!$$
+$$
+
+$head Start$$
+$cindex start verbatim$$
+If $italic start$$ is present, 
+it specifies a sequence of characters after which output should start.
+In this case none of the characters in the file before,
+and including,
+this starting sequence are displayed.
+$pre
+
+$$
+If the $mref/escape/$$ character is present in $italic start$$,
+there must be three decimal digits following it.
+In this case the escape character together with the three following
+characters, represent the single character with ascii code equal
+to the decimal value of the three decimal digits.
+
+$head Stop$$
+$cindex stop verbatim$$
+If $italic stop$$ is present,
+it specifies
+a sequence of characters just before which output should stop.
+In this case none of the characters in the file following, 
+and including,
+this stopping sequences are displayed.
+$pre
+
+$$
+If the $mref/escape/$$ character is present in the stopping
+sequence, there must be three decimal digits following it.
+In this case the escape character together with the three following
+characters, represent the single character with ascii code equal
+to the decimal value of the three decimal digits.
+
+$subhead Example$$
+The following command sequence 
+replaces $code Bradley M. Bell$$ by
+$code http://www.seanet.com/~bradbell$$ in the file $code copyright.omh$$:
+$codep
+	@code
+	@pre
+	     @@#@verbatim!copyright.omh!5!#!Bradley M. Bell!@@
+	http://www.seanet.com/~bradbell
+	@verbatim!copyright.omh!5!Bradley M. Bell ! COPYRIGHT!@@
+	COPYRIGHT
+	@@
+$$
+Here is a description of the command sequence:
+$codep
+
+@code
+@pre
+     @@#
+$$
+A $code @code$$ command is started and
+a single $code #$$ is displayed starting on a new line, 
+indented 5 spaces,
+$codep
+
+@verbatim!copyright.omh!5!#!Bradley M. Bell!@@
+$$
+This commands displays some of the text in $code copyright.omh$$.
+The text starts at, and does not include,
+the first $code #$$ in $code copyright.omh$$.
+The text ends at, and does not include,
+the $code Bradley M. Bell$$ in $code copyright.omh$$
+that follows the starting text.
+$codep
+
+http://www.seanet.com/~bradbell
+$$
+The text $code http://www.seanet.com/~bradbell$$ is output.
+$codep
+
+@verbatim!copyright.omh!5!Bradley M. Bell !COPYRIGHT!@@
+$$
+This commands displays some of the text in $code copyright.omh$$.
+The text starts at, and does not include,
+the first $code Bradley M. Bell$$  in $code copyright.omh$$.
+The text ends at, and does not include,
+the $code COPYRIGHT$$ in $code copyright.omh$$
+that follows the starting text.
+$codep
+
+@@
+$$
+The $code @code$$ command is terminated.
+$pre
+
+$$
+Note that
+a $xref/verbatim/New Lines/new line/$$
+is not automatically included at the beginning and end
+of the verbatim text when the $italic start$$ text is present.
+Here is the result of the command sequence:
+$code
+$pre
+     $$#$verbatim!copyright.omh!5!#!Bradley M. Bell!$$
+http://www.seanet.com/~bradbell
+$verbatim!copyright.omh!5!Bradley M. Bell!COPYRIGHT!$$
+COPYRIGHT
+$$
+
+
+$head Skip$$
+If $italic skip$$ is present,
+it is a positive integer that specifies the number of 
+$italic start$$ matches to skip.
+This is very useful when the $code verbatim$$ command and
+refers to the same file as the command is in.
+The skip option can be used to skip the match on the command
+and go forward to the location that you wish to display.
+
+$subhead Example$$
+The following command displays
+the second paragraph in the copyright description.
+$codep
+	@code
+	@pre
+	     @@# This 
+	@verbatim!copyright.omh!5!# This ! details.!1!@@
+	details.
+	@@
+$$
+creates the following output
+
+$code
+$pre
+     $$# This 
+$verbatim!copyright.omh!5!# This ! details.!1!$$
+details.
+$$
+
+
+$head Tab Stops$$
+The $mref/tabsize/$$ command
+enables you to match the indentation of the $code verbatim$$ command
+with one of the tabbing columns.
+
+$end

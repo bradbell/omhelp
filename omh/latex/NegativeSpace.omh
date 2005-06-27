@@ -1,0 +1,102 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin NegativeSpace$$
+$dollar @$$
+$spell
+	Bugzilla
+	mspace
+	em
+	Mozilla
+	em
+	mi
+	mathml
+$$
+
+$section Mozilla Bug Report For Negative Width in Mspace Command$$
+$index negative, width in mspace$$
+$index mspace, negative width$$
+$index width, negative in mspace$$
+
+$href%negativespace.xml%Link To XML Version Of This Page%$$
+
+$head Claim$$
+It appears to me that negative values for $italic number$$ are valid in the
+MathML command
+$syntax%
+	<mspace width="%number%em"/>
+%$$ commands.
+In addition,
+it appears to me that Mozilla version 1.2b for MS Windows
+is not displaying negative spaces correctly.
+
+$head Reason for Negative Spaces$$
+Here is the reason that it appears so to me.
+In Section 3.2.7.2 of
+$pre
+	$$
+	$href%http://www.w3.org/TR/MathML2/chapter3.html#presm_mspace%$$
+$pre
+$$
+the value of the attribute $code width$$ is specified as a
+$italic number$$ followed by an $italic h-unit$$.
+In Section 2.4.4.1 of
+$pre
+	$$
+	$href%http://www.w3.org/TR/MathML2/chapter2.html#fund_attval%$$
+$pre
+$$
+a $italic number$$ is defined as
+" decimal integer or rational number 
+(a string of digits with one decimal point), 
+optionally starting with '-' ".
+
+$head Examples of Incorrect Display$$
+A positive space display is demonstrated by 
+the following input
+$codep
+	<mi>x</mi><mi>y</mi><mspace width="1em"/><mi>z</mi>
+$$
+which generates the output
+$pre
+	$$ $latex \mathml{
+		<mi>x</mi><mi>y</mi><mspace width="1em"/><mi>z</mi>
+} $$
+$pre
+$$
+The negative spaces do not display correctly 
+as demonstrated by the following input
+$codep
+	<mi>x</mi><mi>y</mi><mspace width="-1em"/><mi>z</mi>
+$$
+which generates the output
+$pre
+	$$ $latex \mathml{
+		<mi>x</mi><mi>y</mi><mspace width="-1em"/><mi>z</mi>
+}$$
+$pre
+$$
+Finally,
+note that a useful negative space example is included in the file
+$pre
+	$$
+$href%http://www.w3.org/Math/testsuite/testsuite/Presentation/TokenElements/mspace/mspace2.xml%$$
+
+$end

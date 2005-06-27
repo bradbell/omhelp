@@ -1,0 +1,79 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin execute$$
+$spell 
+	pre 
+	wri 
+	WordPad 
+	codep
+$$
+$escape #$$
+$dollar @$$
+
+$mindex execute file link$$
+
+$section Creating a File and Linking to its Execution$$
+
+
+$table
+$bold Syntax$$
+$cnext $syntax/@execute /filename/@/$$ $rnext
+$bold See Also$$
+$cnext $mref/codep/verbatim/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+This command creates the file specified by $italic filename$$
+together with a link to the file.
+The text for 
+$italic filename$$ cannot contain any dollar signs (@), 
+back slashes (\), or double quote characters (").
+The file name is displayed as the text for the link.
+The contents of the file is the text that is displayed by the
+next $mref/codep/$$ command.
+It is assumed that the extension in the file name will inform the web browser
+what application should be launched to execute the file.
+
+$head Example$$
+The following input
+$codep
+	If you select
+	@execute Example.wri@@
+	WordPad will be opened with the following contents
+	@codep
+	Example contents for the file Example.wri
+	@@
+	
+$$
+displays as follows:
+$pre
+
+$$
+If you select
+$execute Example.wri$$
+WordPad will be opened with the following contents
+$codep
+Example contents for the file Example.wri
+$$
+
+$end

@@ -1,0 +1,54 @@
+// BEGIN SHORT COPYRIGHT
+/* -----------------------------------------------------------------------
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+------------------------------------------------------------------------ */
+// END SHORT COPYRIGHT
+clear
+clc
+fin   = "LatexAtomic.c"
+fout  = "LatexAtomic.new"
+#
+if exists(fout) then ...
+	if not rmfile(fout) then ...
+		stop
+#
+Nc    = ncols(fin, "byte")
+Nr    = rowdim(Nc)
+Nc    = max(Nc) + 4
+data  = read(fin, "byte", Nr, Nc)
+index = find(data, "SYM_GREEK_lex")
+index = index(2::end, 1)
+#
+name         = data(index+2,:)
+for i = 1 to rowdim(name) begin
+	entry       = name.row(i)
+	entry(1::3) = "   "
+	entry       = [ TAB, DQUOTE, "&", clipstr(entry), ";", DQUOTE, "," ]
+	nc          = coldim(name) - coldim(entry)
+	name.row(i) = [entry, fill(" ", 1, nc)]
+end
+#
+unicode = data(index+1,:)
+comment = fillrows([TAB, "// "], rowdim(unicode))
+unicode = [comment, unicode(:, 2::(end-3))]
+#
+data(index+1,:) = name
+data(index+2,:) = unicode
+for i = 1 to rowdim(data) begin
+		write(fout, strclip(data.row(i)))
+end
+close

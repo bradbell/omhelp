@@ -1,0 +1,75 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin escape$$
+$escape ^$$
+
+$spell 
+	backslash
+$$
+$dollar @$$
+
+$index \$$
+$index backslash$$
+$index escape$$
+
+$section Changing the Escape Character$$
+
+$table
+$bold Syntax$$
+$cnext
+$syntax/@escape /character/@@/$$
+$tend
+
+$fend 15$$
+
+$head Description$$
+The backslash, $code \$$, is the default escape character.
+This command changes the escape character to the first character in
+$italic character$$ (not counting leading
+$xref/glossary/White Space/white space/$$).
+
+$head Example$$
+If you want to display a backslash in $mref/math/$$ mode, it is useful
+to change the current escape character from its default value (backslash).
+For example, the input
+$codep
+	@escape #@@
+	@math%
+		#Test #of #escape:
+		    / 1  0  0 \
+		I = | 0  1  0 |
+		    \ 0  0  1 /
+	%@@
+$$
+would result in the following output
+$escape #$$
+$math%
+	#Test #of #escape:
+	    / 1  0  0 \
+	I = | 0  1  0 |
+	    \ 0  0  1 /
+%$$
+
+$head Reference$$
+The $code escape$$ command has effect till the next such command
+is executed or the end of the current section (which ever comes first). 
+
+$end

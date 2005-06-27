@@ -1,0 +1,218 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin color$$
+$escape #$$
+$textcolor/120/120/120/$$
+$bgcolor/240/240/240/$$
+
+$spell 
+	textcolor
+	bgcolor
+	codecolor
+	errorcolor
+	codep
+	OMhelp
+	colorname
+$$
+$dollar @$$
+
+$mindex codecolor errorcolor bgcolor$$
+$mindex color code error background$$
+
+$section Setting Colors$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@/command/ /colorname/@@/$$        $rnext
+$cnext $syntax/@/command/%/red/%/green/%/blue/%@@/$$ $rnext
+$bold See Also$$
+$cnext $mref/codep/font/$$
+$tend
+
+$fend 25$$
+
+
+$head Description$$
+These commands change the corresponding color to the
+specified value.
+In all cases, 
+the text following $italic command$$ is a 
+$xref/glossary/Delimiter Sequence/delimiter sequence/$$.
+
+$head Command Table$$
+The following is a list of the valid values for $italic command$$:
+
+$table
+$italic command$$ 
+	$cnext Affected text
+	$cnext Default value
+	$cnext Style
+$rnext
+$code codecolor$$ 
+	$cnext inside $xref/font//code/$$ and $mref/codep/$$ commands
+	$cnext blue
+	$cnext no
+$rnext
+$code errorcolor$$
+	$cnext used by OMhelp for errors in output files
+	$cnext red
+	$cnext no
+$rnext
+$code bgcolor$$
+	$cnext background color
+	$cnext white
+	$cnext yes
+$rnext
+$code textcolor$$
+	$cnext color of normal text
+	$cnext black
+	$cnext yes
+$tend
+
+
+$head Color Names$$
+The following is a list of the valid values for $italic colorname$$:
+$table
+$pre     $$ 
+	$cnext black    $cnext green  $rnext
+	$cnext silver   $cnext lime   $rnext
+	$cnext gray     $cnext olive  $rnext
+	$cnext white    $cnext yellow $rnext
+	$cnext maroon   $cnext navy   $rnext
+	$cnext red      $cnext blue   $rnext
+	$cnext purple   $cnext teal   $rnext
+	$cnext fuchsia  $cnext aqua
+$tend
+These values are case in-sensitive.
+
+$head RGB Values$$
+In addition to the color names above,
+you can use an RGB code to specify a color.
+In this case, the values 
+$italic red$$,
+$italic blue$$,
+and
+$italic green$$ must be unsigned integers between 0 and 255.
+They represent the primary color mix for the 
+RGB code of the color being specified.
+
+
+$head Style Commands$$
+Some of the color commands that are specified as styles
+in the $xref/color/Command Table/command table/$$.
+If a command is a style command, 
+it can only appear once per section.
+If a style command appears in the
+$xref/running/Root Section/root section/$$,
+it specifies a default all the sections in a web site.
+If you wish a style command to only affects 
+a subset of the sections,
+it can be placed in an $xref/include/$$ file.
+This way a change to the include file would effect the 
+entire subset of sections that use it.
+
+$head Code Color$$
+$index codecolor$$
+The $code codecolor$$ command has effect
+until its next occurrence or 
+the end of the current section (which ever comes first).
+
+$subhead Example$$
+The following text
+$codep 
+	@codecolor green@@
+	@codep
+		This text is green.
+	@@
+	@codecolor blue@@
+	@codep
+		This text is blue.
+	@@
+$$
+results in the following output:
+
+$codecolor green$$
+$codep
+	This text is green.
+$$
+$codecolor blue$$
+$codep
+	This text is blue.
+$$
+
+
+$head Error Color$$
+$index codecolor$$
+The $code errorcolor$$ command has effect
+until its next occurrence or 
+the end of the current section (which ever comes first).
+
+$subhead Example$$
+The following text
+$codep 
+	@errorcolor blue@@
+	@codecolor red@@
+	@codep
+		This text is red but it is not an error message.
+	@@
+	@errorcolor red@@
+	@codecolor blue@@
+$$
+results in the following output:
+
+$errorcolor blue$$
+$codecolor red$$
+$codep
+	This text is red but not an error.
+$$
+$errorcolor red$$
+$codecolor blue$$
+
+Note that if a spelling error occurred in the $code codep$$ command,
+the corresponding word would have been in blue instead of red.
+
+
+$head Bgcolor$$
+The $code bgcolor$$ command is a 
+$xref/color/Style Commands/style command/$$.
+
+$subhead Example$$
+The command
+$codep
+	@bgcolor/240/240/240/@@
+$$
+appears at the beginning of this section.
+That is why the background color for this section
+is light gray.
+
+$head Textcolor$$
+The $code textcolor$$ command is a 
+$xref/color/Style Commands/style command/$$.
+
+$subhead Example$$
+The command
+$codep
+	@textcolor/120/120/120/@@
+$$
+appears at the beginning of this section.
+That is why the normal text color for this section is dark gray.
+
+$end

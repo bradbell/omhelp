@@ -1,0 +1,82 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin latexnumber$$
+$dollar @$$
+$spell
+	xml
+	htm
+$$
+
+$index number$$
+$index latex, number$$
+$section Latex Numbers$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex /Number/ @@/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the numeric value specified by $italic Number$$ where 
+$italic Number$$ is either a Latex integer or a 
+Latex real (as defined below). 
+
+$subhead Latex Integer$$
+A Latex integer is a sequence of decimal digits ($code 0$$ through $code 9$$)
+possibly preceded by a minus sign. For example,
+in the input
+$codep
+	@latex 123 and -123@@
+$$
+$code 123$$ and $code -123$$ are a Latex integers.
+The input above would have the following output:
+$pre
+	$$$latex 123 and -123$$
+
+$subhead Latex Real$$
+A Latex real can be a Latex integer followed by a decimal point followed
+by any number of decimal digits (possibly zero decimal digits).
+For example, in the input
+$codep
+	@latex 123. and 123.0@@
+$$
+$code 123.$$ and $code 123.0$$ are a Latex reals.
+The input above would have the following output:
+$pre
+	$$$latex 123. and 123.0$$
+$pre
+$$
+A Latex real can be a decimal point possibly preceded by a minus sign
+and followed by any number of decimal digits (at one decimal digit).
+For example, in the input
+$codep
+	@latex .123 and -.123@@
+$$
+$code .123$$ and $code -.123$$ are Latex reals.
+The input above would have the following output:
+$pre
+	$$$latex .123 and -.123$$
+
+
+$end

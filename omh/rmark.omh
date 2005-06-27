@@ -1,0 +1,89 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin rmark$$
+$spell rmark$$
+
+$dollar @$$
+$rmark  !$$
+
+$index !$$
+$index rmark$$
+
+$mindex display register trade mark symbol character$$
+
+$section Displaying the Registered Trade Mark Symbol !$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@rmark /character/@@/$$ $rnext
+$bold See Also$$ 
+$cnext $mref/dollar/cmark/wspace/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+All subsequent occurrences of the first character in 
+$italic character$$ are converted to the 
+! symbol.
+There can be no $code @$$ characters in $italic character$$.
+In addition,
+leading an trailing
+$xref/glossary/White Space/white space/$$
+in $italic character$$ is ignored.
+
+$head Example$$
+The input
+$rmark $$
+$codep
+	@rmark !@@
+	The O-Matrix! program
+$$
+$rmark !$$
+results in
+$pre
+	$$The O-Matrix! program
+
+$head Reference$$
+Characters in the $code index$$ and other commands are also converted. 
+For example, given the $code rmark$$ command above,
+$rmark $$
+$codep 
+	@index !@@
+$$
+$rmark !$$
+is an 
+$xref/keyword//index/$$ command
+corresponding to the ! symbol.
+$pre
+
+$$
+The $code rmark$$ command has effect till the next such command
+is executed or the end of the current section (which ever comes first). 
+The command
+$codep
+	@rmark @@
+$$
+removes the effect of the current $code rmark$$ command without
+providing a new character that is converted to the
+registered trade mark symbol.
+
+$end

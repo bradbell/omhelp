@@ -1,0 +1,138 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin table$$
+$spell 
+	cend
+	cnext
+	rnext
+	OMhelp
+$$
+$dollar @$$
+
+$index table$$
+$index tend$$
+$index rnext$$
+$index cnext$$
+$index row, in table$$
+$index column, in table$$
+
+$section Specifying a Table and Its Rows and Columns$$
+
+$table
+$bold Syntax$$ 
+$cnext $syntax/@table/$$ $rnext
+$cnext $syntax/@cnext/$$ $rnext
+$cnext $syntax/@rnext/$$ $rnext
+$cnext $syntax/@tend/$$  $rnext
+$bold See Also$$
+$cnext $mref/list/pre/center/array/$$
+$tend
+
+$fend 30$$
+
+$head Description$$
+These commands are used to create tables. 
+
+$head table$$
+The command $code @table$$ begins a new table.
+A new row and new column are automatically stated at the
+beginning of every table.
+
+$head cnext$$
+The command $code @cnext$$ marks the end of the 
+current column and the beginning of the next column.
+
+$head rnext$$
+The command $code @rnext$$ marks 
+the end of the current column,
+the end of the current row,
+the beginning of the next row,
+and the beginning of the next column.
+
+$head tend$$
+The command $code @tend$$ marks the end of the current column,
+the end of the current row,
+and the end of the current table.
+The current table corresponds to the previous $code @table$$
+command in the OMhelp input stream.
+(Note that $code @tend$$ is used instead of $code @@$$
+to terminate a table).
+
+$head Example$$
+The input 
+$codep
+	@table
+		1 @cnext 2 @cnext 3 @rnext
+		4 @cnext 5 @cnext 6
+	@tend
+$$
+results in the output 
+$table
+	1 $cnext 2 $cnext 3 $rnext
+	4 $cnext 5 $cnext 6
+$tend
+
+
+$head Nesting$$
+You can nest one table inside of another.
+For example, the input
+$codep
+	@table
+		@table
+			1 @rnext 2 @rnext 3
+		@tend
+		@cnext
+		@table
+			4 @rnext 5 @rnext 6
+		@tend
+	@tend
+$$
+results in output
+$table
+	$table
+		1 $rnext 2 $rnext 3
+	$tend
+	$cnext
+	$table
+		4 $rnext 5 $rnext 6
+	$tend
+$tend
+
+
+$children/
+	align.omh
+/$$
+$head Alignment$$
+You can use the $mref/center/$$ command to center the table.
+The default horizontal and vertical alignment for data in each cell
+is $code left$$ and $code top$$.
+You can use the $xref/align/$$ command to change this alignment.
+
+
+$head Cend and Rend$$
+$index cend$$
+$index rend$$
+The $code cnext$$ command used to be called $code cend$$ and
+the $code rnext$$ command used to be called $code rend$$.
+In order to not have to change existing OMhelp input files,
+the older versions of these commands still work.
+
+$end

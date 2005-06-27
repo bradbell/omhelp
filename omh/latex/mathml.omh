@@ -1,0 +1,173 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin mathml$$
+$dollar @$$
+$spell
+	Mathml
+	Unicode
+	mi
+	mathvariant
+	mstyle
+	Overbrace
+	mrow
+	em
+	OMhelp
+	mspace
+$$
+
+$section The MathML Command$$
+
+$index mathml$$
+$index test, browser$$
+$index test, mathml$$
+
+$table
+$bold Syntax$$
+$cnext $syntax%@latex \mathml{%Start% &\#x%Unicode%; %Stop%> } @@ %$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+The $code mathml$$ command will
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the specified MathML command. 
+This command is not 
+$xref/latex/Reference/standard Latex/$$.
+Between the $code {$$ and the $code }$$ in the syntax,
+the sequence $code \#$$ is converted to $code #$$
+(so that the $code mathml$$ can be used with $xref/LatexMacro//macros/$$).
+The $code mathml$$ command has two purposes described below:
+
+$head Extending the Available Set of Latex Symbols$$
+The argument  $italic Unicode$$
+must be a valid MathML Unicode value.
+(For a list of the valid Unicode values see
+$href%http://www.w3.org/TR/MathML2/chapter6.html#chars_unicodechars%Section 6.2.1%$$
+of the
+$href%http://www.w3.org/TR/MathML2/overview.html%MathML 2.0%$$
+specifications
+.)
+
+The argument $italic Start$$ can be one of the following:
+$table
+$italic Start$$ $cnext $italic Stop$$ $cnext $italic Unicode$$ $rnext
+$code <mo stretchy='false'>$$ $cnext $code </mo>$$ $cnext
+	an operator that should not stretch to fit 
+$rnext
+$code <mi mathvariant='normal'>$$ $cnext $code </mi>$$ $cnext
+	an identifier that should be displayed in normal font 
+$rnext
+$tend
+
+$head Testing MathML Commands$$
+The $code mathml$$ command is used to test,
+and discuss,
+certain MathML commands in the context for OMhelp.
+These usages the $code mathml$$ command are not considered standard
+and may not work in future versions.
+
+$subhead Mi Font$$
+In Section 3.2.2 of
+$pre
+	$$
+$href%http://www.w3.org/TR/MathML2/chapter3.html#presm_tokel%$$
+$pre
+$$
+there is a paragraph with the text:
+"Finally, there is a redundancy problem 
+with the mathvariant attribute that must 
+be dealt with as a special case. 
+When the mathvariant attribute 
+is used on an mi element containing a single character ...
+the resulting rendering will be visually indistinguishable
+from an mi element with no attributes containing 
+the corresponding SMP character."
+From this discussion, it seems to me that both of the
+$code x$$ in the commands below should
+be displayed the same.
+$codep
+	@latex \[ 
+		\mathml{ 
+			<mi>x</mi>
+			<mi mathvariant="normal">x</mi> 
+		} 
+	\]@@
+$$
+generates the output
+$latex \[
+		\mathml{ 
+			<mi>x</mi>
+			<mi mathvariant="normal">x</mi> 
+		} 
+\]$$
+On the other hand, it appears that the browsers are changing
+fonts as requested.
+This is useful because
+$code mi$$ elements are token elements and as such,
+$code mstyle$$ elements can not be placed with in them.
+Thus, there does not seem to be another
+way to override the changing of fonts
+by $code mi$$ elements that have single character values.
+
+$head Overbrace Compared To Tilde$$
+The OverBrace (U0FE37) stretches to fit the entire base
+and the tilde (U002DC) does not.
+This is a good thing because it agrees with LaTex, 
+but it is unclear how the MathML specifications lead to this display.
+The input
+$codep
+	@latex \mathml{
+	<mover>
+		<mrow>
+			<mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>z</mi>
+		</mrow>
+		<mo stretchy="true"> &#x0FE37; </mo>
+	</mover>
+	<mspace width="2em"/>
+	<mover>
+		<mrow>
+			<mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>z</mi>
+		</mrow>
+		<mo stretchy="true"> &#x002DC; </mo>
+	</mover>
+	} @@
+$$
+results in the following output
+$pre
+	$$
+	$latex \mathml{
+	<mover>
+		<mrow>
+			<mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>z</mi>
+		</mrow>
+		<mo stretchy="true"> &#x0FE37; </mo>
+	</mover>
+	<mspace width="2em"/>
+	<mover>
+		<mrow>
+			<mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>z</mi>
+		</mrow>
+		<mo stretchy="true"> &#x002DC; </mo>
+	</mover>
+	} $$
+
+$end

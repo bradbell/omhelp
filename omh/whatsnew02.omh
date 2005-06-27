@@ -1,0 +1,861 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin whatsNew02$$
+$dollar &$$
+$spell
+	newline
+	unicode
+	widehat
+	widetilde
+	underbrace
+	overline
+	overbrace
+	png
+	whatsnew
+	Mozilla
+	aindex
+	underbar
+	readme
+	OMhelp
+	omhelp
+	xml
+	cnext
+	gif
+	cend
+	rnext
+	Microsoft
+	Internet
+	this this
+	zindex
+	childtable
+	cindex
+	mindex
+	url
+	Matlab
+	href
+	xref
+	htm
+	Javascript
+	keyindex
+	jpg
+	omh
+
+$$
+
+$index readme$$
+
+
+$mindex Changes 2002$$
+$index whats new, 2002$$
+
+$section Changes and Additions to OMhelp During 2002$$
+
+
+$head Description$$
+This section contains a list of changes to OMhelp 
+during 2002 in reverse order by date. 
+Its purpose is to assist you in learning the about 
+changes between versions of OMhelp.
+
+$head 12-21$$
+The $tref GetStarted$$ section was improved
+by including the resulting output files for each example.
+In addition, an $xref/StartSpell//example/$$ for the
+$xref/spell/$$ command was included.
+
+
+$head 12-20$$
+If the $xref/verbatim/$$ command had automatic
+$xref/verbatim/New Lines/new lines/$$ added,
+and the last character in the corresponding file was a newline,
+an unnecessary newline was added to the output.
+A similar condition held if the previous output corresponded to 
+a heading.
+This has been fixed.
+
+$head 12-18$$
+White space character following a line break in the output
+were affecting the output column counter.
+This made it very difficult to line up indented text
+using tab characters inside the $xref/pre/$$ command.
+This has been fixed.
+
+
+$head 12-17$$
+The $xref/latex/Displayed Formulas/displayed formula/$$
+mode was added to the latex commands.
+
+$head 12-16$$
+Most all of the hex unicode in the XML and HTML output was changed to
+character names in order to make the output more readable.
+$pre
+
+$$
+Special characters, such as the copy right character, were not being
+converted to proper codes before being put in the heading sections of
+the file (heading are used for keywords and summary displays).
+This has been fixed.
+
+$head 12-13$$
+Some changes were made to avoid extra new lines where they were not necessary.
+This was done to conserve on screen space and make the output of the
+$xref/running/Printable/_printable/$$ version smaller
+(conserve paper).
+These changes included backing out the 
+$xref/whatsNew02/09-23/02-09-23/$$
+work around of unwanted line breaks in pre-formatted text
+(when displayed by MS Internet Explorer). 
+This was finally understood and fixed properly on
+$xref/whatsnew03/05-08/03-05-08/$$.
+
+
+$head 12-09$$
+The $code template$$ section was replaced by the 
+$tref getstarted$$.
+$pre
+
+$$
+Because of the directory name change from $code gif$$
+to $code image$$, 
+the $code omh\build.bat$$ command file did not work.
+This has been fixed.
+
+
+$head 12-08$$
+The Latex $xref/stackrel/$$ command was added.
+$pre
+
+$$
+Leading and trailing white space in the arguments to
+the $xref/xref/$$ and $xref/mref/$$ commands is ignored.
+This enables one to use new lines and other white space 
+to separate the arguments
+when they are long.
+
+$head 12-05$$
+The Latex  
+$xref/diacritical//widehat/$$,
+and
+$code widetilde$$
+commands were included.
+
+$head 12-04$$
+The Latex
+$xref/under_over//underline/$$,
+$code underbrace$$,
+$code overline$$,
+and
+$code overbrace$$
+commands were included.
+
+$head 12-02$$
+The Latex $xref/left_right//left and right/$$ commands
+were included.
+
+$head 11-27$$
+There was a bug in specifying an $xref/running/Icon File/icon file/$$
+that had an extension different from $code .gif$$.
+This has been fixed.
+
+$head 11-26$$
+The $code build$$ command in the $code omh$$ directory
+did not work because some
+$syntax//*/.png/$$ files were missing.
+(These files were required for the change on
+$xref/whatsNew02/11-22/02-11-22/$$.)
+The name of the $code omh\gif$$ directory
+was changed to $code omh\image$$
+and the $syntax//*/.png/$$ files were placed there
+so that the build command now works.
+
+
+$head 11-22$$
+The $xref/diacritical/$$ commands were included. 
+In addition, the section 
+$tref Mozilla$$ was started.
+
+$head 11-18$$
+The $xref/array/$$ command has been added. In addition,
+the error messages in $xref/latex/$$ mode has been improved
+so that line numbers are always reported.
+This improvement also included 
+separating the OMhelp and Latex error messages
+and identifying which type of error at the beginning of the message.
+
+$head 11-16$$
+The comma was added to the list of 
+$xref/latexnormal//latex normal/$$ characters.
+
+$head 11-14$$
+Some of the characters listed in 
+$xref/latexnormal/$$ were not displaying correctly in Latex mode.
+This has been fixed.
+
+$head 11-12$$
+The complete list of
+$xref/latexnormal//latex normal/$$ character were
+included and documented.
+$pre
+
+$$
+The decimal point was added to the format 
+specifications for a $xref/latexnumber//latex number/$$.
+$pre
+
+$$
+The latex $xref/stdfun//standard functions/$$ were added.
+
+$head 11-09$$
+The $xref/latex/$$ command 
+was extended to include 
+$tref ellipsis$$, and
+$tref latexspecial$$.
+
+$head 11-08$$
+The $xref/latex/$$ command 
+was extended to include 
+$tref frac$$, and
+$tref sqrt$$.
+
+
+$head 11-06$$
+The $xref/latex/$$ command 
+was extended to include 
+$tref subsup$$, and
+$tref DisplaySym$$.
+
+
+$head 11-03$$
+The $xref/latex/$$ command 
+was extended to include the
+$xref/BinaryOp//binary operators/$$,
+$xref/RelationSym//relation symbols/$$,
+$xref/ArrowSym//arrow symbols/$$,
+and $xref/MiscSym//miscellaneous symbols/$$.
+$pre
+
+$$
+Some speed improvements were made to OMhelp, 
+to be specific, binary search of the omhelp command set.
+In addition, a mistake in the initial state of the omhelp lexical
+analyzer was slowing the program.
+
+$head 10-30$$
+OMhelp did not detect when a $xref/font/$$, $xref/table/$$ or $xref/list/$$
+command did not terminate before the end of a frame.
+This was is now reported as an error because 
+the command does not carry over to the next frame.
+In addition, OMhelp did not detect when a font command 
+and a table or list command were interlaced. For example
+$codep
+	&big
+	&list number&&
+	list item
+	&&    &comment end of big command&&
+	&lend &command end of list command&&
+$$
+This is also detected and reported as an error now.
+$pre
+
+$$
+$xref/latex//Latex/$$ support has begun with the 
+$xref/greek/$$ letters.
+
+
+
+$head 10-27$$
+All of the error messages have been improved. 
+This was done by passing the line number information 
+from the lexical analyzer to the parser and tracking
+it with the parser constructions.
+This improved tracking of errors is in preparation for having an 
+OMhelp LaTex command.
+The argument to this command
+will be long and have a language of its own (LaTex).
+If the $xref/running/XML/-xml/$$ command line option is specified
+the output corresponding to the LaTex command will be MathML.
+$pre
+
+$$
+Output text that came between a $xref/begin/$$ command
+and the corresponding $xref/section/$$ command was not being displayed.
+For example, if the input file contained
+$codep
+	&begin example&&
+
+	XYZ Corporation
+	&section Example Title&&
+
+	&end
+$$
+the text $code XYZ Corporation$$ would not appear in the output.
+This has been fixed.
+
+
+
+$head 10-26$$
+While improving the OMhelp error messages,
+it was discovered that if there was no $xref/section/$$ command
+in a section, OMhelp would crash. For example, the 
+following input file would crash OMhelp:
+$codep
+	&begin example&&
+
+	&end
+$$
+This has been fixed.
+
+
+$head 10-22$$
+Added the command line option 
+$xref/running/XML/xml/$$ which
+generates XHTML (as apposed to HTML which is the 
+default output format).
+
+$head 10-21$$
+All of the files in the OMhelp $code omh$$ directory
+were changed to use $code cnext$$ in place of $code cend$$
+and $code rnext$$ in place of $code rend$$.
+(Because the new command names are more descriptive of the meaning
+of the commands.)
+
+
+$head 10-18$$
+During the preparation for XHTML it was discovered that
+the gif files in the distributions help were empty.
+This was due to a bug that was introduced when file addressing was
+converted to the starting file on
+$xref/whatsNew01/08-08/01-08-08/$$.
+This turned up when OMhelp was run twice in the same directory
+and the second time the 
+$xref/running/Printable/-printable/$$ option was used
+(see $xref/whatsNew02/06-19/02-05-19/$$).
+
+$head 10-11$$
+All the HTML commands in the output files
+were converted to lower case.
+This should have no effect from the OMhelp users point of view.
+This is in preparation for conversion to XHTML 
+and then the inclusion of MathML for displaying mathematics.
+
+$head 10-04$$
+For some forgotten reason the error message for the
+$xref/fend/$$ command was referring to the $code &frame$$ command.
+(There is no $code &frame$$ command.)
+This has been fixed.
+$pre
+
+$$
+There was a mistake in how the 
+in the $xref/pre/$$ command modification made on 
+$xref/whatsNew02/09-23/02-09-23/$$.
+To be specific, the pre-formatted mode was not terminated correctly
+in some cases. This has been fixed.
+$pre
+
+$$
+The $code cend$$ ($code rend$$) command 
+not only ends the current column (row) of a table,
+it also begins the next one.
+The command $xref/table//cnext/$$ ($code rnext$$) has
+been added because it is
+a more meaningful representation of the command's meaning.
+
+$head 09-23$$
+Microsoft Internet Explore was not
+displaying OMhelp pre-formatted text correctly.
+The $xref/pre/$$ command
+has been modified to avoid this bug where possible.
+(The $mref/codep/verbatim/math/$$ commands 
+were modified on $xref/whatsNew02/09-09/02-09-09/$$.)
+This was finally understood and fixed properly on
+$xref/whatsnew03/05-08/03-05-08/$$.
+
+$head 09-18$$
+The $xref/image/$$ and $code icon$$ commands
+were not copying files properly when the specified name
+had a forward slash, $code /$$, directory specifier in it.
+This has been fixed and should improve the functioning
+of the unix port of OMhelp.
+
+$head 09-10$$
+It used to be possible for the $xref/image/$$ and $code icon$$ 
+commands to create two image files that had the same name
+in the web site directory.
+This error is now checked for and an error message is printed.
+
+
+$head 09-09$$
+Microsoft Internet Explorer
+was not displaying OMhelp pre-formatted text correctly.
+The $mref/codep/verbatim/math/$$ commands have been modified
+to avoid this bug where possible.
+This was finally understood and fixed properly on
+$xref/whatsnew03/05-08/03-05-08/$$.
+
+$head 08-30$$
+If one of the words in an 
+$xref/keyword//index/$$ commands was misspelled,
+all of the words were marked with red in the
+$xref/_index//index/$$.
+This has been fixed so that only the misspelled word
+is marked in red.
+
+$head 08-29$$
+The spell checker now detects
+$xref/spell/Double Words/double word/$$ errors.
+For example,
+$codecolor Red$$
+$code this this$$
+$codecolor Blue$$
+is a double word error.
+
+$head 08-24$$
+A mistake in the
+$xref/keyword/Aindex.Example/aindex command example/$$
+was fixed.
+
+$head 08-22$$
+The specifications for searching the directory where the
+$xref/running/Root Section/root section/$$ is located,
+and searching the $xref/path//paths/$$ were improved.
+You no longer need to specify the starting directory
+as part of the path because is it searched automatically.
+In addition, the starting path was removed from the displayed
+input file names (because they are relative to the starting directory
+and not directory where execution is taking place).
+$pre
+
+$$
+A bug was fixed in the Unix version whereby 
+icon and $xref/image/$$ files were not being copied properly; i.e.,
+the files names were not being converted to lower case.
+
+$head 08-18$$
+The name used on the command line 
+for the $italic root_file$$ was changed to the
+$italic starting_file$$ (it has since been referred to as
+$xref/running/Root Section/root section/$$).
+This was done because the term "root" is 
+used to refer to the root of a file name; i.e.,
+a file name with out its extension.
+
+
+$head 08-13$$
+One of the users found a problem in the new indexing code that caused
+OMhelp to crash. This was fixed.
+In addition, the version message that prints when OMhelp starts
+now states if this is the debug or release version of the executable.
+(The debug version from does a lot of assert checking 
+and can be useful for tracking down user problems.)
+
+$head 08-12$$
+Leading and trailing white space in the arguments to the
+$xref/href/$$ command are ignored.
+$pre
+
+$$
+The error message for the $code -g$$ command line option
+has been improved.
+It now provides the information about the backward compatibility
+(see $xref/whatsNew02/08-06/02-08-06/$$)
+
+
+$head 08-08$$
+The 
+$xref/_index//indexing/$$
+for the entire OMhelp manual was revised to better
+take advantage of new indexing commands.
+In addition, this provides a better example of how the indexing
+commands can be used.
+
+$head 08-07$$
+Fixed some bugs in the $xref/_index//index/$$ changes made on 02-08-06.
+In addition, changed the $xref/keyword/Cindex/cindex/$$ command
+so that the corresponding major keys were just one word
+and had more of a chance to match other major keys.
+
+$head 08-06$$
+The $xref/keyword/Aindex/aindex/$$ command was added.
+This command, together with the automatic jump table to headings,
+makes the glossary a regular section like any other.
+The $code -g$$ command line option was therefore removed from the program.
+To get the same effect as before, place the following command
+directly after the $xref/begin/$$ command in the glossary section:
+$codep
+	&aindex head&&
+$$
+Then add the file that was specified after the $code -g$$ option
+as the last file in the 
+$xref/children//contents, childtable, or children/$$
+command contained in the $xref/running/Root Section/root section/$$.
+
+$head 08-03$$
+The description and specifications for the $xref/keyword/Cindex/cindex/$$ 
+were simplified.
+In addition the $xref/keyword/Mindex/mindex/$$ command has been added
+(which is an even simpler way to make multiple keyword index entries
+at once.)
+
+$head 07-26$$
+The $xref/spell/$$ command has been changed so that it is cumulative
+for each section. 
+This enables one to use $code spell$$ commands with in an
+$xref/include/$$ file with out erasing the other spell commands
+for the current section.
+$pre
+
+$$
+$xref/glossary/Cross Reference Tag/Cross reference tags/$$
+are usually excluded from spell checking.
+In the case where the $xref/xref/$$ command has only one argument,
+the cross reference tag is also used as the linking text.
+Spell checking used to be done on this linking text 
+(which is also a cross reference tag).
+This has been fixed and spell checking is no longer done 
+in this case.
+
+$head 07-25$$
+Links to the $xref/head//headings/$$ and subheadings
+were added to the navigation frame on the left of every section.
+(This used to be true only for the 
+$xref/glossary/$$, 
+$xref/_index//index/$$, 
+and 
+$xref/_reference//reference/$$ sections.)
+
+
+$head 07-23$$
+The list of $xref/_external//external/$$ references
+is now in alphabetic order by url and heading with in the url.
+In addition, the cross reference to the corresponding link
+is to the previous heading and subheading (not just the section).
+
+$head 07-18$$
+Added the ability to link to $xref/xref/Example.Subheadings/subheadings/$$.
+
+$head 07-16$$
+Found a missing semi-colon in the Java script for the 
+OMhelp interactive search utility.
+
+$head 07-11$$
+The $xref/wspace/Example/example/$$ for the $xref/wspace/$$ command
+was improved.
+This should make it easier to use OMhelp with languages
+that do not have a block comment mode (such as Matlab and Python).
+
+$head 06-26$$
+More meaningful names were used in the documentation
+for all the command arguments.
+For example,  see the $bold Syntax$$ for the $xref/verbatim/$$
+command.
+$pre
+
+$$
+The restriction of not having new lines in the
+$xref/verbatim/$$ command 
+$xref/verbatim/Start/start/$$
+and 
+$xref/verbatim/Stop/stop/$$
+sequences was removed from the documentation.
+
+$head 06-25$$
+The glossary entry for
+$xref/glossary/Delimiter Sequence/delimiters/$$
+was changed. 
+In addition, the syntax for each of the commands
+was changed to use variables names that are more meaningful.
+$pre
+
+$$
+All the links in an $xref/mref/$$ command
+are now separated by a comma.
+It used to be that an $code and$$,
+separated the last two cross references.
+
+
+$head 06-21$$
+The default $xref/running/Icon File/icon file/$$ name was
+changed to $code _icon.gif$$.
+The documentation for this option
+and the $xref/running/Icon Link/icon link/$$ option
+was improved.
+(it used to begin with $code button_$$).
+In addition, $xref/image//image and icon/$$ file names
+can not begin with the $code _$$ character
+(instead of $code button_$$).
+$pre
+
+$$
+The automatically generated sections (For example the 
+$xref/_index//keyword index/$$) were listed twice in the links 
+when viewing the 
+$xref/running/Root Section/root section/$$.
+This has been fixed.
+$pre
+
+$$
+There was a bug in the counting of sections for the 
+$xref/running/Printable/printable/$$ option.
+This caused the table of contents to have the same section number
+as the section that followed it.
+This has been fixed.
+
+$head 06-19$$
+All of the sections,
+including the automatically generated ones 
+(for example the  $xref/_index//keyword index/$$)
+are now children of the 
+$xref/running/Root Section/root section/$$.
+In addition, now there can be only one section at the root 
+of the table of contents.
+This enables the root section to function like a cover page
+in the
+$xref/running/Printable/printable/$$ version.
+$pre
+
+$$
+The printable version
+section numbers and links were not working for the 
+$xref/_index//index/$$, $xref/_reference//function reference/$$,
+and $xref/_external//external reference/$$ sections.
+This has been fixed.
+
+$head 06-06$$
+Some minor bugs in the $xref/running/Printable/printable/$$
+option were fixed. It is now part of the standard release and
+its use will no longer expire.
+
+
+$head 06-02$$
+A $xref/running/Printable/printable/$$
+version of OMhelp output is available.
+This is a beta test version and its availability will expire.
+Please e-mail any comments about this option to
+$href%mailto:brad@bellbit.new%brad@bellbit.net%$$
+
+
+$head 05-30$$
+The cross reference corresponding to a
+$xref/children/Contents/Contents/$$ heading was not working correctly
+because the anchor for the corresponding heading was missing.
+
+$head 05-17$$
+The cross reference 
+$xref/glossary/Cross Reference Tag/tag/$$
+was added to each entry in the table of
+$xref/_contents//contents/$$.
+This makes the connection that the cross reference
+tag is an abbreviated title for each section.
+$pre
+
+$$
+Italic links only replace frames, not entire windows.
+In some cases, it was possible for a link that replaces
+the entire window to be in italic font.
+This has been fixed.
+
+
+$head 05-02$$
+A message was added to the OMhelp search utility
+stating that JavaScript must be enabled for it to work.
+$pre
+
+$$
+The verbatim command was not printing the last character before
+the $xref/verbatim/Stop/stopping sequence/$$.
+In addition, an option to
+$xref/verbatim/Skip/skip/$$ pattern matches was added.
+
+$head 04-23$$
+New lines inside the section command would cause the title
+to have new lines when printed in
+the table of $xref/_contents//contents/$$.
+In the context of the table of contents,
+each sequence of $xref/glossary/White Space/white space/$$
+characters in the title is changed to a single space.
+$pre
+
+$$
+The $mref/path/$$ and other file access commands were modified
+so that both the forward slash $code /$$ and the back slash $code \$$
+can be used to separate directories in a path specification.
+
+$head 04-07$$
+After using the different window for $xref/href/$$ commands
+for a while, it became clear that sometimes that same window was 
+better.
+The $xref/href/$$ and $xref/xref/$$ commands
+were extended so that they have the option to specify the frame 
+that a link should be displayed in.
+It is possible to specify a 
+$xref/href/Display Frame/frame/$$ such that
+an $code href$$ command will display in a different window.
+(This is not possible for $code xref$$ commands.)
+$pre
+
+$$
+If you loaded the file $code index.htm$$,
+the $code back$$ button in the browser
+would no longer work because
+$code index.htm$$ automatically linked forward.
+This problem was fixed by changing
+$code index.htm$$ from a Javascript 
+to a copy of the
+$xref/glossary/Section/section/$$
+at the beginning of the
+$xref/_contents//contents/$$ tree.
+$pre
+
+$$
+More upper case linking problems were discovered and fixed.
+For example, the links to entries in the table of contents
+did not work when displayed by a Unix system.
+
+
+$head 04-06$$
+If there were capital letters in the
+$xref/glossary/Cross Reference Tag/cross reference tag/$$
+for the section at the beginning of the table of contents,
+the file $code index.htm$$ referred to these capital letters.
+This did not work on Unix systems because they are case sensitive.
+
+$head 03-28$$
+The
+$xref/glossary/Cross Reference Tag/cross reference tag/$$
+for the keyword index was changed back to
+$code _index$$ from $code _keyindex$$.
+Because of the underbar in front of the name,
+there is no conflict with the automatically generated file
+$code index.htm$$ (given a directory, $code index.htm$$
+is the default file a browser will load).
+
+$head 03-23$$
+Group headings were added for the links on the left hand frame and
+the list of children were added as links in the left hand frame.
+$pre
+
+$$
+A separate window is now used for
+$mref/href/$$ links; i.e., links that are 
+not part of the OMhelp web site being built.
+
+$head 03-15$$
+The links in the left hand frame have been changed so that the position
+of the current section with in the help tree is documented and linked.
+In addition, the 
+$mref/next/$$ and $mref/previous/$$ links
+are now in reading order as if the help tree was a book.
+
+$head 02-27$$
+The $mref/date/$$ command was added to OMhelp. 
+This is useful for automatically identifying the version
+of a web site built by OMhelp.
+
+$head 02-16$$
+OMhelp failed to detect when the
+$xref/verbatim/Stop/verbatim stopping sequence/$$
+was not present in the specified file.
+This has been fixed.
+
+
+$head 02-15$$
+In the case described below,
+cross references to
+$xref/xref/Example.Headings/headings/$$
+did now work (this has been fixed):
+
+$list number$$
+There are multiple
+$xref/fend/Frames/frames/$$ in an section.
+
+$lnext
+There was a contents, childtable, or children
+$xref/children//command/$$ not in the first frame of the section.
+
+$lnext
+There was a heading following the contents, childtable, or children
+command mentioned above.
+
+$lnext
+There was a cross reference to the heading mentioned above
+
+$lend
+
+$head 02-14$$
+It used to be impossible for a verbatim command's
+$xref/verbatim/Start/starting sequence/$$
+in the displayed output.
+This has been fixed by not automatically outputting a
+$xref/verbatim/New Lines/new line/$$
+at the beginning and end of a verbatim command that has a starting sequence.
+$pre
+
+$$
+Another desirable feature of the verbatim command is to move
+the location of text from its best place as source code to its best
+place in the documentation.
+It was necessary to add escape sequencing to the starting
+and stopping sequences to accomplish this.
+(This was actually done on 02-02-15 but is more closely related to
+the discussion on 02-02-14).
+
+$head 01-22$$
+The bug in the 
+$mref/verbatim/$$ command
+$xref/verbatim/Stop/stopping sequence/$$
+was only partially fixed.
+This has been completely fixed.
+In addition, the specifications for the starting
+and stopping sequences has been changed.
+They no longer need to be at the beginning of a line.
+$pre
+
+$$
+The addition of 
+$syntax//*/.jpg/$$ files on 
+$xref/whatsNew01/06-23/01-06-23/$$
+broke the
+$xref/running/Example/example/$$ that rebuilds the help 
+for OMhelp.
+This was fixed by adding a
+$mref/path/$$ command for extensions of the form 
+$code .jpg$$ to the file $code overview.omh$$.
+
+
+
+$head 01-05$$
+There was a bug in the 
+$xref/verbatim/Stop/stopping sequence/$$
+where by partial
+matches only printed the first character of the partial match.
+
+$head 01-04$$
+A starting and stopping
+option was added to the $mref/verbatim/$$ command.
+This enables one to only include part of a file 
+as verbatim text with in a help page.
+Thus, if you have a long example,
+parts of the example can be explained in different sections
+of you help.
+
+
+$end

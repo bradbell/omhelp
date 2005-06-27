@@ -1,0 +1,95 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin GetStarted$$
+$dollar @$$
+$spell
+	OMhelp
+	omh
+	htm
+	omhelp
+	dir
+	getstarted
+	xml
+	Mozilla
+$$
+$mindex getting started$$
+
+$section Getting Started Using OMhelp$$
+
+$head Introduction$$
+The first step is to
+$xref/install/$$ OMhelp on your system.
+Then you can run any of the 
+getting started examples listed below.
+
+
+$children/
+	StartSimple.omh/
+	StartHead.omh/
+	StartFrame.omh/
+	StartImage.omh/
+	StartPre.omh/
+	StartFont.omh/
+	StartSpell.omh/
+	StartLatex.omh/
+	StartVerbatim.omh/
+	StartEmbed.omh/
+	StartMultiple.omh/
+	StartXref.omh/
+	StartIndex.omh/$$
+
+$table
+$bold Commands$$                $cnext $bold Getting Started$$ $rnext
+$mref/begin/section/$$          $cnext $tref StartSimple$$    $rnext
+$xref/head/$$                   $cnext $tref StartHead$$      $rnext
+$xref/fend//fend/$$             $cnext $tref StartFrame$$     $rnext
+$xref/image/$$                  $cnext $tref StartImage$$     $rnext
+$xref/pre/$$                    $cnext $tref StartPre$$       $rnext
+$xref/font/$$                   $cnext $tref StartFont$$      $rnext
+$xref/spell/$$                  $cnext $tref StartSpell$$     $rnext
+$xref/latex/$$                  $cnext $tref StartLatex$$     $rnext
+$xref/verbatim/$$               $cnext $tref StartVerbatim$$  $rnext
+$mref/begin/syntax/codep/wspace/$$
+                                $cnext $tref StartEmbed$$     $rnext
+$xref/children/$$               $cnext $tref StartMultiple$$  $rnext
+$xref/xref/$$                   $cnext $tref StartXref$$      $rnext
+$xref/keyword//index/$$         $cnext $tref StartIndex$$
+$tend
+
+$head Getting Started Directory$$
+Each of the examples above request that you create one or 
+more files using the editor of your choice.
+You can instead just copy the corresponding file from the
+directory
+$pre
+	$$
+$xref/install/Installation Directory/omhelp_dir/$$$code \omh\getstarted$$
+$pre
+$$
+There is a script file named $code RunAll.bat$$ in this
+directory that 
+can be used to run all of the getting started examples in batch mode.
+The resulting web site files will be in the directory
+$syntax/
+	cd /omhelp_dir/\omh\getstarted\htm
+/$$
+
+$end

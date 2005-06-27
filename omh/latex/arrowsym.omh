@@ -1,0 +1,124 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin ArrowSym$$
+$dollar @$$
+$spell
+	xml
+	htm
+	Lamport
+	Mozilla
+	leadsto
+	longmapsto
+	longleftarrow
+$$
+
+$mindex arrow symbol$$
+$index latex, arrow symbol$$
+$index latex, symbol arrow$$
+
+$section Arrow Symbols$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex /Command/ @@/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the arrow symbol specified by $italic Command$$ where 
+$italic Command$$ is one of the 
+Latex commands in the tables below.
+The following tables contain the arrow symbols
+in Table 3.6 of 
+$xref/latex/Reference/Lamport/$$.
+$pre
+
+$$
+Note that all the symbols that begin with long
+(from \longleftarrow though \longmapsto)
+and \leadsto are in the list of
+$xref/Explorer/MathML/Symbols/symbols/1/$$
+that MS Internet Explorer does not display properly.
+Also note that
+\longmapsto is in the list of 
+$xref/Mozilla/MathML/Symbols/symbols/1/$$
+that Mozilla does not display properly.
+
+$subhead Arrow Symbols$$
+
+$nospell
+$table
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\leftarrow           $cnext $latex \leftarrow           $$ $rend
+\Leftarrow           $cnext $latex \Leftarrow           $$ $rend
+\rightarrow          $cnext $latex \rightarrow          $$ $rend
+\Rightarrow          $cnext $latex \Rightarrow          $$ $rend
+\leftrightarrow      $cnext $latex \leftrightarrow      $$ $rend
+\Leftrightarrow      $cnext $latex \Leftrightarrow      $$ $rend
+\mapsto              $cnext $latex \mapsto              $$ $rend
+\hookleftarrow       $cnext $latex \hookleftarrow       $$ $rend
+\leftharpoonup       $cnext $latex \leftharpoonup       $$ $rend
+\leftharpoondown     $cnext $latex \leftharpoondown     $$ $rend
+\rightleftharpoons   $cnext $latex \rightleftharpoons   $$ $rend
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\longleftarrow       $cnext $latex \longleftarrow       $$ $rend
+\Longleftarrow       $cnext $latex \Longleftarrow       $$ $rend
+\longrightarrow      $cnext $latex \longrightarrow      $$ $rend
+\Longrightarrow      $cnext $latex \Longrightarrow      $$ $rend
+\longleftrightarrow  $cnext $latex \longleftrightarrow  $$ $rend
+\Longleftrightarrow  $cnext $latex \Longleftrightarrow  $$ $rend
+\longmapsto          $cnext $latex \longmapsto          $$ $rend
+\hookrightarrow      $cnext $latex \hookrightarrow      $$ $rend
+\rightharpoonup      $cnext $latex \rightharpoonup      $$ $rend
+\rightharpoondown    $cnext $latex \rightharpoondown    $$ $rend
+\leadsto             $cnext $latex \leadsto             $$ $rend
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\uparrow             $cnext $latex \uparrow             $$ $rend
+\Uparrow             $cnext $latex \Uparrow             $$ $rend
+\downarrow           $cnext $latex \downarrow           $$ $rend
+\Downarrow           $cnext $latex \Downarrow           $$ $rend
+\updownarrow         $cnext $latex \updownarrow         $$ $rend
+\Updownarrow         $cnext $latex \Updownarrow         $$ $rend
+\nearrow             $cnext $latex \nearrow             $$ $rend
+\searrow             $cnext $latex \searrow             $$ $rend
+\swarrow             $cnext $latex \swarrow             $$ $rend
+\nwarrow             $cnext $latex \nwarrow             $$ 
+$tend
+
+$tend
+$$
+
+
+$end

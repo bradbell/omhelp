@@ -1,0 +1,43 @@
+rm -r Doc
+rm -r Developer
+rm -r omhelp-*
+rm -r autom4te.cache
+rm *.gz
+rm *.log
+rm *.old
+rm *.exe
+rm *.tmp
+rm *.cache
+rm */*.exe
+rm */*.old
+rm */*.bat
+rm */*.stackdump
+rm */*.scc
+rm */*.mak
+rm */*.out
+rm */*.log
+rm */*.o
+rm */junk
+rm */stamp-h1
+rm */BatchAll
+rm */RunOMhelp
+rm */*/BatchAll
+rm */*/RunOMhelp
+rm */*/*.bat
+rm Makefile
+rm Makefile.in
+rm aclocal.m4
+rm configure
+rm config.status
+rm depcomp
+rm install-sh
+rm junk
+rm missing
+rm dictionary.bin
+#
+rm src/Makefile
+rm src/Makefile.in
+rm src/omhelp.h
+rm src/omhelp.c
+rm src/latex.h
+rm src/latex.c

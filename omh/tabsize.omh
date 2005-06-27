@@ -1,0 +1,112 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin tabsize$$ 
+$dollar @$$ 
+$escape #$$ 
+$spell 
+	tabsize 
+	codep
+	OMhelp
+$$ 
+
+$index tabsize$$ 
+$cindex tab size$$ 
+$mindex character column$$
+
+$section Specifying the Number of Characters Between Tab Columns$$ 
+
+$table 
+$bold Syntax $$ 
+$cnext $syntax/@tabsize /columns/@@/$$ 
+$rnext 
+$bold See Also $$ 
+$cnext $mref/pre/codep/verbatim/$$ 
+$tend 
+
+$fend 25$$ 
+
+$head Description $$ 
+This command specifies how many columns 
+there are between each of the tab stops
+when using a
+$xref/glossary/Uniformly Spaced Font/uniformly spaced font/$$.
+For example,
+when using the $mref/pre/codep/math/$$ commands.
+
+$head Example$$ 
+The input commands 
+$codep
+@tabsize 5@@
+@codep
+	line one
+	line two
+@@
+$$
+result in the following output
+$tabsize 5$$
+$codep
+	line one
+	line two
+$$
+$pre
+
+$$
+The input commands 
+$codep
+@tabsize 10@@
+@codep
+	line one
+	line two
+@@
+$$
+result in the following output
+$tabsize 10$$
+$codep
+	line one
+	line two
+$$
+
+
+$head Reference$$
+If $italic columns$$ is not present,
+or if it is less than or equal 0,
+the default value is restored.
+For example, 
+the input commands
+$codep
+@tabsize @@
+@codep
+	line one
+	line two
+@@
+$$
+result in the following output
+$tabsize $$
+$codep
+	line one
+	line two
+$$
+Note that the default value for $italic columns$$
+is not specified and may change in later versions
+of OMhelp.
+
+
+$end 

@@ -1,0 +1,121 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin align$$
+$spell 
+	cnext
+	rnext
+$$
+
+$dollar @$$
+
+$index align, table cells$$
+$index table, align cells$$
+$index cell, align in table$$
+
+$section Setting Alignment of Cells in Tables$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@align /location/@@/$$ $rnext
+$bold See Also$$ 
+$cnext $mref/table/array/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+Set the alignment for all subsequent $xref/table/$$ commands
+where $italic location$$ is one of the following:
+$code left$$,
+$code center$$,
+$code right$$,
+$code top$$,
+$code middle$$,
+$code bottom$$.
+
+$head Horizontal$$
+The $italic location$$ values
+$code left$$,
+$code center$$, and
+$code right$$ set the horizontal alignment for the 
+data in each cell of a subsequent table.
+The default value for the horizontal alignment is $code left$$.
+
+
+$head Vertical$$
+The $italic location$$ values
+$code top$$,
+$code middle$$, and
+$code bottom$$ set the vertical alignment for the 
+data in each cell of a subsequent table.
+The default value for the vertical alignment is $code top$$.
+
+
+
+$head Example$$
+The input
+$codep
+
+@align center@@ @align middle@@ @table 
+line one 
+@pre
+@@
+column one 
+@align left@@ @cnext 
+1,2 
+@align bottom@@ @rnext
+2,1
+@align center@@ @align middle@@ @cnext
+line two
+@pre
+@@
+column two
+@tend
+
+$$
+results in
+
+
+$align center$$ $align middle$$ $table 
+line one 
+$pre
+$$
+column one 
+$align left$$ $cnext 
+1,2 
+$align bottom$$ $rnext
+2,1
+$align center$$ $align middle$$ $cnext
+line two
+$pre
+$$
+column two
+$tend
+
+$head Reference$$
+If an alignment command appears inside a cell of a table,
+it only affects subsequent cells; i.e.,
+it only takes affect at the next $xref/table/$$, $code rnext$$
+or $code cnext$$ command.
+A horizontal or vertical alignment has effect until it is changed
+or until the end of the current section (which ever comes first). 
+
+$end

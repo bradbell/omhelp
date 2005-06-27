@@ -1,0 +1,136 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin RelationSym$$
+$dollar @$$
+$spell
+	xml
+	htm
+	Lamport
+	Mozilla
+	preceq
+	bowtie
+$$
+
+$mindex relation symbol$$
+$index latex, relation symbol$$
+$index latex, symbol relation$$
+
+$section Relation Symbols$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex /Command/ @@/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the relation symbol specified by $italic Command$$ where 
+$italic Command$$ is one of the 
+Latex commands in the tables below.
+The following tables contain the relation symbols
+in Table 3.5 of
+$xref/latex/Reference/Lamport/$$
+(except that \Join is not included and generates an error message).
+$pre
+
+$$
+Note that 
+\preceq, \models, and \bowtie
+are in the list of
+$xref/Explorer/MathML/Symbols/symbols/1/$$
+that MS Internet Explorer does not display properly.
+Also note that
+\preceq is in the list of 
+$xref/Mozilla/MathML/Symbols/symbols/1/$$
+that Mozilla does not display properly.
+
+
+$subhead Relation Symbols$$
+
+$nospell
+$table
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\leq             $cnext $latex \leq             $$ $rend
+\prec            $cnext $latex \prec            $$ $rend
+\preceq          $cnext $latex \preceq          $$ $rend
+\ll              $cnext $latex \ll              $$ $rend
+\subset          $cnext $latex \subset          $$ $rend
+\subseteq        $cnext $latex \subseteq        $$ $rend
+\sqsubset        $cnext $latex \sqsubset        $$ $rend
+\sqsubseteq      $cnext $latex \sqsubseteq      $$ $rend
+\in              $cnext $latex \in              $$ $rend
+\vdash           $cnext $latex \vdash           $$ $rend
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\geq             $cnext $latex \geq             $$ $rend
+\succ            $cnext $latex \succ            $$ $rend
+\succeq          $cnext $latex \succeq          $$ $rend
+\gg              $cnext $latex \gg              $$ $rend
+\supset          $cnext $latex \supset          $$ $rend
+\supseteq        $cnext $latex \supseteq        $$ $rend
+\sqsupset        $cnext $latex \sqsupset        $$ $rend
+\sqsupseteq      $cnext $latex \sqsupseteq      $$ $rend
+\ni              $cnext $latex \ni              $$ $rend
+\dashv           $cnext $latex \dashv           $$ $rend
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\equiv           $cnext $latex \equiv           $$ $rend
+\sim             $cnext $latex \sim             $$ $rend
+\simeq           $cnext $latex \simeq           $$ $rend
+\asymp           $cnext $latex \asymp           $$ $rend
+\approx          $cnext $latex \approx          $$ $rend
+\cong            $cnext $latex \cong            $$ $rend
+\neq             $cnext $latex \neq             $$ $rend
+\doteq           $cnext $latex \doteq           $$ $rend
+\propto          $cnext $latex \propto          $$ $rend
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$   $rend
+\models          $cnext $latex \models          $$ $rend
+\perp            $cnext $latex \perp            $$ $rend
+\mid             $cnext $latex \mid             $$ $rend
+\parallel        $cnext $latex \parallel        $$ $rend
+\bowtie          $cnext $latex \bowtie          $$ $rend
+\smile           $cnext $latex \smile           $$ $rend
+\frown           $cnext $latex \frown           $$
+$tend
+
+$tend
+
+$$
+
+
+$end

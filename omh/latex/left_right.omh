@@ -1,0 +1,155 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin left_right$$
+$dollar @$$
+$spell
+	frac
+	xml
+	htm
+	OMhelp
+$$
+
+$mindex enclose left right$$ 
+$index latex, left$$
+$index latex, right$$
+$index latex, delimiter$$
+$index latex, enclose$$
+
+$section Latex Enclose With Left and Right Commands$$
+
+$table
+$bold Syntax$$
+$cnext $syntax%@latex \left %s1 command_list% \right %s2% @@%$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the specified command list enclosed by the 
+specified symbols.
+The enclosing symbols are stretched to be 
+as large as the output corresponding to the command list.
+The values $italic s1$$ and $italic s2$$ must be one of the 
+$xref/left_right/Enclosing Symbols/enclosing symbols/$$.
+$pre
+
+$$
+The enclosing symbols are called delimiters in LaTex
+but we avoid that reference because of the special meaning
+of a
+$xref/glossary/Delimiter Sequence/delimiter sequence/$$
+in OMhelp.
+
+$head Example$$
+
+$subhead Using Left and Right$$
+The input
+$codep
+	@latex
+	\left ( \frac{ x^1 }{ y_2 } \right )
+	@@
+$$
+results in the following output:
+$pre
+	$$
+$latex
+\left ( \frac{ x^1 }{ y_2 } \right )
+$$
+
+$subhead With Out Left and Right$$
+The input
+$codep
+	@latex
+	( \frac{ x^1 }{ y_2 } )
+	@@
+$$
+results in the following output:
+$pre
+	$$
+$latex
+( \frac{ x^1 }{ y_2 } )
+$$
+
+$subhead Using the Period Symbol$$
+If the period is used for an enclosing symbol,
+nothing is output in its place.
+The input
+$codep
+	@latex
+	\left \{ \frac{ x^1 }{ y_2 } \right .
+	@@
+$$
+results in the following output:
+$pre
+	$$
+$latex
+\left \{ \frac{ x^1 }{ y_2 } \right .
+$$
+
+
+
+
+$head Enclosing Symbols$$
+$nospell
+
+$table
+
+$table
+$italic s1$$ or $italic s2$$   $cnext $italic Output$$ $rend
+$code  ($$                     $cnext $latex ( $$ $rend
+$code  [$$                     $cnext $latex [ $$ $rend
+$code \{$$                     $cnext $latex \{ $$ $rend
+$code  |$$                     $cnext $latex | $$ $rend
+$code  /$$                     $cnext $latex / $$ $rend
+$code \langle$$                $cnext $latex \langle $$ $rend
+$code \lfloor$$                $cnext $latex \lfloor $$ $rend
+$code \lceil$$                 $cnext $latex \lceil $$ $rend
+$code \uparrow$$               $cnext $latex \uparrow $$ $rend
+$code \downarrow$$             $cnext $latex \downarrow $$ $rend
+$code \updownarrow$$           $cnext $latex \updownarrow $$ $rend
+$code  .$$ $cnext 
+$tend
+
+$cnext
+
+$table
+$italic s1$$ or $italic s2$$   $cnext $italic Output$$ $rend
+$code  )$$                     $cnext $latex ) $$ $rend
+$code  ]$$                     $cnext $latex ] $$ $rend
+$code \}$$                     $cnext $latex \} $$ $rend
+$code \|$$                     $cnext $latex \| $$ $rend
+$code \backslash$$             $cnext $latex \backslash $$ $rend
+$code \rangle$$                $cnext $latex \rangle $$ $rend
+$code \rfloor$$                $cnext $latex \rfloor $$ $rend
+$code \rceil$$                 $cnext $latex \rceil $$ $rend
+$code \Uparrow$$               $cnext $latex \Uparrow $$ $rend
+$code \Downarrow$$             $cnext $latex \Downarrow $$ $rend
+$code \Updownarrow$$           $cnext $latex \Updownarrow $$ $rend
+$tend
+
+$tend
+
+$$
+
+
+
+$end

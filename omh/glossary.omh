@@ -1,0 +1,165 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin glossary$$
+$escape #$$
+$dollar @$$
+$aindex head$$
+$spell 
+	xref
+	html
+	omhelp
+	htm
+	ascii
+	OMhelp
+	cindex
+	childtable
+$$
+$index glossary$$
+
+$section Glossary$$
+
+$head Children$$
+The children of the current section 
+are the sections directly following in the 
+$xref/_contents//contents tree/$$
+that are indented more than the current section.
+The children of the current section are specified by
+the $xref/children//contents/$$, $code childtable$$, or
+$code children$$ command for the current section.
+
+$head Complete Path Specification$$
+A complete path specification is a directory specification
+that begins with a forward slash, $code /$$,
+begins with a back slash, $code \$$,
+or has a colon, $code :$$, as its second character. 
+(Note that a disk specification should precede the colon.)
+
+$head Cross Reference Tag$$
+Each section has a cross reference tag that is specified in its 
+$mref/begin/$$ command. 
+This tag is used to link to that section using the
+$xref/xref//xref/$$ command.
+It should be an abbreviated version of the title
+for the corresponding section
+(similar to a variable name being short hand for a concept 
+with in a program). 
+It must be unique for each section.
+Upper and lower case versions of the same letter are considered
+equal when comparing cross reference tags.
+
+$head Delimiter Sequence$$
+Some commands use a delimiter sequence. 
+The first character in a delimiter sequence cannot be a letter.
+In addition, there can be no occurrences of the character $code @$$ 
+in any delimiter sequence; i.e.,
+there can not be any commands embedded in a delimiter sequence.
+If the first character in the sequence is a 
+$xref/glossary/White Space/white space/$$ character,
+there is only one token and it is the entire sequence except
+for the first character.
+If the first character in the sequence is not a white space character,
+any character equal to the first is called a delimiter for the sequence.
+In this case,
+the last character in the sequence must also be a delimiter.
+The characters between each pair of delimiters are called tokens.
+The number of tokens in a delimiter sequence is one less 
+than the number of delimiters in the sequence.
+
+$head Directory Separator Character$$
+Both file names and directory names can use either the forward slash character,
+$code /$$, or the back slash character, $code \$$, to separate
+directories. 
+For example, 
+$syntax%
+	@include %directory%/%file%
+%$$
+has the same meaning as
+$syntax%
+	@include %directory%\%file%
+%$$
+
+
+$head #The Dollar# Sign Character$$ 
+The character @ is used to signal the start of a text processing
+command. This character is referred to at the dollar sign.
+
+$head File Extension$$
+The term file extension refers to the characters
+that follow and include the last period in the file name. 
+The extension for the HTML files written by $code omhelp$$ is $code .htm$$.
+
+$head Input File Searching$$
+If an input file name is not a 
+$xref/glossary/Complete Path Specification/complete path specification/$$,
+it is relative to the directory where the file containing the
+$xref/running/Root Section/root section/$$ is located.
+If it cannot be found there,
+the extension of the file name
+is used to determine which directories to search 
+(as specified by the $mref/path/$$ command).
+
+$head Parent$$
+The parent of the current section 
+is the previous section in the 
+$xref/_contents//contents tree/$$
+that is indented less than the current section.
+The parent of the current section specified the input
+file for the current section in a
+$xref/children//contents/$$, $code childtable$$, or
+$code children$$ command.
+
+$head Section$$
+A section of an OMhelp web site is the information 
+between a $mref/begin/$$ and the corresponding $code end$$
+command.
+Each section corresponds to one browser window
+and can be divided into frames using the $mref/fend/$$ command.
+
+$head Siblings$$
+A siblings of the current section
+is a section indented the same amount 
+in the $xref/_contents//contents tree/$$
+and that has the same $xref/glossary/Parent/parent/$$.
+If siblings are in the same input file,
+they have the same order as in the input file.
+If siblings are in different input files,
+they have the order of their input files in the corresponding
+$xref/children//contents/$$, $code childtable$$, or
+$code children$$ command.
+
+$head Uniformly Spaced Font$$
+A uniformly spaced font is a character font
+in which all character use
+the same amount of horizontal space.
+In addition,
+$xref/glossary/White Space/white space/$$
+characters in the input are preserved in the output.
+This enables you to line up text between different lines.
+If you use an editor that displays the input text in a uniformly
+spaced font, a visual inspection will enable you to see the
+characters that will line up between different lines. 
+
+$head White Space$$
+The following ascii characters are considered white space:
+space, form feed, new line, carriage return, horizontal tab,
+vertical tab.
+
+$end

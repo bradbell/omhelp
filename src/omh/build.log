@@ -1,0 +1,67 @@
+OMhelp Debug Version YY-MM-DD
+
+omhelp.omh: OMhelp:
+ copyright.omh: copyright:
+ ../../distribute: Distribute:
+Spelling error: in line 65 of file ../../distribute: Mhelp
+
+Spelling error: in line 78 of file ../../distribute: Mhelp
+
+ ../convert.h: convert:
+  ../convert.c: ConvertNewline: ConvertOutput: ConvertAddColumn: ConvertSetTabSize: ConvertPreviousNewline: ConvertInternalString:
+ ../execute.h: execute:
+  ../execute.c: ExecuteNextFile: ExecuteSetFile: ExecuteWriteFile: ExecuteFree:
+ ../href.h: href:
+  ../href.c: HrefOutputPass1: HrefOutputPass2: HrefPrintablePass2: HrefEnd: HrefAddList: HrefOutputList: HrefFreeMemory:
+ ../input.h: input:
+  ../input.c: InputGet: InputInit: InputPush: InputPop: InputName: InputLine: InputAddPath: InputSearch: InputSplitName: InputFree:
+ ../section.h: SectionInfo:
+  ../section.c: SectionInfoNew: SectionDefaultStyle: SectionFreeTree: SectionFind: SectionSetTag: SectionNumber: SectionTagNotDefined: SectionReadOrder:
+ string.omh: string:
+  ../StrLowCase.c: StrLowCase:
+  ../splittext.c: SplitText:
+  ../strcat.c: StrCat:
+  ../StrLowAlloc.h: StrLowAlloc:
+  ../str_alloc.h: str_alloc:
+  ../str_cat.h: str_cat:
+  ../StrRemove.c: StrRemove:
+  ../ClipWhiteSpace.c: ClipWhiteSpace:
+  ../int2str.c: int2str:
+  ../FileEqual.c: FileEqual:
+ ../cross.h: CrossReference:
+  ../cross.c: CreateCrossReference: FindCrossReference: DefineCrossReference: NextCrossReference: FreeCrossReference:
+ automatic.omh: automatic:
+  ../automatic.c: AutomaticAppendSection: IsAutomaticSection: AutomaticTag:
+  ../AutomaticLink.c: AutomaticLink:
+  ../content.c: content:
+ misc.omh: misc:
+  ../fatalerr.c: fatalerr:
+  ../math.c: math:
+  ../pending.c: pending:
+  ../children.c: children:
+  ../head.c: heading:
+  ../index.c: KeywordIndex:
+  ../funref.c: FunRef:
+  ../search.c: search:
+  ../copyfile.c: copyfile:
+  ../links.c: links:
+  ../spell.c: spell:
+  ../output.c: PushOutput: PopOutput:
+  ../Internal2Out.c: Internal2Out:
+  ../latex.l: LatexLexPut: LatexLexHistory:
+  ../LatexAtomic.c: LatexAtomic:
+  ../BinarySearch.c: BinarySearch:
+  ../Color.c: Color:
+  ../LatexMacro.h: LatexMacro:
+   ../LatexMacro.c: LatexMacroUserInput: LatexMacroFree: LatexMacroGetCh: LatexMacroInputLine: LatexMacroInputFile: LatexMacroExpandInput: LatexMacroExpandLine: LatexMacroExpandFile: LatexMacroExpandName: LatexMacroKeep:
+  ../allocmem.c: AllocMem:
+ glossary.omh: glossary:
+Begin Second Pass
+
+Cross reference error detected at line 93 of file ../allocmem.c
+No destination is defined with tag = "c_free" and heading.subheading =
+""
+
+Cross reference error detected at line 68 of file ../allocmem.c
+No destination is defined with tag = "c_alloc" and heading.subheading =
+""

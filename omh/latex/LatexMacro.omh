@@ -1,0 +1,237 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin LatexMacro$$
+$dollar @$$
+$spell
+	inline
+	hspace
+	newcommand
+	im
+	textm
+	OMhelp
+	xml
+	Lamport
+	mi
+	mathvariant
+	mathml
+	Ropf
+	frac
+$$
+
+$section The Latex Macro Preprocessor$$
+
+
+$table
+$bold Definition$$
+$cnext $syntax%\newcommand{ \%Name% }{%$$
+	$latex Text_0$$ $code }$$
+$rnext
+$cnext $syntax%\newcommand{ \%Name% }[ %M% ]{%$$
+	$latex Text_0$$ $syntax%#%J(1)%$$
+	$latex Text_1 \; \ldots \; Text_{N-1}$$ $syntax%#%J(N)%$$
+	$latex Text_N $$ $code }$$
+$rnext
+$bold Usage$$
+$cnext $syntax%\%Name%$$
+$rnext
+$cnext $syntax%\%Name%{%$$
+	$latex A_1$$ $code }$$
+	$latex \; \ldots \; $$ $code {$$
+	$latex A_M$$ $code }$$
+$rnext
+$tend
+
+$fend 25$$
+
+$head Definition$$
+When running OMhelp with the
+$xref/running/XML/-xml/$$ command line option,
+Latex macros can be defined and used in $xref/latex/$$ mode.
+
+$subhead Global Scope$$
+Macros defined using a $code \newcommand$$ in the 
+$xref/running/Root Section/root section/$$
+have global scope; i.e., are defined for all sections.
+This avoids having to entirely 
+reprocess all the macros for each section
+(which could be time consuming for large numbers of macros).
+It is suggested that you put all these macros in one file
+using an 
+$xref/latex/Inline Formulas/inline/$$ latex command.
+(You cannot use a
+$xref/latex/Displayed Formulas/displayed/$$ latex command
+when you are just defining macros and there is no output to be displayed.)
+
+$subhead Section Scope$$
+Macros defined in sections, other than the root section,
+are limited in scope to the section they are defined in; 
+i.e., they do not affect any other sections.
+
+
+$subhead Name$$
+The sequence of upper or lower case letters 
+$latex Name$$ specifies the name of the macro.
+
+$subhead Text$$
+For $latex K = 0 , \ldots , N$$,
+$latex Text_K$$ is a sequence of characters.
+The character $code #$$ does not appear in $latex Text_K$$
+except if directly preceded by a back slash; i.e., $code \#$$.
+In addition, $latex Text_K$$ does not contain
+any $code }$$ characters unless preceded by a matching $code {$$ character.
+
+$subhead M$$
+The decimal digit $latex M$$ is between one and nine inclusive.
+It specifies the number of arguments connected to each use of 
+$syntax%\%Name%%$$.
+If $latex M$$ is not present in the macro definition,
+it is implicitly zero in the discussion below.
+
+$subhead N$$
+The number of replacements made with each use of the macro
+is denoted by $latex N$$.
+
+$subhead J(K)$$
+For $latex K = 1 , \ldots , N$$, the decimal digit $latex J(K)$$ 
+is between one and $latex M$$.
+It specifies which argument is placed directly before $latex Text_K$$
+in the macro expansion.
+
+
+$head Usage$$
+If the macro $italic Name$$ is defined with zero arguments,
+the macro usage
+$syntax%
+	\%Name%
+%$$ 
+has the replacement value
+$pre
+	$$
+$latex Text_0$$
+$pre
+$$
+corresponding to the definition of $italic Name$$.
+In general, the macro usage
+$syntax%
+	\%Name%{%$$
+	$latex A_1$$ $code }$$
+	$latex \; \ldots \; $$ $code {$$
+	$latex A_M$$ $syntax% }
+%$$
+has the replacement value
+$pre
+	$$
+$latex
+Text_0 \; A_{J(1)} \; Text_1 \; \cdots \; Text_{N-1} \; A_{J(N)} \; Text_N
+$$
+$pre
+$$
+where $latex M$$, $latex N$$, and
+$latex Text_K$$ for $latex K = 1 , \ldots , N$$, 
+corresponds to the definition of $italic Name$$.
+
+$head Example$$
+
+$subhead No Arguments$$
+The input
+$codep
+@latex \[
+	\newcommand{\Dx}{ \frac{d \hspace{1ex} }{d x} }
+	\Dx
+\] @@
+$$
+results in the output
+$latex \[
+	\newcommand{\Dx}{ \frac{d \hspace{1ex} }{d x} }
+	\Dx
+\] $$
+
+$subhead Arguments$$
+The input
+$codep
+@latex \[
+	\newcommand{\D}[2]{ \frac{d #1}{d #2} }
+	\D{y}{x}
+\] @@
+$$
+results in the output
+$latex \[
+	\newcommand{\D}[2]{ \frac{d #1}{d #2} }
+	\D{y}{x}
+\] $$
+
+$subhead Mathml$$
+Macros combined with
+the $xref mathml$$ command can be used to define symbols
+not available in
+$xref/latex/Reference/Standard Latex's/$$
+math mode.
+For example, the
+$href%http://www.w3.org/TR/MathML2/byalpha.html%MathML symbol%$$ Ropf
+is used in the input
+$codep
+@latex \[
+	\newcommand{\Ropf}{ 
+		\mathml{ <mi mathvariant='normal'> &\#x0211D; </mi> }
+	}
+	x \in \Ropf^n
+\] @@
+$$
+which results in the output
+$latex \[
+	\newcommand{\Ropf}{ 
+		\mathml{ <mi mathvariant='normal'> &\#x0211D; </mi> } 
+	}
+	x \in \Ropf^n
+\] $$
+
+$head Restrictions$$
+If two macros are defined with the same value of $italic Name$$,
+an error message is printed and OMhelp stops.
+
+$head Nonstandard$$
+Latex macros in OMhelp are different from those in standard 
+Section 3.4.1 of 
+$xref/latex/Reference/Lamport's book/$$.
+The following is a list of these differences:
+
+$list number$$
+
+It is ok (not an error) to redefine any of the standard Latex
+commands.
+
+$lnext
+Macro replacement values cannot use other macros; i.e.,
+the values of $latex Text_K$$ in an macro definition,
+and the value of $latex A_J$$ in a macro usage,
+cannot use other macros.
+
+$lnext
+Macros defined in sections, other than the
+$xref/running/Root Section/root section/$$,
+have local scope; i.e., do not affect any other sections.
+
+
+$lend
+
+
+
+$end

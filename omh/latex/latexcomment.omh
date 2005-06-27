@@ -1,0 +1,72 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin latexcomment$$
+$escape #$$
+$spell 
+	Latex
+	rcl
+	xml
+	vdots
+$$
+$dollar @$$
+
+$mindex latex comment command$$ 
+
+$section The Latex Comment Command$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex % /text/ @@/$$
+$tend
+
+$fend 15$$
+
+$head Description$$
+All  of the character in
+$italic text$$ are ignored where 
+$italic text$$ is any sequence of characters not including
+a new line character or the double dollar $code @@$$.
+
+$head Example$$
+There are three Latex comment commands in the following input
+$codep
+@latex \[
+	% align columns: first right, second centered, and third left
+	 \begin{array}{rcl}
+		a b & =      & c   \\ % first equation
+		    & \vdots &     \\
+		x   & =      & y z    % last equation  
+	\end{array}
+\] @@
+$$
+The 
+$xref/latex/XML Dependent Interpretation/XML dependently interpretation/$$
+of this input is
+$latex \[
+	% align columns: first right, second centered, and third left
+	 \begin{array}{rcl}
+		a b & =      & c   \\ % first equation
+		    & \vdots &     \\
+		x   & =      & y z    % last equation  
+	\end{array}
+\] $$
+
+$end

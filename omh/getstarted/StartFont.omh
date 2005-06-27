@@ -1,0 +1,93 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin StartFont$$
+$dollar @$$
+$escape #$$
+$spell
+	omhelp
+	omh
+	OMhelp
+	htm
+	headexample
+$$
+
+$children/
+	FontExample.omh/$$
+
+$section Example Using Font Commands$$
+$index font, get started$$
+
+$head Introduction$$
+The $xref/font/$$ commands
+$code fixed$$,
+$code code$$,
+$code italic$$,
+$code bold$$,
+$code big$$,
+$code small$$,
+change to the specified font.
+
+
+$head Execute The Following Steps$$
+
+$subhead FontExample.omh$$
+Use an editor of your choice to
+create the file $code  FontExample.omh$$ 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Omh Directory/
+	omh directory/$$
+with the following contents:
+$code
+$pre
+     $$@begin $verbatim%FontExample.omh%5%#036begin %$$
+$$
+Note that you can copy and paste the commands above
+to your editor window.
+You may just copy the file with the same name from the 
+$xref/getstarted/Getting Started Directory/getting started directory/$$.
+
+$subhead Example In This Web Site Context$$
+You can view the
+result of making $code FontExample.omh$$
+part of the OMhelp help web site 
+by selecting 
+$xref/FontExample/$$.
+
+$subhead Execute OMhelp$$
+In a Dos window and 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Htm Directory/
+	htm directory/$$
+execute the following command
+$codep
+	omhelp ..\FontExample.omh
+$$
+
+
+$subhead Example by Itself$$
+Use a web browser of your choosing to view the file
+$syntax%%omh%\htm\headexample.htm%$$.
+
+$end

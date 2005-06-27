@@ -1,0 +1,177 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin children$$
+$escape #$$
+$spell 
+	cend
+	rref
+	stdout
+	omhelp
+	xref
+	omh
+	pre
+	childtable
+	mref
+	tref
+$$
+$dollar @$$
+
+
+$cindex document structure$$
+$mindex children subsection contents tree$$
+$cindex read command input file$$
+
+$index childtable$$
+$index children$$
+
+$section Specifying Children in Contents Tree$$
+
+$table
+$bold Syntax$$ 
+$cnext $syntax/@contents%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
+$cnext $syntax/@childtable%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
+$cnext $syntax/@children%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
+$bold See Also$$
+$cnext
+	$xref/StartMultiple//get started/$$,
+ 	$mref/include/verbatim/image/$$ 
+$tend
+
+$fend 30$$
+
+$head Description$$
+These commands provide different ways to specify which sections are 
+$xref/glossary/Children/children/$$
+of the current section in the 
+$xref/_contents//table of contents/$$.
+(You can link to the overall table of contents using the 
+$code _contents$$ cross reference
+$xref/glossary/Cross Reference Tag/tag/$$ .)
+These commands also specify which files are processed
+by $code omhelp$$. 
+The name of each file referenced in this way is printed on 
+$xref/stdout//standard output/$$.
+$pre
+
+$$
+The $code contents$$, $code childtable$$ and
+$code children$$ commands determine the order of 
+the children of the current section.
+The navigation frame in the left hand column will contain links
+that are relative to the current section.
+These include links to its parent, grand parent, and all
+nodes above the current section in the help tree.
+It include links to all the siblings of the current section.
+In addition, it includes links to the 
+$mref/previous/$$ and $mref/next/$$
+section as determined by the table of contents
+(which in turn is determined by the 
+$code contents$$, $code childtable$$ and $code children$$ commands).
+
+$syntax/
+
+%/file1/%/file2/%/.../%/fileN/%
+/$$
+is a 
+$xref/glossary/Delimiter Sequence/delimiter sequence/$$
+and $code %$$ can be any character that is not a letter.
+The characters in $italic file1$$ specify the 
+$xref/glossary/Input File Searching/input file/$$
+containing the omhelp commands for the
+first set of children for this section.
+The characters in $italic fileN$$ specify
+the input file containing the omhelp commands for the
+last set of children for this section.
+$pre
+
+$$
+Leading 
+$xref/glossary/White Space/white space/$$
+in the file names is ignored and can be used
+to help separate them.
+$pre
+
+$$
+Both the forward and back slash can be used
+for a 
+$xref/glossary/Directory Separator Character/directory separator character/$$
+in the file names.
+
+$head Contents Command$$
+If the $code contents$$ command is used,
+a Contents heading will be included in the current section.
+This will be followed by a list of the title for each of the
+subsections together a link to the corresponding subsection.
+
+$contents/
+	next.omh/
+	previous.omh/
+	stdout.omh/$$
+
+The table of contents directly above
+is generated with the following command
+$nospell
+$codep
+	@contents/
+		next.omh/
+		previous.omh/
+		stdout.omh/@@
+$$
+$$
+
+$head Childtable Command$$
+The table of 
+$xref/cross/Contents/Contents/$$ 
+in the $tref cross$$ section is generated
+with the following $code childtable$$ command:
+$pre
+$$
+
+$code
+@childtable/
+$verbatim%cross_childtable.omh%5%#036childtable/%$$
+$$
+
+$head Children Command$$
+The $code children$$ command does not automatically generate a
+table of contents.
+The $mref/format/$$ section uses the following
+commands to specify its children and corresponding jump tables.
+$pre
+$$
+
+$code
+@children/
+$verbatim%format_children.omh%5%#036children/%$$
+$$
+
+$pre
+$$
+
+Note that the order of the files specified by the $code children$$
+command determines order of the corresponding sections in
+the $xref/_contents//contents tree/$$.
+This does not need to be the same as the order of the sections
+in the corresponding jump tables.
+
+
+
+$end

@@ -1,0 +1,204 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin href$$
+$escape #$$
+$spell 
+	linkingtext
+	hypertext 
+	href
+	Internet
+	http://www.w3.org/tr/rec-html32.html#charset
+	Kalman-Bucy
+	htm
+	OMhelp
+	mailto
+	uri
+$$
+$dollar @$$
+
+$section Linking an Address Outside Current Web Site$$
+
+$index href$$
+$cindex external cross reference link$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@href%/uri/%@@/$$ $rnext
+$cnext $syntax/@href%/uri/%/linkingtext/%@@/$$ $rnext
+$cnext $syntax/@href%/uri/%/linkingtext/%/frame/%@@/$$ $rnext
+$bold See Also$$
+$cnext 
+$xref/running/Icon Link/icon link/$$, 
+$xref/keyword/Keyword List/keyword list/$$,
+$mref/xref/$$
+$tend
+
+$fend 25$$
+
+$head Description$$
+This command is used to specify a link to an address on the internet
+that is external to the current web site.
+(It may however be in the same directory.)
+The text after the $code @href$$ and before the $code @@$$
+is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
+where $code %$$ can be any character that is not a letter.
+
+$head uri$$
+The characters in $italic uri$$
+are the Universal Resource Identifier
+that specifies the internet address corresponding to the 
+$code href$$ command.
+Leading and trailing white space in $italic uri$$ is ignored.
+
+$head linkingtext$$
+If $italic linkingtext$$ is present in the
+delimiter sequence, it specifies the text that the 
+user will see for the link.
+If $italic linkingtext$$ is $bold not$$ present,
+the user will see $italic uri$$ for the link.
+Leading and trailing white space in $italic link$$ is ignored.
+
+$head frame$$
+If $italic frame$$ is present,
+it is an integer that specifies the 
+$xref/fend//frame/$$
+with in the current browser window
+that the result of the link is displayed in.
+If no such frame exists,
+a separate browser window is used to display the result
+of the link.
+If $italic frame$$ is less than one or greater than the
+number of frames in the current browser window,
+a separate window is used to display the result of the link.
+Leading and trailing white space in $italic frame$$ is ignored.
+
+$head File URI$$
+The following input
+$codep
+	@href%http://www.w3.org/tr/rec-html32.html%@@
+$$
+links the text 
+$code http://www.w3.org/tr/rec-html32.html$$
+to the corresponding internet file.
+The result is the following link
+$pre
+	$$
+$href%http://www.w3.org/tr/rec-html32.html%$$
+
+
+$head User Text$$
+The following input
+$codep
+	@href%http://www.w3.org/tr/rec-html32.html%HTML 3.2%@@
+$$
+links the text $code HTML 3.2$$ to the 
+file specified by
+$codep
+	http://www.w3.org/tr/rec-html32.html
+$$
+The result is the following link
+$pre
+	$$
+$href%http://www.w3.org/tr/rec-html32.html%HTML 3.2%$$
+
+$head Display Frame$$
+If the user selects a link corresponding to the following input
+$codep
+	@href%http://www.w3.org/tr/rec-html32.html%HTML 3.2%1%@@
+$$
+the results are displayed in the first frame of the current section.
+You can see the corresponding effect by selection the following link:
+$pre
+	$$
+$href%http://www.w3.org/tr/rec-html32.html%HTML 3.2%1%$$
+$pre
+$$
+If the  
+$xref/fend/Frames/frame number/$$
+is not valid for the current section,
+the results are displayed in a separate window.
+For example,
+the following input
+$codep
+	@href%http://www.w3.org/tr/rec-html32.html%HTML 3.2%0%@@
+$$
+results in the following link
+$pre
+	$$
+$href%http://www.w3.org/tr/rec-html32.html%HTML 3.2%0%$$
+
+
+$head Other URIs$$
+$index mailto$$
+$index zip file$$
+You can reference an anchor within a page using the $code href$$ command.
+For example
+$codep
+	@href%http://www.w3.org/tr/MathML2/chapter1.html#intro_goals%@@
+$$
+results in the following link
+$pre
+	$$
+$href%http://www.w3.org/tr/MathML2/chapter1.html#intro_goals%$$
+$pre
+$$
+In general, the
+characters between the first and second delimiter specify an arbitrary 
+URI on the internet. For example it can reference a $code mailto$$ command
+or a ZIP file.
+
+$head White Space$$
+Leading and trailing white space in $italic uri$$, $italic link$$
+and $italic frame$$ is ignored. 
+This is useful when these arguments are long.
+For example,
+$codep
+	@href%http://www.w3.org/tr/MathML2/chapter1.html#intro_goals
+	     %Design Goals of MathML
+	%@@
+$$
+results in the following link
+$pre
+	$$
+$href%http://www.w3.org/tr/MathML2/chapter1.html#intro_goals
+     %design goals of MathML
+%$$.
+
+
+
+
+$head Checking Links$$
+OMhelp does not check that the internet addresses 
+specified by your $code href$$ commands are valid.
+If you use the
+$xref/running/Debugging/-debug/$$ option on the 
+$xref/running//command line/$$, 
+OMhelp will generate a section to aid you in checking
+that the these addresses are valid.
+The $xref/glossary/Cross Reference Tag/cross reference tag/$$
+for this automatically generated
+section is $code _external$$.
+You can see the corresponding section for this web site
+by selecting the following $xref/_external//link/$$.
+
+
+
+$end

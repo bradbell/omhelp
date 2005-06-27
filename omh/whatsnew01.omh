@@ -1,0 +1,480 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin whatsNew01$$
+$dollar @$$
+$spell
+	Alloc
+	whatsnew
+	gif
+	keyindex
+	omhelp
+	readme
+	OMhelp
+	Larray
+	omh
+	Marray
+	childtable
+	htm
+	Internet
+	Microsoft
+	cindex
+	icon icon
+	jpg
+	Microsoft
+	Netscape
+	hreflist
+	jkeyindex
+	funref
+	underbar
+	wrd
+	htm
+$$
+
+$index readme$$
+
+$mindex Changes 2001$$
+
+$index  whats new, 2001$$
+
+$section Changes and Additions to OMhelp During 2001$$
+
+
+$head Description$$
+This section contains a list of changes to OMhelp in reverse order
+by date. 
+Its purpose is to assist you in learning the about 
+changes between versions of OMhelp.
+
+$head 12-07$$
+Improved error message when the $mref/list/$$ option was not valid.
+
+$head 12-05$$
+Added commands that manage $xref/list//lists/$$.
+
+$head 12-04$$
+Changed the $mref/section/$$ command so that white space, such as new lines, 
+is interpreted as a normal spaces. 
+New lines in the text part of the $code section$$ command
+used to break the OMhelp search utility.
+
+$head 10-16$$
+Fixed an error in one of the asserts in the $code BlockAlloc$$ example
+(which was later replaced by the $tref getstarted$$ section).
+To be specific,
+$codep
+	(b->index == info->index) &&
+	(b->index == info->index),
+$$
+was changed to
+$codep
+	(b->user == info->user) &&
+	(b->next == info->next),
+$$
+
+
+$head 09-19$$
+The $code Larray$$ and $code Marray$$ classes were getting to complicated
+for an example.
+They have been replaced by the $code BlockAlloc$$ example
+(which was later replaced by the $tref getstarted$$ section).
+
+$head 08-20$$
+The $code omh\Larray$$ and $code omh\LMarray$$ directories
+were moved so they are now subdirectories of $code omh\example$$.
+This was so that the C++ example is better separated from the
+rest of the OMhelp documentation.
+
+$head 08-16$$
+The $code LMarray$$ template class was extended to include 
+binary operations between elements and arrays.
+
+$head 08-14$$
+The links corresponding the 
+$xref/children//contents/$$ and $code childtable$$ commands
+where in mixed case (should have been lower case). 
+This did not work on Unix Systems and has been fixed.
+$pre
+
+$$
+The $code example$$ command was changed to be the $mref/execute/$$ command.
+This was done so that the example would refer to an $code example$$ use of 
+OMhelp to document source code
+(which was later replaced by the $tref getstarted$$ section).
+If you used the old $code example$$ command, you will need to change 
+$code @example$$ to $code @execute$$.
+
+$head 08-09$$
+The C++ template class example was extended to
+include documentation of a derived class.
+
+$head 08-08$$
+The $mref/path/$$ specifications used to be relative to the
+directory where OMhelp was executed.
+Now they are relative to the directory where the file containing the
+$xref/running/Root Section/root section/$$ is located.
+If you executed OMhelp in a subdirectory of the starting file location,
+you will have to change you path specifications by removing
+the $code ..$$ from the beginning of each one.
+(This is the standard way to use OMhelp and it was confusing to
+always have a $code ..$$ in the front of the path specifications.)
+
+$head 08-07$$
+A static counter that tracks allocated memory
+was added to the $code Larray$$ template class.
+
+$head 07-24$$
+The file $code index.htm$$ in the directory corresponding to the 
+web site is automatically linked to the 
+$xref/glossary/Cross Reference Tag/cross reference tag/$$
+specified by the first section in file containing the
+$xref/running/Root Section/root section/$$.
+This makes the corresponding section the default page
+for an OMhelp web site.
+It has the added advantage that you can avoid the confusion
+between this use of $code index.htm$$ and the 
+$xref/keyword//index/$$ command.
+On the other hand, because of this automatic linking, you 
+can not longer use $code index$$ 
+as a cross reference tag in a $mref/begin/$$ command.
+
+$head 07-21$$
+On $xref/whatsNew01/06-24/01-06-24/$$ a change was made to include
+specific headings within a section in the indexing.
+Unfortunately, the current heading was also added to $mref/href/$$
+commands. This has been fixed.
+
+$head 07-18$$
+The 
+$xref/path/Ignored/path/$$
+command was changed so that 
+it is ignored when it appears in any other section besides the
+$xref/running/Root Section/root section/$$
+of the web site.
+$pre
+
+$$
+The
+$code Larray$$ C++ template class was added as an example
+of embedding OMhelp commands in source code.
+It is also an example of a 
+sub-tree that can be built into a separate web site.
+
+
+$head 07-17$$
+The search page utility did not work when there was only one help page.
+This has been fixed.
+It is useful because it shows people what the system does after they
+construct their first page.
+
+
+$head 07-07$$
+The $mref/tabsize/$$ command was added so that you can control
+the amount of indentation corresponding to a tab character
+in pre-formatted text.
+One benefit of this command is that 
+tabs and the indentation in a $mref/verbatim/$$ command can be lined up.
+
+$head 07-06$$
+Some user questions suggested that the $mref/children/$$ command
+was not well understood.
+Upon inspection of the corresponding help, it was discovered
+that the 
+$xref/children/Children Command/children example/$$ in $code children.omh$$
+did not properly correspond to the commands in $code format.omh$$.
+The $mref/verbatim/$$ and $mref/include/$$ commands 
+enable the use of a single input file for the two different output uses
+and thereby fixed the true source of this error 
+(the true source of the error was not using the single source philosophy).
+$pre
+
+$$
+Sometimes the line following a $mref/verbatim/$$
+command was indented as if it were part of the $code verbatim$$
+command.
+$pre
+
+$$
+If there was no section command between a begin and an end,
+an improper error message about frames was generated.
+This has been corrected and the proper error message is reported.
+
+$head 06-29$$
+Internet address with in the current file system
+that have a back slash work with a Microsoft server, 
+but not with a Unix server.
+An error message is now printed instructing one to change
+these back slashes to forward slashes.
+(This affected the $mref/href/$$ command the 
+$xref/running//command line options/$$.)
+$pre
+
+$$
+Non-breaking spaces are now used
+for all the spaces within a $mref/syntax/$$ command.
+This prevents the browser from automatically wrapping lines in a 
+single syntax specification.
+(Unfortunately, Microsoft's internet explorer will wrap lines at other
+characters besides white space. Thus there are some characters, such as
+parenthesis, at which IE will wrap lines in a syntax command.)
+
+
+$head 06-27$$
+The help for OMhelp has been improved. To be specific,
+the size of the syntax 
+$xref/fend/Frames/frame/$$ has been adjusted to the amount
+of syntax for each command. 
+The 
+$xref/_index//keyword index/$$ entries have been adjusted
+so that there are not separate entries for very similar words 
+(like $code file$$ and $code files$$).
+A set of $bold See Also$$ entries was entered for a lot of 
+the sections.
+
+$head 06-26$$
+If a file specified in $xref/children//contents/$$, $code childtable$$,
+or $code children$$ command does not exist,
+the corresponding error message now identifies the input file
+where the command occurred.
+
+
+$head 06-24$$
+The $xref/keyword//commands/$$ $code index$$ and $code cindex$$
+can now link entries in the $xref/_index//keyword index/$$
+to specific
+$xref/keyword/Headings/headings/$$ within a section.
+
+$head 06-23$$
+Extended  the $mref/image/$$ command so that it
+works with other file extensions besides $syntax//name/.gif/$$.
+For example, the input $code @icon icon.jpg@@$$ 
+results in the following output: $icon icon.jpg$$
+
+$head 06-22$$
+Fixed an error in the JavaScript for the OMhelp search
+utility. To be specific, in JavaScript if no matches are found
+for a string, a null is returned (instead of an array of zero length)
+is returned.
+
+$head 06-21$$
+Add the $mref/verbatim/$$ command which displays a file without
+any formatting.
+$pre
+
+$$
+Fixed some special cases where the bold letters in the headings
+for the $xref/_index//keyword index/$$ and the $xref/_reference//reference/$$
+were not working properly. For example, Alpha in the index was being displayed
+before the bold letter $bold A$$.
+$pre
+
+$$
+The help tree in the table of 
+$xref/_contents//contents/$$
+for OMhelp was reorganized.
+This makes better use of the new navigation side bar 
+that was part of the changes on
+$xref/whatsNew01/06-14/01-06-14/$$.
+$pre
+
+$$
+The
+$xref/glossary/Cross Reference Tag/cross reference tag/$$
+for the keyword index was changed (back to its previous value).
+This change was from $code _index$$ to 
+$code _keyindex$$.
+This is to avoid conflicts in closeness of name with the
+default home page; i.e., $code index$$.
+$pre
+
+$$
+Some changes were made to the OMhelp search utility Java script so that it did 
+not generate error reports under the browsers.
+
+
+
+$head 06-19$$
+Fixed another problem with the case sensitive link tags 
+related to case insensitive file names. 
+An HTML SRC reference was to the case sensitive version
+of the file name and it would not work under Unix. 
+Now web sites should display properly both under Unix and Microsoft systems.
+
+$head 06-18$$
+Improved the OMhelp search utility dialog so that user can
+enter a topic once she or he has narrowed the choices.
+In addition, modified the display to limit number of matches listed to
+100 so that it is faster on large searches.
+
+$head 06-16$$
+Netscape 4.5 seems to have trouble when the NAME attribute of an anchor has 
+a forward slash in it. The headings in this file have therefore been 
+changed from MM/DD to MM_DD.
+
+$head 06-15$$
+The index and function reference have alphabetic jump tables.
+Headings were added for the letters in the index and function reference
+so that the user can see where he or she is jumping to.
+Documentation was added that explains how the $mref/glossary/$$
+jump table and keywords work.
+
+$head 06-14$$
+The default frames have been reduced from three to two by
+combining the information from the top frame and left frame into one
+(and modifying the information included from the left frame).  
+This significantly reduced by the number of files corresponding to a web site.
+It also simplified navigation of the web site because it is more in line
+with the standard on the internet.
+$pre
+
+$$
+The change on $xref%whatsNew01%06-04%01-06-04%$$ broke some
+links on Unix servers because it is case sensitive. This has been fixed.
+All of the output files and links are in lower case now so that they
+work the same under Unix and Microsoft systems.
+
+$head 06-13$$
+The following automatically generated cross reference tags were changed
+$table
+$bold Old$$ $cnext $bold New$$ $cnext $bold Description$$          $rnext
+$code hreflist$$  $cnext $code _external$$ $cnext $tref _external$$ $rnext
+$code keyindex$$ $cnext $code _index$$ $cnext $tref _index$$       $rnext
+$code contents$$ $cnext $code _contents$$ $cnext $tref _contents$$ $rnext
+$code funref$$   $cnext $code _reference$$ $cnext $tref _reference$$
+$tend
+Now all the automatically generated
+$xref/glossary/Cross Reference Tag/cross reference tags/$$
+begin with the underbar, $code _$$, character.
+In addition, the user may no longer use the underbar 
+as the first character in a 
+cross reference tag
+specified by a $mref/begin/$$ command.
+
+
+$head 06-09$$
+An OMhelp search utility was added as an
+automatically generated client side JavaScript
+that uses the 
+$xref/keyword/Keyword List/keyword list/$$ was added. 
+You can link a help page to this by using $code _search$$ as a
+$xref/glossary/Cross Reference Tag/tag/$$
+(provided that the $xref/running/Printable/printable/$$ option 
+is not used).
+
+$head 06-04$$
+The display, but not the usage, of cross reference
+$xref/glossary/Cross Reference Tag/tags/$$
+is case sensitive.
+Thus if you use upper case letters in the argument to
+you $mref/begin/$$ command,
+the corresponding cross reference tags
+will be displayed to the user that way.
+$pre
+
+$$
+If two sections have the same cross reference tag,
+both the current input file name and the one where the
+section was originally defined are displayed in the error message.
+
+
+$head 06-01$$
+Changed the default icon and link example
+to a generic one instead of the O-Matrix icon.
+
+$head 05-31$$
+Added the command line option
+$xref/running//-i icon/$$ which enables you 
+to specify a different icon for the help system.
+
+$head 05-30$$
+It used to be necessary to place all
+the $xref/keyword//index/$$ and $code cindex$$ commands after the
+$mref/section/$$ command for the current section.
+This is no longer the case.
+
+
+$head 05-29$$
+The $code template$$ section was added to the help for OMhelp
+(it was later removed).
+The files $code ../omhelp.htm$$ and
+$code ../build.bat$$ 
+were missing from the distribution and are now included.
+The $mref/spell/$$ command was modified so that capital letters
+separate special spellings.
+For example, you can use $code OMhelp$$ as a special spelling
+for the word $code mhelp$$
+
+$head 05-24$$
+The ascii files $xref/spell/Dictionary.Changing Dictionary/english.wrd/$$ and
+$code local.wrd$$ are included in the distribution (instead
+of the binary file $code dictionary.bin$$).
+This makes it easier to add a local dictionary
+because you only have to supply the file $code local.wrd$$.
+$pre
+
+$$
+Another feature was added to the 
+$xref/running/Debugging/-debug/$$ option.
+The spelling errors (words not in the current dictionary) 
+are listed in alphabetic order in the file $code error.wrd$$.
+This is intended to aid in creating versions of $code local.wrd$$.
+(You may want to merge the current version of $code local.wrd$$
+with some of the words in $code error.wrd$$ to get a new local word list.)
+
+$head 05-18$$
+The $mref/color/$$ command was added. It controls the
+color used for 
+$xref/font//code font/$$ and for error message in the document.
+(You can now use a special color by setting the code font and
+then putting the special message in code font.)
+
+$head 05-12$$
+If you reference a world wide web directory with your browser,
+the default file name $code index.htm$$ will be loaded into your browser
+(often the same as the home page).
+Previously, you could not name a section $code index$$ to take advantage
+of this because the OMhelp keyword index was stored in that file.
+The keyword index for an OMhelp document
+is now stored in the section names $mref/keyword/$$
+and you can use the name $code index$$ for you default page.
+
+$head 05-11$$
+The $mref/include/$$ command was added to aid in having a single
+message or set of commands in multiple pages.
+
+$head 05-09$$
+The $xref/running/Debugging/-debug/$$ option output a list of
+all the web pages referenced by $mref/href/$$ commands.
+This will help in checking that these web pages is still relevant 
+to their usage in your OMhelp document.
+
+$head 04-22$$
+The version (compile date) corresponding to the current version of
+OMhelp is printed when OMhelp is run.
+$pre
+
+$$
+The $xref/running/Debugging/-debug/$$
+was added.
+if $code -debug$$ is present,
+the input file corresponding to each
+output page is printed.
+
+$end

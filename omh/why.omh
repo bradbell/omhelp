@@ -1,0 +1,180 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin why$$
+$escape #$$
+$spell 
+	OMhelp
+	Microsoft
+$$
+
+$mindex OMhelp purpose$$
+
+$section The Purpose and Motivation for OMhelp$$
+
+
+$list number$$
+$xref|why|
+	Introduction|
+	Introduction|$$ $lnext
+$xref|why|
+	Same Time Documentation|
+	Same Time Documentation|$$ $lnext
+$xref|why|
+	Source Code Control|
+	Source Code Control|$$ $lnext
+$xref|why|
+	Language Independent and User Oriented|
+	Language Independent and User Oriented|$$ $lnext
+$xref|why|
+	World Wide Web|
+	World Wide Web|$$ $lnext
+$xref|why|
+	Single Source|
+	Single Source|$$ $lnext
+$xref|why|
+	Searching|
+	Searching|$$ $lnext
+$xref|why|
+	Navigation Frame|
+	Navigation Frame|$$ $lnext
+$xref|why|
+	Cross Referencing Aids|
+	Cross Referencing Aids|$$ $lnext
+$xref|why|
+	Platform Independent|
+	Platform Independent|$$ $lnext
+$xref|why|
+	Latex Support of Mathematics|
+	Latex Support of Mathematics|$$
+$lend
+
+$head Introduction$$
+OMhelp was originally created to reduce the time and effort required
+to document the
+$href%http://www.omatrix.com/manual/%O-Matrix%$$ computer language.
+The OMhelp
+$href%http://www.seanet.com/~bradbell/omhelp%documentation%$$
+is a another demonstration of what OMhelp can do.
+Brad Bell's 
+$href%http://www.seanet.com/~bradbell%home page%$$
+is also written in OMhelp.
+
+$head Same Time Documentation$$
+Make documentation changes and additions at the same time as the source 
+code changes. This reduces the total amount of work because the changes
+and additions to the system are fresh in ones mind when the documentation
+is modified. 
+In addition, the other people on the project immediately have
+a specification 
+(for the changes and additions)
+that is separate from the actual code.
+
+$head Source Code Control$$
+Use the same system that tracks changes to the source code to track
+changes to the documentation.
+(See the $href%http://cvshome.org%$$ for an example of a source code
+control system.)
+This makes it easy and natural to make the documentation changes
+at the same time as the source code changes.
+In addition, 
+the developer edits OMhelp commands directly
+instead of through a visual editor that displays what the user will see.
+This reduces the source changes between versions and makes them
+more meaningful to the developer.
+
+$head Language Independent and User Oriented$$
+OMhelp can extract documentation from source code comments of the system that
+is written in multiple languages. 
+This makes it easier to accomplish the objectives listed above.
+In addition, 
+embedding the documentation in the source code
+(in a language independent way)
+requires the developer to think about the changes from the users
+point of view.
+The 
+$href%http://java.sun.com/j2se/JavaDoc/%JavaDoc%$$
+system is similar with the following exceptions:
+
+$list number$$
+JavaDoc is specialized to the Java language
+$lnext
+JavaDoc generates documentation from a developer (not user) point of view
+$lend
+
+When the users are developer and the only language being used
+is Java, JavaDoc has the advantage of 
+automatically providing language specific
+aids to the documentation.
+
+
+$head World Wide Web$$
+OMhelp can create both HTML and XML representations for 
+display by browsers.
+This provides a means, with no extra work, 
+by which the complete documentation 
+can be searched for and viewed on the World Wide Web.
+For example, the complete documentation for OMhelp can be viewed at
+$pre
+	$$
+$href%http://www.seanet.com/~bradbell/omhelp%$$
+
+$head Single Source$$
+Many of the OMhelp features come from a single source philosophy.
+It is easy to create examples that are both source code and documentation.
+There is provision for jump tables such that if the destination text changes
+the source text changes automatically.
+A
+$xref/running/Printable/printable/$$
+version of the web site can be generated with all the cross reference
+links included and numbered so they are fully functional.
+
+$head Searching$$
+OMhelp makes it easy to provide the
+user of the corresponding help system with the means of finding things quickly. 
+For example, entries in the keyword index are also used by the OMhelp 
+search utility.
+In addition, all the keywords are posted in meta commands that
+aid Web search engines in finding the corresponding documentation.
+
+$head Navigation Frame$$
+OMhelp automatically provides a frame that aids the user
+in navigating the help system.
+This also provides a uniform look to the system.
+
+$head Cross Referencing Aids$$
+All of the internal cross references are checked when OMhelp is run.
+This informs one immediately when 
+the help system changes in a way that breaks a cross reference
+(thus changes that have this effect are easier to make).
+In addition, it is possible to list all of the external cross reference
+links and where they occur in the help system.
+This makes it easy to check links that depend on things outside of the 
+help system and that there usage within the help system is still correct. 
+
+$head Platform Independent$$
+OMhelp will run under Microsoft Windows or any Unix Operating system.
+
+$head Latex Support of Mathematics$$
+OMhelp supports Latex commands which it converts
+to MathML for display by a browser.
+This is far superior to using pictures to display mathematics.
+
+$end

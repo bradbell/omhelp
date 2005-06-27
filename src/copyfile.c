@@ -1,0 +1,262 @@
+// BEGIN SHORT COPYRIGHT
+/* -----------------------------------------------------------------------
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+------------------------------------------------------------------------ */
+// END SHORT COPYRIGHT
+/*
+$begin copyfile$$
+$spell
+	copyfile
+	str
+	Mem
+	backslash
+$$
+
+$mindex copy file$$
+$section Creating A Copy of a File$$
+
+$table
+$bold Syntax$$
+$cend $syntax/copyfile(/destination/, /source/)/$$ $rend
+$cend $syntax/copyfileFreeMemory()/$$ $rend
+$tend
+
+$fend 20$$
+
+$syntax/
+
+copyfile(/destination/, /source/)
+/$$
+copies the file specified by $italic source$$
+to the file specified by $italic destination$$
+where $italic source$$ and $italic destination$$
+are '\0' terminated character vectors.
+The case of the letters in $italic destination$$ is ignored
+and all the letters in the resulting file are in lower case.
+Either the backslash '\\' or the forward slash '/' can be
+used to separate directories in both $italic source$$
+and  $italic destination$$.
+$pre
+
+$$
+It is a programming error
+(not user error) if $code copyfileFreeMemory$$ was called prior 
+to a call to $code copyfile$$.
+
+
+$head User Errors$$
+It is a user error to call $code copyfile$$ twice with the same
+value for $italic destination$$.
+It is also a user error if the source or destination file
+cannot be opened.
+The value of $xref/InputName/$$ and $xref/InputLine/$$
+are used to identify where the access to 
+$italic source$$ and $italic destination$$ occurred.
+If a user error occurs, an error message is printed 
+and this routine does not return.
+
+$syntax/
+
+copyfileFreeMemory()
+/$$
+Uses $xref/AllocMem/FreeMem/FreeMem/$$ to free memory that was allocated using
+$xref/AllocMem/$$ (so that 
+$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$ can be used).
+This memory is used to track what line and file certain destination
+file names were used at.
+
+$end
+
+*/
+
+#ifdef WIN32
+# include <io.h>
+# include <sys\stat.h>
+# include <sys\types.h>
+#else
+# include <sys/stat.h>
+# include <sys/types.h>
+# include <unistd.h>
+#endif
+
+
+# include <fcntl.h>
+# include <assert.h>
+# include <string.h>
+
+# include "allocmem.h"
+# include "str_cat.h"
+# include "str_alloc.h"
+# include "StrLowAlloc.h"
+# include "DirSep.h"
+# include "fatalerr.h"
+# include "input.h"
+# include "FileEqual.h"
+
+# include "copyfile.h"
+
+# define BUFFER_LEN 1000
+
+// O_BINARY is defined under windows for open in binary mode
+# ifndef O_BINARY
+# define O_BINARY 0
+# endif
+
+typedef struct fileInfo {
+	char *inputLine;
+	char *inputFile;
+	char *Sname;
+	char *Dname;
+	struct fileInfo *next;
+} FileInfo;
+
+static FileInfo *Info = NULL;
+static int       Done = 0;
+
+
+void copyfile(
+	const char *destination, 
+	const char *source 
+)
+{	int D;
+	int S;
+	int nread;
+	int nwrite;
+	char *Sname;
+	char *Dname;
+	FileInfo *info;
+
+	unsigned char buffer[BUFFER_LEN];
+
+	assert( ! Done );
+
+	// open the source file
+	Sname = str_alloc(source);
+	DirSep(Sname);
+	S = open(Sname, O_RDONLY | O_BINARY, S_IREAD);
+	if( S == -1 )
+	{	fatalerr(
+			"Cannot read the file\n",
+			Sname,
+			NULL
+		);
+	}
+
+
+	// check for previous use of destination name
+	Dname = StrLowAlloc(destination);
+	DirSep(Dname);
+	info = Info;
+	while( info != NULL )
+	{	if( strcmp(Dname, info->Dname) == 0 &&
+		    FileEqual(Sname, info->Sname) )
+		{	// already copied this file
+			FreeMem(Sname);
+			FreeMem(Dname);
+			if( close(S) != 0 ) fatalerr(
+				"Error closing the file\n",
+				Sname,
+				NULL
+			);
+			return;
+		}
+		if( strcmp(Dname, info->Dname) == 0 ) fatalerr(
+			"The file ",
+			info->Sname,
+			"\nis used at line ",
+			info->inputLine,
+			" of file ",
+			info->inputFile,
+			"\nThe current use of", 
+			Sname,
+			"\nwill overwrite the copy of ",
+			info->Sname,
+			NULL
+		);
+		info = info->next;
+	}
+
+	// add this entry to the list
+	info = AllocMem(sizeof( FileInfo ), 1);
+	info->inputLine   = AllocMem(sizeof(char), 10);
+	sprintf(info->inputLine, "%d", InputLine());
+	info->inputFile   = StrLowAlloc(InputName());
+	info->Dname       = Dname;
+	info->Sname       = Sname;
+	info->next        = Info;
+	Info              = info;
+
+	// Open the destination file
+	D = open(Dname,
+	    O_WRONLY | O_CREAT | O_TRUNC | O_BINARY, S_IWRITE
+	);
+	if( D == -1 )
+	{	fatalerr(
+			"Cannot create the file\n",
+			Dname,
+			NULL
+		);
+	}
+
+	nread = 1;
+        nwrite = 1;
+        while( nread > 0 && nwrite == nread)
+	{	nread = read(S, (void *) buffer, BUFFER_LEN);
+		if( nread > 0 )
+			nwrite = write(D, (void *) buffer, nread);
+		else	nwrite = 0;
+		if( nwrite != nread )
+		{	fatalerr(
+				"Error writing the file\n", 
+				Dname,
+				NULL
+			);
+		}
+	}
+
+# ifndef WIN32
+	// set mode for use after program finishes
+	// read:  user, group, and other
+	// write: user
+	fchmod(D, S_IRUSR | S_IRGRP | S_IROTH | S_IWUSR);
+# endif
+
+	// close the files
+	close(S);
+	close(D);
+
+	return;
+}
+
+void copyfileFreeMemory()
+{
+	FileInfo *info;
+
+	while( Info != NULL )
+	{	info = Info;
+		Info = Info->next;
+		FreeMem(info->Dname);
+		FreeMem(info->Sname);
+		FreeMem(info->inputFile);
+		FreeMem(info->inputLine);
+		FreeMem(info);
+	}
+
+	Done = 1;
+	Info = NULL;
+	return;
+}

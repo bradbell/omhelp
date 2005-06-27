@@ -1,0 +1,94 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin StartHead$$
+$dollar @$$
+$escape #$$
+$spell
+	omhelp
+	omh
+	OMhelp
+	htm
+	headexample
+$$
+
+$children/
+	HeadExample.omh/$$
+
+$section Headings and Subheadings Example$$
+$index head, get started$$
+$index subhead, get started$$
+
+$head Introduction$$
+The $xref/head/$$ and $code subhead$$ commands
+start new paragraphs with a specified title.
+Each section has an tree structure in which the 
+$xref/section//section title/$$
+corresponds to the root, 
+the headings titles correspond to the next level,
+and the subheadings titles correspond to 
+the last level of the tree.
+
+
+$head Execute The Following Steps$$
+
+$subhead HeadExample.omh$$
+Use an editor of your choice to
+create the file $code  HeadExample.omh$$ 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Omh Directory/
+	omh directory/$$
+with the following contents:
+$code
+$pre
+     $$@begin $verbatim%HeadExample.omh%5%#036begin %$$
+$$
+Note that you can copy and paste the commands above
+to your editor window.
+You may just copy the file with the same name from the 
+$xref/getstarted/Getting Started Directory/getting started directory/$$.
+
+$subhead Example In This Web Site Context$$
+You can view the
+result of making $code HeadExample.omh$$
+part of the OMhelp help web site 
+by selecting 
+$xref/HeadExample/$$.
+
+$subhead Execute OMhelp$$
+In a Dos window and 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Htm Directory/
+	htm directory/$$
+execute the following command
+$codep
+	omhelp ..\HeadExample.omh
+$$
+
+
+$subhead Example by Itself$$
+Use a web browser of your choosing to view the file
+$syntax%%omh%\htm\headexample.htm%$$.
+
+$end

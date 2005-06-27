@@ -1,0 +1,59 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+----------------------------------------------------------------------
+$begin Xref2Example$$
+$spell
+	xref
+$$
+
+$section An Example Linking A Specific Heading$$
+
+$comment This command ends the first frame and starts the second$$
+$fend 20$$
+
+The second argument to an xref command specifies a 
+heading (or subheading).
+If you use the two argument version of the xref command,
+only the first frame of the current section is replaced.
+For example, if you select the following link:
+$xref/Xref1Example/Cross Reference Tag/$$.
+
+$end
+----------------------------------------------------------------------
+$begin Xref3Example$$
+$spell
+	xref
+$$
+
+$section An Example Specifying The Linking Text$$
+
+$comment This command ends the first frame and starts the second$$
+$fend 20$$
+
+The third argument to an xref command specifies the linking text
+for the cross reference.
+If the second argument is empty,
+the entire section is replaced (as in the one argument case).
+For example, if you select the following link:
+$xref/Xref1Example//parent of this section/$$.
+
+$end
+----------------------------------------------------------------------

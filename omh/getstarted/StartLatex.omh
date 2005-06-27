@@ -1,0 +1,107 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin StartLatex$$
+$dollar @$$
+$escape #$$
+$spell
+	omhelp
+	omh
+	OMhelp
+	htm
+	latexexample
+	Lamport
+	xml
+$$
+
+$children/
+	LatexExample.omh/$$
+
+$section An Example Using Latex Math Formula Commands$$
+$index latex, get started$$
+$index math, get started$$
+
+$head Introduction$$
+The $xref/latex/$$ command is used to 
+display mathematics that is specified using 
+the Latex math formula commands 
+defined in Section 3.3 of $xref/latex/Reference/Lamport's book/$$.
+These commands are documented in the 
+$xref/latex/Command Documentation/latex command documentation/$$ 
+sections of this web site.
+
+$head Execute The Following Steps$$
+
+$subhead LatexExample.omh$$
+Use an editor of your choice to
+create the file $code  LatexExample.omh$$ 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Omh Directory/
+	omh directory/$$
+with the following contents:
+$code
+$pre
+     $$@begin $verbatim%LatexExample.omh%5%#036begin %$$
+$$
+Note that you can copy and paste the commands above
+to your editor window.
+You may just copy the file with the same name from the 
+$xref/getstarted/Getting Started Directory/getting started directory/$$.
+
+$subhead Example In This Web Site Context$$
+You can view the
+result of making $code ImageExample.omh$$
+part of the OMhelp help web site 
+by selecting 
+$xref/LatexExample/$$.
+
+$subhead Execute OMhelp$$
+In a Dos window and 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Htm Directory/
+	htm directory/$$
+execute the following command
+$codep
+	omhelp ..\LatexExample.omh 
+	omhelp ..\LatexExample.omh -xml
+$$
+The first command creates a set of HTML files.
+The second command creates a set of
+$xref/running/XML/XML/$$ files.
+In the HTML case,
+the Latex commands appear to the viewer.
+In the XML case,
+the Latex commands are translated to MathML commands
+and the viewer will see the mathematics.
+
+
+$subhead Example by Itself$$
+Use any browser to view the file
+$syntax%%omh%\htm\latexexample.htm%$$.
+Use the
+$href%http://www.mozilla.org%Mozilla%$$ 
+web browser to view the file
+$syntax%%omh%\htm\latexexample.xml%$$.
+
+$end

@@ -1,0 +1,17 @@
+s%^..................$%\\&  $cnext $latex \\&  $$ $rend%
+s%^.................$%\\&   $cnext $latex \\&   $$ $rend%
+s%^................$%\\&    $cnext $latex \\&    $$ $rend%
+s%^...............$%\\&     $cnext $latex \\&     $$ $rend%
+s%^..............$%\\&      $cnext $latex \\&      $$ $rend%
+s%^.............$%\\&       $cnext $latex \\&       $$ $rend%
+s%^............$%\\&        $cnext $latex \\&        $$ $rend%
+s%^...........$%\\&         $cnext $latex \\&         $$ $rend%
+s%^..........$%\\&          $cnext $latex \\&          $$ $rend%
+s%^.........$%\\&           $cnext $latex \\&           $$ $rend%
+s%^........$%\\&            $cnext $latex \\&            $$ $rend%
+s%^.......$%\\&             $cnext $latex \\&             $$ $rend%
+s%^......$%\\&              $cnext $latex \\&              $$ $rend%
+s%^.....$%\\&               $cnext $latex \\&               $$ $rend%
+s%^....$%\\&                $cnext $latex \\&                $$ $rend%
+s%^...$%\\&                 $cnext $latex \\&                 $$ $rend%
+s%^..$%\\&                  $cnext $latex \\&                  $$ $rend%

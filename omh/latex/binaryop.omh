@@ -1,0 +1,130 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin BinaryOp$$
+$dollar @$$
+$spell
+	xml
+	htm
+	Lamport
+	lhd
+	rhd
+	unlhd
+	unrhd
+	triangleleft
+	triangleright
+$$
+
+$mindex binary operator$$
+$index latex, binary operator$$
+$index latex, operator binary$$
+
+$section Binary Operators$$
+
+$table
+$bold Syntax$$
+$cnext $syntax/@latex /Command/ @@/$$
+$tend
+
+$fend 20$$
+
+$head Description$$
+$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+the binary operator specified by $italic Command$$ where 
+$italic Command$$ is one of the 
+Latex commands in the tables below.
+
+
+$head Table$$
+The following tables contain the binary operators 
+in Table 3.4 
+$xref/latex/Reference/Lamport/$$
+( except for
+\lhd, \rhd, \unlhd, and \unrhd 
+which are not supported and generate error messages ).
+Note that 
+\triangleleft and \triangleright
+are in the list of
+$xref/Explorer/MathML/Symbols/symbols/1/$$
+that MS Internet Explorer does not display properly.
+
+
+$nospell
+$table
+
+$table
+$italic Command$$ $cnext $italic Output$$         $rend
+\pm              $cnext $latex \pm              $$ $rend
+\mp              $cnext $latex \mp              $$ $rend
+\times           $cnext $latex \times           $$ $rend
+\div             $cnext $latex \div             $$ $rend
+\ast             $cnext $latex \ast             $$ $rend
+\star            $cnext $latex \star            $$ $rend
+\circ            $cnext $latex \circ            $$ $rend
+\bullet          $cnext $latex \bullet          $$ $rend
+\cdot            $cnext $latex \cdot            $$
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$         $rend
+\cap             $cnext $latex \cap             $$ $rend
+\cup             $cnext $latex \cup             $$ $rend
+\uplus           $cnext $latex \uplus           $$ $rend
+\sqcap           $cnext $latex \sqcap           $$ $rend
+\sqcup           $cnext $latex \sqcup           $$ $rend
+\vee             $cnext $latex \vee             $$ $rend
+\wedge           $cnext $latex \wedge           $$ $rend
+\setminus        $cnext $latex \setminus        $$ $rend
+\wr              $cnext $latex \wr              $$
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$         $rend
+\diamond         $cnext $latex \diamond         $$ $rend
+\bigtriangleup   $cnext $latex \bigtriangleup   $$ $rend
+\bigtriangledown $cnext $latex \bigtriangledown $$ $rend
+\triangleleft    $cnext $latex \triangleleft    $$ $rend
+\triangleright   $cnext $latex \triangleright   $$ $rend
+$tend
+
+$cnext
+
+$table
+$italic Command$$ $cnext $italic Output$$         $rend
+\oplus           $cnext $latex \oplus           $$ $rend
+\ominus          $cnext $latex \ominus          $$ $rend
+\otimes          $cnext $latex \otimes          $$ $rend
+\oslash          $cnext $latex \oslash          $$ $rend
+\odot            $cnext $latex \odot            $$ $rend
+\bigcirc         $cnext $latex \bigcirc         $$ $rend
+\dagger          $cnext $latex \dagger          $$ $rend
+\ddagger         $cnext $latex \ddagger         $$ $rend
+\amalg           $cnext $latex \amalg           $$
+$tend
+
+$tend
+$$
+
+
+$end

@@ -1,0 +1,140 @@
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin StartMultiple$$
+$dollar @$$
+$escape #$$
+$spell
+	omhelp
+	omh
+	OMhelp
+	htm
+	childtable
+	multipleexample
+$$
+
+$children/
+	Multiple1Example.omh/$$
+
+$section An Example With Multiple Input Files and Sections$$
+$index multiple, get started$$
+$index file, multiple$$
+$index section, multiple$$
+
+$head Introduction$$
+The $xref/children//contents, childtable, and children/$$
+commands can be used to specify input files.
+All of the sections in these files are children
+of the current section and are siblings of each other
+(see the $bold Children$$ and $bold Siblings$$ headings in the
+navigation bar.
+
+$head Execute The Following Steps$$
+
+$subhead Multiple1Example.omh$$
+Use an editor of your choice to
+create the file $code  Multiple1Example.omh$$ 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Omh Directory/
+	omh directory/$$
+with the following contents:
+$code
+$pre
+     $$@begin $verbatim%Multiple1Example.omh%5%#036begin %$$
+$$
+Note that you can copy and paste the commands above
+to your editor window.
+You may just copy the file with the same name from the 
+$xref/getstarted/Getting Started Directory/getting started directory/$$.
+
+$subhead Multiple2Example.omh$$
+Use an editor of your choice to
+create the file $code  Multiple2Example.omh$$ 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Omh Directory/
+	omh directory/$$
+with the following contents:
+$code
+$pre
+     $$@begin $verbatim%Multiple2Example.omh%5%#036begin %$$
+$$
+
+$subhead Multiple3Example.omh$$
+Use an editor of your choice to
+create the file $code  Multiple3Example.omh$$ 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Omh Directory/
+	omh directory/$$
+with the following contents:
+$code
+$pre
+     $$@begin $verbatim%Multiple3Example.omh%5%#036begin %$$
+$$
+
+
+$subhead Example In This Web Site Context$$
+You can view the
+result of making $code Multiple1Example.omh$$
+part of the OMhelp help web site 
+by selecting 
+$xref/Multiple1Example/$$.
+
+$subhead Execute OMhelp$$
+In a Dos window and 
+in the 
+$xref/
+	StartSimple/
+	Execute The Following Steps.Htm Directory/
+	htm directory/$$
+execute the following command
+$codep
+	omhelp ..\Multiple1Example.omh
+$$
+
+
+$subhead Example by Itself$$
+Use a web browser of your choosing to view the file
+$syntax%%omh%\htm\multiple1example.htm%$$.
+
+$head Discussion$$
+The file $code Multiple1Example.omh$$ contains the
+$xref/running/Root Section/root section/$$
+for this example.
+There is more than one section in the 
+corresponding web site because the root section
+contains a
+$xref/children//contents/$$ command.
+For this reason,
+a navigation frame is included along the left margin
+and the following navigation sections are generated:
+$xref/_contents/$$,
+$xref/_reference/$$,
+$xref/_index/$$,
+$xref/_search/$$,
+$xref/_external/$$.
+
+
+$end
