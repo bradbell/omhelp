@@ -68,12 +68,12 @@ const char *IconLink()
 {	return iconLink;
 }
 
-static const char *iconFile = NULL;
+static char *iconFile = NULL;
 const char *IconFile()
 {	return iconFile;
 }
 
-static const char *omhDir = NULL;
+static char *omhDir = NULL;
 const char *OmhDir()
 {	return omhDir;
 }
@@ -101,9 +101,10 @@ int main(int argc, const char *argv[])
 
 # if RUN_IN_DEBUGGER
 	//
-	// root = "c:\\omh\\all.omh";
-	root = "d:/omhelp/bug/Number.omh";
+	root = "../omh/overview.omh";
 	printf("root file = %s\n", root);
+	omhdir = "../OMhelp";
+	printf("omhelp_dir = %s\n", omhdir);
 	//
 	// iconLink = "index.htm";
 	// printf("icon link = %s\n", iconLink);
@@ -120,7 +121,6 @@ int main(int argc, const char *argv[])
 	}
 	while( iarg < argc && ! error )
 	{	morearg = iarg + 1 < argc;
-printf("argv[iargv]= %s\n", argv[iarg]);
 		if( morearg && strcmp(argv[iarg], "-g") == 0 )
 		{	printf(
 			"The -g option on the command line has been removed\n"
