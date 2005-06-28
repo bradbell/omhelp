@@ -21,6 +21,7 @@
 # automake input file
 #
 BUILT_SOURCES = \
+	main.c \
 	omhelp.c \
 	omhelp.h \
 	latex.c \
@@ -31,7 +32,7 @@ EXTRA_DIST = src.sln src.vcproj
 #
 bin_PROGRAMS   = omhelp
 #
-AM_CFLAGS  = -g -Wall
+AM_CFLAGS  = -g -Wall 
 #
 omhelp_SOURCES = \
 	AutomaticLink.h \
@@ -137,6 +138,10 @@ omhelp_SOURCES = \
 	section.c \
 	spell.c \
 	warning.c
+#
+# Rule for main.c (replace DATA_DIR in omhdir="DATA_DIR/OMhelp";)
+main.c: main.src
+	sed -e "s%DATA_DIR%$(datadir)%" < main.src > main.c
 #
 # Rule for omhelp.h
 omhelp.h: omhelp.y

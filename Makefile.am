@@ -45,6 +45,7 @@ EXTRA_DIST = \
 	RunOMhelp \
 	omh \
 	src/omh \
+	src/main.src \
 	src/omhelp.y \
 	src/latex.y \
 	src/latex.l \
