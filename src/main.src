@@ -173,9 +173,9 @@ int main(int argc, const char *argv[])
 
 	// version information
 # if NDEBUG
-	printf("OMhelp Release Version 05-06-25\n");
+	printf("\nOMhelp Release Version 05-06-25\n");
 # else
-	printf("OMhelp Debug Version 05-06-25\n");
+	printf("\nOMhelp Debug Version 05-06-25\n");
 # endif
 	if( error )
 	{	
