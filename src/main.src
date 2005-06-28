@@ -198,7 +198,7 @@ int main(int argc, const char *argv[])
 
 # ifndef WIN32
 	if( omhdir == NULL )
-		omhdir = "DATA_DIR";
+		omhdir = "DATA_DIR/OMhelp";
 # else 
 	if( omhdir == NULL )
 	{
