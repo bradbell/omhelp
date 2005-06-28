@@ -33,6 +33,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # include <stdlib.h>
 # include <time.h>
 # include <string.h>
+# include <assert.h>
 
 # ifdef WIN32
 # include <windows.h>
@@ -42,7 +43,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 // unsed by GNU allocate.c routine
 const char *program_name = "omhelp";
-
 
 int  DebugOmhelp         = 0;
 
@@ -195,11 +195,12 @@ int main(int argc, const char *argv[])
 		exit(1);
 	}
 # endif
-	if( omhdir == NULL )
-		omhdir = getenv("omhelp_dir");
 
+# ifndef WIN32
 	if( omhdir == NULL )
-# ifdef WIN32
+		omhdir = "DATA_DIR";
+# else 
+	if( omhdir == NULL )
 	{
 		// Look for omhelp_dir in windows system INI file
 		const char *appName =  "OMhelp";
@@ -234,11 +235,8 @@ int main(int argc, const char *argv[])
 			exit(1);
 		}
 	}
-# else
-	{	printf("The enviroment variable omhelp_dir is not set\n");
-		exit(1);
-	}
 # endif
+	assert( omhdir != NULL );
 	ch = omhdir[strlen(omhdir) - 1];
 	if( ch == '/' || ch == '\\' )
 		omhDir = str_alloc(omhdir);
