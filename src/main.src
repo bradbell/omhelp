@@ -200,6 +200,7 @@ int main(int argc, const char *argv[])
 	if( omhdir == NULL )
 		omhdir = "DATA_DIR/OMhelp";
 # else 
+	omhdir = getenv("omhelp_dir");
 	if( omhdir == NULL )
 	{
 		// Look for omhelp_dir in windows system INI file
