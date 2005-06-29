@@ -1,0 +1,158 @@
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+#
+$begin InstallUnix$$
+$dollar @$$
+$spell
+	OMhelp
+	xvzf
+	gz
+	omhelp
+	yy
+	mm
+	dd
+	src
+	exe
+	Cygwin
+	Gw
+	getstarted
+	htm
+	xml
+	Mathplayer
+$$
+
+
+$index free, unix install$$ 
+$index OMhelp, unix install$$
+$index download, unix OMhelp$$
+
+$section Unix Installation and Testing$$
+
+
+$head Download OMhelp$$
+Download the current version of the file
+$href%
+	http://www.seanet.com/~bradbell/OMhelp.unix.tar.gz%
+	OMhelp.unix.tar.gz
+%$$
+
+$head Create Distribution Directory$$
+Use the command
+$codep
+	tar -xvzf OMhelp.unix.tar.gz
+$$
+to decompress and extract the unix format version into the 
+distribution directory
+$syntax%
+	omhelp-%yy%-%mm%-%dd%
+%$$
+The value $syntax%%yy%-%mm%-%dd%$$ is the corresponding 
+version of OMhelp.
+
+$head Configure$$
+Enter the distribution directory and execute the command:
+$syntax%
+	./configure [ prefix=%prefix% ]
+%$$
+where the entry between the brackets $code [$$ and $code ]$$ is optional,
+the brackets are not included, and the word in italic is replaced
+by the value you chose.
+
+$head Prefix$$
+The default value for $italic prefix$$ is $code @HOME$$; i.e.,
+by default the OMhelp executable is installed in 
+$codep
+	@HOME/bin/omhelp
+$$
+If $syntax%%prefix%/bin%$$ is not in your path,
+you will have to specify the entire path for $code omhelp$$ when 
+you execute it.
+The data files used by OMhelp are installed in
+$syntax%
+	@HOME/share/OMhelp
+%$$
+
+$head Building Executable$$
+In the distribution directory, execute the following command:
+$codep
+	make
+$$
+This should create the file
+$syntax%
+	omhelp-%yy%-%mm%-%dd%/src/omhelp
+%$$
+(or possibly $code omhelp.exe$$ if you are using Cygwin or MinGw).
+
+$head Building User Documentation and Testing OMhelp$$
+In the distribution directory, execute the following command:
+$codep
+	./RunOMhelp Doc
+$$
+This will run the OMhelp program and create
+a copy of the OMhelp user documentation.
+Make sure OMhelp is functioning correctly by loading the file
+$syntax%
+	omhelp-%yy%-%mm%-%dd%/Doc/getstarted.htm
+%$$
+into your web browser. 
+This should be a local copy of the web page
+$pre
+	$$
+$href%
+	http://www.seanet.com/~bradbell/omhelp/getstarted.htm
+%$$.
+The $code Doc$$ sub-directory of the distribution directory
+now contains the user documentation for OMhelp.
+The files $syntax%Doc/%*%.htm%$$ are in HTML format.
+If your browser supports XHTML+MathML format,
+an easier to read copy is available in the files
+$syntax%Doc/%*%.xml%$$.
+
+$head Building Developer Documentation$$
+In the distribution directory, execute the following command:
+$codep
+	./RunOMhelp Developer
+$$
+This will run the OMhelp program and create
+a copy of the OMhelp developer documentation in the 
+$code Developer$$ sub-directory.
+
+$head Install OMhelp$$
+In the distribution directory, execute the following command:
+$codep
+	make install
+$$
+
+$head Getting Started$$
+$index getstarted, using OMhelp$$
+$index OMhelp, getstarted using$$
+You can build the 
+$xref/Multiple1Example/$$ subtree of the OMhelp user documentation 
+by executing the following commands starting in the distribution directory 
+$syntax%
+	cd omh/getstarted
+	mkdir htm
+	cd htm
+	rm *.htm
+	omhelp ../Multiple1Example.omh
+%$$
+Note that the $code mkdir$$ and $code rm$$ commands will report
+errors if they are unnecessary.
+See the $xref/GetStarted/$$ section for more examples.
+	
+$end

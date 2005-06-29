@@ -1,0 +1,190 @@
+# BEGIN SHORT COPYRIGHT
+
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+#
+$begin InstallWindows$$
+$spell 
+	getstarted
+	mkdir
+	Mathplayer
+	xml
+	htm
+	dir
+	OMhelp
+	Cygwin
+	Gw
+	gz
+	omhelp
+	yy
+	mm
+	dd
+	Microsoft
+	sln
+	src
+	exe
+$$
+
+$index free, install OMhelp$$
+$index install, windows OMhelp$$
+$index windows, OMhelp install$$
+$index OMhelp, install windows$$
+
+$section Windows Installation and Testing$$
+
+$head Using Cygwin and MinGw$$
+If you are using 
+$href%
+	http://www.cygwin.com%
+	Cygwin
+%$$
+or,
+$href%
+	http://www.mingw.org%
+	MinGW with MSYS
+%$$,
+with Unix formatted files,
+just follow all of the $xref/InstallUnix//Unix installation/$$ steps.
+If you are using Dos formatted files, download the DOS version
+(see next step) and then follow the Unix installation steps.
+
+$head Download OMhelp$$
+Download the file current version of the file
+$href%
+	http://www.seanet.com/~bradbell/OMhelp.dos.tar.gz%
+	OMhelp.dos.tar.gz
+%$$
+
+$head Create Distribution Directory$$
+Use $href%http://www.winzip.com%WinZip%$$ (version 7.0 or higher),
+or some other program to decompress the file
+$code OMhelp.dos.tar.gz$$ to $code OMhelp.dos.tar$$ 
+and to extract the individual
+files from $code OMhelp.dos.tar$$ into the distribution directory
+$syntax%
+	omhelp-%yy%-%mm%-%dd%
+%$$
+All of the commands below are to be executed from this directory.
+
+$head Build The Executable$$
+$list number$$
+Open Microsoft Visual Studio dot Net.
+$lnext
+Select $code File | Open | Project$$ an in the dialog that appears
+select the file
+$syntax%
+	omhelp-%yy%-%mm%-%dd%/src/src.sln
+%$$
+and then select the $code Open$$ button.
+$lnext
+Select $code Build | Build src$$. 
+This should create the file
+$syntax%
+	omhelp-%yy%-%mm%-%dd%/src/omhelp.exe
+%$$
+$lend
+
+
+$head Building User Documentation and Testing OMhelp$$
+In a Dos box, execute the following command
+$codep
+	RunOMhelp Doc
+$$
+This will run the OMhelp program and
+create a copy of the OMhelp user documentation.
+Make sure OMhelp is functioning correctly by loading the file
+$syntax%
+	omhelp-%yy%-%mm%-%dd%/Doc/getstarted.htm
+%$$
+into your web browser. 
+This should be a local copy of the web page
+$pre
+	$$
+$href%
+	http://www.seanet.com/~bradbell/omhelp/getstarted.htm
+%$$.
+The $code Doc$$ sub-directory of the distribution directory
+now contains the user documentation for OMhelp.
+The files $syntax%Doc/%*%.htm%$$ are in HTML format.
+If your browser supports XHTML+MathML format,
+an easier to read copy is available in the files
+$syntax%Doc/%*%.xml%$$.
+
+$head Building Developer Documentation$$
+In the distribution directory, execute the following command:
+$codep
+	./RunOMhelp Developer
+$$
+This will run the OMhelp program and create
+a copy of the OMhelp developer documentation in the 
+$code Developer$$ sub-directory.
+
+$head Install OMhelp$$
+Choose the directory $italic omhelp_dir$$ 
+where OMhelp will be installed;
+for example, if you could choose $code c:\OMhelp$$.
+The value $italic omhelp_dir$$ must be a fully qualified path below; i.e.,
+it must refer to the entire path for the directory.
+$list number$$
+Set the $code omhelp_dir$$ environment variable by executing the following
+command
+$syntax|
+	set omhelp_dir=|omhelp_dir|
+|$$
+where $italic omhelp_dir$$ has been replaced by its value.
+$lnext
+If the directory $italic omhelp_dir$$ does not exist,
+execute the following command
+$codep
+	mkdir %omhelp_dir%
+$$
+$lnext
+In the distribution directory, execute the following commands
+$codep
+	copy /B OMhelp/* %omhelp_dir%
+	copy /B src/omhelp.exe %omhelp_dir%
+$$
+$lnext
+You may want to back up $code c:\AUTOEXEC.BAT$$ before doing this.
+Use Notepad, or some other ascii editor, to open the file 
+$code c:\AUTOEXEC.BAT$$ and add the following lines
+$syntax|
+	set omhelp_dir=|omhelp_dir|
+	PATH=%PATH%;%omhelp_dir%
+|$$
+$lend
+
+
+$head Getting Started$$
+$index getstarted, using OMhelp$$
+$index OMhelp, getstarted using$$
+You can build the 
+$xref/Multiple1Example/$$ subtree of the OMhelp user documentation 
+by executing the following commands starting in the distribution directory 
+$syntax%
+	cd omh\getstarted
+	mkdir htm
+	cd htm
+	del *.htm
+	omhelp ..\Multiple1Example.omh
+%$$
+Note that the $code mkdir$$ and $code del$$ commands will report
+errors if they are unnecessary.
+
+$end
