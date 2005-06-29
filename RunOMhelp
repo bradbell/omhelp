@@ -26,9 +26,11 @@ then
 fi
 if [ "$1" = Developer ]
 then
-	rm -r -f Developer
-	#
 	echo "Building developer documentation"
+	if [ -e Developer ]
+	then
+		rm -r -f Developer
+	fi
 	mkdir Developer
 	cd    Developer
 	../src/omhelp ../src/omh/omhelp.omh > ../RunOMhelp.log \
@@ -37,10 +39,10 @@ then
 fi
 if [ "$1" = Doc ]
 then
-	#
-	rm -r -f Doc
 	echo "Building user documentation"
-	#
+	if [ -e Doc ]
+		rm -r -f Doc
+	fi
 	mkdir Doc
 	cd    Doc
 	../src/omhelp ../omh/overview.omh > ../RunOMhelp.log \
