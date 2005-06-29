@@ -35,6 +35,7 @@ rm junk
 rm missing
 rm dictionary.bin
 #
+rm src/.deps/*.Po
 rm src/Makefile
 rm src/Makefile.in
 rm src/omhelp.h
