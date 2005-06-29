@@ -50,9 +50,7 @@ EXTRA_DIST = \
 	src/latex.y \
 	src/latex.l \
 	src/src.sln \
-	src/src.vcproj \
-	Developer \
-	Doc
+	src/src.vcproj 
 # 
 # dist-hook:
 # 	rm -r `find $(distdir)/omh -name CVS`
