@@ -56,8 +56,7 @@ $section Running The OMhelp program$$
 $mindex run OMhelp program start$$
 $cindex command line option$$
 
-$table
-$bold Syntax$$
+$table $bold Syntax$$
 $cnext
 $code omhelp$$
 $italic root$$
@@ -77,7 +76,8 @@ $tend
 $fend 20$$
 
 $head Description$$
-This command starts OMhelp from the DOS prompt.
+$index omhelp_dir$$
+This command starts OMhelp from the DOS or Unix prompt.
 
 $head Setting Up Environment$$
 If the command line arguments
@@ -85,19 +85,10 @@ $syntax%
 	-omhelp_dir %dir%
 %$$
 are present, $italic dir$$ must be the 
-$xref/install/Installation Directory/OMhelp Installation Directory/$$.
-Otherwise the 
-$xref/install/Step 1: Environment Variable/environment variable/$$
-$code omhelp_dir$$ must be set to the 
-$xref/install/Installation Directory/OMhelp Installation Directory/$$.
-When using the windows operating system, the following entry
-in the system INI file will define (or override) this environment setting
-$syntax%
-	[OMhelp]
-	omhelp_dir=%omhelp_dir%
-%$$
-where $italic omhelp_dir$$ is the value assigned to the
-$code omhelp_dir$$ environment variable.
+directory where the OMhelp data is stored; for example, the files
+$code english.wrd$$ and $code local.wrd$$.
+This is intended for testing during $xref/Install//installation/$$
+and should not be necessary during normal use.
 
 $head Program Execution$$
 $index execute$$
@@ -309,20 +300,10 @@ and $code local.wrd$$ will be created the next time OMhelp is run.
 
 $head Example$$
 $index example$$
-You can build the 
-$xref/Multiple1Example/$$ subtree of the OMhelp web site
-by executing the following commands where
-$italic omhelp_dir$$ is the 
-$xref/install/Installation Directory/OMhelp installation directory/$$
-$syntax%
-	cd %omhelp_dir%\omh\getstarted
-	mkdir htm
-	cd htm
-	del *.htm
-	omhelp ..\Multiple1Example.omh
-%$$
-Note that the $code mkdir$$ and $code del$$ commands will report
-errors if they are unnecessary.
+See the Getting Started example in the
+$xref/InstallUnix/Getting Started/Unix/$$ or
+$xref/InstallWindows/Getting Started/Windows/$$
+installation instructions.
 
 
 $end
