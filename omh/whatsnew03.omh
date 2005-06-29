@@ -107,13 +107,7 @@ windows INI file.
 
 $head 11-22$$
 The batch file $code omh/build.bat$$ did not function properly during 
-$xref/
-	Install/
-	Step 5: Generate User Documentation/
-	Windows Source/
-	step 5 of the Windows install procedure/
-	1
-/$$.
+$code step 5 of the Windows install procedure$$
 This has been fixed.
 $pre
 
@@ -756,7 +750,7 @@ $pre
 
 $$
 The user documentation
-$xref/install/Step 5: Generate User Documentation/build/$$ command
+$code build$$ command
 would generate an error message because the links to the search
 and external sections are not defined in the printable version.
 The $xref/running/Warnings/-nowarn/$$ command line option was added
@@ -774,7 +768,7 @@ in the Windows download file.
 This is because all the $syntax/*/.htm/$$ and $syntax/*/.xml/$$
 files make the download file significantly larger
 and they are regenerated during the 
-$xref/install/Step 5: Generate User Documentation/generate user documentation/$$
+$code generate user documentation$$
 step of the install process.
 
 $pre
