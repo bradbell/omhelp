@@ -21,6 +21,8 @@
 #
 $begin InstallWindows$$
 $spell 
+	subtree
+	omh
 	getstarted
 	mkdir
 	Mathplayer
@@ -169,6 +171,7 @@ $syntax|
 	PATH=%PATH%;%omhelp_dir%
 |$$
 $lend
+You may have to restart you computer for this change to take effect.
 
 
 $head Getting Started$$

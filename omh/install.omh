@@ -19,6 +19,8 @@
 $begin Install$$
 $dollar @$$
 $spell
+	xml
+	Mathplayer
 	OMhelp
 $$
 
