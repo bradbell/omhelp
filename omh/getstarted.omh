@@ -21,6 +21,9 @@
 $begin GetStarted$$
 $dollar @$$
 $spell
+	yy
+	mm
+	dd
 	OMhelp
 	omh
 	htm
