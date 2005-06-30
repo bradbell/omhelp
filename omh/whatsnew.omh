@@ -21,6 +21,8 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	autoconf
+	automake
 	Microsoft
 	cnext
 	Spanish
@@ -62,6 +64,13 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 05-06-29$$
+The $xref/InstallUnix//Unix install/$$ now uses autoconf and automake
+and the environment variable $code omhelp_dir$$ is no longer necessary.
+In addition, the Unix and Windows 
+$xref/Install//install/$$ instructions were split into two separate
+sections and improved.
 
 $head 05-06-26$$
 The
