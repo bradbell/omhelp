@@ -329,7 +329,7 @@ is a valid command according to the style sheet and HTML standard.
 
 $head 05-09$$
 The documentation for $code english.wrd$$ and
-$xref/running/OMhelp_Dir/local.wrd/$$
+$xref/running/omhelp_dir/local.wrd/$$
 has been improved.
 In addition, 
 pointers to this documentation have been added

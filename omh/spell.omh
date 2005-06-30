@@ -149,7 +149,7 @@ to make your new dictionary compatible with your current help system.
 
 $head Dictionary$$
 $mindex spell dictionary english.wrd dictionary.bin local.wrd$$
-The $xref/running/OMhelp_Dir/omhelp_dir/$$
+The $xref/running/omhelp_dir/omhelp_dir/$$
 contains the dictionaries that are used by OMhelp.
 The standard dictionary is located in a file called 
 $code english.wrd$$

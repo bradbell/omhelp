@@ -271,12 +271,14 @@ The automatically generated file
 $code index.htm$$ will cause the 
 $xref/running/Root Section/root section/$$ to be loaded.
 
-$head OMhelp_Dir$$
-$mindex omhelp_dir spell dictionary english.wrd local.wrd$$
-The environment variable 
-$xref/running/Setting Up Environment/omhelp_dir/$$
-specifies the directory
-where the OMhelp utility files are. This directory must contain
+$head omhelp_dir$$ 
+$index omhelp_dir$$
+$index english.wrd$$
+$index local.wrd$$
+$index dictionary.bin$$
+OMhelp utility files are stored in the $italic omhelp_dir$$ directory
+(this directory is determined during the $xref/Install//install/$$ process).
+This directory must contain
 the file $code english.wrd$$
 which is a dictionary of standard words in alphabetical order.
 If the file $code dictionary.bin$$ is not present,
