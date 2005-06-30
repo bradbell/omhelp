@@ -282,7 +282,6 @@ void BrowserPass1(SectionInfo *browser)
 	SectionInfo *Root;
 	char *file;
 	char *omhDir;
-	char ch;
 	char *tmp;
 	char *s;
 	char *number;

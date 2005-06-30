@@ -438,7 +438,9 @@ void HrefOutputPass2(
 
 	int  i;
 
-	CrossReference *C;
+	// initialize to avoid compiler warning
+	// (will be reset before used)
+	CrossReference *C = NULL;
 	
 	assert( *tag != '\0' );
 	assert( ! isspace(*tag) );
@@ -488,7 +490,8 @@ void HrefOutputPass2(
 				NULL
 		);
 		else
-		{	sprintf(number, "%d", C->frame);
+		{	assert( C != NULL );
+			sprintf(number, "%d", C->frame);
 			url = StrCat(
 				__FILE__, 
 				__LINE__, 

@@ -26,6 +26,7 @@ extern int PostWarnings(void);
 extern const char* IconLink();
 extern const char* IconFile();
 extern const char* SiteName();
+extern const char* OmhDir();
 
 
 # endif
