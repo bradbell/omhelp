@@ -263,7 +263,7 @@ static void NextSection(SectionInfo *F, int level)
 	return;
 }
 
-static void CopyImage(char *dir, char *name)
+static void CopyImage(const char *dir, char *name)
 {	char *file;
 
 	file = StrCat(
@@ -281,11 +281,11 @@ void BrowserPass1(SectionInfo *browser)
 {	FILE *Fp;
 	SectionInfo *Root;
 	char *file;
-	char *omhDir;
 	char *tmp;
 	char *s;
 	char *number;
 	int  i;
+	const char *omhDir;
 
 	assert( browser != NULL );
 	assert( SectionCount == 0 );
