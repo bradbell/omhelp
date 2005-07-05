@@ -1,5 +1,5 @@
 grep '^# *include *"' src/*.c src/*.h |\
-sed -e 's/^[^"]*"//' -e 's/" *$//' -e '/config.h/d' -e '/string.h/d' |\
+sed -e 's/^[^"]*"//' -e 's/" *$//' -e '/string.h/d' |\
 sort -u > junk.1
 #
 ls src/*.h |\
