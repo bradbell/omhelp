@@ -42,6 +42,8 @@ nobase_dist_data_DATA = \
 #
 EXTRA_DIST = \
 	Build \
+	SetNoExecute \
+	FixMakefile \
 	RunOMhelp \
 	omh \
 	src/omh \
