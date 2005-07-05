@@ -41,6 +41,7 @@ if [ "$1" = Doc ]
 then
 	echo "Building user documentation"
 	if [ -e Doc ]
+	then
 		rm -r -f Doc
 	fi
 	mkdir Doc
