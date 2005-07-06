@@ -102,10 +102,6 @@ then
 	echo "configure"
 	configure 
 	#
-	# Fix Makefile for what appears to be a bug in gzip under cygwin
-	echo "FixMakefile"
-	FixMakefile
-	#
 	echo "RunOMhelp Developer"
 	RunOMhelp Developer
 else
@@ -118,6 +114,10 @@ make
 #
 echo "RunOMhelp Doc"
 RunOMhelp Doc
+#
+# Fix Makefile for what appears to be a bug in gzip under cygwin
+echo "FixMakefile"
+FixMakefile
 #
 # build the dirtribution file omhelp-$Today.tar.gz
 make dist
@@ -159,6 +159,9 @@ touch omhelp-$Today/Makefile.in
 touch omhelp-$Today/*/Makefile.in
 sleep 2
 touch omhelp-$Today/configure
+#
+# make sure main.src is newer than main.c so that main.c is rebuilt
+touch src/main.src
 #
 # Remove config.h because it is not needed by Unix version
 rm omhelp-$Today/src/config.h
