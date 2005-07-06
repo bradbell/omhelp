@@ -605,7 +605,8 @@ const char *SpellingError(const char *text, int *nOut)
 }
 
 void FreeSpelling(int debug)
-{	FILE *fp;
+{	// initialize to avoid warning (set again before used)	
+	FILE *fp = NULL;
 
 	SpellError *current, *next;
 
