@@ -30,8 +30,8 @@ $index test$$
 $section Installing and Testing OMhelp$$
 
 $contents%
-	InstallUnix.omh%
-	InstallWindows.omh
+	installunix.omh%
+	installwindows.omh
 %$$
 
 $head MathML$$
