@@ -54,6 +54,6 @@ EXTRA_DIST = \
 	src/src.sln \
 	src/src.vcproj 
 # 
-# dist-hook:
-# 	rm -r `find $(distdir)/omh -name CVS`
-# 	rm -r `find $(distdir)/src/omh -name CVS`
+dist-hook:
+	rm -r `find $(distdir)/omh -name CVS`
+	rm -r `find $(distdir)/src/omh -name CVS`
