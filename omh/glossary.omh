@@ -19,7 +19,7 @@
 # END SHORT COPYRIGHT
 #
 $begin glossary$$
-$escape #$$
+$escape !$$
 $dollar @$$
 $aindex head$$
 $spell 
@@ -97,7 +97,7 @@ $syntax%
 %$$
 
 
-$head #The Dollar# Sign Character$$ 
+$head !The Dollar! Sign Character$$ 
 The character @ is used to signal the start of a text processing
 command. This character is referred to at the dollar sign.
 
