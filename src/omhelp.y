@@ -2724,7 +2724,16 @@ head
 			"between a $table and the corresponding $tend",
 			NULL
 		);
-
+ 		// make sure no # characters in heading
+ 		if( strchr($2.str, '#') != NULL ) fatalomh(
+ 			"$head command in line ",
+ 			int2str($1.line),
+ 			" has heading\n",
+ 			$2.str,
+ 			"\nThe character '#' is not allowed in headings",
+ 			NULL
+ 		);
+ 
 		// version of heading without escape characters
 		noEscape = str_alloc($2.str);
 		if( MindexHead )
@@ -3913,6 +3922,26 @@ subhead
 			"between a $table and the corresponding $tend",
 			NULL
 		);
+
+ 		// make sure no # characters in subheading
+ 		if( strchr($2.str, '#') != NULL ) fatalomh(
+ 			"$head command in line ",
+ 			int2str($1.line),
+ 			" has heading\n",
+ 			$2.str,
+ 			"\nThe character '#' is not allowed in headings",
+ 			NULL
+ 		);
+ 
+ 		// make sure no # characters in heading
+ 		if( strchr($2.str, '#') != NULL ) fatalomh(
+ 			"$subhead command in line ",
+ 			int2str($1.line),
+ 			" has subheading\n",
+ 			$2.str,
+			"\nThe character '#' is not allowed in headings",
+ 			NULL
+ 		);
 
 		if( ConvertPreviousNewline() < 2 )
 			ConvertForcedNewline(2 - ConvertPreviousNewline() );
