@@ -21,6 +21,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	cygwin
 	autoconf
 	automake
 	Microsoft
@@ -40,7 +41,7 @@ $index changes$$
 
 $section Changes and Additions to OMhelp$$
 
-$head Description$$
+$head Introduction$$
 This section contains a list of changes to 
 OMhelp (in reverse order by date). 
 Its purpose is to assist you in learning about 
@@ -73,6 +74,20 @@ The $xref/head/$$ and $code subhead$$ commands
 were modified to make it illegal to include the $code #$$ character.
 (It would be better to separate fields differently so that this
 restriction could be removed.)
+$pre
+
+$$
+The previous install worked under cygwin, but not under Unix, because
+of some case mismatch in the file names. This has been fixed by converting
+the file names to entirely lower case as suggested by
+$href%
+	http://www.boost.org/more/lib_guide.htm#Directory_structure%
+	boost
+%$$
+The conversion to entirely lower case file and directory names
+will be done slowly and with minimal user impact.
+
+
 
 
 $head 05-06-29$$
