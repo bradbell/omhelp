@@ -47,7 +47,7 @@ $fend 25$$
 $head Description$$
 A new paragraph is started and it is given the heading
 specified by $italic heading$$ or $italic subheading$$.
-There can be no $code @$$ characters in either
+There can be no $code @$$ or $code #$$ characters in either
 $italic heading$$ or $italic subheading$$.
 In addition,
 leading and trailing
