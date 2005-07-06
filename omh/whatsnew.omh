@@ -65,6 +65,16 @@ $tend
 
 $$
 
+$head 05-07-05$$
+The $code #$$ character is used to separate fields in cross references.
+This confused OMhelp when a heading or subheading contained the
+$code #$$ character.
+The $xref/head/$$ and $code subhead$$ commands
+were modified to make it illegal to include the $code #$$ character.
+(It would be better to separate fields differently so that this
+restriction could be removed.)
+
+
 $head 05-06-29$$
 The $xref/InstallUnix//Unix install/$$ now uses autoconf and automake
 and the environment variable $code omhelp_dir$$ is no longer necessary.
