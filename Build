@@ -1,4 +1,4 @@
-# BEGIN SHORT COPYRIGHT
+# ! /bin/bash
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
 # 
@@ -16,38 +16,20 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 # Build distribution
 #
-echo "make sure certian files are not executable"
-SetNoExecute
-#
-# Check for aclocal.m4
-if [ ! -e aclocal.m4 ]
-then
-	echo "aclocal.m4 does not exist so running aclocal"
-	if [ -e configure ]
-	then
-		rm configure
-	fi
-	echo "aclocal"
-	aclocal
-else
-	echo "aclocal.m4 exists so not running aclocal"
-fi  
-#
-# Today's date in YY-MM-DD decimal digit format with leading zeros
-Today=`date +%g-%m-%d`
-#
-# Date currently in configure.ac
+# date currently in configure.ac
 AcDate=`grep "^ *AC_INIT(" configure.ac | \
 	sed -e "s/.*, *\([0-9][0-9]-[0-9][0-9]-[0-9][0-9]\) *,.*/\1/"`
 #
-# Update version 
-if [ $Today != $AcDate ]
+# version
+#
+if [ "$1" = "version" ] || [ "$1" = "all" ]
 then
-	echo "update version in configure.ac and Doc.omh"
+	#
+	# Today's date in yy-mm-dd decimal digit format with leading zeros
+	Today=`date +%g-%m-%d`
 	#
 	sed configure.ac > configure.tmp -e \
 	"s/(OMhelp, [0-9][0-9]-[0-9][0-9]-[0-9][0-9],/(OMhelp, $Today,/"
@@ -58,40 +40,65 @@ then
 	sed omh/overview.omh > overview.tmp -e \
 	"s/Version [0-9][0-9]-[0-9][0-9]-[0-9][0-9]/Version $Today/g"
 	#
-	sed src/main.c > main.tmp -e \
+	diff omh/overview.omh overview.tmp
+	mv   overview.tmp     omh/overview.omh
+	#
+	sed src/main.src > main.tmp -e \
 	"s/Version [0-9][0-9]-[0-9][0-9]-[0-9][0-9]/Version $Today/g"
 	#
-	diff src/main.c main.tmp
-	mv   main.tmp src/main.c
+	diff src/main.src main.tmp
+	mv   main.tmp     src/main.src
 	#
-	# configure file is out of date
+	# configure file is out of date so remove it
 	if [ -e configure ]
 	then
 		rm configure
 	fi
-fi
-#
-# clean out old distribution files
-if [ -e omhelp-$Today ]
-then
-	rm -r omhelp-$Today
-fi
-for file in OMhelp.dos.tar.gz OMhelp.unix.tar.gz
-do
-	if [ -e $file ]
-	then
-		rm $file
-	fi
-done
-#
-# Make sure configure is up to date
-if [ ! -e configure ]
-then
-	echo "configure does not exist so running"
-	echo "autoheader, autoconf, automake, configure, OMhelp Developer"
 	#
+	if [ "$1" != "all" ]
+	then
+		exit
+	fi
+fi
+#
+# aclocal
+#
+if [ "$1" = "aclocal" ] || [ "$1" = "all" ]
+then
+	if [ -e configure ]
+	then
+		rm configure
+	fi
+	echo "aclocal"
+	aclocal
+	#
+	if [ "$1" != "all" ]
+	then
+		exit
+	fi
+fi  
+#
+# autoheader
+#
+if [ "$1" = "autoheader" ] || [ "$1" = "all" ]
+then
 	echo "autoheader"
 	autoheader
+	#
+	if [ "$1" != "all" ]
+	then
+		exit
+	fi
+fi
+#
+# automake
+#
+if [ "$1" = "automake" ] || [ "$1" = "all" ]
+then
+	if [ -e configure ]
+	then
+		rm configure
+	fi
 	#
 	echo "autoconf"
 	autoconf
@@ -99,76 +106,152 @@ then
 	echo "automake -add-missing"
 	automake --add-missing
 	#
+	if [ "$1" != "all" ]
+	then
+		exit
+	fi
+fi
+#
+# configure
+#
+if [ "$1" = "configure" ] || [ "$1" = "all" ]
+then
+	#
 	echo "configure"
 	configure 
 	#
-	echo "RunOMhelp Developer"
-	RunOMhelp Developer
-else
-	echo "configure exists so not running"
-	echo "autoheader, autoconf, automake, configure, OMhelp Developer"
+	# Fix Makefile for what appears to be a bug in gzip under cygwin
+	echo "FixMakefile"
+	FixMakefile
+	#
+	if [ "$1" != "all" ]
+	then
+		exit
+	fi
 fi
 #
-echo "make"
-make
+# compile
 #
-echo "RunOMhelp Doc"
-RunOMhelp Doc
+if [ "$1" = "compile" ] || [ "$1" = "all" ]
+then
+	echo "make"
+	make
+	#
+	if [ "$1" != "all" ]
+	then
+		exit
+	fi
+fi
 #
-# Fix Makefile for what appears to be a bug in gzip under cygwin
-echo "FixMakefile"
-FixMakefile
+# omhelp
 #
-# build the dirtribution file omhelp-$Today.tar.gz
-make dist
+if [ "$1" = "omhelp" ] || [ "$1" = "all" ]
+then
+	echo "RunOMhelp Developer"
+	RunOMhelp Developer
+	#
+	echo "RunOMhelp Doc"
+	RunOMhelp Doc
+	#
+	if [ "$1" != "all" ]
+	then
+		exit
+	fi
+fi
 #
-# extract from compressed tar
-tar -xvzf omhelp-$Today.tar.gz 
+# dist
 #
-# create the Dos version
-mv omhelp-$Today.tar.gz OMhelp.dos.tar.gz
-#
-# convert files to unix format
-for file in  omhelp-$Today/*
-do
-	dos2unix $file
-done
-for dir in \
-	src \
-	src/omh \
-	omh \
-	omh/getstarted \
-	omh/latex
-do
-	for file in omhelp-$Today/$dir/*
+if [ "$1" = "dist" ] || [ "$1" = "all" ]
+then
+	#
+	if [ -e omhelp-$AcDate ]
+	then
+		echo "rm -r omhelp-$AcDate"
+		rm -r omhelp-$AcDate
+	fi
+	for file in OMhelp.dos.tar.gz OMhelp.unix.tar.gz
 	do
-		dos2unix $file
+		if [ -e $file ]
+		then
+			echo "rm $file"
+			rm $file
+		fi
 	done
-done
+	#
+	echo "make dist"
+	make dist
+	#
+	if [ ! -e omhelp-$AcDate.tar.gz ]
+	then
+		echo "omhelp-$AcDate.tar.gz does not exist"
+		echo "perhaps version is out of date"
+		#
+		exit
+	fi
+	#
+	# extract from compressed tar
+	tar -xvzf omhelp-$AcDate.tar.gz 
+	#
+	# create the unix version
+	mv omhelp-$AcDate.tar.gz OMhelp.unix.tar.gz
+	#
+	# convert files to unix format
+	for file in  omhelp-$AcDate/*
+	do
+		unix2dos $file
+	done
+	for dir in \
+		src \
+		src/omh \
+		omh \
+		omh/getstarted \
+		omh/latex
+	do
+		for file in omhelp-$AcDate/$dir/*
+		do
+			unix2dos $file
+		done
+	done
+	#
+	# Make sure that dates in certain files are in certain order
+	# (necessary because of unix2dos conversion above)
+	touch omhelp-$AcDate/aclocal.m4
+	sleep 2
+	touch omhelp-$AcDate/src/config.h.in
+	sleep 2
+	touch omhelp-$AcDate/Makefile.in
+	touch omhelp-$AcDate/*/Makefile.in
+	sleep 2
+	touch omhelp-$AcDate/configure
+	#
+	# create the dos version
+	tar -cvf OMhelp.dos.tar omhelp-$AcDate
+	gzip OMhelp.dos.tar 
+	#
+	# clean up
+	rm -r omhelp-$AcDate
+	#
+	# Remove config.h from the it is not needed by Unix version
+	# rm omhelp-$AcDate/src/config.h
+	#
+	exit
+fi
 #
-# fix binary files were overwitten by dos2unix
-cp omh/getstarted/w3c_home.gif omhelp-$Today/omh/getstarted/w3c_home.gif
-#
-# Make sure that dates in certain files are in certain order
-# (necessary because of dos2unix conversion above)
-touch omhelp-$Today/aclocal.m4
-sleep 2
-touch omhelp-$Today/src/config.h.in
-sleep 2
-touch omhelp-$Today/Makefile.in
-touch omhelp-$Today/*/Makefile.in
-sleep 2
-touch omhelp-$Today/configure
-#
-# make sure main.src is newer than main.c so that main.c is rebuilt
-touch src/main.src
-#
-# Remove config.h because it is not needed by Unix version
-rm omhelp-$Today/src/config.h
-#
-# create the Unix version
-tar -cvf OMhelp.unix.tar omhelp-$Today
-gzip OMhelp.unix.tar 
-#
-# clean up
-rm -r omhelp-$Today
+if [ "$1" = "" ]
+then
+	echo "usage: Build option (where valid options are listed below)" 
+else
+	echo "$1 is not a valid option (valid options are listed below)"
+fi
+echo "option"
+echo "------"
+echo "version     update configure.ac and Doc.omh version number"
+echo "aclocal     create aclocal.m4 file"
+echo "autoheader  create a src/config.h.in file"
+echo "automake    run autoconf and automake to create configure script"
+echo "configure   run configure script to create make files"
+echo "compile     compile all of the tests"
+echo "omhelp      build all the documentation"
+echo "dist        create the distribution files OMhelp.*.tar.gz"
+echo
+echo "Build all: This command will execute all the options in the order above"
