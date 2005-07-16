@@ -1,4 +1,4 @@
-# BEGIN SHORT COPYRIGHT
+# ! /bin/bash
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
 # 
@@ -16,8 +16,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
-#
 #
 if [ "$1" != "Doc" ] && [ "$1" != "Developer" ]
 then
