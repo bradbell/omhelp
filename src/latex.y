@@ -329,6 +329,7 @@ static void SetArrayAlign(char *str)
 %token CMD_WIDETILDE_lex
 %token NUMBER_lex
 %token STDFUN_lex
+%token STD_DISPLAY_lex
 %token SYM_ARROW_lex
 %token SYM_BINARYOP_lex
 %token SYM_DISPLAY_lex
@@ -920,6 +921,8 @@ element
 	| stackrel
 	{	$$ = $1; }
 	| stdfun
+	{	$$ = $1; }
+	| std_display
 	{	$$ = $1; }
 	| sym_display
 	{	$$ = $1; }
@@ -1560,6 +1563,29 @@ stdfun
 		$$ = $1;
 	}
 	;
+
+std_display
+	: STD_DISPLAY_lex
+	{	// str is the name of the standard function
+		assert( $1.str != NULL );
+		assert( strlen($1.str) > 1 );
+		assert( LengthStype(& $1) == 1 );
+
+		CharPlusStype("<mi>", & $1);
+		StypePlusChar(& $1, "</mi>\n");
+
+		assert( LengthStype( & $1 ) == 3 );
+		$$ = $1;
+
+		printf("STD_DISPLAY_lex str = %s\n", $1.str);
+
+		// if BlockDisplay is true, use under/over inplace of sub/sup 
+		assert( LengthStype( & $$ ) == SUBSUP_2_UNDEROVER_LENGTH );
+		if( BlockDisplay )
+			$$.data = SUBSUP_2_UNDEROVER_DATA;
+	}
+	;
+
 
 sym_display
 	: SYM_DISPLAY_lex

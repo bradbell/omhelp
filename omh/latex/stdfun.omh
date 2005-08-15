@@ -21,6 +21,11 @@
 $begin stdfun$$
 $dollar @$$
 $spell
+	liminf
+	limsup
+	inline
+	inf
+	sup
 	xml
 	htm
 	Lamport
@@ -137,5 +142,36 @@ $tend
 $comment ==================================================================$$
 
 $$
+
+
+$head Inline Formulas$$
+The standard math functions listed below display subscripts and superscripts
+differently in line than in displayed formulas.
+Here is some example output corresponding to 
+$xref/latex/Inline Formulas/inline formulas/$$:
+$center
+$latex 
+\min_{x > 0} \; , \;
+\max_{x > 0} \; , \;
+\lim_{x > 0} \; , \;
+\inf_{x > 0} \; , \;
+\sup_{x > 0} \; , \;
+\liminf_{x > 0} \; , \;
+\limsup_{x > 0}
+$$
+$$
+
+$head Display Formulas$$
+Here is some example output corresponding to
+$xref/latex/Displayed Formulas/displayed formulas/$$:
+$latex \[
+\min_{x > 0} \; , \;
+\max_{x > 0} \; , \;
+\lim_{x > 0} \; , \;
+\inf_{x > 0} \; , \;
+\sup_{x > 0} \; , \;
+\liminf_{x > 0} \; , \;
+\limsup_{x > 0}
+\] $$
 
 $end

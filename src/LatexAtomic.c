@@ -60,6 +60,7 @@ It will be one of the following:
 $table
 $bold Value$$    $cnext $bold Description$$ $rnext
 STDFUN_lex       $cnext log-like functions $rnext
+STD_DISPLAY_lex  $cnext functions that act differently in Display mode $rnext
 SYM_GREEK_lex    $cnext greek letter $rnext
 SYM_BINARYOP_lex $cnext binary operator $rnext
 SYM_RELATION_lex $cnext relation symbol $rnext
@@ -501,7 +502,7 @@ struct {
 	// "&in;",
 	"&#x02208;" } ,
 { "inf",
-	STDFUN_lex,
+	STD_DISPLAY_lex,
 	"inf" } ,
 	//
 { "infty",
@@ -577,15 +578,15 @@ struct {
 	"lg" } ,
 	//
 { "lim",
-	STDFUN_lex,
+	STD_DISPLAY_lex,
 	"lim" } ,
 	//
 { "liminf",
-	STDFUN_lex,
+	STD_DISPLAY_lex,
 	"liminf" } ,
 	//
 { "limsup",
-	STDFUN_lex,
+	STD_DISPLAY_lex,
 	"limsup" } ,
 	//
 { "ll",
@@ -621,7 +622,7 @@ struct {
 	// "&mapsto;",
 	"&#x021A6;" } ,
 { "max",
-	STDFUN_lex,
+	STD_DISPLAY_lex,
 	"max" } ,
 	//
 { "mho",
@@ -633,7 +634,7 @@ struct {
 	// "&mid;",
 	"&#x02223;" } ,
 { "min",
-	STDFUN_lex,
+	STD_DISPLAY_lex,
 	"min" } ,
 	//
 { "models",
@@ -881,7 +882,7 @@ struct {
 	// "&sum;",
 	"&#x02211;" } ,
 { "sup",
-	STDFUN_lex,
+	STD_DISPLAY_lex,
 	"sup" } ,
 	//
 { "supset",

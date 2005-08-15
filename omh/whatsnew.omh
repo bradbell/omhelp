@@ -21,6 +21,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	inline
 	cygwin
 	autoconf
 	automake
@@ -65,6 +66,14 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 05-08-14$$
+Standard latex treats subscripts and superscripts for some of the 
+$xref/stdfun//standard math functions/$$ differently
+when they are in
+$xref/stdfun/Inline Formulas/inline formulas/$$ from when they are in
+$xref/stdfun/Display Formulas/Displayed formulas/$$.
+ 
 
 $head 05-07-05$$
 The $code #$$ character is used to separate fields in cross references.
