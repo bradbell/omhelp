@@ -45,6 +45,7 @@ EXTRA_DIST = \
 	SetNoExecute \
 	FixMakefile \
 	RunOMhelp \
+	RunOMhelp.bat \
 	omh \
 	src/omh \
 	src/main.src \
@@ -54,6 +55,8 @@ EXTRA_DIST = \
 	src/src.sln \
 	src/src.vcproj 
 # 
+# main.c is not a source file (it is built from main.src)
 dist-hook:
+	rm $(distdir)/src/main.c
 	rm -r `find $(distdir)/omh -name CVS`
 	rm -r `find $(distdir)/src/omh -name CVS`

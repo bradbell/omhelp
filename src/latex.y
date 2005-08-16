@@ -1577,8 +1577,6 @@ std_display
 		assert( LengthStype( & $1 ) == 3 );
 		$$ = $1;
 
-		printf("STD_DISPLAY_lex str = %s\n", $1.str);
-
 		// if BlockDisplay is true, use under/over inplace of sub/sup 
 		assert( LengthStype( & $$ ) == SUBSUP_2_UNDEROVER_LENGTH );
 		if( BlockDisplay )

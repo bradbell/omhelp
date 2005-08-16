@@ -173,9 +173,9 @@ int main(int argc, const char *argv[])
 
 	// version information
 # if NDEBUG
-	printf("\nOMhelp Release Version 05-06-25\n");
+	printf("\nOMhelp Release Version 05-08-15\n");
 # else
-	printf("\nOMhelp Debug Version 05-06-25\n");
+	printf("\nOMhelp Debug Version 05-08-15\n");
 # endif
 	if( error )
 	{	
@@ -200,7 +200,8 @@ int main(int argc, const char *argv[])
 	if( omhdir == NULL )
 		omhdir = "DATA_DIR/OMhelp";
 # else 
-	omhdir = getenv("omhelp_dir");
+	if( omhdir == NULL )
+		omhdir = getenv("omhelp_dir");
 	if( omhdir == NULL )
 	{
 		// Look for omhelp_dir in windows system INI file
