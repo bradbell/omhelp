@@ -67,6 +67,21 @@ $tend
 
 $$
 
+$head 05-08-15$$
+The install directory was not being properly embedded in the program
+during the $xref/InstallUnix//unix install/$$. This has been fixed.
+$pre
+
+$$
+The file $code RunOMhelp.bat$$, which is used during the windows install,
+was not being distributed. This has been fixed.
+$pre
+
+$$
+The first output line, which identifies the version of OMhelp, has been
+extended to include information about compiler flag settings.
+
+
 $head 05-08-14$$
 Standard latex treats subscripts and superscripts for some of the 
 $xref/stdfun//standard math functions/$$ differently
