@@ -209,6 +209,19 @@ then
 			unix2dos $file
 		done
 	done
+	for dir in \
+		omh/getstarted 
+	do
+		for file in \
+			omhelp-$AcDate/$dir/*.omh \
+			omhelp-$AcDate/$dir/*.dat \
+			omhelp-$AcDate/$dir/*.m \
+			omhelp-$AcDate/$dir/*.c \
+			omhelp-$AcDate/$dir/RunAll
+		do
+			unix2dos $file
+		done
+	done
 	#
 	# Make sure that dates in certain files are in certain order
 	# (necessary because of unix2dos conversion above)
