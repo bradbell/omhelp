@@ -21,7 +21,6 @@
 # automake input file
 #
 BUILT_SOURCES = \
-	main.c \
 	omhelp.c \
 	omhelp.h \
 	latex.c \
