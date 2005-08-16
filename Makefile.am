@@ -55,8 +55,8 @@ EXTRA_DIST = \
 	src/src.sln \
 	src/src.vcproj 
 # 
-# main.c is not a source file (it is built from main.src)
+# make sure that unix install rebuilds main.c from main.src
 dist-hook:
-	rm $(distdir)/src/main.c
+	touch $(distdir)/src/main.src
 	rm -r `find $(distdir)/omh -name CVS`
 	rm -r `find $(distdir)/src/omh -name CVS`
