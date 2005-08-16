@@ -46,12 +46,6 @@ then
 	diff omh/overview.omh overview.tmp
 	mv   overview.tmp     omh/overview.omh
 	#
-	sed src/main.src > main.tmp -e \
-	"s/Version [0-9][0-9]-[0-9][0-9]-[0-9][0-9]/Version $Today/g"
-	#
-	diff src/main.src main.tmp
-	mv   main.tmp     src/main.src
-	#
 	# configure file is out of date so remove it
 	if [ -e configure ]
 	then
