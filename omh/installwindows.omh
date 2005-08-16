@@ -89,11 +89,6 @@ All of the commands below are to be executed from this directory.
 
 $head Build The Executable$$
 $list number$$
-In a Dos box, execute the following command
-$codep
-	copy src/main.src src/main.c
-$$
-$lnext
 Open Microsoft Visual Studio dot Net.
 $lnext
 Select $code File | Open | Project$$ an in the dialog that appears
