@@ -18,6 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 // END SHORT COPYRIGHT
 
+# include "config.h"
 # include "allocmem.h"
 # include "str_cat.h"
 # include "str_alloc.h"
@@ -96,6 +97,17 @@ int main(int argc, const char *argv[])
 	int morearg          = 0;
 	char ch;
 
+# ifdef NDEBUG
+	const char *ndebug = "true";
+# else
+	const char *ndebug = "false";
+# endif
+# ifdef WIN32
+	const char *win32  = "true";
+# else
+	const char *win32  = "false";
+# endif
+
 	// set default output file type
 	Internal2OutSet("htm");
 
@@ -172,11 +184,9 @@ int main(int argc, const char *argv[])
 	error = error || iarg != argc;
 
 	// version information
-# if NDEBUG
-	printf("\nOMhelp Release Version 05-08-15\n");
-# else
-	printf("\nOMhelp Debug Version 05-08-15\n");
-# endif
+	printf("OMhelp: Version=%s, ndebug=%s, win32=%s\n", 
+		VERSION, ndebug, win32
+	);
 	if( error )
 	{	
 		printf(
