@@ -148,9 +148,12 @@ to make your new dictionary compatible with your current help system.
 
 
 $head Dictionary$$
-$mindex spell dictionary english.wrd dictionary.bin local.wrd$$
-The $xref/running/omhelp_dir/omhelp_dir/$$
-contains the dictionaries that are used by OMhelp.
+$index spell$$
+$index dictionary$$
+The dictionary used by OMhelp is determined during installation
+(see the dictionary instructions for installing under 
+$xref/InstallUnix/Dictionary/Unix/$$ or
+$xref/InstallWindows/Dictionary/Windows/$$).
 The standard dictionary is located in a file called 
 $code english.wrd$$
 and the local dictionary is located in a file called 
@@ -158,7 +161,9 @@ $code local.wrd$$.
 A combined binary version of these dictionaries is located in a file called
 $code dictionary.bin$$
 
-$subhead Changing Dictionary$$
+
+$subhead English.wrd$$
+$index english.wrd$$
 The $code english.wrd$$ file distributed with OMhelp
 is a combination of the files $syntax/words/*/.lst/$$
 from the web site:
@@ -168,8 +173,5 @@ $href%http://www.bookcase.com/library/software/msdos.education.linguistics.html%
 $pre
 $$
 (together with all the single letters $code a$$ through $code z$$).
-If you delete the file $code dictionary.bin$$ (mentioned above),
-OMhelp will build a new version from the current version of
-$code english.wrd$$ and $code local.wrd$$.
 
 $end

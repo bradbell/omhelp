@@ -21,6 +21,7 @@
 #
 $begin InstallWindows$$
 $spell 
+	wrd
 	src src
 	ini
 	Autoexec
@@ -105,6 +106,39 @@ $syntax%
 %$$
 $lend
 
+$head Dictionary$$ 
+$index dictionary$$
+$index english.wrd$$
+$index local.wrd$$
+$index dictionary.bin$$
+OMhelp utility files are stored in the $code OMhelp$$ subdirectory
+of the distribution directory.
+This directory must contains the files
+$codep
+	OMhelp/english.wrd
+	OMhelp/local.wrd
+$$
+If the file $code dictionary.bin$$ is not present,
+OMhelp will to create a new dictionary 
+that combines $code english.wrd$$ and $code local.wrd$$
+(the file $code local.wrd$$ is optional) to form
+$codep
+	OMhelp/dictionary.bin
+$$
+The words in $code english.wrd$$ and $code local.wrd$$
+must be in alphabetic order, lower case, and contain only letters
+with one per line.
+For example,
+$codep
+	a
+	aardvark
+	aardvarks
+	...
+$$
+If you make any changes to $code english.wrd$$ or $code local.wrd$$,
+the file $code dictionary.bin$$ should be deleted.
+A new $code dictionary.bin$$ that combines the words $code english.wrd$$
+and $code local.wrd$$ will be created the next time $code OMhelp$$ is run.
 
 $head Building User Documentation and Testing OMhelp$$
 In a Dos box, execute the following command

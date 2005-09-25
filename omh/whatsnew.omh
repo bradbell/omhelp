@@ -67,6 +67,18 @@ $tend
 
 $$
 
+$head 05-09-24$$
+In the $xref/InstallUnix//Unix install/$$ case, the file 
+$syntax%
+	%prefix%/share/OMhelp/dictionary.bin
+%$$
+was created the first time OMhelp was run.
+This would cause an error if the user running
+the program did not have permission to write in the
+$xref/InstallUnix/Prefix/prefix/$$ directory.
+This has been fixed by changing the 
+$xref/InstallUnix/Dictionary/dictionary/$$ install procedure.
+
 $head 05-08-15$$
 The install directory was not being properly embedded in the program
 during the $xref/InstallUnix//unix install/$$. This has been fixed.

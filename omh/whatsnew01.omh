@@ -422,7 +422,7 @@ For example, you can use $code OMhelp$$ as a special spelling
 for the word $code mhelp$$
 
 $head 05-24$$
-The ascii files $xref/spell/Dictionary.Changing Dictionary/english.wrd/$$ and
+The ascii files $xref/spell/Dictionary.English.wrd/english.wrd/$$ and
 $code local.wrd$$ are included in the distribution (instead
 of the binary file $code dictionary.bin$$).
 This makes it easier to add a local dictionary

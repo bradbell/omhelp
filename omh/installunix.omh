@@ -19,6 +19,7 @@
 $begin InstallUnix$$
 $dollar @$$
 $spell
+	wrd
 	dir
 	subtree
 	omh
@@ -70,7 +71,7 @@ The value $syntax%%yy%-%mm%-%dd%$$ is the corresponding
 version of OMhelp.
 
 $head Configure$$
-$index omhelp_dir$$
+$index prefix$$
 Enter the distribution directory and execute the command:
 $syntax%
 	./configure [ prefix=%prefix% ]
@@ -79,9 +80,9 @@ where the entry between the brackets $code [$$ and $code ]$$ is optional,
 the brackets are not included, and the word in italic is replaced
 by the value you chose.
 The OMhelp utility files will be stored in the directory
-$syntax%%prefix%/share%$$
-which is referred to as 
-$xref/running/omhelp_dir/omhelp_dir/$$. 
+$syntax%
+	%prefix%/share/OMhelp
+%$$
 
 $head Prefix$$
 The default value for $italic prefix$$ is $code @HOME$$; i.e.,
@@ -107,6 +108,51 @@ $syntax%
 	omhelp-%yy%-%mm%-%dd%/src/omhelp
 %$$
 (or possibly $code omhelp.exe$$ if you are using Cygwin or MinGw).
+
+
+$head Dictionary$$ 
+$index dictionary$$
+$index english.wrd$$
+$index local.wrd$$
+$index dictionary.bin$$
+OMhelp utility files are stored in the $code OMhelp$$ subdirectory
+of the distribution directory.
+This directory must contains the files
+$codep
+	OMhelp/english.wrd
+	OMhelp/local.wrd
+$$
+If the file $code dictionary.bin$$ is not present,
+OMhelp will to create a new dictionary 
+that combines $code english.wrd$$ and $code local.wrd$$
+(the file $code local.wrd$$ is optional) to form
+$codep
+	OMhelp/dictionary.bin
+$$
+The words in $code english.wrd$$ and $code local.wrd$$
+must be in alphabetic order, lower case, and contain only letters
+with one per line.
+For example,
+$codep
+	a
+	aardvark
+	aardvarks
+	...
+$$
+If you make any changes to $code english.wrd$$ or $code local.wrd$$,
+the file $code dictionary.bin$$ should be deleted.
+A new $code dictionary.bin$$ that combines the words $code english.wrd$$
+and $code local.wrd$$ will be created and installed by following 
+the installation steps:
+$codep
+	./RunOMhelp Doc
+	make install
+$$ 
+This will create the new dictionary and copy it to
+$syntax%
+	%prefix%/share/OMhelp
+%$$
+
 
 $head Building User Documentation and Testing OMhelp$$
 In the distribution directory, execute the following command:

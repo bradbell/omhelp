@@ -38,7 +38,8 @@ nobase_dist_data_DATA = \
 	OMhelp/icon.gif \
 	OMhelp/local.wrd \
 	OMhelp/pmathml.xsl \
-	OMhelp/pmathmlcss.xsl
+	OMhelp/pmathmlcss.xsl \
+	OMhelp/dictionary.bin
 #
 EXTRA_DIST = \
 	Build \
