@@ -1,0 +1,25 @@
+# Add the newlinech command
+# Change way dictionary is modified
+# 
+# keycharacter.omh: improve indexing and change copyright year
+# running.omh: document change to dictionary modification
+# special.omh: add newlinech to list
+# newlinech.omh: documentation for new command
+# spellchecking.omh: new link to dictionary documentation
+# whatsnew.omh: uses view of newlinech command (dictionary already committed)
+# wspace.omh: improve indexing and deprecate
+# lexomh.c: add $newlinech token
+# omhlep.y: process $newlinech command
+#
+sed -e "/^[^#]/d" -e "s/^[#] *//" < CvsCommit > cvs.log
+cvs commit -F cvs.log \
+	CvsCommit \
+	omh/keycharacter.omh \
+	omh/running.omh \
+	omh/special.omh \
+	omh/newlinech.omh \
+	omh/spellchecking.omh \
+	omh/whatsnew.omh \
+	omh/wspace.omh \
+	src/lexomh.c \
+	src/omhelp.y

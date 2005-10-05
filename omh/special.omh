@@ -31,9 +31,10 @@ $childtable/
 	dollar.omh/
 	cmark.omh/
 	rmark.omh/
-	wspace.omh/
+	newlinech.omh/
 	accent.omh/
 	escape.omh/
-	tabsize.omh/$$
+	tabsize.omh/
+	wspace.omh/$$
 
 $end

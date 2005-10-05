@@ -156,6 +156,7 @@ static char Rmark = '\0';
 
 // current character that gets converted to a space
 static char Wspace = '\0';
+static char NewlineCh = '\0';
 
 // current escape character
 static char Escape = '\\';
@@ -1323,6 +1324,7 @@ void InitParser(const char *StartingInputFile)
 %token MATH_lex
 %token MINDEX_lex
 %token MREF_lex
+%token NEWLINECH_lex
 %token NOBREAK_lex
 %token NOSPELL_lex
 %token NUMBER_lex
@@ -1411,6 +1413,7 @@ element
 	| number
 	| path
 	| pre
+	| newlinech
 	| rmark
 	| rnext
 	| section
@@ -1749,6 +1752,9 @@ begin
 
 		// erase the current white space character
 		Wspace = '\0';
+
+		// erase the current program comment character
+		NewlineCh = '\0';
 		
 		// reset the current escape character
 		Escape = '\\';
@@ -3522,6 +3528,28 @@ mref
 	;
 
 
+newlinech
+	: NEWLINECH_lex argument DOUBLE_DOLLAR_lex
+	{
+		assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		if( strlen($2.str)  > 1 ) fatalomh(
+			"More that one character is specified by the\n",
+			"$newlinech comamnd in line ",
+			int2str($1.line),
+			NULL
+		);
+
+		NewlineCh = *($2.str);
+		
+		FreeMem($2.str);
+
+		$$ = $1;
+	}
+	;
+
 nobreak
 	: NOBREAK_lex text DOUBLE_DOLLAR_lex
 	{	int pre = 0;
@@ -3659,7 +3687,6 @@ pre
 		$$ = $1;
 	}
 	;
-
 
 rnext:
 	rnext_cases
@@ -4178,42 +4205,57 @@ text_raw
 	: TEXT_lex
 	{	int line = $1.line;
 		char *p = $1.str;
-		char ch = *p;
+		char *q = $1.str;
 
 		assert( $1.str != NULL );
-
 		assert( REGISTERED_TRADE_MARK_CHARACTER < 5 );
 		assert( COPYRIGHT_CHARACTER < 5 );
 
-		// convert special character to $ 
-		while(ch != '\0' )
+		// convert special characters 
+		while(*p != '\0' )
 		{	
 			// error cases
-			if( ch < 5 ) fatalomh(
+			if( *p < 5 ) fatalomh(
 				"Line ",
 				int2str(line),
 				" contains a character with ascii code\n",
-				int2str(ch),
+				int2str(*p),
 				" which is less than 5.",
 				NULL
 			);
 
 			// conversion cases
-			if( ch == Dollar )
+			if( *p == Dollar )
 				*p = '$';
-			if( ch == Rmark )
+			if( *p == Rmark )
 				*p = REGISTERED_TRADE_MARK_CHARACTER;
-			if( ch == Cmark )
+			if( *p == Cmark )
 				*p = COPYRIGHT_CHARACTER;
-			if( ch == Wspace )
+			if( *p == Wspace )
 				*p = ' ';
 
-			// increment line counter
-			if( ch == '\n' )
+			if( *p == '\n' )
+			{	// increment line counter
 				line++;
-
-			p++;
-			ch = *p;
+				p++;
+				q++;
+				*p = *q;
+				if( *p != '\0' && *p == NewlineCh )
+				{	// skip program source comment char
+					q++;
+					*p = *q;
+					// skip following white space
+					while( isspace(*p) && *p != '\n' )
+					{	q++;
+						*p = *q;
+					}
+				}
+			}
+			else
+			{	p++;
+				q++;
+				*p = *q;
+			}
 		}
 
 		$$ = $1;

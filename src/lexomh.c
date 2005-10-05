@@ -166,6 +166,7 @@ keyword_table[] =
 	{ "math",       MATH_lex        },
 	{ "mindex",     MINDEX_lex      },
 	{ "mref",       MREF_lex        },
+	{ "newlinech",  NEWLINECH_lex   },
 	{ "nobreak",    NOBREAK_lex     },
 	{ "nospell",    NOSPELL_lex     },
 	{ "path",       PATH_lex        },

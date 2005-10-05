@@ -1,6 +1,6 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -26,6 +26,13 @@ $spell
 $$
 
 $section Changing the Command Key Character @ for an Input File $$
+
+
+$index OMhelpKeyCharacter$$
+$index key character$$
+$index special, key character$$
+$index character, key$$
+$index input, key character$$
 
 $table
 $bold Syntax$$

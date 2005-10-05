@@ -21,6 +21,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	wspace
 	inline
 	cygwin
 	autoconf
@@ -66,6 +67,13 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 05-10-05$$
+The $xref/wspace/$$ command is deficient in a few ways:
+it generates white space that sometimes interferes with output formatting,
+it is very difficult to use with the Fortran programming language.
+The $xref/newlinech/$$ command, which overcomes these problems,
+had been added and the $code wspace$$ command has been deprecated.
 
 $head 05-09-24$$
 In the $xref/InstallUnix//Unix install/$$ case, the file 

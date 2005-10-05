@@ -41,7 +41,9 @@ $pre
 $$
 In addition, OMhelp provides for a default local dictionary and
 general purpose dictionary that you can modify or completely replace
-(see $xref/running/omhelp_dir/omhelp_dir/$$).
+(see the dictionary instructions for installing under 
+$xref/InstallUnix/Dictionary/Unix/$$ or
+$xref/InstallWindows/Dictionary/Windows/$$).
 
 $contents/
 	spell.omh/

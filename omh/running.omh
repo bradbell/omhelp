@@ -189,10 +189,10 @@ A file called $xref/spell/Spelling Error Output/error.wrd/$$
 containing an alphabetic list of all the misspelled words is generated.
 In some cases, you may decide that some or all of there words
 should be added to $code local.wrd$$.
-In this case, the old version of
-$xref/spell/Dictionary.Changing Dictionary/dictionary.bin/$$ 
-should be deleted
-(a new one will be created the next time OMhelp is run).
+In this case, see
+the dictionary instructions for installing under 
+$xref/InstallUnix/Dictionary/Unix/$$ or
+$xref/InstallWindows/Dictionary/Windows/$$.
 
 $head Printable$$
 $index print$$
@@ -270,35 +270,6 @@ but not a specific file, is specified.
 The automatically generated file 
 $code index.htm$$ will cause the 
 $xref/running/Root Section/root section/$$ to be loaded.
-
-$head omhelp_dir$$ 
-$index omhelp_dir$$
-$index english.wrd$$
-$index local.wrd$$
-$index dictionary.bin$$
-OMhelp utility files are stored in the $italic omhelp_dir$$ directory
-(this directory is determined during the $xref/Install//install/$$ process).
-This directory must contain
-the file $code english.wrd$$
-which is a dictionary of standard words in alphabetical order.
-If the file $code dictionary.bin$$ is not present,
-OMhelp will attempt to create a new dictionary 
-that combines $code english.wrd$$ and $code local.wrd$$
-(the file $code local.wrd$$ is optional).
-The words in $code english.wrd$$ and $code local.wrd$$
-must be in alphabetic order, lower case, and contain only letters
-with one per line.
-For example,
-$codep
-	a
-	aardvark
-	aardvarks
-	...
-$$
-If you make any changes to $code english.wrd$$ or $code local.wrd$$,
-the file $code dictionary.bin$$ should be deleted.
-A new $code dictionary.bin$$ that combines the words $code english.wrd$$
-and $code local.wrd$$ will be created the next time OMhelp is run.
 
 $head Example$$
 $index example$$
