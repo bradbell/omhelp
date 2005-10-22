@@ -190,7 +190,8 @@ so that the build command now works.
 $head 11-22$$
 The $xref/diacritical/$$ commands were included. 
 In addition, the section 
-$tref Mozilla$$ was started.
+Mozilla was started
+(this has been replaced by $xref/Firefox/$$).
 
 $head 11-18$$
 The $xref/array/$$ command has been added. In addition,

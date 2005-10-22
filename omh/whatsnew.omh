@@ -21,6 +21,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	Mozilla
 	wspace
 	inline
 	cygwin
@@ -67,6 +68,10 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 05-10-22$$
+The Mozilla bug section has been updated
+so that it is relative to the current version of $xref/Firefox/$$.
 
 $head 05-10-05$$
 The $xref/wspace/$$ command is deficient in a few ways:

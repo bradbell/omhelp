@@ -22,6 +22,7 @@ $begin space$$
 $escape #$$
 $dollar @$$
 $spell
+	Firefox
 	sf
 	tt
 	xml
@@ -59,8 +60,9 @@ Latex spacing commands.
 
 $head Warning$$
 The case where $italic unit$$ is 
-$xref/Mozilla/MathML/Negative Space/negative/1/$$ 
-does not display properly in the Mozilla browser.
+$xref/Firefox/Negative Space/negative/$$ 
+does not display properly in the Firefox browser
+(this should be fixed in the next release of Firefox).
 
 $head Space$$
 The following table demonstrates

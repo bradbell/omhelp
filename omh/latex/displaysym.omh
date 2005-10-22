@@ -21,6 +21,7 @@
 $begin DisplaySym$$
 $dollar @$$
 $spell
+	Firefox
 	sym
 	xml
 	htm
@@ -108,7 +109,7 @@ $head Display Formulas$$
 The following is an example
 of these symbols in displayed formulas.
 Note the operator size problem with both the 
-$xref/Mozilla/MathML/Operator Sizes/Mozilla/1/$$
+$xref/Firefox/Operator Sizes/Firefox/$$
 and
 $xref/Explorer/MathML/Operator Sizes/Explorer/1/$$
 browsers.

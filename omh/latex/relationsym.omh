@@ -21,6 +21,7 @@
 $begin RelationSym$$
 $dollar @$$
 $spell
+	Firefox
 	xml
 	htm
 	Lamport
@@ -61,8 +62,8 @@ $xref/Explorer/MathML/Symbols/symbols/1/$$
 that MS Internet Explorer does not display properly.
 Also note that
 \preceq is in the list of 
-$xref/Mozilla/MathML/Symbols/symbols/1/$$
-that Mozilla does not display properly.
+$xref/Firefox/Symbols/symbols/$$
+that Firefox does not display properly.
 
 
 $subhead Relation Symbols$$

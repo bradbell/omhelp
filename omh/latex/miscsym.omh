@@ -21,6 +21,7 @@
 $begin MiscSym$$
 $dollar @$$
 $spell
+	Firefox
 	xml
 	htm
 	Lamport
@@ -64,11 +65,6 @@ $pre
 
 $$
 Note that 
-\Box 
-is in the list of
-$xref/Mozilla/MathML/Symbols/symbols/1/$$
-that Mozilla does not display properly.
-Also note that 
 \Box and \triangle
 are in the list of
 $xref/Explorer/MathML/Symbols/symbols/1/$$

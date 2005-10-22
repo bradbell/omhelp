@@ -21,6 +21,7 @@
 $begin whatsNew03$$
 $dollar @$$
 $spell
+	Firefox
 	cindex
 	mindex
 	dir
@@ -382,8 +383,9 @@ $pre
 
 $$
 A bug report about 
-$xref/Mozilla/XHTML/Background Color/background colors in Mozilla/1/$$
-was included in the documentation.
+background colors in Mozilla
+was included in the documentation
+(these reports are now relative to $xref/Firefox/$$).
 
 $head 04-25$$
 Part of the change on $xref/whatsnew03/03-24/03-24/$$
@@ -454,8 +456,9 @@ $head 04-11$$
 Some of the MathML browser problems have been fixed
 by the browser providers.
 The sections
-$xref/Mozilla/$$ and $xref/Explorer/$$ have been changed
-to reflect this.
+Mozilla and $xref/Explorer/$$ have been changed
+to reflect this
+(the Mozilla section has been replaced by $xref/Firefox/$$).
 
 $head 03-24$$
 In the event that there is only one section,
@@ -469,7 +472,8 @@ for this one section case.
 
 $head 03-21$$
 There seems to be a problem with Mozilla's viewing 
-of XML files that use $xref/Mozilla/XHTML/Javascript/Javascript/1/$$.
+of XML files that use Javascript
+(this is now reported in $xref/Firefox/Javascript/Javascript/$$).
 For this reason,
 both the search and table of contents use an
 HTML frame to link the XML versions.
@@ -495,8 +499,7 @@ instead of being embedded in the HTML files.
 This was done because it cannot be embedded in
 XML files and hence the XML must use HTML for its searching.
 Unfortunately, 
-I ran into another bug in Mozilla related to
-$xref/Mozilla/XHTML/Javascript/Javascript/1/$$,
+I ran into another bug in Mozilla related to Javascript
 so the HTML searching is still necessary.
 $pre
 
@@ -580,7 +583,7 @@ $$
 The 
 $xref/miscsym//\Box/$$ symbol was added to possible
 output symbols even though neither 
-$xref/Mozilla/MathML/Symbols/Mozilla/1/$$
+Mozilla
 or 
 $xref/Explorer/MathML/Symbols/Explorer/1/$$
 display it properly.
@@ -597,8 +600,9 @@ and superscript documentation.
 
 $head 02-18$$
 The display of the 
-$xref/Mozilla/MathML/UnderBar/under bar/1/$$
-in the Mozilla browser seems to be broken.
+Mozilla
+in the Mozilla browser seems to be broken
+(this is now reported in $xref/Firefox/UnderBar/Firefox under bar/$$).
 The over bar (instead of the under parenthesis)
 is now used in its place.
 This makes the display in MS Internet Explorer better.
