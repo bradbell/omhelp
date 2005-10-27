@@ -264,21 +264,6 @@ $latex \[ \mathml{
 $head Frame Targets$$
 The section $xref/FrameLink/$$ contains an example where 
 the beta version of Firefox 1.5 does not work correctly.
-If you select the link in the
-$href%
-	framelink.htm%
-	HTML version of FrameLink
-%$$
-it will work correctly.
-If you select the link in the
-$href%
-	framelink.xml%
-	XML version of FrameLink
-%$$
-it will open a new window when you select the link.
-You can see that this is not the correct action by viewing the page
-source and the source for the frame containing the text
-$code Try this link.$$.
 
 
 
