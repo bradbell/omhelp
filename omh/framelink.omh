@@ -1,9 +1,23 @@
 $begin FrameLink$$
+$spell
+	Firefox
+	xml
+$$
 
-$section Title$$
+$section Bug in Beta Version of Firefox 1.5$$
 
-$head Heading$$
-$xref/FrameLink/Heading/Try this link./$$
+$head HTML$$
+Select $href%framelink.htm%$$ to view the HTML version of this page.
+
+$head XML$$
+Select $href%framelink.xml%$$ to view the XML version of this page.
+
+$head Bug$$
+Selecting this
+$xref/FrameLink/Bug/link/$$
+should do nothing, 
+but with XML and the beta version of Firefox 1.5,
+this link opens a new window.
 
 
 $end
