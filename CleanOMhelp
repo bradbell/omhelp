@@ -10,6 +10,7 @@ then
         \( -name 'Debug'          \) -or \
         \( -name '.deps'          \) -or \
 	\( -name 'Developer'      \) -or \
+	\( -name 'dictionary.bin' \) -or \
 	\( -name 'Doc'            \) -or \
 	\( -name 'junk'           \) -or \
 	\( -name 'junk?'          \) -or \
@@ -54,6 +55,7 @@ else
         \( -name 'Debug'          \) -or \
         \( -name '.deps'          \) -or \
 	\( -name 'Developer'      \) -or \
+	\( -name 'dictionary.bin' \) -or \
 	\( -name 'Doc'            \) -or \
 	\( -name 'junk'           \) -or \
 	\( -name 'junk?'          \) -or \
