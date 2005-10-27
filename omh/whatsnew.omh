@@ -69,6 +69,14 @@ $tend
 
 $$
 
+$head 05-10-27$$
+The automatic links to This: $code section$$, $code frame$$
+(in the upper right corner of the window) 
+has been omitted when there is only one section and one frame
+in the entire web site.
+This is useful when using OMhelp to create a single web page.
+
+
 $head 05-10-22$$
 The Mozilla bug section has been updated
 so that it is relative to the current version of $xref/Firefox/$$.
