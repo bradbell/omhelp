@@ -21,6 +21,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	newline
 	Mozilla
 	wspace
 	inline
@@ -68,6 +69,15 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 05-11-08$$
+It used to be that multiple white space was ignored when it followed
+an occurrence of a special character after a $xref/newlinech/$$. 
+This made it impossible to indent multiple lines within a 
+$xref/syntax/$$ command.
+This has been fixed by only ignoring the first space or tab
+following an occurrence of the special newline character after
+a newline.
 
 $head 05-10-27$$
 The automatic links to This: $code section$$, $code frame$$

@@ -4244,8 +4244,8 @@ text_raw
 				{	// skip program source comment char
 					q++;
 					*p = *q;
-					// skip following white space
-					while( isspace(*p) && *p != '\n' )
+					// skip one white space character
+					if( *p == ' ' || *p == '\t' )
 					{	q++;
 						*p = *q;
 					}

@@ -1,31 +1,13 @@
-# Update Mozilla borwser section to be realtive to current version of Firefox
+# Change newlinech to only ingore first space or tab following
 # 
 # CvsCommit: this file
 # whatsnew.omh: change from users point of view 
-# mozilla.omh: old verison of bug report
-# firefox.omh: new version of bug report
-# framelink.omh: a child of firefox.omh
-# whatsnew02.omh: change cross references to Mozilla section
-# whatsnew03.omh: ...
-# arrowsym.omh:   ...
-# 
+# newlinech.omh: change specifications and example
+# omhelp.y: change to source code
 #
 sed -e "/^[^#]/d" -e "s/^[#] *//" < CvsCommit > cvs.log
 #
-cvs delete omh/mozilla.omh
-cvs add    omh/firefox.omh
-cvs add    omh/framelink.omh
-#
 cvs commit -F cvs.log \
 	CvsCommit       \
-	omh/mozilla.omh \
-	omh/firefox.omh \
-	omh/framelink.omh \
-	omh/whatsnew02.omh \
-	omh/whatsnew03.omh \
 	omh/whatsnew.omh \
-	omh/latex/arrowsym.omh \
-	omh/latex/displaysym.omh \
-	omh/latex/miscsym.omh \
-	omh/latex/relationsym.omh \
-	omh/latex/space.omh 
+	src/omhelp.y
