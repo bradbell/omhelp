@@ -56,45 +56,72 @@ these languages.
 $head character$$ 
 There must be zero or one character in $italic character$$ and it
 can not be the $code @$$ character.
-Leading an trailing
+Leading and trailing
 $xref/glossary/White Space/white space/$$
 in $italic character$$ is ignored.
 All subsequent occurrences of $italic character$$
 at the beginning of a line are ignored.
-In addition, any 
-$xref/glossary/White Space/white space/$$
-that follows (not counting new line characters), 
-is ignored.
+In addition, if a space or a tab 
+follows such an occurrence of $italic character$$, 
+the space or tab is ignored.
+(Only one such space or tab is ignored.)
 
 $head Example$$
 The input
 $codep
 c	@newlinech c@@
-c	@bold Syntax:@@ @syntax//y/ = logdet(/x/)/@@
+c	@bold Syntax:@@ @syntax//y/ = logdet(/n/, /x/)/@@
 c
 c	@head y@@
-c	The return value @italic y@@ 
-c	is set equal to the log of the determinant of @italic x@@.
+c	The return value @italic y@@ has prototype
+c	@syntax/
+c		real /y/
+c	/@@
+c	It value is set equal to the log of the determinant of @italic x@@.
+c
+c	@head n@@
+c	The argument @italic n@@ has prototype
+c	@syntax/
+c		integer /n/
+c	/@@
+c	it specifies the dimension of the matrix @italic x@@.
 c
 c	@head x@@
-c	The argument @italic x@@ 
-c	must be a square positive semi-definite matrix
+c	The argument @italic x@@ has prototype
+c	@syntax/
+c		real /x/(/n/, /n/)
+c	/@@
+c	it must be a square positive semi-definite matrix.
 $$
 results in
 $pre
 
 $$
 c	$newlinech c$$
-c	$bold Syntax:$$ $syntax//y/ = logdet(/x/)/$$
+c	$bold Syntax:$$ $syntax//y/ = logdet(/n/, /x/)/$$
 c
 c	$head y$$
-c	The return value $italic y$$ 
-c	is set equal to the log of the determinant of $italic x$$.
+c	The return value $italic y$$ has prototype
+c	$syntax/
+c		real /y/
+c	/$$
+c	It value is set equal to the log of the determinant of $italic x$$.
+c
+c	$head n$$
+c	The argument $italic n$$ has prototype
+c	$syntax/
+c		integer /n/
+c	/$$
+c	it specifies the dimension of the matrix $italic x$$.
 c
 c	$head x$$
-c	The argument $italic x$$ 
-c	must be a square positive semi-definite matrix
-c	$newlinech $$
+c	The argument $italic x$$ has prototype
+c	$syntax/
+c		real /x/(/n/, /n/)
+c	/$$
+c	it must be a square positive semi-definite matrix.
+
+$newlinech $$ $comment erase the newlinech command above$$
 
 $head Discussion of Example$$
 In the example above,
@@ -106,16 +133,17 @@ $code begin$$ command for the section.
 For example, the input
 $codep
 c	@begin logdet@@ @newlinech c@@
-c	@bold Syntax:@@ @syntax//y/ = logdet(/x/)/@@
+c	@bold Syntax:@@ @syntax//y/ = logdet(/n/, /x/)/@@
 c
 c	@head y@@
-c	The return value @italic y@@ 
-c	is set equal to the log of the determinant of @italic x@@.
-c
-c	@head x@@
-c	The argument @italic x@@ 
-c	must be a square positive semi-definite matrix
-c	@end
+c	The return value @italic y@@ has prototype
+c	@syntax/
+c		real /y/
+c	/@@
+$$
+$pre	.
+	.
+	.
 $$
 would not result in any of the $code c$$ characters
 at the being of the input line being printed because

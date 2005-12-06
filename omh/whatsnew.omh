@@ -21,6 +21,10 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	src
+	stdlib
+	malloc
+	allocmem
 	newline
 	Mozilla
 	wspace
@@ -69,6 +73,12 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 05-12-06$$
+In FreeBSD, $code malloc.h$$ is obsolete and one should use
+$code stdlib.h$$ instead. 
+The reference to $code malloc.h$$ has been removed from
+$code src/allocmem.c$$.
 
 $head 05-11-08$$
 It used to be that multiple white space was ignored when it followed

@@ -1,13 +1,15 @@
-# Change newlinech to only ingore first space or tab following
+# Remove reference to malloc.h
 # 
-# CvsCommit: this file
-# whatsnew.omh: change from users point of view 
-# newlinech.omh: change specifications and example
-# omhelp.y: change to source code
-#
+# CvsCommit: this file.
+# whatsnew.omh: change from users point of view.
+# newlinech.omh: forgot in previous commit.
+# Build: add comment about warnings during aclocal.
+# allocmem.c: remove malloc.h reference.
 sed -e "/^[^#]/d" -e "s/^[#] *//" < CvsCommit > cvs.log
 #
 cvs commit -F cvs.log \
 	CvsCommit       \
 	omh/whatsnew.omh \
-	src/omhelp.y
+	Build \
+	omh/newlinech.omh \
+	src/allocmem.c
