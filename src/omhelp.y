@@ -251,14 +251,18 @@ static void OutputHeader(SectionInfo *F)
 	OutputString("</title>");
 
 	// Use title for description
-	OutputString("\n<meta name=\"description\" content=\"");
+	OutputString(
+		"\n<meta name=\"description\" content=\""
+	);
 	ConvertOutputString(F->title, 0);
 	OutputString("\"");
 	OutputString(Internal2Out("SelfTerminateCmd"));
 
 	// Keywords
 	if( F->keywords != NULL )
-	{	OutputString("\n<meta name=\"keywords\" content=\"");
+	{	OutputString(
+			"\n<meta name=\"keywords\" content=\""
+		);
 		ConvertOutputString(F->keywords, 0);
 		OutputString("\"");
 		OutputString(Internal2Out("SelfTerminateCmd"));
@@ -661,8 +665,12 @@ static void SecondPass(SectionInfo *F)
 				OutputString(buffer);
 				OutputString(" name=");
 				sprintf(buffer, 
-					"\"frame%d\"%s\n", 
-					iFrame,
+					"\"frame%d\"", 
+					iFrame
+				);
+				OutputString(buffer);
+				sprintf(buffer, 
+					"%s\n", 
 					Internal2Out("SelfTerminateCmd")
 				);
 				OutputString(buffer);
@@ -1971,8 +1979,10 @@ childhead
 
 		OutputString("<b><big>");
 		if( PrintableOmhelp() )
-		{	FormatOutput("<a name=\"%s\">", printid);
-				
+		{	FormatOutput(
+				"<a name=\"%s\">", 
+				printid
+			);
 			OutputString(printid);
 			OutputString(": ");
 		}
@@ -2762,9 +2772,10 @@ head
 
 		OutputString("<b><big>");
 		if( PrintableOmhelp() )
-		{	FormatOutput("<a name=\"%s\">", printid);
-
-				
+		{	FormatOutput(
+				"<a name=\"%s\">", 
+				printid
+			);
 			OutputString(printid);
 			OutputString(": ");
 		}
@@ -3837,7 +3848,10 @@ section
 
 			if( printid[0] != '\0' )
 			{
-				FormatOutput("<a name=\"%s\">", printid);
+				FormatOutput(
+					"<a name=\"%s\">", 
+					printid
+				);
 				OutputString(printid);
 				OutputString(": ");
 				outtext($2.line, noEscape, 0);
@@ -3992,8 +4006,10 @@ subhead
 
 		OutputString("<b>");
 		if( PrintableOmhelp() )
-		{	FormatOutput("<a name=\"%s\">", printid);
-
+		{	FormatOutput(
+				"<a name=\"%s\">", 
+				printid
+			);
 			OutputString(printid);
 			OutputString(": ");
 		}
