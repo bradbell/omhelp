@@ -1,23 +1,47 @@
 $begin FrameLink$$
 $spell
+	foo
+	OMhelp
 	Firefox
 	xml
 $$
 
-$section Bug in Beta Version of Firefox 1.5$$
+$section Linking to Specific Frame in XHTML$$
+
+$head Discussion$$
+OMhelp was using the $code name$$ attribute to 
+target a specific frame for a link.
+It turns out that the XHTML standard does not support this;
+see
+$href%
+	http://www.w3.org/TR/xhtml1/#h-4.10%
+	4.10. The elements with 'id' and 'name' attributes
+%$$  
+OMhelp now follows the suggestion in
+$href%
+	http://www.w3.org/TR/xhtml1/#C_8%
+	C.8. Fragment Identifiers
+%$$
+and sets both the $code name$$ and $code id$$ attributes together;
+e.g., 
+$codep
+	<a id="foo" name="foo">...</a>
+$$
+The result is that the links below now work properly.
+
 
 $head HTML$$
 Select $href%framelink.htm%$$ to view the HTML version of this page.
 
 $head XML$$
-Select $href%framelink.xml%$$ to view the XML version of this page.
+Select $href%framelink.xml%$$ to view the XHTML version of this page.
 
 $head Bug$$
-Selecting this
-$xref/FrameLink/Bug/link/$$
-should do nothing, 
-but with XML and the beta version of Firefox 1.5,
-this link opens a new window.
+Selecting this $xref/FrameLink/Bug/link/$$ should do nothing.
+In the XHTML version with Firefox 1.5 and only using $code name$$ attributes,
+it opened a new window.
+OMhelp now uses both the $code name$$ and $code id$$ attributes
+and this link functions properly.
 
 
 $end

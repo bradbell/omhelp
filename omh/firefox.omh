@@ -263,7 +263,9 @@ $latex \[ \mathml{
 
 $head Frame Targets$$
 The section $xref/FrameLink/$$ contains an example where 
-the beta version of Firefox 1.5 does not work correctly.
+Firefox 1.5  did not work as intended
+(Firefox 1.0.7 did work as intended).
+This turned out to be a problem with OMhelp which has been fixed.
 
 
 

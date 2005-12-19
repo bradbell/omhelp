@@ -1,15 +1,15 @@
-# Remove reference to malloc.h
+# Fix links to specific frames in Firefox.
 # 
 # CvsCommit: this file.
-# whatsnew.omh: change from users point of view.
-# newlinech.omh: forgot in previous commit.
-# Build: add comment about warnings during aclocal.
-# allocmem.c: remove malloc.h reference.
-sed -e "/^[^#]/d" -e "s/^[#] *//" < CvsCommit > cvs.log
+# firefox.omh: change comments about FrameLink.
+# framelink.omh: change from bug in Firefox to fixed bug in OMhelp. 
+# whatsnew.omh: users view of these changes.
+# omhelp.y: use both name and id attributes for fragment identifiers.
 #
+sed -e "/^[^#]/d" -e "s/^[#] *//" < CvsCommit > cvs.log
 cvs commit -F cvs.log \
 	CvsCommit       \
 	omh/whatsnew.omh \
-	Build \
-	omh/newlinech.omh \
-	src/allocmem.c
+	omh/firefox.omh \
+	omh/framelink.omh \
+	src/omhelp.y 

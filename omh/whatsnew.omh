@@ -21,6 +21,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	Firefox
 	src
 	stdlib
 	malloc
@@ -73,6 +74,11 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 05-12-16$$
+Links to specific frames were not working properly in Firefox 1.5
+(see the following $xref/FrameLink/Discussion/discussion/$$).
+This has been fixed.
 
 $head 05-12-06$$
 In FreeBSD, $code malloc.h$$ is obsolete and one should use

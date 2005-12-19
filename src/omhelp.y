@@ -252,7 +252,7 @@ static void OutputHeader(SectionInfo *F)
 
 	// Use title for description
 	OutputString(
-		"\n<meta name=\"description\" content=\""
+		"\n<meta name=\"description\" id=\"description\" content=\""
 	);
 	ConvertOutputString(F->title, 0);
 	OutputString("\"");
@@ -261,7 +261,7 @@ static void OutputHeader(SectionInfo *F)
 	// Keywords
 	if( F->keywords != NULL )
 	{	OutputString(
-			"\n<meta name=\"keywords\" content=\""
+		"\n<meta name=\"keywords\" id=\"keywords\" content=\""
 		);
 		ConvertOutputString(F->keywords, 0);
 		OutputString("\"");
@@ -664,6 +664,12 @@ static void SecondPass(SectionInfo *F)
 				);
 				OutputString(buffer);
 				OutputString(" name=");
+				sprintf(buffer, 
+					"\"frame%d\"", 
+					iFrame
+				);
+				OutputString(buffer);
+				OutputString(" id=");
 				sprintf(buffer, 
 					"\"frame%d\"", 
 					iFrame
@@ -1979,8 +1985,9 @@ childhead
 
 		OutputString("<b><big>");
 		if( PrintableOmhelp() )
-		{	FormatOutput(
-				"<a name=\"%s\">", 
+		{	FormatOutput2(
+				"<a name=\"%s\" id=\"%s\">", 
+				printid,
 				printid
 			);
 			OutputString(printid);
@@ -1990,8 +1997,9 @@ childhead
 		{	converted = ConvertInternalString(
 				HeadingAndSubHeading()
 			);
-			FormatOutput(
-				"<a name=\"%s\">", 
+			FormatOutput2(
+				"<a name=\"%s\" id=\"%s\">", 
+				converted,
 				converted
 			);
 			FreeMem(converted);
@@ -2772,8 +2780,9 @@ head
 
 		OutputString("<b><big>");
 		if( PrintableOmhelp() )
-		{	FormatOutput(
-				"<a name=\"%s\">", 
+		{	FormatOutput2(
+				"<a name=\"%s\" id=\"%s\">", 
+				printid,
 				printid
 			);
 			OutputString(printid);
@@ -2783,8 +2792,9 @@ head
 		{	converted = ConvertInternalString(
 				HeadingAndSubHeading()
 			);
-			FormatOutput(
-				"<a name=\"%s\">", 
+			FormatOutput2(
+				"<a name=\"%s\" id=\"%s\">", 
+				converted,
 				converted
 			);
 			FreeMem(converted);
@@ -3848,8 +3858,9 @@ section
 
 			if( printid[0] != '\0' )
 			{
-				FormatOutput(
-					"<a name=\"%s\">", 
+				FormatOutput2(
+					"<a name=\"%s\" id=\"%s\">", 
+					printid,
 					printid
 				);
 				OutputString(printid);
@@ -4006,8 +4017,9 @@ subhead
 
 		OutputString("<b>");
 		if( PrintableOmhelp() )
-		{	FormatOutput(
-				"<a name=\"%s\">", 
+		{	FormatOutput2(
+				"<a name=\"%s\" id=\"%s\">", 
+				printid,
 				printid
 			);
 			OutputString(printid);
@@ -4017,8 +4029,9 @@ subhead
 		{	converted = ConvertInternalString(
 				HeadingAndSubHeading()
 			);
-			FormatOutput(
-				"<a name=\"%s\">", 
+			FormatOutput2(
+				"<a name=\"%s\" id=\"%s\">", 
+				converted,
 				converted
 			);
 			FreeMem(converted);
