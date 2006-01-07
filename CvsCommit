@@ -1,15 +1,9 @@
-# Fix links to specific frames in Firefox.
-# 
+# execute.omh: improve documentation for execute command.
+# whatsnew.omh: users view of change.
 # CvsCommit: this file.
-# firefox.omh: change comments about FrameLink.
-# framelink.omh: change from bug in Firefox to fixed bug in OMhelp. 
-# whatsnew.omh: users view of these changes.
-# omhelp.y: use both name and id attributes for fragment identifiers.
 #
 sed -e "/^[^#]/d" -e "s/^[#] *//" < CvsCommit > cvs.log
 cvs commit -F cvs.log \
 	CvsCommit       \
 	omh/whatsnew.omh \
-	omh/firefox.omh \
-	omh/framelink.omh \
-	src/omhelp.y 
+	omh/execute.omh

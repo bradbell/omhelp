@@ -20,6 +20,8 @@
 #
 $begin execute$$
 $spell 
+	Wordpad
+	Microsoft
 	pre 
 	wri 
 	WordPad 
@@ -52,14 +54,16 @@ The file name is displayed as the text for the link.
 The contents of the file is the text that is displayed by the
 next $mref/codep/$$ command.
 It is assumed that the extension in the file name will inform the web browser
-what application should be launched to execute the file.
+what application should be launched to execute the file
+(or the web browser will know how to display the file).
 
 $head Example$$
 The following input
 $codep
 	If you select
 	@execute Example.wri@@
-	WordPad will be opened with the following contents
+	using Microsoft Internet Explorer,
+	Wordpad will be opened with the following contents
 	@codep
 	Example contents for the file Example.wri
 	@@
@@ -71,6 +75,7 @@ $pre
 $$
 If you select
 $execute Example.wri$$
+using Microsoft Internet Explorer,
 WordPad will be opened with the following contents
 $codep
 Example contents for the file Example.wri

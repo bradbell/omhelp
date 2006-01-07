@@ -75,6 +75,11 @@ $tend
 
 $$
 
+$head 06-01-06$$
+Modify $xref/execute/$$ documentation to say that WordPad 
+will be opened if you are using MS Internet explorer
+(may not happen with other browsers).
+
 $head 05-12-16$$
 Links to specific frames were not working properly in Firefox 1.5
 (see the following $xref/FrameLink/Discussion/discussion/$$).
