@@ -21,6 +21,7 @@
 #
 $begin InstallWindows$$
 $spell 
+	setenv
 	wrd
 	src src
 	ini
@@ -56,15 +57,15 @@ $section Windows Installation and Testing$$
 
 $head Using Cygwin and MinGw$$
 If you are using 
-$href%
-	http://www.cygwin.com%
+$href|
+	http://www.cygwin.com|
 	Cygwin
-%$$
+|$$
 or,
-$href%
-	http://www.mingw.org%
+$href|
+	http://www.mingw.org|
 	MinGW with MSYS
-%$$,
+|$$,
 with Unix formatted files,
 just follow all of the $xref/InstallUnix//Unix installation/$$ steps.
 If you are using Dos formatted files, download the DOS version
@@ -72,38 +73,40 @@ If you are using Dos formatted files, download the DOS version
 
 $head Download OMhelp$$
 Download the file current version of the file
-$href%
-	http://www.seanet.com/~bradbell/OMhelp.dos.tar.gz%
+$href|
+	http://www.seanet.com/~bradbell/OMhelp.dos.tar.gz|
 	OMhelp.dos.tar.gz
-%$$
+|$$
 
 $head Create Distribution Directory$$
-Use $href%http://www.winzip.com%WinZip%$$ (version 7.0 or higher),
+Use $href|http://www.winzip.com|WinZip|$$ (version 7.0 or higher),
 or some other program to decompress the file
 $code OMhelp.dos.tar.gz$$ to $code OMhelp.dos.tar$$ 
 and to extract the individual
 files from $code OMhelp.dos.tar$$ into the distribution directory
-$syntax%
-	omhelp-%yy%-%mm%-%dd%
-%$$
+$syntax|
+	omhelp-|yy|-|mm|-|dd|
+|$$
 All of the commands below are to be executed from this directory.
 
 $head Build The Executable$$
+The executable $code src/src.exe$$ is part of the distribution.
+If you have Visual Studio, you can rebuild this file as follows:
 $list number$$
 Open Microsoft Visual Studio dot Net.
 $lnext
 Select $code File | Open | Project$$ an in the dialog that appears
 select the file
-$syntax%
-	omhelp-%yy%-%mm%-%dd%/src/src.sln
-%$$
+$syntax|
+	omhelp-|yy|-|mm|-|dd|\src\src.sln
+|$$
 and then select the $code Open$$ button.
 $lnext
 Select $code Build | Build src$$. 
 This should create the file
-$syntax%
-	omhelp-%yy%-%mm%-%dd%/src/omhelp.exe
-%$$
+$syntax|
+	omhelp-|yy|-|mm|-|dd|\src\src.exe
+|$$
 $lend
 
 $head Dictionary$$ 
@@ -115,15 +118,15 @@ OMhelp utility files are stored in the $code OMhelp$$ subdirectory
 of the distribution directory.
 This directory must contains the files
 $codep
-	OMhelp/english.wrd
-	OMhelp/local.wrd
+	OMhelp\english.wrd
+	OMhelp\local.wrd
 $$
 If the file $code dictionary.bin$$ is not present,
 OMhelp will to create a new dictionary 
 that combines $code english.wrd$$ and $code local.wrd$$
 (the file $code local.wrd$$ is optional) to form
 $codep
-	OMhelp/dictionary.bin
+	OMhelp\dictionary.bin
 $$
 The words in $code english.wrd$$ and $code local.wrd$$
 must be in alphabetic order, lower case, and contain only letters
@@ -148,22 +151,22 @@ $$
 This will run the OMhelp program and
 create a copy of the OMhelp user documentation.
 Make sure OMhelp is functioning correctly by loading the file
-$syntax%
-	omhelp-%yy%-%mm%-%dd%/Doc/getstarted.htm
-%$$
+$syntax|
+	omhelp-|yy|-|mm|-|dd|\Doc\getstarted.htm
+|$$
 into your web browser. 
 This should be a local copy of the web page
 $pre
 	$$
-$href%
+$href|
 	http://www.seanet.com/~bradbell/omhelp/getstarted.htm
-%$$.
+|$$.
 The $code Doc$$ sub-directory of the distribution directory
 now contains the user documentation for OMhelp.
-The files $syntax%Doc/%*%.htm%$$ are in HTML format.
+The files $syntax|Doc/|*|.htm|$$ are in HTML format.
 If your browser supports XHTML+MathML format,
 an easier to read copy is available in the files
-$syntax%Doc/%*%.xml%$$.
+$syntax|Doc/|*|.xml|$$.
 
 $head Building Developer Documentation$$
 In the distribution directory, execute the following command:
@@ -175,34 +178,61 @@ a copy of the OMhelp developer documentation in the
 $code Developer$$ sub-directory.
 
 $head Install OMhelp$$
-Choose the directory $italic omhelp_dir$$ 
-where OMhelp will be installed;
-for example, if you could choose $code c:\OMhelp$$.
-The value $italic omhelp_dir$$ must be a fully qualified path below; i.e.,
+Edit the file $code setenv.bat$$ to set
+the environment variable $code omhelp_dir$$ 
+to you choice for where to install OMhelp.
+Then execute the command
+$codep
+	setenv
+$$
+The default contents of $code setenv.bat$$ is
+$code
+$verbatim|../setenv.bat|5|$$
+$$
+The setting for $code omhelp_dir$$ must be a fully qualified path; i.e.,
 it must refer to the entire path for the directory.
-If the directory $italic omhelp_dir$$ does not exist,
+If that directory does not exist,
 execute the following command
 $codep
 	mkdir %omhelp_dir%
 $$
 In the distribution directory, execute the following commands
 $codep
-	copy /B OMhelp/* %omhelp_dir%
-	copy /B src/omhelp.exe %omhelp_dir%
+	copy /B OMhelp\*    "%omhelp_dir%"
+	copy /B src\src.exe "%omhelp_dir%\omhelp.exe"
 $$
+
+$head Getting Started$$
+$index getstarted, using OMhelp$$
+$index OMhelp, getstarted using$$
+You can build the 
+$xref/Multiple1Example/$$ subtree of the OMhelp user documentation 
+by executing the following commands starting in the distribution directory 
+$syntax|
+	cd omh\getstarted
+	mkdir htm
+	cd htm
+	del *.htm
+	omhelp ..\Multiple1Example.omh
+|$$
+Note that the $code mkdir$$ and $code del$$ commands will report
+errors if they are unnecessary.
+You can view the results by opening the file
+$syntax|
+	omhelp-|yy|-|mm|-|dd|\omh\getstarted\htm\_contents.htm
+|$$
+See the $xref/GetStarted/$$ section for more examples.
 
 $head Setting Environment Variables$$
 Below are some choices for setting the 
-$code omhelp_dir$$ and $code Path$$ environment variables:
+$code omhelp_dir$$ and $code Path$$ environment variable
+for every Dos box:
 
 $subhead Autoexec.bat$$
 You may want to back up $code c:\AUTOEXEC.BAT$$ before doing this.
 Use Notepad, or some other ascii editor, to open the file 
-$code c:\AUTOEXEC.BAT$$ and add the following lines
-$syntax|
-	set omhelp_dir=|omhelp_dir|
-	PATH=%PATH%;%omhelp_dir%
-|$$
+$code c:\autoexec.bat$$ and add the commands that are in
+$code setenv.bat$$ to that file.
 You may have to restart you computer for this change to take effect.
 
 $subhead Control Panel$$
@@ -217,7 +247,7 @@ In the Environment Variables dialog, under system variables,
 select the $code Path$$ System variable and then the Edit button.
 Use the right arrow key to move the cursor to the end of the 
 field labeled Variable value.
-Add the text $syntax%;%omhelp_dir%$$ to the end of this field.
+Add the text $syntax|;|omhelp_dir|$$ to the end of this field.
 Then select the OK button.
 $pre
 
@@ -231,35 +261,14 @@ Then select the OK button.
 $head Win.ini$$
 You can set the value of the environment variable $code omhelp_dir$$
 by adding the following text to the $code win.ini$$ file:
-$syntax%
+$codep
 	[OMhelp]
-	omhelp_dir=%omhelp_dir%
-%$$
-You may also want to add $italic omhelp_dir$$ to the DOS executable path
+	omhelp_dir=C:\Program Files\OMhelp
+$$
+where $code C:\Program Files\OMhelp$$ is replaced by your choice above.
+You may also want to add this directory to the DOS executable path
 using one of the methods above
 (so that you do not have to specify the full path to execute OMhelp). 
-
-
-$head Getting Started$$
-$index getstarted, using OMhelp$$
-$index OMhelp, getstarted using$$
-You can build the 
-$xref/Multiple1Example/$$ subtree of the OMhelp user documentation 
-by executing the following commands starting in the distribution directory 
-$syntax%
-	cd omh\getstarted
-	mkdir htm
-	cd htm
-	del *.htm
-	omhelp ..\Multiple1Example.omh
-%$$
-Note that the $code mkdir$$ and $code del$$ commands will report
-errors if they are unnecessary.
-You can view the results by opening the file
-$syntax%
-	omhelp-%yy%-%mm%-%dd%\omh\getstarted\htm\_contents.htm
-%$$
-See the $xref/GetStarted/$$ section for more examples.
 
 
 $end

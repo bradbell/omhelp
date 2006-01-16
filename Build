@@ -190,28 +190,64 @@ then
 		exit
 	fi
 	#
-	# extract from compressed tar
-	tar -xvzf omhelp-$AcDate.tar.gz 
-	#
 	# create the unix version
 	mv omhelp-$AcDate.tar.gz OMhelp.unix.tar.gz
 	#
-	# convert files to unix format
+	if [ "$1" != "all" ]
+	then
+		exit
+	fi
+fi
+if [ "$1" = "dos" ] || ( [ "$1" = "all" ] && [ "$2" != "unix" ] )
+then
+	if [ ! -e src/src.exe ]
+	then
+		echo "Must use MS project to build src.exe before executing"
+		echo "Build exe"
+		exit
+	fi
+	if [ ! -e OMhelp.unix.tar.gz ]
+	then
+		echo "Must build unix version before executing: Build dos"
+		exit
+	fi
+	#
+	if [ -e omhelp-$AcDate ]
+	then
+		echo "rm -r omhelp-$AcDate"
+		rm -r omhelp-$AcDate
+	fi
+	if [ -e OMhelp.dos.tar.gz ]
+	then
+		echo "rm OMhelp.dos.tar.gz"
+		rm OMhelp.dos.tar.gz
+	fi
+	#
+	# extract from compressed tar
+	tar -xvzf OMhelp.unix.tar.gz 
+	#
+	if [ ! -e omhelp-$AcDate ]
+	then
+		echo "omhelp-$AcDate.tar.gz does not exist"
+		echo "perhaps OMhelp.unix.tar.gz is out of date"
+		#
+		exit
+	fi
+	#
+	# convert files to dos format
 	for file in  omhelp-$AcDate/*
 	do
-		unix2dos $file
-	done
-	for dir in \
-		src \
-		src/omh \
-		omh \
-		omh/getstarted \
-		omh/latex
-	do
-		for file in omhelp-$AcDate/$dir/*
-		do
+		if [ -f $file ]
+		then
 			unix2dos $file
-		done
+		fi
+	done
+	for file in omhelp-$AcDate/OMhelp/*.wrd omhelp-$AcDate/OMhelp/*.xsl
+	do
+		if [ -f $file ]
+		then
+			unix2dos $file
+		fi
 	done
 	for dir in \
 		omh/getstarted 
@@ -226,6 +262,27 @@ then
 			unix2dos $file
 		done
 	done
+	for dir in \
+		src \
+		src/omh \
+		omh \
+		omh/latex
+	do
+		for file in omhelp-$AcDate/$dir/*
+		do
+			if [ -f $file ]
+			then
+				unix2dos $file
+			fi
+		done
+	done
+	#
+	# copy the executable to the distribution
+	cp src/src.exe omhelp-$AcDate/src/src.exe
+	#
+	# copy the default script for setting the environment
+	cp setenv.bat omhelp-$AcDate/setenv.bat
+	unix2dos omhelp-$AcDate/setenv.bat
 	#
 	# Make sure that dates in certain files are in certain order
 	# (necessary because of unix2dos conversion above)
@@ -245,10 +302,14 @@ then
 	# clean up
 	rm -r omhelp-$AcDate
 	#
-	# Remove config.h from the it is not needed by Unix version
-	# rm omhelp-$AcDate/src/config.h
-	#
-	exit
+	if [ "$1" != "all" ]
+	then
+		exit
+	fi
+fi
+if [ "$1" = "all" ]
+then
+        exit
 fi
 #
 if [ "$1" = "" ]
@@ -266,6 +327,11 @@ echo "automake    run autoconf and automake to create configure script"
 echo "configure   run configure script to create make files"
 echo "compile     compile all of the tests"
 echo "omhelp      build all the documentation"
-echo "dist        create the distribution files OMhelp.*.tar.gz"
+echo "dist        create the distribution files OMhelp.unix.tar.gz"
+echo "dos         create the distribution files OMhelp.dos.tar.gz"
 echo
 echo "Build all: This command will execute all the options in the order above"
+echo
+echo "Build all unix"
+echo "This command will execute all the options in the order above"
+echo "with the exception that \"dos\" will be excluded."

@@ -27,7 +27,7 @@ if "%1%" == "Doc" goto DOC
 	if exist Developer rmdir Developer 
 	mkdir Developer
 	cd    Developer
-	..\src\omhelp ..\src\omh\omhelp.omh > ..\RunOMhelp.log -debug -omhelp_dir ..\OMhelp
+	..\src\src.exe ..\src\omh\omhelp.omh > ..\RunOMhelp.log -debug -omhelp_dir ..\OMhelp
 	cd ..
 	goto ERRORCHECK
 : DOC
@@ -36,8 +36,8 @@ if "%1%" == "Doc" goto DOC
 	if exist Doc rmdir Doc 
 	mkdir Doc
 	cd    Doc
-	..\src\omhelp ..\omh\overview.omh > ..\RunOMhelp.log -xml -debug -omhelp_dir ..\OMhelp
-	..\src\omhelp ..\omh\overview.omh  -debug -omhelp_dir ..\OMhelp
+	..\src\src.exe ..\omh\overview.omh > ..\RunOMhelp.log -xml -debug -omhelp_dir ..\OMhelp
+	..\src\src.exe ..\omh\overview.omh  -debug -omhelp_dir ..\OMhelp
 	cd ..
 : ERRORCHECK
 find "Latex error"                 RunOMhelp.log

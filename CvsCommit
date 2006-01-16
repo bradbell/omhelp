@@ -1,9 +1,19 @@
-# execute.omh: improve documentation for execute command.
-# whatsnew.omh: users view of change.
-# CvsCommit: this file.
+# Distribute executable together with source for Windows case.
 #
+# CvsCommit: this file.
+# Build: separate out dos from unix build.
+# RunOMhelp.bat: change src/omhelp.exe to src/src.exe for Windows executable.
+# setenv.bat: script to make path setting easier during install.
+# InstallWindows: installation instructions for both source and executable.
+# whatsnew.omh: users view of the changes.
+# src.vcproj: change dos executable name to src.exe.
 sed -e "/^[^#]/d" -e "s/^[#] *//" < CvsCommit > cvs.log
+cvs add setenv.bat
 cvs commit -F cvs.log \
 	CvsCommit       \
+	Build \
+	RunOMhelp.bat \
+	setenv.bat \
+	omh/InstallWindows.omh \
 	omh/whatsnew.omh \
-	omh/execute.omh
+	src/src.vcproj

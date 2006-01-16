@@ -75,6 +75,12 @@ $tend
 
 $$
 
+$head 06-01-07$$
+A executable version of OMhelp is now distributed
+together with the source code the for $xref/InstallWindows/$$ case.
+This enables Windows users who do not have a Windows C compiler to use
+OMhelp.
+
 $head 06-01-06$$
 Modify $xref/execute/$$ documentation to say that WordPad 
 will be opened if you are using MS Internet explorer
