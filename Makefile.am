@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,12 +15,18 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 # automake input file
 #
 # Note that config.h is needed by VC++; i.e., for users that do not run
 # the configure script but rather use project files
+#
+# check if vim data directory has been specified
+if OMhelp_VIM_RUNTIME
+vimsyntaxdir = $(VIM_RUNTIME)/syntax
+vimsyntax_DATA = \
+	OMhelp/omhelp.vim
+endif
 #
 nobase_include_HEADERS = \
 	src/config.h 
@@ -30,6 +35,7 @@ SUBDIRS = \
 	src
 #
 nobase_dist_data_DATA = \
+	OMhelp/omhelp.vim \
 	OMhelp/_close.gif \
 	OMhelp/_closeblue.gif \
 	OMhelp/_open.gif \
@@ -43,10 +49,11 @@ nobase_dist_data_DATA = \
 #
 EXTRA_DIST = \
 	Build \
-	SetNoExecute \
 	FixMakefile \
 	RunOMhelp \
 	RunOMhelp.bat \
+	SetNoExecute \
+	setenv.bat \
 	omh \
 	src/omh \
 	src/main.src \

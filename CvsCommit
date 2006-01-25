@@ -1,19 +1,34 @@
-# Distribute executable together with source for Windows case.
+# Add vim syntax highlighting
 #
-# CvsCommit: this file.
-# Build: separate out dos from unix build.
-# RunOMhelp.bat: change src/omhelp.exe to src/src.exe for Windows executable.
-# setenv.bat: script to make path setting easier during install.
-# InstallWindows: installation instructions for both source and executable.
-# whatsnew.omh: users view of the changes.
-# src.vcproj: change dos executable name to src.exe.
-sed -e "/^[^#]/d" -e "s/^[#] *//" < CvsCommit > cvs.log
-cvs add setenv.bat
-cvs commit -F cvs.log \
-	CvsCommit       \
+# CvsCommit: add batch editing at commit time.
+# CvsCommit.sed: batch editing script file.
+# Build: add optional vim configure argument and fix an error message.
+# Makefile.am: add omhelp.vim to list of installed files.
+# configure.ac: add vim configure arugment.
+# omhelp.vim: vim syntax hightlighting file.
+# InstallWindows.omh: change RunOMhelp to ./RunOMhelp.
+# installunix.omh: add vim configure arugment.
+sed -e '/^[^#]/d' -e 's/^[#] *//' < CvsCommit > CvsCommit.log
+list="\
 	Build \
-	RunOMhelp.bat \
-	setenv.bat \
+	Makefile.am \
+	configure.ac \
 	omh/InstallWindows.omh \
-	omh/whatsnew.omh \
-	src/src.vcproj
+	omh/installunix.omh \
+	omh/whatsnew.omh\
+"
+for file in $list
+do
+	sed -f CvsCommit.sed < $file > junk
+	echo $file
+	diff $file junk
+	mv   $file ~/trash
+	mv   junk  $file
+done
+# cvs add OMhelp/omhelp.vim
+cvs add CvsCommit.sed
+cvs commit -F CvsCommit.log     \
+	CvsCommit               \
+	CvsCommit.sed           \
+	OMhelp/omhelp.vim       \
+	$list

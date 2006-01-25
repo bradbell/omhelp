@@ -18,9 +18,19 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 05-10-27, bradbell@seanet.com)
+AC_INIT(OMhelp, 06-01-25, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
+
+dnl The director where vim data is stored
+AC_MSG_CHECKING( [VIM_RUNTIME] )
+AC_SUBST(VIM_RUNTIME)
+AM_CONDITIONAL(OMhelp_VIM_RUNTIME, test "$VIM_RUNTIME" != "" )
+if test "$VIM_RUNTIME" != "" ; then
+	AC_MSG_RESULT( [$VIM_RUNTIME] )
+else
+	AC_MSG_RESULT( [no] )
+fi
 
 dnl Set the default install prefix to the installers home directory
 AC_PREFIX_DEFAULT(${HOME})

@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 $begin InstallUnix$$
 $dollar @$$
 $spell
+	runtime
 	wrd
 	dir
 	subtree
@@ -74,9 +75,9 @@ $head Configure$$
 $index prefix$$
 Enter the distribution directory and execute the command:
 $syntax%
-	./configure [ prefix=%prefix% ]
+	./configure [ prefix=%prefix% ] [ VIM_RUNTIME=%vim_runtime% ]
 %$$
-where the entry between the brackets $code [$$ and $code ]$$ is optional,
+where the entries between the brackets $code [$$ and $code ]$$ are optional,
 the brackets are not included, and the word in italic is replaced
 by the value you chose.
 The OMhelp utility files will be stored in the directory
@@ -97,6 +98,36 @@ The data files used by OMhelp are installed in
 $syntax%
 	@HOME/share/OMhelp
 %$$
+
+$head Vim Runtime Directory$$
+$index vim, highlight syntax$$
+$index syntax, highlight vim$$
+$index highlight, syntax vim$$
+If the command line argument $italic vim_runtime$$ is specified,
+it is the directory where the 
+$href%
+	http://www.vim.org/%
+	vim editor
+%$$
+is looking for its runtime files.
+You can determine this directory on your system by executing the commands
+$codep
+	vim
+	:echo @VIMRUNTIME
+$$
+If you specify this argument on the $code configure$$ command line, 
+the $code vim$$ commands
+$codep
+	:syntax on
+	:runtime! syntax/omhelp.vim
+$$
+will turn on OMhelp syntax highlighting for the file you are currently 
+editing. If your OMhelp commands are embedded in a C source code file, 
+you could convert to C highlighting by executing the command
+$codep
+	:runtime! syntax/c.vim
+$$
+
 
 $head Building Executable$$
 In the distribution directory, execute the following command:

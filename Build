@@ -1,6 +1,6 @@
 # ! /bin/bash
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -18,6 +18,10 @@
 # ---------------------------------------------------------------------------
 #
 # Build distribution
+#
+# Default values used for arguments to configure during this script.
+# These defaults are development system dependent and can be changed.
+VIM_RUNTIME=/usr/share/vim/vim64
 #
 # date currently in configure.ac
 AcDate=`grep "^ *AC_INIT(" configure.ac | \
@@ -118,8 +122,14 @@ fi
 if [ "$1" = "configure" ] || [ "$1" = "all" ]
 then
 	#
-	echo "configure"
-	./configure 
+	if [ -e $VIM_RUNTIME/syntax ]
+	then
+		TMP="VIM_RUNTIME=$VIM_RUNTIME"
+	else
+		TMP=""
+	fi
+	echo "./configure $TMP"
+	./configure $TMP 
 	#
 	# Fix Makefile for what appears to be a bug in gzip under cygwin
 	echo "FixMakefile"
@@ -203,7 +213,7 @@ then
 	if [ ! -e src/src.exe ]
 	then
 		echo "Must use MS project to build src.exe before executing"
-		echo "Build exe"
+		echo "Build dos"
 		exit
 	fi
 	if [ ! -e OMhelp.unix.tar.gz ]
