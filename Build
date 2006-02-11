@@ -1,4 +1,4 @@
-# ! /bin/bash
+#!/bin/bash
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
@@ -71,8 +71,7 @@ then
 		rm configure
 	fi
 	echo "---------------------------------------------------------"
-	echo "Warning: aclocal generates warnings on some systems. See"
-	echo "http://lists.freedesktop.org/pipermail/xserver/2004-April/001198.html"
+	echo "If aclocal generates warning messages, try running ./FixAclocal"
 	echo "aclocal"
 	aclocal
 	echo "---------------------------------------------------------"

@@ -1,34 +1,36 @@
-# Add vim syntax highlighting
+# Change $newlinech so that it only ignores the first space after (not tab). 
 #
-# CvsCommit: add batch editing at commit time.
-# CvsCommit.sed: batch editing script file.
-# Build: add optional vim configure argument and fix an error message.
-# Makefile.am: add omhelp.vim to list of installed files.
-# configure.ac: add vim configure arugment.
-# omhelp.vim: vim syntax hightlighting file.
-# InstallWindows.omh: change RunOMhelp to ./RunOMhelp.
-# installunix.omh: add vim configure arugment.
+# Build: reference FixAclocal for fixing warnings during aclocal.
+# Makefile.am: add FixAclocal to the distribution.
+# FixAclocal: shell script to fix Aclocal (copied from CppAD).
+# newlinech.omh: document and test change to newlinech command.
+# whatsnew.omh: users view of the changes 
+# omhelp.y: implementaiton of change to newlinech command.
 sed -e '/^[^#]/d' -e 's/^[#] *//' < CvsCommit > CvsCommit.log
 list="\
 	Build \
+	CvsCommit \
 	Makefile.am \
-	configure.ac \
-	omh/InstallWindows.omh \
-	omh/installunix.omh \
-	omh/whatsnew.omh\
+	FixAclocal \
+	omh/newlinech.omh \
+	omh/whatsnew.omh \
+	src/omhelp.y \
 "
+count=0
 for file in $list
 do
-	sed -f CvsCommit.sed < $file > junk
-	echo $file
-	diff $file junk
-	mv   $file ~/trash
-	mv   junk  $file
+	count=`expr $count + 1`
+	ext=`echo $file | sed -e "s/.*\././"`
+	if [ $file != "CvsCommit"      ] && \
+	   [ $file != "CvsCommit.sed"  ] && \
+	   [ $ext != ".vcproj"         ]
+	   [ $ext != ".vim"            ]
+	then
+		echo "cp $file junk.$count"
+		cp $file junk.$count
+		sed -f CvsCommit.sed < junk.$count > $file
+		diff junk.$count $file
+	fi
 done
-# cvs add OMhelp/omhelp.vim
-cvs add CvsCommit.sed
-cvs commit -F CvsCommit.log     \
-	CvsCommit               \
-	CvsCommit.sed           \
-	OMhelp/omhelp.vim       \
-	$list
+cvs add FixAclocal
+cvs commit -F CvsCommit.log $list

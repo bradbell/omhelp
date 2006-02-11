@@ -50,6 +50,7 @@ nobase_dist_data_DATA = \
 EXTRA_DIST = \
 	Build \
 	FixMakefile \
+	FixAclocal \
 	RunOMhelp \
 	RunOMhelp.bat \
 	SetNoExecute \

@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin newlinech$$
 $spell 
@@ -61,65 +59,70 @@ $xref/glossary/White Space/white space/$$
 in $italic character$$ is ignored.
 All subsequent occurrences of $italic character$$
 at the beginning of a line are ignored.
-In addition, if a space or a tab 
+In addition, if a space 
 follows such an occurrence of $italic character$$, 
-the space or tab is ignored.
-(Only one such space or tab is ignored.)
+the space is also ignored.
+(Only one such space is ignored.)
 
 $head Example$$
-The input
-$codep
-c	@newlinech c@@
-c	@bold Syntax:@@ @syntax//y/ = logdet(/n/, /x/)/@@
-c
-c	@head y@@
-c	The return value @italic y@@ has prototype
-c	@syntax/
-c		real /y/
-c	/@@
-c	It value is set equal to the log of the determinant of @italic x@@.
-c
-c	@head n@@
-c	The argument @italic n@@ has prototype
-c	@syntax/
-c		integer /n/
-c	/@@
-c	it specifies the dimension of the matrix @italic x@@.
-c
-c	@head x@@
-c	The argument @italic x@@ has prototype
-c	@syntax/
-c		real /x/(/n/, /n/)
-c	/@@
-c	it must be a square positive semi-definite matrix.
+$pre-----------------------------------------------------
 $$
-results in
+The input:
+$codep
+c @newlinech c@@
+c @bold Syntax:@@ @syntax//y/ = logdet(/n/, /x/)/@@
+c
+c @head y@@
+c The return value @italic y@@ has prototype
+c @syntax/
+c	real /y/
+c /@@
+c It value is set equal to the log of the determinant of @italic x@@.
+c
+c @head n@@
+c The argument @italic n@@ has prototype
+c @syntax/
+c	integer /n/
+c /@@
+c it specifies the dimension of the matrix @italic x@@.
+c
+c @head x@@
+c The argument @italic x@@ has prototype
+c @syntax/
+c	real /x/(/n/, /n/)
+c /@@
+c it must be a square positive semi-definite matrix.
+$$
+$pre------------------------------------------------------
+$$
+results in the output:
 $pre
 
 $$
-c	$newlinech c$$
-c	$bold Syntax:$$ $syntax//y/ = logdet(/n/, /x/)/$$
+c $newlinech c$$
+c $bold Syntax:$$ $syntax//y/ = logdet(/n/, /x/)/$$
 c
-c	$head y$$
-c	The return value $italic y$$ has prototype
-c	$syntax/
-c		real /y/
-c	/$$
-c	It value is set equal to the log of the determinant of $italic x$$.
+c $head y$$
+c The return value $italic y$$ has prototype
+c $syntax/
+c	real /y/
+c /$$
+c It value is set equal to the log of the determinant of $italic x$$.
 c
-c	$head n$$
-c	The argument $italic n$$ has prototype
-c	$syntax/
-c		integer /n/
-c	/$$
-c	it specifies the dimension of the matrix $italic x$$.
+c $head n$$
+c The argument $italic n$$ has prototype
+c $syntax/
+c	integer /n/
+c /$$
+c it specifies the dimension of the matrix $italic x$$.
 c
-c	$head x$$
-c	The argument $italic x$$ has prototype
-c	$syntax/
-c		real /x/(/n/, /n/)
-c	/$$
-c	it must be a square positive semi-definite matrix.
+c $head x$$
+c The argument $italic x$$ has prototype
+c $syntax/
+c	real /x/(/n/, /n/)
+c /$$
+c it must be a square positive semi-definite matrix.
+$pre------------------------------------------------------$$
 
 $newlinech $$ $comment erase the newlinech command above$$
 
@@ -132,14 +135,14 @@ $code newlinech$$ command on the same line as the
 $code begin$$ command for the section.
 For example, the input
 $codep
-c	@begin logdet@@ @newlinech c@@
-c	@bold Syntax:@@ @syntax//y/ = logdet(/n/, /x/)/@@
+c @begin logdet@@ @newlinech c@@
+c @bold Syntax:@@ @syntax//y/ = logdet(/n/, /x/)/@@
 c
-c	@head y@@
-c	The return value @italic y@@ has prototype
-c	@syntax/
-c		real /y/
-c	/@@
+c @head y@@
+c The return value @italic y@@ has prototype
+c @syntax/
+c	real /y/
+c /@@
 $$
 $pre	.
 	.
