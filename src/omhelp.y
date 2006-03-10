@@ -4078,6 +4078,7 @@ subhead
 syntax
 	: SYNTAX_lex text DOUBLE_DOLLAR_lex
 	{	char *token;
+		char *next;
 		int  count;
 		int  ntoken;
 
@@ -4116,8 +4117,10 @@ syntax
 
 		// for each token
 		while( ntoken-- )
-		{	if( count % 2 == 0 )
+		{	next = token + strlen(token) + 1;
+			if( count % 2 == 0 )
 			{	OutputString("<i>");
+				ClipWhiteSpace(token);
 				outtext($2.line, token, 1);
 				OutputString("</i>");
 			}
@@ -4130,7 +4133,7 @@ syntax
 				OutputString("</font></code>");
 			}
 			count++;
-			token = token + strlen(token) + 1;
+			token = next;
 		}
 		
 		FreeMem($2.str);

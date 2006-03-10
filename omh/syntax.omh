@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,10 +15,10 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin syntax$$
 $spell 
+	OMhelp
 	syntax 
 	codep
 $$
@@ -27,9 +26,12 @@ $escape #$$
 $dollar @$$
 
 
-$mindex syntax function command prototype$$
+$index syntax, prototype$$
+$index prototype, syntax$$
+$index command, syntax$$
+$index function, syntax$$
 
-$section Syntax is Used to Specify Function or Command Syntax$$
+$section Specifying Command or Function Syntax$$
 
 $table
 $bold Syntax$$
@@ -57,20 +59,43 @@ $pre
 
 $$
 All $xref/glossary/White Space/white space/$$ characters
-are preserved in the $code code$$ font. Thus new lines 
+are preserved in the $italic code$$ entries. Thus new lines 
 in $italic code1$$, ..., $italic codeN$$
-correspond to new lines in the output.
+will correspond to new lines in the output.
+$pre
+
+$$
+Leading and trailing white space in the $italic italic$$ entries
+is ignored (and can be used to space the OMhelp input).
 
 $head Example$$
-The following input
+The input
 $codep
-	@syntax/fun1(/x/)
-	fun2(/x/,/ y/)/@@
+	@syntax%f(%x%) = g(%x%, %y%)%@@
 $$
 produces the following output
-$pre
-	$$$syntax/fun1(/x/)/$$
-$pre
-	$$$syntax/fun2(/x/,/ y/)/$$
+$syntax%
+	f(%x%) = g(%x%, %y%)
+%$$
+The input
+$codep
+	@syntax%f(%x%) = 
+		g(%x%, %y%)%@@
+$$
+produces the following output
+$syntax%
+	f(%x%) = 
+		g(%x%, %y%)
+%$$
+The input
+$codep
+	@syntax%f(%x%) = % 
+		%g(%x%, %y%)%@@
+$$
+produces the following output
+$syntax%
+	f(%x%) = %
+		%g(%x%, %y%)
+%$$
 
 $end

@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	Diaplay
 	Firefox
 	src
 	stdlib
@@ -72,6 +73,17 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 06-03-09$$
+Fix some minor typos in $xref/stdfun/$$
+(change Diaplay to Dispaly and use italic font for Command 
+in the syntax).
+
+$head 06-03-03$$
+The $xref/syntax/$$ command has been changes so that leading and trailing
+white space in the $italic italic$$ entries is ignored.
+This enables one to use multiple OMhelp input lines for a single syntax 
+output line.
 
 $head 06-02-10$$
 The $xref/newlinech/$$ command used to ignore a tab if it directly followed

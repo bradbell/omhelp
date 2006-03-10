@@ -1,36 +1,80 @@
-# Change $newlinech so that it only ignores the first space after (not tab). 
+# Change $syntax so it trims leading and trailing white space in italic font. 
 #
-# Build: reference FixAclocal for fixing warnings during aclocal.
-# Makefile.am: add FixAclocal to the distribution.
-# FixAclocal: shell script to fix Aclocal (copied from CppAD).
-# newlinech.omh: document and test change to newlinech command.
+# CvsCommit: file that does the commit
+# syntax.omh: trim leading and trailing white space in syntax italic mode.
 # whatsnew.omh: users view of the changes 
-# omhelp.y: implementaiton of change to newlinech command.
-sed -e '/^[^#]/d' -e 's/^[#] *//' < CvsCommit > CvsCommit.log
-list="\
-	Build \
-	CvsCommit \
-	Makefile.am \
-	FixAclocal \
-	omh/newlinech.omh \
-	omh/whatsnew.omh \
-	src/omhelp.y \
+# stdfun.omh: fix spelling of Display (form Diaplay) and font for Command.
+# omhelp.y: trim leading and trailing white space in syntax italic mode.
+add_list="
 "
+change_list="\
+	CvsCommit
+	omh/syntax.omh
+	omh/whatsnew.omh
+	omh/latex/stdfun.omh
+	src/omhelp.y
+"
+delete_list="
+"
+#----------------------------------------------------------------------
+# Edit section above for individual cases, section below stays the same
+#----------------------------------------------------------------------
+sed -e '/^[^#]/d' -e 's/^[#] *//' < CvsCommit > CvsCommit.log
 count=0
-for file in $list
+for file in $add_list $change_list
 do
 	count=`expr $count + 1`
 	ext=`echo $file | sed -e "s/.*\././"`
 	if [ $file != "CvsCommit"      ] && \
 	   [ $file != "CvsCommit.sed"  ] && \
-	   [ $ext != ".vcproj"         ]
+	   [ $ext != ".vcproj"         ] && \
 	   [ $ext != ".vim"            ]
 	then
+		# automatic edits and backups
 		echo "cp $file junk.$count"
 		cp $file junk.$count
 		sed -f CvsCommit.sed < junk.$count > $file
 		diff junk.$count $file
 	fi
 done
-cvs add FixAclocal
-cvs commit -F CvsCommit.log $list
+for file in $add_list
+do
+	echo "svn add $file ?"
+done
+for file in $delete_list
+do
+	echo "svn delete $file ?"
+done
+response=""
+while [ "$response" != "c" ] && [ "$response" != "a" ]
+do
+	read -p "continue [c] or abort [a] ? " response
+done
+if [ "$response" = "c" ]
+then
+	for file in $add_list
+	do
+		cvs add $file
+	done
+	for file in $delete_list
+	do
+		cvs delete $file
+	done
+	cvs commit -F CvsCommit.log $add_list $change_list $delete_list
+else
+	count=0
+	for file in $add_list $change_list
+	do
+		count=`expr $count + 1`
+		ext=`echo $file | sed -e "s/.*\././"`
+		if [ $file != "CvsCommit"      ] && \
+	   	[ $file != "CvsCommit.sed"  ] && \
+	   	[ $ext != ".vcproj"         ] && \
+	   	[ $ext != ".vim"            ]
+		then
+			# undo the automatic edits
+			echo "mv junk.$count $file"
+			mv junk.$count $file
+		fi
+	done
+fi
