@@ -18,16 +18,16 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 06-01-25, bradbell@seanet.com)
+AC_INIT(OMhelp, 06-03-14, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
 
 dnl The director where vim data is stored
-AC_MSG_CHECKING( [VIM_RUNTIME] )
-AC_SUBST(VIM_RUNTIME)
-AM_CONDITIONAL(OMhelp_VIM_RUNTIME, test "$VIM_RUNTIME" != "" )
-if test "$VIM_RUNTIME" != "" ; then
-	AC_MSG_RESULT( [$VIM_RUNTIME] )
+AC_MSG_CHECKING( [VIMRUNTIME] )
+AC_SUBST(VIMRUNTIME)
+AM_CONDITIONAL(OMhelp_VIMRUNTIME, test "$VIMRUNTIME" != "" )
+if test "$VIMRUNTIME" != "" ; then
+	AC_MSG_RESULT( [$VIMRUNTIME] )
 else
 	AC_MSG_RESULT( [no] )
 fi

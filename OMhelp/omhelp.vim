@@ -9,204 +9,204 @@
 
 :syntax case match
 
-:syntax match omhelp_dollardollar    /\$\$/
-:highlight link omhelp_dollardollar  Keyword
+:syntax match omh_dollardollar    /\$\$/
+:highlight link omh_dollardollar  Keyword
 
-:syntax match omhelp_aindex          /\$aindex/
-:highlight link omhelp_aindex        Keyword
+:syntax match omh_aindex          /\$aindex/
+:highlight link omh_aindex        Keyword
 
-:syntax match omhelp_align           /\$align/
-:highlight link omhelp_align         Keyword
+:syntax match omh_align           /\$align/
+:highlight link omh_align         Keyword
 
-:syntax match omhelp_begin           /\$begin/
-:highlight link omhelp_begin         Keyword
+:syntax match omh_begin           /\$begin/
+:highlight link omh_begin         Keyword
 
-:syntax match omhelp_bgcolor         /\$bgcolor/
-:highlight link omhelp_bgcolor       Keyword
+:syntax match omh_bgcolor         /\$bgcolor/
+:highlight link omh_bgcolor       Keyword
 
-:syntax match omhelp_big             /\$big/
-:highlight link omhelp_big           Keyword
+:syntax match omh_big             /\$big/
+:highlight link omh_big           Keyword
 
-:syntax match omhelp_bold            /\$bold/
-:highlight link omhelp_bold          Keyword
+:syntax match omh_bold            /\$bold/
+:highlight link omh_bold          Keyword
 
-:syntax match omhelp_cend            /\$cend/
-:highlight link omhelp_cend          Special
+:syntax match omh_cend            /\$cend/
+:highlight link omh_cend          Special
 
-:syntax match omhelp_center          /\$center/
-:highlight link omhelp_center        Keyword
+:syntax match omh_center          /\$center/
+:highlight link omh_center        Keyword
 
-:syntax match omhelp_children        /\$children/
-:highlight link omhelp_children      Keyword
+:syntax match omh_children        /\$children/
+:highlight link omh_children      Keyword
 
-:syntax match omhelp_childtable      /\$childtable/
-:highlight link omhelp_childtable    Keyword
+:syntax match omh_childtable      /\$childtable/
+:highlight link omh_childtable    Keyword
 
-:syntax match omhelp_cindex          /\$cindex/
-:highlight link omhelp_cindex        Keyword
+:syntax match omh_cindex          /\$cindex/
+:highlight link omh_cindex        Keyword
 
-:syntax match omhelp_cmark           /\$cmark/
-:highlight link omhelp_cmark         Keyword
+:syntax match omh_cmark           /\$cmark/
+:highlight link omh_cmark         Keyword
 
-:syntax match omhelp_cnext           /\$cnext/
-:highlight link omhelp_cnext         Special
+:syntax match omh_cnext           /\$cnext/
+:highlight link omh_cnext         Special
 
-:syntax match omhelp_code            /\$code/
-:highlight link omhelp_code          Keyword
+:syntax match omh_code            /\$code/
+:highlight link omh_code          Keyword
 
-:syntax match omhelp_codecolor       /\$codecolor/
-:highlight link omhelp_codecolor     Keyword
+:syntax match omh_codecolor       /\$codecolor/
+:highlight link omh_codecolor     Keyword
 
-:syntax match omhelp_codep           /\$codep/
-:highlight link omhelp_codep         Keyword
+:syntax match omh_codep           /\$codep/
+:highlight link omh_codep         Keyword
 
-:syntax match omhelp_comment         /\$comment/
-:highlight link omhelp_comment       Keyword
+:syntax match omh_comment         /\$comment/
+:highlight link omh_comment       Keyword
 
-:syntax match omhelp_contents        /\$contents/
-:highlight link omhelp_contents      Keyword
+:syntax match omh_contents        /\$contents/
+:highlight link omh_contents      Keyword
 
-:syntax match omhelp_date            /\$date/
-:highlight link omhelp_date          Special
+:syntax match omh_date            /\$date/
+:highlight link omh_date          Special
 
-:syntax match omhelp_dollar          /\$dollar/
-:highlight link omhelp_dollar        Keyword
+:syntax match omh_dollar          /\$dollar/
+:highlight link omh_dollar        Keyword
 
-:syntax match omhelp_end             /\$end/
-:highlight link omhelp_end           Special
+:syntax match omh_end             /\$end/
+:highlight link omh_end           Special
 
-:syntax match omhelp_errorcolor      /\$errorcolor/
-:highlight link omhelp_errorcolor    Keyword
+:syntax match omh_errorcolor      /\$errorcolor/
+:highlight link omh_errorcolor    Keyword
 
-:syntax match omhelp_escape          /\$escape/
-:highlight link omhelp_escape        Keyword
+:syntax match omh_escape          /\$escape/
+:highlight link omh_escape        Keyword
 
-:syntax match omhelp_execute         /\$execute/
-:highlight link omhelp_execute       Keyword
+:syntax match omh_execute         /\$execute/
+:highlight link omh_execute       Keyword
 
-:syntax match omhelp_fend            /\$fend/
-:highlight link omhelp_fend          Keyword
+:syntax match omh_fend            /\$fend/
+:highlight link omh_fend          Keyword
 
-:syntax match omhelp_fixed           /\$fixed/
-:highlight link omhelp_fixed         Keyword
+:syntax match omh_fixed           /\$fixed/
+:highlight link omh_fixed         Keyword
 
-:syntax match omhelp_head            /\$head/
-:highlight link omhelp_head          Keyword
+:syntax match omh_head            /\$head/
+:highlight link omh_head          Keyword
 
-:syntax match omhelp_href            /\$href/
-:highlight link omhelp_href          Keyword
+:syntax match omh_href            /\$href/
+:highlight link omh_href          Keyword
 
-:syntax match omhelp_icon            /\$icon/
-:highlight link omhelp_icon          Keyword
+:syntax match omh_icon            /\$icon/
+:highlight link omh_icon          Keyword
 
-:syntax match omhelp_image           /\$image/
-:highlight link omhelp_image         Keyword
+:syntax match omh_image           /\$image/
+:highlight link omh_image         Keyword
 
-:syntax match omhelp_include         /\$include/
-:highlight link omhelp_include       Keyword
+:syntax match omh_include         /\$include/
+:highlight link omh_include       Keyword
 
-:syntax match omhelp_index           /\$index/
-:highlight link omhelp_index         Keyword
+:syntax match omh_index           /\$index/
+:highlight link omh_index         Keyword
 
-:syntax match omhelp_italic          /\$italic/
-:highlight link omhelp_italic        Keyword
+:syntax match omh_italic          /\$italic/
+:highlight link omh_italic        Keyword
 
-:syntax match omhelp_latex           /\$latex/
-:highlight link omhelp_latex         Keyword
+:syntax match omh_latex           /\$latex/
+:highlight link omh_latex         Keyword
 
-:syntax match omhelp_lend            /\$lend/
-:highlight link omhelp_lend          Special
+:syntax match omh_lend            /\$lend/
+:highlight link omh_lend          Special
 
-:syntax match omhelp_list            /\$list/
-:highlight link omhelp_list          Special
+:syntax match omh_list            /\$list/
+:highlight link omh_list          Special
 
-:syntax match omhelp_lnext           /\$lnext/
-:highlight link omhelp_lnext         Special
+:syntax match omh_lnext           /\$lnext/
+:highlight link omh_lnext         Special
 
-:syntax match omhelp_math            /\$math/
-:highlight link omhelp_math          Keyword
+:syntax match omh_math            /\$math/
+:highlight link omh_math          Keyword
 
-:syntax match omhelp_mindex          /\$mindex/
-:highlight link omhelp_mindex        Keyword
+:syntax match omh_mindex          /\$mindex/
+:highlight link omh_mindex        Keyword
 
-:syntax match omhelp_mref            /\$mref/
-:highlight link omhelp_mref          Keyword
+:syntax match omh_mref            /\$mref/
+:highlight link omh_mref          Keyword
 
-:syntax match omhelp_newlinech       /\$newlinech/
-:highlight link omhelp_newlinech     Keyword
+:syntax match omh_newlinech       /\$newlinech/
+:highlight link omh_newlinech     Keyword
 
-:syntax match omhelp_nobreak         /\$nobreak/
-:highlight link omhelp_nobreak       Keyword
+:syntax match omh_nobreak         /\$nobreak/
+:highlight link omh_nobreak       Keyword
 
-:syntax match omhelp_nospell         /\$nospell/
-:highlight link omhelp_nospell       Keyword
+:syntax match omh_nospell         /\$nospell/
+:highlight link omh_nospell       Keyword
 
-:syntax match omhelp_path            /\$path/
-:highlight link omhelp_path          Keyword
+:syntax match omh_path            /\$path/
+:highlight link omh_path          Keyword
 
-:syntax match omhelp_pre             /\$pre/
-:highlight link omhelp_pre           Keyword
+:syntax match omh_pre             /\$pre/
+:highlight link omh_pre           Keyword
 
-:syntax match omhelp_rend            /\$rend/
-:highlight link omhelp_rend          Keyword
+:syntax match omh_rend            /\$rend/
+:highlight link omh_rend          Keyword
 
-:syntax match omhelp_rmark           /\$rmark/
-:highlight link omhelp_rmark         Keyword
+:syntax match omh_rmark           /\$rmark/
+:highlight link omh_rmark         Keyword
 
-:syntax match omhelp_rnext           /\$rnext/
-:highlight link omhelp_rnext         Special
+:syntax match omh_rnext           /\$rnext/
+:highlight link omh_rnext         Special
 
-:syntax match omhelp_rref            /\$rref/
-:highlight link omhelp_rref          Keyword
+:syntax match omh_rref            /\$rref/
+:highlight link omh_rref          Keyword
 
-:syntax match omhelp_section         /\$section/
-:highlight link omhelp_section       Keyword
+:syntax match omh_section         /\$section/
+:highlight link omh_section       Keyword
 
-:syntax match omhelp_skipnl          /\$skipnl/
-:highlight link omhelp_skipnl        Keyword
+:syntax match omh_skipnl          /\$skipnl/
+:highlight link omh_skipnl        Keyword
 
-:syntax match omhelp_small           /\$small/
-:highlight link omhelp_small         Keyword
+:syntax match omh_small           /\$small/
+:highlight link omh_small         Keyword
 
-:syntax match omhelp_spell           /\$spell/
-:highlight link omhelp_spell         Keyword
+:syntax match omh_spell           /\$spell/
+:highlight link omh_spell         Keyword
 
-:syntax match omhelp_subhead         /\$subhead/
-:highlight link omhelp_subhead       Keyword
+:syntax match omh_subhead         /\$subhead/
+:highlight link omh_subhead       Keyword
 
-:syntax match omhelp_syntax          /\$syntax/
-:highlight link omhelp_syntax        Keyword
+:syntax match omh_syntax          /\$syntax/
+:highlight link omh_syntax        Keyword
 
-:syntax match omhelp_table           /\$table/
-:highlight link omhelp_table         Special
+:syntax match omh_table           /\$table/
+:highlight link omh_table         Special
 
-:syntax match omhelp_tabsize         /\$tabsize/
-:highlight link omhelp_tabsize       Keyword
+:syntax match omh_tabsize         /\$tabsize/
+:highlight link omh_tabsize       Keyword
 
-:syntax match omhelp_tend            /\$tend/
-:highlight link omhelp_tend          Special
+:syntax match omh_tend            /\$tend/
+:highlight link omh_tend          Special
 
-:syntax match omhelp_textcolor       /\$textcolor/
-:highlight link omhelp_textcolor     Keyword
+:syntax match omh_textcolor       /\$textcolor/
+:highlight link omh_textcolor     Keyword
 
-:syntax match omhelp_th              /\$th/
-:highlight link omhelp_th            Keyword
+:syntax match omh_th              /\$th/
+:highlight link omh_th            Keyword
 
-:syntax match omhelp_title           /\$title/
-:highlight link omhelp_title         Keyword
+:syntax match omh_title           /\$title/
+:highlight link omh_title         Keyword
 
-:syntax match omhelp_trace           /\$trace/
-:highlight link omhelp_trace         Keyword
+:syntax match omh_trace           /\$trace/
+:highlight link omh_trace         Keyword
 
-:syntax match omhelp_tref            /\$tref/
-:highlight link omhelp_tref          Keyword
+:syntax match omh_tref            /\$tref/
+:highlight link omh_tref          Keyword
 
-:syntax match omhelp_verbatim        /\$verbatim/
-:highlight link omhelp_verbatim      Keyword
+:syntax match omh_verbatim        /\$verbatim/
+:highlight link omh_verbatim      Keyword
 
-:syntax match omhelp_wspace          /\$wspace/
-:highlight link omhelp_wspace        Keyword
+:syntax match omh_wspace          /\$wspace/
+:highlight link omh_wspace        Keyword
 
-:syntax match omhelp_xref            /\$xref/
-:highlight link omhelp_xref          Keyword
+:syntax match omh_xref            /\$xref/
+:highlight link omh_xref          Keyword
 

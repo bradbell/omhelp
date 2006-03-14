@@ -1,18 +1,23 @@
-# Change $syntax so it trims leading and trailing white space in italic font. 
+# Build: OMhelp.dos.tar.gz -> OMhelp.dos.zip, VIM_RUNTIME->VIMRUNTIME.
+# CvsCommit: file that preformed this commit.
+# Makefile.am: VIM_RUNTIME->VIMRUNTIME.
+# configure.ac: VIM_RUNTIME->VIMRUNTIME.
+# omhelp.vim: omhelp_* -> omh_*.
+# installunix.omh: VIM_RUNTIME->VIMRUNTIME.
+# installwindows.omh: OMhelp.dos.tar.gz -> OMhelp.dos.zip.
+# whatsnew.omh: users view of the changes.
 #
-# CvsCommit: file that does the commit
-# syntax.omh: trim leading and trailing white space in syntax italic mode.
-# whatsnew.omh: users view of the changes 
-# stdfun.omh: fix spelling of Display (form Diaplay) and font for Command.
-# omhelp.y: trim leading and trailing white space in syntax italic mode.
 add_list="
 "
 change_list="\
+	Build
 	CvsCommit
-	omh/syntax.omh
+	Makefile.am
+	configure.ac
+	OMhelp/omhelp.vim
+	omh/installunix.omh
+	omh/installwindows.omh
 	omh/whatsnew.omh
-	omh/latex/stdfun.omh
-	src/omhelp.y
 "
 delete_list="
 "

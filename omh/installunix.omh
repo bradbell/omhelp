@@ -75,7 +75,7 @@ $head Configure$$
 $index prefix$$
 Enter the distribution directory and execute the command:
 $syntax%
-	./configure [ prefix=%prefix% ] [ VIM_RUNTIME=%vim_runtime% ]
+	./configure [ prefix=%prefix% ] [ VIMRUNTIME=%vim_runtime% ]
 %$$
 where the entries between the brackets $code [$$ and $code ]$$ are optional,
 the brackets are not included, and the word in italic is replaced
@@ -116,6 +116,7 @@ $codep
 	:echo @VIMRUNTIME
 $$
 If you specify this argument on the $code configure$$ command line, 
+after the $xref/InstallUnix/Install OMhelp/install omhelp/$$ step,
 the $code vim$$ commands
 $codep
 	:syntax on
@@ -123,7 +124,7 @@ $codep
 $$
 will turn on OMhelp syntax highlighting for the file you are currently 
 editing. If your OMhelp commands are embedded in a C source code file, 
-you could convert to C highlighting by executing the command
+you could convert back to C highlighting by executing the command
 $codep
 	:runtime! syntax/c.vim
 $$

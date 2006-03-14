@@ -22,8 +22,8 @@
 # the configure script but rather use project files
 #
 # check if vim data directory has been specified
-if OMhelp_VIM_RUNTIME
-vimsyntaxdir = $(VIM_RUNTIME)/syntax
+if OMhelp_VIMRUNTIME
+vimsyntaxdir = $(VIMRUNTIME)/syntax
 vimsyntax_DATA = \
 	OMhelp/omhelp.vim
 endif

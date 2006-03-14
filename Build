@@ -21,7 +21,7 @@
 #
 # Default values used for arguments to configure during this script.
 # These defaults are development system dependent and can be changed.
-VIM_RUNTIME=/usr/share/vim/vim64
+VIMRUNTIME=/usr/share/vim/vim64
 #
 # date currently in configure.ac
 AcDate=`grep "^ *AC_INIT(" configure.ac | \
@@ -121,9 +121,9 @@ fi
 if [ "$1" = "configure" ] || [ "$1" = "all" ]
 then
 	#
-	if [ -e $VIM_RUNTIME/syntax ]
+	if [ -e $VIMRUNTIME/syntax ]
 	then
-		TMP="VIM_RUNTIME=$VIM_RUNTIME"
+		TMP="VIMRUNTIME=$VIMRUNTIME"
 	else
 		TMP=""
 	fi
@@ -179,7 +179,7 @@ then
 		echo "rm -r omhelp-$AcDate"
 		rm -r omhelp-$AcDate
 	fi
-	for file in OMhelp.dos.tar.gz OMhelp.unix.tar.gz
+	for file in OMhelp.dos.zip OMhelp.unix.tar.gz
 	do
 		if [ -e $file ]
 		then
@@ -226,10 +226,10 @@ then
 		echo "rm -r omhelp-$AcDate"
 		rm -r omhelp-$AcDate
 	fi
-	if [ -e OMhelp.dos.tar.gz ]
+	if [ -e OMhelp.dos.zip ]
 	then
-		echo "rm OMhelp.dos.tar.gz"
-		rm OMhelp.dos.tar.gz
+		echo "rm OMhelp.dos.zip"
+		rm OMhelp.dos.zip
 	fi
 	#
 	# extract from compressed tar
@@ -305,8 +305,7 @@ then
 	touch omhelp-$AcDate/configure
 	#
 	# create the dos version
-	tar -cvf OMhelp.dos.tar omhelp-$AcDate
-	gzip OMhelp.dos.tar 
+	zip -r OMhelp.dos.zip omhelp-$AcDate
 	#
 	# clean up
 	rm -r omhelp-$AcDate
@@ -337,7 +336,7 @@ echo "configure   run configure script to create make files"
 echo "compile     compile all of the tests"
 echo "omhelp      build all the documentation"
 echo "dist        create the distribution files OMhelp.unix.tar.gz"
-echo "dos         create the distribution files OMhelp.dos.tar.gz"
+echo "dos         create the distribution files OMhelp.dos.zip"
 echo
 echo "Build all: This command will execute all the options in the order above"
 echo

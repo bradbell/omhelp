@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	gzip
 	Diaplay
 	Firefox
 	src
@@ -74,9 +75,19 @@ $tend
 
 $$
 
+$head 06-03-14$$
+Change the Window's 
+$xref/InstallWindows/Download OMhelp/download/$$ file
+from $code gzip$$ to $code zip$$ format.
+$pre
+
+$$
+Change the Unix install $xref/InstallUnix/Configure/configure/$$ argument
+$code VIM_RUNTIME$$ to $code VIMRUNTIME$$.
+
 $head 06-03-09$$
 Fix some minor typos in $xref/stdfun/$$
-(change Diaplay to Dispaly and use italic font for Command 
+(change Diaplay to Display and use italic font for Command 
 in the syntax).
 
 $head 06-03-03$$
