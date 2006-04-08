@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 
 $begin SplitText$$
@@ -90,7 +88,34 @@ $end
 # include "SplitText.h"
 # include "fatalerr.h"
 # include "int2str.h"
+# include "StrCat.h"
+# include "str_alloc.h"
 
+
+static char *char2str(int ch)
+{	char str[4];
+	char *ascii;
+	char *ret;
+	if( 32 < ch && ch < 127 )
+	{	if( ch == '\'' )
+			return str_alloc("(single quote)");
+		else if( ch == '\"' )
+			return str_alloc("(double quote)");
+		str[0] = str[2] = '\'';
+		str[1] = ch;
+		str[3] = '\0';
+		return str_alloc(str);
+	}
+	ret = StrCat(
+		__FILE__,
+		__LINE__,
+		"(ascii code ",
+		int2str(ch),
+		")",
+		NULL
+	);
+	return ret;
+}
 
 int SplitText(int line, const char *cmd, char *text)
 {	char del;
@@ -124,8 +149,11 @@ int SplitText(int line, const char *cmd, char *text)
 		cmd,
 		" command in line ",
 		int2str(line),
-		"\nThe first and last character of the delimiter sequence ",
-		"are not equal",
+		":\nThe first character of the delimiter sequence ",
+		char2str(del),
+		",\nis not the same as the last character ",
+		char2str(text[len-1]),
+		".",
 		NULL
 	);
 

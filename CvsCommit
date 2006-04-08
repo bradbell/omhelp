@@ -1,22 +1,20 @@
-# Build: add the "test" option (to test the distribution).
-# CvsCommit: file that made this commit.
-# installunix.omh: better command for setting omhelp syntax option. 
+# CvsCommit: file that did this commit.
+# Build: build dictionary.bin with make and add test to all option.
+# Makefile.am: build and then remove dictionary.bin to avoid error message.
+# RunOMhelp: return proper error status.
 # whatsnew.omh: user's view of the changes.
-# OmhStype.h: add token code to the lex -> parser information structure. 
-# lexomh.c: add TokenCode2String for using code to report errors.
-# lexomh.h: add TokenCode2String for using code to report errors.
-# omhelp.y: better error reporting when commands embedded in atomic commands.
+# SplitText.c: improve the not matching delimiter error message.
+# lexomh.c: minor edit to doc for TokenCode2String.
 add_list="
 "
-change_list="\
-	Build
+change_list="
 	CvsCommit
-	omh/installunix.omh
+	Build
+	Makefile.am
+	RunOMhelp
 	omh/whatsnew.omh
-	src/OmhStype.h
+	src/SplitText.c
 	src/lexomh.c
-	src/lexomh.h
-	src/omhelp.y
 "
 delete_list="
 "

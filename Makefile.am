@@ -63,9 +63,16 @@ EXTRA_DIST = \
 	src/latex.l \
 	src/src.sln \
 	src/src.vcproj 
+#
+OMhelp/dictionary.bin:
+	./RunOMhelp Doc
+	./RunOMhelp Developer
 # 
-# make sure that unix install rebuilds main.c from main.src
+# Make sure that unix install rebuilds main.c from main.src.
+# Remove all the CVS informaiton.
+# Remove the dictionary.bin (does in data directory but is machine dependent).
 dist-hook:
 	touch $(distdir)/src/main.src
 	rm -r `find $(distdir)/omh -name CVS`
 	rm -r `find $(distdir)/src/omh -name CVS`
+	rm $(distdir)/OMhelp/dictionary.bin

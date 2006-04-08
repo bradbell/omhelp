@@ -77,6 +77,17 @@ $tend
 
 $$
 
+$head 06-04-08$$
+The error message for the following case has been improved:
+when the first and last character of a 
+$xref/glossary/Delimiter Sequence/delimiter sequence/$$ do not match.
+$pre
+
+$$
+The file $code OMhelp/dictionary.bin$$ has been removed from the distribution
+because it is system dependent 
+(automake expects the data directory informaiton to be system independent). 
+
 $head 06-04-07$$
 Detect and report specific error message when user attempts
 to embed a command inside of an atomic command; for example

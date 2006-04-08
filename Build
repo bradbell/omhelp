@@ -142,8 +142,14 @@ fi
 #
 # compile
 #
-if [ "$1" = "compile" ] || [ "$1" = "all" ]
+if [ "$1" = "make" ] || [ "$1" = "all" ]
 then
+	# remove Doc, Developer and OMhelp/dictionay.bin becasue they are
+	# created by make (see ./Makefile.am).
+	if [ -e Doc ]                   ; then rm -r Doc ; fi
+	if [ -e Developer ]             ; then rm -r Developer ; fi
+	if [ -e OMhelp/dictionary.bin ] ; then rm OMhelp/dictionary.bin ; fi
+	#
 	echo "make"
 	make
 	#
@@ -153,24 +159,7 @@ then
 	fi
 fi
 #
-# omhelp
-#
-if [ "$1" = "omhelp" ] || [ "$1" = "all" ]
-then
-	echo "RunOMhelp Developer"
-	./RunOMhelp Developer
-	#
-	echo "RunOMhelp Doc"
-	./RunOMhelp Doc
-	#
-	if [ "$1" != "all" ]
-	then
-		exit
-	fi
-fi
-#
 # dist
-#
 if [ "$1" = "dist" ] || [ "$1" = "all" ]
 then
 	#
@@ -213,7 +202,7 @@ then
 	then
 		echo "Must use MS project to build src.exe before executing"
 		echo "Build dos"
-		exit
+		exit 1  # error code
 	fi
 	if [ ! -e OMhelp.unix.tar.gz ]
 	then
@@ -315,14 +304,12 @@ then
 		exit
 	fi
 fi
-if [ $1 = "test" ]
+if [ "$1" = "test" ] || [ "$1" = "all" ] 
 then
 	tar -xvzf OMhelp.unix.tar.gz
 	cd omhelp-$AcDate
 	./Build configure
 	make
-	./RunOMhelp Doc
-	./RunOMhelp Developer
 	if [ "$1" != "all" ]
 	then
 		exit
@@ -346,11 +333,10 @@ echo "aclocal     create aclocal.m4 file"
 echo "autoheader  create a src/config.h.in file"
 echo "automake    run autoconf and automake to create configure script"
 echo "configure   run configure script to create make files"
-echo "compile     compile all of the tests"
-echo "omhelp      build all the documentation"
+echo "make        compile omhlep and use it to build its documentaiton"
 echo "dist        create the distribution files OMhelp.unix.tar.gz"
 echo "dos         create the distribution files OMhelp.dos.zip"
-echo "test        unpack unix distribution compile, and run as a tests"
+echo "test        unpack and test unix distribution"
 echo
 echo "Build all: This command will execute all the options in the order above"
 echo

@@ -77,7 +77,8 @@ $fend 20$$
 
 $head Purpose$$
 The lexical analyzer now passes back token integer codes for error reporting.
-This routine converts the integer code to the corresponding users input.
+This routine converts the integer code to the corresponding users input
+(including the @ character).
 
 $head code$$
 The argument $italic code$$ has prototype
