@@ -86,7 +86,7 @@ $pre
 $$
 The file $code OMhelp/dictionary.bin$$ has been removed from the distribution
 because it is system dependent 
-(automake expects the data directory informaiton to be system independent). 
+(automake expects the data directory information to be system independent). 
 
 $head 06-04-07$$
 Detect and report specific error message when user attempts
