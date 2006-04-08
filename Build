@@ -315,6 +315,19 @@ then
 		exit
 	fi
 fi
+if [ $1 = "test" ]
+then
+	tar -xvzf OMhelp.unix.tar.gz
+	cd omhelp-$AcDate
+	./Build configure
+	make
+	./RunOMhelp Doc
+	./RunOMhelp Developer
+	if [ "$1" != "all" ]
+	then
+		exit
+	fi
+fi
 if [ "$1" = "all" ]
 then
         exit
@@ -337,6 +350,7 @@ echo "compile     compile all of the tests"
 echo "omhelp      build all the documentation"
 echo "dist        create the distribution files OMhelp.unix.tar.gz"
 echo "dos         create the distribution files OMhelp.dos.zip"
+echo "test        unpack unix distribution compile, and run as a tests"
 echo
 echo "Build all: This command will execute all the options in the order above"
 echo

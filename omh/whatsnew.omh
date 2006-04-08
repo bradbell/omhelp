@@ -19,6 +19,8 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	codep
+	myfile
 	gzip
 	Diaplay
 	Firefox
@@ -73,6 +75,15 @@ $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
 
+$$
+
+$head 06-04-07$$
+Detect and report specific error message when user attempts
+to embed a command inside of an atomic command; for example
+$codep
+	@codep
+	@verbatim%myfile%@@
+	@@
 $$
 
 $head 06-03-14$$

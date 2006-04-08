@@ -1,23 +1,22 @@
-# Build: OMhelp.dos.tar.gz -> OMhelp.dos.zip, VIM_RUNTIME->VIMRUNTIME.
-# CvsCommit: file that preformed this commit.
-# Makefile.am: VIM_RUNTIME->VIMRUNTIME.
-# configure.ac: VIM_RUNTIME->VIMRUNTIME.
-# omhelp.vim: omhelp_* -> omh_*.
-# installunix.omh: VIM_RUNTIME->VIMRUNTIME.
-# installwindows.omh: OMhelp.dos.tar.gz -> OMhelp.dos.zip.
-# whatsnew.omh: users view of the changes.
-#
+# Build: add the "test" option (to test the distribution).
+# CvsCommit: file that made this commit.
+# installunix.omh: better command for setting omhelp syntax option. 
+# whatsnew.omh: user's view of the changes.
+# OmhStype.h: add token code to the lex -> parser information structure. 
+# lexomh.c: add TokenCode2String for using code to report errors.
+# lexomh.h: add TokenCode2String for using code to report errors.
+# omhelp.y: better error reporting when commands embedded in atomic commands.
 add_list="
 "
 change_list="\
 	Build
 	CvsCommit
-	Makefile.am
-	configure.ac
-	OMhelp/omhelp.vim
 	omh/installunix.omh
-	omh/installwindows.omh
 	omh/whatsnew.omh
+	src/OmhStype.h
+	src/lexomh.c
+	src/lexomh.h
+	src/omhelp.y
 "
 delete_list="
 "

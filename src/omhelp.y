@@ -76,6 +76,7 @@ cross reference tag, NULL is returned.
 # include "int2str.h"
 # include "LatexLexPut.h"
 # include "texparse.h"
+# include "lexomh.h"
 
 # ifndef WIN32
 # define stricmp strcasecmp 
@@ -214,6 +215,19 @@ static int   MatchState[] = {0, 0,  0,  0, 0,  0, 0, 0, 0,  0,  0, 0};
 static int   MatchNumber  = sizeof(MatchText) / sizeof(MatchText[0]);
 
 // ***************** Static Functions ************************
+
+static void fatal_not_2_dollar_or_text(int code_cmd1, int line1, int code_cmd2)
+{	fatalomh(
+		"Error in the ",
+		TokenCode2String(code_cmd1),
+		" command that begins in line ",
+		int2str(line1), 
+		".\nThis command is not terminated by $$ before ",
+		TokenCode2String( code_cmd2 ),
+		" appears.",
+		NULL
+	);
+}
 
 static char *StyleCommand(SectionInfo *S)
 {	char *bgcolor;
@@ -1562,7 +1576,10 @@ accent
 	;
 
 aindex
-	: AINDEX_lex argument DOUBLE_DOLLAR_lex
+	: AINDEX_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| AINDEX_lex argument DOUBLE_DOLLAR_lex
 	{	char *s;
 		int i;
 
@@ -1588,7 +1605,10 @@ aindex
 	;
 
 align
-	: ALIGN_lex argument DOUBLE_DOLLAR_lex
+	: ALIGN_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| ALIGN_lex argument DOUBLE_DOLLAR_lex
 	{	char *s;
 
 		assert( $1.str == NULL );
@@ -1629,7 +1649,10 @@ argument
 	;
 
 begin
-	: BEGIN_lex argument DOUBLE_DOLLAR_lex
+	: BEGIN_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| BEGIN_lex argument DOUBLE_DOLLAR_lex
 	{	char *tag;
 		char *tag_lower;
 		char *number = NULL;
@@ -1801,7 +1824,10 @@ begin
 	;
 
 bgcolor
-	: BGCOLOR_lex text DOUBLE_DOLLAR_lex
+	: BGCOLOR_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| BGCOLOR_lex text DOUBLE_DOLLAR_lex
 	{
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -2171,7 +2197,10 @@ cmindex : CINDEX_lex
 	;
 
 cmark
-	: CMARK_lex argument DOUBLE_DOLLAR_lex
+	: CMARK_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| CMARK_lex argument DOUBLE_DOLLAR_lex
 	{	assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
@@ -2211,7 +2240,10 @@ code
 	;
 
 codecolor
-	: CODECOLOR_lex text DOUBLE_DOLLAR_lex
+	: CODECOLOR_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| CODECOLOR_lex text DOUBLE_DOLLAR_lex
 	{	assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
@@ -2226,7 +2258,10 @@ codecolor
 
 
 codep
-	: CODEP_lex text DOUBLE_DOLLAR_lex
+	: CODEP_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| CODEP_lex text DOUBLE_DOLLAR_lex
 	{	assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
@@ -2273,7 +2308,10 @@ codep
 	;
 
 comment
-	: COMMENT_lex TEXT_lex DOUBLE_DOLLAR_lex
+	: COMMENT_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| COMMENT_lex TEXT_lex DOUBLE_DOLLAR_lex
 	{	assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
@@ -2322,7 +2360,10 @@ date
 
 
 dollar
-	: DOLLAR_lex argument DOUBLE_DOLLAR_lex
+	: DOLLAR_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| DOLLAR_lex argument DOUBLE_DOLLAR_lex
 	{	assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
@@ -2556,7 +2597,10 @@ eof
 	;
 
 errorcolor
-	: ERRORCOLOR_lex text DOUBLE_DOLLAR_lex
+	: ERRORCOLOR_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| ERRORCOLOR_lex text DOUBLE_DOLLAR_lex
 	{	assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
@@ -2570,7 +2614,10 @@ errorcolor
 	;	
 
 escape
-	: ESCAPE_lex argument DOUBLE_DOLLAR_lex
+	: ESCAPE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| ESCAPE_lex argument DOUBLE_DOLLAR_lex
 	{	assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
@@ -2585,7 +2632,10 @@ escape
 
 	
 execute
-	: EXECUTE_lex argument DOUBLE_DOLLAR_lex
+	: EXECUTE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| EXECUTE_lex argument DOUBLE_DOLLAR_lex
 	{	assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
@@ -2628,7 +2678,10 @@ execute
 	
 
 fend
-	: FEND_lex argument DOUBLE_DOLLAR_lex
+	: FEND_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| FEND_lex argument DOUBLE_DOLLAR_lex
 	{
 		int above;
 		int below;
@@ -2723,7 +2776,10 @@ fixed
 	;
 
 head
-	: HEAD_lex argument DOUBLE_DOLLAR_lex
+	: HEAD_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| HEAD_lex argument DOUBLE_DOLLAR_lex
 	{	
 		CrossReference *C;
 		char           *noEscape;
@@ -2838,7 +2894,10 @@ head
 	}
 	;
 href
-	: HREF_lex text DOUBLE_DOLLAR_lex
+	: HREF_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| HREF_lex text DOUBLE_DOLLAR_lex
 	{	char *url;
 		char *frame;
 		char *link;
@@ -3088,7 +3147,10 @@ image
 	;
 
 include
-	: INCLUDE_lex argument DOUBLE_DOLLAR_lex
+	: INCLUDE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| INCLUDE_lex argument DOUBLE_DOLLAR_lex
 	{	char  *root;
 		char  *ext;
 
@@ -3263,8 +3325,82 @@ italic
 	}
 	;
 
+keyword
+	: AINDEX_lex
+	| ALIGN_lex
+	| BEGIN_lex
+	| BGCOLOR_lex
+	| BIG_lex
+	| BOLD_lex
+	| CEND_lex
+	| CENTER_lex
+	| CHILDREN_lex
+	| CHILDTABLE_lex
+	| CINDEX_lex
+	| CMARK_lex
+	| CNEXT_lex
+	| CODE_lex
+	| CODECOLOR_lex
+	| CODEP_lex
+	| COMMENT_lex
+	| CONTENTS_lex
+	| DATE_lex
+	| DOLLAR_lex
+	| END_lex
+	| ERRORCOLOR_lex
+	| ESCAPE_lex
+	| EXECUTE_lex
+	| FEND_lex
+	| FIXED_lex
+	| HEAD_lex
+	| HREF_lex
+	| ICON_lex
+	| IMAGE_lex
+	| INCLUDE_lex
+	| INDEX_lex
+	| ITALIC_lex
+	| LATEX_lex
+	| LEND_lex
+	| LIST_lex
+	| LNEXT_lex
+	| MATH_lex
+	| MINDEX_lex
+	| MREF_lex
+	| NEWLINECH_lex
+	| NOBREAK_lex
+	| NOSPELL_lex
+	| PATH_lex
+	| PRE_lex
+	| REND_lex
+	| RMARK_lex
+	| RNEXT_lex
+	| RREF_lex
+	| SECTION_lex
+	| SKIPNL_lex
+	| SMALL_lex
+	| SPELL_lex
+	| SUBHEAD_lex
+	| SYNTAX_lex
+	| TABLE_lex
+	| TABSIZE_lex
+	| TEND_lex
+	| TEXTCOLOR_lex
+	| TH_lex
+	| TITLE_lex
+	| TRACE_lex
+	| TREF_lex
+	| VERBATIM_lex
+	| WSPACE_lex
+	| XREF_lex
+	{	$$ = $1;
+	}
+	;
+
 latex
-	: LATEX_lex text DOUBLE_DOLLAR_lex
+	: LATEX_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| LATEX_lex text DOUBLE_DOLLAR_lex
 	{
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -3346,7 +3482,10 @@ lend
 	}
 	;
 list
-	: LIST_lex argument DOUBLE_DOLLAR_lex
+	: LIST_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| LIST_lex argument DOUBLE_DOLLAR_lex
 	{	// initalize cmd to avoid warning
 		// (compiler does not know fatalerr will not return)
 		char *cmd = NULL;
@@ -3434,7 +3573,10 @@ lnext
 	;
 
 math
-	: MATH_lex text DOUBLE_DOLLAR_lex
+	: MATH_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| MATH_lex text DOUBLE_DOLLAR_lex
 	{	int   ntoken;
 
 		assert( $1.str == NULL );
@@ -3474,7 +3616,10 @@ math
 	;
 
 mref
-	: MREF_lex text DOUBLE_DOLLAR_lex
+	: MREF_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| MREF_lex text DOUBLE_DOLLAR_lex
 	{	char *tag;
 		char *next;
 		CrossReference *C;
@@ -3548,7 +3693,10 @@ mref
 
 
 newlinech
-	: NEWLINECH_lex argument DOUBLE_DOLLAR_lex
+	: NEWLINECH_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| NEWLINECH_lex argument DOUBLE_DOLLAR_lex
 	{
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -3570,7 +3718,10 @@ newlinech
 	;
 
 nobreak
-	: NOBREAK_lex text DOUBLE_DOLLAR_lex
+	: NOBREAK_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| NOBREAK_lex text DOUBLE_DOLLAR_lex
 	{	int pre = 0;
 
 		assert( $1.str == NULL );
@@ -3611,8 +3762,18 @@ nospell
 	}
 	;
 
+not_2_dollar_or_text
+	: keyword
+	| ACCENT_lex
+	| EOF_lex
+	| NUMBER_lex
+	;
+
 number
-	: NUMBER_lex DOUBLE_DOLLAR_lex
+	: NUMBER_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| NUMBER_lex DOUBLE_DOLLAR_lex
 	{	assert( $1.str != NULL );
 		assert( $2.str == NULL );
 
@@ -3670,7 +3831,10 @@ path
 	;
 
 pre
-	: PRE_lex text DOUBLE_DOLLAR_lex
+	: PRE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| PRE_lex text DOUBLE_DOLLAR_lex
 	{
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -3756,7 +3920,10 @@ rnext_cases
 	;
 
 rmark
-	: RMARK_lex argument DOUBLE_DOLLAR_lex
+	: RMARK_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| RMARK_lex argument DOUBLE_DOLLAR_lex
 	{	assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
@@ -3770,7 +3937,10 @@ rmark
 	;
 
 rref
-	: RREF_lex argument DOUBLE_DOLLAR_lex
+	: RREF_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| RREF_lex argument DOUBLE_DOLLAR_lex
 	{	char *tag;
 		CrossReference *C;
 
@@ -3810,7 +3980,10 @@ rref
 	;
 	
 section
-	: SECTION_lex argument DOUBLE_DOLLAR_lex
+	: SECTION_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| SECTION_lex argument DOUBLE_DOLLAR_lex
 	{	char *noEscape;
 
 		assert( $1.str == NULL );
@@ -3900,7 +4073,10 @@ section
 	;
 
 skipnl
-	: SKIPNL_lex argument DOUBLE_DOLLAR_lex
+	: SKIPNL_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| SKIPNL_lex argument DOUBLE_DOLLAR_lex
 	{	fatalomh(
 			"At $skipnl in line ",
 			int2str($1.line),
@@ -3937,7 +4113,10 @@ small
 	;
 	
 spell
-	: SPELL_lex text DOUBLE_DOLLAR_lex
+	: SPELL_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| SPELL_lex text DOUBLE_DOLLAR_lex
 	{
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -3953,7 +4132,10 @@ spell
 	;	
 
 subhead
-	: SUBHEAD_lex argument DOUBLE_DOLLAR_lex
+	: SUBHEAD_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| SUBHEAD_lex argument DOUBLE_DOLLAR_lex
 	{	
 		CrossReference *C;
 		char           *number = NULL;
@@ -4076,7 +4258,10 @@ subhead
 	;
 
 syntax
-	: SYNTAX_lex text DOUBLE_DOLLAR_lex
+	: SYNTAX_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| SYNTAX_lex text DOUBLE_DOLLAR_lex
 	{	char *token;
 		char *next;
 		int  count;
@@ -4166,7 +4351,10 @@ table
 	;
 
 tabsize
-	: TABSIZE_lex argument DOUBLE_DOLLAR_lex
+	: TABSIZE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| TABSIZE_lex argument DOUBLE_DOLLAR_lex
 	{	int size;
 
 		assert( $1.str == NULL );
@@ -4292,7 +4480,10 @@ text_raw
 	};
 
 textcolor
-	: TEXTCOLOR_lex text DOUBLE_DOLLAR_lex
+	: TEXTCOLOR_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| TEXTCOLOR_lex text DOUBLE_DOLLAR_lex
 	{
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -4318,7 +4509,10 @@ textcolor
 	;
 
 th
-	: TH_lex argument DOUBLE_DOLLAR_lex
+	: TH_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| TH_lex argument DOUBLE_DOLLAR_lex
 	{
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -4343,7 +4537,10 @@ th
 	;
 	
 trace
-	: TRACE_lex text DOUBLE_DOLLAR_lex
+	: TRACE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| TRACE_lex text DOUBLE_DOLLAR_lex
 	{
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -4356,7 +4553,10 @@ trace
 	}
 	;
 title
-	: TITLE_lex argument DOUBLE_DOLLAR_lex
+	: TITLE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| TITLE_lex argument DOUBLE_DOLLAR_lex
 	{	char *tag = $2.str;
 		CrossReference *C;
 
@@ -4385,7 +4585,10 @@ title
 	;
 
 tref
-	: TREF_lex argument DOUBLE_DOLLAR_lex
+	: TREF_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| TREF_lex argument DOUBLE_DOLLAR_lex
 	{	char *tag;
 		CrossReference *C;
 		
@@ -4428,7 +4631,10 @@ tref
 
 
 verbatim
-	: VERBATIM_lex text DOUBLE_DOLLAR_lex
+	: VERBATIM_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| VERBATIM_lex text DOUBLE_DOLLAR_lex
 	{	char *root;
 		char *ext;
 		char *filename;
@@ -4632,7 +4838,10 @@ verbatim
 	;
 
 wspace
-	: WSPACE_lex argument DOUBLE_DOLLAR_lex
+	: WSPACE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| WSPACE_lex argument DOUBLE_DOLLAR_lex
 	{
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -4647,7 +4856,10 @@ wspace
 	;
 
 xref
-	: XREF_lex text DOUBLE_DOLLAR_lex
+	: XREF_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| XREF_lex text DOUBLE_DOLLAR_lex
 	{	char *tag;
 		char *head;
 		char *subhead;

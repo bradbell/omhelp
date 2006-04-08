@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 Lexical analyizer for OMhelp commands
 ------------------------------------------------------------------------------
@@ -63,6 +61,46 @@ is set to the current key character just before the end of file.
 
 $end
 ------------------------------------------------------------------------------
+$begin TokenCode2String$$
+$spell
+	Mem
+$$
+
+$section Converting Integer Token Code to User Input$$
+
+$table
+$bold Syntax$$
+$cnext $syntax%%string% = TokenCode2String(%code%)%$$
+$tend
+
+$fend 20$$
+
+$head Purpose$$
+The lexical analyzer now passes back token integer codes for error reporting.
+This routine converts the integer code to the corresponding users input.
+
+$head code$$
+The argument $italic code$$ has prototype
+$syntax%
+	int %code%
+%$$
+It is the integer code for the token to be converted.
+
+$head string$$
+The result $italic string$$ has prototype
+$syntax%
+	char *%string%
+%$$
+It points to memory that 
+should be freed using the routine $xref/AllocMem/FreeMem/FreeMem/$$
+when it is no longer needed.
+If this memory is not freed,
+a call to 
+$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$
+will report the corresponding source code line in the routine
+$code TokenCode2String$$. 
+
+$end
 */
 
 #ifdef WIN32
@@ -75,6 +113,7 @@ $end
 #include <assert.h>
 #include <ctype.h>
 
+# include "str_cat.h"
 # include "allocmem.h"
 # include "input.h"
 # include "fatalerr.h"
@@ -121,8 +160,8 @@ static char Ch;
 
 
 static struct
-{	char *name;   // The keywords name
-	int  token;   // The corresponding token defined by bison
+{	char *name;  // The keywords name
+	int  code;   // The corresponding integer code defined by bison
 }
 keyword_table[] =
 {
@@ -196,13 +235,40 @@ keyword_table[] =
 static int n_keyword   = sizeof keyword_table / sizeof keyword_table[0];
 static const char *Key[  sizeof keyword_table / sizeof keyword_table[0] ];
 
+char *TokenCode2String(int code)
+{	int i;
+	for(i = 0; i < n_keyword; i++)
+		if( keyword_table[i].code == code )
+			return str_cat("$", keyword_table[i].name);
+	switch( code )
+	{
+		case ACCENT_lex:
+		return str_alloc("$'");
+
+		case EOF_lex:
+		return str_alloc("eof");
+
+		case DOUBLE_DOLLAR_lex:
+		return str_alloc("$$");
+
+		case NUMBER_lex:
+		return str_alloc("$<number>");
+
+		case TEXT_lex:
+		return str_alloc("<text>");
+	}
+	assert(0);
+	return str_alloc("<TokenCode2String: OMhelp program error.>");
+}
+
 
 // routine to set return value for parser (omhelp.y)
-static void SetOmhLvalStr(const char *token, const char *str)
+static void SetOmhLvalStr(int code, const char *token, const char *str)
 {
 	if( DEBUG_TOKENS )
 		printf("\nLex(%s) ", token);
 
+	omhlval.code = code;
 	omhlval.line = CurrentLine;
 
 	if( str == NULL )
@@ -215,19 +281,19 @@ static void SetOmhLvalStr(const char *token, const char *str)
 	return;
 
 }
-static void SetOmhLvalChar(const char *token, char ch)
+static void SetOmhLvalChar(int code, const char *token, char ch)
 {	char str[2];
 	str[0] = ch;
 	str[1] = '\0';
 
-	SetOmhLvalStr(token, str);
+	SetOmhLvalStr(code, token, str);
 } 
 /***************************************************************************/
 
 
 int omhlex(void)
 {	
-	int  token;
+	int  code;
 	int  match;
 	int  escape;
 	int  i;
@@ -268,7 +334,9 @@ int omhlex(void)
 			{
 				case EOF_state:
 				{
-					SetOmhLvalChar("eof", CommandKeyChar);
+					SetOmhLvalChar(
+						EOF_lex, "eof", CommandKeyChar
+					);
 					State          = EMPTY_state;
 					CommandKeyChar = '$';
 
@@ -366,13 +434,13 @@ int omhlex(void)
 
 		if( Ch == eof )
 		{ 
-			SetOmhLvalChar("eof", CommandKeyChar);
+			SetOmhLvalChar(EOF_lex, "eof", CommandKeyChar);
 			CommandKeyChar = '$';
 			return EOF_lex;
 		}
 		else
 		{	CurrentLine = InputLine();
-			SetOmhLvalStr(begin, NULL);
+			SetOmhLvalStr(BEGIN_lex, begin, NULL);
 			return BEGIN_lex;
 		}
 		break;  // ================================================
@@ -380,7 +448,7 @@ int omhlex(void)
 		case OMHELP_state:
 		if( Ch == eof )
 		{
-			SetOmhLvalChar("eof", CommandKeyChar);
+			SetOmhLvalChar(EOF_lex, "eof", CommandKeyChar);
 			CommandKeyChar = '$';
 			return EOF_lex;
 		}
@@ -396,7 +464,7 @@ int omhlex(void)
 				str[2] = '\0';
 
 				Ch = InputGet();
-				SetOmhLvalStr(str, NULL);
+				SetOmhLvalStr(DOUBLE_DOLLAR_lex, str, NULL);
 				return DOUBLE_DOLLAR_lex;
 			}
 
@@ -424,30 +492,30 @@ int omhlex(void)
 			i = BinarySearch(Key, n_keyword, Buffer+1);
 
 			if( i < n_keyword )
-			{	token = keyword_table[i].token;
+			{	code = keyword_table[i].code;
 
 				// check for a change of state
-				if( token == LATEX_lex )
+				if( code == LATEX_lex )
 					State = LATEX_state;
 
-				if( token == END_lex )
+				if( code == END_lex )
 					State = EMPTY_state;
 
 				// skip space following font keywords
 				if( Ch == ' ' )
-				{	if( (token == FIXED_lex)  |
-					    (token == CODE_lex)   |
-					    (token == SMALL_lex)  |
-					    (token == BIG_lex)    |
-					    (token == ITALIC_lex) |
-					    (token == BOLD_lex) 
+				{	if( (code == FIXED_lex)  |
+					    (code == CODE_lex)   |
+					    (code == SMALL_lex)  |
+					    (code == BIG_lex)    |
+					    (code == ITALIC_lex) |
+					    (code == BOLD_lex) 
 					)
 					{	Ch = InputGet();
 					}
 				}
 
-				SetOmhLvalStr(Buffer, NULL);
-				return token;
+				SetOmhLvalStr(code, Buffer, NULL);
+				return code;
 			}
 			else if( match > 1 ) fatalomh(
 				Buffer, 
@@ -464,7 +532,7 @@ int omhlex(void)
 				// Ch must be character following command
 				Ch              = InputGet(); 
 
-				SetOmhLvalStr(Buffer, Buffer + 1);
+				SetOmhLvalStr(ACCENT_lex, Buffer, Buffer + 1);
 				return ACCENT_lex;
 			}
 
@@ -494,7 +562,7 @@ int omhlex(void)
 				}
 				Buffer[match] = '\0';
 				assert( match > 1 );
-				SetOmhLvalStr(Buffer, Buffer + 1);
+				SetOmhLvalStr(NUMBER_lex, Buffer, Buffer + 1);
 
 				return NUMBER_lex;
 			}
@@ -533,13 +601,13 @@ int omhlex(void)
 			}
 		}
 		Buffer[match] = '\0';
-		SetOmhLvalStr(Buffer, Buffer);
+		SetOmhLvalStr(TEXT_lex, Buffer, Buffer);
 		return TEXT_lex;
 
 		case LATEX_state: // =========================================
 		if( Ch == eof )
 		{
-			SetOmhLvalChar("eof", CommandKeyChar);
+			SetOmhLvalChar(EOF_lex, "eof", CommandKeyChar);
 			CommandKeyChar = '$';
 
 			State = EMPTY_state;
@@ -570,7 +638,7 @@ int omhlex(void)
 		Buffer[match] = '\0';
 
 		State = OMHELP_state;
-		SetOmhLvalStr(Buffer, Buffer);
+		SetOmhLvalStr(TEXT_lex, Buffer, Buffer);
 		return TEXT_lex;
 
 		default:

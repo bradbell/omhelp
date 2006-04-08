@@ -120,13 +120,13 @@ after the $xref/InstallUnix/Install OMhelp/install omhelp/$$ step,
 the $code vim$$ commands
 $codep
 	:syntax on
-	:runtime! syntax/omhelp.vim
+	:set syntax=omhelp
 $$
 will turn on OMhelp syntax highlighting for the file you are currently 
 editing. If your OMhelp commands are embedded in a C source code file, 
 you could convert back to C highlighting by executing the command
 $codep
-	:runtime! syntax/c.vim
+	:set syntax=c
 $$
 
 
