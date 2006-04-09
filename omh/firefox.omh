@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin Firefox$$
 $path%..\image%.png%$$
@@ -68,10 +66,11 @@ $section Problems Using Firefox To Display OMhelp Output$$
 $mindex bugzilla firefox browser display error$$
 
 $children%
+	backbutton.omh%
 	latex/NegativeSpace.omh%
 	framelink.omh%$$
 
-$head Description$$
+$head Purpose$$
 The 
 $href%http://www.mozilla.org%Firefox%$$ 
 browser can display both XHTML and MathML commands.
@@ -81,9 +80,14 @@ If you have any feed back,
 please send e-mail to:
 $href%mailto:bradbell@seanet.com%bradbell@seanet.com%$$.
 
+$head Back Button$$
+If one uses transitional XML with frames,
+the 
+$xref/BackButton/$$ in Firefox does not work.
+
 $head Javascript$$
 The file
-$execute FirefoxJavascript.html$$
+$execute FirefoxJavascript.htm$$
 contains the HTML commands below.
 Note that the word $code Test$$ will appear in the text area.
 $nospell

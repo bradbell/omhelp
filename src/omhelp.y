@@ -883,7 +883,10 @@ static void SecondPass(SectionInfo *F)
 
 				// note the color for cross reference
 				// that referrs to an execute
-				FormatOutput("<a href=\"%s\">", lower);
+				FormatOutput(
+					"<a href=\"%s\" target=\"_top\">", 
+					lower
+				);
 				OutputString("<font color=\"green\">");
 				FormatOutput("%s</font></a>", execute);
 				

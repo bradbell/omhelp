@@ -19,6 +19,9 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	Javascript
+	htm
+	html
 	codep
 	myfile
 	gzip
@@ -76,6 +79,31 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 06-04-09$$
+The $xref/InstallUnix//unix installation/$$ instructions
+have been simplified because the $code make$$ command now
+also builds the documentation. 
+(This was part of the $code dictionary.bin$$ issue
+discussed directly below.)
+$pre
+
+$$
+The $xref/Firefox/Javascript/Firefox Javascript/$$
+entry has been modified to use 
+$code FirefoxJavascript.htm$$ instead of 
+$code FirefoxJavascript.html$$ 
+(because only $syntax%%*%.html%$$ files are not being 
+copied to the web version).
+$pre
+
+$$
+The $xref/BackButton/$$ problem has been added to the Firefox browser section.
+In order for this example to work properly, the $xref/execute/$$
+command was changed so that its target frame is the top frame.
+(Perhaps some day, execute will use a delimiter sequence and the 
+target frame will be specified by the user.)
+
 
 $head 06-04-08$$
 The error message for the following case has been improved:

@@ -19,6 +19,7 @@
 $begin InstallUnix$$
 $dollar @$$
 $spell
+	make make
 	runtime
 	wrd
 	dir
@@ -129,18 +130,35 @@ $codep
 	:set syntax=c
 $$
 
-
-$head Building Executable$$
+$head Build Executable and Documentation$$
 In the distribution directory, execute the following command:
 $codep
 	make
 $$
-This should create the file
-$syntax%
-	omhelp-%yy%-%mm%-%dd%/src/omhelp
-%$$
-(or possibly $code omhelp.exe$$ if you are using Cygwin or MinGw).
+This should create the following files and sub-directories of
+the distribution directory:
 
+$table
+$code src/omhelp$$            $cnext OMhelp executable program           $rnext
+$code OMhelp/dictionary.bin$$ $cnext OMhelp binary dictionary            $rnext
+$code Doc$$                   $cnext user documentation directory        $rnext
+$code Doc$$                   $cnext developer documentation directory  
+$tend
+
+(If you are using Cygwin or MinGw,
+the file $code src/omhelp$$ may possibly be $code src/omhelp.exe$$.) 
+The $code Doc$$ sub-directory of the distribution directory
+contains the user documentation for OMhelp.
+The files $syntax%Doc/%*%.htm%$$ are in HTML format.
+If your browser supports XHTML+MathML format,
+an easier to read copy is available in the files
+$syntax%Doc/%*%.xml%$$.
+
+$head Install OMhelp$$
+In the distribution directory, execute the following command:
+$codep
+	make install
+$$
 
 $head Dictionary$$ 
 $index dictionary$$
@@ -155,7 +173,7 @@ $codep
 	OMhelp/local.wrd
 $$
 If the file $code dictionary.bin$$ is not present,
-OMhelp will to create a new dictionary 
+OMhelp will to creates a new dictionary 
 that combines $code english.wrd$$ and $code local.wrd$$
 (the file $code local.wrd$$ is optional) to form
 $codep
@@ -177,54 +195,13 @@ A new $code dictionary.bin$$ that combines the words $code english.wrd$$
 and $code local.wrd$$ will be created and installed by following 
 the installation steps:
 $codep
-	./RunOMhelp Doc
+	make
 	make install
 $$ 
 This will create the new dictionary and copy it to
 $syntax%
 	%prefix%/share/OMhelp
 %$$
-
-
-$head Building User Documentation and Testing OMhelp$$
-In the distribution directory, execute the following command:
-$codep
-	./RunOMhelp Doc
-$$
-This will run the OMhelp program and create
-a copy of the OMhelp user documentation.
-Make sure OMhelp is functioning correctly by loading the file
-$syntax%
-	omhelp-%yy%-%mm%-%dd%/Doc/getstarted.htm
-%$$
-into your web browser. 
-This should be a local copy of the web page
-$pre
-	$$
-$href%
-	http://www.seanet.com/~bradbell/omhelp/getstarted.htm
-%$$.
-The $code Doc$$ sub-directory of the distribution directory
-now contains the user documentation for OMhelp.
-The files $syntax%Doc/%*%.htm%$$ are in HTML format.
-If your browser supports XHTML+MathML format,
-an easier to read copy is available in the files
-$syntax%Doc/%*%.xml%$$.
-
-$head Building Developer Documentation$$
-In the distribution directory, execute the following command:
-$codep
-	./RunOMhelp Developer
-$$
-This will run the OMhelp program and create
-a copy of the OMhelp developer documentation in the 
-$code Developer$$ sub-directory.
-
-$head Install OMhelp$$
-In the distribution directory, execute the following command:
-$codep
-	make install
-$$
 
 $head Getting Started$$
 $index getstarted, using OMhelp$$

@@ -94,7 +94,6 @@ $end
 
 static char *char2str(int ch)
 {	char str[4];
-	char *ascii;
 	char *ret;
 	if( 32 < ch && ch < 127 )
 	{	if( ch == '\'' )

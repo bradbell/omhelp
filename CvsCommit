@@ -1,20 +1,22 @@
 # CvsCommit: file that did this commit.
-# Build: build dictionary.bin with make and add test to all option.
-# Makefile.am: build and then remove dictionary.bin to avoid error message.
-# RunOMhelp: return proper error status.
+# execute.omh: improve description of filename and link target.
+# firefox.omh: add backbutton example and change example form *.html to *.htm.
+# installunix.omh: changes because make now builds documentation.
+# backbutton.omh: new example for Firefox browser problems.
 # whatsnew.omh: user's view of the changes.
-# SplitText.c: improve the not matching delimiter error message.
-# lexomh.c: minor edit to doc for TokenCode2String.
+# SplitText.c: remove unused variable.
+# omhelp.y: make use _top as target for execute command.
 add_list="
+	omh/backbutton.omh
 "
 change_list="
 	CvsCommit
-	Build
-	Makefile.am
-	RunOMhelp
+	omh/execute.omh
+	omh/firefox.omh
+	omh/installunix.omh
 	omh/whatsnew.omh
 	src/SplitText.c
-	src/lexomh.c
+	src/omhelp.y
 "
 delete_list="
 "
