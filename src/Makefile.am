@@ -1,5 +1,6 @@
+# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -15,6 +16,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
 #
 # automake input file
 #
@@ -32,6 +34,62 @@ bin_PROGRAMS   = omhelp
 AM_CFLAGS  = -g -Wall 
 #
 omhelp_SOURCES = \
+	AutomaticLink.h \
+	BinarySearch.h \
+	ClipWhiteSpace.h \
+	Color.h \
+	DirSep.h \
+	FileEqual.h \
+	InitParser.h \
+	Internal2Out.h \
+	LatexAtomic.h \
+	LatexLexHistory.h \
+	LatexLexPut.h \
+	LatexMacro.h \
+	OmhLexSetInputLine.h \
+	OmhStype.h \
+	PatternMatch.h \
+	SplitText.h \
+	StrCat.h \
+	StrLowAlloc.h \
+	StrLowCase.h \
+	StrRemove.h \
+	Tag2Title.h \
+	TexStype.h \
+	UniformWhiteSpace.h \
+	allocmem.h \
+	automatic.h \
+	browser.h \
+	children.h \
+	content.h \
+	convert.h \
+	copyfile.h \
+	cross.h \
+	execute.h \
+	fatalerr.h \
+	funref.h \
+	head.h \
+	href.h \
+	index.h \
+	input.h \
+	int2str.h \
+	latex.h \
+	lexomh.h \
+	links.h \
+	main.h \
+	math.h \
+	omhelp.h \
+	omhparse.h \
+	output.h \
+	pending.h \
+	search.h \
+	section.h \
+	spell.h \
+	str_alloc.h \
+	str_cat.h \
+	texparse.h \
+	trace_exit.h \
+	warning.h \
 	AutomaticLink.c \
 	BinarySearch.c \
 	ClipWhiteSpace.c \
