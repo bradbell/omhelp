@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 $begin AllocMem$$
 $spell
@@ -166,7 +164,7 @@ void *c_alloc(int n, int size)
 	if( p == NULL)
 	{	printf("Cannot allocate %d x %d bytes of memory.\n",
 			n, size);
-		exit(1);
+		trace_exit(1);
 	}
 	return p;
 }
@@ -229,7 +227,7 @@ void FreeMemory(void *ptr, const char *file, int line)
 	{	printf("Program Error AllocMem: File %s: Line %d\n",
 			file, line);
 		printf("Invalid pointer in call FreeMemory(%p)\n", ptr);
-		exit(1);
+		trace_exit(1);
 	}
 
 	// check value past end of allocation
@@ -237,7 +235,7 @@ void FreeMemory(void *ptr, const char *file, int line)
 	{	printf("Program Error AllocMem: File %s: Line %d\n",
 			file, line);
 		printf("Memory over written past the end of allocation\n");
-		exit(1);
+		trace_exit(1);
 	}
 
 	// remove pointer from list
@@ -268,5 +266,5 @@ void CheckMemoryLeak()
 	{	printf("File %s: Line %d\n", P->file, P->line);
 		printf("String = %s\n", (char *) P->ptr);
 	}
-	exit(1);
+	trace_exit(1);
 }

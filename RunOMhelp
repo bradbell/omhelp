@@ -31,8 +31,12 @@ then
 	fi
 	mkdir Developer
 	cd    Developer
-	../src/omhelp ../src/omh/omhelp.omh > ../RunOMhelp.log \
+	if ! ../src/omhelp ../src/omh/omhelp.omh > ../RunOMhelp.log \
 		-debug -omhelp_dir ../OMhelp
+	then
+		echo "OMhelp could not build developer documentation."
+		exit 1
+	fi
 	cd ..
 fi
 if [ "$1" = Doc ]
@@ -44,17 +48,12 @@ then
 	fi
 	mkdir Doc
 	cd    Doc
-	../src/omhelp ../omh/overview.omh > ../RunOMhelp.log \
+	if ! ../src/omhelp ../omh/overview.omh > ../RunOMhelp.log \
 		-xml -debug -omhelp_dir ../OMhelp
+	then
+		echo "OMhelp could not build user documentation."
+		exit 1
+	fi
 	../src/omhelp ../omh/overview.omh  -debug -omhelp_dir ../OMhelp
 	cd ..
 fi
-status=0
-if grep "Latex error"                 RunOMhelp.log ; then status=1 ; fi
-if grep "Spelling error:"             RunOMhelp.log ; then status=1 ; fi
-if grep "Cross reference error"       RunOMhelp.log ; then status=1 ; fi
-if grep "OMhelp error in file"        RunOMhelp.log ; then status=1 ; fi
-if grep "Error occurred in or before" RunOMhelp.log ; then status=1 ; fi
-if grep "Cross reference destination" RunOMhelp.log ; then status=1 ; fi
-#
-exit $status

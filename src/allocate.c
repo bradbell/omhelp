@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /* Allocate and clear storage for bison,
    Copyright (C) 1984, 1989 Free Software Foundation, Inc.
 
@@ -37,11 +35,10 @@ along with Bison; see the file COPYING.  If not, write to
 the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 
-#include <stdio.h>
+# include "trace_exit.h"
 
-extern char *calloc ();
-extern char *realloc ();
-extern void done ();
+# include <stdio.h>
+# include <stdlib.h>
 
 extern char *program_name;
 
@@ -58,7 +55,7 @@ xmalloc (n)
   if (block == NULL)
     {
       fprintf (stderr, "%s: memory exhausted\n", program_name);
-      done (1);
+      trace_exit (1);
     }
 
   return (block);
@@ -76,7 +73,7 @@ xrealloc (block, n)
   if (block == NULL)
     {
       fprintf (stderr, "%s: memory exhausted\n", program_name);
-      done (1);
+      trace_exit (1);
     }
 
   return (block);

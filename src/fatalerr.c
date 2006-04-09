@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 $begin fatalerr$$
 $spell 
@@ -140,6 +138,8 @@ $end
 // programming error assertions
 # include <assert.h>
 
+// optional printing of exit status
+# include "trace_exit.h"
 
 void fatalerr(const char *s1, ...)
 {
@@ -168,7 +168,7 @@ void fatalerr(const char *s1, ...)
 		s = va_arg(argList, const char *);
 	}
 
-	exit(0);
+	trace_exit(1);
 }
 
 void fatalomh(const char *s1, ...)
@@ -209,7 +209,7 @@ void fatalomh(const char *s1, ...)
 	    	InputLine()
 	);
 
-	exit(0);
+	trace_exit(1);
 }
 
 
@@ -294,5 +294,5 @@ void fataltex(const char *s1, ...)
 		);
 	}
 
-	exit(0);
+	trace_exit(1);
 }

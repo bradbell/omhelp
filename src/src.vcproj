@@ -962,6 +962,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\trace_exit.c">
+			</File>
+			<File
 				RelativePath=".\UniformWhiteSpace.c">
 			</File>
 			<File

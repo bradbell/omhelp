@@ -103,6 +103,13 @@ In order for this example to work properly, the $xref/execute/$$
 command was changed so that its target frame is the top frame.
 (Perhaps some day, execute will use a delimiter sequence and the 
 target frame will be specified by the user.)
+$pre
+
+$$
+Specifications for the
+$xref/running/Exit Status/exit status/$$ of OMhelp have been added
+(and the code has been modified to meet these specifications).
+
 
 
 $head 06-04-08$$

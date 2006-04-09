@@ -1,22 +1,36 @@
+# Specify the OMhelp exit status.
+#
 # CvsCommit: file that did this commit.
-# execute.omh: improve description of filename and link target.
-# firefox.omh: add backbutton example and change example form *.html to *.htm.
-# installunix.omh: changes because make now builds documentation.
-# backbutton.omh: new example for Firefox browser problems.
+# RunOMhelp: abort with status 1 when OMhelp reports an error.
+# running.omh: document status return.
 # whatsnew.omh: user's view of the changes.
-# SplitText.c: remove unused variable.
-# omhelp.y: make use _top as target for execute command.
+# Makefile.am: trace_exit.c was added to sources (include files not needed).
+# allocate.c: use trace_exit for exit calls.
+# allocmem.c: use trace_exit for exit calls.
+# fatalerr.c: use trace_exit for exit calls.
+# lexomh.c: fix comamnd -> command in error message.
+# main.src: use trace_exit for exit calls.
+# spell.c: use trace_exit for exit calls.
+# src.vcproj: add trace_exit.c to soruces.
+# trace_exit.c: optional trace of calls to exit.
+# trace_exit.h: optional trace of calls to exit.
 add_list="
-	omh/backbutton.omh
+	src/trace_exit.c
+	src/trace_exit.h
 "
 change_list="
 	CvsCommit
-	omh/execute.omh
-	omh/firefox.omh
-	omh/installunix.omh
+	RunOMhelp
+	omh/running.omh
 	omh/whatsnew.omh
-	src/SplitText.c
-	src/omhelp.y
+	src/Makefile.am
+	src/allocate.c
+	src/allocmem.c
+	src/fatalerr.c
+	src/lexomh.c
+	src/main.src
+	src/spell.c
+	src/src.vcproj
 "
 delete_list="
 "

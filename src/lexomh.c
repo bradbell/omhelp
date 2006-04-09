@@ -574,10 +574,10 @@ int omhlex(void)
 				str[1] = '\0';
 
 				fatalomh(
-					"The comamnd key character ",
-					str,
-					"\nby itself is not a valid OMhelp token",
-					NULL
+				"The command key character ",
+				str,
+				"\nby itself is not a valid OMhelp token.",
+				NULL
 				);
 			}
 		}
