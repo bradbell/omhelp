@@ -146,6 +146,7 @@ $end
 # include <stdlib.h>
 
 # include "allocmem.h"
+# include "trace_exit.h"
 
 typedef struct element
 {	void  *ptr;            // value returned by AllocMemory

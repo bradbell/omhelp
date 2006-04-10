@@ -1,36 +1,38 @@
-# Specify the OMhelp exit status.
+# Specify beginning of error and warning message on stdout. 
 #
+# Build: change Developer to Dev.
+# CleanOMhelp: change Developer to Dev.
 # CvsCommit: file that did this commit.
-# RunOMhelp: abort with status 1 when OMhelp reports an error.
-# running.omh: document status return.
+# Makefile.am: make OMhelp.Doc.log depend on OMhelp.Dev.log.
+# RunOMhelp: change Developer to Doc and improve error, warning reporting.
+# RunOMhelp.bat: change Developer to Doc and improve error, warning reporting.
+# running.omh: improve indexing.
+# stdout.omh: redo entire documentaiton for OMhelp standard output.
 # whatsnew.omh: user's view of the changes.
-# Makefile.am: trace_exit.c was added to sources (include files not needed).
-# allocate.c: use trace_exit for exit calls.
-# allocmem.c: use trace_exit for exit calls.
-# fatalerr.c: use trace_exit for exit calls.
-# lexomh.c: fix comamnd -> command in error message.
-# main.src: use trace_exit for exit calls.
-# spell.c: use trace_exit for exit calls.
-# src.vcproj: add trace_exit.c to soruces.
-# trace_exit.c: optional trace of calls to exit.
-# trace_exit.h: optional trace of calls to exit.
+# allocmem.c: include trace_exit.h.
+# cross.c: begin warning with "OMhelp Warning:".
+# fatalerr.c: begin warning, error with "OMhelp Warning:", "OMhelp Error".
+# omhelp.y: begin warning with "OMhelp Warning:".
+# trace_exit.c: fix OMhelp spelling error.
+# misc.omh: add trace_exit.c.
 add_list="
-	src/trace_exit.c
-	src/trace_exit.h
 "
 change_list="
+	Build
+	CleanOMhelp
 	CvsCommit
+	Makefile.am
 	RunOMhelp
+	RunOMhelp.bat
 	omh/running.omh
+	omh/stdout.omh
 	omh/whatsnew.omh
-	src/Makefile.am
-	src/allocate.c
 	src/allocmem.c
+	src/cross.c
 	src/fatalerr.c
-	src/lexomh.c
-	src/main.src
-	src/spell.c
-	src/src.vcproj
+	src/omhelp.y
+	src/trace_exit.c
+	src/omh/misc.omh
 "
 delete_list="
 "

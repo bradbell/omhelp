@@ -17,27 +17,33 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
-if [ "$1" != "Doc" ] && [ "$1" != "Developer" ]
+if [ "$1" != "Doc" ] && [ "$1" != "Dev" ]
 then
-	echo "RunOMhelp target: where target is Doc or Developer"
+	echo "RunOMhelp target: where target is Doc or Dev"
 	exit 1
 fi
-if [ "$1" = Developer ]
+if [ "$1" = Dev ]
 then
 	echo "Building developer documentation"
-	if [ -e Developer ]
+	if [ -e Dev ]
 	then
-		rm -r -f Developer
+		rm -r -f Dev
 	fi
-	mkdir Developer
-	cd    Developer
-	if ! ../src/omhelp ../src/omh/omhelp.omh > ../RunOMhelp.log \
+	mkdir Dev
+	cd    Dev
+	if ! ../src/omhelp ../src/omh/omhelp.omh > ../OMhelp.Dev.log \
 		-debug -omhelp_dir ../OMhelp
 	then
+		grep "^OMhelp Error:" ../OMhelp.Dev.log
 		echo "OMhelp could not build developer documentation."
+		echo "See the complete error message in OMhelp.Dev.log."
 		exit 1
 	fi
 	cd ..
+	if grep "^OMhelp Warning:" OMhelp.Dev.log
+	then
+		echo "See the complete warning messages in OMhelp.Dev.log."
+	fi
 fi
 if [ "$1" = Doc ]
 then
@@ -48,12 +54,18 @@ then
 	fi
 	mkdir Doc
 	cd    Doc
-	if ! ../src/omhelp ../omh/overview.omh > ../RunOMhelp.log \
+	if ! ../src/omhelp ../omh/overview.omh > ../OMhelp.Doc.log \
 		-xml -debug -omhelp_dir ../OMhelp
 	then
+		grep "^OMhelp Error:" ../OMhelp.Doc.log
 		echo "OMhelp could not build user documentation."
+		echo "See the complete error message in OMhelp.Doc.log."
 		exit 1
 	fi
 	../src/omhelp ../omh/overview.omh  -debug -omhelp_dir ../OMhelp
 	cd ..
+	if grep "^OMhelp Warning:" OMhelp.Doc.log
+	then
+		echo "See the complete warning messages in OMhelp.Doc.log."
+	fi
 fi

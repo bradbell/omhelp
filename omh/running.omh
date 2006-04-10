@@ -270,6 +270,10 @@ $code index.htm$$ will cause the
 $xref/running/Root Section/root section/$$ to be loaded.
 
 $head Exit Status$$
+$index exit, status$$
+$index error, status$$
+$index return, status$$
+$index status$$
 If OMhelp executes with out detecting any errors,
 it exit status is zero.
 Otherwise, its exit status is non-zero.

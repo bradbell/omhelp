@@ -1,6 +1,6 @@
 echo off
 rem ---------------------------------------------------------------------------
-rem OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+rem OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 rem 
 rem This program is free software; you can redistribute it and/or
 rem modify it under the terms of the GNU General Public License
@@ -17,17 +17,17 @@ rem along with this program; if not, write to the Free Software
 rem Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 rem ---------------------------------------------------------------------------
 rem
-if "%1%" == "Developer" goto DEVELOPER
+if "%1%" == "Dev" goto DEVELOPER
 if "%1%" == "Doc" goto DOC
-	echo usage: RunOMhelp target (where target is Doc or Developer)
+	echo usage: RunOMhelp target (where target is Doc or Dev)
 	goto DONE
 : DEVELOPER
 	echo Building developer documentation
-	if exist Developer del /Q Developer 
-	if exist Developer rmdir Developer 
-	mkdir Developer
-	cd    Developer
-	..\src\src.exe ..\src\omh\omhelp.omh > ..\RunOMhelp.log -debug -omhelp_dir ..\OMhelp
+	if exist Dev del /Q Dev 
+	if exist Dev rmdir Dev 
+	mkdir Dev
+	cd    Dev
+	..\src\src.exe ..\src\omh\omhelp.omh > ..\OMhelp.Dev.log -debug -omhelp_dir ..\OMhelp
 	cd ..
 	goto ERRORCHECK
 : DOC
@@ -36,14 +36,10 @@ if "%1%" == "Doc" goto DOC
 	if exist Doc rmdir Doc 
 	mkdir Doc
 	cd    Doc
-	..\src\src.exe ..\omh\overview.omh > ..\RunOMhelp.log -xml -debug -omhelp_dir ..\OMhelp
+	..\src\src.exe ..\omh\overview.omh > ..\OMhelp.Doc.log -xml -debug -omhelp_dir ..\OMhelp
 	..\src\src.exe ..\omh\overview.omh  -debug -omhelp_dir ..\OMhelp
 	cd ..
 : ERRORCHECK
-find "Latex error"                 RunOMhelp.log
-find "Spelling error:"             RunOMhelp.log
-find "Cross reference error"       RunOMhelp.log
-find "OMhelp error in file"        RunOMhelp.log
-find "Error occurred in or before" RunOMhelp.log
-find "Cross reference destination defined at line" RunOMhelp.log
+find "OMhelp Warning:"       RunOMhelp.log
+find "OMhelp Error:"         RunOMhelp.log
 : DONE

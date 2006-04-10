@@ -332,7 +332,7 @@ static void outtext(int line, const char *s, int pre)
 			assert( nchar > 0 );
 			if( PostWarnings() )
 			{	printf(
-					"\nSpelling error: "
+					"\nOMhelp Warning: spelling "
 					"in line %d of file %s: ",
 					line,
 					InputName()
@@ -3237,7 +3237,8 @@ index
 
 				// begin standard output version of error
 				printf(
-				"\nSpelling error: in line %d of file %s: ",
+					"\nOMhelp Warning: spelling "
+					"in line %d of file %s: ",
 					line,
 					InputName()
 				);

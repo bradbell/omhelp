@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	grep
 	Javascript
 	htm
 	html
@@ -79,6 +80,25 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 06-04-10$$
+Change OMhelp output so that all warning messages begin with
+$code OMhelp Warning:$$ and all error messages begin with
+$code OMhelp Error:$$.
+If one 
+$xref/stdout/Redirect/redirects standard output/$$
+one can automatically check if there has been a warning 
+or an error with the unix commands
+$code
+	grep "^OMhelp Warning:"
+	grep "^OMhelp Error:"
+$$
+Errors can also be checked for using the OMhelp
+$xref/running/Exit Status/exit status/$$. 
+$pre
+
+$$
+The $xref/stdout/$$ documentation has been improved.
 
 $head 06-04-09$$
 The $xref/InstallUnix//unix installation/$$ instructions

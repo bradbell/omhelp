@@ -144,10 +144,10 @@ fi
 #
 if [ "$1" = "make" ] || [ "$1" = "all" ]
 then
-	# remove Doc, Developer and OMhelp/dictionay.bin becasue they are
+	# remove Doc, Dev and OMhelp/dictionay.bin becasue they are
 	# created by make (see ./Makefile.am).
-	if [ -e Doc ]                   ; then rm -r Doc ; fi
-	if [ -e Developer ]             ; then rm -r Developer ; fi
+	if [ -e Doc ]    ; then rm -r Doc ; fi
+	if [ -e Dev ]    ; then rm -r Dev ; fi
 	if [ -e OMhelp/dictionary.bin ] ; then rm OMhelp/dictionary.bin ; fi
 	#
 	echo "make"

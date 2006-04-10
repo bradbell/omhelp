@@ -60,12 +60,12 @@ $head fatalerr$$
 $index fatalerr$$
 If $italic File$$ is "NONE", the line of text
 $codep
-	Error:
+	OMhelp Error:
 $$
 is printed on standard output followed by the $italic Message$$.
 Otherwise
 $syntax/
-	Error in file /File/:
+	OMhelp Error: in file /File/:
 /$$ 
 is printed on standard output followed by the $italic Message$$.
 
@@ -75,7 +75,7 @@ The $italic File$$ must not be "NONE"; i.e., there must
 be a current input file.
 The text
 $syntax/
-	OMhelp error in file /File/:
+	OMhelp Error: in file /File/:
 /$$ 
 is printed on standard output followed by the $italic Message$$.
 After $italic Message$$, and starting with a new line,
@@ -95,7 +95,7 @@ The $italic File$$ must not be "NONE"; i.e., there must
 be a current input file.
 The text
 $syntax/
-	Latex error in file /File/:
+	OMhelp Error: Latex in file /File/:
 /$$ 
 is printed on standard output followed by the $italic Message$$.
 Extra information is printed after $italic Message$$,
@@ -155,9 +155,9 @@ void fatalerr(const char *s1, ...)
 
 	// initialize error message
 	if( strcmp(InputName(), "NONE") == 0 )
-		printf( "\nError:\n");
+		printf( "\nOMhelp Error:\n");
 	else	printf(
-		"\nError in file %s:\n",
+		"\nOMhelp Error: in file %s:\n",
 		InputName()
 	);
 
@@ -187,7 +187,7 @@ void fatalomh(const char *s1, ...)
 	if( strcmp(InputName(), "NONE") == 0 )
 		printf("\nOMhelp input error with no current input file ?\n");
 	else	printf(
-		"\nOMhelp error in file %s:\n",
+		"\nOMhelp Error: in file %s:\n",
 		InputName()
 	);
 
@@ -240,7 +240,7 @@ void fataltex(const char *s1, ...)
 	if( strcmp(LatexMacroInputFile(), "NONE") == 0 )
 		printf("\nLatex error with no current input file ?\n");
 	else	printf(
-		"\nLatex error in file %s:\n",
+		"\nOMhelp Error: Latex in file %s:\n",
 		LatexMacroInputFile()
 	);
 

@@ -23,16 +23,15 @@
 #
 # check if vim data directory has been specified
 if OMhelp_VIMRUNTIME
-vimsyntaxdir = $(VIMRUNTIME)/syntax
-vimsyntax_DATA = \
-	OMhelp/omhelp.vim
+vimsyntaxdir           = $(VIMRUNTIME)/syntax
+vimsyntax_DATA         = OMhelp/omhelp.vim
 endif
 #
-nobase_include_HEADERS = \
-	src/config.h 
+nobase_include_HEADERS = src/config.h 
 #
-SUBDIRS = \
-	src
+SUBDIRS                = src
+#
+noinst_DATA            = OMhelp.Dev.log OMhelp.Doc.log
 #
 nobase_dist_data_DATA = \
 	OMhelp/omhelp.vim \
@@ -64,9 +63,11 @@ EXTRA_DIST = \
 	src/src.sln \
 	src/src.vcproj 
 #
-OMhelp/dictionary.bin:
+OMhelp/dictionary.bin OMhelp.Dev.log:
+	./RunOMhelp Dev
+#
+OMhelp.Doc.log: OMhelp.Dev.log
 	./RunOMhelp Doc
-	./RunOMhelp Developer
 # 
 # Make sure that unix install rebuilds main.c from main.src.
 # Remove all the CVS informaiton.

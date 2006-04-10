@@ -1,5 +1,8 @@
 /*
 $begin trace_exit$$
+$spell
+	OMhelp
+$$
 
 $section Routine that Traces Exit Value on Standard Error$$
 

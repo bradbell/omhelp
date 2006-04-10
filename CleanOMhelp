@@ -9,7 +9,7 @@ then
 	\( -name 'config.status'  \) -or \
         \( -name 'Debug'          \) -or \
         \( -name '.deps'          \) -or \
-	\( -name 'Developer'      \) -or \
+	\( -name 'Dev'            \) -or \
 	\( -name 'dictionary.bin' \) -or \
 	\( -name 'Doc'            \) -or \
 	\( -name 'junk'           \) -or \
@@ -54,7 +54,7 @@ else
 	\( -name 'config.status'  \) -or \
         \( -name 'Debug'          \) -or \
         \( -name '.deps'          \) -or \
-	\( -name 'Developer'      \) -or \
+	\( -name 'Dev'            \) -or \
 	\( -name 'dictionary.bin' \) -or \
 	\( -name 'Doc'            \) -or \
 	\( -name 'junk'           \) -or \
