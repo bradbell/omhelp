@@ -1,38 +1,20 @@
-# Specify beginning of error and warning message on stdout. 
+# Improve Windows installation.
 #
-# Build: change Developer to Dev.
-# CleanOMhelp: change Developer to Dev.
-# CvsCommit: file that did this commit.
-# Makefile.am: make OMhelp.Doc.log depend on OMhelp.Dev.log.
-# RunOMhelp: change Developer to Doc and improve error, warning reporting.
-# RunOMhelp.bat: change Developer to Doc and improve error, warning reporting.
-# running.omh: improve indexing.
-# stdout.omh: redo entire documentaiton for OMhelp standard output.
+# CvsCommit: file that made this commit.
+# Makefile.am: include install.bat in distribution.
+# CleanOMhelp: remove setup.bat (created by install.bat).
+# install.bat: Windows installation script.
+# installwindow.omh: improve procedure and instructions.
 # whatsnew.omh: user's view of the changes.
-# allocmem.c: include trace_exit.h.
-# cross.c: begin warning with "OMhelp Warning:".
-# fatalerr.c: begin warning, error with "OMhelp Warning:", "OMhelp Error".
-# omhelp.y: begin warning with "OMhelp Warning:".
-# trace_exit.c: fix OMhelp spelling error.
-# misc.omh: add trace_exit.c.
 add_list="
+	install.bat
 "
 change_list="
-	Build
-	CleanOMhelp
 	CvsCommit
 	Makefile.am
-	RunOMhelp
-	RunOMhelp.bat
-	omh/running.omh
-	omh/stdout.omh
+	CleanOMhelp
+	omh/installwindows.omh
 	omh/whatsnew.omh
-	src/allocmem.c
-	src/cross.c
-	src/fatalerr.c
-	src/omhelp.y
-	src/trace_exit.c
-	src/omh/misc.omh
 "
 delete_list="
 "

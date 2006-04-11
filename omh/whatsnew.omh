@@ -81,6 +81,9 @@ $tend
 
 $$
 
+$head 06-04-11$$
+The $xref/InstallWindows//Windows installation/$$ has been improved.
+
 $head 06-04-10$$
 Change OMhelp output so that all warning messages begin with
 $code OMhelp Warning:$$ and all error messages begin with
@@ -89,7 +92,7 @@ If one
 $xref/stdout/Redirect/redirects standard output/$$
 one can automatically check if there has been a warning 
 or an error with the unix commands
-$code
+$codep
 	grep "^OMhelp Warning:"
 	grep "^OMhelp Error:"
 $$

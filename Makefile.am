@@ -50,6 +50,7 @@ EXTRA_DIST = \
 	Build \
 	FixMakefile \
 	FixAclocal \
+	install.bat \
 	RunOMhelp \
 	RunOMhelp.bat \
 	SetNoExecute \

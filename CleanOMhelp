@@ -24,6 +24,7 @@ then
 	\( -name 'omhelp.c'       \) -or \
 	\( -name 'omhelp.h'       \) -or \
         \( -name 'Release'        \) -or \
+        \( -name 'setup.bat'      \) -or \
         \( -name 'stamp-h1'       \) -or \
 	\( -name 'temp'           \) -or \
 	\( -name 'temp?'          \) -or \
@@ -69,6 +70,7 @@ else
 	\( -name 'omhelp.c'       \) -or \
 	\( -name 'omhelp.h'       \) -or \
         \( -name 'Release'        \) -or \
+        \( -name 'setup.bat'      \) -or \
         \( -name 'stamp-h1'       \) -or \
 	\( -name 'temp'           \) -or \
 	\( -name 'temp?'          \) -or \
