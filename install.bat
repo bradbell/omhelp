@@ -38,7 +38,7 @@ rem Delete the old copy of the installation directory
 if not exist "c:\Program Files\%install_sub_dir%" goto create_setup
 echo First remove or rename the old install directory; for example, execute 
 echo the del command, respond y to prompts, then execute the rmdir command:
-echo del /S "c:\Program Files\%install_sub_dir%"
+echo del /P /S "c:\Program Files\%install_sub_dir%"
 echo rmdir "c:\Program Files\%install_sub_dir%"
 goto quit
 rem -------------------------------------------------------------------------

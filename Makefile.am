@@ -54,7 +54,6 @@ EXTRA_DIST = \
 	RunOMhelp \
 	RunOMhelp.bat \
 	SetNoExecute \
-	setenv.bat \
 	omh \
 	src/omh \
 	src/main.src \
