@@ -19,6 +19,7 @@
 $begin InstallWindows$$
 $dollar @$$
 $spell 
+	autoexec
 	simpleexample
 	Dev
 	wrd
@@ -180,6 +181,12 @@ This will run the OMhelp program and create
 a copy of the OMhelp developer documentation directory $code Dev$$.
 
 $head Install OMhelp$$
+The following instructions provide a way to have a desktop shortcut
+that you can run OMhelp in with out setting system environment variables
+or modifying the $code win.ini$$ file. If you would rather do that,
+see the heading
+$xref/InstallWindows/Advanced/Advanced/$$ below.
+
 $list number$$
 The file
 $syntax|
@@ -264,5 +271,61 @@ $syntax%
 	%after_setup_dir%\htm\simpleexample.htm
 %$$
 $lend
+
+$head Advanced$$
+This section is intended for people who know how to modify the 
+Windows system environment.
+In this case you can choose any directory as the 
+OMhelp installation directory and we refer to that directory as
+$italic omhelp_dir$$ below.
+
+$subhead Copy Files$$
+The first step is to copy if files
+$syntax|
+	omhelp-|yy|-|mm|-|dd|/OMhelp/|*|
+|$$
+to the $italic omhelp_dir$$ directory.
+
+$subhead omhelp_dir$$
+Choose one of the following alternatives for setting the
+environment variable $code omhelp_dir$$
+(remember that $italic omhelp_dir$$ is replaced by your choice
+for the OMhelp installation directory):
+
+$list number$$
+You can set the environment variable $code omhelp_dir$$ 
+in the $code autoexec.bat$$ file with the command
+$syntax%
+	set omhelp_dir=%omhelp_dir%
+%$$
+On some Windows systems, it is hard to find the proper
+$code autoexec.bat$$ file.
+
+$lnext
+At the system start button select Control Panel.
+In the Control Panel select System.
+In the System Properties dialog select the Advanced tab.
+In the Advanced tab select the Environment Variables button.
+In the Environment Variables dialog, under system variables, 
+select the New button.
+Enter $code omhelp_dir$$ in the Variable name field
+and $italic omhelp_dir$$ in the Variable value field
+Then select the OK button.
+
+$lnext
+You can set the value of $code omhelp_dir$$
+by adding the following text to the $code win.ini$$ file:
+$syntax|
+	[OMhelp]
+	omhelp_dir=|omhelp_dir|
+|$$
+$lend
+
+$subhead Path$$
+You may also want to add $italic omhelp_dir$$ to the $code Path$$ 
+environment variable.
+You can do this in the $code autoexec.bat$$ file or in the control
+panel in a similar fashion to how $code omhelp_dir$$ was set.
+
 
 $end
