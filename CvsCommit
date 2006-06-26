@@ -1,20 +1,24 @@
-# Improve Windows installation.
+# Move relative link frame to its own file.
 #
 # CvsCommit: file that made this commit.
-# Makefile.am: include install.bat in distribution.
-# CleanOMhelp: remove setup.bat (created by install.bat).
-# install.bat: Windows installation script.
-# installwindow.omh: improve procedure and instructions.
-# whatsnew.omh: user's view of the changes.
+# Makefile.am: include relative.c, relative.h, style.c, style.h. 
+# relative.c: moved here from OutputSectionLinks in omhelp.y.
+# relative.h: include command for relative.c.
+# style.c: moved here from StyleCommand in omhelp.y.
+# style.h: include command for style.c
+# omhelp.y: move OutputSectionLinks and StyleComamnd to separate files.
+# misc.omh: include new externals in developer documentation.
 add_list="
-	install.bat
+	src/relative.c
+	src/relative.h
+	src/style.c
+	src/style.h
 "
 change_list="
 	CvsCommit
-	Makefile.am
-	CleanOMhelp
-	omh/installwindows.omh
-	omh/whatsnew.omh
+	src/Makefile.am
+	src/omhelp.y
+	src/omh/misc.omh
 "
 delete_list="
 "

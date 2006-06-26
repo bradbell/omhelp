@@ -37,6 +37,8 @@ cross reference tag, NULL is returned.
 # include <assert.h>
 # include <time.h>
 
+# include "relative.h"
+# include "style.h"
 # include "LatexMacro.h"
 # include "content.h"
 # include "AutomaticLink.h"
@@ -60,7 +62,6 @@ cross reference tag, NULL is returned.
 # include "href.h"
 # include "index.h"
 # include "funref.h"
-# include "links.h"
 # include "cross.h"
 # include "StrLowCase.h"
 # include "StrLowAlloc.h"
@@ -225,31 +226,6 @@ static void fatal_not_2_dollar_or_text(int code_cmd1, int line1, int code_cmd2)
 		".\nThis command is not terminated by $$ before ",
 		TokenCode2String( code_cmd2 ),
 		" appears.",
-		NULL
-	);
-}
-
-static char *StyleCommand(SectionInfo *S)
-{	char *bgcolor;
-	char *textcolor;
-
-	if( S->style.bgcolor == NULL )
-		bgcolor = "white";
-	else	bgcolor = S->style.bgcolor;
-
-	if( S->style.textcolor == NULL )
-		textcolor = "black";
-	else	textcolor = S->style.textcolor;
-
-
-	return StrCat(
-		__FILE__,
-		__LINE__,
-		"<style type='text/css'>\nBODY { color : ",
-		textcolor,
-		" }\nBODY { background-color : ",
-		bgcolor,
-		" }\n</style>\n",
 		NULL
 	);
 }
@@ -439,127 +415,6 @@ static int MatchOrOutput(int ch)
 }
 
 
-static void OutputSectionLinks(SectionInfo *F)
-{	SectionInfo    *S;
-	SectionInfo    *List[MAX_DEPTH];
-	CrossReference *C;
-	char           Space[1000];
-	int            nspace = 2;
-	int            i;
-	int            j;
-	int            depth;
-	char           *stylecmd;
-	char           *head;
-	char           *text;
-
-	assert( 1000 > nspace * MAX_DEPTH ); 
-
-	stylecmd = StyleCommand(F);
-	BeginLinks(F->tag, "column", IconLink(), IconFile(), stylecmd);
-	FreeMem(stylecmd);
-
-	// start with location of this section in the tree
-	depth       = 0;
-	List[depth] = F;
-	while( List[depth]->parent != NULL )
-	{	if( depth >= MAX_DEPTH ) fatalomh(
-			"Omhelp tree has over ",
-			int2str(MAX_DEPTH),
-			" branches from its root to a leaf",
-			NULL
-		);
-		List[depth + 1] =  List[depth]->parent;
-		depth++;
-	}
-	
-	i = depth;
-	while( i >= 0 )
-	{
-		for(j = 0; j < nspace * (depth - i); j++)
-			Space[j] = ' ';
-		Space[j] = '\0';
-
-		S    = List[i];
-		text = str_cat(Space, S->tag);
-		AddLink(text, S->tag, "");
-		FreeMem(text);
-
-		i--;
-	}	
-
-	// siblings
-	S          = F;
-	while( S->previous != NULL )
-		S = S->previous;
-
-	if( S->next != NULL )
-	{
-		TitleLinks("Siblings");
-		while( S != NULL )
-		{	if( ! IsAutomaticSection(S) )
-			{
-				if( S != F )
-					AddLink(S->tag, S->tag, "");
-				else	AddLink(S->tag,     "", "");
-			}
-			S = S->next;
-		}	
-	}
-
-	// children
-	if( F->children != NULL )
-	{
-		TitleLinks("Children");
-		S   = F->children;
-
-		while( S != NULL )
-		{	if( ! IsAutomaticSection(S) )
-			{	if( S != F )
-					AddLink(S->tag, S->tag, "");
-				else	AddLink(S->tag,     "", "");
-			}
-			S = S->next;
-		}	
-	}
-
-	// headings
-	C = FindCrossReference(F->tag, "");
-	assert( C != NULL );
-	C = NextCrossReference(C);
-
-	head = "";
-	if( C != NULL )
-	{
-		TitleLinks("Headings");
-
-		while( C != NULL )
-		{	assert( C->head != NULL );
-
-			i = 0;
-			while( (head[i] != '0') 
-			     & (C->head[i] != '0')
-			     & (head[i] == C->head[i]) 
-			) i++;
-
-			if( C->head[i] == '.' )
-			{
-				text = str_cat("    ", C->head + i);
-				AddLink(text, C->tag, C->head);
-				FreeMem(text);
-			}
-			else
-			{	AddLink(C->head, C->tag, C->head);
-				head = C->head;
-			}
-			C = NextCrossReference(C);
-		}
-	}
-
-	EndLinks();
-
-}
-
-
 static void SecondPass(SectionInfo *F)
 {	
 	char *tagLower;
@@ -617,7 +472,7 @@ static void SecondPass(SectionInfo *F)
 					Internal2Out("OutputExtension");
 
 			if( RootHasChildren )
-				OutputSectionLinks(F);
+				RelativeFrame(F);
 	
 			// Begin section output
 			sprintf(buffer, 

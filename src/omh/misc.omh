@@ -31,8 +31,9 @@ $childtable/
 	funref.c/
 	search.c/
 	copyfile.c/
-	links.c/
+	relative.c/
 	spell.c/
+	style.c/
 	output.c/
 	Internal2Out.c/
 	latex.l/

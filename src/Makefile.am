@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 # automake input file
 #
@@ -82,11 +80,13 @@ omhelp_SOURCES = \
 	omhparse.h \
 	output.h \
 	pending.h \
+	relative.h \
 	search.h \
 	section.h \
 	spell.h \
 	str_alloc.h \
 	str_cat.h \
+	style.h \
 	texparse.h \
 	trace_exit.h \
 	warning.h \
@@ -134,8 +134,10 @@ omhelp_SOURCES = \
 	omhelp.c \
 	output.c \
 	pending.c \
+	relative.c \
 	search.c \
 	section.c \
+	style.c \
 	spell.c \
 	trace_exit.c \
 	warning.c
