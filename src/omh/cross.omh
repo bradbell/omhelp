@@ -18,33 +18,28 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin OMhelp$$
-$spell
-	OMhelp
-$$
+$begin cross$$
 
-$path/..\/.h/$$
-$path/..\/.c/$$
-$path/..\/.l/$$
 
-$section Documentation of OMhelp Source Code$$
+$index cross, reference$$
+$index reference, cross$$
+$index link, cross reference$$
+
+$section Cross Reference Utilities$$
 
 $head Description$$
-OMhelp is written and maintained by
-$href%www.seanet.com/~bradbell%Brad Bell%$$.
-This is the developer documentation for OMhelp.
-User documentation can be found at 
-$href%www.seanet.com/~bradbell/omhelp%$$.
+These routines are an aid in generating cross reference links.
 
-$contents%
-	../../omh/license.omh%
-	convert.h%
-	cross.omh%
-	execute.h%
-	input.h%
-	section.h%
-	string.omh%
-	misc.omh%
-	glossary.omh%$$
+$childtable%
+	automatic.c%
+	AutomaticLink.c%
+	content.c%
+	cross.h%
+	href.h%
+	index.c%
+	relative.c%
+	search.c%
+	url.c
+%$$
 
 $end
