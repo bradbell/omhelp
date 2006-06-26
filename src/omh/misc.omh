@@ -27,11 +27,8 @@ $childtable/
 	pending.c/
 	children.c/
 	head.c/
-	index.c/
 	funref.c/
-	search.c/
 	copyfile.c/
-	relative.c/
 	spell.c/
 	style.c/
 	output.c/

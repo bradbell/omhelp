@@ -1,23 +1,19 @@
-# Move relative link frame to its own file.
+# Move url fromulation to its own file.
 #
 # CvsCommit: file that made this commit.
-# Makefile.am: include relative.c, relative.h, style.c, style.h. 
-# relative.c: moved here from OutputSectionLinks in omhelp.y.
-# relative.h: include command for relative.c.
-# style.c: moved here from StyleCommand in omhelp.y.
-# style.h: include command for style.c
-# omhelp.y: move OutputSectionLinks and StyleComamnd to separate files.
+# Makefile.am: include url.c, url.h. 
+# url.c: moved here from href.c HrefOutputPass2 function.
+# url.h: include command for url.c.
+# href.c: move url determination to url.c and call it.
 # misc.omh: include new externals in developer documentation.
 add_list="
-	src/relative.c
-	src/relative.h
-	src/style.c
-	src/style.h
+	src/url.c
+	src/url.h
 "
 change_list="
 	CvsCommit
 	src/Makefile.am
-	src/omhelp.y
+	src/href.c
 	src/omh/misc.omh
 "
 delete_list="

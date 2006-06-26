@@ -89,6 +89,7 @@ omhelp_SOURCES = \
 	style.h \
 	texparse.h \
 	trace_exit.h \
+	url.h \
 	warning.h \
 	AutomaticLink.c \
 	BinarySearch.c \
@@ -140,6 +141,7 @@ omhelp_SOURCES = \
 	style.c \
 	spell.c \
 	trace_exit.c \
+	url.c \
 	warning.c
 #
 # Rule for main.c (replace DATA_DIR in omhdir="DATA_DIR/OMhelp";)

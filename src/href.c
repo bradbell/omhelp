@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 Assumption: ~tag[0] != '\0' and ! isspace(tag[0])
 =============================================================================
@@ -376,6 +374,7 @@ $end
 # include <assert.h>
 # include <ctype.h>
 
+# include "url.h"
 # include "convert.h"
 # include "output.h"
 # include "allocmem.h"
@@ -428,85 +427,21 @@ void HrefOutputPass2(
 	const char *head, 
 	const char *external,
 	const char *displayframe )
-{
-	char number[200];
-
-	char *taglower;
-	char *url;
+{	char *url;
 	char *target;
-	char *converted;
 
-	int  i;
-
-	// initialize to avoid compiler warning
-	// (will be reset before used)
-	CrossReference *C = NULL;
-	
 	assert( *tag != '\0' );
 	assert( ! isspace(*tag) );
-
 	assert( strcmp(external, "true") == 0 || 
 	        strcmp(external, "false") == 0 
 	);
-
-	if( strcmp(external, "false") == 0 )
-	{
-		C = FindCrossReference(tag, head);
-		assert( C != NULL );
-		assert( C->defined );
-	}
-
-	// links must be in lower case (see discussion in PushOutput)
-	taglower = str_alloc(tag);
-	for(i = 0; taglower[i] != '\0'; i++)
-		taglower[i] = tolower(taglower[i]);
-
 
 	// make sure not nesting href calls
 	assert(PreviousItalic == UNDEFINED);
 	assert(PreviousPass   == UNDEFINED);
 
 	// set url
-	if( head[0] == '\0' )
-	{	if( strcmp(external, "true") == 0 )
-			url = str_alloc(tag);
-		else	url = str_cat(
-				taglower, 
-				Internal2Out("OutputExtension")
-		);
-	}
-	else
-	{	// XHTML cannot have certain character, such as <, here
-		// This is an unspecified kludge to fix this
-		converted = ConvertInternalString(head);	
-
-		if( strcmp(external, "true") == 0 )
-			url = StrCat(
-				__FILE__, 
-				__LINE__, 
-				tag, 
-				"#", 
-				converted,
-				NULL
-		);
-		else
-		{	assert( C != NULL );
-			sprintf(number, "%d", C->frame);
-			url = StrCat(
-				__FILE__, 
-				__LINE__, 
-				taglower, 
-				"_frame", 
-				number, 
-				Internal2Out("OutputExtension"),
-				"#",
-				converted,
-				NULL
-			);
-		}	
-
-		FreeMem(converted);
-	}
+	url = Url(tag, head, external);
 
 	// set target
 	if( displayframe[0] == '\0' )
@@ -523,10 +458,8 @@ void HrefOutputPass2(
 	}
 	PreviousPass = 2;
 	
-	FreeMem(taglower);
-	FreeMem(url);
 	FreeMem(target);
-
+	FreeMem(url);
 	return;
 }
 
