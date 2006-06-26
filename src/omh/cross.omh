@@ -31,9 +31,7 @@ $head Description$$
 These routines are an aid in generating cross reference links.
 
 $childtable%
-	automatic.c%
-	AutomaticLink.c%
-	content.c%
+	automatic.omh%
 	cross.h%
 	href.h%
 	index.c%
