@@ -38,6 +38,8 @@ omhelp_SOURCES = \
 	Color.h \
 	DirSep.h \
 	FileEqual.h \
+	FrameSet.h \
+	HtmlHead.h \
 	InitParser.h \
 	Internal2Out.h \
 	LatexAtomic.h \
@@ -118,9 +120,11 @@ omhelp_SOURCES = \
 	cross.c \
 	execute.c \
 	fatalerr.c \
+	FrameSet.c \
 	funref.c \
 	head.c \
 	href.c \
+	HtmlHead.c \
 	index.c \
 	input.c \
 	int2str.c \

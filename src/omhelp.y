@@ -37,6 +37,8 @@ cross reference tag, NULL is returned.
 # include <assert.h>
 # include <time.h>
 
+# include "FrameSet.h"
+# include "HtmlHead.h"
 # include "relative.h"
 # include "style.h"
 # include "LatexMacro.h"
@@ -228,40 +230,6 @@ static void fatal_not_2_dollar_or_text(int code_cmd1, int line1, int code_cmd2)
 		" appears.",
 		NULL
 	);
-}
-
-static void OutputHeader(SectionInfo *F)
-{	char *stylecmd;
-
-	// Title
-	OutputString("<head>\n<title>");
-	ConvertOutputString(F->title, 0);
-	OutputString("</title>");
-
-	// Use title for description
-	OutputString(
-		"\n<meta name=\"description\" id=\"description\" content=\""
-	);
-	ConvertOutputString(F->title, 0);
-	OutputString("\"");
-	OutputString(Internal2Out("SelfTerminateCmd"));
-
-	// Keywords
-	if( F->keywords != NULL )
-	{	OutputString(
-		"\n<meta name=\"keywords\" id=\"keywords\" content=\""
-		);
-		ConvertOutputString(F->keywords, 0);
-		OutputString("\"");
-		OutputString(Internal2Out("SelfTerminateCmd"));
-	}
-
-	// Style
-	stylecmd = StyleCommand(F);
-	OutputString(stylecmd);
-	FreeMem(stylecmd);
-
-	OutputString("</head>\n");
 }
 
 static int WhiteSpace(char *s)
@@ -462,106 +430,17 @@ static void SecondPass(SectionInfo *F)
 			OutputString("\n");
 		}
 		else
-		{
-			const char *FrameOneExt;
-
+		{	const char *FrameOneExt;
 			if( HtmlOnly )
-				FrameOneExt = 
-					Internal2Out("HtmlOnlyExtension");
-			else	FrameOneExt =
-					Internal2Out("OutputExtension");
+				FrameOneExt = Internal2Out("HtmlOnlyExtension");
+			else	FrameOneExt = Internal2Out("OutputExtension");
 
-			if( RootHasChildren )
-				RelativeFrame(F);
-	
-			// Begin section output
-			sprintf(buffer, 
-				"%s%s", 
-				tagLower,
-				Internal2Out("OutputExtension")
-			);
-			PushOutput(buffer);
-			OutputString(Internal2Out("StartOutputFile"));
-			OutputString("\n");
-			OutputHeader(F);
-			// this frame has no <body> content
-
-			// split into left and right frames
-			if( RootHasChildren )
-			{	OutputString("<frameset cols=\"15%,*\">\n");
-			
-				// left frame is navation links
-				FormatOutput2(
-					"<frame src=\"%s_links%s\"", 
-					tagLower,
-					Internal2Out("OutputExtension")
-				);
-				OutputString(Internal2Out("SelfTerminateCmd"));
-				OutputString("\n");
-			}
-			
-			// users set of frames
-			OutputString("<frameset rows=\"");
-			for(iFrame = 1; iFrame <= F->nFrame; iFrame++)
-			{	sprintf(buffer, 
-					"%d", 
-					F->Frame[iFrame - 1]
-				);
-				OutputString(buffer);
-				if( F->nFrame == 1 )
-					OutputString("%,*\">\n");
-				else if( iFrame != F->nFrame )
-					OutputString("%,");
-				else	OutputString("%\">\n");
-			}
-			for(iFrame = 1; iFrame <= F->nFrame; iFrame++)
-			{	const char *ext;
-
-				if( iFrame == 1 )
-					ext = FrameOneExt;
-				else	ext = Internal2Out("OutputExtension");
-
-
-				OutputString("<frame src=");
-				sprintf(buffer, 
-					"\"%s_frame%d%s\"", 
-					tagLower, 
-					iFrame,
-					ext
-				);
-				OutputString(buffer);
-				OutputString(" name=");
-				sprintf(buffer, 
-					"\"frame%d\"", 
-					iFrame
-				);
-				OutputString(buffer);
-				OutputString(" id=");
-				sprintf(buffer, 
-					"\"frame%d\"", 
-					iFrame
-				);
-				OutputString(buffer);
-				sprintf(buffer, 
-					"%s\n", 
-					Internal2Out("SelfTerminateCmd")
-				);
-				OutputString(buffer);
-			}
-			// end user frameset
-			OutputString("</frameset>\n");
-
-			// end left / right
-			if( RootHasChildren )
-				OutputString("</frameset>\n");
+			RelativeFrame(F);
+			OutputFrameSet(F, FrameOneExt);
 	
 			// initialize user side frame index
 			iFrame = 1;
 			
-			// terminate this output file
-			OutputString("</html>\n");
-			PopOutput();
-
 			// create first output file
 			sprintf(buffer, 
 				"%s_frame%d%s", 
@@ -573,7 +452,7 @@ static void SecondPass(SectionInfo *F)
 
 			if( HtmlOnly )
 			{
-				OutputHeader(F);
+				OutputHtmlHead(F);
 				OutputString("<body>\n");
 				if( ! PrintableOmhelp() )
 					AutomaticLink(RootHasChildren, F);
@@ -581,7 +460,7 @@ static void SecondPass(SectionInfo *F)
 			else
 			{
 				OutputString(Internal2Out("StartOutputFile"));
-				OutputHeader(F);
+				OutputHtmlHead(F);
 				OutputString("<body>\n");
 
 				if( ! PrintableOmhelp() )
@@ -768,7 +647,7 @@ static void SecondPass(SectionInfo *F)
 				PushOutput(buffer);
 
 				OutputString(Internal2Out("StartOutputFile"));
-				OutputHeader(F);
+				OutputHtmlHead(F);
 				OutputString("<body>\n");
 
 				// Automatic links to this section and frame

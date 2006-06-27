@@ -34,7 +34,7 @@ $head Syntax$$
 $syntax%char *Url(
 	const char *%tag% , 
 	const char *%head%,
-	const char *%head%
+	const char *%external%
 )%$$ 
 
 $head Purpose$$

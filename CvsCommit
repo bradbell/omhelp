@@ -1,20 +1,25 @@
-# Move url fromulation to its own file.
+# Move OutputHeader and frameset from omhelp.y to separate files.
 #
 # CvsCommit: file that made this commit.
-# Makefile.am: include url.c, url.h. 
-# url.c: moved here from href.c HrefOutputPass2 function.
-# url.h: include command for url.c.
-# href.c: move url determination to url.c and call it.
-# misc.omh: include new externals in developer documentation.
+# Makefile.am: include HtmlHead.h, FrameSet.h, FrameSet.c Html.c
+# omhelp.y: move OutputHeader and frameset from here.
+# url.c: fix OMhelp syntax.
+# misc.omh: move output.c to output.omh.
+# omhelp.omh: add output.omh.
 add_list="
-	src/url.c
-	src/url.h
+	src/FrameSet.h
+	src/FrameSet.c
+	src/HtmlHead.h
+	src/HtmlHead.c
+	src/omh/output.omh
 "
 change_list="
 	CvsCommit
 	src/Makefile.am
-	src/href.c
+	src/omhelp.y
+	src/url.c
 	src/omh/misc.omh
+	src/omh/omhelp.omh
 "
 delete_list="
 "
