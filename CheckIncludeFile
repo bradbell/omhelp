@@ -1,4 +1,4 @@
-grep '^# *include *"' src/*.c src/*.h |\
+grep '^# *include *"' src/*.c src/*.h src/*.y |\
 sed -e 's/^[^"]*"//' -e 's/" *$//' -e '/string.h/d' |\
 sort -u > junk.1
 #
