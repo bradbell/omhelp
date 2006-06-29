@@ -94,6 +94,8 @@ $end
 # include "allocmem.h"
 # include "Internal2Out.h"
 # include "convert.h"
+# include "main.h"
+# include "AutoTag.h"
 
 char *Url(const char *tag, const char *head, const char *external)
 {	char number[200];
@@ -101,6 +103,8 @@ char *Url(const char *tag, const char *head, const char *external)
 	char *url;
 	char *converted;
 	int  i;
+	int  HtmlOnly;
+	const char *ext;
 
 	// initialize to avoid compiler warning
 	// (will be reset before used)
@@ -114,8 +118,7 @@ char *Url(const char *tag, const char *head, const char *external)
 	);
 
 	if( strcmp(external, "false") == 0 )
-	{
-		C = FindCrossReference(tag, head);
+	{	C = FindCrossReference(tag, head);
 		assert( C != NULL );
 		assert( C->defined );
 	}
@@ -125,6 +128,13 @@ char *Url(const char *tag, const char *head, const char *external)
 	for(i = 0; taglower[i] != '\0'; i++)
 		taglower[i] = tolower(taglower[i]);
 
+	// check for case where only use htm for extension 
+	HtmlOnly =  (strcmp(tag, SEARCH_TAG) == 0)
+	       	|| (strcmp(tag, CONTENTS_TAG) == 0);
+	HtmlOnly = HtmlOnly & ( NoFrame() | head[0] != '\0' );
+	if( HtmlOnly )
+		ext = Internal2Out("HtmlOnlyExtension");
+	else	ext = Internal2Out("OutputExtension");
 
 	// set url
 	if( head[0] == '\0' )
@@ -132,7 +142,7 @@ char *Url(const char *tag, const char *head, const char *external)
 			url = str_alloc(tag);
 		else	url = str_cat(
 				taglower, 
-				Internal2Out("OutputExtension")
+				ext
 		);
 	}
 	else
@@ -149,6 +159,17 @@ char *Url(const char *tag, const char *head, const char *external)
 				converted,
 				NULL
 		);
+		else if( NoFrame() )
+		{	url = StrCat(
+				__FILE__, 
+				__LINE__, 
+				taglower, 
+				ext,
+				"#",
+				converted,
+				NULL
+			);
+		}	
 		else
 		{	assert( C != NULL );
 			sprintf(number, "%d", C->frame);
@@ -158,7 +179,7 @@ char *Url(const char *tag, const char *head, const char *external)
 				taglower, 
 				"_frame", 
 				number, 
-				Internal2Out("OutputExtension"),
+				ext,
 				"#",
 				converted,
 				NULL

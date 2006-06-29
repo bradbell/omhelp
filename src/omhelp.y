@@ -80,6 +80,7 @@ cross reference tag, NULL is returned.
 # include "LatexLexPut.h"
 # include "texparse.h"
 # include "lexomh.h"
+# include "AutoTag.h"
 
 # ifndef WIN32
 # define stricmp strcasecmp 
@@ -97,12 +98,6 @@ cross reference tag, NULL is returned.
 # define MAX_AUTOMATIC      10
 # define MAX_DEPTH          100
 
-# define SEARCH_TAG         "_search"     
-# define EXTERNAL_TAG       "_external"
-# define INDEX_TAG          "_index"
-# define CONTENTS_TAG       "_contents"
-# define REFERENCE_TAG      "_reference"
-# define PRINTABLE_TAG      "_printable"
 
 // define in main.c
 extern int  DebugOmhelp;
@@ -403,11 +398,15 @@ static void SecondPass(SectionInfo *F)
 	assert( RootHasChildren || F == SectionTree );
 
 	while( F != NULL )
-	{	int HtmlOnly;
+	{	int         HtmlOnly;
+		const char *FrameOneExt;
 
-		// only use HTML format for these sectins
+		// only use HTML format for frame one of these sections
 		HtmlOnly =  (strcmp(F->tag, SEARCH_TAG) == 0)
 		         || (strcmp(F->tag, CONTENTS_TAG) == 0);
+		if( HtmlOnly )
+			FrameOneExt = Internal2Out("HtmlOnlyExtension");
+		else	FrameOneExt = Internal2Out("OutputExtension");
 
 		// lower case version of tag
 		tagLower = F->tagLower;
@@ -429,12 +428,26 @@ static void SecondPass(SectionInfo *F)
 			OutputString(Internal2Out("SelfTerminateCmd"));
 			OutputString("\n");
 		}
-		else
-		{	const char *FrameOneExt;
-			if( HtmlOnly )
-				FrameOneExt = Internal2Out("HtmlOnlyExtension");
-			else	FrameOneExt = Internal2Out("OutputExtension");
+		else if( NoFrame() )
+		{	// new output file for this section
+			sprintf(buffer, 
+				"%s%s", 
+				tagLower, 
+				FrameOneExt
+			);
+			PushOutput(buffer);
 
+			if( HtmlOnly )
+				OutputString("<html>\n");
+			else	OutputString(Internal2Out("StartOutputFile"));
+			OutputHtmlHead(F);
+			OutputString("<body>\n");
+
+			// relative links are in this file
+			RelativeTable(F);
+		}
+		else
+		{
 			RelativeFrame(F);
 			OutputFrameSet(F, FrameOneExt);
 	
@@ -452,6 +465,7 @@ static void SecondPass(SectionInfo *F)
 
 			if( HtmlOnly )
 			{
+				OutputString("<html>\n");
 				OutputHtmlHead(F);
 				OutputString("<body>\n");
 				if( ! PrintableOmhelp() )
@@ -632,6 +646,7 @@ static void SecondPass(SectionInfo *F)
 			if( match == FEND_match )
 			{
 				assert( ! PrintableOmhelp() );
+				assert( ! NoFrame() );
 
 				OutputString("\n</body>\n</html>\n");
 				PopOutput();
@@ -2435,7 +2450,7 @@ fend
 		if( NumberPending() > 0 )
 			OmhPendingError($1.line, "$fend");
 
-		if( ! PrintableOmhelp() )
+		if( ! (PrintableOmhelp() | NoFrame() ) )
 		{
 			if( iFrame >= MAX_FRAME ) fatalomh(
 				"\nThere are more than ",

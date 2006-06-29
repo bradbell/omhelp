@@ -57,12 +57,20 @@ $head Style$$
 The $xref/style//StyleCommand/$$ function is used to determine
 a style record that is also output as part of the header.
 
+$head Script$$
+If $code NoFrame()$$ is true, declare
+$syntax%
+	%F->tagLower%_link.js
+%$$
+to be the javascript file for this section.
+
 
 $end
 ---------------------------------------------------------------------------
 */
 # include <stdlib.h>
 
+# include "main.h"
 # include "section.h"
 # include "output.h"
 # include "convert.h"
@@ -100,6 +108,15 @@ void OutputHtmlHead(SectionInfo *F)
 	stylecmd = StyleCommand(F);
 	OutputString(stylecmd);
 	FreeMem(stylecmd);
+
+	// Script
+	if( NoFrame() )
+	{	FormatOutput( 
+			"<script type='text/javascript' "
+			"language='JavaScript' src='%s_link.js'>\n</script>\n",
+			F->tagLower
+		);
+	}
 
 	OutputString("</head>\n");
 }

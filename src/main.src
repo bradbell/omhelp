@@ -58,6 +58,11 @@ int PostWarnings()
 {	return ! nowarn;
 }
 
+static int noframe     = 0;
+int NoFrame()
+{	return noframe;
+}
+
 static const char *siteName = NULL;
 const char *SiteName()
 {	return siteName;
@@ -167,6 +172,8 @@ int main(int argc, const char *argv[])
 			printable = 1;
 		else if( strcmp(argv[iarg], "-nowarn") == 0 )
 			nowarn  = 1;
+		else if( strcmp(argv[iarg], "-noframe") == 0 )
+			noframe  = 1;
 		else if( strcmp(argv[iarg], "-xml") == 0 )
 		{	Internal2OutSet("xml");
 			GenerateXml = 1;
@@ -193,6 +200,7 @@ int main(int argc, const char *argv[])
 			"[-printable] "
 			"[-xml] "
 			"[-nowarn] "
+			"[-noframe] "
 			"\n"
 		);
 		printf("see the file Doc/running.htm or Doc/running.xml\n");

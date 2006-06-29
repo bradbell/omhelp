@@ -113,6 +113,7 @@ $syntax%
 %displayframe%
 %$$
 If $italic displayframe$$ is the empty string,
+or if $code NoFrame()$$ is true,
 the entire window is replaced by the link.
 Otherwise, the frame named $syntax%frame%displayframe%$$ is replaced.
 
@@ -435,6 +436,10 @@ void HrefOutputPass2(
 	assert( strcmp(external, "true") == 0 || 
 	        strcmp(external, "false") == 0 
 	);
+
+	// overide displayframe setting
+	if( NoFrame() )
+		displayframe = "";
 
 	// make sure not nesting href calls
 	assert(PreviousItalic == UNDEFINED);
