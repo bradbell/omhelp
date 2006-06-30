@@ -468,17 +468,14 @@ static void SecondPass(SectionInfo *F)
 				OutputString("<html>\n");
 				OutputHtmlHead(F);
 				OutputString("<body>\n");
-				if( ! PrintableOmhelp() )
-					AutomaticLink(RootHasChildren, F);
+				AutomaticLink(RootHasChildren, F);
 			}
 			else
 			{
 				OutputString(Internal2Out("StartOutputFile"));
 				OutputHtmlHead(F);
 				OutputString("<body>\n");
-
-				if( ! PrintableOmhelp() )
-					AutomaticLink(RootHasChildren, F);
+				AutomaticLink(RootHasChildren, F);
 			}
 		}
 		
@@ -4750,7 +4747,7 @@ xref
 		if( ntoken < 4 && head[0] != '\0' )
 			frame = "1";
 
-		if( PrintableOmhelp() )
+		if( PrintableOmhelp() | NoFrame() )
 		{	frame = "";
 			MaxFrame = 0;
 		}

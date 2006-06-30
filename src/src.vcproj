@@ -21,7 +21,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="5"
 				UsePrecompiledHeader="2"
@@ -458,6 +458,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\FrameSet.c">
+			</File>
+			<File
 				RelativePath="funref.c">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -510,6 +513,9 @@
 						Optimization="2"
 						PreprocessorDefinitions=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\HtmlHead.c">
 			</File>
 			<File
 				RelativePath="index.c">
@@ -836,6 +842,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\relative.c">
+			</File>
+			<File
 				RelativePath="search.c">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -962,10 +971,16 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\style.c">
+			</File>
+			<File
 				RelativePath=".\trace_exit.c">
 			</File>
 			<File
 				RelativePath=".\UniformWhiteSpace.c">
+			</File>
+			<File
+				RelativePath=".\Url.c">
 			</File>
 			<File
 				RelativePath="warning.c">
