@@ -168,8 +168,12 @@ omhelp.c: omhelp.y
 # Rule for latex.h
 latex.h: latex.y
 	bison latex.y --defines -p tex -o latex.c
+	mv latex.c latex.tmp
+	sed -f fixbison.sed < latex.tmp > latex.c
 
 #
 # Same rule for latex.c
 latex.c: latex.y
 	bison latex.y --defines -p tex -o latex.c
+	mv latex.c latex.tmp
+	sed -f fixbison.sed < latex.tmp > latex.c
