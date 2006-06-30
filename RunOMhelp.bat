@@ -27,7 +27,7 @@ if "%1%" == "Doc" goto DOC
 	if exist Dev rmdir Dev 
 	mkdir Dev
 	cd    Dev
-	..\src\src.exe ..\src\omh\omhelp.omh > ..\OMhelp.Dev.log -debug -omhelp_dir ..\OMhelp
+	..\src\src.exe ..\src\omh\omhelp.omh > ..\OMhelp.Dev.log -noframe -debug -omhelp_dir ..\OMhelp
 	cd ..
 	goto ERRORCHECK
 : DOC
@@ -37,7 +37,7 @@ if "%1%" == "Doc" goto DOC
 	mkdir Doc
 	cd    Doc
 	..\src\src.exe ..\omh\overview.omh > ..\OMhelp.Doc.log -xml -debug -omhelp_dir ..\OMhelp
-	..\src\src.exe ..\omh\overview.omh  -debug -omhelp_dir ..\OMhelp
+	..\src\src.exe ..\omh\overview.omh  -noframe -debug -omhelp_dir ..\OMhelp
 	cd ..
 : ERRORCHECK
 find "OMhelp Warning:"       RunOMhelp.log

@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin whatsNew04$$
 $dollar @$$
@@ -45,7 +43,7 @@ were multiple sections in one file,
 the $code previous$$ link for a sibling that came after $italic Last$$
 pointed to the Section $italic First$$ instead of the $italic Last$$.
 This also caused duplicate numbering in the
-$xref/running/Printable/printable/$$ output.
+$xref/running/printable/printable/$$ output.
 This problem has been fixed.
 
 
@@ -80,7 +78,7 @@ If linking text is specified in the $xref/href/$$ command,
 the URL is not included in the visible output.
 This made it difficult to follow such links when reading printed output.
 These URLs are now included in the 
-$xref/running/Printable/printable/$$ case.
+$xref/running/printable/printable/$$ case.
 $pre
 
 $$

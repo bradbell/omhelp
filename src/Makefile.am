@@ -33,6 +33,7 @@ AM_CFLAGS  = -g -Wall
 #
 omhelp_SOURCES = \
 	AutomaticLink.h \
+	AutoTag.h \
 	BinarySearch.h \
 	ClipWhiteSpace.h \
 	Color.h \
@@ -155,12 +156,14 @@ main.c: main.src
 # Rule for omhelp.h
 omhelp.h: omhelp.y
 	bison omhelp.y --defines -p omh -o omhelp.c
-
+	mv omhelp.c omhelp.tmp
+	sed -f fixbison.sed < omhelp.tmp > omhelp.c
 #
 # Same rule for omhelp.c
 omhelp.c: omhelp.y
 	bison omhelp.y --defines -p omh -o omhelp.c
-
+	mv omhelp.c omhelp.tmp
+	sed -f fixbison.sed < omhelp.tmp > omhelp.c
 #
 # Rule for latex.h
 latex.h: latex.y

@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin path$$
 $spell 
@@ -39,7 +37,7 @@ $bold Syntax$$
 $cnext $syntax/@path%/directory/%/extension/%@@/$$ $rnext
 $bold See Also$$
 $cnext $xref/children//contents/$$, 
-	$xref/running/Root Section/root section/$$
+	$xref/running/root/root section/$$
 $tend
 
 $fend 20$$
@@ -60,12 +58,12 @@ If $italic directory$$ is not a
 $xref/glossary/Complete Path Specification/complete path specification/$$,
 the path specification is relative to the
 directory where the file containing the
-$xref/running/Root Section/root section/$$
+$xref/running/root/root section/$$
 is located.
 
 $head Ignored$$
 This command is ignored unless it appears in the 
-$xref/running/Root Section/root section/$$.
+$xref/running/root/root section/$$.
 This enables one to use one OMhelp web site as a sub-tree of
 a larger OMhelp web site.
 (All of the $xref/getstarted//getting started/$$ examples are

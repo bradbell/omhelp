@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin whatsNew02$$
 $dollar &$$
@@ -117,7 +115,7 @@ This has been fixed.
 $head 12-13$$
 Some changes were made to avoid extra new lines where they were not necessary.
 This was done to conserve on screen space and make the output of the
-$xref/running/Printable/_printable/$$ version smaller
+$xref/running/printable/_printable/$$ version smaller
 (conserve paper).
 These changes included backing out the 
 $xref/whatsNew02/09-23/02-09-23/$$
@@ -171,7 +169,7 @@ The Latex $xref/left_right//left and right/$$ commands
 were included.
 
 $head 11-27$$
-There was a bug in specifying an $xref/running/Icon File/icon file/$$
+There was a bug in specifying an $xref/running/icon_file/icon file/$$
 that had an extension different from $code .gif$$.
 This has been fixed.
 
@@ -291,7 +289,7 @@ This improved tracking of errors is in preparation for having an
 OMhelp LaTex command.
 The argument to this command
 will be long and have a language of its own (LaTex).
-If the $xref/running/XML/-xml/$$ command line option is specified
+If the $xref/running/xml/-xml/$$ command line option is specified
 the output corresponding to the LaTex command will be MathML.
 $pre
 
@@ -327,7 +325,7 @@ This has been fixed.
 
 $head 10-22$$
 Added the command line option 
-$xref/running/XML/xml/$$ which
+$xref/running/xml/xml/$$ which
 generates XHTML (as apposed to HTML which is the 
 default output format).
 
@@ -347,7 +345,7 @@ converted to the starting file on
 $xref/whatsNew01/08-08/01-08-08/$$.
 This turned up when OMhelp was run twice in the same directory
 and the second time the 
-$xref/running/Printable/-printable/$$ option was used
+$xref/running/printable/-printable/$$ option was used
 (see $xref/whatsNew02/06-19/02-05-19/$$).
 
 $head 10-11$$
@@ -436,7 +434,7 @@ was fixed.
 
 $head 08-22$$
 The specifications for searching the directory where the
-$xref/running/Root Section/root section/$$ is located,
+$xref/running/root/root section/$$ is located,
 and searching the $xref/path//paths/$$ were improved.
 You no longer need to specify the starting directory
 as part of the path because is it searched automatically.
@@ -454,7 +452,7 @@ $head 08-18$$
 The name used on the command line 
 for the $italic root_file$$ was changed to the
 $italic starting_file$$ (it has since been referred to as
-$xref/running/Root Section/root section/$$).
+$xref/running/root/root section/$$).
 This was done because the term "root" is 
 used to refer to the root of a file name; i.e.,
 a file name with out its extension.
@@ -507,7 +505,7 @@ $$
 Then add the file that was specified after the $code -g$$ option
 as the last file in the 
 $xref/children//contents, childtable, or children/$$
-command contained in the $xref/running/Root Section/root section/$$.
+command contained in the $xref/running/root/root section/$$.
 
 $head 08-03$$
 The description and specifications for the $xref/keyword/Cindex/cindex/$$ 
@@ -594,10 +592,10 @@ separated the last two cross references.
 
 
 $head 06-21$$
-The default $xref/running/Icon File/icon file/$$ name was
+The default $xref/running/icon_file/icon file/$$ name was
 changed to $code _icon.gif$$.
 The documentation for this option
-and the $xref/running/Icon Link/icon link/$$ option
+and the $xref/running/icon_link/icon link/$$ option
 was improved.
 (it used to begin with $code button_$$).
 In addition, $xref/image//image and icon/$$ file names
@@ -609,13 +607,13 @@ $$
 The automatically generated sections (For example the 
 $xref/_index//keyword index/$$) were listed twice in the links 
 when viewing the 
-$xref/running/Root Section/root section/$$.
+$xref/running/root/root section/$$.
 This has been fixed.
 $pre
 
 $$
 There was a bug in the counting of sections for the 
-$xref/running/Printable/printable/$$ option.
+$xref/running/printable/printable/$$ option.
 This caused the table of contents to have the same section number
 as the section that followed it.
 This has been fixed.
@@ -625,12 +623,12 @@ All of the sections,
 including the automatically generated ones 
 (for example the  $xref/_index//keyword index/$$)
 are now children of the 
-$xref/running/Root Section/root section/$$.
+$xref/running/root/root section/$$.
 In addition, now there can be only one section at the root 
 of the table of contents.
 This enables the root section to function like a cover page
 in the
-$xref/running/Printable/printable/$$ version.
+$xref/running/printable/printable/$$ version.
 $pre
 
 $$
@@ -641,13 +639,13 @@ and $xref/_external//external reference/$$ sections.
 This has been fixed.
 
 $head 06-06$$
-Some minor bugs in the $xref/running/Printable/printable/$$
+Some minor bugs in the $xref/running/printable/printable/$$
 option were fixed. It is now part of the standard release and
 its use will no longer expire.
 
 
 $head 06-02$$
-A $xref/running/Printable/printable/$$
+A $xref/running/printable/printable/$$
 version of OMhelp output is available.
 This is a beta test version and its availability will expire.
 Please e-mail any comments about this option to

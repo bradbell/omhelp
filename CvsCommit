@@ -1,31 +1,48 @@
-# Add the command line -noframe option.
+# Overhaul the running.omh documentation (and add -noframe)
 #
 # CvsCommit: file that made this commit.
-# HtmlHead.c: in NoFrame case, define links javascript file in the header.
-# RelativeTable.h: move into relative.c.
-# href.c: overide display frame in NoFrame case.
-# main.h: add NoFrame to list of functions.
-# main.src: add -noframe command line option.
-# omhelp.y: move some defines to AutoTag.h and add NoFrame logic.
-# relative.c: add RelativeTable function.
-# relative.h: add RelativeTable function.
-# url.c: correct links in HtmlOnly case.
+# RunOMhelp: use the -noframe comamnd line argument when running OMhelp.
+# RunOMhelp.bat: use the -noframe comamnd line argument when running OMhelp.
+# whatsnew.omh: user's view of the changes.
+# running.omh: overhaul of documentation for running OMhelp.
+# FrameSet.c: Fix a spelling error.
+# HtmlHead.c: Fix a spelling error.
+# omhelp.y: do not check xref frame when suppressed in -noframe case.
+# Makefile.am: add AutoTag.h to distribution, fix bison output.
+# fixbision.sed: fix an error in bison's output.
+#
+# Other files: automatic editing of cross references to running.omh
 add_list="
-	src/AutoTag.h
+	src/fixbison.sed
 "
 change_list="
 	CvsCommit
+	RunOMhelp
+	RunOMhelp.bat
+	omh/whatsnew.omh
+	omh/running.omh
+	src/FrameSet.c
 	src/HtmlHead.c
-	src/href.c
-	src/main.h
-	src/main.src
-	src/omhelp.y
-	src/relative.c
-	src/relative.h
-	src/url.c
+	src/Makefile.am
+
+	omh/color.omh
+	omh/file.omh
+	omh/glossary.omh
+	omh/href.omh
+	omh/latex.omh
+	omh/path.omh
+	omh/spell.omh
+	omh/whatsnew01.omh
+	omh/whatsnew02.omh
+	omh/whatsnew03.omh
+	omh/whatsnew04.omh
+	omh/why.omh
+	omh/getstarted/StartLatex.omh
+	omh/getstarted/StartMultiple.omh
+	omh/getstarted/StartSimple.omh
+	omh/latex/LatexMacro.omh
 "
 delete_list="
-	src/RelativeTable.h
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same

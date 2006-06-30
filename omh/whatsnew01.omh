@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin whatsNew01$$
 $dollar @$$
@@ -129,7 +127,7 @@ $head 08-08$$
 The $mref/path/$$ specifications used to be relative to the
 directory where OMhelp was executed.
 Now they are relative to the directory where the file containing the
-$xref/running/Root Section/root section/$$ is located.
+$xref/running/root/root section/$$ is located.
 If you executed OMhelp in a subdirectory of the starting file location,
 you will have to change you path specifications by removing
 the $code ..$$ from the beginning of each one.
@@ -145,7 +143,7 @@ The file $code index.htm$$ in the directory corresponding to the
 web site is automatically linked to the 
 $xref/glossary/Cross Reference Tag/cross reference tag/$$
 specified by the first section in file containing the
-$xref/running/Root Section/root section/$$.
+$xref/running/root/root section/$$.
 This makes the corresponding section the default page
 for an OMhelp web site.
 It has the added advantage that you can avoid the confusion
@@ -166,7 +164,7 @@ The
 $xref/path/Ignored/path/$$
 command was changed so that 
 it is ignored when it appears in any other section besides the
-$xref/running/Root Section/root section/$$
+$xref/running/root/root section/$$
 of the web site.
 $pre
 
@@ -375,7 +373,7 @@ that uses the
 $xref/keyword/Keyword List/keyword list/$$ was added. 
 You can link a help page to this by using $code _search$$ as a
 $xref/glossary/Cross Reference Tag/tag/$$
-(provided that the $xref/running/Printable/printable/$$ option 
+(provided that the $xref/running/printable/printable/$$ option 
 is not used).
 
 $head 06-04$$
@@ -431,7 +429,7 @@ $pre
 
 $$
 Another feature was added to the 
-$xref/running/Debugging/-debug/$$ option.
+$xref/running/debug/-debug/$$ option.
 The spelling errors (words not in the current dictionary) 
 are listed in alphabetic order in the file $code error.wrd$$.
 This is intended to aid in creating versions of $code local.wrd$$.
@@ -460,7 +458,7 @@ The $mref/include/$$ command was added to aid in having a single
 message or set of commands in multiple pages.
 
 $head 05-09$$
-The $xref/running/Debugging/-debug/$$ option output a list of
+The $xref/running/debug/-debug/$$ option output a list of
 all the web pages referenced by $mref/href/$$ commands.
 This will help in checking that these web pages is still relevant 
 to their usage in your OMhelp document.
@@ -471,7 +469,7 @@ OMhelp is printed when OMhelp is run.
 $pre
 
 $$
-The $xref/running/Debugging/-debug/$$
+The $xref/running/debug/-debug/$$
 was added.
 if $code -debug$$ is present,
 the input file corresponding to each

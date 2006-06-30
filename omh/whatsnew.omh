@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	noframe
 	grep
 	Javascript
 	htm
@@ -80,6 +81,15 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 06-06-30$$
+Add the option to put all the information for a section in one frame
+using the $xref/running/noframe/-noframe/$$ command line argument.
+$pre
+
+$$
+Overhaul the documentation for the command that
+$xref/running/$$ the $code omhelp$$ command.
 
 $head 06-04-11$$
 The $xref/InstallWindows//Windows installation/$$ has been improved.
@@ -305,7 +315,7 @@ sections and improved.
 
 $head 05-06-26$$
 The
-$xref/running/Setting Up Environment/-omhelp_dir dir/$$
+$xref/running/omhelp_dir/-omhelp_dir dir/$$
 command was added.
 This specifies the OMhelp installation directory on the
 command line was added.

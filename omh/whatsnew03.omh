@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin whatsNew03$$
 $dollar @$$
@@ -100,7 +98,7 @@ $xref/_index//index/$$ entries can have both upper and lower case.
 
 $head 11-30$$
 The environment variable 
-$xref/running/Setting Up Environment/omhelp_dir/$$
+$xref/running/omhelp_dir/omhelp_dir/$$
 can now be defined 
 (or its definition can be overridden) using the
 windows INI file.
@@ -204,8 +202,8 @@ $tend
 
 $head 07-18$$
 The
-$xref/running/XML/xml/$$
-$xref/running/Printable/printable/$$ version 
+$xref/running/xml/xml/$$
+$xref/running/printable/printable/$$ version 
 was not displaying properly in Internet Explorer.
 This was fixed by including a 
 $syntax%<head>% ... %</head>%$$ command in the output file.
@@ -231,7 +229,7 @@ This has been fixed.
 
 $head 06-23$$
 If the 
-$xref/running/XML/-xml/$$ command line option was specified
+$xref/running/xml/-xml/$$ command line option was specified
 and character $code <$$ appeared in an 
 $xref head$$ command,
 the output file would not display.
@@ -354,12 +352,12 @@ was not being transferred to the table of contents.
 This problem has been fixed.
 (The default background color is
 specified by placing $xref/color/Bgcolor/bgcolor/$$ command in the 
-$xref/running/Root Section/root section/$$. )
+$xref/running/root/root section/$$. )
 $pre
 
 $$
 A command line argument that specifies a web
-$xref/running/Site Name/site's name/$$
+$xref/running/site/site's name/$$
 has been added.
 This name is currently used when constructing
 the title for the page that 
@@ -370,7 +368,7 @@ $pre
 $$
 The command name of the command line argument $italic starting_file$$
 has been changed to $italic root$$ to signify that it contains the 
-$xref/running/Root Section/root section/$$.
+$xref/running/root/root section/$$.
 
 
 
@@ -489,7 +487,7 @@ computation time.
 
 $head 03-20$$
 For the 
-$xref/running/Printable/non-printable/$$ version,
+$xref/running/printable/non-printable/$$ version,
 the table of contents was changed to be
 like a file browser.
 
@@ -731,7 +729,7 @@ This has been fixed.
 
 $head 02-02$$
 If the 
-$xref/running/Root Section/root section/$$
+$xref/running/root/root section/$$
 does not have any 
 $xref/children//contents, childtable, or children/$$ commands,
 the entire web site consists of just one section.
@@ -757,7 +755,7 @@ The user documentation
 $code build$$ command
 would generate an error message because the links to the search
 and external sections are not defined in the printable version.
-The $xref/running/Warnings/-nowarn/$$ command line option was added
+The $xref/running/nowarn/-nowarn/$$ command line option was added
 so that these warnings could be suppressed.
 
 $head 01-30$$
@@ -789,7 +787,7 @@ window with a link to a particular heading.
 $head 01-28$$
 A directory must be included in the specification for the file
 containing the
-$xref/running/Root Section/root section/$$.
+$xref/running/root/root section/$$.
 The error message and documentation about this has been improved.
 $pre
 
@@ -868,7 +866,7 @@ $href%http://www.seanet.com/~bradbell%Brad's home page%$$.
 
 
 $head 01-11$$
-When the $xref/running/XML/-xml/$$ option is not present,
+When the $xref/running/xml/-xml/$$ option is not present,
 spell checking of the $xref/latex/$$ command was generating a lot of errors.
 Spelling checking in this case is now automatically suspended.
 $pre
