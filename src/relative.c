@@ -211,7 +211,7 @@ void RelativeTable(SectionInfo *F)
 	FILE            *javascript_fp;
 	const char      *icon_link = IconLink();
 	const char      *icon_file = IconFile();
-	const char      *script;
+	const char      *format;
 	const char      *head;
 	int              i;
 	CrossReference  *C;
@@ -264,7 +264,7 @@ void RelativeTable(SectionInfo *F)
 	// Up ------------------------------------------------------------
 	OutputString("<td>\n");
 	OutputString(
-		"<select onchange='choose_up(this.selectedIndex)'>\n"
+		"<select onchange='choose_up(this)'>\n"
 	); 
 	OutputString("<option>Up -&#62;</option>\n");
 	fprintf(javascript_fp, "var list_up = [\n");
@@ -284,7 +284,7 @@ void RelativeTable(SectionInfo *F)
 	// Sibling -------------------------------------------------------
 	OutputString("<td>\n");
 	OutputString(
-		"<select onchange='choose_sibling(this.selectedIndex)'>\n"
+		"<select onchange='choose_sibling(this)'>\n"
 	); 
 	OutputString("<option>Sibling -&#62;</option>\n");
 	fprintf(javascript_fp, "var list_sibling = [\n");
@@ -312,7 +312,7 @@ void RelativeTable(SectionInfo *F)
 	if( S != NULL )
 	{	OutputString("<td>\n");
 		OutputString(
-		"<select onchange='choose_down(this.selectedIndex)'>\n"
+		"<select onchange='choose_down(this)'>\n"
 		); 
 		OutputString("<option>Down -&#62;</option>\n");
 		fprintf(javascript_fp, "var list_down = [\n");
@@ -338,7 +338,7 @@ void RelativeTable(SectionInfo *F)
 	// Across ---------------------------------------------------------
 	OutputString("<td>\n");
 	OutputString(
-		"<select onchange='choose_across(this.selectedIndex)'>\n"
+		"<select onchange='choose_across(this)'>\n"
 	); 
 	OutputString("<option>Across -&#62;</option>\n");
 	fprintf(javascript_fp, "var list_across = [\n");
@@ -390,7 +390,7 @@ void RelativeTable(SectionInfo *F)
 	if( C != NULL )
 	{	OutputString("<td>\n");
 		OutputString(
-		"<select onchange='choose_current(this.selectedIndex)'>\n"
+		"<select onchange='choose_current(this)'>\n"
 		); 
 		OutputString("<option>Current -&#62;</option>\n");
 		fprintf(javascript_fp, "var list_current = [\n");
@@ -431,28 +431,17 @@ void RelativeTable(SectionInfo *F)
 	OutputString("\n");
 
 	// End javascript file
-	script =
-	"function choose_up(index)\n"
-	"{	if(index > 0)\n"
-	"		document.location = list_up[index-1];\n"
-	"}\n"
-	"function choose_sibling(index)\n"
-	"{	if(index > 0)\n"
-	"		document.location = list_sibling[index-1];\n"
-	"}\n"
-	"function choose_down(index)\n"
-	"{	if(index > 0)\n"
-	"		document.location = list_down[index-1];\n"
-	"}\n"
-	"function choose_across(index)\n"
-	"{	if(index > 0)\n"
-	"		document.location = list_across[index-1];\n"
-	"}\n"
-	"function choose_current(index)\n"
-	"{	if(index > 0)\n"
-	"		document.location = list_current[index-1];\n"
-	"}\n"
-	;
-	fprintf(javascript_fp, script);
+	format =
+	"function choose_%s(item)\n"
+	"{	var index          = item.selectedIndex;\n"
+	"	item.selectedIndex = 0;\n"
+	"	if(index > 0)\n"
+	"		document.location = list_%s[index-1];\n"
+	"}\n";
+	fprintf(javascript_fp, format, "up", "up");
+	fprintf(javascript_fp, format, "sibling", "sibling");
+	fprintf(javascript_fp, format, "down", "down");
+	fprintf(javascript_fp, format, "across", "across");
+	fprintf(javascript_fp, format, "current", "current");
 	fclose(javascript_fp);
 }
