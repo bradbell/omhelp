@@ -261,26 +261,53 @@ void RelativeTable(SectionInfo *F)
 		OutputString("</td>\n");
 	}
 
-	// Up ------------------------------------------------------------
+	// Previous and Next ---------------------------------------------
 	OutputString("<td>\n");
-	OutputString(
-		"<select onchange='choose_up(this)'>\n"
-	); 
-	OutputString("<option>Up -&#62;</option>\n");
-	fprintf(javascript_fp, "var list_up = [\n");
-	S = F;
-	while(S != NULL)
-	{	FormatOutput( "<option>%s</option>\n", S->tag);
-		url = Url(S->tag, "", "false");
-		fprintf(javascript_fp, "'%s'", url);
-		FreeMem(url);
-		S = S->parent;
-		if( S != NULL )
-			fprintf(javascript_fp, ",\n");
-		else	fprintf(javascript_fp, "\n];\n");
-	}	
-	OutputString("</select>\n</td>\n"); 
+	OutputString("<table><tr><td>\n");
+	S = SectionReadPrevious(F);
+	if( S == NULL )
+		OutputString("Prev");
+	else
+	{	HrefOutputPass2(S->tag, "", "false", "");
+		OutputString("Prev");
+		HrefEnd("\n");
+	}
+	OutputString("</td><td>");
+	S = SectionReadNext(F);
+	if( S == NULL )
+		OutputString("Next");
+	else
+	{	HrefOutputPass2(S->tag, "", "false", "");
+		OutputString("Next");
+		HrefEnd("\n");
+	}
+	OutputString("</td></tr></table>\n");
+	OutputString("</td>");
 
+	// Up ------------------------------------------------------------
+	S = F->parent;
+	if( S == NULL )
+		OutputString("<td>Up</td>\n");
+	else
+	{
+		OutputString("<td>\n");
+		OutputString(
+			"<select onchange='choose_up(this)'>\n"
+		); 
+		OutputString("<option>Up -&#62;</option>\n");
+		fprintf(javascript_fp, "var list_up = [\n");
+		while(S != NULL)
+		{	FormatOutput( "<option>%s</option>\n", S->tag);
+			url = Url(S->tag, "", "false");
+			fprintf(javascript_fp, "'%s'", url);
+			FreeMem(url);
+			S = S->parent;
+			if( S != NULL )
+				fprintf(javascript_fp, ",\n");
+			else	fprintf(javascript_fp, "\n];\n");
+		}	
+		OutputString("</select>\n</td>\n"); 
+	}
 	// Sibling -------------------------------------------------------
 	OutputString("<td>\n");
 	OutputString(
@@ -309,7 +336,9 @@ void RelativeTable(SectionInfo *F)
 
 	// Down ---------------------------------------------------------
 	S = F->children;
-	if( S != NULL )
+	if( S == NULL )
+		OutputString("<td>Down</td>\n");
+	else
 	{	OutputString("<td>\n");
 		OutputString(
 		"<select onchange='choose_down(this)'>\n"
@@ -358,36 +387,15 @@ void RelativeTable(SectionInfo *F)
 	}
 	OutputString("</select>\n</td>\n"); 
 
-	// Previous and Next ---------------------------------------------
-	OutputString("<td>\n");
-	OutputString("<table><tr><td>\n");
-	S = SectionReadPrevious(F);
-	if( S == NULL )
-		OutputString("prev");
-	else
-	{	HrefOutputPass2(S->tag, "", "false", "");
-		OutputString("prev");
-		HrefEnd("\n");
-	}
-	OutputString("</td><td>");
-	S = SectionReadNext(F);
-	if( S == NULL )
-		OutputString("next");
-	else
-	{	HrefOutputPass2(S->tag, "", "false", "");
-		OutputString("next");
-		HrefEnd("\n");
-	}
-	OutputString("</td></tr></table>\n");
-	OutputString("</td>");
-
 	// Current ----------------------------------------------------------
 	C = FindCrossReference(F->tag, "");
 	assert( C != NULL );
 	C = NextCrossReference(C);
 
 	head = "";
-	if( C != NULL )
+	if( C == NULL )
+		OutputString("<td>Current</td>\n");
+	else
 	{	OutputString("<td>\n");
 		OutputString(
 		"<select onchange='choose_current(this)'>\n"
