@@ -27,7 +27,8 @@ $$
 $section Output Frame Set for a Section$$
 
 $head Syntax$$
-$syntax%void OutputFrameSet(SectionInfo *%F%, const char *%FrameOneExt%)%$$
+$syntax%void OutputFrameSet(SectionInfo *%
+	F%, const char *%FrameOneExt%, int %link_frame%)%$$
 
 $head Purpose$$
 This routine outputs the frame set corresponding to the section
@@ -42,14 +43,17 @@ $syntax%
 where $italic ext$$ is the return value from the function
 $code Internal2Out("OutputExtension")$$.
 
-$head Link Frame$$
-The file containing the relative links for this section is assumed to be named 
+$head link_frame$$
+If $italic link_frame$$ is true,
+a file containing the relative links for this section is output with
+the name
 $syntax%
 	%F->tagLower%.%ext%
 %$$
 where $italic ext$$ is the return value from the function
 $code Internal2Out("OutputExtension")$$.
 This file is displayed in a tall frame to the left of the section information.
+Otherwise, there is no link frame in this frame set.
 
 $head User Frames$$
 The other frames are displayed one above the other 
@@ -81,7 +85,7 @@ $end
 # include "output.h"
 # include "HtmlHead.h"
 
-void OutputFrameSet(SectionInfo *F, const char *FrameOneExt)
+void OutputFrameSet(SectionInfo *F, const char *FrameOneExt, int link_frame)
 {	const char *ext;
 	char buffer[200]; 
 	int iFrame;
@@ -101,12 +105,14 @@ void OutputFrameSet(SectionInfo *F, const char *FrameOneExt)
 	// frameset file has no <body> content
 
 	// split into left and right frames
-	OutputString("<frameset cols=\"15%,*\">\n");
+	if( link_frame )
+	{	OutputString("<frameset cols=\"15%,*\">\n");
 	
-	// left frame is navation links
-	FormatOutput2( "<frame src=\"%s_links%s\"", F->tagLower, ext);
-	OutputString(Internal2Out("SelfTerminateCmd"));
-	OutputString("\n");
+		// left frame is navation links
+		FormatOutput2( "<frame src=\"%s_links%s\"", F->tagLower, ext);
+		OutputString(Internal2Out("SelfTerminateCmd"));
+		OutputString("\n");
+	}
 	
 	// users set of frames
 	OutputString("<frameset rows=\"");
@@ -155,7 +161,8 @@ void OutputFrameSet(SectionInfo *F, const char *FrameOneExt)
 	OutputString("</frameset>\n");
 
 	// end left / right
-	OutputString("</frameset>\n");
+	if( link_frame )
+		OutputString("</frameset>\n");
 	
 	// terminate this output file
 	OutputString("</html>\n");

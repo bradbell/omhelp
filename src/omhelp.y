@@ -444,12 +444,14 @@ static void SecondPass(SectionInfo *F)
 			OutputString("<body>\n");
 
 			// relative links are in this file
-			RelativeTable(F);
+			if( RootHasChildren )
+				RelativeTable(F);
 		}
 		else
 		{
-			RelativeFrame(F);
-			OutputFrameSet(F, FrameOneExt);
+			if( RootHasChildren )
+				RelativeFrame(F);
+			OutputFrameSet(F, FrameOneExt, RootHasChildren);
 	
 			// initialize user side frame index
 			iFrame = 1;

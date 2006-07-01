@@ -21,6 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 # include "section.h"
 
-extern void OutputFrameSet(SectionInfo *F, const char *FrameOneExt);
+extern void OutputFrameSet(
+	SectionInfo *F, const char *FrameOneExt, int link_frame);
 
 # endif
