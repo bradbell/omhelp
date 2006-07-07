@@ -40,6 +40,8 @@ if "%1%" == "Doc" goto DOC
 	..\src\src.exe ..\omh\overview.omh  -noframe -debug -omhelp_dir ..\OMhelp
 	cd ..
 : ERRORCHECK
-find "OMhelp Warning:"       RunOMhelp.log
-find "OMhelp Error:"         RunOMhelp.log
+find "OMhelp Warning:"       OMhelp.Doc.log
+find "OMhelp Error:"         OMhelp.Doc.log
+find "OMhelp Warning:"       OMhelp.Dev.log
+find "OMhelp Error:"         OMhelp.Dev.log
 : DONE

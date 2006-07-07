@@ -62,15 +62,18 @@ a style record that is also output as part of the header.
 $head Script$$
 If $code NoFrame()$$ is true, declare
 $syntax%
-	%F->tagLower%_link.js
+	_%F->tagLower%_%ext%.js
 %$$
-to be the javascript file for this section.
+to be the javascript file for this section
+where $italic ext$$ is $code Internal2Out("OutputExtension")$$
+with out the leading "." character.
 
 
 $end
 ---------------------------------------------------------------------------
 */
 # include <stdlib.h>
+# include <assert.h>
 
 # include "main.h"
 # include "section.h"
@@ -79,6 +82,7 @@ $end
 # include "Internal2Out.h"
 # include "style.h"
 # include "allocmem.h"
+# include "StrCat.h"
 
 void OutputHtmlHead(SectionInfo *F)
 {	char *stylecmd;
@@ -113,12 +117,29 @@ void OutputHtmlHead(SectionInfo *F)
 
 	// Script
 	if( NoFrame() )
-	{	FormatOutput( 
-			"<script type='text/javascript' "
-			"language='JavaScript' src='%s_link.js'>\n</script>\n",
-			F->tagLower
-		);
-	}
+	{	char *name;
+		const char *ext = Internal2Out("OutputExtension");
+		assert( *ext == '.' );
+		ext++;
 
+		// name of the Javascript file for drop down links.
+		name = StrCat(
+			__FILE__,
+			__LINE__,
+			"_",
+			F->tagLower,
+			"_",
+			ext,
+			".js",
+			NULL
+		);
+
+		FormatOutput( 
+			"<script type='text/javascript' "
+			"language='JavaScript' src='%s'>\n</script>\n",
+			name	
+		);
+		FreeMem(name);
+	}
 	OutputString("</head>\n");
 }

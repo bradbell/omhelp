@@ -62,7 +62,7 @@ then
 		echo "See the complete error message in OMhelp.Doc.log."
 		exit 1
 	fi
-	../src/omhelp ../omh/overview.omh  -debug -omhelp_dir ../OMhelp
+	../src/omhelp ../omh/overview.omh  -noframe -debug -omhelp_dir ../OMhelp
 	cd ..
 	if grep "^OMhelp Warning:" OMhelp.Doc.log
 	then

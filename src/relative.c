@@ -44,13 +44,18 @@ $italic ext$$ is equal to $syntax%%Internal2Out("OutputExtension")%$$.
 
 $head RelativeTable$$
 This creates a table, in the current output file, containing the links.
-It also creates the Javascript file $syntax%%F->tagLower%.js%$$ and 
-assumes that the $syntax%<head>%...%</head>%$$ for the current 
+It also creates the Javascript file 
+$syntax%
+	_%F->tagLower%_%ext%.js
+%$$ 
+and assumes that the $syntax%<head>%...%</head>%$$ for the current 
 output file contains the command
 $syntax%
-	<script type='text/javascript' language='JavaScript' src='%tag%.js'>
+<script type='text/javascript' language='JavaScript' src='%tag%_%ext%.js'>
 %$$
-where $italic tag$$ is $syntax%%F->tagLower%$$.
+where $italic tag$$ is $syntax%%F->tagLower%$$ and
+$italic ext$$ is $code Internal2Out("OutputExtension")$$
+with out the leading "." character.
 
 $contents%
 	links.c
@@ -213,17 +218,26 @@ void RelativeTable(SectionInfo *F)
 	const char      *icon_file = IconFile();
 	const char      *format;
 	const char      *head;
+	const char      *ext;
 	int              i;
 	CrossReference  *C;
 
 	// The HTML code &#62; is used for the greater than symbol
 
+	// output extension with out leading dot
+	ext = Internal2Out("OutputExtension");
+	assert( *ext == '.' );
+	ext++;
+
 	// Open the Javascript file for these drop down links.
 	name = StrCat(
 		__FILE__,
 		__LINE__,
+		"_",
 		F->tagLower,
-		"_link.js",
+		"_",
+		ext,
+		".js",
 		NULL
 	);
 	javascript_fp = fopen(name, "w");

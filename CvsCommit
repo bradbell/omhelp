@@ -1,46 +1,20 @@
-# Overhaul the running.omh documentation (and add -noframe)
+# Minor improvements to -noframe command line option.
 #
 # CvsCommit: file that made this commit.
-# RunOMhelp: use the -noframe comamnd line argument when running OMhelp.
-# RunOMhelp.bat: use the -noframe comamnd line argument when running OMhelp.
-# whatsnew.omh: user's view of the changes.
-# running.omh: overhaul of documentation for running OMhelp.
-# FrameSet.c: Fix a spelling error.
-# HtmlHead.c: Fix a spelling error.
-# omhelp.y: do not check xref frame when suppressed in -noframe case.
-# Makefile.am: add AutoTag.h to distribution, fix bison output.
-# fixbision.sed: fix an error in bison's output.
+# RunOMhelp: Change to use -noframe option.
+# RunOMhelp.bat: search proper files for errors and warnings.
+# HtmlHead.c: put underbar in front and extension near end of script file name.
+# relative.c: put underbar in front and extension near end of script file name.
 #
 # Other files: automatic editing of cross references to running.omh
 add_list="
-	src/fixbison.sed
 "
 change_list="
 	CvsCommit
 	RunOMhelp
 	RunOMhelp.bat
-	omh/whatsnew.omh
-	omh/running.omh
-	src/FrameSet.c
 	src/HtmlHead.c
-	src/Makefile.am
-
-	omh/color.omh
-	omh/file.omh
-	omh/glossary.omh
-	omh/href.omh
-	omh/latex.omh
-	omh/path.omh
-	omh/spell.omh
-	omh/whatsnew01.omh
-	omh/whatsnew02.omh
-	omh/whatsnew03.omh
-	omh/whatsnew04.omh
-	omh/why.omh
-	omh/getstarted/StartLatex.omh
-	omh/getstarted/StartMultiple.omh
-	omh/getstarted/StartSimple.omh
-	omh/latex/LatexMacro.omh
+	src/relative.c
 "
 delete_list="
 "
