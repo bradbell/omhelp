@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,44 +15,34 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 ----------------------------------------------------------------------
-$begin Xref2Example$$
+$begin Cref2Example$$
 $spell
-	xref
+	cref
 $$
 
-$section An Example Linking A Specific Heading$$
+$section An Example Specifying the Cross Reference Tag$$
 
-$comment This command ends the first frame and starts the second$$
-$fend 20$$
-
-The second argument to an xref command specifies a 
-heading (or subheading).
-If you use the two argument version of the xref command,
-only the first frame of the current section is replaced.
+If there is more than one argument to a cref command,
+the second argument specifies the cross reference tag. 
 For example, if you select the following link:
-$xref/Xref1Example/Cross Reference Tag/$$.
+$cref/parent of this section/Cref1Example/$$.
 
 $end
 ----------------------------------------------------------------------
-$begin Xref3Example$$
+$begin Cref3Example$$
 $spell
-	xref
+	cref
+	omhelp
 $$
 
-$section An Example Specifying The Linking Text$$
+$section An Example Specifying a Heading $$
 
-$comment This command ends the first frame and starts the second$$
-$fend 20$$
-
-The third argument to an xref command specifies the linking text
+The third argument to a cref command specifies the heading
 for the cross reference.
-If the second argument is empty,
-the entire section is replaced (as in the one argument case).
 For example, if you select the following link:
-$xref/Xref1Example//parent of this section/$$.
+$cref/first argument/Cref1Example/First Argument/$$.
 
 $end
 ----------------------------------------------------------------------

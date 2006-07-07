@@ -891,8 +891,7 @@ used as limits. This has been fixed.
 
 
 $head 01-10$$
-A 
-$xref/StartXref//getting started section/$$ 
+A getting started section 
 was added
 for the $xref/image/$$ and $xref/latex/$$ commands.
 $pre
@@ -903,8 +902,7 @@ $xref/getstarted/$$ section provides better examples.
 
 
 $head 01-08$$
-A 
-$xref/StartXref//getting started section/$$ 
+A getting started section 
 for the $xref/xref/$$ command was added.
 
 $head 01-07$$

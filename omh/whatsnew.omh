@@ -82,6 +82,10 @@ $tend
 
 $$
 
+$head 06-07-07$$
+The $cref/cref/$$ command was added and the $cref/xref/$$ command
+was deprecated (because the use of frames is now discouraged).
+
 $head 06-06-30$$
 Add the option to put all the information for a section in one frame
 using the $xref/running/noframe/-noframe/$$ command line argument.

@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,13 +15,12 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
-$begin StartXref$$
+$begin StartCref$$
 $dollar @$$
 $escape #$$
 $spell
-	Xref
+	Cref
 	omh
 	OMhelp
 	omhelp
@@ -30,25 +28,25 @@ $spell
 $$
 
 $children/
-	Xref1Example.omh/$$
+	Cref1Example.omh/$$
 
 $section An Example Linking To Other Pages In The Same Web Site$$
-$index xref, get started$$
+$index cref, get started$$
 $index link, get started$$
 $index cross reference, get started$$
 
-$head Introduction$$
+$head Purpose$$
 The cross reference command 
-$xref/xref/$$
+$cref/cref/$$
 is used to link to another destination in the same web site.
 If the requested destination does not exist,
-a warning is printed on $xref/stdout//standard output/$$.
+a warning is printed on $cref/stdout/$$.
 
 $head Execute The Following Steps$$
 
-$subhead Xref1Example.omh$$
+$subhead Cref1Example.omh$$
 Use an editor of your choice to
-create the file $code Xref1Example.omh$$ 
+create the file $code Cref1Example.omh$$ 
 in the 
 $xref/
 	StartSimple/
@@ -57,16 +55,16 @@ $xref/
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%Xref1Example.omh%5%#036begin %$$
+     $$@begin $verbatim%Cref1Example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
 You may just copy the file with the same name from the 
 $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
-$subhead Xref2Example.omh$$
+$subhead Cref2Example.omh$$
 Use an editor of your choice to
-create the file $code  Xref2Example.omh$$ 
+create the file $code  Cref2Example.omh$$ 
 in the 
 $xref/
 	StartSimple/
@@ -75,15 +73,15 @@ $xref/
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%Xref2Example.omh%5%#036begin %$$
+     $$@begin $verbatim%Cref2Example.omh%5%#036begin %$$
 $$
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code Xref1Example.omh$$
+result of making $code Cref1Example.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/Xref1Example/$$.
+$xref/Cref1Example/$$.
 
 $subhead Execute OMhelp$$
 In a Dos window and 
@@ -94,12 +92,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ..\Xref1Example.omh
+	omhelp ..\Cref1Example.omh
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%omh%\htm\xref1example.htm%$$.
+$syntax%%omh%\htm\cref1example.htm%$$.
 
 $end

@@ -1,22 +1,42 @@
-# Minor improvements to -noframe command line option.
+# Add the cref command and deprecate the xref command.
 #
 # CvsCommit: file that made this commit.
-# RunOMhelp: Change to use -noframe option.
-# RunOMhelp.bat: search proper files for errors and warnings.
-# HtmlHead.c: put underbar in front and extension near end of script file name.
-# relative.c: put underbar in front and extension near end of script file name.
+# omhelp.vim: add the cref command to highlighting.
+# cross_childtable.omh: add cref and move xref to end.
+# title.omh: use syntax instead of codep and pre.
+# whatsnew.omh: users view of changes.
+# whatsnew03.omh: remove cross reference to StartXref.
+# xref.omh: deprecate.
+# lexomh.c: add $cref as token.
+# omhelp.y: add $cref command
+# relative.c: fix case in include command.
 #
-# Other files: automatic editing of cross references to running.omh
+# The following file changes replaced the xref example by a cref example:
+# getstarted.omh, StartXref.omh, Xref1Example.omh, Xref2Example.omh, 
+# StartCref.omh, Cref1Example.omh, Cref2Example.omh, 
 add_list="
+	omh/getstarted/StartCref.omh
+	omh/getstarted/Cref1Example.omh
+	omh/getstarted/Cref2Example.omh
+	omh/cref.omh
 "
 change_list="
 	CvsCommit
-	RunOMhelp
-	RunOMhelp.bat
-	src/HtmlHead.c
+	OMhelp/omhelp.vim
+	omh/cross_childtable.omh
+	omh/getstarted.omh
+	omh/title.omh
+	omh/whatsnew.omh
+	omh/whatsnew03.omh
+	omh/xref.omh
+	src/lexomh.c
+	src/omhelp.y
 	src/relative.c
 "
 delete_list="
+	omh/getstarted/StartXref.omh
+	omh/getstarted/Xref1Example.omh
+	omh/getstarted/Xref2Example.omh
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same
@@ -41,11 +61,11 @@ do
 done
 for file in $add_list
 do
-	echo "svn add $file ?"
+	echo "cvs add $file ?"
 done
 for file in $delete_list
 do
-	echo "svn delete $file ?"
+	echo "cvs delete $file ?"
 done
 response=""
 while [ "$response" != "c" ] && [ "$response" != "a" ]
@@ -54,13 +74,13 @@ do
 done
 if [ "$response" = "c" ]
 then
-	for file in $add_list
-	do
-		cvs add $file
-	done
 	for file in $delete_list
 	do
 		cvs delete $file
+	done
+	for file in $add_list
+	do
+		cvs add $file
 	done
 	cvs commit -F CvsCommit.log $add_list $change_list $delete_list
 else

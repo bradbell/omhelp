@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 There are multiple sections in this file as an example. 
 
@@ -52,7 +50,7 @@ $tend
 
 $fend 30$$
 
-$head Description$$
+$head Purpose$$
 OMhelp ignores all input in a file except
 between a 
 $code begin$$ command and a matching $code end$$ command.
@@ -73,29 +71,29 @@ cross referenced as "two".
 In addition, each of the sections 
 has a cross references to the other.
 
-$pre
+$syntax%
 	/*
 	@begin one@@
 	@section First Subject@@
 	This section is similar to
 	@xref/two//the second section/@@.
-	$$...$pre
+	%...%
 	@end
 	*/
 	
-	$$Other text$pre
+	%Other text%
 	
 	/*
 	@begin two@@
 	@section Second Subject@@
 	This section is similar to
 	@xref/one//the first section/@@.
-	$$...$pre
+	%...%
 	@end
 	*/
 	
-	$$Other text$pre
-$$
+	%Other text%
+%$$
 
 $head Restrictions$$
 No two sections can have the same cross reference
@@ -105,15 +103,9 @@ when comparing cross reference tags).
 $pre
 
 $$
-Cross reference tags that begin with an underbar character, $code _$$,
+Cross reference tags that begin with the
+underbar character $code _$$, and the dot character $code .$$,
 are reserved by OMhelp and cannot be used in $code begin$$ commands.
-$pre
-
-$$
-In addition, no cross reference tag can contain
-the substring $code _frame$$ or $code _links$$
-(where upper and lower case letters are considered equal).
-
 
 $end
 

@@ -1077,6 +1077,7 @@ void InitParser(const char *StartingInputFile)
 %token CODEP_lex
 %token COMMENT_lex
 %token CONTENTS_lex
+%token CREF_lex
 %token DATE_lex
 %token DOLLAR_lex
 %token DOUBLE_DOLLAR_lex
@@ -1164,6 +1165,7 @@ element
 	| codecolor
 	| codep
 	| comment
+	| cref
 	| date
 	| dollar
 	| end
@@ -2067,6 +2069,141 @@ comment
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
 
+		FreeMem($2.str);
+
+		$$ = $1;
+	}
+	;
+
+cref
+	: CREF_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| CREF_lex text DOUBLE_DOLLAR_lex
+	{	char *text;
+		char *tag;
+		char *head;
+		char *subhead;
+		char *frame;
+		char *external;
+		CrossReference *C;
+
+		int checkspell;
+		int ntoken;
+		int i, j;
+
+		assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		if( PreviousOutputWasHeading )
+		{	ConvertForcedNewline(1);
+			PreviousOutputWasHeading = 0;
+		}
+		
+
+		// split text into tokens
+		ntoken = SplitText($1.line, "$cref", $2.str);
+		if( ntoken > 4 ) fatalomh(
+			"At $cref command in line ",
+			int2str($1.line),
+			"\nMore than 5 delimiters in $cref command",
+			NULL
+		);
+		
+		// text for reference
+		text = $2.str + 1;
+		tag  = text + strlen(text) + 1;
+		UniformWhiteSpace(text);
+		if( text[0] == '\0' ) fatalomh(
+			"At $cref command in line ",
+			int2str($1.line),
+			"\nthe text portion is only white space",
+			NULL
+		);
+
+		// tag
+		if( ntoken >= 2 )
+		{	head = tag + strlen(tag) + 1;
+			UniformWhiteSpace(tag);
+			if( tag[0] == '\0' ) fatalomh(
+				"At $cref command in line ",
+				int2str($1.line),
+				"\nthe tag portion is only white space",
+				NULL
+			);
+		}
+		else
+		{	head = ""; // avoid unitialized warning
+			tag = text;
+		}
+
+		// head 
+		if( ntoken >= 3 )
+		{	subhead = head + strlen(head) + 1;
+			UniformWhiteSpace(head);
+			if( head[0] == '\0' ) fatalomh(
+				"At $cref command in line ",
+				int2str($1.line),
+				"\nthe head portion is only white space",
+				NULL
+			);
+		}
+		else
+		{	subhead = ""; // avoid unitialized warning
+			head    = "";
+		}
+
+		// subhead
+		if( ntoken >= 4 )
+		{	UniformWhiteSpace(subhead);
+			if( subhead[0] == '\0' ) fatalomh(
+				"At $cref command in line ",
+				int2str($1.line),
+				"\nthe subhead portion is only white space",
+				NULL
+			);
+		}
+		else	subhead = "";
+
+		// target frame (part of xref) has been deprecricated.
+		frame = "";
+
+		// this is not an external reference
+		external = "false";
+
+		// attach the subheading to the heading
+		if( subhead[0] != '\0' )
+		{	assert( subhead >=  head + strlen(head) + 1);
+			i         = strlen(head);
+			j         = 0;
+			head[i++] = '.';
+			while( subhead[j] != '\0' )
+				head[i++] = subhead[j++];	
+			head[i] = '\0';
+		}
+
+		// output the cross reference jump without spell checking
+		checkspell = CheckSpell;
+		CheckSpell = 0;
+		HrefOutputPass1(tag, head, external, frame);
+
+		// output other information with spell checking
+		if( ntoken >= 2 )
+			CheckSpell = checkspell;
+		
+		OutPre($2.line, text);
+		HrefEnd("\n");
+		
+		// search for this cross reference
+		C = FindCrossReference(tag, head);
+		if( C == NULL )
+			C = CreateCrossReference(tag, head, InputName());
+		assert( C != NULL );
+
+		// restore spell checking to initial setting
+		CheckSpell = checkspell;
+		
 		FreeMem($2.str);
 
 		$$ = $1;

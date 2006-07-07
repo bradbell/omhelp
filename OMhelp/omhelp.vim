@@ -66,6 +66,9 @@
 :syntax match omh_contents        /\$contents/
 :highlight link omh_contents      Keyword
 
+:syntax match omh_cref            /\$cref/
+:highlight link omh_cref          Keyword
+
 :syntax match omh_date            /\$date/
 :highlight link omh_date          Special
 

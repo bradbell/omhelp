@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,10 +15,10 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin xref$$
 $spell 
+	noframe
 	hypertext 
 	omhelp 
 	xref
@@ -43,10 +42,18 @@ $cnext $syntax/@xref%/tag/%/heading/%/linkingtext/%/frame/%@@/$$ $rnext
 $cnext $syntax/@xref%/tag/%/heading/%/subheading/%/linkingtext/%/frame/%@@/$$ 
 $rnext
 $bold See Also$$
-$cnext $xref/StartXref//getting started/$$, $mref/href/mref/tref/$$
+$mref/href/mref/tref/$$
 $tend
 
 $fend 30$$
+
+$head Deprecated$$
+With the advent of the 
+$cref/-noframe/running/noframe/$$ command line argument,
+the use of frames is being discouraged.
+For this reason, the entire $code xref$$ command has been deprecated
+and it is suggested that you use the $cref/cref/$$ command instead.
+
 
 $head Description$$
 This command is used to specify a general cross reference link

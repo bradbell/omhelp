@@ -184,6 +184,7 @@ keyword_table[] =
 	{ "codep",      CODEP_lex       },
 	{ "comment",    COMMENT_lex     },
 	{ "contents",   CONTENTS_lex    },
+	{ "cref",       CREF_lex        },
 	{ "date",       DATE_lex        },
 	{ "dollar",     DOLLAR_lex      },
 	{ "end",        END_lex         },
