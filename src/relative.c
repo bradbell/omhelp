@@ -89,6 +89,18 @@ $end
 # include "href.h"
 
 
+static WriteJavascriptString(FILE *fp, const char *s)
+{	char single_quote = '\'';
+	char back_slash   = '\\';
+	fputc(single_quote, fp);
+	while( *s != '\0' )
+	{	if( *s == single_quote )
+			fputc(back_slash, fp);
+		fputc(*s++, fp);
+	}
+	fputc(single_quote, fp);
+}
+
 void RelativeFrame(SectionInfo *F)
 {	SectionInfo    *S;
 	SectionInfo    *List[MAX_DEPTH];
@@ -313,7 +325,7 @@ void RelativeTable(SectionInfo *F)
 		while(S != NULL)
 		{	FormatOutput( "<option>%s</option>\n", S->tag);
 			url = Url(S->tag, "", "false");
-			fprintf(javascript_fp, "'%s'", url);
+			WriteJavascriptString(javascript_fp, url);
 			FreeMem(url);
 			S = S->parent;
 			if( S != NULL )
@@ -337,7 +349,7 @@ void RelativeTable(SectionInfo *F)
 	while(S != NULL)
 	{	FormatOutput( "<option>%s</option>\n", S->tag);
 		url = Url(S->tag, "", "false");
-		fprintf(javascript_fp, "'%s'", url);
+		WriteJavascriptString(javascript_fp, url);
 		FreeMem(url);
 		S = S->next;
 		while( S != NULL && IsAutomaticSection(S) )
@@ -366,7 +378,7 @@ void RelativeTable(SectionInfo *F)
 		while(S != NULL)
 		{	FormatOutput( "<option>%s</option>\n", S->tag);
 			url = Url(S->tag, "", "false");
-			fprintf(javascript_fp, "'%s'", url);
+			WriteJavascriptString(javascript_fp, url);
 			FreeMem(url);
 			S = S->next;
 			while( S != NULL && IsAutomaticSection(S) )
@@ -392,7 +404,7 @@ void RelativeTable(SectionInfo *F)
 			tag++;
 		FormatOutput( "<option>%s</option>\n", tag);
 		url = Url(AutomaticTag(i), "", "false");
-		fprintf(javascript_fp, "'%s'", url);
+		WriteJavascriptString(javascript_fp, url);
 		FreeMem(url);
 		i++;
 		if( AutomaticTag(i) != NULL )
@@ -436,7 +448,7 @@ void RelativeTable(SectionInfo *F)
 			FreeMem(name);
 			//
 			url = Url(C->tag, C->head, "false");
-			fprintf(javascript_fp, "'%s'", url);
+			WriteJavascriptString(javascript_fp, url);
 			FreeMem(url);
 			C = NextCrossReference(C);
 			if( C != NULL )
