@@ -45,7 +45,6 @@ getting started examples listed below.
 $children/
 	StartSimple.omh/
 	StartHead.omh/
-	StartFrame.omh/
 	StartImage.omh/
 	StartPre.omh/
 	StartFont.omh/
@@ -61,7 +60,6 @@ $table
 $bold Commands$$                $cnext $bold Getting Started$$ $rnext
 $mref/begin/section/$$          $cnext $tref StartSimple$$    $rnext
 $xref/head/$$                   $cnext $tref StartHead$$      $rnext
-$xref/fend//fend/$$             $cnext $tref StartFrame$$     $rnext
 $xref/image/$$                  $cnext $tref StartImage$$     $rnext
 $xref/pre/$$                    $cnext $tref StartPre$$       $rnext
 $xref/font/$$                   $cnext $tref StartFont$$      $rnext

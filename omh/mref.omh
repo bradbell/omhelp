@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin mref$$
 $escape #$$
@@ -25,7 +23,7 @@ $spell
 	hypertext
 	omhelp
 	mref
-	xref
+	cref
 	OMhelp
 	keyindex
 $$
@@ -40,7 +38,7 @@ $table
 $bold Syntax$$
 $cnext $syntax/@mref%/tag1/%/tag2/%/.../%/tagN/%@@/$$ $rnext
 $bold See Also$$
-$cnext $mref/xref/tref/rref/href/$$  $rnext
+$cnext $mref/cref/tref/rref/href/$$  $rnext
 $tend
 
 $fend 20$$
@@ -66,25 +64,25 @@ is ignored.
 $head Example$$
 The following input
 $codep
-	(see also: @mref/xref/@@)
+	(see also: @mref/cref/@@)
 $$
 produces the following output
 $pre
-	$$(see also: $mref/xref/$$)
+	$$(see also: $mref/cref/$$)
 $pre
 $$
-Note that $code xref$$ is the tag for the other section
+Note that $code cref$$ is the tag for the other section
 of explicit cross referencing.
 $pre
 
 $$
 The following input
 $codep
-	(See also: @mref/xref/_index/_contents/@@.)
+	(See also: @mref/cref/_index/_contents/@@.)
 $$
 produces the following output
 $pre
-	$$(See also: $mref/xref/_index/_contents/$$.)
+	$$(See also: $mref/cref/_index/_contents/$$.)
 $pre
 $$
 Note that the cross reference tags $code _index$$, and $code _contents$$

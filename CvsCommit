@@ -1,42 +1,49 @@
-# Add the cref command and deprecate the xref command.
+# Deprecate the fend command and fix single quote in Javascript strings.
 #
 # CvsCommit: file that made this commit.
-# omhelp.vim: add the cref command to highlighting.
-# cross_childtable.omh: add cref and move xref to end.
-# title.omh: use syntax instead of codep and pre.
 # whatsnew.omh: users view of changes.
-# whatsnew03.omh: remove cross reference to StartXref.
-# xref.omh: deprecate.
-# lexomh.c: add $cref as token.
-# omhelp.y: add $cref command
-# relative.c: fix case in include command.
-#
-# The following file changes replaced the xref example by a cref example:
-# getstarted.omh, StartXref.omh, Xref1Example.omh, Xref2Example.omh, 
-# StartCref.omh, Cref1Example.omh, Cref2Example.omh, 
+# CleanOMhelp: remove htm directories.
+# deprecated.omh: group the deprecated commands here.
+# FrameExample.omh: remove fend getstarted example.
+# StartFrame.omh: remove fend getstarted example.
+# cross_childtable.omh: move xref.omh include from here to deprecated.omh.
+# fend.omh: add mentiond of deprecation.
+# format_children.omh: move fend.omh include from here to deprecated.omh.
+# getstarted.omh: remove fend getstarted example.
+# other.omh: add deprecated.omh to list of children.
+# special.omh: move wspace.omh include from here to deprecated.omh
+# whatsnew03.omh: remove cross reference to fend example.
+# ImageExample.omh: remove use of fend command.
+# relative.c: properly escape the single quote character when inside a string.
+# tref.omh: use cref instead of xref for examples.
+# href.omh: use cref instead of xref for examples.
+# rref.omh: use cref instead of xref for examples.
+# mref.omh: use cref instead of xref for examples.
+# cref.omh: minor change to title.
 add_list="
-	omh/getstarted/StartCref.omh
-	omh/getstarted/Cref1Example.omh
-	omh/getstarted/Cref2Example.omh
-	omh/cref.omh
+	omh/deprecated.omh
 "
 change_list="
 	CvsCommit
-	OMhelp/omhelp.vim
-	omh/cross_childtable.omh
-	omh/getstarted.omh
-	omh/title.omh
 	omh/whatsnew.omh
+	CleanOMhelp
+	omh/cross_childtable.omh
+	omh/fend.omh
+	omh/format_children.omh
+	omh/getstarted.omh
+	omh/other.omh
+	omh/special.omh
 	omh/whatsnew03.omh
-	omh/xref.omh
-	src/lexomh.c
-	src/omhelp.y
-	src/relative.c
+	omh/getstarted/ImageExample.omh
+	omh/tref.omh
+	omh/href.omh
+	omh/rref.omh
+	omh/mref.omh
+	omh/cref.omh
 "
 delete_list="
-	omh/getstarted/StartXref.omh
-	omh/getstarted/Xref1Example.omh
-	omh/getstarted/Xref2Example.omh
+	omh/getstarted/FrameExample.omh
+	omh/getstarted/StartFrame.omh
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same

@@ -12,6 +12,7 @@ then
 	\( -name 'Dev'            \) -or \
 	\( -name 'dictionary.bin' \) -or \
 	\( -name 'Doc'            \) -or \
+	\( -name 'htm'            \) -or \
 	\( -name 'junk'           \) -or \
 	\( -name 'junk?'          \) -or \
 	\( -name 'junk.*'         \) -or \
@@ -58,6 +59,7 @@ else
 	\( -name 'Dev'            \) -or \
 	\( -name 'dictionary.bin' \) -or \
 	\( -name 'Doc'            \) -or \
+	\( -name 'htm'            \) -or \
 	\( -name 'junk'           \) -or \
 	\( -name 'junk?'          \) -or \
 	\( -name 'junk.*'         \) -or \

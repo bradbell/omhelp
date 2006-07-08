@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	Kargl
 	noframe
 	grep
 	Javascript
@@ -83,8 +84,18 @@ $tend
 $$
 
 $head 06-07-07$$
-The $cref/cref/$$ command was added and the $cref/xref/$$ command
-was deprecated (because the use of frames is now discouraged).
+The $cref/cref/$$ command was added and the 
+$cref/xref/$$, $cref/fend/$$ commands
+were deprecated (because the use of frames is now discouraged).
+In addition, the $cref/deprecated/$$ commands have been moved
+to a separate section.
+$pre
+
+$$
+There was a bug in the drop down links where by they did not 
+work when a single quote $code '$$ as in the text of the link.
+This was found by Steve Kargl and has been fixed. 
+
 
 $head 06-06-30$$
 Add the option to put all the information for a section in one frame

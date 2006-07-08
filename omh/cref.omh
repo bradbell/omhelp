@@ -34,7 +34,7 @@ $index section, link$$
 $index heading, link$$
 $index subheading, link$$
 
-$section Specifying a General Cross Reference With in Web Site$$
+$section General Cross Reference Within a Web Site$$
 
 $head Syntax$$
 $syntax/@cref%/text/%@@

@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,14 +15,13 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin tref$$
 $spell 
 	hypertext 
 	OMhelp 
 	tref 
-	xref
+	cref
 $$
 $escape #$$
 $dollar @$$
@@ -37,7 +35,7 @@ $table
 $bold Syntax$$
 $cnext $syntax/@tref /tag/@@/$$ $rnext
 $bold See Also$$
-$cnext $mref/title/xref/$$ 
+$cnext $mref/title/cref/$$ 
 $tend
 
 $fend 20$$
@@ -56,13 +54,13 @@ Leading and trailing white space in $italic tag$$ is ignored.
 $head Example$$
 The following input
 $codep
-	(see also: @tref xref@@)
+	(see also: @tref cref@@)
 $$
 produces the following output
 $pre
-	$$(see also: $tref xref$$)
+	$$(see also: $tref cref$$)
 $pre
 $$
-Note that $code xref$$ is the $italic tag$$ in this example.
+Note that $code cref$$ is the $italic tag$$ in this example.
 
 $end

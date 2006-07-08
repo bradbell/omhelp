@@ -1,0 +1,23 @@
+$begin deprecated$$
+$spell
+	OMhelp
+$$
+
+
+$section OMhelp Commands that Have been Deprecated$$
+
+
+$head Purpose$$
+The following correspond to valid OMhelp commands that are discouraged
+from use.
+They are included below mainly so that one can understand the
+intention of old OMhelp input files that use theses commands
+
+$contents%
+	wspace.omh%
+	xref.omh%
+	fend.omh
+%$$
+
+$end
+
