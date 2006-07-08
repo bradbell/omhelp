@@ -1,10 +1,23 @@
 $begin BackButton$$
 $spell
+	noframe
+	OMhelp
 	xsl
 $$
 
 
 $section Using Back Button in FireFox 1.5$$
+
+$head Deprecated$$
+The use of frames in OMhelp has been deprecated,
+and avoided in this copy of the OMhelp documentation
+(using the $cref/-noframe/running/noframe/$$ command line option).
+Hence you will not see the bug in action by following the instructions below.
+You can see this bug in action by following the link
+$href%
+	http://www.seanet.com/~bradbell/backbutton/backbutton.htm
+%$$
+
 
 $head First Frame$$
 Try replacing this frame using the link in the second frame.

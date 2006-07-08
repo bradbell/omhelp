@@ -83,6 +83,10 @@ $tend
 
 $$
 
+$head 06-07-08$$
+The deprecated heading has been added to the 
+discussion of the $cref/BackButton/$$ problem in FireFox 1.5.
+
 $head 06-07-07$$
 The $cref/cref/$$ command was added and the 
 $cref/xref/$$, $cref/fend/$$ commands

@@ -1,49 +1,16 @@
-# Deprecate the fend command and fix single quote in Javascript strings.
+# Add deprecated heading to discussion in BackButton section.
 #
 # CvsCommit: file that made this commit.
 # whatsnew.omh: users view of changes.
-# CleanOMhelp: remove htm directories.
-# deprecated.omh: group the deprecated commands here.
-# FrameExample.omh: remove fend getstarted example.
-# StartFrame.omh: remove fend getstarted example.
-# cross_childtable.omh: move xref.omh include from here to deprecated.omh.
-# fend.omh: add mentiond of deprecation.
-# format_children.omh: move fend.omh include from here to deprecated.omh.
-# getstarted.omh: remove fend getstarted example.
-# other.omh: add deprecated.omh to list of children.
-# special.omh: move wspace.omh include from here to deprecated.omh
-# whatsnew03.omh: remove cross reference to fend example.
-# ImageExample.omh: remove use of fend command.
-# relative.c: properly escape the single quote character when inside a string.
-# tref.omh: use cref instead of xref for examples.
-# href.omh: use cref instead of xref for examples.
-# rref.omh: use cref instead of xref for examples.
-# mref.omh: use cref instead of xref for examples.
-# cref.omh: minor change to title.
+# backbutton.omh: change made here.
 add_list="
-	omh/deprecated.omh
 "
 change_list="
 	CvsCommit
 	omh/whatsnew.omh
-	CleanOMhelp
-	omh/cross_childtable.omh
-	omh/fend.omh
-	omh/format_children.omh
-	omh/getstarted.omh
-	omh/other.omh
-	omh/special.omh
-	omh/whatsnew03.omh
-	omh/getstarted/ImageExample.omh
-	omh/tref.omh
-	omh/href.omh
-	omh/rref.omh
-	omh/mref.omh
-	omh/cref.omh
+	omh/backbutton.omh
 "
 delete_list="
-	omh/getstarted/FrameExample.omh
-	omh/getstarted/StartFrame.omh
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same
