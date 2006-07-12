@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	vim_runtime
 	Kargl
 	noframe
 	grep
@@ -82,6 +83,13 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 06-07-12$$
+More discussion of using syntax highlighting has been added the
+documentation for the
+$cref/vim_runtime/InstallUnix/vim_runtime/$$
+argument during $cref/Unix installation/InstallUnix/$$.
+
 
 $head 06-07-08$$
 The deprecated heading has been added to the 
@@ -214,7 +222,7 @@ output with a single tab following the newline character.
 
 $head 06-01-25$$
 OMhelp syntax highlighting was added for the
-$xref/InstallUnix/Vim Runtime Directory/vim editor/$$. 
+$xref/InstallUnix/vim_runtime/vim editor/$$. 
 
 $head 06-01-07$$
 A executable version of OMhelp is now distributed
@@ -274,7 +282,7 @@ $syntax%
 was created the first time OMhelp was run.
 This would cause an error if the user running
 the program did not have permission to write in the
-$xref/InstallUnix/Prefix/prefix/$$ directory.
+$xref/InstallUnix/prefix/prefix/$$ directory.
 This has been fixed by changing the 
 $xref/InstallUnix/Dictionary/dictionary/$$ install procedure.
 

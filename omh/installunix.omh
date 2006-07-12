@@ -19,6 +19,8 @@
 $begin InstallUnix$$
 $dollar @$$
 $spell
+	ls sed
+	vimrc au Buf setfiletype
 	make make
 	runtime
 	wrd
@@ -86,7 +88,7 @@ $syntax%
 	%prefix%/share/OMhelp
 %$$
 
-$head Prefix$$
+$head prefix$$
 The default value for $italic prefix$$ is $code @HOME$$; i.e.,
 by default the OMhelp executable is installed in 
 $codep
@@ -100,7 +102,7 @@ $syntax%
 	@HOME/share/OMhelp
 %$$
 
-$head Vim Runtime Directory$$
+$head vim_runtime$$
 $index vim, highlight syntax$$
 $index syntax, highlight vim$$
 $index highlight, syntax vim$$
@@ -128,6 +130,20 @@ editing. If your OMhelp commands are embedded in a C source code file,
 you could convert back to C highlighting by executing the command
 $codep
 	:set syntax=c
+$$
+To get a listing of the available syntax assignment values, 
+execute the follow command
+$syntax%
+	ls %vim_runtime%/syntax | sed -e 's/.vim@//'
+%$$
+
+You may also want to automatically set OMhelp syntax highlighting for
+files that end with the extension $code .omh$$. 
+You can do this by placing the following text in the
+file $code .vimrc$$ in your home directory:
+$codep
+	:syntax on
+	au BufRead,BufNewFile *.omh setfiletype omhelp
 $$
 
 $head Build Executable and Documentation$$

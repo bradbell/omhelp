@@ -131,7 +131,7 @@ char *Url(const char *tag, const char *head, const char *external)
 	// check for case where only use htm for extension 
 	HtmlOnly =  (strcmp(tag, SEARCH_TAG) == 0)
 	       	|| (strcmp(tag, CONTENTS_TAG) == 0);
-	HtmlOnly = HtmlOnly & ( NoFrame() | head[0] != '\0' );
+	HtmlOnly = HtmlOnly & ( NoFrame() | (head[0] != '\0') );
 	if( HtmlOnly )
 		ext = Internal2Out("HtmlOnlyExtension");
 	else	ext = Internal2Out("OutputExtension");

@@ -89,7 +89,7 @@ $end
 # include "href.h"
 
 
-static WriteJavascriptString(FILE *fp, const char *s)
+static void WriteJavascriptString(FILE *fp, const char *s)
 {	char single_quote = '\'';
 	char back_slash   = '\\';
 	fputc(single_quote, fp);
