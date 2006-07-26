@@ -87,6 +87,7 @@ $end
 # include "Internal2Out.h"
 # include "url.h"
 # include "href.h"
+# include "AutoTag.h"
 
 
 static void WriteJavascriptString(FILE *fp, const char *s)
@@ -287,9 +288,15 @@ void RelativeTable(SectionInfo *F)
 		OutputString("</td>\n");
 	}
 
-	// Previous and Next ---------------------------------------------
+	// Contents ------------------------------------------------------
 	OutputString("<td>\n");
-	OutputString("<table><tr><td>\n");
+	HrefOutputPass2(CONTENTS_TAG, "", "false", "");
+	OutputString("Content");
+	HrefEnd("\n");
+	OutputString("</td>\n");
+
+	// Previous -------------------------------------------------------
+	OutputString("<td>");
 	S = SectionReadPrevious(F);
 	if( S == NULL )
 		OutputString("Prev");
@@ -298,7 +305,10 @@ void RelativeTable(SectionInfo *F)
 		OutputString("Prev");
 		HrefEnd("\n");
 	}
-	OutputString("</td><td>");
+	OutputString("</td>");
+
+	// Next -----------------------------------------------------------
+	OutputString("<td>");
 	S = SectionReadNext(F);
 	if( S == NULL )
 		OutputString("Next");
@@ -307,7 +317,6 @@ void RelativeTable(SectionInfo *F)
 		OutputString("Next");
 		HrefEnd("\n");
 	}
-	OutputString("</td></tr></table>\n");
 	OutputString("</td>");
 
 	// Up ------------------------------------------------------------

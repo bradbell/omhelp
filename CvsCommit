@@ -2,18 +2,14 @@
 #
 # CvsCommit: file that made this commit.
 # whatsnew.omh: users view of changes.
-# installunix.omh: more comments about vim highlighting and some new headings
-# relative.c: declare return type for a static fucntions (to avoid warning)
-# url.c: fix warning in MS compiler.
+# relative.c: extra link to contents in set of automatic links for -noframes
 # 
 add_list="
 "
 change_list="
 	CvsCommit
-	omh/installunix.omh
 	omh/whatsnew.omh
 	src/relative.c
-	src/url.c
 "
 delete_list="
 "

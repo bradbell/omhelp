@@ -84,6 +84,11 @@ $tend
 
 $$
 
+$head 06-07-25$$
+When using the $cref/-noframe/running/noframe/$$ option,
+put an extra link to $cref/Content/_contents/$$ on every page a the 
+beginning of the automatically generated links. 
+
 $head 06-07-12$$
 More discussion of using syntax highlighting has been added the
 documentation for the
