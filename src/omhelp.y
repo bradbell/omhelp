@@ -102,7 +102,58 @@ cross reference tag, NULL is returned.
 // define in main.c
 extern int  DebugOmhelp;
 
-// ***************** Static Data ************************
+// ***************** Section State ***************************
+
+// frame counter in current section
+static int iFrame;
+
+// maximum frame referenced for the current section
+static int MaxFrame;
+static int MaxFrameLine;
+static char *MaxFrameFile = NULL;
+
+// track pending tables
+static int  TableLevel    = 0;
+
+// track pending lists
+static int  ListLevel     = 0;
+static int  ListOrdered[MAX_LIST_LEVEL];
+
+// current table alingment
+static char *HorizontalAlign;
+static char *VerticalAlign;
+
+// current character that gets converted to '$'
+static char Dollar;
+
+// current character that gets converted to RESISTERED_TRADE_MARK_CHARACTER
+static char Rmark;
+
+// current character that gets converted to COPYRIGHT_CHARACTER
+static char Cmark;
+
+// current character that gets converted to a space
+static char Wspace;
+
+// current program comment character
+static char NewlineCh;
+
+// current escape character
+static char Escape;
+
+// current automatic mindex commands
+static int MindexSection;
+static int MindexHead;
+static int MindexSubhead;
+
+// current code font color
+static char *CodeColor  = NULL;
+static char *ErrorColor = NULL;
+
+// flag that indicates spell checking is on
+static int CheckSpell   = 1;
+
+// ************************* Other Static Data  ************************
 
 // Was previous output a heading
 static int PreviousOutputWasHeading = 0;
@@ -113,15 +164,6 @@ int PreviousOmhelpOutputWasHeading()
 static int ExecuteLine   = 0;
 static char *ExecuteFile = NULL;
 
-// track pending tables
-static int  TableLevel = 0;
-
-// track pending lists
-static int  ListLevel = 0;
-static int  ListOrdered[MAX_LIST_LEVEL];
-
-// flag that indicates spell checking is on
-static int CheckSpell = 0;
 
 // track pending italic commands
 static int ItalicCount = 0;
@@ -130,44 +172,6 @@ static int ItalicCount = 0;
 static int BeginCount;
 static int EndCount;
 
-// frame counter in current section
-static int iFrame = 0;
-
-// maximum frame referenced for the current section
-static int MaxFrame       = 0;
-static int MaxFrameLine   = 0;
-static char *MaxFrameFile = NULL;
-
-// current table alingment
-static char *HorizontalAlign = "left";
-static char *VerticalAlign   = "top";
-
-// current character that gets converted to '$'
-static char Dollar = '\0';
-
-// current character that gets converted to COPYRIGHT_CHARACTER
-static char Cmark = '\0';
-
-// current character that gets converted to RESISTERED_TRADE_MARK_CHARACTER
-static char Rmark = '\0';
-
-// current character that gets converted to a space
-static char Wspace = '\0';
-static char NewlineCh = '\0';
-
-// current escape character
-static char Escape = '\\';
-
-// current code font color
-static char *CodeColor  = NULL;
-static char *ErrorColor = NULL;
-
-// current automatic mindex commands
-static int MindexSection = 0;
-static int MindexHead    = 0;
-static int MindexSubhead = 0;
-
-
 // are we currently reading an include file
 static char *IncludeFrom = NULL;
 static int   IncludeLine = 0;
@@ -175,7 +179,6 @@ static int   IncludeLine = 0;
 static int   RootHasChildren       = 0;
 static SectionInfo *SectionTree    = NULL;
 static SectionInfo *CurrentSection = NULL;
-
 
 // Text being matched by MatchOrOutput which assumes that the first character
 // ("<" in this case) appears no where else in any of the text. Thus
@@ -1043,7 +1046,6 @@ void InitParser(const char *StartingInputFile)
 	assert( SectionTree->children != NULL );
 	assert( strcmp(SectionTree->children->tag, CONTENTS_TAG) == 0 );
 
-	CheckSpell     = 1;
 	PushOmhInput(CurrentSection);
 
 	if( SiteName() != NULL )
@@ -1426,10 +1428,6 @@ begin
 
 		assert( PreviousOutputWasHeading == 0 );
 
-		assert( MaxFrameFile == NULL );
-		assert( ErrorColor   == NULL );
-		assert( CodeColor    == NULL );
-
 		// check if there is already a section in this file
 		// if so, start a new sibling of current section
 		if( CurrentSection->tag != NULL )
@@ -1512,18 +1510,19 @@ begin
 		// start new section in search cross reference list
 		SearchBegin(tag);
 
+		// ******* Section State (default values) *****************
+
 		// frame for the current section
 		iFrame   = 1;
 
 		// Maximum frame referenced for the current section
-		MaxFrame = 0;
+		MaxFrame     = 0;
+		MaxFrameLine = 0;
+		assert( MaxFrameFile == NULL );  // set at previous end
 
 		// Initialize Table and List levels
-		assert( TableLevel == 0 );
+		assert( TableLevel == 0 );       // checked at previous end
 		assert( ListLevel  == 0 );
-			
-		// erase the current heading setting
-		InitializeHeading();
 
 		// erase current alignments
 		HorizontalAlign = "left";
@@ -1552,15 +1551,26 @@ begin
 		MindexHead    = 0;
 		MindexSubhead = 0;
 
-		// reset the current number of characters between tab columns
-		ConvertSetTabSize(TAB_SIZE);
-
 		// reset the current color settings
+		assert( ErrorColor   == NULL );    // set at previous end
+		assert( CodeColor    == NULL );
 		CodeColor  = str_alloc("blue");
 		ErrorColor = str_alloc("red");
 
+		// initial state of spell checker
+		assert( CheckSpell == 1);
+
+
+		// reset the current number of characters between tab columns
+		ConvertSetTabSize(TAB_SIZE);
+			
+		// erase the current heading setting
+		InitializeHeading();
+
 		// erase the current special spelling list
 		SpellingOkList("");
+
+		// ********************************************************
 		
 		// define cross reference point
 		number = SectionNumber(CurrentSection);
