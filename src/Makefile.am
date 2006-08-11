@@ -79,7 +79,6 @@ omhelp_SOURCES = \
 	links.h \
 	main.h \
 	math.h \
-	navigate.h \
 	omhelp.h \
 	omhparse.h \
 	output.h \
@@ -138,7 +137,6 @@ omhelp_SOURCES = \
 	links.c \
 	main.c \
 	math.c \
-	navigate.c \
 	omhelp.c \
 	output.c \
 	pending.c \

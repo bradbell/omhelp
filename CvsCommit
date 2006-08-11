@@ -1,23 +1,20 @@
-# Minor improvements
+# Move navigation infromation into section info record.
 #
 # CvsCommit: file that made this commit.
-# firefox.omh: remove the frame link and add <mfenced>.
-# configure.omh: fix prefix command line argument.  
-# whatsnew.omh: users view of changes.
-# Internal2Out.h: _INCLUDED was missing from the surrounding ifdef.
-# LatexAtomic.h: _INCLUDED was missing from the surrounding ifdef.
-# PatternMatch.h: _INCLUDED was missing from the surrounding ifdef.
-#
+# Makefile.am: navigate.c and navigate.h no longer needed. 
+# omhelp.y: remove references to navigate routines.
+# relative.c: remove references to navigate routines.
+# section.c: set default navigation values here.
+# section.h: place navigation structure here. 
 add_list="
 "
 change_list="
 	CvsCommit
-	omh/firefox.omh
-	omh/installunix.omh
-	omh/whatsnew.omh
-	src/Internal2Out.h
-	src/LatexAtomic.h
-	src/PatternMatch.h
+	src/Makefile.am
+	src/omhelp.y
+	src/relative.c
+	src/section.c
+	src/section.h
 "
 delete_list="
 "

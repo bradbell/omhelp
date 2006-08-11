@@ -81,7 +81,6 @@ cross reference tag, NULL is returned.
 # include "texparse.h"
 # include "lexomh.h"
 # include "AutoTag.h"
-# include "navigate.h"
 
 # ifndef WIN32
 # define stricmp strcasecmp 
@@ -2281,10 +2280,6 @@ end
 	: END_lex 
 	{	assert( $1.str == NULL );
 
-		// clear navigation command
-		if( NavigateNpush() > 0 )
-			PopNavigate();
-
 		// do not need extra new line after previous heading
 		if( PreviousOutputWasHeading )
 			PreviousOutputWasHeading = 0;
@@ -3608,15 +3603,6 @@ navigate
 		const char *list;
 		const char *invalid;
 
-		// check that not pushing to many navigation sequences
-		if( NavigateNpush() >= 2 ) fatalomh(
-			"In the $navigate command in line ",
-			int2str($1.line),
-			"More than one $navigate command appears ",
-			"in the current section",
-			NULL
-		);
-
 		// split text into tokens
 		ntoken = SplitText($1.line, "$navigate", $2.str);
 		if( ntoken > 16 ) fatalomh(
@@ -3642,7 +3628,8 @@ navigate
 		}
 
 		// set the current navigation sequence
-		invalid = PushNavigate(ntoken, list);
+		// invalid = PushNavigate(ntoken, list);
+		invalid = "navigate command not yet implemented";
 		if( invalid[0] != '\0' ) fatalomh(
 			"In the $navigate command in line ",
 			int2str($1.line),

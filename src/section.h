@@ -1,9 +1,8 @@
 # ifndef OMHELP_SECTION_INCLUDED
 # define OMHELP_SECTION_INCLUDED
 
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -19,15 +18,35 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 
 // maximum number of frames in one section
-# define MAX_FRAME  10
+# define MAX_FRAME     10
+# define MAX_NAVIGATE  8
+
+enum navigateType {
+	INVALID_nav,
+	CONTENT_nav,
+	PREV_nav,
+	NEXT_nav,
+	UP_nav,
+	SIBLING_nav,
+	DOWN_nav,
+	ACROSS_nav,
+	CURRENT_nav
+};
 
 typedef struct styleInfo {
 	char *textcolor;
 	char *bgcolor;
 } StyleInfo;
+
+typedef struct navigateInfo {
+	int number;                         // number of navigation items
+        struct navigateItem {
+		enum navigateType nav_type; // type for this navigation entry 
+		char *label;              // label for each item 
+	} item[MAX_NAVIGATE];
+} NavigateInfo;
 
 // list of input files
 typedef struct sectionInfo {
@@ -36,13 +55,14 @@ typedef struct sectionInfo {
 	char      *ext;                 // "" or file extension including '.'
 
 	// information about this section 
-	StyleInfo style;                // style for presenting this section
-	char      *tag;                 // cross reference tag 
-	char      *tagLower;            // lower case version of tag
-	char      *title;               // title
-	char      *keywords;            // keywords 
-	int       nFrame;               // number of frames 
-	int       Frame[MAX_FRAME];     // size of each frame
+	NavigateInfo navigate;          // navigation information
+	StyleInfo    style;             // style for presenting 
+	char        *tag;               // cross reference tag 
+	char        *tagLower;          // lower case version of tag
+	char        *title;             // title
+	char        *keywords;          // keywords 
+	int         nFrame;             // number of frames 
+	int         Frame[MAX_FRAME];   // size of each frame
 
 	
 
@@ -67,6 +87,8 @@ extern SectionInfo *SectionReadPrevious(SectionInfo *section);
 $begin SectionInfo$$
 $escape #$$
 $spell
+	nav
+	enum
 	OMhelp
 	bgcolor
 	textcolor
@@ -97,6 +119,18 @@ $rend
 $code style.bgcolor$$
 $cend $code char*$$  
 $cend the background color for this section
+$rnext
+$code navigate.number$$
+$cnext $code int$$
+$cnext number of navigation items for this section
+$rnext
+$syntax%navigate.item[%j%].nav_type%$$
+$cnext $code enum navigateType$$
+$cnext type for the $th j$$ navigation item for this section
+$rnext
+$syntax%navigate.item[%j%].label%$$
+$cnext $code char*$$
+$cnext label for the $th j$$ navigation links for this section
 $rend
 $code tag$$  
 $cend $code char*$$  

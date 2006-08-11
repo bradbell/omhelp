@@ -89,8 +89,6 @@ $end
 # include "href.h"
 # include "AutoTag.h"
 # include "convert.h"
-# include "navigate.h"
-
 
 static void OutputOption(const char *name)
 {	// should option name be preformatted ?	
@@ -251,7 +249,7 @@ void RelativeTable(SectionInfo *F)
 	int              index;
 	int              i;
 	CrossReference  *C;
-	enum navigateStyle style;
+	enum navigateType nav_type;
 
 	// The HTML code &#62; is used for the greater than symbol
 
@@ -307,12 +305,12 @@ void RelativeTable(SectionInfo *F)
 	}
 
 	// =================================================================
-	number = NavigateNumber();
+	number = F->navigate.number;
 	for(index = 0; index < number; index++) 
 	{
-	style = NavigateStyle(index);
-	label = NavigateLabel(index);
-	switch( style )
+	nav_type = F->navigate.item[index].nav_type;
+	label    = F->navigate.item[index].label;
+	switch( nav_type )
 	{
 		// Contents -----------------------------------------------
 		case CONTENT_nav:

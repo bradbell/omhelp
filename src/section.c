@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 =============================================================================
 $begin SectionInfoNew$$
@@ -46,6 +44,12 @@ Uses $mref/AllocMem/$$ to allocate memory for a new
 $mref/SectionInfo/$$ record.
 All of the field values in the record 
 are initialized as $code NULL$$ with the following exceptions:
+
+$subhead navigate$$
+This field is not a pointer so it is not initialized as $code NULL$$.
+Instead, it is initialized using the default value for all its
+sub-fields with the exception of $code navigate.tag$$ which is 
+initialized as $code NULL$$. 
 
 $subhead style$$
 This file is not a pointer, so it is not $code NULL$$
@@ -400,11 +404,26 @@ $end
 # endif
 
 
+static NavigateInfo Default = {
+	8,
+	{
+		{ CONTENT_nav, "Content"   },
+		{ PREV_nav,    "Prev"      },
+		{ NEXT_nav,    "Next"      },
+		{ UP_nav,      "Up->"      },
+		{ SIBLING_nav, "Sibling->" },
+		{ DOWN_nav,    "Down->"    },
+		{ ACROSS_nav,  "Across->"  },
+		{ CURRENT_nav, "Current->" }
+	}
+};	
+
 // =========================================================================
 SectionInfo *SectionInfoNew(
 	const char *inputfile
 )
 {
+	int         index;
 	char       *root;
 	char       *ext;
 	SectionInfo *F;
@@ -433,7 +452,15 @@ SectionInfo *SectionInfoNew(
 
 	F->style.textcolor = NULL;
 	F->style.bgcolor   = NULL;
-	
+
+	F->navigate.number = Default.number;
+	assert( Default.number <= MAX_NAVIGATE );
+	for(index = 0; index < Default.number; index++)
+	{	F->navigate.item[index].nav_type 
+			= Default.item[index].nav_type;
+		F->navigate.item[index].label 
+			= str_alloc( Default.item[index].label );
+	}
 	return F;
 }
 
@@ -453,6 +480,7 @@ void SectionDefaultStyle(
 
 static void SectionFreeSubTree(SectionInfo *tree)
 {	SectionInfo *next;
+	int          index;
 
 	// sequence through siblings
 	while(tree != NULL)
@@ -472,6 +500,9 @@ static void SectionFreeSubTree(SectionInfo *tree)
 
 		FreeMem(tree->style.textcolor);
 		FreeMem(tree->style.bgcolor);
+
+		for(index = 0; index < tree->navigate.number; index++)
+			FreeMem(tree->navigate.item[index].label);
 
 		FreeMem(tree);
 
@@ -519,8 +550,8 @@ void SectionSetTag(SectionInfo *section, const char *tag)
 	assert(section->tag == NULL);
 	assert(section->tagLower == NULL);
 
-	section->tag      = str_alloc(tag);
-	section->tagLower = StrLowAlloc(tag); 
+	section->tag          = str_alloc(tag);
+	section->tagLower     = StrLowAlloc(tag); 
 
 	return;
 }
