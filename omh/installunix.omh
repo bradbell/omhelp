@@ -78,7 +78,7 @@ $head Configure$$
 $index prefix$$
 Enter the distribution directory and execute the command:
 $syntax%
-	./configure [ prefix=%prefix% ] [ VIMRUNTIME=%vim_runtime% ]
+	./configure [ --prefix=%prefix% ] [ VIMRUNTIME=%vim_runtime% ]
 %$$
 where the entries between the brackets $code [$$ and $code ]$$ are optional,
 the brackets are not included, and the word in italic is replaced

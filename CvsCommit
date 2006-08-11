@@ -1,21 +1,23 @@
-# Reproduce old functionality with replacable navigation labels and order
+# Minor improvements
 #
 # CvsCommit: file that made this commit.
-# src/Makefile.am: include navigatge.c and navigate.h
-# lexomh.c: add navigate token (but not yet documented or tested).
-# omhelp.y: add navigate command (but not yet documented or tested).
-# realtive.c: use indirect navigation order and labels.
-# 
+# firefox.omh: remove the frame link and add <mfenced>.
+# configure.omh: fix prefix command line argument.  
+# whatsnew.omh: users view of changes.
+# Internal2Out.h: _INCLUDED was missing from the surrounding ifdef.
+# LatexAtomic.h: _INCLUDED was missing from the surrounding ifdef.
+# PatternMatch.h: _INCLUDED was missing from the surrounding ifdef.
+#
 add_list="
-	src/navigate.h
-	src/navigate.c
 "
 change_list="
 	CvsCommit
-	src/Makefile.am
-	src/lexomh.c
-	src/omhelp.y
-	src/relative.c
+	omh/firefox.omh
+	omh/installunix.omh
+	omh/whatsnew.omh
+	src/Internal2Out.h
+	src/LatexAtomic.h
+	src/PatternMatch.h
 "
 delete_list="
 "

@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	mfenced
 	vim_runtime
 	Kargl
 	noframe
@@ -83,6 +84,22 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 06-08-11$$
+The $code <$$ and $code >$$ characters did not work proper
+with the $cref/-noframe/running/noframe/$$ option.
+This has been fixed.
+$pre
+
+$$
+The $cref/<mfenced> problem/Firefox/<mfenced>/$$ problem
+has been added to the Firefox browser list.
+$pre
+
+$$
+The $code --$$ was missing in the $code --prefix$$ option to the 
+Unix install $cref/configure/InstallUnix/Configure/$$ command.
+
 
 $head 06-07-25$$
 When using the $cref/-noframe/running/noframe/$$ option,
@@ -242,7 +259,6 @@ will be opened if you are using MS Internet explorer
 
 $head 05-12-16$$
 Links to specific frames were not working properly in Firefox 1.5
-(see the following $xref/FrameLink/Discussion/discussion/$$).
 This has been fixed.
 
 $head 05-12-06$$

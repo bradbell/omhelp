@@ -21,6 +21,7 @@ $path%..\image%.png%$$
 $dollar !$$
 $escape #$$
 $spell
+	mfenced
 	Firefox
 	Javascript
 	minsize
@@ -67,8 +68,8 @@ $mindex bugzilla firefox browser display error$$
 
 $children%
 	backbutton.omh%
-	latex/NegativeSpace.omh%
-	framelink.omh%$$
+	latex/NegativeSpace.omh
+%$$
 
 $head Purpose$$
 The 
@@ -265,12 +266,25 @@ $latex \[ \mathml{
 	</munder>
 } \] $$
 
-$head Frame Targets$$
-The section $xref/FrameLink/$$ contains an example where 
-Firefox 1.5  did not work as intended
-(Firefox 1.0.7 did work as intended).
-This turned out to be a problem with OMhelp which has been fixed.
-
-
+$head <mfenced>$$
+The $code <mfenced>$$ element does not stretch properly when
+it surrounds a table (on Windows XP). For example
+$codep
+	<mfenced>
+		<mtable>
+			<mtr><mtd><mi>1</mi></mtd></mtr>
+			<mtr><mtd><mi>2</mi></mtd></mtr>
+		</mtable>
+	</mfenced>
+$$
+results in the following output
+$latex \[ \mathml{
+	<mfenced>
+		<mtable>
+			<mtr><mtd><mi>1</mi></mtd></mtr>
+			<mtr><mtd><mi>2</mi></mtd></mtr>
+		</mtable>
+	</mfenced>
+} \] $$
 
 $end
