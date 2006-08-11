@@ -88,6 +88,20 @@ $end
 # include "url.h"
 # include "href.h"
 # include "AutoTag.h"
+# include "convert.h"
+# include "navigate.h"
+
+
+static void OutputOption(const char *name)
+{	// should option name be preformatted ?	
+	int pre = 0;
+
+	OutputString("<option>");
+	ConvertOutputString(name, pre);
+	OutputString("</option>\n");
+
+	return;
+}
 
 
 static void WriteJavascriptString(FILE *fp, const char *s)
@@ -232,8 +246,12 @@ void RelativeTable(SectionInfo *F)
 	const char      *format;
 	const char      *head;
 	const char      *ext;
+	const char      *label;
+	int              number;
+	int              index;
 	int              i;
 	CrossReference  *C;
+	enum navigateStyle style;
 
 	// The HTML code &#62; is used for the greater than symbol
 
@@ -288,104 +306,93 @@ void RelativeTable(SectionInfo *F)
 		OutputString("</td>\n");
 	}
 
-	// Contents ------------------------------------------------------
-	OutputString("<td>\n");
-	HrefOutputPass2(CONTENTS_TAG, "", "false", "");
-	OutputString("Content");
-	HrefEnd("\n");
-	OutputString("</td>\n");
-
-	// Previous -------------------------------------------------------
-	OutputString("<td>");
-	S = SectionReadPrevious(F);
-	if( S == NULL )
-		OutputString("Prev");
-	else
-	{	HrefOutputPass2(S->tag, "", "false", "");
-		OutputString("Prev");
-		HrefEnd("\n");
-	}
-	OutputString("</td>");
-
-	// Next -----------------------------------------------------------
-	OutputString("<td>");
-	S = SectionReadNext(F);
-	if( S == NULL )
-		OutputString("Next");
-	else
-	{	HrefOutputPass2(S->tag, "", "false", "");
-		OutputString("Next");
-		HrefEnd("\n");
-	}
-	OutputString("</td>");
-
-	// Up ------------------------------------------------------------
-	S = F->parent;
-	if( S == NULL )
-		OutputString("<td>Up</td>\n");
-	else
+	// =================================================================
+	number = NavigateNumber();
+	for(index = 0; index < number; index++) 
 	{
+	style = NavigateStyle(index);
+	label = NavigateLabel(index);
+	switch( style )
+	{
+		// Contents -----------------------------------------------
+		case CONTENT_nav:
+		OutputString("<td>\n");
+		HrefOutputPass2(CONTENTS_TAG, "", "false", "");
+		OutputString(label);
+		HrefEnd("\n");
+		OutputString("</td>\n");
+		break;
+
+		// Previous -------------------------------------------------
+		case PREV_nav:
+		OutputString("<td>");
+		S = SectionReadPrevious(F);
+		if( S == NULL )
+		OutputString(label);
+		else
+		{	HrefOutputPass2(S->tag, "", "false", "");
+			OutputString(label);
+			HrefEnd("\n");
+		}
+		OutputString("</td>");
+		break;
+
+		// Next ------------------------------------------------------
+		case NEXT_nav:
+		OutputString("<td>");
+		S = SectionReadNext(F);
+		if( S == NULL )
+			OutputString(label);
+		else
+		{	HrefOutputPass2(S->tag, "", "false", "");
+			OutputString(label);
+			HrefEnd("\n");
+		}
+		OutputString("</td>");
+		break;
+
+		// Up -------------------------------------------------------
+		case UP_nav:
+		S = F->parent;
+		if( S == NULL )
+			OutputString("<td>Up</td>\n");
+		else
+		{
+			OutputString("<td>\n");
+			OutputString(
+				"<select onchange='choose_up(this)'>\n"
+			); 
+			OutputOption(label);
+			fprintf(javascript_fp, "var list_up = [\n");
+			while(S != NULL)
+			{	OutputOption(S->tag);
+				url = Url(S->tag, "", "false");
+				WriteJavascriptString(javascript_fp, url);
+				FreeMem(url);
+				S = S->parent;
+				if( S != NULL )
+					fprintf(javascript_fp, ",\n");
+				else	fprintf(javascript_fp, "\n];\n");
+			}	
+			OutputString("</select>\n</td>\n"); 
+		}
+		break;
+
+		// Sibling ---------------------------------------------------
+		case SIBLING_nav:
 		OutputString("<td>\n");
 		OutputString(
-			"<select onchange='choose_up(this)'>\n"
+			"<select onchange='choose_sibling(this)'>\n"
 		); 
-		OutputString("<option>Up -&#62;</option>\n");
-		fprintf(javascript_fp, "var list_up = [\n");
-		while(S != NULL)
-		{	FormatOutput( "<option>%s</option>\n", S->tag);
-			url = Url(S->tag, "", "false");
-			WriteJavascriptString(javascript_fp, url);
-			FreeMem(url);
-			S = S->parent;
-			if( S != NULL )
-				fprintf(javascript_fp, ",\n");
-			else	fprintf(javascript_fp, "\n];\n");
-		}	
-		OutputString("</select>\n</td>\n"); 
-	}
-	// Sibling -------------------------------------------------------
-	OutputString("<td>\n");
-	OutputString(
-		"<select onchange='choose_sibling(this)'>\n"
-	); 
-	OutputString("<option>Sibling -&#62;</option>\n");
-	fprintf(javascript_fp, "var list_sibling = [\n");
-	S = F;
-	while(S->previous != NULL )
-		S = S->previous;
-	while( IsAutomaticSection(S) )
-		S = S->next;
-	while(S != NULL)
-	{	FormatOutput( "<option>%s</option>\n", S->tag);
-		url = Url(S->tag, "", "false");
-		WriteJavascriptString(javascript_fp, url);
-		FreeMem(url);
-		S = S->next;
-		while( S != NULL && IsAutomaticSection(S) )
-			S = S->next;
-		if( S != NULL )
-			fprintf(javascript_fp, ",\n");
-		else	fprintf(javascript_fp, "\n];\n");
-	}	
-	OutputString("</select>\n</td>\n"); 
-
-	// Down ---------------------------------------------------------
-	S = F->children;
-	if( S == NULL )
-		OutputString("<td>Down</td>\n");
-	else
-	{	OutputString("<td>\n");
-		OutputString(
-		"<select onchange='choose_down(this)'>\n"
-		); 
-		OutputString("<option>Down -&#62;</option>\n");
-		fprintf(javascript_fp, "var list_down = [\n");
+		OutputOption(label);
+		fprintf(javascript_fp, "var list_sibling = [\n");
+		S = F;
 		while(S->previous != NULL )
 			S = S->previous;
 		while( IsAutomaticSection(S) )
 			S = S->next;
 		while(S != NULL)
-		{	FormatOutput( "<option>%s</option>\n", S->tag);
+		{	OutputOption(S->tag);
 			url = Url(S->tag, "", "false");
 			WriteJavascriptString(javascript_fp, url);
 			FreeMem(url);
@@ -395,79 +402,118 @@ void RelativeTable(SectionInfo *F)
 			if( S != NULL )
 				fprintf(javascript_fp, ",\n");
 			else	fprintf(javascript_fp, "\n];\n");
-		}
+		}	
 		OutputString("</select>\n</td>\n"); 
-	}	
+		break;
 
-	// Across ---------------------------------------------------------
-	OutputString("<td>\n");
-	OutputString(
-		"<select onchange='choose_across(this)'>\n"
-	); 
-	OutputString("<option>Across -&#62;</option>\n");
-	fprintf(javascript_fp, "var list_across = [\n");
-	i = 0;
-	while( AutomaticTag(i) != NULL )
-	{	const char *tag = AutomaticTag(i);
-		while( *tag == '_' )
-			tag++;
-		FormatOutput( "<option>%s</option>\n", tag);
-		url = Url(AutomaticTag(i), "", "false");
-		WriteJavascriptString(javascript_fp, url);
-		FreeMem(url);
-		i++;
-		if( AutomaticTag(i) != NULL )
-			fprintf(javascript_fp, ",\n");
-		else	fprintf(javascript_fp, "\n];\n");
-	}
-	OutputString("</select>\n</td>\n"); 
-
-	// Current ----------------------------------------------------------
-	C = FindCrossReference(F->tag, "");
-	assert( C != NULL );
-	C = NextCrossReference(C);
-
-	head = "";
-	if( C == NULL )
-		OutputString("<td>Current</td>\n");
-	else
-	{	OutputString("<td>\n");
-		OutputString(
-		"<select onchange='choose_current(this)'>\n"
-		); 
-		OutputString("<option>Current -&#62;</option>\n");
-		fprintf(javascript_fp, "var list_current = [\n");
-
-		while( C != NULL )
-		{	assert( C->head != NULL );
-
-			i = 0;
-			while( (head[i] != '0') 
-			     & (C->head[i] != '0')
-			     & (head[i] == C->head[i]) 
-			) i++;
-
-			if( C->head[i] == '.' )
-				name = str_cat("---.", C->head + i);
-			else
-			{	name = str_alloc(C->head);
-				head = C->head;
+		// Down ------------------------------------------------------
+		case DOWN_nav:
+		S = F->children;
+		if( S == NULL )
+			OutputString("<td>Down</td>\n");
+		else
+		{	OutputString("<td>\n");
+			OutputString(
+			"<select onchange='choose_down(this)'>\n"
+			); 
+			OutputOption(label);
+			fprintf(javascript_fp, "var list_down = [\n");
+			while(S->previous != NULL )
+				S = S->previous;
+			while( IsAutomaticSection(S) )
+				S = S->next;
+			while(S != NULL)
+			{	OutputOption(S->tag);
+				url = Url(S->tag, "", "false");
+				WriteJavascriptString(javascript_fp, url);
+				FreeMem(url);
+				S = S->next;
+				while( S != NULL && IsAutomaticSection(S) )
+					S = S->next;
+				if( S != NULL )
+					fprintf(javascript_fp, ",\n");
+				else	fprintf(javascript_fp, "\n];\n");
 			}
-			FormatOutput( "<option>%s</option>\n", name);
-			FreeMem(name);
-			//
-			url = Url(C->tag, C->head, "false");
+			OutputString("</select>\n</td>\n"); 
+		}	
+		break;
+	
+		// Across ----------------------------------------------------
+		case ACROSS_nav:
+		OutputString("<td>\n");
+		OutputString(
+			"<select onchange='choose_across(this)'>\n"
+		); 
+		OutputOption(label);
+		fprintf(javascript_fp, "var list_across = [\n");
+		i = 0;
+		while( AutomaticTag(i) != NULL )
+		{	const char *tag = AutomaticTag(i);
+			while( *tag == '_' )
+				tag++;
+			OutputOption(tag);
+			url = Url(AutomaticTag(i), "", "false");
 			WriteJavascriptString(javascript_fp, url);
 			FreeMem(url);
-			C = NextCrossReference(C);
-			if( C != NULL )
+			i++;
+			if( AutomaticTag(i) != NULL )
 				fprintf(javascript_fp, ",\n");
 			else	fprintf(javascript_fp, "\n];\n");
 		}
 		OutputString("</select>\n</td>\n"); 
-	}
+		break;
 
-	// -----------------------------------------------------------------
+		// Current ---------------------------------------------------
+		case CURRENT_nav:
+		C = FindCrossReference(F->tag, "");
+		assert( C != NULL );
+		C = NextCrossReference(C);
+
+		head = "";
+		if( C == NULL )
+			OutputString("<td>Current</td>\n");
+		else
+		{	OutputString("<td>\n");
+			OutputString(
+			"<select onchange='choose_current(this)'>\n"
+			); 
+			OutputOption(label);
+			fprintf(javascript_fp, "var list_current = [\n");
+
+			while( C != NULL )
+			{	assert( C->head != NULL );
+
+				i = 0;
+				while(
+					(head[i] != '0') 
+			     		& (C->head[i] != '0')
+			     		& (head[i] == C->head[i]) 
+				) i++;
+
+				if( C->head[i] == '.' )
+					name = str_cat("---.", C->head + i);
+				else
+				{	name = str_alloc(C->head);
+					head = C->head;
+				}
+				OutputOption(name);
+				FreeMem(name);
+				//
+				url = Url(C->tag, C->head, "false");
+				WriteJavascriptString(javascript_fp, url);
+				FreeMem(url);
+				C = NextCrossReference(C);
+				if( C != NULL )
+					fprintf(javascript_fp, ",\n");
+				else	fprintf(javascript_fp, "\n];\n");
+			}
+			OutputString("</select>\n</td>\n"); 
+		}
+		break;
+	}
+	}
+	// =================================================================
+
 	// End table that contains the links
 	OutputString("</tr></table><br");
 	OutputString(Internal2Out("SelfTerminateCmd"));

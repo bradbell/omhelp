@@ -81,6 +81,7 @@ cross reference tag, NULL is returned.
 # include "texparse.h"
 # include "lexomh.h"
 # include "AutoTag.h"
+# include "navigate.h"
 
 # ifndef WIN32
 # define stricmp strcasecmp 
@@ -1104,6 +1105,7 @@ void InitParser(const char *StartingInputFile)
 %token MATH_lex
 %token MINDEX_lex
 %token MREF_lex
+%token NAVIGATE_lex
 %token NEWLINECH_lex
 %token NOBREAK_lex
 %token NOSPELL_lex
@@ -1194,6 +1196,7 @@ element
 	| number
 	| path
 	| pre
+	| navigate
 	| newlinech
 	| rmark
 	| rnext
@@ -2277,6 +2280,10 @@ dollar
 end
 	: END_lex 
 	{	assert( $1.str == NULL );
+
+		// clear navigation command
+		if( NavigateNpush() > 0 )
+			PopNavigate();
 
 		// do not need extra new line after previous heading
 		if( PreviousOutputWasHeading )
@@ -3590,6 +3597,62 @@ mref
 	}
 	;
 
+
+navigate
+	: NAVIGATE_lex text not_2_dollar_or_text
+	{       fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+        }
+	| NAVIGATE_lex text DOUBLE_DOLLAR_lex
+	{	int index, ntoken;
+		char      *token;
+		const char *list;
+		const char *invalid;
+
+		// check that not pushing to many navigation sequences
+		if( NavigateNpush() >= 2 ) fatalomh(
+			"In the $navigate command in line ",
+			int2str($1.line),
+			"More than one $navigate command appears ",
+			"in the current section",
+			NULL
+		);
+
+		// split text into tokens
+		ntoken = SplitText($1.line, "$navigate", $2.str);
+		if( ntoken > 16 ) fatalomh(
+			"In the $navigate command in line ",
+			int2str($1.line),
+			"\nTo many delimiters in the delimiter sequence",
+			NULL
+		);
+
+		// check that none of the tokens are just white space
+		index = 0;
+		list = $2.str;
+		while( index < ntoken )
+		{	token = str_alloc(list);
+			ClipWhiteSpace(token);
+			if( strlen(token) == 0 ) fatalomh(
+				"In the $navigate command in line ",
+				int2str($1.line),
+				"\nOnly white space between two delimiters",
+				NULL
+			);
+			FreeMem(token);
+		}
+
+		// set the current navigation sequence
+		invalid = PushNavigate(ntoken, list);
+		if( invalid[0] != '\0' ) fatalomh(
+			"In the $navigate command in line ",
+			int2str($1.line),
+			"\"", invalid, "\"",
+			" is not a valid navigation style",
+			NULL
+		);
+	}
+	;
+			
 
 newlinech
 	: NEWLINECH_lex text not_2_dollar_or_text

@@ -1,14 +1,20 @@
-# Add more on vim highlighting
+# Reproduce old functionality with replacable navigation labels and order
 #
 # CvsCommit: file that made this commit.
-# whatsnew.omh: users view of changes.
-# relative.c: extra link to contents in set of automatic links for -noframes
+# src/Makefile.am: include navigatge.c and navigate.h
+# lexomh.c: add navigate token (but not yet documented or tested).
+# omhelp.y: add navigate command (but not yet documented or tested).
+# realtive.c: use indirect navigation order and labels.
 # 
 add_list="
+	src/navigate.h
+	src/navigate.c
 "
 change_list="
 	CvsCommit
-	omh/whatsnew.omh
+	src/Makefile.am
+	src/lexomh.c
+	src/omhelp.y
 	src/relative.c
 "
 delete_list="
