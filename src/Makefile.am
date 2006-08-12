@@ -88,7 +88,7 @@ omhelp_SOURCES = \
 	section.h \
 	spell.h \
 	str_alloc.h \
-	str_cat.h \
+	strjoin.h \
 	style.h \
 	texparse.h \
 	trace_exit.h \

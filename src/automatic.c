@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 $begin AutomaticAppendSection$$
 
@@ -123,7 +121,7 @@ $end
 # include "str_alloc.h"
 # include "cross.h"
 # include "head.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "allocmem.h"
 
 # define MAX_AUTOMATIC 6
@@ -216,7 +214,7 @@ void AutomaticAppendSection(
 		while( ch <= 'Z' )
 		{	head[0] = ch;
 			SetHeading(head);
-			printid = str_cat(sectionid, HeadingAndSubPrintId() );
+			printid = strjoin(sectionid, HeadingAndSubPrintId() );
 			DefineCrossReference(tag, head, "", 1, printid);
 			++ch;
 			FreeMem(printid);

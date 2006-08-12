@@ -379,7 +379,7 @@ $end
 # include "convert.h"
 # include "output.h"
 # include "allocmem.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "input.h"
 # include "str_alloc.h"
 # include "allocmem.h"
@@ -451,7 +451,7 @@ void HrefOutputPass2(
 	// set target
 	if( displayframe[0] == '\0' )
 		target = str_alloc( "_top" );
-	else	target = str_cat("frame", displayframe);
+	else	target = strjoin("frame", displayframe);
 
 	FormatOutput("<a href=\"%s\"", url);
 	FormatOutput(" target=\"%s\">", target);
@@ -564,7 +564,7 @@ void HrefOutputList(SectionInfo *section)
 
 	
 	// open output file
-	file = str_cat(section->tag, ".tmp");
+	file = strjoin(section->tag, ".tmp");
 	PushOutput(file);
 	FreeMem(file);
 

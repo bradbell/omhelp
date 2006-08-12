@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 $begin browser$$
 $spell
@@ -65,7 +63,7 @@ $end
 # include "allocmem.h"
 # include "href.h"
 # include "main.h"
-# include "str_cat.h"
+# include "strjoin.h"
 
 // ======================================================================
 static char *Javascript =
@@ -302,7 +300,7 @@ void BrowserPass1(SectionInfo *browser)
 
 
 	// Open the Pass One output file for this section
-	file = str_cat(browser->tag, ".tmp");
+	file = strjoin(browser->tag, ".tmp");
 	PushOutput(file);
 	FreeMem(file);
 
@@ -329,7 +327,7 @@ void BrowserPass1(SectionInfo *browser)
 	PopOutput();
 
 	// Open the Pass One output file for this section
-	file = str_cat(browser->tag, ".js");
+	file = strjoin(browser->tag, ".js");
 	DirSep(file);
 	Fp = fopen(file, "w");
 	if( Fp == NULL )

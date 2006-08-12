@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 $begin FunRef$$
 $spell
@@ -110,7 +108,7 @@ $end
 # include "convert.h"
 # include "section.h"
 # include "main.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "Internal2Out.h"
 
 # ifndef WIN32
@@ -171,7 +169,7 @@ void FunRefPass1(SectionInfo *section)
 	FunRefEntry *Current;
 	
 	// open output file
-	filename = str_cat(section->tag, ".tmp");
+	filename = strjoin(section->tag, ".tmp");
 	PushOutput(filename);
 	FreeMem(filename);
 

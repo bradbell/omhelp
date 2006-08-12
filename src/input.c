@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 The documentation below is for these routines with respect to other files; i.e.,
 it does not include communication through static variables in this file.
@@ -438,7 +436,7 @@ $end
 # endif
 
 # include "allocmem.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "str_alloc.h"
 # include "fatalerr.h"
 # include "StrCat.h"
@@ -535,9 +533,9 @@ void InputPush(const char *root, const char *ext, const int nspace)
 	else	error = fatalomh;	
 
 	// path corresponding to this file
-	localname = str_cat(root, ext);
+	localname = strjoin(root, ext);
 	path      = InputSearch(root, ext);
-	name      = str_cat(path, localname);
+	name      = strjoin(path, localname);
 	DirSep(name);
 
 	// special name used for empty input stack
@@ -640,7 +638,7 @@ void InputAddPath(const char *path, const char *ext)
 
 	if(  ch == '/' || ch == '\\' )
 		s = str_alloc(path);
-	else	s = str_cat(path, "\\");
+	else	s = strjoin(path, "\\");
 
 	DirSep(s);
 
@@ -654,7 +652,7 @@ void InputAddPath(const char *path, const char *ext)
 	Ext[NPath]  = str_alloc(ext);
 	if( CompletePath(s) )
 		Path[NPath] = str_alloc(s);
-	else	Path[NPath] = str_cat(LocalDirectory, s);
+	else	Path[NPath] = strjoin(LocalDirectory, s);
 
 	NPath++;
 }
@@ -671,7 +669,7 @@ const char *InputSearch(const char *root, const char *ext)
 		error = fatalerr;
 	else	error = fatalomh;	
 
-	name = str_cat(root, ext);
+	name = strjoin(root, ext);
 	DirSep(name);
 	if( CompletePath(name) )
 	{
@@ -690,7 +688,7 @@ const char *InputSearch(const char *root, const char *ext)
 		error(message, NULL);
 	}
 
-	fullname = str_cat(LocalDirectory, name);
+	fullname = strjoin(LocalDirectory, name);
 	if( access(fullname, 0) == 0 )
 	{	FreeMem(fullname);
 		FreeMem(name);
@@ -700,7 +698,7 @@ const char *InputSearch(const char *root, const char *ext)
 
 	for(i = 0; i < NPath; i++)
 	{	if( strcmp(ext, Ext[i]) == 0 )
-		{	fullname = str_cat(Path[i], name);
+		{	fullname = strjoin(Path[i], name);
 			if(access(fullname, 0) == 0 )
 			{	FreeMem(fullname);
 				FreeMem(name);
@@ -723,8 +721,8 @@ const char *InputSearch(const char *root, const char *ext)
 	for(i = 0; i < NPath; i++)
 	{	if( strcmp(ext, Ext[i]) == 0 )
 		{	char *s1, *s2;
-			s1 = str_cat(message, "\nsearch path: ");
-			s2 = str_cat(s1, User[i]);
+			s1 = strjoin(message, "\nsearch path: ");
+			s2 = strjoin(s1, User[i]);
 			FreeMem(message);
 			FreeMem(s1);
 			message = s2;
@@ -777,7 +775,7 @@ void InputSplitName(char **proot, char **pext, const char *filename)
 	// and then separately allocate the extension
 	if( ext > root && *ext == '.' ) 
 	{	*ext++ = '\0';
-		ext = str_cat(".", ext);
+		ext = strjoin(".", ext);
 	}
 	else	ext = str_alloc("");
 

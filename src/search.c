@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 $begin search$$
 $spell
@@ -190,7 +188,7 @@ $end
 # endif
 
 # include "fatalerr.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "allocmem.h"
 # include "DirSep.h"
 # include "StrLowAlloc.h"
@@ -455,7 +453,7 @@ void OpenSearchFile(const char *fileTag, const char *siteTitle)
 
 	// open the pass one version of the browser search file
 	assert( FrameOneName == NULL );
-	FrameOneName = str_cat(fileTag, ".tmp"); 
+	FrameOneName = strjoin(fileTag, ".tmp"); 
 	DirSep(FrameOneName);
 	Fp = fopen(FrameOneName, "w");
 	if( Fp == NULL )
@@ -671,7 +669,7 @@ void SearchKeywords(const char *keyword, const char escape)
 			assert( word[0] == ' ' );
 
 			// add the word to the keyword list
-			KeywordLower = str_cat( KeywordLower, word + 1 );	
+			KeywordLower = strjoin( KeywordLower, word + 1 );	
 
 			FreeMem(tmp);
 		}

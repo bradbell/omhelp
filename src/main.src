@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # include "trace_exit.h"
 # include "config.h"
 # include "allocmem.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "str_alloc.h"
 # include "copyfile.h"
 # include "InitParser.h"
@@ -230,7 +230,7 @@ int main(int argc, const char *argv[])
 			nSize
 		);
 		if( returnString[0] != '\0' )
-		{	char *stmp = str_cat("omhelp_dir=", returnString);
+		{	char *stmp = strjoin("omhelp_dir=", returnString);
 			putenv(stmp);
 			FreeMem(stmp);
 			omhdir = getenv("omhelp_dir");
@@ -254,7 +254,7 @@ int main(int argc, const char *argv[])
 	ch = omhdir[strlen(omhdir) - 1];
 	if( ch == '/' || ch == '\\' )
 		omhDir = str_alloc(omhdir);
-	else	omhDir = str_cat(omhdir, "\\");
+	else	omhDir = strjoin(omhdir, "\\");
 	
 
 	// must initialize parser before calling error routines
@@ -296,7 +296,7 @@ int main(int argc, const char *argv[])
 				ext,
 				NULL
 			);
-			iconFile = str_cat("_icon", ext);
+			iconFile = strjoin("_icon", ext);
 
 			FreeMem(root);
 			FreeMem(ext);

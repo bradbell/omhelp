@@ -46,7 +46,7 @@ cross reference tag, NULL is returned.
 # include "AutomaticLink.h"
 # include "omhparse.h"
 # include "allocmem.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "str_alloc.h"
 # include "input.h"
 # include "output.h"
@@ -335,7 +335,7 @@ static void PushOmhInput(SectionInfo *S)
 
 static void PushTmpOutput(const char *root)
 {	char *file;
-	file = str_cat(root, ".tmp");
+	file = strjoin(root, ".tmp");
 	PushOutput(file);
 	FreeMem(file);
 }
@@ -415,7 +415,7 @@ static void SecondPass(SectionInfo *F)
 		tagLower = F->tagLower;
 
 		// input file
-		NameTmp = str_cat(F->tag, ".tmp");
+		NameTmp = strjoin(F->tag, ".tmp");
 		DirSep(NameTmp);
 		StrLowCase(NameTmp);
 
@@ -837,7 +837,7 @@ static void Appendices()
 		// root has no children
 		char *searchTitle;
 		if( SiteName() != NULL )
-			searchTitle = str_cat("Search ", SiteName());
+			searchTitle = strjoin("Search ", SiteName());
 		else	searchTitle = str_alloc("Search This Web Site");
 		AutomaticAppendSection(
 			SectionTree,
@@ -885,11 +885,11 @@ static void FinishUp()
 		if( RootHasChildren )
 		{
 			// use index.ext to link to the starting seciton
-			index = str_cat(
+			index = strjoin(
 				"index",
 				Internal2Out("OutputExtension")
 			);
-			tmp   = str_cat(
+			tmp   = strjoin(
 				SectionTree->tagLower, 
 				Internal2Out("OutputExtension")
 			);
@@ -903,7 +903,7 @@ static void FinishUp()
 	else
 	{
 		char *filename;
-		filename = str_cat(
+		filename = strjoin(
 			PRINTABLE_TAG, 
 			Internal2Out("OutputExtension")
 		);
@@ -1049,7 +1049,7 @@ void InitParser(const char *StartingInputFile)
 	PushOmhInput(CurrentSection);
 
 	if( SiteName() != NULL )
-		searchTitle = str_cat("Search ", SiteName());
+		searchTitle = strjoin("Search ", SiteName());
 	else	searchTitle = str_alloc("Search This Web Site");
 	OpenSearchFile(SEARCH_TAG, searchTitle);
 	FreeMem(searchTitle);
@@ -1769,8 +1769,8 @@ childhead
 		assert( *( HeadingAndSubPrintId() ) == '.' );
 
 		if( number[0] == '\0' )
-			printid = str_cat(number, HeadingAndSubPrintId()+1);
-		else	printid = str_cat(number, HeadingAndSubPrintId());
+			printid = strjoin(number, HeadingAndSubPrintId()+1);
+		else	printid = strjoin(number, HeadingAndSubPrintId());
 
 		OutputString("<b><big>");
 		if( PrintableOmhelp() )
@@ -2729,8 +2729,8 @@ head
 		number  = SectionNumber(CurrentSection);
 		assert( *( HeadingAndSubPrintId() ) == '.' );
 		if( number[0] == '\0' )
-			printid = str_cat(number, HeadingAndSubPrintId()+1);
-		else	printid = str_cat(number, HeadingAndSubPrintId() );
+			printid = strjoin(number, HeadingAndSubPrintId()+1);
+		else	printid = strjoin(number, HeadingAndSubPrintId() );
 
 		OutputString("<b><big>");
 		if( PrintableOmhelp() )
@@ -2981,8 +2981,8 @@ image
 		// path     = InputSearch(root, ext);
 
 		// file name including extension
-		name     = str_cat(root, ext);
-		fullname = str_cat( InputSearch(root, ext) , name);
+		name     = strjoin(root, ext);
+		fullname = strjoin( InputSearch(root, ext) , name);
 	
 		// determine the local file name
 		i = strlen(fullname) - 1;
@@ -3083,7 +3083,7 @@ include
 		// separate root and extension
 		if( ext > root )
 		{	*ext++ = '\0';
-			ext    = str_cat(".", ext);
+			ext    = strjoin(".", ext);
 		}
 		else	ext    = str_alloc("");
 
@@ -4146,8 +4146,8 @@ subhead
 		number  = SectionNumber(CurrentSection);
 		assert( *( HeadingAndSubPrintId() ) == '.' );
 		if( number[0] == '\0' )
-			printid = str_cat(number, HeadingAndSubPrintId()+1);
-		else	printid = str_cat(number, HeadingAndSubPrintId() );
+			printid = strjoin(number, HeadingAndSubPrintId()+1);
+		else	printid = strjoin(number, HeadingAndSubPrintId() );
 
 		OutputString("<b>");
 		if( PrintableOmhelp() )

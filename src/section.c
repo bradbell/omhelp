@@ -463,7 +463,7 @@ $end
 # include "input.h"
 # include <assert.h>
 # include "StrLowAlloc.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "ClipWhiteSpace.h"
 
 # include "section.h"
@@ -644,7 +644,7 @@ char *SectionNumber(SectionInfo *section)
 		if( section->parent->parent == NULL )
 			sprintf(buf, "%d", count);
 		else	sprintf(buf, ".%d", count);
-		tmp = str_cat(buf, ret);
+		tmp = strjoin(buf, ret);
 		FreeMem(ret);
 		ret = tmp;
 

@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 $begin KeywordIndex$$
 $dollar @$$
@@ -189,7 +187,7 @@ $end
 
 # include "cross.h"
 # include "allocmem.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "str_alloc.h"
 # include "output.h"
 # include "convert.h"
@@ -535,7 +533,7 @@ void IndexPass1(SectionInfo *section)
 	
 	
 	// open output file
-	filename = str_cat(section->tag, ".tmp");
+	filename = strjoin(section->tag, ".tmp");
 	PushOutput(filename);
 	FreeMem(filename);
 

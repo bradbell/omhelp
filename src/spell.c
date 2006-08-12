@@ -121,7 +121,7 @@ $end
 
 # include "trace_exit.h"
 # include "allocmem.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "fatalerr.h"
 # include "DirSep.h"
 
@@ -268,7 +268,7 @@ void InitSpelling(const char *dir)
 	assert( n > 0 );
 	assert( dir[n-1] == '\\' || dir[n-1] == '/' );
 
-	fileDic          = str_cat(dir, "dictionary.bin");
+	fileDic          = strjoin(dir, "dictionary.bin");
 	DirSep(fileDic);
 
 	fpDic            = fopen(fileDic, "rb");
@@ -306,7 +306,7 @@ void InitSpelling(const char *dir)
 	FreeMem(fileDic);
 
 	// open ascii word list files
-	fileEng = str_cat(dir, "english.wrd");
+	fileEng = strjoin(dir, "english.wrd");
 	DirSep(fileEng);
 
 	fpEng   = fopen(fileEng, "r");
@@ -317,7 +317,7 @@ void InitSpelling(const char *dir)
 		printf("which are described in running.htm\n");
 		trace_exit(1);
 	}
-	fileLoc   = str_cat(dir, "local.wrd");
+	fileLoc   = strjoin(dir, "local.wrd");
 	DirSep(fileLoc);
 
 	fpLoc     = fopen(fileLoc, "r");
@@ -433,7 +433,7 @@ void InitSpelling(const char *dir)
 	create a new binary dictionary
 	*/
 
-	fileDic = str_cat(dir, "dictionary.bin");
+	fileDic = strjoin(dir, "dictionary.bin");
 	DirSep(fileDic);
 
 	fpDic   = fopen(fileDic, "wb");

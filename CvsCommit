@@ -1,39 +1,35 @@
-# Use a consistent syntax for ifndef in include files
+# Previou commit had a mistake in it. This commit changes str_cat to strjoin.
+# This avoids a conflict where both str_cat and StrCat used STR_CAT_INCLUDED
 #
 # CvsCommit: file that made this commit.
 add_list="
+	src/strjoin.h
 "
 change_list="
 	CvsCommit
-	src/AutoTag.h
-	src/AutomaticLink.h
-	src/BinarySearch.h
-	src/ClipWhiteSpace.h
-	src/DirSep.h
-	src/FileEqual.h
-	src/FrameSet.h
-	src/HtmlHead.h
-	src/InitParser.h
-	src/LatexAtomic.h
-	src/LatexLexHistory.h
-	src/LatexLexPut.h
-	src/OmhLexSetInputLine.h
-	src/OmhStype.h
-	src/SplitText.h
-	src/StrCat.h
-	src/StrLowAlloc.h
-	src/StrLowCase.h
-	src/StrRemove.h
-	src/TexStype.h
-	src/UniformWhiteSpace.h
-	src/funref.h
-	src/head.h
-	src/href.h
-	src/index.h
-	src/input.h
-	src/section.h
+	src/Makefile.am
+	src/StrCat.c
+	src/automatic.c
+	src/browser.c
+	src/content.c
+	src/copyfile.c
+	src/funref.c
+	src/href.c
+	src/index.c
+	src/input.c
+	src/lexomh.c
+	src/links.c
+	src/main.src
+	src/omhelp.y
+	src/relative.c
+	src/search.c
+	src/section.c
+	src/spell.c
+	src/str_cat.h
+	src/url.c
 "
 delete_list="
+	src/str_cat.h
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same

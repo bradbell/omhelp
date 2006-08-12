@@ -114,7 +114,7 @@ $end
 #include <assert.h>
 #include <ctype.h>
 
-# include "str_cat.h"
+# include "strjoin.h"
 # include "allocmem.h"
 # include "input.h"
 # include "fatalerr.h"
@@ -242,7 +242,7 @@ char *TokenCode2String(int code)
 {	int i;
 	for(i = 0; i < n_keyword; i++)
 		if( keyword_table[i].code == code )
-			return str_cat("$", keyword_table[i].name);
+			return strjoin("$", keyword_table[i].name);
 	switch( code )
 	{
 		case ACCENT_lex:

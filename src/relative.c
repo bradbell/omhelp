@@ -81,7 +81,7 @@ $end
 # include "allocmem.h"
 # include "fatalerr.h"
 # include "int2str.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "automatic.h"
 # include "output.h"
 # include "Internal2Out.h"
@@ -231,7 +231,7 @@ void RelativeFrame(SectionInfo *F)
 			Space[j] = '\0';
 
 			S    = List[i];
-			text = str_cat(Space, S->tag);
+			text = strjoin(Space, S->tag);
 			AddLink(text, S->tag, "");
 			FreeMem(text);
 
@@ -300,7 +300,7 @@ void RelativeFrame(SectionInfo *F)
 
 			if( C->head[i] == '.' )
 			{
-				text = str_cat("    ", C->head + i);
+				text = strjoin("    ", C->head + i);
 				AddLink(text, C->tag, C->head);
 				FreeMem(text);
 			}
@@ -453,7 +453,7 @@ void RelativeTable(SectionInfo *F)
 			OutputString(
 				"<select onchange='choose_up(this)'>\n"
 			); 
-			tmp = str_cat(label, "->");
+			tmp = strjoin(label, "->");
 			OutputOption(tmp);
 			FreeMem(tmp);
 			fprintf(javascript_fp, "var list_up = [\n");
@@ -477,7 +477,7 @@ void RelativeTable(SectionInfo *F)
 		OutputString(
 			"<select onchange='choose_sibling(this)'>\n"
 		); 
-		tmp = str_cat(label, "->");
+		tmp = strjoin(label, "->");
 		OutputOption(tmp);
 		FreeMem(tmp);
 		fprintf(javascript_fp, "var list_sibling = [\n");
@@ -514,7 +514,7 @@ void RelativeTable(SectionInfo *F)
 			OutputString(
 			"<select onchange='choose_down(this)'>\n"
 			); 
-			tmp = str_cat(label, "->");
+			tmp = strjoin(label, "->");
 			OutputOption(tmp);
 			FreeMem(tmp);
 			fprintf(javascript_fp, "var list_down = [\n");
@@ -544,7 +544,7 @@ void RelativeTable(SectionInfo *F)
 		OutputString(
 			"<select onchange='choose_across(this)'>\n"
 		); 
-		tmp = str_cat(label, "->");
+		tmp = strjoin(label, "->");
 		OutputOption(tmp);
 		FreeMem(tmp);
 		fprintf(javascript_fp, "var list_across = [\n");
@@ -582,7 +582,7 @@ void RelativeTable(SectionInfo *F)
 			OutputString(
 			"<select onchange='choose_current(this)'>\n"
 			); 
-			tmp = str_cat(label, "->");
+			tmp = strjoin(label, "->");
 			OutputOption(tmp);
 			FreeMem(tmp);
 			fprintf(javascript_fp, "var list_current = [\n");
@@ -598,7 +598,7 @@ void RelativeTable(SectionInfo *F)
 				) i++;
 
 				if( C->head[i] == '.' )
-					name = str_cat("---.", C->head + i);
+					name = strjoin("---.", C->head + i);
 				else
 				{	name = str_alloc(C->head);
 					head = C->head;

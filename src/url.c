@@ -89,7 +89,7 @@ $end
 # include "url.h"
 # include "cross.h"
 # include "str_alloc.h"
-# include "str_cat.h"
+# include "strjoin.h"
 # include "StrCat.h"
 # include "allocmem.h"
 # include "Internal2Out.h"
@@ -140,7 +140,7 @@ char *Url(const char *tag, const char *head, const char *external)
 	if( head[0] == '\0' )
 	{	if( strcmp(external, "true") == 0 )
 			url = str_alloc(tag);
-		else	url = str_cat(
+		else	url = strjoin(
 				taglower, 
 				ext
 		);

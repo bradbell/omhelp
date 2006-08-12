@@ -1,5 +1,5 @@
-# ifndef STR_CAT_INCLUDED
-# define STR_CAT_INCLUDED
+# ifndef STRJOIN_INCLUDED
+# define STRJOIN_INCLUDED
 
 /* -----------------------------------------------------------------------
 OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
@@ -23,19 +23,24 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------
 Copyright (C) Harmonic Software Inc. 1997-1998, All rights reserved. 
 -------------------------------------------------------------------------
-$begin str_cat$$
-$spell printf Mem str alloc$$
+$begin strjoin$$
+$spell 
+	printf 
+	Mem 
+	strjoin 
+	alloc
+$$
 
 $section Macro For Allocating The Concatenation Of Two Strings$$
 
 $index string, allocation with memory checking$$
 $index string, concatenation$$
 $index concatenation, of strings$$
-$index str_cat$$
+$index strjoin$$
 
 $table
 $bold Syntax$$ $cend
-$syntax/str_cat(/s1/, /s2/)/$$
+$syntax/strjoin(/s1/, /s2/)/$$
 $rend
 $bold See Also$$ $cend $mref/StrCat/str_alloc/$$
 $tend
@@ -55,7 +60,7 @@ and should be freed using the routine $xref/AllocMem/FreeMem/FreeMem/$$.
 $head Example$$
 If $code s$$ is a $code char *$$ and you execute the call
 $codep
-	s = str_cat("String one", "String two");
+	s = strjoin("String one", "String two");
 	printf("%s\n", s);
 $$
 The text
@@ -77,6 +82,6 @@ $end
 # include <stdlib.h>
 # include "StrCat.h"
 
-# define str_cat(s1, s2)       StrCat(__FILE__, __LINE__, s1, s2, NULL)
+# define strjoin(s1, s2)       StrCat(__FILE__, __LINE__, s1, s2, NULL)
 
 # endif
