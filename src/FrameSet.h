@@ -1,5 +1,5 @@
-# ifndef FRAMESET_INCLUDED
-# define FRAMESET_INCLUDED
+# ifndef FRAME_SET_INCLUDED
+# define FRAME_SET_INCLUDED
 
 /* -----------------------------------------------------------------------
 OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell

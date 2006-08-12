@@ -1,9 +1,8 @@
-# ifndef LATEXLEXPUT_INCLUDED
-# define LATEXLEXPUT_INCLUDED
+# ifndef LATEX_LEX_PUT_INCLUDED
+# define LATEX_LEX_PUT_INCLUDED
 
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -19,7 +18,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 
 extern void LatexLexPut(int line, const char *input);
 

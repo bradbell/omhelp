@@ -1,5 +1,5 @@
-# ifndef HTMLHEAD_INCLUDED
-# define HTMLHEAD_INCLUDED
+# ifndef HTML_HEAD_INCLUDED
+# define HTML_HEAD_INCLUDED
 
 /* -----------------------------------------------------------------------
 OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell

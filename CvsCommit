@@ -1,13 +1,37 @@
-# Improve checking of includes and ifndef directives
+# Use a consistent syntax for ifndef in include files
 #
 # CvsCommit: file that made this commit.
 add_list="
-	CheckIncludeOmh
-	CheckIncludeDef
 "
 change_list="
 	CvsCommit
-	CheckIncludeFile
+	src/AutoTag.h
+	src/AutomaticLink.h
+	src/BinarySearch.h
+	src/ClipWhiteSpace.h
+	src/DirSep.h
+	src/FileEqual.h
+	src/FrameSet.h
+	src/HtmlHead.h
+	src/InitParser.h
+	src/LatexAtomic.h
+	src/LatexLexHistory.h
+	src/LatexLexPut.h
+	src/OmhLexSetInputLine.h
+	src/OmhStype.h
+	src/SplitText.h
+	src/StrCat.h
+	src/StrLowAlloc.h
+	src/StrLowCase.h
+	src/StrRemove.h
+	src/TexStype.h
+	src/UniformWhiteSpace.h
+	src/funref.h
+	src/head.h
+	src/href.h
+	src/index.h
+	src/input.h
+	src/section.h
 "
 delete_list="
 "

@@ -1,5 +1,5 @@
-# ifndef LATEXATOMIC_INCLUDED
-# define LATEXATOMIC_INCLUDED
+# ifndef LATEX_ATOMIC_INCLUDED
+# define LATEX_ATOMIC_INCLUDED
 
 /* -----------------------------------------------------------------------
 OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell

@@ -1,5 +1,5 @@
-# ifndef OMHELP_SECTION_INCLUDED
-# define OMHELP_SECTION_INCLUDED
+# ifndef SECTION_INCLUDED
+# define SECTION_INCLUDED
 
 /* -----------------------------------------------------------------------
 OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell

@@ -1,5 +1,5 @@
-# ifndef OMHSTYPE_INCLUDED
-# define OMHSTYPE_INCLUDED
+# ifndef OMH_STYPE_INCLUDED
+# define OMH_STYPE_INCLUDED
 
 /* -----------------------------------------------------------------------
 OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
