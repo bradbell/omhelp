@@ -29,7 +29,7 @@ $childtable/
 	StrCat.c/
 	StrLowAlloc.h/
 	str_alloc.h/
-	str_cat.h/
+	strjoin.h/
 	StrRemove.c/
 	ClipWhiteSpace.c/
 	UniformWhiteSpace.c/
