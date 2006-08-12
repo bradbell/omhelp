@@ -133,10 +133,10 @@ void RelativeFrame(SectionInfo *F)
 	enum navigateType nav_type;
 	const char    *label;
 
-	assert( 1000 > nspace * MAX_DEPTH ); 
-
 	// preformat output labels ?
 	int              pre = 0;
+
+	assert( 1000 > nspace * MAX_DEPTH ); 
 
 	stylecmd = StyleCommand(F);
 	BeginLinks(F->tag, "column", IconLink(), IconFile(), stylecmd);

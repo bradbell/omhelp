@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 $begin children$$
 $spell
@@ -79,6 +77,7 @@ $end
 
 # include <assert.h>
 # include <stdlib.h>
+# include <string.h>
 
 # include "section.h"
 # include "cross.h"
@@ -87,6 +86,7 @@ $end
 # include "StrCat.h"
 # include "allocmem.h"
 # include "Internal2Out.h"
+# include "AutoTag.h"
 
 
 static void OutputPre(char *text)
@@ -139,7 +139,9 @@ void TableChildren(SectionInfo *S, int printable)
 }
 
 void ListChildren(SectionInfo *S, int printable)
-{
+{	int HtmlOnly;
+	const char *ext;
+
 	// children
 	OutputString("<div>");
 	S = S->children;
@@ -148,9 +150,16 @@ void ListChildren(SectionInfo *S, int printable)
 
 		if( ! printable )
 		{
+			// only use HTML format for frame one of these sections
+			HtmlOnly =  (strcmp(S->tag, SEARCH_TAG) == 0)
+			         || (strcmp(S->tag, CONTENTS_TAG) == 0);
+			if( HtmlOnly )
+				ext = Internal2Out("HtmlOnlyExtension");
+			else	ext = Internal2Out("OutputExtension");
+
 			FormatOutput2("<a href=\"%s%s\" target=\"_top\">", 
 				S->tagLower,
-				Internal2Out("OutputExtension")
+				ext
 			);
 			OutputPre(S->title);
 		}

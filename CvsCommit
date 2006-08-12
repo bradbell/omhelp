@@ -1,26 +1,18 @@
-# Extend effect of navigate command to frames case
+# Minor fixes
 #
 # CvsCommit: file that made this commit.
-# omhelp.vim: highlight the $navigate command.
-# cross_childtable.omh: add navigate.omh to documentation list.
-# navigate.omh: add Frame and Noframe to table.
-# AutomaticLink.c: remove previous, next, and contents.
-# relative.c: use navigate command results and add previous, next, contents.
-# section.c: fix developer documentation.
-# framelink.omh: no longer used (should have been deleted eariler).
+# navigate.omh: add index entries.
+# children.c: fix links to Contents and Search pages.
+# relative.c: put declarations before assert.
 add_list="
 "
 change_list="
 	CvsCommit
-	OMhelp/omhelp.vim
-	omh/cross_childtable.omh
 	omh/navigate.omh
-	src/AutomaticLink.c
+	src/children.c
 	src/relative.c
-	src/section.c
 "
 delete_list="
-	omh/framelink.omh
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same
