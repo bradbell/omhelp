@@ -123,90 +123,172 @@ void RelativeFrame(SectionInfo *F)
 	int            i;
 	int            j;
 	int            depth;
+	int            index;
+	int            number;
+	int            titled;
 	char           *stylecmd;
 	char           *head;
 	char           *text;
 
+	enum navigateType nav_type;
+	const char    *label;
+
 	assert( 1000 > nspace * MAX_DEPTH ); 
+
+	// preformat output labels ?
+	int              pre = 0;
 
 	stylecmd = StyleCommand(F);
 	BeginLinks(F->tag, "column", IconLink(), IconFile(), stylecmd);
 	FreeMem(stylecmd);
 
-	// start with location of this section in the tree
-	depth       = 0;
-	List[depth] = F;
-	while( List[depth]->parent != NULL )
-	{	if( depth >= MAX_DEPTH ) fatalomh(
-			"Omhelp tree has over ",
-			int2str(MAX_DEPTH),
-			" branches from its root to a leaf",
-			NULL
-		);
-		List[depth + 1] =  List[depth]->parent;
-		depth++;
-	}
+	// =================================================================
+	titled = 0;
+	number = F->navigate.number;
+	for(index = 0; index < number; index++) 
+	{
+	nav_type = F->navigate.item[index].nav_type;
+	label    = F->navigate.item[index].label;
+	switch( nav_type )
+	{
+		// Contents ------------------------------------------------
+		case CONTENT_nav:
+		if( titled )
+		{	OutputString("<hr");
+			OutputString(Internal2Out("SelfTerminateCmd"));
+		}
+		titled = 0;
+		HrefOutputPass2(CONTENTS_TAG, "", "false", "");
+		ConvertOutputString(label, pre);
+		HrefEnd("\n");
+		OutputString("<br");
+		OutputString(Internal2Out("SelfTerminateCmd"));
+		OutputString("\n");
+		break;
+
+		// Previous ------------------------------------------------
+		case PREV_nav:
+		if( titled )
+		{	OutputString("<hr");
+			OutputString(Internal2Out("SelfTerminateCmd"));
+		}
+		titled = 0;
+		S = SectionReadPrevious(F);
+		if( S == NULL )
+			ConvertOutputString(label, pre);
+		else
+		{	HrefOutputPass2(S->tag, "", "false", "");
+			ConvertOutputString(label, pre);
+			HrefEnd("\n");
+		}
+		OutputString("<br");
+		OutputString(Internal2Out("SelfTerminateCmd"));
+		OutputString("\n");
+		break;
+
+		// Next -----------------------------------------------------
+		case NEXT_nav:
+		if( titled )
+		{	OutputString("<hr");
+			OutputString(Internal2Out("SelfTerminateCmd"));
+		}
+		titled = 0;
+		S = SectionReadNext(F);
+		if( S == NULL )
+			ConvertOutputString(label, pre);
+		else
+		{	HrefOutputPass2(S->tag, "", "false", "");
+			ConvertOutputString(label, pre);
+			HrefEnd("\n");
+		}
+		OutputString("<br");
+		OutputString(Internal2Out("SelfTerminateCmd"));
+		OutputString("\n");
+		break;
+
+		// Up ------------------------------------------------------
+		case UP_nav:
+		TitleLinks(label);
+		titled      = 1;
+		depth       = 0;
+		List[depth] = F;
+		while( List[depth]->parent != NULL )
+		{	if( depth >= MAX_DEPTH ) fatalomh(
+				"Omhelp tree has over ",
+				int2str(MAX_DEPTH),
+				" branches from its root to a leaf",
+				NULL
+			);
+			List[depth + 1] =  List[depth]->parent;
+			depth++;
+		}
 	
-	i = depth;
-	while( i >= 0 )
-	{
-		for(j = 0; j < nspace * (depth - i); j++)
-			Space[j] = ' ';
-		Space[j] = '\0';
+		i = depth;
+		while( i >= 0 )
+		{
+			for(j = 0; j < nspace * (depth - i); j++)
+				Space[j] = ' ';
+			Space[j] = '\0';
 
-		S    = List[i];
-		text = str_cat(Space, S->tag);
-		AddLink(text, S->tag, "");
-		FreeMem(text);
+			S    = List[i];
+			text = str_cat(Space, S->tag);
+			AddLink(text, S->tag, "");
+			FreeMem(text);
 
-		i--;
-	}	
-
-	// siblings
-	S          = F;
-	while( S->previous != NULL )
-		S = S->previous;
-
-	if( S->next != NULL )
-	{
-		TitleLinks("Siblings");
-		while( S != NULL )
-		{	if( ! IsAutomaticSection(S) )
-			{
-				if( S != F )
-					AddLink(S->tag, S->tag, "");
-				else	AddLink(S->tag,     "", "");
-			}
-			S = S->next;
+			i--;
 		}	
-	}
+		break;
 
-	// children
-	if( F->children != NULL )
-	{
-		TitleLinks("Children");
-		S   = F->children;
+		// Siblings ------------------------------------------------
+		case SIBLING_nav:
+		TitleLinks(label);
+		titled     = 1;
+		S          = F;
+		while( S->previous != NULL )
+			S = S->previous;
 
-		while( S != NULL )
-		{	if( ! IsAutomaticSection(S) )
-			{	if( S != F )
-					AddLink(S->tag, S->tag, "");
-				else	AddLink(S->tag,     "", "");
-			}
-			S = S->next;
-		}	
-	}
+		if( S->next != NULL )
+		{
+			while( S != NULL )
+			{	if( ! IsAutomaticSection(S) )
+				{
+					if( S != F )
+						AddLink(S->tag, S->tag, "");
+					else	AddLink(S->tag,     "", "");
+				}
+				S = S->next;
+			}	
+		}
+		break;
 
-	// headings
-	C = FindCrossReference(F->tag, "");
-	assert( C != NULL );
-	C = NextCrossReference(C);
+		// Down ---------------------------------------------------
+		case DOWN_nav:
+		TitleLinks(label);
+		titled = 1;
+		if( F->children != NULL )
+		{
+			S   = F->children;
 
-	head = "";
-	if( C != NULL )
-	{
-		TitleLinks("Headings");
+			while( S != NULL )
+			{	if( ! IsAutomaticSection(S) )
+				{	if( S != F )
+						AddLink(S->tag, S->tag, "");
+					else	AddLink(S->tag,     "", "");
+				}
+				S = S->next;
+			}	
+		}
+		break;
 
+		// Current --------------------------------------------------
+		case CURRENT_nav:
+		TitleLinks(label);
+		titled = 1;
+		C = FindCrossReference(F->tag, "");
+		assert( C != NULL );
+		C = NextCrossReference(C);
+
+		head = "";
 		while( C != NULL )
 		{	assert( C->head != NULL );
 
@@ -228,7 +310,13 @@ void RelativeFrame(SectionInfo *F)
 			}
 			C = NextCrossReference(C);
 		}
+		break;
+
+		default:
+		break;
 	}
+	}
+	// =================================================================
 
 	EndLinks();
 
@@ -318,7 +406,7 @@ void RelativeTable(SectionInfo *F)
 		case CONTENT_nav:
 		OutputString("<td>\n");
 		HrefOutputPass2(CONTENTS_TAG, "", "false", "");
-		OutputString(label);
+		ConvertOutputString(label, pre);
 		HrefEnd("\n");
 		OutputString("</td>\n");
 		break;
@@ -328,10 +416,10 @@ void RelativeTable(SectionInfo *F)
 		OutputString("<td>");
 		S = SectionReadPrevious(F);
 		if( S == NULL )
-		OutputString(label);
+		ConvertOutputString(label, pre);
 		else
 		{	HrefOutputPass2(S->tag, "", "false", "");
-			OutputString(label);
+			ConvertOutputString(label, pre);
 			HrefEnd("\n");
 		}
 		OutputString("</td>");
@@ -342,10 +430,10 @@ void RelativeTable(SectionInfo *F)
 		OutputString("<td>");
 		S = SectionReadNext(F);
 		if( S == NULL )
-			OutputString(label);
+			ConvertOutputString(label, pre);
 		else
 		{	HrefOutputPass2(S->tag, "", "false", "");
-			OutputString(label);
+			ConvertOutputString(label, pre);
 			HrefEnd("\n");
 		}
 		OutputString("</td>");

@@ -11,8 +11,6 @@ $section Setting Relative Navigation Links For A Section$$
 $head Preliminary$$
 This is a preliminary version of this command that is being 
 used to obtain user feedback. 
-This command has only been implemented (so far) with the 
-$cref/-noframe/running/noframe/$$ option on the OMhelp command line.
 This command may change in future versions of OMhelp.
 
 
@@ -22,18 +20,56 @@ $syntax|@navigate%|default 1|%|label 1|%|...|%|default n|%|label n|%|$$
 $head Purpose$$
 OMhelp automatically creates navigation links, 
 relative to each section, 
-with the following default labels:
+with the default labels in the table below
+(Noframe corresponds to the 
+$cref/-noframe/running/noframe/$$ option being present
+on the OMhelp command line):
 $center
 $table
-$bold Default$$  $cnext $bold Meaning$$                               $rnext
-$code Content$$  $cnext table of contents for entire document         $rnext 
-$code Prev$$     $cnext previous section in document order            $rnext 
-$code Next$$     $cnext next section in document order                $rnext
-$code Up$$       $cnext sections above this one in document tree      $rnext
-$code Sibling$$  $cnext sections with same parent in tree             $rnext
-$code Down$$     $cnext sections directly below this one in tree      $rnext
-$code Across$$   $cnext sections that cross reference entire document $rnext
-$code Current$$  $cnext headings and subheadings in current section
+$bold Default$$  
+	$cnext $bold Meaning$$
+	$cnext $bold Frame$$
+	$cnext $bold Noframe$$
+$rnext
+$code Content$$  
+	$cnext table of contents for entire document
+	$cnext yes
+	$cnext yes
+$rnext 
+$code Prev$$     
+	$cnext previous section in document order
+	$cnext yes
+	$cnext yes
+$rnext 
+$code Next$$     
+	$cnext next section in document order
+	$cnext yes
+	$cnext yes
+$rnext
+$code Up$$       
+	$cnext sections above this one in document tree
+	$cnext yes
+	$cnext yes
+$rnext
+$code Sibling$$  
+	$cnext sections with same parent in tree
+	$cnext yes
+	$cnext yes
+$rnext
+$code Down$$     
+	$cnext sections directly below this one in tree
+	$cnext yes
+	$cnext yes
+$rnext
+$code Across$$   
+	$cnext sections that cross reference entire document
+	$cnext no
+	$cnext yes
+$rnext
+$code Current$$  
+	$cnext headings and subheadings in current section
+	$cnext yes
+	$cnext yes
 $tend
 $$
 The $code @navigate$$ command

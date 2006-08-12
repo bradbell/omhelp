@@ -380,6 +380,15 @@ $code SectionReadNext$$ returns NULL.
 $end
 =============================================================================
 $begin SectionNavigate$$
+$spell
+	const
+	ntoken
+	subfield
+	Prev
+
+$$
+
+$section Changing Relative Navigation Links for a Section$$
 
 $head Syntax$$
 $syntax%const char *SectionNavigate(
@@ -390,16 +399,16 @@ $syntax%const char *SectionNavigate(
 
 
 $head Purpose$$
-This changes the current navigation sequence for the section
+This changes the navigation links for the section
 $italic S$$ the one specified by $italic italic ntoken$$ and $italic text$$.
 
 $head S$$
-Pointer the the section information record that is being changed.
+Pointer the section information record that is being changed.
 The subfield $syntax%S->navigate%$$ is changed,
 and the rest of the section information is left as is.
 
 $head ntoken$$
-The argument $italic ntoken$$ must be an even number$$.
+The argument $italic ntoken$$ must be an even number.
 It specifies the number of tokens pointed to by $italic text$$
 
 $head text$$
@@ -412,7 +421,7 @@ the terminating $code '\0'$$ for the current token.
 These tokens come in pairs of where 
 the first value in each pair is a navigation type and 
 the second is the label that the user sees for that navigation type.
-The valid navigatin types values are
+The valid navigation types values are
 $pre
 	$$
 "Content",
@@ -441,6 +450,8 @@ is returned by $code SectionNavigate$$.
 Otherwise, $code SectionNavigate$$ returns the empty string.
 (If one of the requested navigation types is the empty string, a program
 assert occurs.)
+
+$end
 */
 
 # include <ctype.h>

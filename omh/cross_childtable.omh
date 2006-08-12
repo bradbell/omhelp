@@ -29,5 +29,6 @@ $childtable/
 	href.omh/
 	rref.omh/
 	tref.omh/
-	mref.omh
+	mref.omh/
+	navigate.omh
 /$$

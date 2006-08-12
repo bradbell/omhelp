@@ -1,28 +1,26 @@
-# Add navigation command to language
+# Extend effect of navigate command to frames case
 #
 # CvsCommit: file that made this commit.
-# whatsnew.omh: users view of the changes.
-# omhelp.y: use SectionNavigate to change the navigation links.
-# relative.c: use section info record for link information.
-# section.c: moved navigate.c functionality into here.
-# section.h: declare SectionNavigate routine.
-# navigate.c: moved this functionality into section.c.
-# navigate.h: moved this functionality into section.h.
-# navigate.omh: documentation for the new feature.
+# omhelp.vim: highlight the $navigate command.
+# cross_childtable.omh: add navigate.omh to documentation list.
+# navigate.omh: add Frame and Noframe to table.
+# AutomaticLink.c: remove previous, next, and contents.
+# relative.c: use navigate command results and add previous, next, contents.
+# section.c: fix developer documentation.
+# framelink.omh: no longer used (should have been deleted eariler).
 add_list="
-	omh/navigate.omh
 "
 change_list="
 	CvsCommit
-	omh/whatsnew.omh
-	src/omhelp.y
+	OMhelp/omhelp.vim
+	omh/cross_childtable.omh
+	omh/navigate.omh
+	src/AutomaticLink.c
 	src/relative.c
 	src/section.c
-	src/section.h
 "
 delete_list="
-	src/navigate.c
-	src/navigate.h
+	omh/framelink.omh
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same

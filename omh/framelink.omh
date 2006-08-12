@@ -1,48 +1,80 @@
-$begin FrameLink$$
+$begin navigate$$
+$dollar @$$
 $spell
-	foo
+	noframe
 	OMhelp
-	Firefox
-	xml
+	Prev
 $$
 
-$section Linking to Specific Frame in XHTML$$
+$section Setting Relative Navigation Links For A Section$$
 
-$head Discussion$$
-OMhelp was using the $code name$$ attribute to 
-target a specific frame for a link.
-It turns out that the XHTML standard does not support this;
-see
-$href%
-	http://www.w3.org/TR/xhtml1/#h-4.10%
-	4.10. The elements with 'id' and 'name' attributes
-%$$  
-OMhelp now follows the suggestion in
-$href%
-	http://www.w3.org/TR/xhtml1/#C_8%
-	C.8. Fragment Identifiers
+$head Preliminary$$
+This is a preliminary version of this command that is being 
+used to obtain user feedback. 
+This command has only been implemented (so far) with the 
+$cref/-noframe/running/noframe/$$ option on the OMhelp command line.
+This command may change in future versions of OMhelp.
+
+
+$head Syntax$$
+$syntax|@navigate%|default 1|%|label 1|%|...|%|default n|%|label n|%|$$
+
+$head Purpose$$
+OMhelp automatically creates navigation links, 
+relative to each section, 
+with the following default labels:
+$center
+$table
+$bold Default$$  $cnext $bold Meaning$$                               $rnext
+$code Content$$  $cnext table of contents for entire document         $rnext 
+$code Prev$$     $cnext previous section in document order            $rnext 
+$code Next$$     $cnext next section in document order                $rnext
+$code Up$$       $cnext sections above this one in document tree      $rnext
+$code Sibling$$  $cnext sections with same parent in tree             $rnext
+$code Down$$     $cnext sections directly below this one in tree      $rnext
+$code Across$$   $cnext sections that cross reference entire document $rnext
+$code Current$$  $cnext headings and subheadings in current section
+$tend
+$$
+The $code @navigate$$ command
+determines which of these links to include,
+the order of the links,
+and label for each of the links.
+
+$head default$$
+The value $italic default 1$$ is the default label
+for the navigation links that will come first in the set
+of navigation links for the current section.
+The links corresponding to $italic default 2$$ come second and so on.
+
+$head label$$
+The value $italic label 1$$ is the label that the user will see
+for the navigation links corresponding to $italic default 1$$.
+The value $italic label 2$$ is the label that the user will see
+for the navigation links corresponding to $italic default 2$$ and so on.
+
+$head Example$$
+The navigation links for this section were specified with
+the following command:
+$navigate%
+	Up%Up%
+	Content%Contents%
+	Prev%Previous%
+	Next%Next%
+	Sibling%Linking%
+	Across%Index%
+	Current%Headings
 %$$
-and sets both the $code name$$ and $code id$$ attributes together;
-e.g., 
 $codep
-	<a id="foo" name="foo">...</a>
+	@navigate%
+		Up%Up%
+		Content%Contents%
+		Prev%Previous%
+		Next%Next%
+		Sibling%Linking%
+		Across%Index%
+		Current%Headings
+	%@@
 $$
-The result is that the links below now work properly.
-
-
-$head HTML$$
-Select $href%framelink.htm%$$ to view the HTML version of this page.
-
-$head XML$$
-Select $href%framelink.xml%$$ to view the XHTML version of this page.
-
-$head Bug$$
-Selecting this $xref/FrameLink/Bug/link/$$ should do nothing.
-In the XHTML version with Firefox 1.5 and only using $code name$$ attributes,
-it opened a new window.
-OMhelp now uses both the $code name$$ and $code id$$ attributes
-and this link functions properly.
-
 
 $end
-

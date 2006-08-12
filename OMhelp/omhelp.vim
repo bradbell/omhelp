@@ -135,6 +135,9 @@
 :syntax match omh_mref            /\$mref/
 :highlight link omh_mref          Keyword
 
+:syntax match omh_navigate        /\$navigate/
+:highlight link omh_navigate      Keyword
+
 :syntax match omh_newlinech       /\$newlinech/
 :highlight link omh_newlinech     Keyword
 
