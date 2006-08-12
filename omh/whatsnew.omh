@@ -86,6 +86,10 @@ $tend
 $$
 
 $head 06-08-11$$
+A preliminary version of the $cref/navigate/$$ command has been added.
+$pre
+
+$$
 The $code <$$ and $code >$$ characters did not work proper
 with the $cref/-noframe/running/noframe/$$ option.
 This has been fixed.

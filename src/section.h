@@ -82,6 +82,9 @@ extern char        *SectionNumber(SectionInfo *section);
 extern SectionInfo *SectionTagNotDefined(SectionInfo *root);
 extern SectionInfo *SectionReadNext(SectionInfo *section);
 extern SectionInfo *SectionReadPrevious(SectionInfo *section);
+extern const char *SectionNavigate(
+	SectionInfo *S, int ntoken, const char *text
+);
 
 /*
 $begin SectionInfo$$

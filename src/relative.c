@@ -245,13 +245,15 @@ void RelativeTable(SectionInfo *F)
 	const char      *head;
 	const char      *ext;
 	const char      *label;
+	char            *tmp;
 	int              number;
 	int              index;
 	int              i;
 	CrossReference  *C;
 	enum navigateType nav_type;
 
-	// The HTML code &#62; is used for the greater than symbol
+	// preformat output labels ?
+	int              pre = 0;
 
 	// output extension with out leading dot
 	ext = Internal2Out("OutputExtension");
@@ -353,14 +355,19 @@ void RelativeTable(SectionInfo *F)
 		case UP_nav:
 		S = F->parent;
 		if( S == NULL )
-			OutputString("<td>Up</td>\n");
+		{	OutputString("<td>");
+			ConvertOutputString(label, pre);
+			OutputString("</td>\n");
+		}
 		else
 		{
 			OutputString("<td>\n");
 			OutputString(
 				"<select onchange='choose_up(this)'>\n"
 			); 
-			OutputOption(label);
+			tmp = str_cat(label, "->");
+			OutputOption(tmp);
+			FreeMem(tmp);
 			fprintf(javascript_fp, "var list_up = [\n");
 			while(S != NULL)
 			{	OutputOption(S->tag);
@@ -382,7 +389,9 @@ void RelativeTable(SectionInfo *F)
 		OutputString(
 			"<select onchange='choose_sibling(this)'>\n"
 		); 
-		OutputOption(label);
+		tmp = str_cat(label, "->");
+		OutputOption(tmp);
+		FreeMem(tmp);
 		fprintf(javascript_fp, "var list_sibling = [\n");
 		S = F;
 		while(S->previous != NULL )
@@ -408,13 +417,18 @@ void RelativeTable(SectionInfo *F)
 		case DOWN_nav:
 		S = F->children;
 		if( S == NULL )
-			OutputString("<td>Down</td>\n");
+		{	OutputString("<td>");
+			ConvertOutputString(label, pre);
+			OutputString("</td>\n");
+		}
 		else
 		{	OutputString("<td>\n");
 			OutputString(
 			"<select onchange='choose_down(this)'>\n"
 			); 
-			OutputOption(label);
+			tmp = str_cat(label, "->");
+			OutputOption(tmp);
+			FreeMem(tmp);
 			fprintf(javascript_fp, "var list_down = [\n");
 			while(S->previous != NULL )
 				S = S->previous;
@@ -442,7 +456,9 @@ void RelativeTable(SectionInfo *F)
 		OutputString(
 			"<select onchange='choose_across(this)'>\n"
 		); 
-		OutputOption(label);
+		tmp = str_cat(label, "->");
+		OutputOption(tmp);
+		FreeMem(tmp);
 		fprintf(javascript_fp, "var list_across = [\n");
 		i = 0;
 		while( AutomaticTag(i) != NULL )
@@ -469,13 +485,18 @@ void RelativeTable(SectionInfo *F)
 
 		head = "";
 		if( C == NULL )
-			OutputString("<td>Current</td>\n");
+		{	OutputString("<td>");
+			ConvertOutputString(label, pre);
+			OutputString("</td>\n");
+		}
 		else
 		{	OutputString("<td>\n");
 			OutputString(
 			"<select onchange='choose_current(this)'>\n"
 			); 
-			OutputOption(label);
+			tmp = str_cat(label, "->");
+			OutputOption(tmp);
+			FreeMem(tmp);
 			fprintf(javascript_fp, "var list_current = [\n");
 
 			while( C != NULL )
@@ -508,6 +529,12 @@ void RelativeTable(SectionInfo *F)
 			OutputString("</select>\n</td>\n"); 
 		}
 		break;
+
+		// invalid case
+		case INVALID_nav:
+		assert(0);
+		break;
+
 	}
 	}
 	// =================================================================

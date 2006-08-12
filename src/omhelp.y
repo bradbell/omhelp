@@ -3614,29 +3614,34 @@ navigate
 
 		// check that none of the tokens are just white space
 		index = 0;
-		list = $2.str;
+		list = $2.str + 1;
 		while( index < ntoken )
 		{	token = str_alloc(list);
 			ClipWhiteSpace(token);
 			if( strlen(token) == 0 ) fatalomh(
 				"In the $navigate command in line ",
 				int2str($1.line),
-				"\nOnly white space between two delimiters",
+				"\nOnly white space between two delimiters in",
 				NULL
 			);
 			FreeMem(token);
+			
+			list = list + strlen(list) + 1;
+			index++;
 		}
 
 		// set the current navigation sequence
-		// invalid = PushNavigate(ntoken, list);
-		invalid = "navigate command not yet implemented";
+		invalid = SectionNavigate(CurrentSection, ntoken, $2.str + 1);
 		if( invalid[0] != '\0' ) fatalomh(
 			"In the $navigate command in line ",
 			int2str($1.line),
-			"\"", invalid, "\"",
-			" is not a valid navigation style",
+			"\n\"", invalid, "\"",
+			" is not a valid default navigation label ",
 			NULL
 		);
+
+		// done with the delimiter sequence
+		FreeMem($2.str);
 	}
 	;
 			

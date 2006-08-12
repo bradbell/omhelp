@@ -379,11 +379,68 @@ $code SectionReadNext$$ returns NULL.
 
 $end
 =============================================================================
+$begin SectionNavigate$$
+
+$head Syntax$$
+$syntax%const char *SectionNavigate(
+	SectionInfo *%S%      , 
+	int          %ntoken% , 
+	const char  *%text%   )
+%$$
 
 
+$head Purpose$$
+This changes the current navigation sequence for the section
+$italic S$$ the one specified by $italic italic ntoken$$ and $italic text$$.
 
+$head S$$
+Pointer the the section information record that is being changed.
+The subfield $syntax%S->navigate%$$ is changed,
+and the rest of the section information is left as is.
 
+$head ntoken$$
+The argument $italic ntoken$$ must be an even number$$.
+It specifies the number of tokens pointed to by $italic text$$
 
+$head text$$
+The argument $italic text$$ is contains $italic ntoken$$
+$code '\0'$$ terminated character strings called tokens.
+The value $italic text$$ points to the beginning
+of the first token.
+The next token starts at the character directly following
+the terminating $code '\0'$$ for the current token.
+These tokens come in pairs of where 
+the first value in each pair is a navigation type and 
+the second is the label that the user sees for that navigation type.
+The valid navigatin types values are
+$pre
+	$$
+"Content",
+"Prev",
+"Next",
+"Up->",
+"Sibling->",
+"Down->",
+"Across->",
+"Current->".
+$pre
+
+$$
+Leading and trailing white space in each token is ignored.
+$pre
+
+$$
+The argument $italic ntoken$$ must be less than or equal 16
+(there can be at most 8 token pairs).
+$pre
+
+$$
+If one of the requested navigation types is not valid, the invalid type
+is returned by $code SectionNavigate$$.
+(In this error case, the return value is allocated using $cref/AllocMem/$$).
+Otherwise, $code SectionNavigate$$ returns the empty string.
+(If one of the requested navigation types is the empty string, a program
+assert occurs.)
 */
 
 # include <ctype.h>
@@ -396,6 +453,7 @@ $end
 # include <assert.h>
 # include "StrLowAlloc.h"
 # include "str_cat.h"
+# include "ClipWhiteSpace.h"
 
 # include "section.h"
 
@@ -410,11 +468,11 @@ static NavigateInfo Default = {
 		{ CONTENT_nav, "Content"   },
 		{ PREV_nav,    "Prev"      },
 		{ NEXT_nav,    "Next"      },
-		{ UP_nav,      "Up->"      },
-		{ SIBLING_nav, "Sibling->" },
-		{ DOWN_nav,    "Down->"    },
-		{ ACROSS_nav,  "Across->"  },
-		{ CURRENT_nav, "Current->" }
+		{ UP_nav,      "Up"        },
+		{ SIBLING_nav, "Sibling"   },
+		{ DOWN_nav,    "Down"      },
+		{ ACROSS_nav,  "Across"    },
+		{ CURRENT_nav, "Current"   }
 	}
 };	
 
@@ -647,4 +705,55 @@ SectionInfo *SectionReadNext(SectionInfo *section)
 		}
 	}
 	return R;
+}
+
+const char *SectionNavigate(SectionInfo *S, int ntoken, const char *text)
+{	const char        *cptr;
+	char              *tmp;
+	int                number, len, index, i;
+	enum navigateType nav_type;
+
+	// free old section information
+	for(index = 0; index < S->navigate.number; index++)
+		FreeMem( S->navigate.item[index].label );
+
+	assert( (ntoken % 2) == 0 );
+	assert( ntoken <= 2 * MAX_NAVIGATE );
+	
+	number = S->navigate.number = ntoken / 2;
+	cptr   = text;
+	for(index = 0; index < number; index++)
+	{	// assume cptr not empty string
+		len   = strlen(cptr);
+		assert( len > 1 );         
+
+		// get and check navigation type
+		nav_type = INVALID_nav;
+		tmp      = str_alloc(cptr);
+		ClipWhiteSpace(tmp);
+		for(i = 0; i < Default.number; i++) 
+		{
+			if( strcmp(tmp, Default.item[i].label) == 0 )
+				nav_type = Default.item[i].nav_type;
+		}
+		if( nav_type == INVALID_nav )
+			return tmp; 
+		FreeMem(tmp);
+
+		// store the navigation type 
+		S->navigate.item[index].nav_type = nav_type;
+
+		// next token
+		cptr += len + 1;
+		len   = strlen(cptr);
+
+		// store the label (freed later)
+		tmp = str_alloc(cptr);
+		ClipWhiteSpace(tmp);
+		S->navigate.item[index].label = tmp;
+
+		// next token
+		cptr  += len + 1;
+	}
+	return "";
 }
