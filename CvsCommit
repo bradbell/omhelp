@@ -1,16 +1,13 @@
-# Minor fixes
+# Improve checking of includes and ifndef directives
 #
 # CvsCommit: file that made this commit.
-# navigate.omh: add index entries.
-# children.c: fix links to Contents and Search pages.
-# relative.c: put declarations before assert.
 add_list="
+	CheckIncludeOmh
+	CheckIncludeDef
 "
 change_list="
 	CvsCommit
-	omh/navigate.omh
-	src/children.c
-	src/relative.c
+	CheckIncludeFile
 "
 delete_list="
 "
