@@ -23,7 +23,11 @@ grep '^# *ifndef *[A-Z_]*INCLUDED$' \
 	src/*.h \
 	| sort -u \
 	> junk.1
-sed -e 's/^src\/\([^.]*\)\.h:.*/\1/' < junk.1 | tr [a-z] [A-Z] > junk.2
+sed < junk.1 \
+	-e 's/^src\/\([^.]*\)\.h:.*/\1/' \
+	-e 's/\([a-z]\)\([A-Z]\)/\1_\2/g' | \
+	tr [a-z] [A-Z] \
+	> junk.2
 sed -e 's/^.*# *ifndef *//' -e 's/_INCLUDED$//' < junk.1 > junk.3
 diff junk.2 junk.3
 #
@@ -31,7 +35,11 @@ grep '^# *define *[A-Z_]*INCLUDED$' \
 	src/*.h \
 	| sort -u \
 	> junk.1
-sed -e 's/^src\/\([^.]*\)\.h:.*/\1/' < junk.1 | tr [a-z] [A-Z] > junk.2
+sed < junk.1 \
+	-e 's/^src\/\([^.]*\)\.h:.*/\1/' \
+	-e 's/\([a-z]\)\([A-Z]\)/\1_\2/g'| \
+	tr [a-z] [A-Z] \
+	> junk.2
 sed -e 's/^.*# *define *//' -e 's/_INCLUDED$//' < junk.1 > junk.3
 diff junk.2 junk.3
 echo "---------------------------------------------------------------"
