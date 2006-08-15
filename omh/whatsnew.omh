@@ -85,6 +85,11 @@ $tend
 
 $$
 
+$head 06-08-15$$
+Add an 
+$cref/example/navigate/Purpose/Example/$$ for the definition
+of the default navigation link names.
+
 $head 06-08-11$$
 A preliminary version of the $cref/navigate/$$ command has been added.
 $pre
