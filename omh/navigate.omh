@@ -94,9 +94,9 @@ The corresponding read order is $pre A$$, $pre B$$, ..., $pre Z$$.
 For this example, if the current section is $pre F$$
 $table
 current section                 $cnext $pre F$$  $rnext
+previous section in read order  $cnext $pre E$$  $rnext
 next section in read order      $cnext $pre G$$  $rnext
-previous section in read order  $cnext $pre H$$  $rnext
-section above current section   $cnext $pre B$$, $pre A$$ $rnext
+sections above current section  $cnext $pre B$$, $pre A$$ $rnext
 siblings of the current section $cnext $pre C$$, $pre F$$ $rnext
 sections directly below current section  $cnext $pre G$$, $pre J$$ 
 $tend
