@@ -1,35 +1,26 @@
-# Previou commit had a mistake in it. This commit changes str_cat to strjoin.
-# This avoids a conflict where both str_cat and StrCat used STR_CAT_INCLUDED
+# Use top for default navigation setting, add example for nav definitions.
 #
 # CvsCommit: file that made this commit.
+# navigate.omh: document the change
+# overview.omh: use this new feature at top of OMhelp documentation.
+# whatsnew.omh: user's view of changes.
+# automatic.c: add source of defaults to SectionInfoNew call.
+# omhelp.y: add source of defaults to SectionInfoNew call.
+# section.c: implement source of defaults in SectionInfoNew routine.
+# section.h: add source of defaults to SectionInfoNew call.
 add_list="
-	src/strjoin.h
 "
 change_list="
 	CvsCommit
-	src/Makefile.am
-	src/StrCat.c
+	omh/navigate.omh
+	omh/overview.omh
+	omh/whatsnew.omh
 	src/automatic.c
-	src/browser.c
-	src/content.c
-	src/copyfile.c
-	src/funref.c
-	src/href.c
-	src/index.c
-	src/input.c
-	src/lexomh.c
-	src/links.c
-	src/main.src
 	src/omhelp.y
-	src/relative.c
-	src/search.c
 	src/section.c
-	src/spell.c
-	src/str_cat.h
-	src/url.c
+	src/section.h
 "
 delete_list="
-	src/str_cat.h
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same

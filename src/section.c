@@ -31,6 +31,7 @@ $section Create a New Section Information Record$$
 $table
 $bold Syntax$$
 $cend $syntax%SectionInfo *SectionInfoNew(
+	const SectionInfo *navigateCopy,
 	const char *%filename%
 )%$$ $rend
 $bold See Also$$
@@ -39,7 +40,7 @@ $tend
 
 $fend 25$$
 
-$head Description$$
+$head Purpose$$
 Uses $mref/AllocMem/$$ to allocate memory for a new 
 $mref/SectionInfo/$$ record.
 All of the field values in the record 
@@ -47,9 +48,13 @@ are initialized as $code NULL$$ with the following exceptions:
 
 $subhead navigate$$
 This field is not a pointer so it is not initialized as $code NULL$$.
-Instead, it is initialized using the default value for all its
+If $italic navigateCopy$$ is equal to $code NULL$$,
+$code navigate$$ is initialized using the default value for all its
 sub-fields with the exception of $code navigate.tag$$ which is 
 initialized as $code NULL$$. 
+If $italic navigateCopy$$ is not equal to $code NULL$$,
+$code navigate$$ is initialized to contain a deep copy of the
+$code navigate$$ field in $italic navigateCopy$$.
 
 $subhead style$$
 This file is not a pointer, so it is not $code NULL$$
@@ -489,7 +494,8 @@ static NavigateInfo Default = {
 
 // =========================================================================
 SectionInfo *SectionInfoNew(
-	const char *inputfile
+	const SectionInfo *navigateCopy,
+	const char        *inputfile
 )
 {
 	int         index;
@@ -525,10 +531,19 @@ SectionInfo *SectionInfoNew(
 	F->navigate.number = Default.number;
 	assert( Default.number <= MAX_NAVIGATE );
 	for(index = 0; index < Default.number; index++)
-	{	F->navigate.item[index].nav_type 
-			= Default.item[index].nav_type;
-		F->navigate.item[index].label 
-			= str_alloc( Default.item[index].label );
+	{	if( navigateCopy == NULL )
+		{	F->navigate.item[index].nav_type 
+				= Default.item[index].nav_type;
+			F->navigate.item[index].label 
+				= str_alloc( Default.item[index].label );
+		}
+		else
+		{	F->navigate.item[index].nav_type = 
+				navigateCopy->navigate.item[index].nav_type;
+			F->navigate.item[index].label = str_alloc( 
+				navigateCopy->navigate.item[index].label 
+			);
+		}
 	}
 	return F;
 }

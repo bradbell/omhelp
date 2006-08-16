@@ -23,8 +23,14 @@ $syntax|@navigate%|default 1|%|label 1|% |...| %|default n|%|label n|%@@|$$
 
 $head Purpose$$
 OMhelp automatically creates navigation links, 
-relative to each section, 
-with the default labels in the table below
+relative to each section.
+The $code @navigate$$ command
+determines which navigation links to include for a particular section,
+the order of the links,
+and label for each of the links.
+
+$head Definition$$
+The navigation links have the default labels in the table below
 (Noframe corresponds to the 
 $cref/-noframe/running/noframe/$$ option being present
 on the OMhelp command line):
@@ -76,10 +82,6 @@ $code Current$$
 	$cnext yes
 $tend
 $$
-The $code @navigate$$ command
-determines which of these links to include,
-the order of the links,
-and label for each of the links.
 
 $subhead Example$$
 Suppose that the tree corresponding to a document is
@@ -137,5 +139,11 @@ $codep
 		Current%Headings
 	%@@
 $$
+
+$head Root Section$$
+In the special case where a $code @navigate$$ command appears in the 
+$cref/root section/running/root/$$ section, 
+and does not appear in a sub-section,
+the value specified in the root section is used for the sub-section.
 
 $end

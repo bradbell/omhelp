@@ -1032,7 +1032,7 @@ void InitParser(const char *StartingInputFile)
 	assert(SectionTree == NULL);
 
 	// starting of section tree
-	SectionTree    = SectionInfoNew(LocalName);
+	SectionTree    = SectionInfoNew(NULL, LocalName);
 	CurrentSection = SectionTree;
 
 	// Table of Contents is first child of starting section
@@ -1445,7 +1445,7 @@ begin
 				"of the web site tree.",
 				NULL
 			);
-			F = SectionInfoNew(InputName());
+			F = SectionInfoNew(SectionTree, InputName());
 			
 			// links for this section
 			F->next           = CurrentSection->next;
@@ -1879,7 +1879,7 @@ childlist
 			);
 			
 			// add to the file list
-			F = SectionInfoNew(name);
+			F = SectionInfoNew(SectionTree, name);
 
 			// if the file does not exist, generate error
 			// message when it is specified and not later

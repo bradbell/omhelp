@@ -74,7 +74,9 @@ typedef struct sectionInfo {
 
 } SectionInfo;
 extern SectionInfo *SectionFind(SectionInfo *tree, const char *tag);
-extern SectionInfo *SectionInfoNew(const char *inputfile);
+extern SectionInfo *SectionInfoNew(
+		const SectionInfo *navigateCopy, const char *inputfile
+);
 extern void         SectionDefaultStyle(SectionInfo *To, SectionInfo *From);
 extern void         SectionFreeTree(SectionInfo *tree);
 extern void         SectionSetTag(SectionInfo *section, const char *tag);

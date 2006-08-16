@@ -154,6 +154,7 @@ void AutomaticAppendSection(
 	const char *title,
 	int letterHeadings)
 {
+	SectionInfo    *T;
 	SectionInfo    *S;
 	CrossReference *C;
 	char           *inputfile = NULL; 
@@ -169,8 +170,14 @@ void AutomaticAppendSection(
 
 	// find the end of the list at second level
 	assert( parent != NULL );
+
+	// find top of the section tree
+	T = parent;
+	while( T->parent != NULL )
+		T = T->parent;
+
 	if( parent->children == NULL )
-	{	parent->children = SectionInfoNew(inputfile);
+	{	parent->children = SectionInfoNew(T, inputfile);
 		S                     = parent->children;
 	}
 	else
@@ -180,7 +187,7 @@ void AutomaticAppendSection(
 			S = S->next;
 
 		// create a new section at end of list at top level
-		S->next           = SectionInfoNew(inputfile);
+		S->next           = SectionInfoNew(T, inputfile);
 		S->next->previous = S;
 		S                 = S->next;
 	}
