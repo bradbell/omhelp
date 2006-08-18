@@ -85,6 +85,9 @@ $tend
 
 $$
 
+$head 06-08-17$$
+Minor fixes to $cref/Windows installation/InstallWindows/$$.
+
 $head 06-08-15$$
 Add an 
 $cref/example/navigate/Definition/Example/$$ for the definition

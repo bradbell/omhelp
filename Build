@@ -278,10 +278,6 @@ then
 	# copy the executable to the distribution
 	cp src/src.exe omhelp-$AcDate/src/src.exe
 	#
-	# copy the default script for setting the environment
-	cp setenv.bat omhelp-$AcDate/setenv.bat
-	unix2dos omhelp-$AcDate/setenv.bat
-	#
 	# Make sure that dates in certain files are in certain order
 	# (necessary because of unix2dos conversion above)
 	touch omhelp-$AcDate/aclocal.m4

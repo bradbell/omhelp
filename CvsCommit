@@ -1,24 +1,22 @@
-# Use top for default navigation setting, add example for nav definitions.
+# Minor fixes to Dos distribution.
 #
 # CvsCommit: file that made this commit.
-# navigate.omh: document the change
-# overview.omh: use this new feature at top of OMhelp documentation.
+# Build: no longer use setenv.bat (replaced by setup.bat which is auto built)
+# RunOMhelp.bat: us -noframe option on xml version.
+# install.bat: space between text and output redirection
+# installwindows.omh: minor changes to distribution.
+# stdout.omh: change fixed date to distribution date.
 # whatsnew.omh: user's view of changes.
-# automatic.c: add source of defaults to SectionInfoNew call.
-# omhelp.y: add source of defaults to SectionInfoNew call.
-# section.c: implement source of defaults in SectionInfoNew routine.
-# section.h: add source of defaults to SectionInfoNew call.
 add_list="
 "
 change_list="
 	CvsCommit
-	omh/navigate.omh
-	omh/overview.omh
+	Build
+	RunOMhelp.bat
+	install.bat
+	omh/installwindows.omh
+	omh/stdout.omh
 	omh/whatsnew.omh
-	src/automatic.c
-	src/omhelp.y
-	src/section.c
-	src/section.h
 "
 delete_list="
 "

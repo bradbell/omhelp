@@ -147,8 +147,14 @@ the file $code dictionary.bin$$ should be deleted.
 A new $code dictionary.bin$$ that combines the words $code english.wrd$$
 and $code local.wrd$$ will be created the next time $code OMhelp$$ is run.
 
-$head Building User Documentation and Testing OMhelp$$
-In a Dos box, execute the following command
+$head Building Documentation and Testing OMhelp$$
+In a Dos box, execute the following command:
+$codep
+	RunOMhelp Dev
+$$
+This will run the OMhelp program and
+create a copy of the OMhelp development documentation directory $code Dev$$.
+Now continue by executing the following command:
 $codep
 	RunOMhelp Doc
 $$
@@ -171,14 +177,6 @@ The files $syntax|Doc/|*|.htm|$$ are in HTML format.
 If your browser supports XHTML+MathML format,
 an easier to read copy is available in the files
 $syntax|Doc/|*|.xml|$$.
-
-$head Building Developer Documentation$$
-In the distribution directory, execute the following command:
-$codep
-	RunOMhelp Dev
-$$
-This will run the OMhelp program and create
-a copy of the OMhelp developer documentation directory $code Dev$$.
 
 $head Install OMhelp$$
 The following instructions provide a way to have a desktop shortcut

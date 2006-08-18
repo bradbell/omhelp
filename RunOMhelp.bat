@@ -36,7 +36,7 @@ if "%1%" == "Doc" goto DOC
 	if exist Doc rmdir Doc 
 	mkdir Doc
 	cd    Doc
-	..\src\src.exe ..\omh\overview.omh > ..\OMhelp.Doc.log -xml -debug -omhelp_dir ..\OMhelp
+	..\src\src.exe ..\omh\overview.omh > ..\OMhelp.Doc.log -noframe -xml -debug -omhelp_dir ..\OMhelp
 	..\src\src.exe ..\omh\overview.omh  -noframe -debug -omhelp_dir ..\OMhelp
 	cd ..
 : ERRORCHECK

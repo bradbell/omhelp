@@ -97,7 +97,8 @@ $nospell
 $codep
 	RunOMhelp Dev
 $$
-was executed in the $code omhelp\omh$$ directory on February 17, 2005.
+was executed in the $code omhelp\omh$$ directory during the installation
+of this version:
 $code
 $verbatim%../OMhelp.Dev.log%$$
 $$

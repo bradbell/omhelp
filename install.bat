@@ -44,15 +44,15 @@ goto quit
 rem -------------------------------------------------------------------------
 :create_setup
 rem Create the batch file to set the OMhelp environment in a command window
-echo @ echo off> OMhelp\setup.bat
-echo rem Set OMhelp environment variable>> OMhelp\setup.bat
-echo set omhelp_dir=c:\Program Files\%install_sub_dir%>> OMhelp\setup.bat
-echo rem>> OMhelp\setup.bat
-echo rem Add OMhelp installation director to the path>> OMhelp\setup.bat
-echo set path=%path%;c:\progra~1\%install_sub_dir%>> OMhelp\setup.bat
-echo rem>> OMhelp\setup.bat
-echo rem Change into user's directory>> OMhelp\setup.bat
-echo cd "%after_setup_dir%">> OMhelp\setup.bat
+echo @ echo off > OMhelp\setup.bat
+echo rem Set OMhelp environment variable >> OMhelp\setup.bat
+echo set omhelp_dir=c:\Program Files\%install_sub_dir% >> OMhelp\setup.bat
+echo rem >> OMhelp\setup.bat
+echo rem Add OMhelp installation director to the path >> OMhelp\setup.bat
+echo set path=%path%;c:\progra~1\%install_sub_dir% >> OMhelp\setup.bat
+echo rem >> OMhelp\setup.bat
+echo rem Change into user's directory >> OMhelp\setup.bat
+echo cd "%after_setup_dir%" >> OMhelp\setup.bat
 rem -------------------------------------------------------------------------
 rem Create the installation directory
 mkdir "c:\Program Files\%install_sub_dir%"
