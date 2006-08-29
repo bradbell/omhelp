@@ -55,11 +55,12 @@ EXTRA_DIST = \
 	RunOMhelp.bat \
 	SetNoExecute \
 	omh \
-	src/omh \
-	src/main.src \
-	src/omhelp.y \
+	src/fixbison.sed \
 	src/latex.y \
 	src/latex.l \
+	src/main.src \
+	src/omh \
+	src/omhelp.y \
 	src/src.sln \
 	src/src.vcproj 
 #

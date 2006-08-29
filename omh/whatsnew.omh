@@ -85,6 +85,16 @@ $tend
 
 $$
 
+$head 06-08-28$$
+The was a bug in copying the $cref/navigate/$$ command
+for the root section to be the default for other sections.
+This has been fixed.
+$pre
+
+$$
+The $code _parent$$ and $code _this$$ labels
+have been added to the $cref/navigate/$$ command.
+
 $head 06-08-17$$
 Minor fixes to $cref/Windows installation/InstallWindows/$$.
 

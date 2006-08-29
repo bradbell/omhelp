@@ -115,6 +115,25 @@ The value $italic label 1$$ is the label that the user will see
 for the navigation links corresponding to $italic default 1$$.
 The value $italic label 2$$ is the label that the user will see
 for the navigation links corresponding to $italic default 2$$ and so on.
+The labels cannot begin with the special character $pre "_"$$ 
+with the following two special exceptions:
+$table
+$bold label$$    $cnext $bold Meaning$$   $rnext
+$code _parent $$ 
+	$cnext Use the 
+	$cref/cross reference tag/glossary/Cross Reference Tag/$$
+	of this section's parent for this label 
+	$rnext
+$code _this $$   
+	$cnext Use the cross reference tag for this section for this label 
+$tend
+The label $code _parent$$ is sometimes a good choice for the
+Sibling navigation links.
+The label $code _this$$ is sometimes a good choice for the 
+Down navigation links.
+
+
+
 
 $head Example$$
 The navigation links for this section were specified with
@@ -145,5 +164,21 @@ In the special case where a $code @navigate$$ command appears in the
 $cref/root section/running/root/$$ section, 
 and does not appear in a sub-section,
 the value specified in the root section is used for the sub-section.
+The navigation command in the root section for this manual is
+$codep
+	@navigate%
+		Content%Contents%
+		Prev%Previous%
+		Next%Next%
+		Up%Parents%
+		Sibling%_parent%
+		Down%_this%
+		Across%Index%
+		Current%Headings
+	%$$
+Note that there is no $code _parent$$ section relative
+to the root section. 
+Hence, for the root section, the Sibling navigation links
+are not included.
 
 $end

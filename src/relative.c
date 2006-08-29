@@ -70,6 +70,7 @@ $end
 # include <assert.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <string.h>
 
 # include "str_alloc.h"
 # include "relative.h"
@@ -147,9 +148,17 @@ void RelativeFrame(SectionInfo *F)
 	number = F->navigate.number;
 	for(index = 0; index < number; index++) 
 	{
-	nav_type = F->navigate.item[index].nav_type;
-	label    = F->navigate.item[index].label;
-	switch( nav_type )
+		nav_type = F->navigate.item[index].nav_type;
+		label    = F->navigate.item[index].label;
+		if( strcmp(label, "_this") == 0 )
+			label = F->tag;
+		if( strcmp(label, "_parent") == 0 )
+		{	if( F->parent != NULL )
+				label = F->parent->tag;
+			else	label = NULL;
+		}
+	// undo one level of indentation (need the space)
+	if( label != NULL ) switch( nav_type )
 	{
 		// Contents ------------------------------------------------
 		case CONTENT_nav:
@@ -398,9 +407,17 @@ void RelativeTable(SectionInfo *F)
 	number = F->navigate.number;
 	for(index = 0; index < number; index++) 
 	{
-	nav_type = F->navigate.item[index].nav_type;
-	label    = F->navigate.item[index].label;
-	switch( nav_type )
+		nav_type = F->navigate.item[index].nav_type;
+		label    = F->navigate.item[index].label;
+		if( strcmp(label, "_this") == 0 )
+			label = F->tag;
+		if( strcmp(label, "_parent") == 0 )
+		{	if( F->parent != NULL )
+				label = F->parent->tag;
+			else	label = NULL;
+		}
+	// undo one level of indentation (need the space)
+	if( label != NULL ) switch( nav_type )
 	{
 		// Contents -----------------------------------------------
 		case CONTENT_nav:

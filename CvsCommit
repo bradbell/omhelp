@@ -1,22 +1,26 @@
-# Minor fixes to Dos distribution.
+# Add _parent and _this label options to $navigate command
 #
 # CvsCommit: file that made this commit.
-# Build: no longer use setenv.bat (replaced by setup.bat which is auto built)
-# RunOMhelp.bat: us -noframe option on xml version.
-# install.bat: space between text and output redirection
-# installwindows.omh: minor changes to distribution.
-# stdout.omh: change fixed date to distribution date.
 # whatsnew.omh: user's view of changes.
+# Makefile.am: include src/fixbison.sed in distribution.
+# navigate.omh: document new feature.
+# overview.omh: use new navigate option.
+# omhelp.y: pass line number to SectionNavigate for error reporting.
+# relative.c: add new _parent and _this labels.
+# section.c: fix bug in SectionInfoNew and report errors in SectionNavigate.
+# section.h: change prototype for SectionNavigate to include line number.
 add_list="
 "
 change_list="
 	CvsCommit
-	Build
-	RunOMhelp.bat
-	install.bat
-	omh/installwindows.omh
-	omh/stdout.omh
+	Makefile.am
 	omh/whatsnew.omh
+	omh/navigate.omh
+	omh/overview.omh
+	src/omhelp.y
+	src/relative.c
+	src/section.c
+	src/section.h
 "
 delete_list="
 "

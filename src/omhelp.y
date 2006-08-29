@@ -3598,47 +3598,13 @@ navigate
 	{       fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
         }
 	| NAVIGATE_lex text DOUBLE_DOLLAR_lex
-	{	int index, ntoken;
-		char      *token;
-		const char *list;
-		const char *invalid;
+	{	int ntoken;
 
 		// split text into tokens
 		ntoken = SplitText($1.line, "$navigate", $2.str);
-		if( ntoken > 16 ) fatalomh(
-			"In the $navigate command in line ",
-			int2str($1.line),
-			"\nTo many delimiters in the delimiter sequence",
-			NULL
-		);
-
-		// check that none of the tokens are just white space
-		index = 0;
-		list = $2.str + 1;
-		while( index < ntoken )
-		{	token = str_alloc(list);
-			ClipWhiteSpace(token);
-			if( strlen(token) == 0 ) fatalomh(
-				"In the $navigate command in line ",
-				int2str($1.line),
-				"\nOnly white space between two delimiters in",
-				NULL
-			);
-			FreeMem(token);
-			
-			list = list + strlen(list) + 1;
-			index++;
-		}
 
 		// set the current navigation sequence
-		invalid = SectionNavigate(CurrentSection, ntoken, $2.str + 1);
-		if( invalid[0] != '\0' ) fatalomh(
-			"In the $navigate command in line ",
-			int2str($1.line),
-			"\n\"", invalid, "\"",
-			" is not a valid default navigation label ",
-			NULL
-		);
+		SectionNavigate(CurrentSection, ntoken, $2.str + 1, $1.line);
 
 		// done with the delimiter sequence
 		FreeMem($2.str);

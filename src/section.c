@@ -396,10 +396,11 @@ $$
 $section Changing Relative Navigation Links for a Section$$
 
 $head Syntax$$
-$syntax%const char *SectionNavigate(
+$syntax%void SectionNavigate(
 	SectionInfo *%S%      , 
 	int          %ntoken% , 
-	const char  *%text%   )
+	const char  *%text%   ,
+	int          line     )
 %$$
 
 
@@ -415,6 +416,8 @@ and the rest of the section information is left as is.
 $head ntoken$$
 The argument $italic ntoken$$ must be an even number.
 It specifies the number of tokens pointed to by $italic text$$
+It must also be less than or equal 16 (there can be at most 8 token pairs)
+(or else an error is posted).
 
 $head text$$
 The argument $italic text$$ is contains $italic ntoken$$
@@ -426,6 +429,9 @@ the terminating $code '\0'$$ for the current token.
 These tokens come in pairs of where 
 the first value in each pair is a navigation type and 
 the second is the label that the user sees for that navigation type.
+Leading and trailing white space in each token is ignored.
+
+$subhead Navigation Types$$
 The valid navigation types values are
 $pre
 	$$
@@ -437,24 +443,19 @@ $pre
 "Down->",
 "Across->",
 "Current->".
-$pre
 
-$$
-Leading and trailing white space in each token is ignored.
-$pre
+$subhead Labels$$
+None of the labels can begin with the character $pre "_"$$ except 
+for the following two special cases:
+$table
+$bold label$$    $cnext $bold Meaning$$   $rnext
+$pre "_parent"$$ $cnext Use the parent sections tag for this label $rnext
+$pre "_this"$$   $cnext Use this sections tag for this label 
+$tend
 
-$$
-The argument $italic ntoken$$ must be less than or equal 16
-(there can be at most 8 token pairs).
-$pre
-
-$$
+$head line$$
 If one of the requested navigation types is not valid, the invalid type
-is returned by $code SectionNavigate$$.
-(In this error case, the return value is allocated using $cref/AllocMem/$$).
-Otherwise, $code SectionNavigate$$ returns the empty string.
-(If one of the requested navigation types is the empty string, a program
-assert occurs.)
+is reported as coming from a $code navigate$$ command on the specified line.
 
 $end
 */
@@ -470,6 +471,8 @@ $end
 # include "StrLowAlloc.h"
 # include "strjoin.h"
 # include "ClipWhiteSpace.h"
+# include "fatalerr.h"
+# include "int2str.h"
 
 # include "section.h"
 
@@ -528,16 +531,18 @@ SectionInfo *SectionInfoNew(
 	F->style.textcolor = NULL;
 	F->style.bgcolor   = NULL;
 
-	F->navigate.number = Default.number;
-	assert( Default.number <= MAX_NAVIGATE );
-	for(index = 0; index < Default.number; index++)
-	{	if( navigateCopy == NULL )
+	if( navigateCopy == NULL )
+	{	F->navigate.number = Default.number;
+		for(index = 0; index < F->navigate.number; index++)
 		{	F->navigate.item[index].nav_type 
 				= Default.item[index].nav_type;
 			F->navigate.item[index].label 
 				= str_alloc( Default.item[index].label );
 		}
-		else
+	}
+	else
+	{	F->navigate.number = navigateCopy->navigate.number;
+		for(index = 0; index < F->navigate.number; index++)
 		{	F->navigate.item[index].nav_type = 
 				navigateCopy->navigate.item[index].nav_type;
 			F->navigate.item[index].label = str_alloc( 
@@ -545,6 +550,7 @@ SectionInfo *SectionInfoNew(
 			);
 		}
 	}
+	assert( F->navigate.number <= MAX_NAVIGATE );
 	return F;
 }
 
@@ -733,7 +739,8 @@ SectionInfo *SectionReadNext(SectionInfo *section)
 	return R;
 }
 
-const char *SectionNavigate(SectionInfo *S, int ntoken, const char *text)
+const char *SectionNavigate(
+	SectionInfo *S, int ntoken, const char *text, int line)
 {	const char        *cptr;
 	char              *tmp;
 	int                number, len, index, i;
@@ -743,9 +750,20 @@ const char *SectionNavigate(SectionInfo *S, int ntoken, const char *text)
 	for(index = 0; index < S->navigate.number; index++)
 		FreeMem( S->navigate.item[index].label );
 
-	assert( (ntoken % 2) == 0 );
-	assert( ntoken <= 2 * MAX_NAVIGATE );
-	
+	if( ntoken > 2 * MAX_NAVIGATE ) fatalomh(
+		"In the $navigate command in line ",
+		int2str(line),
+		"\nTo many delimiters in the delimiter sequence",
+		NULL
+	);
+	if( (ntoken % 2) != 0 ) fatalomh(
+		"In the $navigate command in line ",
+		int2str(line),
+		"\nCommand has an even number of delimiters ",
+		"\n(odd number of arguments).",
+		NULL
+	);
+
 	number = S->navigate.number = ntoken / 2;
 	cptr   = text;
 	for(index = 0; index < number; index++)
@@ -762,8 +780,13 @@ const char *SectionNavigate(SectionInfo *S, int ntoken, const char *text)
 			if( strcmp(tmp, Default.item[i].label) == 0 )
 				nav_type = Default.item[i].nav_type;
 		}
-		if( nav_type == INVALID_nav )
-			return tmp; 
+		if( nav_type == INVALID_nav ) fatalomh(
+			"In the $navigate command in line ",
+			int2str(line),
+			"\n\"", tmp, "\"",
+			" is not a valid default navigation label.",
+			NULL
+		);
 		FreeMem(tmp);
 
 		// store the navigation type 
@@ -777,6 +800,26 @@ const char *SectionNavigate(SectionInfo *S, int ntoken, const char *text)
 		tmp = str_alloc(cptr);
 		ClipWhiteSpace(tmp);
 		S->navigate.item[index].label = tmp;
+
+		if( tmp[0] == '\0' ) fatalomh(
+			"In the $navigate command in line ",
+			int2str(line),
+			".\nThere is only white space between two",
+			"\nof the delimiters in this command.",
+			NULL
+		);
+
+		if( tmp[0] == '_' && 
+		    strcmp(tmp, "_parent") != 0 &&
+		    strcmp(tmp, "_this") != 0 ) fatalomh(
+			"In the $navigate command in line ",
+			int2str(line),
+			"\n\"The label \"", tmp, "\"",
+			" begins with \"_\"\n",
+			"and is not \"_parent\" or \"_this\".",
+			NULL
+		);
+
 
 		// next token
 		cptr  += len + 1;

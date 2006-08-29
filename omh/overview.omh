@@ -36,13 +36,14 @@ $path/getstarted/.omh/$$
 $path/getstarted/.gif/$$
 $path/getstarted/.dat/$$
 
+$comment If you change followinng command, you must also change navigate.omh$$
 $navigate%
 	Content%Contents%
 	Prev%Previous%
 	Next%Next%
 	Up%Parents%
-	Sibling%Siblings%
-	Down%Children%
+	Sibling%_parent%
+	Down%_this%
 	Across%Index%
 	Current%Headings
 %$$
@@ -58,7 +59,7 @@ $$
 
 
 $index overview$$
-$section Source Code -> Web Based Help:  OMhelp Version 06-08-15$$
+$section Source Code -> Web Based Help:  OMhelp Version 06-08-28$$
 
 $head User Support For OMhelp$$
 $index support$$
