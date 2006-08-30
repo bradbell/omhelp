@@ -36,17 +36,11 @@ $path/getstarted/.omh/$$
 $path/getstarted/.gif/$$
 $path/getstarted/.dat/$$
 
-$comment If you change followinng command, you must also change navigate.omh$$
-$navigate%
-	Content%Contents%
-	Prev%Previous%
-	Next%Next%
-	Up%Parents%
-	Sibling%_parent%
-	Down%_this%
-	Across%Index%
-	Current%Headings
-%$$
+$comment 
+This navigate command is in a separate file 
+so it can also be used by navigate.omh 
+$$
+$include navigate_cmd.omh$$
 
 $comment The following absolute paths are for running from the debugger
 path/d:\omhelp\omh/.omh/
@@ -59,7 +53,7 @@ $$
 
 
 $index overview$$
-$section Source Code -> Web Based Help:  OMhelp Version 06-08-28$$
+$section Source Code -> Web Based Help:  OMhelp Version 06-08-29$$
 
 $head User Support For OMhelp$$
 $index support$$

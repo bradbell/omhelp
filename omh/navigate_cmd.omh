@@ -1,3 +1,5 @@
+$comment
+
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
@@ -16,21 +18,19 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
-$begin cross$$
-$spell
-	hypertext
+
+The navigate command below is used by both overview.omh. It is is in a 
+separate file so it can also be used as an example by navigate.omh.
+In order to work as an example for navigate.omh, it should demonstrate
+the use of the _parent and _this labels.
 $$
-$escape #$$
+$navigate%
+	Prev%Previous%
+	Next%Next%
+	Down%_this%
+	Sibling%_parent%
+	Up%Up%
+	Across%Index%
+	Current%Headings
+%$$
 
-$index cross reference link$$
-$index hypertext, link$$
-
-$section Cross Reference Linking$$
-
-$head Introduction$$
-The commands in the 
-sections below create cross reference links in the help file.
-
-$include childtable_cmd.omh$$
-	
-$end

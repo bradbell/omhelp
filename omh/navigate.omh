@@ -1,5 +1,6 @@
 $begin navigate$$
 $dollar @$$
+$escape #$$
 $spell
 	noframe
 	OMhelp
@@ -165,17 +166,10 @@ $cref/root section/running/root/$$ section,
 and does not appear in a sub-section,
 the value specified in the root section is used for the sub-section.
 The navigation command in the root section for this manual is
-$codep
-	@navigate%
-		Content%Contents%
-		Prev%Previous%
-		Next%Next%
-		Up%Parents%
-		Sibling%_parent%
-		Down%_this%
-		Across%Index%
-		Current%Headings
-	%$$
+@navigate%
+$code
+$verbatim/navigate_cmd.omh/5/#036navigate%/$$
+$$
 Note that there is no $code _parent$$ section relative
 to the root section. 
 Hence, for the root section, the Sibling navigation links

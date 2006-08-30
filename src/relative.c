@@ -218,23 +218,23 @@ void RelativeFrame(SectionInfo *F)
 		// Up ------------------------------------------------------
 		case UP_nav:
 		TitleLinks(label);
-		titled      = 1;
-		depth       = 0;
-		List[depth] = F;
-		while( List[depth]->parent != NULL )
+		titled        = 1;
+		depth         = 1;
+		List[depth-1] = F;
+		while( List[depth-1]->parent != NULL )
 		{	if( depth >= MAX_DEPTH ) fatalomh(
 				"Omhelp tree has over ",
 				int2str(MAX_DEPTH),
 				" branches from its root to a leaf",
 				NULL
 			);
-			List[depth + 1] =  List[depth]->parent;
+			List[depth] =  List[depth-1]->parent;
 			depth++;
 		}
 	
 		i = depth;
-		while( i >= 0 )
-		{
+		while( i > 0 )
+		{	i--;
 			for(j = 0; j < nspace * (depth - i); j++)
 				Space[j] = ' ';
 			Space[j] = '\0';
@@ -243,8 +243,6 @@ void RelativeFrame(SectionInfo *F)
 			text = strjoin(Space, S->tag);
 			AddLink(text, S->tag, "");
 			FreeMem(text);
-
-			i--;
 		}	
 		break;
 
@@ -260,11 +258,7 @@ void RelativeFrame(SectionInfo *F)
 		{
 			while( S != NULL )
 			{	if( ! IsAutomaticSection(S) )
-				{
-					if( S != F )
-						AddLink(S->tag, S->tag, "");
-					else	AddLink(S->tag,     "", "");
-				}
+					AddLink(S->tag, S->tag, "");
 				S = S->next;
 			}	
 		}
@@ -333,6 +327,7 @@ void RelativeFrame(SectionInfo *F)
 void RelativeTable(SectionInfo *F)
 {
 	SectionInfo     *S;
+	SectionInfo     *List[MAX_DEPTH];
 	char            *name;
 	char            *url;
 	FILE            *javascript_fp;
@@ -346,6 +341,7 @@ void RelativeTable(SectionInfo *F)
 	int              number;
 	int              index;
 	int              i;
+	int              depth;
 	CrossReference  *C;
 	enum navigateType nav_type;
 
@@ -458,34 +454,39 @@ void RelativeTable(SectionInfo *F)
 
 		// Up -------------------------------------------------------
 		case UP_nav:
-		S = F->parent;
-		if( S == NULL )
-		{	OutputString("<td>");
-			ConvertOutputString(label, pre);
-			OutputString("</td>\n");
+		depth         = 1;
+		List[depth-1] = F;
+		while( List[depth-1]->parent != NULL )
+		{	if( depth >= MAX_DEPTH ) fatalomh(
+				"Omhelp tree has over ",
+				int2str(MAX_DEPTH),
+				" branches from its root to a leaf",
+				NULL
+			);
+			List[depth] =  List[depth-1]->parent;
+			depth++;
 		}
-		else
-		{
-			OutputString("<td>\n");
-			OutputString(
-				"<select onchange='choose_up(this)'>\n"
-			); 
-			tmp = strjoin(label, "->");
-			OutputOption(tmp);
-			FreeMem(tmp);
-			fprintf(javascript_fp, "var list_up = [\n");
-			while(S != NULL)
-			{	OutputOption(S->tag);
-				url = Url(S->tag, "", "false");
-				WriteJavascriptString(javascript_fp, url);
-				FreeMem(url);
-				S = S->parent;
-				if( S != NULL )
-					fprintf(javascript_fp, ",\n");
-				else	fprintf(javascript_fp, "\n];\n");
-			}	
-			OutputString("</select>\n</td>\n"); 
-		}
+		OutputString("<td>\n");
+		OutputString(
+			"<select onchange='choose_up(this)'>\n"
+		); 
+		tmp = strjoin(label, "->");
+		OutputOption(tmp);
+		FreeMem(tmp);
+		fprintf(javascript_fp, "var list_up = [\n");
+		i = depth;
+		while( i > 0 )
+		{	i--;
+			S = List[i];
+			OutputOption(S->tag);
+			url = Url(S->tag, "", "false");
+			WriteJavascriptString(javascript_fp, url);
+			FreeMem(url);
+			if( i > 0 )
+				fprintf(javascript_fp, ",\n");
+			else	fprintf(javascript_fp, "\n];\n");
+		}	
+		OutputString("</select>\n</td>\n"); 
 		break;
 
 		// Sibling ---------------------------------------------------

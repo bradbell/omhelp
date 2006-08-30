@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin children$$
 $escape #$$
@@ -147,7 +145,7 @@ $$
 
 $code
 @childtable/
-$verbatim%cross_childtable.omh%5%#036childtable/%$$
+$verbatim%childtable_cmd.omh%5%#036childtable/%$$
 $$
 
 $head Children Command$$
@@ -160,7 +158,7 @@ $$
 
 $code
 @children/
-$verbatim%format_children.omh%5%#036children/%$$
+$verbatim%children_cmd.omh%5%#036children/%$$
 $$
 
 $pre

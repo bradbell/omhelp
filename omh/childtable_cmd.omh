@@ -1,3 +1,5 @@
+$comment
+
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
@@ -16,21 +18,17 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
-$begin cross$$
-$spell
-	hypertext
+
+The childtable command below specifies the children for cross.omh.
+This command is in a separate file so it can also be used as 
+an example by children.omh.
 $$
-$escape #$$
-
-$index cross reference link$$
-$index hypertext, link$$
-
-$section Cross Reference Linking$$
-
-$head Introduction$$
-The commands in the 
-sections below create cross reference links in the help file.
-
-$include childtable_cmd.omh$$
-	
-$end
+$childtable/
+	keyword.omh/
+	cref.omh/
+	href.omh/
+	rref.omh/
+	tref.omh/
+	mref.omh/
+	navigate.omh
+/$$

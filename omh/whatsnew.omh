@@ -85,6 +85,20 @@ $tend
 
 $$
 
+$head 06-08-29$$
+The current section was included in the Up $cref/navigation/navigate/$$ links,
+in the $cref/noframe/running/noframe/$$ case,
+Now start with the root section (same as the frame case).
+In addition, the current section is included (same as the frame case)
+because it gives a better idea of the current location in the web site.
+$pre
+
+$$
+In the version of the web site with frames, it is often desirable to 
+get back to the current section. Thus the links for the current section
+were enabled in the frame case (in the $cref/noframe/running/noframe/$$
+case the link has no effect). 
+
 $head 06-08-28$$
 The was a bug in copying the $cref/navigate/$$ command
 for the root section to be the default for other sections.

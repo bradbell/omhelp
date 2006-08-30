@@ -1,28 +1,37 @@
-# Add _parent and _this label options to $navigate command
+# Minor improvements to navigation links.
 #
 # CvsCommit: file that made this commit.
 # whatsnew.omh: user's view of changes.
-# Makefile.am: include src/fixbison.sed in distribution.
-# navigate.omh: document new feature.
-# overview.omh: use new navigate option.
-# omhelp.y: pass line number to SectionNavigate for error reporting.
-# relative.c: add new _parent and _this labels.
-# section.c: fix bug in SectionInfoNew and report errors in SectionNavigate.
-# section.h: change prototype for SectionNavigate to include line number.
+# relative.c: list Up links starting at root of tree.
+#
+# navigate.omh: use navigate_cmd.omh.
+# overview.omh: use navigate_cmd.omh.
+#
+# format.omh:       change format_children.omh to children_cmd.omh. 
+# children_cmd.omh: change format_children.omh to children_cmd.omh. 
+# children.omh:     change cross_childtable.omh to childtable_cmd.omh.
+#
+# cross.omh:            change cross_childtable.omh to childtable_cmd.omh.
+# cross_childtable.omh: change cross_childtable.omh to childtable_cmd.omh.
+# childtable_cmd.omh:   change cross_childtable.omh to childtable_cmd.omh.
 add_list="
+	omh/children_cmd.omh
+	omh/childtable_cmd.omh
+	omh/navigate_cmd.omh
 "
 change_list="
 	CvsCommit
-	Makefile.am
 	omh/whatsnew.omh
+	omh/children.omh
+	omh/cross.omh
+	omh/format.omh
 	omh/navigate.omh
 	omh/overview.omh
-	src/omhelp.y
 	src/relative.c
-	src/section.c
-	src/section.h
 "
 delete_list="
+	omh/format_children.omh
+	omh/cross_childtable.omh
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same

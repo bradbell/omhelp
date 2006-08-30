@@ -1,3 +1,5 @@
+$comment
+
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
@@ -16,21 +18,44 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
-$begin cross$$
-$spell
-	hypertext
+
+
+The commands below specify the children and jump tables for format.omh.  
+These commands are in separate file so they can also be used
+as an example by children.omh.
 $$
-$escape #$$
 
-$index cross reference link$$
-$index hypertext, link$$
+$children/
+	font.omh/
+	nobreak.omh/
+	pre.omh/
+	codep.omh/
+	syntax.omh/
+	center.omh/
+	table.omh/
+	list.omh/
+	math.omh/
+	special.omh/
+	color.omh/$$
 
-$section Cross Reference Linking$$
+$head Command Limited$$
+The effect of the following commands 
+is limited to the command itself:
+$table
+$rref nobreak$$
+$rref pre$$
+$rref codep$$
+$rref syntax$$
+$rref math$$
+$tend
 
-$head Introduction$$
-The commands in the 
-sections below create cross reference links in the help file.
+$head Not Command Limited$$
+The effect of the following commands may extend across other commands:
+$table
+$rref center$$
+$rref table$$
+$rref list$$
+$cnext $tref special$$ $rnext
+$cnext $tref font$$    $rnext
+$tend
 
-$include childtable_cmd.omh$$
-	
-$end
