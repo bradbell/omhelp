@@ -85,6 +85,11 @@ $tend
 
 $$
 
+$head 06-08-30$$
+Change the $cref/navigate/$$ special labels
+$code _parent$$ and $code _this$$ option to the more
+general (and more functional) $syntax%_up%#%$$ label. 
+
 $head 06-08-29$$
 The current section was included in the Up $cref/navigation/navigate/$$ links,
 in the $cref/noframe/running/noframe/$$ case,

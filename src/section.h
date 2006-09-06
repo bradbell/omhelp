@@ -21,7 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 // maximum number of frames in one section
 # define MAX_FRAME     10
-# define MAX_NAVIGATE  8
+# define MAX_NAVIGATE  12
 
 enum navigateType {
 	INVALID_nav,

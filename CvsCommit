@@ -1,37 +1,24 @@
-# Minor improvements to navigation links.
+# Change to use the _up# label in navigation links (much better).
 #
 # CvsCommit: file that made this commit.
 # whatsnew.omh: user's view of changes.
-# relative.c: list Up links starting at root of tree.
-#
-# navigate.omh: use navigate_cmd.omh.
-# overview.omh: use navigate_cmd.omh.
-#
-# format.omh:       change format_children.omh to children_cmd.omh. 
-# children_cmd.omh: change format_children.omh to children_cmd.omh. 
-# children.omh:     change cross_childtable.omh to childtable_cmd.omh.
-#
-# cross.omh:            change cross_childtable.omh to childtable_cmd.omh.
-# cross_childtable.omh: change cross_childtable.omh to childtable_cmd.omh.
-# childtable_cmd.omh:   change cross_childtable.omh to childtable_cmd.omh.
+# navigate.omh: document the new feature.
+# navigate_cmd.omh: use the new feature in OMhelp's documentation.
+# relative.c: implement the new feature.
+# section.c: implement new feature.
+# section.h: implement new feature.
 add_list="
-	omh/children_cmd.omh
-	omh/childtable_cmd.omh
-	omh/navigate_cmd.omh
 "
 change_list="
 	CvsCommit
 	omh/whatsnew.omh
-	omh/children.omh
-	omh/cross.omh
-	omh/format.omh
 	omh/navigate.omh
-	omh/overview.omh
+	omh/navigate_cmd.omh
 	src/relative.c
+	src/section.c
+	src/section.h
 "
 delete_list="
-	omh/format_children.omh
-	omh/cross_childtable.omh
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same

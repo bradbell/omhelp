@@ -116,46 +116,42 @@ The value $italic label 1$$ is the label that the user will see
 for the navigation links corresponding to $italic default 1$$.
 The value $italic label 2$$ is the label that the user will see
 for the navigation links corresponding to $italic default 2$$ and so on.
-The labels cannot begin with the special character $pre "_"$$ 
-with the following two special exceptions:
-$table
-$bold label$$    $cnext $bold Meaning$$   $rnext
-$code _parent $$ 
-	$cnext Use the 
-	$cref/cross reference tag/glossary/Cross Reference Tag/$$
-	of this section's parent for this label 
-	$rnext
-$code _this $$   
-	$cnext Use the cross reference tag for this section for this label 
-$tend
-The label $code _parent$$ is sometimes a good choice for the
-Sibling navigation links.
-The label $code _this$$ is sometimes a good choice for the 
-Down navigation links.
+The labels cannot begin with the special character $code _$$ 
+with the following special exception:
+$syntax%
 
-
-
+_up%#
+%$$
+where $italic #$$ is be a decimal digit; i.e., between 0 and 9.
+In this special case the 
+$cref/cross reference tag/glossary/Cross Reference Tag/$$
+for the section $italic #$$ levels above this section is used
+for the label.
+The links are relative to this parent section
+(instead of the current section).
+If there is no section $italic #$$ levels above the current section,
+these links are not included.
 
 $head Example$$
 The navigation links for this section were specified with
 the following command:
 $navigate%
-	Up%Up%
-	Content%Contents%
+	Across%Index%
 	Prev%Previous%
 	Next%Next%
-	Sibling%Linking%
-	Across%Index%
+	Up%Up%
+	Down%Down%
+	Sibling%Siblings%
 	Current%Headings
 %$$
 $codep
 	@navigate%
-		Up%Up%
-		Content%Contents%
+		Across%Index%
 		Prev%Previous%
 		Next%Next%
-		Sibling%Linking%
-		Across%Index%
+		Up%Up%
+		Down%Down%
+		Sibling%Siblings%
 		Current%Headings
 	%@@
 $$

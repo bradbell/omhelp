@@ -446,12 +446,9 @@ $pre
 
 $subhead Labels$$
 None of the labels can begin with the character $pre "_"$$ except 
-for the following two special cases:
-$table
-$bold label$$    $cnext $bold Meaning$$   $rnext
-$pre "_parent"$$ $cnext Use the parent sections tag for this label $rnext
-$pre "_this"$$   $cnext Use this sections tag for this label 
-$tend
+for the following special case:
+$syntax%_up%d%$$ where $italic d$$ is a decimal digit between zero
+and nine. 
 
 $head line$$
 If one of the requested navigation types is not valid, the invalid type
@@ -481,6 +478,7 @@ $end
 # endif
 
 
+// Note that MAX_NAVIGATE is 12 so need 12 entries
 static NavigateInfo Default = {
 	8,
 	{
@@ -491,7 +489,11 @@ static NavigateInfo Default = {
 		{ SIBLING_nav, "Sibling"   },
 		{ DOWN_nav,    "Down"      },
 		{ ACROSS_nav,  "Across"    },
-		{ CURRENT_nav, "Current"   }
+		{ CURRENT_nav, "Current"   },
+		{ INVALID_nav, "not used"  },
+		{ INVALID_nav, "not used"  },
+		{ INVALID_nav, "not used"  },
+		{ INVALID_nav, "not used"  },
 	}
 };	
 
@@ -809,14 +811,16 @@ const char *SectionNavigate(
 			NULL
 		);
 
-		if( tmp[0] == '_' && 
-		    strcmp(tmp, "_parent") != 0 &&
-		    strcmp(tmp, "_this") != 0 ) fatalomh(
+		if( tmp[0] == '_' ) if(
+			strlen(tmp) != 4 ||
+	    		strncmp(tmp, "_up", 3) != 0 ||
+			! isdigit( tmp[3] )
+		) fatalomh(
 			"In the $navigate command in line ",
 			int2str(line),
 			"\n\"The label \"", tmp, "\"",
 			" begins with \"_\"\n",
-			"and is not \"_parent\" or \"_this\".",
+			"and is not of form \"_up#\" where # between 0 and 9",
 			NULL
 		);
 

@@ -25,12 +25,14 @@ In order to work as an example for navigate.omh, it should demonstrate
 the use of the _parent and _this labels.
 $$
 $navigate%
+	Across%Index%
 	Prev%Previous%
 	Next%Next%
-	Down%_this%
-	Sibling%_parent%
-	Up%Up%
-	Across%Index%
+	Down%_up4%
+	Down%_up3%
+	Down%_up2%
+	Down%_up1%
+	Down%_up0%
 	Current%Headings
 %$$
 

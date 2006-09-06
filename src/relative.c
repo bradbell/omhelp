@@ -27,33 +27,33 @@ $$
 $section Automatic Generated Links Relative to Current Section$$
 
 $head Syntax$$
-$syntax%void RelativeFrame(SectionInfo *%F%)
+$syntax%void RelativeFrame(SectionInfo *%This%)
 %$$
-$syntax%void RelativeTable(SectionInfo *%F%)
+$syntax%void RelativeTable(SectionInfo *%This%)
 %$$
 
 $head Purpose$$
 Creates the automatically generated links
 (during the second pass), such as previous, next, up,
-that are relative to the section $italic F$$.
+that are relative to the section $italic This$$.
 
 $head RelativeFrame$$
 This creates the file $syntax%%tag%_links.%ext%$$ containing the links.
-where $italic tag$$ is equal to $syntax%%F%->tagLower%$$ and
+where $italic tag$$ is equal to $syntax%%This%->tagLower%$$ and
 $italic ext$$ is equal to $syntax%%Internal2Out("OutputExtension")%$$. 
 
 $head RelativeTable$$
 This creates a table, in the current output file, containing the links.
 It also creates the Javascript file 
 $syntax%
-	_%F->tagLower%_%ext%.js
+	_%This->tagLower%_%ext%.js
 %$$ 
 and assumes that the $syntax%<head>%...%</head>%$$ for the current 
 output file contains the command
 $syntax%
 <script type='text/javascript' language='JavaScript' src='%tag%_%ext%.js'>
 %$$
-where $italic tag$$ is $syntax%%F->tagLower%$$ and
+where $italic tag$$ is $syntax%%This->tagLower%$$ and
 $italic ext$$ is $code Internal2Out("OutputExtension")$$
 with out the leading "." character.
 
@@ -71,6 +71,7 @@ $end
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include <ctype.h>
 
 # include "str_alloc.h"
 # include "relative.h"
@@ -115,9 +116,10 @@ static void WriteJavascriptString(FILE *fp, const char *s)
 	fputc(single_quote, fp);
 }
 
-void RelativeFrame(SectionInfo *F)
-{	SectionInfo    *S;
-	SectionInfo    *List[MAX_DEPTH];
+void RelativeFrame(SectionInfo *This)
+{	SectionInfo    *F;
+	SectionInfo    *S;
+	SectionInfo    *Up[MAX_DEPTH];
 	CrossReference *C;
 	char           Space[1000];
 	int            nspace = 2;
@@ -139,26 +141,35 @@ void RelativeFrame(SectionInfo *F)
 
 	assert( 1000 > nspace * MAX_DEPTH ); 
 
-	stylecmd = StyleCommand(F);
-	BeginLinks(F->tag, "column", IconLink(), IconFile(), stylecmd);
+	stylecmd = StyleCommand(This);
+	BeginLinks(This->tag, "column", IconLink(), IconFile(), stylecmd);
 	FreeMem(stylecmd);
 
 	// =================================================================
 	titled = 0;
-	number = F->navigate.number;
+	number = This->navigate.number;
 	for(index = 0; index < number; index++) 
 	{
-		nav_type = F->navigate.item[index].nav_type;
-		label    = F->navigate.item[index].label;
-		if( strcmp(label, "_this") == 0 )
-			label = F->tag;
-		if( strcmp(label, "_parent") == 0 )
-		{	if( F->parent != NULL )
-				label = F->parent->tag;
-			else	label = NULL;
+		// simple case where using this section
+		nav_type = This->navigate.item[index].nav_type;
+		label    = This->navigate.item[index].label;
+		F        = This;
+
+		// check for case where using a parent section
+		if( label[0] == '_' )
+		{	assert( strncmp(label, "_up", 3) == 0 );
+			assert( strlen(label) == 4 );
+			assert( isdigit(label[3]) );
+			i = atoi(label + 3);
+			while(i--)
+			{	if( F != NULL )
+					F = F->parent;
+			}
+			if( F != NULL )
+				label = F->tag;
 		}
 	// undo one level of indentation (need the space)
-	if( label != NULL ) switch( nav_type )
+	if( F != NULL ) switch( nav_type )
 	{
 		// Contents ------------------------------------------------
 		case CONTENT_nav:
@@ -220,15 +231,15 @@ void RelativeFrame(SectionInfo *F)
 		TitleLinks(label);
 		titled        = 1;
 		depth         = 1;
-		List[depth-1] = F;
-		while( List[depth-1]->parent != NULL )
+		Up[depth-1]   = F;
+		while( Up[depth-1]->parent != NULL )
 		{	if( depth >= MAX_DEPTH ) fatalomh(
 				"Omhelp tree has over ",
 				int2str(MAX_DEPTH),
 				" branches from its root to a leaf",
 				NULL
 			);
-			List[depth] =  List[depth-1]->parent;
+			Up[depth] =  Up[depth-1]->parent;
 			depth++;
 		}
 	
@@ -239,7 +250,7 @@ void RelativeFrame(SectionInfo *F)
 				Space[j] = ' ';
 			Space[j] = '\0';
 
-			S    = List[i];
+			S    = Up[i];
 			text = strjoin(Space, S->tag);
 			AddLink(text, S->tag, "");
 			FreeMem(text);
@@ -324,10 +335,12 @@ void RelativeFrame(SectionInfo *F)
 	EndLinks();
 
 }
-void RelativeTable(SectionInfo *F)
+void RelativeTable(SectionInfo *This)
 {
+	SectionInfo     *F;
 	SectionInfo     *S;
-	SectionInfo     *List[MAX_DEPTH];
+	SectionInfo     *Up[MAX_DEPTH];
+	char            *list_name[MAX_NAVIGATE];
 	char            *name;
 	char            *url;
 	FILE            *javascript_fp;
@@ -358,7 +371,7 @@ void RelativeTable(SectionInfo *F)
 		__FILE__,
 		__LINE__,
 		"_",
-		F->tagLower,
+		This->tagLower,
 		"_",
 		ext,
 		".js",
@@ -400,23 +413,38 @@ void RelativeTable(SectionInfo *F)
 	}
 
 	// =================================================================
-	number = F->navigate.number;
+	number = This->navigate.number;
+	assert( number <= MAX_NAVIGATE );
 	for(index = 0; index < number; index++) 
-	{
-		nav_type = F->navigate.item[index].nav_type;
-		label    = F->navigate.item[index].label;
-		if( strcmp(label, "_this") == 0 )
-			label = F->tag;
-		if( strcmp(label, "_parent") == 0 )
-		{	if( F->parent != NULL )
-				label = F->parent->tag;
-			else	label = NULL;
+	{	const char *digit = "0";
+
+		// simple case where using this section
+		nav_type = This->navigate.item[index].nav_type;
+		label    = This->navigate.item[index].label;
+		F        = This;
+
+		// check for case where using a parent section
+		if( label[0] == '_' )
+		{	assert( strncmp(label, "_up", 3) == 0 );
+			assert( strlen(label) == 4 );
+			assert( isdigit(label[3]) );
+			digit = label + 3;
+			i     = atoi(digit);
+			while(i--)
+			{	if( F != NULL )
+					F = F->parent;
+			}
+			if( F != NULL )
+				label = F->tag;
 		}
 	// undo one level of indentation (need the space)
-	if( label != NULL ) switch( nav_type )
+	if( F == NULL )
+		list_name[index] = NULL;
+	else switch( nav_type )
 	{
 		// Contents -----------------------------------------------
 		case CONTENT_nav:
+		list_name[index] = NULL;
 		OutputString("<td>\n");
 		HrefOutputPass2(CONTENTS_TAG, "", "false", "");
 		ConvertOutputString(label, pre);
@@ -426,6 +454,7 @@ void RelativeTable(SectionInfo *F)
 
 		// Previous -------------------------------------------------
 		case PREV_nav:
+		list_name[index] = NULL;
 		OutputString("<td>");
 		S = SectionReadPrevious(F);
 		if( S == NULL )
@@ -440,6 +469,7 @@ void RelativeTable(SectionInfo *F)
 
 		// Next ------------------------------------------------------
 		case NEXT_nav:
+		list_name[index] = NULL;
 		OutputString("<td>");
 		S = SectionReadNext(F);
 		if( S == NULL )
@@ -454,30 +484,32 @@ void RelativeTable(SectionInfo *F)
 
 		// Up -------------------------------------------------------
 		case UP_nav:
-		depth         = 1;
-		List[depth-1] = F;
-		while( List[depth-1]->parent != NULL )
+		list_name[index] = strjoin("up", digit);
+		depth       = 1;
+		Up[depth-1] = F;
+		while( Up[depth-1]->parent != NULL )
 		{	if( depth >= MAX_DEPTH ) fatalomh(
 				"Omhelp tree has over ",
 				int2str(MAX_DEPTH),
 				" branches from its root to a leaf",
 				NULL
 			);
-			List[depth] =  List[depth-1]->parent;
+			Up[depth] =  Up[depth-1]->parent;
 			depth++;
 		}
 		OutputString("<td>\n");
-		OutputString(
-			"<select onchange='choose_up(this)'>\n"
+		FormatOutput(
+			"<select onchange='choose_%s(this)'>\n",
+			list_name[index]
 		); 
 		tmp = strjoin(label, "->");
 		OutputOption(tmp);
 		FreeMem(tmp);
-		fprintf(javascript_fp, "var list_up = [\n");
+		fprintf(javascript_fp, "var list_%s = [\n", list_name[index]);
 		i = depth;
 		while( i > 0 )
 		{	i--;
-			S = List[i];
+			S = Up[i];
 			OutputOption(S->tag);
 			url = Url(S->tag, "", "false");
 			WriteJavascriptString(javascript_fp, url);
@@ -491,14 +523,16 @@ void RelativeTable(SectionInfo *F)
 
 		// Sibling ---------------------------------------------------
 		case SIBLING_nav:
+		list_name[index] = strjoin("sibling", digit);
 		OutputString("<td>\n");
-		OutputString(
-			"<select onchange='choose_sibling(this)'>\n"
+		FormatOutput(
+			"<select onchange='choose_%s(this)'>\n",
+			list_name[index]
 		); 
 		tmp = strjoin(label, "->");
 		OutputOption(tmp);
 		FreeMem(tmp);
-		fprintf(javascript_fp, "var list_sibling = [\n");
+		fprintf(javascript_fp, "var list_%s = [\n", list_name[index]);
 		S = F;
 		while(S->previous != NULL )
 			S = S->previous;
@@ -521,6 +555,7 @@ void RelativeTable(SectionInfo *F)
 
 		// Down ------------------------------------------------------
 		case DOWN_nav:
+		list_name[index] = strjoin("down", digit);
 		S = F->children;
 		if( S == NULL )
 		{	OutputString("<td>");
@@ -529,13 +564,16 @@ void RelativeTable(SectionInfo *F)
 		}
 		else
 		{	OutputString("<td>\n");
-			OutputString(
-			"<select onchange='choose_down(this)'>\n"
+			FormatOutput(
+				"<select onchange='choose_%s(this)'>\n",
+				list_name[index]
 			); 
 			tmp = strjoin(label, "->");
 			OutputOption(tmp);
 			FreeMem(tmp);
-			fprintf(javascript_fp, "var list_down = [\n");
+			fprintf(javascript_fp, 
+				"var list_%s = [\n", list_name[index]
+			);
 			while(S->previous != NULL )
 				S = S->previous;
 			while( IsAutomaticSection(S) )
@@ -558,14 +596,16 @@ void RelativeTable(SectionInfo *F)
 	
 		// Across ----------------------------------------------------
 		case ACROSS_nav:
+		list_name[index] = strjoin("across", digit);
 		OutputString("<td>\n");
-		OutputString(
-			"<select onchange='choose_across(this)'>\n"
+		FormatOutput(
+			"<select onchange='choose_%s(this)'>\n",
+			list_name[index]
 		); 
 		tmp = strjoin(label, "->");
 		OutputOption(tmp);
 		FreeMem(tmp);
-		fprintf(javascript_fp, "var list_across = [\n");
+		fprintf(javascript_fp, "var list_%s = [\n", list_name[index]);
 		i = 0;
 		while( AutomaticTag(i) != NULL )
 		{	const char *tag = AutomaticTag(i);
@@ -585,6 +625,7 @@ void RelativeTable(SectionInfo *F)
 
 		// Current ---------------------------------------------------
 		case CURRENT_nav:
+		list_name[index] = strjoin("current", digit);
 		C = FindCrossReference(F->tag, "");
 		assert( C != NULL );
 		C = NextCrossReference(C);
@@ -597,13 +638,16 @@ void RelativeTable(SectionInfo *F)
 		}
 		else
 		{	OutputString("<td>\n");
-			OutputString(
-			"<select onchange='choose_current(this)'>\n"
+			FormatOutput(
+				"<select onchange='choose_%s(this)'>\n",
+				list_name[index]
 			); 
 			tmp = strjoin(label, "->");
 			OutputOption(tmp);
 			FreeMem(tmp);
-			fprintf(javascript_fp, "var list_current = [\n");
+			fprintf(javascript_fp, 
+				"var list_%s = [\n", list_name[index]
+			);
 
 			while( C != NULL )
 			{	assert( C->head != NULL );
@@ -658,10 +702,13 @@ void RelativeTable(SectionInfo *F)
 	"	if(index > 0)\n"
 	"		document.location = list_%s[index-1];\n"
 	"}\n";
-	fprintf(javascript_fp, format, "up", "up");
-	fprintf(javascript_fp, format, "sibling", "sibling");
-	fprintf(javascript_fp, format, "down", "down");
-	fprintf(javascript_fp, format, "across", "across");
-	fprintf(javascript_fp, format, "current", "current");
+	for(index = 0; index < number; index++)
+	{	if( list_name[index] != NULL )
+		{	fprintf(javascript_fp, 
+				format, list_name[index], list_name[index]
+			);
+		}
+		FreeMem(list_name[index]);
+	}
 	fclose(javascript_fp);
 }
