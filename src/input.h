@@ -29,7 +29,7 @@ extern void  InputFree(
 extern char  InputGet(
 	void
 );
-extern const int InputLine(
+extern int InputLine(
 	void
 );
 extern void InputInit(

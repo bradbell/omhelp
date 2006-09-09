@@ -605,7 +605,7 @@ const char *InputName()
 	return name;
 }
 
-const int InputLine()
+int InputLine()
 {	int line;
 	if( Index < 0 )
 		return 0;
