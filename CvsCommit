@@ -1,24 +1,16 @@
-# Change -l to -image_link and -i to -image_file 
+# Missing from previous few commits (since changing icon -> image)
 #
 # CvsCommit: file that made this commit.
-# depreacted.omh: deprecate the -l and -i command line arguments.
-# href.omh: fix links that name change broke.
-# running.omh: change omhelp command syntax and use new names in documentation.
-# whatsnew02.omh: fix links that name change broke.
-# links.h: missing from previous commit.
-# main.src: implement new command line options.
 
 add_list="
+	OMhelp/_image.gif
 "
 change_list="
 	CvsCommit
-	omh/deprecated.omh
-	omh/href.omh
-	omh/running.omh
-	src/links.h
-	src/main.src
+	omh/whatsnew02.omh
 "
 delete_list="
+	OMhelp/icon.gif
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same
@@ -32,6 +24,7 @@ do
 	if [ $file != "CvsCommit"      ] && \
 	   [ $file != "CvsCommit.sed"  ] && \
 	   [ $ext != ".vcproj"         ] && \
+	   [ $ext != ".gif"            ] && \
 	   [ $ext != ".vim"            ]
 	then
 		# automatic edits and backups

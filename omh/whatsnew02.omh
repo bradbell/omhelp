@@ -169,7 +169,9 @@ The Latex $xref/left_right//left and right/$$ commands
 were included.
 
 $head 11-27$$
-There was a bug in specifying an $xref/running/icon_file/icon file/$$
+There was a bug in specifying an $code icon file$$
+on the command line 
+(later changed to $cref/image_file/running/image_file/$$)
 that had an extension different from $code .gif$$.
 This has been fixed.
 
@@ -592,11 +594,13 @@ separated the last two cross references.
 
 
 $head 06-21$$
-The default $xref/running/icon_file/icon file/$$ name was
+The default $code icon file$$ name was
 changed to $code _icon.gif$$.
+(later changed to 
+$cref/image_file/running/image_file/$$ name $code _image.gif$$)
 The documentation for this option
-and the $xref/running/icon_link/icon link/$$ option
-was improved.
+and the $code icon link/$$ option was improved
+(later changed to $cref/image_link/running/image_link/$$).
 (it used to begin with $code button_$$).
 In addition, $xref/image//image and icon/$$ file names
 can not begin with the $code _$$ character
