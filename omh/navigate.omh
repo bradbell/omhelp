@@ -162,8 +162,10 @@ $cref/root section/running/root/$$ section,
 and does not appear in a sub-section,
 the value specified in the root section is used for the sub-section.
 The navigation command in the root section for this manual is
-@navigate%
+$pre
+$$
 $code
+$pre     $$@navigate%
 $verbatim/navigate_cmd.omh/5/#036navigate%/$$
 $$
 Note that there is no $code _parent$$ section relative
