@@ -1,9 +1,8 @@
 # ifndef LINKS_INCLUDED
 # define LINKS_INCLUDED
 
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -19,13 +18,12 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 
 extern void BeginLinks(
 	const char *fromtag,
 	const char *direction,
-	const char *icon_link,
-	const char *icon_file,
+	const char *image_link,
+	const char *image_file,
 	const char *stylecmd
 );
 extern void TitleLinks(

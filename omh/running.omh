@@ -65,10 +65,10 @@ $italic root$$
 [ $code -xml$$ ]
 [ $code -printable$$ ]
 [ $code -noframe$$ ]
-[ $code -l$$ $italic icon_link$$ ]
-[ $code -i$$ $italic icon_file$$ ]
-[ $code -site$$ $italic name$$ ]
 [ $code -nowarn$$ ]
+[ $code -image_link$$ $italic image_link$$ ]
+[ $code -image_file$$ $italic image_file$$ ]
+[ $code -site$$ $italic name$$ ]
 [ $code -omhelp$$ $italic dir$$ ]
 
 $head Purpose$$
@@ -235,40 +235,48 @@ If the command line option $code -noframe$$ is present,
 all of the information for a section is displayed in one frame.
 This overrides the normal behavior of the $xref/fend/$$ command.
 
-$head icon_link$$
-$index icon, link$$
-$index link, icon$$ 
-If the command line arguments $code -l$$
-is present, the argument $italic icon_link$$ must follow it.
-In this case, the icon 
+$head nowarn$$
+OMhelp warnings are printed as messages on
+$xref/stdout//standard out/$$.
+For example,
+$xref/spell//spelling/$$ errors and undefined 
+$xref/xref//cross references/$$ are displayed as warnings
+but do not terminate processing. 
+You can suppress the display of these warning messages
+using the $code -nowarn$$ command line option.
+
+$head image_link$$
+$index image, link$$
+$index link, image$$ 
+If the command line argument $code -image_link$$
+is present, the argument $italic image_link$$ must follow it.
+In this case, the image 
 is placed at the
-top of the links for each section.
-($code -i$$ $italic icon_file$$ can be used to specify your own icon). 
-If $italic icon_link$$ is equal to the empty string ($code ""$$),
-the icon does not link to anything.
-Otherwise, $italic icon_link$$ specifies a 
+top of the links for each section 
+($syntax% -image_file %image_file%$$ can be used to specify your own image,
+which should be about the same size as the default image). 
+If $italic image_link$$ is equal to the empty string ($code ""$$),
+the image does not link to anything.
+Otherwise, $italic image_link$$ specifies a 
 world wide web address (URL) that is linked to when the 
-icon is selected.
+image is selected.
 
 
-$head icon_file$$
-$index icon, file$$
-$index file, icon$$
-The default icon is located in the file
-$syntax%%omhelp_dir%\image\icon.gif%$$ 
-where $italic omhelp_dir$$ is
-the $xref/running/omhelp_dir/omhelp_dir/$$ directory.
-If the command line arguments $code -i$$ is present, 
-the argument $italic icon_file$$ must follow.
+$head image_file$$
+$index image, file$$
+$index file, image$$
+A default image file ($code _image.gif$$) is distributed with OMhelp.
+If the command line argument $code -image_file$$ is present, 
+the argument $italic image_file$$ must follow.
 In this case,
-the default icon is replaced by $italic icon_file$$ 
-which can either a 
+the default image is replaced by $italic image_file$$,
+which should be about the same size as the default image. 
+The text $italic image_file$$ can either a 
 $xref/glossary/Complete Path Specification/complete path specification/$$
 or relative
 to the directory containing the file specified by $italic root$$.
 Note that the directories specified by the $xref/path/$$ commands 
-are not searched for the file specified by $italic icon_file$$.
-
+are not searched for the file specified by $italic image_file$$.
 
 $head site$$
 $index web site, name$$
@@ -281,17 +289,6 @@ web site being built.
 This name is currently used in the title for the web site
 $xref/_search//search/$$ utility.
 It may have other uses in the future.
-
-
-$head nowarn$$
-OMhelp warnings are printed as messages on
-$xref/stdout//standard out/$$.
-For example,
-$xref/spell//spelling/$$ errors and undefined 
-$xref/xref//cross references/$$ are displayed as warnings
-but do not terminate processing. 
-You can suppress the display of these warning messages
-using the $code -nowarn$$ command line option.
 
 $head omhelp_dir$$
 If the command line argument $code -omhelp_dir$$ is present,

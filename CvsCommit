@@ -1,23 +1,22 @@
-# Change IconFile() to ImageFile() (in preparation for favicon.ico)
+# Change -l to -image_link and -i to -image_file 
 #
 # CvsCommit: file that made this commit.
-# Makefile.am: change icon.gif -> _image.gif
-# links.c: change icon_link -> image_link and icon_file->image_file
-# main.h: change IconFile -> ImageFile.
-# main.src: change [Ii]conFile -> [iI]mageFile, icon.gif -> _image.gif
-# relative.c: change icon_link -> image_link and icon_file->image_file
-# trace_exit.c: add new line before error message on non-zero exit.
-#
+# depreacted.omh: deprecate the -l and -i command line arguments.
+# href.omh: fix links that name change broke.
+# running.omh: change omhelp command syntax and use new names in documentation.
+# whatsnew02.omh: fix links that name change broke.
+# links.h: missing from previous commit.
+# main.src: implement new command line options.
+
 add_list="
 "
 change_list="
 	CvsCommit
-	Makefile.am
-	src/links.c
-	src/main.h
+	omh/deprecated.omh
+	omh/href.omh
+	omh/running.omh
+	src/links.h
 	src/main.src
-	src/relative.c
-	src/trace_exit.c
 "
 delete_list="
 "

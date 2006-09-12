@@ -44,7 +44,7 @@ $cnext $syntax/@href%/uri/%/linkingtext/%@@/$$ $rnext
 $cnext $syntax/@href%/uri/%/linkingtext/%/frame/%@@/$$ $rnext
 $bold See Also$$
 $cnext 
-$xref/running/icon_link/icon link/$$, 
+$cref/image_link/running/image_link/$$, 
 $xref/keyword/Keyword List/keyword list/$$,
 $mref/cref/$$
 $tend
