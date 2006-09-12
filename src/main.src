@@ -68,9 +68,9 @@ const char *SiteName()
 {	return siteName;
 }
 
-static const char *iconLink = NULL;
+static const char *imageLink = NULL;
 const char *IconLink()
-{	return iconLink;
+{	return imageLink;
 }
 
 static char *imageFile = NULL;
@@ -90,7 +90,7 @@ int main(int argc, const char *argv[])
 {
 	const char *omhdir   = NULL;
 	const char *root     = NULL;
-	const char *icon     = NULL;
+	const char *image    = NULL;
 	int error            = 0;
 	int iarg             = 0;
 	int morearg          = 0;
@@ -117,8 +117,8 @@ int main(int argc, const char *argv[])
 	omhdir = "../OMhelp";
 	printf("omhelp_dir = %s\n", omhdir);
 	//
-	// iconLink = "index.htm";
-	// printf("icon link = %s\n", iconLink);
+	// imageLink = "index.htm";
+	// printf("image link = %s\n", imageLink);
 	//
 	// Internal2OutSet("xml");
 	// GenerateXml = 1;
@@ -145,8 +145,8 @@ int main(int argc, const char *argv[])
 		}
 		else if( morearg && strcmp(argv[iarg], "-l") == 0 )
 		{	iarg++;
-			iconLink = argv[iarg];
-			if( strchr(iconLink, '\\') != NULL )
+			imageLink = argv[iarg];
+			if( strchr(imageLink, '\\') != NULL )
 			{
 				printf("must use \"/\" in place of \"\\\" "
 				       "in the link internet address\n"
@@ -156,7 +156,7 @@ int main(int argc, const char *argv[])
 		}
 		else if( morearg && strcmp(argv[iarg], "-i") == 0 )
 		{	iarg++;
-			icon = argv[iarg];
+			image = argv[iarg];
 		}
 		else if( morearg && strcmp(argv[iarg], "-site") == 0 )
 		{	iarg++;
@@ -193,7 +193,7 @@ int main(int argc, const char *argv[])
 		printf(
 			"omhelp  root "
 			"[-l link] "
-			"[-i icon] "
+			"[-i image] "
 			"[-site name] "
 			"[-omhelp_dir dir] "
 			"[-debug]  "
@@ -262,14 +262,14 @@ int main(int argc, const char *argv[])
 	// In addition, initializing parser initializes input routines.
 	InitParser(root);
 
-	// copy the icon file to the current directory
-	if( iconLink != NULL )
+	// copy the image file to the current directory
+	if( imageLink != NULL )
 	{	const char *dir;
 		char *root;
 		char *ext;
 		char *fullname;
 
-		if( icon == NULL )
+		if( image == NULL )
 		{	fullname = StrCat(
 				__FILE__,
 				__LINE__,
@@ -281,11 +281,11 @@ int main(int argc, const char *argv[])
 		}
 		else
 		{
-			InputSplitName(&root, &ext, icon);
+			InputSplitName(&root, &ext, image);
 			if( ext[0] == '\0' ) printf(
-				"The icon file name %s"
+				"The image file name %s"
 				"\ndoes not have an extension",
-				icon
+				image
 			);
 			dir      = InputSearch(root, ext);
 			fullname = StrCat(
