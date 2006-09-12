@@ -1,22 +1,23 @@
-# Change to use the _up# label in navigation links (much better).
+# Change IconFile() to ImageFile() (in preparation for favicon.ico)
 #
 # CvsCommit: file that made this commit.
-# whatsnew.omh: user's view of changes.
-# navigate.omh: document the new feature.
-# navigate_cmd.omh: use the new feature in OMhelp's documentation.
-# relative.c: implement the new feature.
-# section.c: implement new feature.
-# section.h: implement new feature.
+# Makefile.am: change icon.gif -> _image.gif
+# links.c: change icon_link -> image_link and icon_file->image_file
+# main.h: change IconFile -> ImageFile.
+# main.src: change [Ii]conFile -> [iI]mageFile, icon.gif -> _image.gif
+# relative.c: change icon_link -> image_link and icon_file->image_file
+# trace_exit.c: add new line before error message on non-zero exit.
+#
 add_list="
 "
 change_list="
 	CvsCommit
-	omh/whatsnew.omh
-	omh/navigate.omh
-	omh/navigate_cmd.omh
+	Makefile.am
+	src/links.c
+	src/main.h
+	src/main.src
 	src/relative.c
-	src/section.c
-	src/section.h
+	src/trace_exit.c
 "
 delete_list="
 "

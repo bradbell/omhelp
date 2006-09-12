@@ -142,7 +142,7 @@ void RelativeFrame(SectionInfo *This)
 	assert( 1000 > nspace * MAX_DEPTH ); 
 
 	stylecmd = StyleCommand(This);
-	BeginLinks(This->tag, "column", IconLink(), IconFile(), stylecmd);
+	BeginLinks(This->tag, "column", IconLink(), ImageFile(), stylecmd);
 	FreeMem(stylecmd);
 
 	// =================================================================
@@ -344,8 +344,8 @@ void RelativeTable(SectionInfo *This)
 	char            *name;
 	char            *url;
 	FILE            *javascript_fp;
-	const char      *icon_link = IconLink();
-	const char      *icon_file = IconFile();
+	const char      *image_link = IconLink();
+	const char      *image_file = ImageFile();
 	const char      *format;
 	const char      *head;
 	const char      *ext;
@@ -390,21 +390,21 @@ void RelativeTable(SectionInfo *This)
 	OutputString("<table><tr>\n");
 
 	// Icon --------------------------------------------------------- 
-	if( icon_link != NULL )
+	if( image_link != NULL )
 	{	OutputString("<td>\n");
-		if( icon_link[0] != '\0' )
+		if( image_link[0] != '\0' )
 		{	FormatOutput(
-				"<a href=\"%s\" target=\"_top\">", icon_link
+				"<a href=\"%s\" target=\"_top\">", image_link
 			);
 			FormatOutput(
-				"<img border=\"0\" src=\"%s\"", icon_file
+				"<img border=\"0\" src=\"%s\"", image_file
 			);
 			OutputString(Internal2Out("SelfTerminateCmd"));
 			OutputString("</a>\n");
 		}
 		else
 		{	FormatOutput(
-				"<img border=\"0\" src=\"%s\"", icon_file
+				"<img border=\"0\" src=\"%s\"", image_file
 			);
 			OutputString(Internal2Out("SelfTerminateCmd"));
 			OutputString("\n");

@@ -25,6 +25,6 @@ $end
 void trace_exit(int status)
 {
 	if( status != 0 ) fprintf(stdout, 
-			"OMhelp exiting with status equal to %d.\n", status);
+			"\nOMhelp exiting with status equal to %d.\n", status);
 	exit(status);
 }

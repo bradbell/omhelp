@@ -23,7 +23,7 @@ extern int PrintableOmhelp(void);
 extern int PostWarnings(void);
 extern int NoFrame(void);
 extern const char* IconLink(void);
-extern const char* IconFile(void);
+extern const char* ImageFile(void);
 extern const char* SiteName(void);
 extern const char* OmhDir(void);
 

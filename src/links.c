@@ -37,7 +37,7 @@ $section Managing Frame Containing the Links Relative To A Section$$
 $table
 $bold Syntax$$
 $cend 
-$syntax/BeginLinks(/tagfrom/, /direction/, /icon_link/, /icon_file/, /stylecmd/)/$$ $rend
+$syntax/BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)/$$ $rend
 $cend $syntax/TitleLinks(/title/)/$$ $rend
 $cend $syntax/AddLink(/tag/, /head/, /text/)/$$  $rend
 $cend $syntax/EndLinks()/$$
@@ -55,19 +55,19 @@ $$
 All of the arguments
 $italic tagfrom$$,
 $italic direction$$,
-$italic icon_link$$,
-$italic icon_file$$,
+$italic image_link$$,
+$italic image_file$$,
 $italic title$$,
 $italic tag$$,
 $italic crossheading$$,
 and
 $italic text$$,
 are all '\0' terminated vectors of type $code const char*$$.
-One exception to this rule is that $italic icon_link$$
-and $italic icon_file$$ may be $code NULL$$.
+One exception to this rule is that $italic image_link$$
+and $italic image_file$$ may be $code NULL$$.
 $syntax/
 
-BeginLinks(/tagfrom/, /direction/, /icon_link/, /icon_file/, /stylecmd/)
+BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)
 /$$
 The opens a new output file named $syntax//taglower/_links./ext/$$ 
 where $italic taglower$$ is a lower case version of $italic tagfrom$$
@@ -84,12 +84,12 @@ as a row or column of the overall window.
 $pre
 
 $$
-The argument $italic icon_link$$ specifies the web address that the 
-image file $italic icon_file$$ is to be linked to.
-If $italic icon_link$$ is $code NULL$$, the image does not appear
-and $italic icon_file$$ is not used.
-Otherwise, $italic icon_file$$ cannot be $code NULL$$.
-If $syntax//icon_link/[0] == '\0'/$$, 
+The argument $italic image_link$$ specifies the web address that the 
+image file $italic image_file$$ is to be linked to.
+If $italic image_link$$ is $code NULL$$, the image does not appear
+and $italic image_file$$ is not used.
+Otherwise, $italic image_file$$ cannot be $code NULL$$.
+If $syntax//image_link/[0] == '\0'/$$, 
 the image is output, but it is not linked to any web address. 
 $pre
 
@@ -241,8 +241,8 @@ void AddLink(
 void BeginLinks(
 	const char *tagfrom,
 	const char *direction,
-	const char *icon_link,
-	const char *icon_file,
+	const char *image_link,
+	const char *image_file,
 	const char *stylecmd
 )
 {	char *file;
@@ -279,21 +279,21 @@ void BeginLinks(
 	OutputString(stylecmd);
 	OutputString("</head><body>\n");
 
-	if( icon_link != NULL )
+	if( image_link != NULL )
 	{	
-		if( icon_link[0] != '\0' )
+		if( image_link[0] != '\0' )
 		{
 			FormatOutput(
-				"<a href=\"%s\" target=\"_top\">", icon_link);
+				"<a href=\"%s\" target=\"_top\">", image_link);
 			FormatOutput(
-				"<img border=\"0\" src=\"%s\"", icon_file);
+				"<img border=\"0\" src=\"%s\"", image_file);
 			OutputString(Internal2Out("SelfTerminateCmd"));
 			OutputString("</a>\n");
 		}
 		else
 		{
 			FormatOutput(
-				"<img border=\"0\" src=\"%s\"", icon_file);
+				"<img border=\"0\" src=\"%s\"", image_file);
 			OutputString(Internal2Out("SelfTerminateCmd"));
 			OutputString("\n");
 		}

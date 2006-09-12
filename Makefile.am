@@ -37,10 +37,10 @@ nobase_dist_data_DATA = \
 	OMhelp/omhelp.vim \
 	OMhelp/_close.gif \
 	OMhelp/_closeblue.gif \
+	OMhelp/_image.gif \
 	OMhelp/_open.gif \
 	OMhelp/_openblue.gif \
 	OMhelp/english.wrd \
-	OMhelp/icon.gif \
 	OMhelp/local.wrd \
 	OMhelp/pmathml.xsl \
 	OMhelp/pmathmlcss.xsl \

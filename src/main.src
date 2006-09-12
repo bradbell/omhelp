@@ -73,9 +73,9 @@ const char *IconLink()
 {	return iconLink;
 }
 
-static char *iconFile = NULL;
-const char *IconFile()
-{	return iconFile;
+static char *imageFile = NULL;
+const char *ImageFile()
+{	return imageFile;
 }
 
 static char *omhDir = NULL;
@@ -274,10 +274,10 @@ int main(int argc, const char *argv[])
 				__FILE__,
 				__LINE__,
 				omhDir,
-				"icon.gif",
+				"_image.gif",
 				NULL
 			);
-			iconFile = str_alloc("_icon.gif");
+			imageFile = str_alloc("_image.gif");
 		}
 		else
 		{
@@ -296,14 +296,14 @@ int main(int argc, const char *argv[])
 				ext,
 				NULL
 			);
-			iconFile = strjoin("_icon", ext);
+			imageFile = strjoin("_image", ext);
 
 			FreeMem(root);
 			FreeMem(ext);
 		}
 	
 		// make a local copy of file
-		copyfile(iconFile, fullname);
+		copyfile(imageFile, fullname);
 
 		FreeMem( fullname );
 	}
@@ -345,7 +345,7 @@ int main(int argc, const char *argv[])
 	omhparse();
 
 	FreeMem(omhDir);
-	FreeMem(iconFile);
+	FreeMem(imageFile);
 
 	CheckMemoryLeak();
 
