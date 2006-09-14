@@ -119,7 +119,7 @@ $syntax%%omh%\htm\multiple1example.htm%$$.
 
 $head Discussion$$
 The file $code Multiple1Example.omh$$ contains the
-$xref/running/root/root section/$$
+$cref/root section/running/root_file/$$
 for this example.
 There is more than one section in the 
 corresponding web site because the root section

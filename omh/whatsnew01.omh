@@ -127,7 +127,7 @@ $head 08-08$$
 The $mref/path/$$ specifications used to be relative to the
 directory where OMhelp was executed.
 Now they are relative to the directory where the file containing the
-$xref/running/root/root section/$$ is located.
+$cref/root section/running/root_file/$$ is located.
 If you executed OMhelp in a subdirectory of the starting file location,
 you will have to change you path specifications by removing
 the $code ..$$ from the beginning of each one.
@@ -143,7 +143,7 @@ The file $code index.htm$$ in the directory corresponding to the
 web site is automatically linked to the 
 $xref/glossary/Cross Reference Tag/cross reference tag/$$
 specified by the first section in file containing the
-$xref/running/root/root section/$$.
+$cref/root section/running/root_file/$$.
 This makes the corresponding section the default page
 for an OMhelp web site.
 It has the added advantage that you can avoid the confusion
@@ -164,7 +164,7 @@ The
 $xref/path/Ignored/path/$$
 command was changed so that 
 it is ignored when it appears in any other section besides the
-$xref/running/root/root section/$$
+$cref/root section/running/root_file/$$
 of the web site.
 $pre
 

@@ -1,16 +1,46 @@
-# Missing from previous few commits (since changing icon -> image)
+# Add -icon_file command line argument
 #
 # CvsCommit: file that made this commit.
-
+# _favicon.png: default icon.
+# Makefile.am: include _favicon.png in distribution.
+# running.omh: add favicon discussion and change root to root_file.
+# whatsnew.omh: users view of the changes.
+# HtmlHead.c: add link to _favicon.png.
+# main.h: change IconLink -> ImageLink.
+# main.src: change root->root_file, IconLink -> ImageLink, add -favicon.
+# relative.c: change IconLink -> ImageLink.
+# style.c: put newline before command (white space).
+#
+# fix cross reference heading from root -> root_file in the following files:
+# color.omh, file.omh, glossary.omh, navigate.omh, path.omh, 
+# whatsnew01.omh, whatsnew02.omh, whatsnew03.omh, StartMultiple.omh,
+# LatexMacro.omh
+# 
 add_list="
-	OMhelp/_image.gif
+	OMhelp/_favicon.png
 "
 change_list="
 	CvsCommit
+	Makefile.am
+	omh/color.omh
+	omh/file.omh
+	omh/glossary.omh
+	omh/navigate.omh
+	omh/path.omh
+	omh/running.omh
+	omh/whatsnew.omh
+	omh/whatsnew01.omh
 	omh/whatsnew02.omh
+	omh/whatsnew03.omh
+	omh/getstarted/StartMultiple.omh
+	omh/latex/LatexMacro.omh
+	src/HtmlHead.c
+	src/main.h
+	src/main.src
+	src/relative.c
+	src/style.c
 "
 delete_list="
-	OMhelp/icon.gif
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same
@@ -25,6 +55,7 @@ do
 	   [ $file != "CvsCommit.sed"  ] && \
 	   [ $ext != ".vcproj"         ] && \
 	   [ $ext != ".gif"            ] && \
+	   [ $ext != ".png"            ] && \
 	   [ $ext != ".vim"            ]
 	then
 		# automatic edits and backups

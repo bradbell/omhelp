@@ -18,6 +18,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 /*
 $begin HtmlHead$$
 $spell
+	rel
+	png
+	href
 	javascript
 	js
 	Html
@@ -46,6 +49,14 @@ $syntax%
 	content="%F->title%"
 %$$
 
+
+$head Icon$$
+The $code <link>$$ record is output with the following values
+$codep
+	rel="icon"
+	type="image/png"
+	href="_favicon.png"
+$$
 
 $head Keywords$$
 A $code <meta>$$ record is output with the following values
@@ -98,6 +109,13 @@ void OutputHtmlHead(SectionInfo *F)
 	);
 	ConvertOutputString(F->title, 0);
 	OutputString("\"");
+	OutputString(Internal2Out("SelfTerminateCmd"));
+
+	// Link
+	// use method suggested at http://www.w3.org/2005/10/howto-favicon
+	OutputString(
+		"\n<link rel='icon' type='image/png' href='_favicon.png'"
+	);
 	OutputString(Internal2Out("SelfTerminateCmd"));
 
 	// Keywords

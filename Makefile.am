@@ -37,6 +37,7 @@ nobase_dist_data_DATA = \
 	OMhelp/omhelp.vim \
 	OMhelp/_close.gif \
 	OMhelp/_closeblue.gif \
+	OMhelp/_favicon.png \
 	OMhelp/_image.gif \
 	OMhelp/_open.gif \
 	OMhelp/_openblue.gif \

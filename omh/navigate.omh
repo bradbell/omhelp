@@ -158,7 +158,7 @@ $$
 
 $head Root Section$$
 In the special case where a $code @navigate$$ command appears in the 
-$cref/root section/running/root/$$ section, 
+$cref/root section/running/root_file/$$ section, 
 and does not appear in a sub-section,
 the value specified in the root section is used for the sub-section.
 The navigation command in the root section for this manual is

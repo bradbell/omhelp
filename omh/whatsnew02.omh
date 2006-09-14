@@ -436,7 +436,7 @@ was fixed.
 
 $head 08-22$$
 The specifications for searching the directory where the
-$xref/running/root/root section/$$ is located,
+$cref/root section/running/root_file/$$ is located,
 and searching the $xref/path//paths/$$ were improved.
 You no longer need to specify the starting directory
 as part of the path because is it searched automatically.
@@ -454,7 +454,7 @@ $head 08-18$$
 The name used on the command line 
 for the $italic root_file$$ was changed to the
 $italic starting_file$$ (it has since been referred to as
-$xref/running/root/root section/$$).
+$cref/root section/running/root_file/$$).
 This was done because the term "root" is 
 used to refer to the root of a file name; i.e.,
 a file name with out its extension.
@@ -507,7 +507,7 @@ $$
 Then add the file that was specified after the $code -g$$ option
 as the last file in the 
 $xref/children//contents, childtable, or children/$$
-command contained in the $xref/running/root/root section/$$.
+command contained in the $cref/root section/running/root_file/$$.
 
 $head 08-03$$
 The description and specifications for the $xref/keyword/Cindex/cindex/$$ 
@@ -611,7 +611,7 @@ $$
 The automatically generated sections (For example the 
 $xref/_index//keyword index/$$) were listed twice in the links 
 when viewing the 
-$xref/running/root/root section/$$.
+$cref/root section/running/root_file/$$.
 This has been fixed.
 $pre
 
@@ -627,7 +627,7 @@ All of the sections,
 including the automatically generated ones 
 (for example the  $xref/_index//keyword index/$$)
 are now children of the 
-$xref/running/root/root section/$$.
+$cref/root section/running/root_file/$$.
 In addition, now there can be only one section at the root 
 of the table of contents.
 This enables the root section to function like a cover page

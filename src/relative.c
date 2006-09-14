@@ -142,7 +142,7 @@ void RelativeFrame(SectionInfo *This)
 	assert( 1000 > nspace * MAX_DEPTH ); 
 
 	stylecmd = StyleCommand(This);
-	BeginLinks(This->tag, "column", IconLink(), ImageFile(), stylecmd);
+	BeginLinks(This->tag, "column", ImageLink(), ImageFile(), stylecmd);
 	FreeMem(stylecmd);
 
 	// =================================================================
@@ -344,7 +344,7 @@ void RelativeTable(SectionInfo *This)
 	char            *name;
 	char            *url;
 	FILE            *javascript_fp;
-	const char      *image_link = IconLink();
+	const char      *image_link = ImageLink();
 	const char      *image_file = ImageFile();
 	const char      *format;
 	const char      *head;

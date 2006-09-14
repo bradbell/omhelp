@@ -108,7 +108,7 @@ $head Input File Searching$$
 If an input file name is not a 
 $xref/glossary/Complete Path Specification/complete path specification/$$,
 it is relative to the directory where the file containing the
-$xref/running/root/root section/$$ is located.
+$cref/root section/running/root_file/$$ is located.
 If it cannot be found there,
 the extension of the file name
 is used to determine which directories to search 

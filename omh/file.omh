@@ -28,7 +28,7 @@ $section Reading Input Files$$
 
 $head Introduction$$
 The 
-$xref/running/root/root section/$$
+$cref/root section/running/root_file/$$
 is specified on the OMhelp $xref/running//command/$$ line.
 This section can contain commands that
 cause files to be read and processed.

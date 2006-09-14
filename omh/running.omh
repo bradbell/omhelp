@@ -21,6 +21,8 @@ $escape #$$
 $dollar @$$
 
 $spell
+	favicon.png
+	Microsoft
 	noframe
 	OMhelp
 	omhelp
@@ -60,7 +62,7 @@ $index option, command line$$
 
 $head Syntax$$
 $code omhelp$$
-$italic root$$
+$italic root_file$$
 [ $code -debug$$ ]
 [ $code -xml$$ ]
 [ $code -printable$$ ]
@@ -68,6 +70,7 @@ $italic root$$
 [ $code -nowarn$$ ]
 [ $code -image_link$$ $italic image_link$$ ]
 [ $code -image_file$$ $italic image_file$$ ]
+[ $code -favicon$$ $italic favicon$$ ]
 [ $code -site$$ $italic name$$ ]
 [ $code -omhelp$$ $italic dir$$ ]
 
@@ -109,7 +112,7 @@ is special to browsers because
 it is loaded when the corresponding directory, 
 but not a specific file, is specified.
 OMhelp automatically generates a file with this name that loads the
-section corresponding to the argument $italic root$$.
+section corresponding to the argument $italic root_file$$.
 
 $head Exit Status$$
 $index exit, status$$
@@ -120,10 +123,11 @@ If OMhelp executes with out detecting any errors,
 it exit status is zero.
 Otherwise, its exit status is non-zero.
 
-$head root$$
-$index input, file$$
-$index file, input$$
-The command line argument $italic root$$ specifies the
+$head root_file$$
+$index root, file$$
+$index file, root$$
+$index input, root_file$$
+The command line argument $italic root_file$$ specifies the
 file that contains the root section for the web site; i.e.,
 the section at the root of the table of contents.
 This file can contain only one $xref/begin/$$ command
@@ -136,8 +140,8 @@ $$
 It is recommended that you run OMhelp in a different directory
 than the location of the starting input file (see Program Execution above).
 If you insist on running OMhelp in the directory containing the file
-specified by $italic root$$,
-place $code ./$$ or $code .\$$ at the beginning of $italic root$$. 
+specified by $italic root_file$$,
+place $code ./$$ or $code .\$$ at the beginning of $italic root_file$$. 
 
 $head debug$$
 If the command line argument $code -debug$$ is present,
@@ -274,9 +278,28 @@ which should be about the same size as the default image.
 The text $italic image_file$$ can either a 
 $xref/glossary/Complete Path Specification/complete path specification/$$
 or relative
-to the directory containing the file specified by $italic root$$.
+to the directory containing the file specified by $italic root_file$$.
 Note that the directories specified by the $xref/path/$$ commands 
 are not searched for the file specified by $italic image_file$$.
+
+
+$head favicon$$
+$index icon, file$$
+$index file, icon$$
+A default icon file ($code _icon.png$$) is distributed with OMhelp.
+If the command line argument $code -favicon$$ is present, 
+the argument $italic favicon$$ must follow.
+In this case,
+the default icon is replaced by $italic favicon$$,
+which should be a 16 by 16 pixel icon
+and the file extension $code .png$$
+(you can use the Microsoft Paint program to create and store such an icon).
+The text $italic favicon$$ can either a 
+$xref/glossary/Complete Path Specification/complete path specification/$$
+or relative
+to the directory containing the file specified by $italic root_file$$.
+Note that the directories specified by the $xref/path/$$ commands 
+are not searched for the file specified by $italic favicon$$.
 
 $head site$$
 $index web site, name$$

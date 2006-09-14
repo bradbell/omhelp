@@ -37,7 +37,7 @@ $bold Syntax$$
 $cnext $syntax/@path%/directory/%/extension/%@@/$$ $rnext
 $bold See Also$$
 $cnext $xref/children//contents/$$, 
-	$xref/running/root/root section/$$
+	$cref/root section/running/root_file/$$
 $tend
 
 $fend 20$$
@@ -58,12 +58,12 @@ If $italic directory$$ is not a
 $xref/glossary/Complete Path Specification/complete path specification/$$,
 the path specification is relative to the
 directory where the file containing the
-$xref/running/root/root section/$$
+$cref/root section/running/root_file/$$
 is located.
 
 $head Ignored$$
 This command is ignored unless it appears in the 
-$xref/running/root/root section/$$.
+$cref/root section/running/root_file/$$.
 This enables one to use one OMhelp web site as a sub-tree of
 a larger OMhelp web site.
 (All of the $xref/getstarted//getting started/$$ examples are

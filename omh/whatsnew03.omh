@@ -352,7 +352,7 @@ was not being transferred to the table of contents.
 This problem has been fixed.
 (The default background color is
 specified by placing $xref/color/Bgcolor/bgcolor/$$ command in the 
-$xref/running/root/root section/$$. )
+$cref/root section/running/root_file/$$. )
 $pre
 
 $$
@@ -368,7 +368,7 @@ $pre
 $$
 The command name of the command line argument $italic starting_file$$
 has been changed to $italic root$$ to signify that it contains the 
-$xref/running/root/root section/$$.
+$cref/root section/running/root_file/$$.
 
 
 
@@ -729,7 +729,7 @@ This has been fixed.
 
 $head 02-02$$
 If the 
-$xref/running/root/root section/$$
+$cref/root section/running/root_file/$$
 does not have any 
 $xref/children//contents, childtable, or children/$$ commands,
 the entire web site consists of just one section.
@@ -787,7 +787,7 @@ window with a link to a particular heading.
 $head 01-28$$
 A directory must be included in the specification for the file
 containing the
-$xref/running/root/root section/$$.
+$cref/root section/running/root_file/$$.
 The error message and documentation about this has been improved.
 $pre
 

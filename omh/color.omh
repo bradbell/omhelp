@@ -119,7 +119,7 @@ in the $xref/color/Command Table/command table/$$.
 If a command is a style command, 
 it can only appear once per section.
 If a style command appears in the
-$xref/running/root/root section/$$,
+$cref/root section/running/root_file/$$,
 it specifies a default all the sections in a web site.
 If you wish a style command to only affects 
 a subset of the sections,

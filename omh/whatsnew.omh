@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	favicon
 	mfenced
 	vim_runtime
 	Kargl
@@ -84,6 +85,17 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 06-09-13$$
+The $code -i$$ and $code -l$$ command line 
+have been $cref/deprecated/$$ (replaced by
+$cref/-image_link/running/image_link/$$ and
+$cref/-image_file/running/image_file/$$)
+$pre
+
+$$
+The $cref/-favicon/running/favicon/$$ command
+line argument has been added.
 
 $head 06-08-30$$
 Change the $cref/navigate/$$ special labels

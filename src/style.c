@@ -67,7 +67,7 @@ char *StyleCommand(SectionInfo *S)
 	cmd = StrCat(
 		__FILE__,
 		__LINE__,
-		"<style type='text/css'>\nBODY { color : ",
+		"\n<style type='text/css'>\nBODY { color : ",
 		textcolor,
 		" }\nBODY { background-color : ",
 		bgcolor,
