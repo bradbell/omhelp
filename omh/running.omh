@@ -21,6 +21,7 @@ $escape #$$
 $dollar @$$
 
 $spell
+	Firefox
 	favicon.png
 	Microsoft
 	noframe
@@ -284,14 +285,11 @@ are not searched for the file specified by $italic image_file$$.
 
 
 $head favicon$$
-$index icon, file$$
-$index file, icon$$
-A default icon file ($code _icon.png$$) is distributed with OMhelp.
+$index icon, favicon$$
+$index favicon$$
 If the command line argument $code -favicon$$ is present, 
 the argument $italic favicon$$ must follow.
-In this case,
-the default icon is replaced by $italic favicon$$,
-which should be a 16 by 16 pixel icon
+In this case, $italic favicon$$ should be a 16 by 16 pixel icon
 and the file extension $code .png$$
 (you can use the Microsoft Paint program to create and store such an icon).
 The text $italic favicon$$ can either a 
@@ -300,6 +298,20 @@ or relative
 to the directory containing the file specified by $italic root_file$$.
 Note that the directories specified by the $xref/path/$$ commands 
 are not searched for the file specified by $italic favicon$$.
+$pre
+
+$$
+The $code -favicon$$ command line option was used when building the
+OMhelp web documentation.
+If you view this 
+$href%http://www.seanet.com/~bradbell/omhelp/%documentaiton%$$,
+you should see the icon $icon image/help_icon.png$$ 
+at the left of the address bar in your browser.
+(This icon corresponds to the file $code omh/image/help_icon.png$$
+in the OMhelp distribution.)
+This works well in Firefox, but there currently seem to be some problems with 
+$cref/Internet Explorer/Explorer/Favicon/$$.
+
 
 $head site$$
 $index web site, name$$

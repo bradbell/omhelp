@@ -18,6 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 /*
 $begin HtmlHead$$
 $spell
+	favicon
 	rel
 	png
 	href
@@ -51,12 +52,15 @@ $syntax%
 
 
 $head Icon$$
-The $code <link>$$ record is output with the following values
+If the function $code FaviconSpecified$$ returns true
+(non zero),
+A $code <link>$$ record is output with the following values
 $codep
 	rel="icon"
 	type="image/png"
 	href="_favicon.png"
 $$
+Otherwise, no such link record is output.
 
 $head Keywords$$
 A $code <meta>$$ record is output with the following values
@@ -113,10 +117,12 @@ void OutputHtmlHead(SectionInfo *F)
 
 	// Link
 	// use method suggested at http://www.w3.org/2005/10/howto-favicon
-	OutputString(
+	if( FaviconSpecified() )
+	{	OutputString(
 		"\n<link rel='icon' type='image/png' href='_favicon.png'"
-	);
-	OutputString(Internal2Out("SelfTerminateCmd"));
+		);
+		OutputString(Internal2Out("SelfTerminateCmd"));
+	}
 
 	// Keywords
 	if( F->keywords != NULL )

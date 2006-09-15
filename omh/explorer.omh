@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,12 +15,14 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin Explorer$$
 $path%..\image%.png%$$
 $escape #$$
 $spell
+	Firefox
+	favicon
+	omhelp
 	html
 	minsize
 	em
@@ -66,6 +67,18 @@ appears to have problems displaying MathML or XHTML commands.
 If you have any feed back for in this regard, 
 please send e-mail to:
 $href%mailto:bradbell@seanet.com%bradbell@seanet.com%$$.
+
+$head Favicon$$
+If a $cref/-favicon/running/favicon/$$
+is specified on the $code omhelp$$ command line, 
+OMhelp follows the preferred method in the 
+$href%http://www.w3.org/2005/10/howto-favicon%w3 recommendation%$$.
+This recommendation works with the Firefox, 
+but it does not yet work with MS Internet Explorer.
+It currently appears that MS Internet Explorer requires that the
+favorite icon be placed at the root directory of the domain.
+In addition (in MS Internet Explorer) the icon
+seems to have refresh problems when ones visits a new site.
 
 $head XHTML$$
 

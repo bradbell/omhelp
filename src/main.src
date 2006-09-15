@@ -78,6 +78,12 @@ const char *ImageFile()
 {	return imageFile;
 }
 
+static int faviconSpecified = 0;
+int FaviconSpecified()
+{	return faviconSpecified;
+}
+
+
 static char *omhDir = NULL;
 const char *OmhDir()
 {	return omhDir;
@@ -315,21 +321,16 @@ int main(int argc, const char *argv[])
 
 	// copy the favicon file to the current directory
 	if( favicon == NULL )
-	{	fullname = StrCat(
-			__FILE__,
-			__LINE__,
-			omhDir,
-			"_favicon.png",
-			NULL
-		);
-	}
+		faviconSpecified = 0;
 	else
 	{	char *root;
 		const char *dir;
+		faviconSpecified = 1;
+
 		InputSplitName(&root, &ext, favicon);
-		if( strcmp(ext, "png") != 0 )
+		if( strcmp(ext, ".png") != 0 )
 		{	printf(
-				"The favicon file name %s"
+				"The favicon file name %s "
 				"\ndoes not have the .png extension\n",
 				favicon
 			);
@@ -347,12 +348,12 @@ int main(int argc, const char *argv[])
 			ext,
 			NULL
 		);
+		copyfile("_favicon.png", fullname);
 
 		FreeMem(root);
 		FreeMem(ext);
+		FreeMem(fullname);
 	}
-	copyfile("_favicon.png", fullname);
-	FreeMem(fullname);
 
 	// copy the mathml style files to the current directory
 	if( GenerateXml )
