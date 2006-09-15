@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern int PrintableOmhelp(void);
 extern int PostWarnings(void);
 extern int NoFrame(void);
+extern int FaviconSpecified(void);
 extern const char* ImageFile(void);
 extern const char* ImageLink(void);
 extern const char* SiteName(void);
