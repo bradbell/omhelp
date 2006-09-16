@@ -479,7 +479,7 @@ $end
 
 
 // Note that MAX_NAVIGATE is 12 so need 12 entries
-static NavigateInfo Default = {
+static NavigateInfo NavigateType = {
 	8,
 	{
 		{ CONTENT_nav, "Content"   },
@@ -491,6 +491,23 @@ static NavigateInfo Default = {
 		{ ACROSS_nav,  "Across"    },
 		{ CURRENT_nav, "Current"   },
 		{ INVALID_nav, "not used"  },
+		{ INVALID_nav, "not used"  },
+		{ INVALID_nav, "not used"  },
+		{ INVALID_nav, "not used"  },
+	}
+};	
+static NavigateInfo Default = {
+	9,
+	{
+		{ ACROSS_nav,  "Index"     },
+		{ PREV_nav,    "Prev"      },
+		{ NEXT_nav,    "Next"      },
+		{ DOWN_nav,    "_up4"      },
+		{ DOWN_nav,    "_up3"      },
+		{ DOWN_nav,    "_up2"      },
+		{ DOWN_nav,    "_up1"      },
+		{ DOWN_nav,    "_up0"      },
+		{ CURRENT_nav, "Headings"  },
 		{ INVALID_nav, "not used"  },
 		{ INVALID_nav, "not used"  },
 		{ INVALID_nav, "not used"  },
@@ -777,10 +794,10 @@ const char *SectionNavigate(
 		nav_type = INVALID_nav;
 		tmp      = str_alloc(cptr);
 		ClipWhiteSpace(tmp);
-		for(i = 0; i < Default.number; i++) 
+		for(i = 0; i < NavigateType.number; i++) 
 		{
-			if( strcmp(tmp, Default.item[i].label) == 0 )
-				nav_type = Default.item[i].nav_type;
+			if( strcmp(tmp, NavigateType.item[i].label) == 0 )
+				nav_type = NavigateType.item[i].nav_type;
 		}
 		if( nav_type == INVALID_nav ) fatalomh(
 			"In the $navigate command in line ",

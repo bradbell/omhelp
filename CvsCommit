@@ -1,25 +1,22 @@
-# Change favicon so does not have a default file
+# Change the default $navigate command value.
 #
 # CvsCommit: file that made this commit.
-# Makefile.am: no longer distribute _favicon.png. 
-# explorer.omh: docuement problems with IE favicon.
-# running.omh: change to reflect no default value for faviorite icon.
-# HtmlHead.c: do not specify icon unless specified on command line.
-# main.src: remove default icon and add FaviconSpecified function.
-# help_icon.png: used in favicon icon documentaiton.
+# navigate.omh: update and improve documentaiton.
+# overview.omh: no longer needs nagivate command (uses default).
+# whatsnew.omh: users view of changes.
+# section.c: change default navigation links.
+# navigate_cmd.omh: no longer need this command.
 add_list="
-	omh/image/help_icon.png
 "
 change_list="
 	CvsCommit
-	Makefile.am
-	omh/explorer.omh
-	omh/running.omh
-	src/HtmlHead.c
-	src/main.src
+	omh/navigate.omh
+	omh/overview.omh
+	omh/whatsnew.omh
+	src/section.c
 "
 delete_list="
-	OMhelp/_favicon.png
+	omh/navigate_cmd.omh
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same

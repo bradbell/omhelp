@@ -20,24 +20,24 @@ This command may change in future versions of OMhelp.
 
 
 $head Syntax$$
-$syntax|@navigate%|default 1|%|label 1|% |...| %|default n|%|label n|%@@|$$
+$syntax|@navigate%|type 1|%|label 1|% |...| %|type n|%|label n|%@@|$$
 
 $head Purpose$$
 OMhelp automatically creates navigation links, 
-relative to each section.
+relative to each section (at the top of each section).
 The $code @navigate$$ command
-determines which navigation links to include for a particular section,
+determines which navigation links are included,
 the order of the links,
 and label for each of the links.
 
 $head Definition$$
-The navigation links have the default labels in the table below
+The navigation links have the types listed in the table below
 (Noframe corresponds to the 
 $cref/-noframe/running/noframe/$$ option being present
 on the OMhelp command line):
 $center
 $table
-$bold Default$$  
+$bold Type$$  
 	$cnext $bold Meaning$$
 	$cnext $bold Frame$$
 	$cnext $bold Noframe$$
@@ -104,13 +104,6 @@ siblings of the current section $cnext $pre C$$, $pre F$$ $rnext
 sections directly below current section  $cnext $pre G$$, $pre J$$ 
 $tend
 
-
-$head default$$
-The value $italic default 1$$ is the default label
-for the navigation links that will come first in the set
-of navigation links for the current section.
-The links corresponding to $italic default 2$$ come second and so on.
-
 $head label$$
 The value $italic label 1$$ is the label that the user will see
 for the navigation links corresponding to $italic default 1$$.
@@ -120,29 +113,46 @@ The labels cannot begin with the special character $code _$$
 with the following special exception:
 $syntax%
 
-_up%#
+_up%#%
 %$$
 where $italic #$$ is be a decimal digit; i.e., between 0 and 9.
 In this special case the 
 $cref/cross reference tag/glossary/Cross Reference Tag/$$
 for the section $italic #$$ levels above this section is used
 for the label.
-The links are relative to this parent section
+The links are relative to the section $italic #$$ levels up
 (instead of the current section).
 If there is no section $italic #$$ levels above the current section,
 these links are not included.
+
+$head Default$$
+The default value for the navigation command is
+$codep
+	@navigate%
+		Across%Index%
+		Prev%Previous%
+		Next%Next%
+		Down%_up4%
+		Down%_up3%
+		Down%_up2%
+		Down%_up1%
+		Down%_up0%
+		Current%Headings
+	%@@
+$$
 
 $head Example$$
 The navigation links for this section were specified with
 the following command:
 $navigate%
-	Across%Index%
+	Content%Contents%
 	Prev%Previous%
 	Next%Next%
 	Up%Up%
+	Sibling%Same Level%
 	Down%Down%
-	Sibling%Siblings%
-	Current%Headings
+	Across%Across%
+	Current%Current
 %$$
 $codep
 	@navigate%
@@ -160,17 +170,7 @@ $head Root Section$$
 In the special case where a $code @navigate$$ command appears in the 
 $cref/root section/running/root_file/$$ section, 
 and does not appear in a sub-section,
-the value specified in the root section is used for the sub-section.
-The navigation command in the root section for this manual is
-$pre
-$$
-$code
-$pre     $$@navigate%
-$verbatim/navigate_cmd.omh/5/#036navigate%/$$
-$$
-Note that there is no $code _parent$$ section relative
-to the root section. 
-Hence, for the root section, the Sibling navigation links
-are not included.
+the value specified in the root section is used for the sub-section; i.e.,
+it replaces the $cref/default/navigate/Default/$$ command above.
 
 $end

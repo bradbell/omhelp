@@ -36,12 +36,6 @@ $path/getstarted/.omh/$$
 $path/getstarted/.gif/$$
 $path/getstarted/.dat/$$
 
-$comment 
-This navigate command is in a separate file 
-so it can also be used by navigate.omh 
-$$
-$include navigate_cmd.omh$$
-
 $comment The following absolute paths are for running from the debugger
 path/d:\omhelp\omh/.omh/
 path/d:\omhelp\omh\getstarted/.omh/
@@ -53,7 +47,7 @@ $$
 
 
 $index overview$$
-$section Source Code -> Web Based Help:  OMhelp Version 06-08-29$$
+$section Source Code -> Web Based Help:  OMhelp Version 06-09-16$$
 
 $head User Support For OMhelp$$
 $index support$$
