@@ -95,6 +95,14 @@ $$
 The $cref/default/navigate/Default/$$ $code @navigate$$ command
 was changed.
 In addition, the help for the $cref/navigate/$$ section was improved.
+$pre
+
+$$
+The windows 
+$cref/install omhelp/InstallWindows/Install OMhelp/$$ 
+batch file $code install.bat$$ has been fixed.
+(The path was not being set properly by the automatically generated file
+$code setup.bat$$.)
 
 $head 06-09-13$$
 The $code -i$$ and $code -l$$ command line 
