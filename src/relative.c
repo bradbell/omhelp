@@ -226,6 +226,25 @@ void RelativeFrame(SectionInfo *This)
 		OutputString("\n");
 		break;
 
+		// Top -----------------------------------------------------
+		case TOP_nav:
+		if( titled )
+		{	OutputString("<hr");
+			OutputString(Internal2Out("SelfTerminateCmd"));
+		}
+		S = F;
+		while( S->parent != NULL )
+			S = S->parent;
+		titled = 0;
+		assert( S != NULL );
+		HrefOutputPass2(S->tag, "", "false", "");
+		ConvertOutputString(label, pre);
+		HrefEnd("\n");
+		OutputString("<br");
+		OutputString(Internal2Out("SelfTerminateCmd"));
+		OutputString("\n");
+		break;
+
 		// Up ------------------------------------------------------
 		case UP_nav:
 		TitleLinks(label);
@@ -479,6 +498,20 @@ void RelativeTable(SectionInfo *This)
 			ConvertOutputString(label, pre);
 			HrefEnd("\n");
 		}
+		OutputString("</td>");
+		break;
+
+		// Top -----------------------------------------------------
+		case TOP_nav:
+		list_name[index] = NULL;
+		OutputString("<td>");
+		S = F;
+		while( S->parent != NULL )
+			S = S->parent;
+		assert( S != NULL );
+		HrefOutputPass2(S->tag, "", "false", "");
+		ConvertOutputString(label, pre);
+		HrefEnd("\n");
 		OutputString("</td>");
 		break;
 

@@ -86,6 +86,13 @@ $tend
 
 $$
 
+$head 06-09-18$$
+A link to the 
+$code Top$$ section was added to the set of
+$cref/navigation types/navigate/Type/$$.
+It was also added as part of the 
+$cref/default/navigate/Default/$$ $code @navigate$$ command. 
+
 $head 06-09-16$$
 Initialize the cursor to be in the Keyword input field
 whenever the $cref/search/_search/$$ page is loaded.
@@ -148,9 +155,8 @@ $head 06-08-17$$
 Minor fixes to $cref/Windows installation/InstallWindows/$$.
 
 $head 06-08-15$$
-Add an 
-$cref/example/navigate/Definition/Example/$$ for the definition
-of the default navigation link names.
+A navigation type 
+$cref/example/navigate/Type/Example/$$ was added.
 $pre
 
 $$

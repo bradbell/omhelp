@@ -30,7 +30,7 @@ determines which navigation links are included,
 the order of the links,
 and label for each of the links.
 
-$head Definition$$
+$head Type$$
 The navigation links have the types listed in the table below
 (Noframe corresponds to the 
 $cref/-noframe/running/noframe/$$ option being present
@@ -54,6 +54,12 @@ $code Prev$$
 $rnext 
 $code Next$$     
 	$cnext next section in read order
+	$cnext yes
+	$cnext yes
+$rnext 
+$code Top$$     
+	$cnext section at the top of tree 
+	(corresponds to $cref/root_file/running/root_file/$$)
 	$cnext yes
 	$cnext yes
 $rnext
@@ -132,6 +138,7 @@ $codep
 		Across%Index%
 		Prev%Previous%
 		Next%Next%
+		Top%Top%
 		Down%_up4%
 		Down%_up3%
 		Down%_up2%

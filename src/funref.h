@@ -1,5 +1,5 @@
-# ifndef FUN_REF_INCLUDED
-# define FUN_REF_INCLUDED
+# ifndef FUNREF_INCLUDED
+# define FUNREF_INCLUDED
 
 /* -----------------------------------------------------------------------
 OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell

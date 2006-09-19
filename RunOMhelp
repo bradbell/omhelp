@@ -32,7 +32,7 @@ then
 	mkdir Dev
 	cd    Dev
 	if ! ../src/omhelp ../src/omh/omhelp.omh > ../OMhelp.Dev.log \
-		-noframe -debug -omhelp_dir ../OMhelp
+		-debug -omhelp_dir ../OMhelp
 	then
 		grep "^OMhelp Error:" ../OMhelp.Dev.log
 		echo "OMhelp could not build developer documentation."

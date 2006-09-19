@@ -24,15 +24,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # define MAX_NAVIGATE  12
 
 enum navigateType {
-	INVALID_nav,
+	ACROSS_nav,
 	CONTENT_nav,
+	CURRENT_nav,
+	DOWN_nav,
+	INVALID_nav,
 	PREV_nav,
 	NEXT_nav,
-	UP_nav,
 	SIBLING_nav,
-	DOWN_nav,
-	ACROSS_nav,
-	CURRENT_nav
+	TOP_nav,
+	UP_nav
 };
 
 typedef struct styleInfo {

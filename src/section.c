@@ -435,14 +435,15 @@ $subhead Navigation Types$$
 The valid navigation types values are
 $pre
 	$$
+"Across",
+"Down",
+"Current",
 "Content",
-"Prev",
 "Next",
-"Up->",
-"Sibling->",
-"Down->",
-"Across->",
-"Current->".
+"Prev",
+"Root",
+"Sibling",
+"Up".
 
 $subhead Labels$$
 None of the labels can begin with the character $pre "_"$$ except 
@@ -480,28 +481,29 @@ $end
 
 // Note that MAX_NAVIGATE is 12 so need 12 entries
 static NavigateInfo NavigateType = {
-	8,
+	9,
 	{
-		{ CONTENT_nav, "Content"   },
-		{ PREV_nav,    "Prev"      },
-		{ NEXT_nav,    "Next"      },
-		{ UP_nav,      "Up"        },
-		{ SIBLING_nav, "Sibling"   },
-		{ DOWN_nav,    "Down"      },
 		{ ACROSS_nav,  "Across"    },
+		{ CONTENT_nav, "Content"   },
 		{ CURRENT_nav, "Current"   },
+		{ DOWN_nav,    "Down"      },
+		{ NEXT_nav,    "Next"      },
+		{ PREV_nav,    "Prev"      },
+		{ SIBLING_nav, "Sibling"   },
+		{ TOP_nav,     "Top"       },
+		{ UP_nav,      "Up"        },
 		{ INVALID_nav, "not used"  },
 		{ INVALID_nav, "not used"  },
-		{ INVALID_nav, "not used"  },
-		{ INVALID_nav, "not used"  },
+		{ INVALID_nav, "not used"  }
 	}
 };	
 static NavigateInfo Default = {
-	9,
+	10,
 	{
 		{ ACROSS_nav,  "Index"     },
 		{ PREV_nav,    "Prev"      },
 		{ NEXT_nav,    "Next"      },
+		{ TOP_nav,     "Top"       },
 		{ DOWN_nav,    "_up4"      },
 		{ DOWN_nav,    "_up3"      },
 		{ DOWN_nav,    "_up2"      },
@@ -509,8 +511,7 @@ static NavigateInfo Default = {
 		{ DOWN_nav,    "_up0"      },
 		{ CURRENT_nav, "Headings"  },
 		{ INVALID_nav, "not used"  },
-		{ INVALID_nav, "not used"  },
-		{ INVALID_nav, "not used"  },
+		{ INVALID_nav, "not used"  }
 	}
 };	
 
