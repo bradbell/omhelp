@@ -86,6 +86,11 @@ $tend
 
 $$
 
+$head 06-09-19$$
+The $cref/06-08-11/whatsnew/06-08-11/$$ $code mfenced$$ issue
+has been fixed by the $cref/Firefox/$$ browser developers
+so it was removed from the list of problems with that browser.
+
 $head 06-09-18$$
 A link to the 
 $code Top$$ section was added to the set of
@@ -175,8 +180,9 @@ This has been fixed.
 $pre
 
 $$
-The $cref/<mfenced> problem/Firefox/<mfenced>/$$ problem
-has been added to the Firefox browser list.
+An $code <mfenced>$$ problem
+was added to the Firefox browser list 
+(this Firefox problem has since been fixed).
 $pre
 
 $$

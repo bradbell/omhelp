@@ -21,7 +21,6 @@ $path%..\image%.png%$$
 $dollar !$$
 $escape #$$
 $spell
-	mfenced
 	Firefox
 	Javascript
 	minsize
@@ -70,6 +69,12 @@ $children%
 	backbutton.omh%
 	latex/NegativeSpace.omh
 %$$
+
+$head Format$$
+$href%firefox.xml%XHTML + MATHML version of this web page%$$.
+$pre
+$$
+$href%firefox.htm%HTML version of this web page%$$.
 
 $head Purpose$$
 The 
@@ -266,25 +271,5 @@ $latex \[ \mathml{
 	</munder>
 } \] $$
 
-$head <mfenced>$$
-The $code <mfenced>$$ element does not stretch properly when
-it surrounds a table (on Windows XP). For example
-$codep
-	<mfenced>
-		<mtable>
-			<mtr><mtd><mi>1</mi></mtd></mtr>
-			<mtr><mtd><mi>2</mi></mtd></mtr>
-		</mtable>
-	</mfenced>
-$$
-results in the following output
-$latex \[ \mathml{
-	<mfenced>
-		<mtable>
-			<mtr><mtd><mi>1</mi></mtd></mtr>
-			<mtr><mtd><mi>2</mi></mtd></mtr>
-		</mtable>
-	</mfenced>
-} \] $$
 
 $end

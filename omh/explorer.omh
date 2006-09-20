@@ -56,6 +56,12 @@ $$
 $section Problems Using MS Internet Explorer 6 To Display OMhelp Output$$
 $mindex bug MS explorer browser display error$$
 
+$head Format$$
+$href%explorer.xml%XHTML + MATHML version of this web page%$$.
+$pre
+$$
+$href%explorer.htm%HTML version of this web page%$$.
+
 $head Description$$
 Version 6 of MS Internet Explorer can display MathML commands using
 the Mathplayer plug in

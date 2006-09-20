@@ -1,29 +1,18 @@
-# Add Top to the list of navigation link types.
+# Update Firefox browser issue list
 #
 # CvsCommit: file that made this commit.
 # whatsnew.omh: users view of changes.
-# RunOMhelp: run the developer documentaiton without -noframe option.
-# RunOMhelp.bat: run the developer documentaiton without -noframe option.
-# navigate.omh: document the Top link type.
-# relative.c: add the Top link type.
-# section.c: add the Top link type and correct developer documentation.
-# section.h: add the Top link type. 
-# funref.h: fix define at beginning of include.
-# str_cat.h: no longer used (replaced by strjoin).
+# explorer.omh: add link to HMTL and XML versions.
+# firefox.omh: update issue list and add link to HMTL and XML versions.
 add_list="
 "
 change_list="
 	CvsCommit
 	omh/whatsnew.omh
-	RunOMhelp
-	omh/navigate.omh
-	src/relative.c
-	src/section.c
-	src/section.h
-	src/funref.h
+	omh/firefox.omh
+	omh/explorer.omh
 "
 delete_list="
-	src/str_cat.h
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same
