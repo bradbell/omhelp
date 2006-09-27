@@ -149,27 +149,76 @@ void RelativeFrame(SectionInfo *This)
 	titled = 0;
 	number = This->navigate.number;
 	for(index = 0; index < number; index++) 
-	{
-		// simple case where using this section
-		nav_type = This->navigate.item[index].nav_type;
+	{ 
+		// simple case where using label explicitly
 		label    = This->navigate.item[index].label;
-		F        = This;
 
-		// check for case where using a parent section
+		// check for case where using cross reference tag for _up_i
 		if( label[0] == '_' )
-		{	assert( strncmp(label, "_up", 3) == 0 );
-			assert( strlen(label) == 4 );
-			assert( isdigit(label[3]) );
-			i = atoi(label + 3);
+		{	assert( strncmp(label, "_up_", 4) == 0 );
+			assert( strlen(label) == 5 );
+			assert( isdigit(label[4]) );
+			i = atoi(label + 4);
+			F = This;
 			while(i--)
 			{	if( F != NULL )
 					F = F->parent;
 			}
 			if( F != NULL )
 				label = F->tag;
+			else	label = NULL;
 		}
+
+		// simple case where using this section
+		nav_type = This->navigate.item[index].nav_type;
+		F        = This;
+
+		// check for case where links are relative to parent 
+		switch( nav_type )
+		{	case DOWN_UP_0_nav:
+			i = 0;
+			break;
+			case DOWN_UP_1_nav:
+			i = 1;
+			break;
+			case DOWN_UP_2_nav:
+			i = 2;
+			break;
+			case DOWN_UP_3_nav:
+			i = 3;
+			break;
+			case DOWN_UP_4_nav:
+			i = 4;
+			break;
+			case DOWN_UP_5_nav:
+			i = 5;
+			break;
+			case DOWN_UP_6_nav:
+			i = 6;
+			break;
+			case DOWN_UP_7_nav:
+			i = 7;
+			break;
+			case DOWN_UP_8_nav:
+			i = 8;
+			break;
+			case DOWN_UP_9_nav:
+			i = 9;
+			break;
+
+			default:
+			i = -1;
+			break;
+		}
+		if( i != -1 )
+		{	while(i--)
+			{	if( F != NULL )
+					F = F->parent;
+			}
+		}
+
 	// undo one level of indentation (need the space)
-	if( F != NULL ) switch( nav_type )
+	if( F != NULL && label != NULL ) switch( nav_type )
 	{
 		// Contents ------------------------------------------------
 		case CONTENT_nav:
@@ -296,6 +345,16 @@ void RelativeFrame(SectionInfo *This)
 
 		// Down ---------------------------------------------------
 		case DOWN_nav:
+		case DOWN_UP_0_nav:
+		case DOWN_UP_1_nav:
+		case DOWN_UP_2_nav:
+		case DOWN_UP_3_nav:
+		case DOWN_UP_4_nav:
+		case DOWN_UP_5_nav:
+		case DOWN_UP_6_nav:
+		case DOWN_UP_7_nav:
+		case DOWN_UP_8_nav:
+		case DOWN_UP_9_nav:
 		TitleLinks(label);
 		titled = 1;
 		if( F->children != NULL )
@@ -435,29 +494,77 @@ void RelativeTable(SectionInfo *This)
 	number = This->navigate.number;
 	assert( number <= MAX_NAVIGATE );
 	for(index = 0; index < number; index++) 
-	{	const char *digit = "0";
-
-		// simple case where using this section
-		nav_type = This->navigate.item[index].nav_type;
+	{	char digit[] = { '0', '\0' };
+ 
+		// simple case where using label explicitly
 		label    = This->navigate.item[index].label;
-		F        = This;
 
-		// check for case where using a parent section
+		// check for case where using cross reference tag for _up_i
 		if( label[0] == '_' )
-		{	assert( strncmp(label, "_up", 3) == 0 );
-			assert( strlen(label) == 4 );
-			assert( isdigit(label[3]) );
-			digit = label + 3;
-			i     = atoi(digit);
+		{	assert( strncmp(label, "_up_", 4) == 0 );
+			assert( strlen(label) == 5 );
+			assert( isdigit(label[4]) );
+			i = atoi(label + 4);
+			F = This;
 			while(i--)
 			{	if( F != NULL )
 					F = F->parent;
 			}
 			if( F != NULL )
 				label = F->tag;
+			else	label = NULL;
+		}
+
+		// simple case where using this section
+		nav_type = This->navigate.item[index].nav_type;
+		F        = This;
+
+		// check for case where links are relative to parent 
+		switch( nav_type )
+		{	case DOWN_UP_0_nav:
+			i = 0;
+			break;
+			case DOWN_UP_1_nav:
+			i = 1;
+			break;
+			case DOWN_UP_2_nav:
+			i = 2;
+			break;
+			case DOWN_UP_3_nav:
+			i = 3;
+			break;
+			case DOWN_UP_4_nav:
+			i = 4;
+			break;
+			case DOWN_UP_5_nav:
+			i = 5;
+			break;
+			case DOWN_UP_6_nav:
+			i = 6;
+			break;
+			case DOWN_UP_7_nav:
+			i = 7;
+			break;
+			case DOWN_UP_8_nav:
+			i = 8;
+			break;
+			case DOWN_UP_9_nav:
+			i = 9;
+			break;
+
+			default:
+			i = -1;
+			break;
+		}
+		if( i != -1 )
+		{	digit[0] = (char) ('0' + i);
+			while(i--)
+			{	if( F != NULL )
+					F = F->parent;
+			}
 		}
 	// undo one level of indentation (need the space)
-	if( F == NULL )
+	if( F == NULL || label == NULL )
 		list_name[index] = NULL;
 	else switch( nav_type )
 	{
@@ -588,6 +695,16 @@ void RelativeTable(SectionInfo *This)
 
 		// Down ------------------------------------------------------
 		case DOWN_nav:
+		case DOWN_UP_0_nav:
+		case DOWN_UP_1_nav:
+		case DOWN_UP_2_nav:
+		case DOWN_UP_3_nav:
+		case DOWN_UP_4_nav:
+		case DOWN_UP_5_nav:
+		case DOWN_UP_6_nav:
+		case DOWN_UP_7_nav:
+		case DOWN_UP_8_nav:
+		case DOWN_UP_9_nav:
 		list_name[index] = strjoin("down", digit);
 		S = F->children;
 		if( S == NULL )
