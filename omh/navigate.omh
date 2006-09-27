@@ -31,62 +31,45 @@ the order of the links,
 and label for each of the links.
 
 $head Type$$
-The navigation links have the types listed in the table below
-(Noframe corresponds to the 
-$cref/-noframe/running/noframe/$$ option being present
-on the OMhelp command line):
+The navigation links have the types listed in the table below.
 $center
 $table
 $bold Type$$  
-	$cnext $bold Meaning$$
-	$cnext $bold Frame$$
-	$cnext $bold Noframe$$
+	$cnext $bold Link to$$
 $rnext
 $code Content$$  
-	$cnext table of contents for entire document
-	$cnext yes
-	$cnext yes
+	$cnext The table of contents section for entire document
 $rnext 
 $code Prev$$     
-	$cnext previous section in read order
-	$cnext yes
-	$cnext yes
+	$cnext The previous section in read order
 $rnext 
 $code Next$$     
-	$cnext next section in read order
-	$cnext yes
-	$cnext yes
+	$cnext The next section in read order
 $rnext 
 $code Top$$     
-	$cnext section at the top of tree 
+	$cnext The section at the top of tree 
 	(corresponds to $cref/root_file/running/root_file/$$)
-	$cnext yes
-	$cnext yes
 $rnext
 $code Up$$       
-	$cnext sections above this one in document tree
-	$cnext yes
-	$cnext yes
+	$cnext The group of section above this one in tree
 $rnext
 $code Sibling$$  
-	$cnext sections with same parent in tree
-	$cnext yes
-	$cnext yes
+	$cnext The group of sections with same parent as this one in tree
 $rnext
 $code Down$$     
-	$cnext sections directly below this one in tree
-	$cnext yes
-	$cnext yes
+	$cnext The group of sections directly below this one in tree
+$rnext
+$syntax%Down_Up_%i%$$
+	$cnext The sections directly below the section $italic i$$ levels
+	up in the documentation tree.
+$rnext
+	$cnext where $italic i$$ is a number between $code 0$$ and $code 9$$.
 $rnext
 $code Across$$   
-	$cnext sections that cross reference entire document
-	$cnext no
-	$cnext yes
+	$cnext The group of sections that cross reference entire document
 $rnext
 $code Current$$  
-	$cnext headings and subheadings in current section
-	$cnext yes
-	$cnext yes
+	$cnext The group of headings and subheadings for this section
 $tend
 $$
 
@@ -103,33 +86,39 @@ The corresponding read order is $pre A$$, $pre B$$, ..., $pre Z$$.
 For this example, if the current section is $pre F$$
 $table
 current section                 $cnext $pre F$$  $rnext
-previous section in read order  $cnext $pre E$$  $rnext
-next section in read order      $cnext $pre G$$  $rnext
-sections above current section  $cnext $pre B$$, $pre A$$ $rnext
-siblings of the current section $cnext $pre C$$, $pre F$$ $rnext
-sections directly below current section  $cnext $pre G$$, $pre J$$ 
+The previous section            $cnext $pre E$$  $rnext
+The next section                $cnext $pre G$$  $rnext
+The section above               $cnext $pre B$$  $rnext
+The section two levels up       $cnext $pre A$$  $rnext
+The group above this one        $cnext $pre B$$, $pre A$$ $rnext
+The group of siblings           $cnext $pre C$$, $pre F$$ $rnext
+The group directly below        $cnext $pre G$$, $pre J$$ 
 $tend
 
 $head label$$
 The value $italic label 1$$ is the label that the user will see
-for the navigation links corresponding to $italic default 1$$.
+for the navigation links corresponding to $italic type 1$$.
 The value $italic label 2$$ is the label that the user will see
-for the navigation links corresponding to $italic default 2$$ and so on.
+for the navigation links corresponding to $italic type 2$$ and so on.
 The labels cannot begin with the special character $code _$$ 
 with the following special exception:
 $syntax%
 
-_up%#%
+_up_%i%
 %$$
-where $italic #$$ is be a decimal digit; i.e., between 0 and 9.
-In this special case the 
-$cref/cross reference tag/glossary/Cross Reference Tag/$$
-for the section $italic #$$ levels above this section is used
-for the label.
-The links are relative to the section $italic #$$ levels up
-(instead of the current section).
-If there is no section $italic #$$ levels above the current section,
-these links are not included.
+where $italic i$$ is a number between $code 0$$ and $code 9$$.
+In this special case,
+the $cref/cross reference tag/glossary/Cross Reference Tag/$$
+for the section $italic i$$ levels up from the current section
+is used for the label.
+
+$head No Such Section$$
+If $syntax%Down_Up_%i%$$ is the specified type,
+and there is no section $italic i$$ levels up,
+neither the label nor its links will be present on the current section.
+If $syntax%_up_%i%$$ is specified label,
+and there is not section $italic i$$ levels up,
+neither the label nor its links will be present on the current section.
 
 $head Default$$
 The default value for the navigation command is
@@ -139,11 +128,11 @@ $codep
 		Prev%Previous%
 		Next%Next%
 		Top%Top%
-		Down%_up4%
-		Down%_up3%
-		Down%_up2%
-		Down%_up1%
-		Down%_up0%
+		Up_Down_4%_this%
+		Up_Down_3%_this%
+		Up_Down_2%_this%
+		Up_Down_1%_this%
+		Up_Down_0%_this%
 		Current%Headings
 	%@@
 $$
@@ -176,8 +165,8 @@ $$
 $head Root Section$$
 In the special case where a $code @navigate$$ command appears in the 
 $cref/root section/running/root_file/$$ section, 
-and does not appear in a sub-section,
-the value specified in the root section is used for the sub-section; i.e.,
+and does not appear in the current section,
+the value specified in the root section is used for the current section; i.e.,
 it replaces the $cref/default/navigate/Default/$$ command above.
 
 $end

@@ -86,6 +86,13 @@ $tend
 
 $$
 
+$head 06-09-27$$
+The $cref/navigate/$$ command was improved by making
+splitting $syntax%_up%i%$$ into a the type
+$syntax%Down_Up_%i%$$ and the label $syntax%_up_%i%$$.
+This enables one to changes the labels corresponding to
+this type of link.
+
 $head 06-09-19$$
 The $cref/06-08-11/whatsnew/06-08-11/$$ $code mfenced$$ issue
 has been fixed by the $cref/Firefox/$$ browser developers

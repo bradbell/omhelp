@@ -1,16 +1,18 @@
-# Update Firefox browser issue list
+# Improve navigate command
 #
 # CvsCommit: file that made this commit.
 # whatsnew.omh: users view of changes.
-# explorer.omh: add link to HMTL and XML versions.
-# firefox.omh: update issue list and add link to HMTL and XML versions.
+# section.h: add new navigation types.
+# section.c: implement the interpretation of the new navigation type and label.
+# navigate.omh: document the new navigation type and label.
 add_list="
 "
 change_list="
 	CvsCommit
 	omh/whatsnew.omh
-	omh/firefox.omh
-	omh/explorer.omh
+	src/section.h
+	src/section.c
+	omh/navigate.omh
 "
 delete_list="
 "

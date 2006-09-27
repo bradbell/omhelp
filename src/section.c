@@ -433,23 +433,24 @@ Leading and trailing white space in each token is ignored.
 
 $subhead Navigation Types$$
 The valid navigation types values are
-$pre
-	$$
-"Across",
-"Down",
-"Current",
-"Content",
-"Next",
-"Prev",
-"Root",
-"Sibling",
-"Up".
+$syntax%
+	Across
+	Down
+	Down_Up_%i%
+	Current
+	Content
+	Next
+	Prev
+	Top
+	Sibling
+	Up
+%$$
+where $italic i$$ is a single decimal digit.
 
 $subhead Labels$$
 None of the labels can begin with the character $pre "_"$$ except 
 for the following special case:
-$syntax%_up%d%$$ where $italic d$$ is a decimal digit between zero
-and nine. 
+$syntax%_this$$. 
 
 $head line$$
 If one of the requested navigation types is not valid, the invalid type
@@ -479,39 +480,53 @@ $end
 # endif
 
 
-// Note that MAX_NAVIGATE is 12 so need 12 entries
+// Note that MAX_NAVIGATE is 19 so need 19 entries
 static NavigateInfo NavigateType = {
-	9,
+	19,
 	{
-		{ ACROSS_nav,  "Across"    },
-		{ CONTENT_nav, "Content"   },
-		{ CURRENT_nav, "Current"   },
-		{ DOWN_nav,    "Down"      },
-		{ NEXT_nav,    "Next"      },
-		{ PREV_nav,    "Prev"      },
-		{ SIBLING_nav, "Sibling"   },
-		{ TOP_nav,     "Top"       },
-		{ UP_nav,      "Up"        },
-		{ INVALID_nav, "not used"  },
-		{ INVALID_nav, "not used"  },
-		{ INVALID_nav, "not used"  }
+		{ ACROSS_nav,   "Across"   },
+		{ CONTENT_nav,  "Content"  },
+		{ CURRENT_nav,  "Current"  },
+		{ DOWN_nav,      "Down"    },
+		{ DOWN_Up_9_nav, "_up_9"   },
+		{ DOWN_Up_8_nav, "_up_8"   },
+		{ DOWN_Up_7_nav, "_up_7"   },
+		{ DOWN_Up_6_nav, "_up_6"   },
+		{ DOWN_Up_5_nav, "_up_5"   },
+		{ DOWN_Up_4_nav, "_up_4"   },
+		{ DOWN_Up_3_nav, "_up_3"   },
+		{ DOWN_Up_2_nav, "_up_2"   },
+		{ DOWN_Up_1_nav, "_up_1"   },
+		{ DOWN_Up_0_nav, "_up_0"   },
+		{ NEXT_nav,      "Next"    },
+		{ PREV_nav,      "Prev"    },
+		{ SIBLING_nav,   "Sibling" },
+		{ TOP_nav,       "Top"     },
+		{ UP_nav,        "Up"      }
 	}
 };	
 static NavigateInfo Default = {
 	10,
 	{
-		{ ACROSS_nav,  "Index"     },
-		{ PREV_nav,    "Prev"      },
-		{ NEXT_nav,    "Next"      },
-		{ TOP_nav,     "Top"       },
-		{ DOWN_nav,    "_up4"      },
-		{ DOWN_nav,    "_up3"      },
-		{ DOWN_nav,    "_up2"      },
-		{ DOWN_nav,    "_up1"      },
-		{ DOWN_nav,    "_up0"      },
-		{ CURRENT_nav, "Headings"  },
-		{ INVALID_nav, "not used"  },
-		{ INVALID_nav, "not used"  }
+		{ ACROSS_nav,    "Index"     },
+		{ PREV_nav,      "Prev"      },
+		{ NEXT_nav,      "Next"      },
+		{ TOP_nav,       "Top"       },
+		{ DOWN_Up_4_nav, "_up_4"     },
+		{ DOWN_Up_3_nav, "_up_3"     },
+		{ DOWN_Up_2_nav, "_up_2"     },
+		{ DOWN_Up_1_nav, "_up_1"     },
+		{ DOWN_Up_0_nav, "_up_0"     },
+		{ CURRENT_nav,   "Headings"  },
+		{ INVALID_nav,   "not used"  },
+		{ INVALID_nav,   "not used"  },
+		{ INVALID_nav,   "not used"  },
+		{ INVALID_nav,   "not used"  },
+		{ INVALID_nav,   "not used"  },
+		{ INVALID_nav,   "not used"  },
+		{ INVALID_nav,   "not used"  },
+		{ INVALID_nav,   "not used"  },
+		{ INVALID_nav,   "not used"  }
 	}
 };	
 
@@ -830,15 +845,15 @@ const char *SectionNavigate(
 		);
 
 		if( tmp[0] == '_' ) if(
-			strlen(tmp) != 4 ||
-	    		strncmp(tmp, "_up", 3) != 0 ||
-			! isdigit( tmp[3] )
+			strlen(tmp) != 5 ||
+	    		strncmp(tmp, "_up_", 4) != 0 ||
+			! isdigit( tmp[4] )
 		) fatalomh(
 			"In the $navigate command in line ",
 			int2str(line),
 			"\n\"The label \"", tmp, "\"",
 			" begins with \"_\"\n",
-			"and is not of form \"_up#\" where # between 0 and 9",
+			"and is not of form \"_up_i\" where i between 0 and 9",
 			NULL
 		);
 
