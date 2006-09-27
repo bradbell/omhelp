@@ -1,15 +1,9 @@
-# Improve navigate command
+# Minor changes to navigation command and documentation
 #
-# CvsCommit: file that made this commit.
-# whatsnew.omh: users view of changes.
-# section.h: add new navigation types.
-# section.c: implement the interpretation of the new navigation type and label.
-# navigate.omh: document the new navigation type and label.
 add_list="
 "
 change_list="
 	CvsCommit
-	omh/whatsnew.omh
 	src/section.h
 	src/section.c
 	omh/navigate.omh

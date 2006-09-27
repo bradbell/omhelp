@@ -390,7 +390,7 @@ $spell
 	ntoken
 	subfield
 	Prev
-
+	Down Down
 $$
 
 $section Changing Relative Navigation Links for a Section$$
@@ -436,7 +436,7 @@ The valid navigation types values are
 $syntax%
 	Across
 	Down
-	Down_Up_%i%
+	Down_up_%i%
 	Current
 	Content
 	Next
@@ -450,7 +450,7 @@ where $italic i$$ is a single decimal digit.
 $subhead Labels$$
 None of the labels can begin with the character $pre "_"$$ except 
 for the following special case:
-$syntax%_this$$. 
+$syntax%_up_%i%$$. 
 
 $head line$$
 If one of the requested navigation types is not valid, the invalid type
@@ -484,25 +484,25 @@ $end
 static NavigateInfo NavigateType = {
 	19,
 	{
-		{ ACROSS_nav,   "Across"   },
-		{ CONTENT_nav,  "Content"  },
-		{ CURRENT_nav,  "Current"  },
-		{ DOWN_nav,      "Down"    },
-		{ DOWN_Up_9_nav, "_up_9"   },
-		{ DOWN_Up_8_nav, "_up_8"   },
-		{ DOWN_Up_7_nav, "_up_7"   },
-		{ DOWN_Up_6_nav, "_up_6"   },
-		{ DOWN_Up_5_nav, "_up_5"   },
-		{ DOWN_Up_4_nav, "_up_4"   },
-		{ DOWN_Up_3_nav, "_up_3"   },
-		{ DOWN_Up_2_nav, "_up_2"   },
-		{ DOWN_Up_1_nav, "_up_1"   },
-		{ DOWN_Up_0_nav, "_up_0"   },
-		{ NEXT_nav,      "Next"    },
-		{ PREV_nav,      "Prev"    },
-		{ SIBLING_nav,   "Sibling" },
-		{ TOP_nav,       "Top"     },
-		{ UP_nav,        "Up"      }
+		{ ACROSS_nav,   "Across"       },
+		{ CONTENT_nav,  "Content"      },
+		{ CURRENT_nav,  "Current"      },
+		{ DOWN_nav,      "Down"        },
+		{ DOWN_UP_9_nav, "Down_up_9"   },
+		{ DOWN_UP_8_nav, "Down_up_8"   },
+		{ DOWN_UP_7_nav, "Down_up_7"   },
+		{ DOWN_UP_6_nav, "Down_up_6"   },
+		{ DOWN_UP_5_nav, "Down_up_5"   },
+		{ DOWN_UP_4_nav, "Down_up_4"   },
+		{ DOWN_UP_3_nav, "Down_up_3"   },
+		{ DOWN_UP_2_nav, "Down_up_2"   },
+		{ DOWN_UP_1_nav, "Down_up_1"   },
+		{ DOWN_UP_0_nav, "Down_up_0"   },
+		{ NEXT_nav,      "Next"        },
+		{ PREV_nav,      "Prev"        },
+		{ SIBLING_nav,   "Sibling"     },
+		{ TOP_nav,       "Top"         },
+		{ UP_nav,        "Up"          }
 	}
 };	
 static NavigateInfo Default = {
@@ -512,11 +512,11 @@ static NavigateInfo Default = {
 		{ PREV_nav,      "Prev"      },
 		{ NEXT_nav,      "Next"      },
 		{ TOP_nav,       "Top"       },
-		{ DOWN_Up_4_nav, "_up_4"     },
-		{ DOWN_Up_3_nav, "_up_3"     },
-		{ DOWN_Up_2_nav, "_up_2"     },
-		{ DOWN_Up_1_nav, "_up_1"     },
-		{ DOWN_Up_0_nav, "_up_0"     },
+		{ DOWN_UP_4_nav, "_up_4"     },
+		{ DOWN_UP_3_nav, "_up_3"     },
+		{ DOWN_UP_2_nav, "_up_2"     },
+		{ DOWN_UP_1_nav, "_up_1"     },
+		{ DOWN_UP_0_nav, "_up_0"     },
 		{ CURRENT_nav,   "Headings"  },
 		{ INVALID_nav,   "not used"  },
 		{ INVALID_nav,   "not used"  },
@@ -819,7 +819,7 @@ const char *SectionNavigate(
 			"In the $navigate command in line ",
 			int2str(line),
 			"\n\"", tmp, "\"",
-			" is not a valid default navigation label.",
+			" is not a valid navigation type.",
 			NULL
 		);
 		FreeMem(tmp);

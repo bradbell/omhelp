@@ -59,7 +59,7 @@ $rnext
 $code Down$$     
 	$cnext The group of sections directly below this one in tree
 $rnext
-$syntax%Down_Up_%i%$$
+$syntax%Down_up_%i%$$
 	$cnext The sections directly below the section $italic i$$ levels
 	up in the documentation tree.
 $rnext
@@ -72,6 +72,9 @@ $code Current$$
 	$cnext The group of headings and subheadings for this section
 $tend
 $$
+Note that the type $code Down_up_1$$ is the same as $code Sibling$$ 
+and $code Down_up_0$$ is the same as $code Down$$
+(but $code Down_up_2$$ is not the same as $code Up$$).
 
 $subhead Example$$
 Suppose that the tree corresponding to a document is
@@ -113,7 +116,7 @@ for the section $italic i$$ levels up from the current section
 is used for the label.
 
 $head No Such Section$$
-If $syntax%Down_Up_%i%$$ is the specified type,
+If $syntax%Down_up_%i%$$ is the specified type,
 and there is no section $italic i$$ levels up,
 neither the label nor its links will be present on the current section.
 If $syntax%_up_%i%$$ is specified label,
@@ -128,11 +131,11 @@ $codep
 		Prev%Previous%
 		Next%Next%
 		Top%Top%
-		Up_Down_4%_this%
-		Up_Down_3%_this%
-		Up_Down_2%_this%
-		Up_Down_1%_this%
-		Up_Down_0%_this%
+		Down_up_4%_up_4%
+		Down_up_3%_up_3%
+		Down_up_2%_up_2%
+		Down_up_1%_up_1%
+		Down_up_0%_up_0%
 		Current%Headings
 	%@@
 $$
@@ -145,20 +148,27 @@ $navigate%
 	Prev%Previous%
 	Next%Next%
 	Up%Up%
-	Sibling%Same Level%
+	Down_up_2%_up_2%
+	Down_up_1%Down_up_1%
+	Down_up_0%Down_up_0%
+	Sibling%Sibling%
 	Down%Down%
 	Across%Across%
 	Current%Current
 %$$
 $codep
 	@navigate%
-		Across%Index%
+		Content%Contents%
 		Prev%Previous%
 		Next%Next%
 		Up%Up%
+		Down_up_2%Down_up_2%
+		Down_up_1%Down_up_1%
+		Down_up_0%Down_up_0%
+		Sibling%Sibling%
 		Down%Down%
-		Sibling%Siblings%
-		Current%Headings
+		Across%Across%
+		Current%Current
 	%@@
 $$
 
