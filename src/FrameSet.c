@@ -38,10 +38,8 @@ is not present).
 $head Output File$$
 The frame set file for this section is named
 $syntax%
-	%F->tagLower%.%ext%
+	%F->tagLower%.%FrameOneExt%
 %$$
-where $italic ext$$ is the return value from the function
-$code Internal2Out("OutputExtension")$$.
 
 $head link_frame$$
 If $italic link_frame$$ is true,
@@ -90,11 +88,8 @@ void OutputFrameSet(SectionInfo *F, const char *FrameOneExt, int link_frame)
 	char buffer[200]; 
 	int iFrame;
 
-	// get the output extension
-	ext = Internal2Out("OutputExtension");
-
 	// name of the frameset file
-	sprintf(buffer, "%s%s", F->tagLower, ext);
+	sprintf(buffer, "%s%s", F->tagLower, FrameOneExt);
 
 	// start the frameset file
 	PushOutput(buffer);
@@ -109,6 +104,7 @@ void OutputFrameSet(SectionInfo *F, const char *FrameOneExt, int link_frame)
 	{	OutputString("<frameset cols=\"15%,*\">\n");
 	
 		// left frame is navation links
+		ext = Internal2Out("OutputExtension");
 		FormatOutput2( "<frame src=\"%s_links%s\"", F->tagLower, ext);
 		OutputString(Internal2Out("SelfTerminateCmd"));
 		OutputString("\n");

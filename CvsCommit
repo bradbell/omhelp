@@ -1,12 +1,19 @@
-# Minor changes to navigation command and documentation
+# Fix SEARCH_TAB and CONTENTS_TAG cross references.
 #
+# CvnCommit: this file.
+# whatsnew.omh: Users view of the changes.
+# FrameSet.c: Same sort of problem (but did not seem to get called).
+# children.c: this is the actual fix.
+# url.c: same sort of problem (not used).
+# 
 add_list="
 "
 change_list="
 	CvsCommit
-	src/section.h
-	src/section.c
-	omh/navigate.omh
+	omh/whatsnew.omh
+	src/FrameSet.c
+	src/children.c
+	src/url.c
 "
 delete_list="
 "

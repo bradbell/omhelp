@@ -97,7 +97,9 @@ static void OutputPre(char *text)
 }
 
 void TableChildren(SectionInfo *S, int printable)
-{
+{	int HtmlOnly;
+	const char *ext;
+
 	OutputString("<table>\n");
 
 	// children
@@ -108,9 +110,16 @@ void TableChildren(SectionInfo *S, int printable)
 
 		if( ! printable )
 		{
+			// only use HTML format for frame one of these sections
+			HtmlOnly =  (strcmp(S->tag, SEARCH_TAG) == 0)
+			         || (strcmp(S->tag, CONTENTS_TAG) == 0);
+			if( HtmlOnly )
+				ext = Internal2Out("HtmlOnlyExtension");
+			else	ext = Internal2Out("OutputExtension");
+
 			FormatOutput2("<a href=\"%s%s\" target=\"_top\">", 
 				S->tagLower,
-				Internal2Out("OutputExtension")
+				ext
 			);
 			OutputPre(S->tag);
 		}

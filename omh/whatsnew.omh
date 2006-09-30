@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	childtable
 	favicon
 	mfenced
 	vim_runtime
@@ -85,6 +86,12 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 06-09-30$$
+A $cref/childtable/children/$$ command in the
+$cref/root/running/root_file/$$ section resulted in broken links to
+$cref/_search/$$ and $cref/_contents/$$.
+This has been fixed.
 
 $head 06-09-27$$
 The $cref/navigate/$$ command was improved by making
