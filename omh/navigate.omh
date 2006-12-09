@@ -13,12 +13,6 @@ $index navigate$$
 $index relative, link$$
 $index link, relative$$
 
-$head Preliminary$$
-This is a preliminary version of this command that is being 
-used to obtain user feedback. 
-This command may change in future versions of OMhelp.
-
-
 $head Syntax$$
 $syntax|@navigate%|type 1|%|label 1|% |...| %|type n|%|label n|%@@|$$
 
@@ -128,9 +122,9 @@ The default value for the navigation command is
 $codep
 	@navigate%
 		Across%Index%
-		Prev%Previous%
+		Prev%Prev%
 		Next%Next%
-		Top%Top%
+		Up%Up%
 		Down_up_4%_up_4%
 		Down_up_3%_up_3%
 		Down_up_2%_up_2%

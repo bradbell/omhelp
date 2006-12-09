@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	Prev
 	childtable
 	favicon
 	mfenced
@@ -86,6 +87,14 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 06-12-09$$
+The $code navigate$$ command $cref/default/navigate/Default/$$ value was
+changed. To be specific, the $code Top%Top$$ entry wash changed to
+$code Up%Up%$$ and $code Prev%Previous%$$ was changed to $code Prev%Prev%$$
+(note the second change was a correction to the documentation).
+In addition, the status of this command was change from preliminary
+to permanent; i.e., it will be supported in future versions of OMhelp.
 
 $head 06-09-30$$
 A $cref/childtable/children/$$ command in the
