@@ -2,16 +2,15 @@
 #
 # CvnCommit: this file.
 # whatsnew.omh: Users view of the changes.
-# navigate.omh: change default and remove preliminary statement.
-# section.c: change default value for navigate command.
-# 
+# verbatim.omh: document ignore white space surrounding filename. 
+# omhelp.y: implement ignore white space surrounding filename. 
 add_list="
 "
 change_list="
 	CvsCommit
 	omh/whatsnew.omh
-	omh/navigate.omh
-	src/section.c
+	omh/verbatim.omh
+	src/omhelp.y
 "
 delete_list="
 "

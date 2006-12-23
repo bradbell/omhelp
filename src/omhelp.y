@@ -4605,6 +4605,7 @@ verbatim
 			skip  = atoi(token);
 		}
 
+		ClipWhiteSpace(filename);
 		InputSplitName(&root, &ext, filename);
 		InputPush(root, ext, -1);
 

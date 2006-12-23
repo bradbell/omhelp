@@ -88,6 +88,11 @@ $tend
 
 $$
 
+$head 06-12-23$$
+Allow for extra white space surrounding 
+$cref/verbatim file name/verbatim/Filename/$$.
+
+
 $head 06-12-09$$
 The $code navigate$$ command $cref/default/navigate/Default/$$ value was
 changed. To be specific, the $code Top%Top$$ entry wash changed to

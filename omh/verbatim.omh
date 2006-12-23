@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin verbatim$$
 $spell 
@@ -98,6 +96,7 @@ have other commands nested inside of them.
 $head Filename$$
 The value of $italic filename$$ specifies the name 
 of the file that is displayed.
+Leading and trailing white space in $italic filename$$ is ignored.
 
 $subhead Example$$
 The following sequence displays the file $code copyright.omh$$
