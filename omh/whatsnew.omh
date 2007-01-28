@@ -88,6 +88,10 @@ $tend
 
 $$
 
+$head 07-01-28$$
+The $code navigate$$ command $cref/default/navigate/Default/$$ value was
+changed so that $code Up$$ is grouped with $code Across$$.
+
 $head 06-12-23$$
 Allow for extra white space surrounding 
 $cref/verbatim file name/verbatim/Filename/$$.
