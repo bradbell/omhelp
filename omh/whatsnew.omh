@@ -88,6 +88,10 @@ $tend
 
 $$
 
+$head 07-03-13$$
+Changes the $cref/_search/$$ dialog so that it selects the current
+entry when you hit return (or select the button).
+
 $head 07-01-28$$
 The $code navigate$$ command $cref/default/navigate/Default/$$ value was
 changed so that $code Up$$ is grouped with $code Across$$.

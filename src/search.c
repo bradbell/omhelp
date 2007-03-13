@@ -268,7 +268,7 @@ static char *FrameOne =
 "	<input\n"
 "	type=\"text\"\n"
 "	name=\"string\"\n"
-"	onkeyup=\"Search()\"\n"
+"	onkeydown=\"UpdateList(event)\"\n"
 "	size=\"80\"\n"
 "	></input></td>\n"
 "</tr><tr>\n"
@@ -276,7 +276,7 @@ static char *FrameOne =
 "	name=\"select\"\n"
 "	type=\"button\"\n"
 "	value=\"First Match\"\n"
-"	onclick=\"choose()\"\n"
+"	onclick=\"Choose()\"\n"
 "	></input></td><td>\n"
 "	<input\n"
 "	type=\"text\"\n"
@@ -325,12 +325,24 @@ static char *Javascript =
 "		Keyword[i] = line;\n"
 "	}\n"
 	// do a search for the empty string
-"	Search();\n"
+"	UpdateList();\n"
 	// set the cursor to the users input field
 "	document.search.string.focus();\n"
 "}\n"
-"function Search()\n"
+"function UpdateList(event)\n"
 "{\n"
+	// check for return key
+"	key = 0;\n"
+"	if( window.event )\n"
+		// IE
+"		key = window.event.keyCode;\n"
+"	else if( event )\n"
+		// Firefox
+"		key = event.which;\n"
+"	if( key == 13 )\n"
+"	{	Choose();\n"
+"		return;\n"
+"	}\n"
 	// search string
 "	var string  = document.search.string.value;\n"
 
@@ -382,7 +394,7 @@ static char *Javascript =
 "	document.search.choice.value  = Choice.toLowerCase();\n"
 "	document.search.list.value    = list;\n"
 "}\n"
-"function choose()\n"
+"function Choose()\n"
 "{\n"
 "parent.location = document.search.choice.value.toLowerCase() + \".htm\";\n"
 "}\n"

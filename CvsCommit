@@ -1,16 +1,14 @@
-# Change default for navigate command and remove preliminary statement.
+# Change search dialog so hitting return selects the current entry.
 #
 # CvnCommit: this file.
 # whatsnew.omh: Users view of the changes.
-# verbatim.omh: document ignore white space surrounding filename. 
-# omhelp.y: implement ignore white space surrounding filename. 
+# search.c: change event handler and its call to detect return key.
 add_list="
 "
 change_list="
 	CvsCommit
 	omh/whatsnew.omh
-	omh/verbatim.omh
-	src/omhelp.y
+	src/search.c
 "
 delete_list="
 "
