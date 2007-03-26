@@ -88,6 +88,12 @@ $tend
 
 $$
 
+$head 07-03-25$$
+There was a problem with the $cref/configure/InstallUnix/Configure/$$
+script whereby there was a space at the end of the name of the
+file that it was checking $code src/UniformWhiteSpace.c$$.
+This has been fixed.
+
 $head 07-03-13$$
 Changes the $cref/_search/$$ dialog so that it selects the current
 entry when you hit return (or select the button).

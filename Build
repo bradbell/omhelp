@@ -21,7 +21,7 @@
 #
 # Default values used for arguments to configure during this script.
 # These defaults are development system dependent and can be changed.
-VIMRUNTIME=/usr/share/vim/vim64
+VIMRUNTIME=/usr/share/vim/vim70
 #
 # date currently in configure.ac
 AcDate=`grep "^ *AC_INIT(" configure.ac | \

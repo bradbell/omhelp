@@ -18,7 +18,7 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 06-03-14, bradbell@seanet.com)
+AC_INIT(OMhelp, 07-03-25, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
 
@@ -43,10 +43,10 @@ dnl No default setting for compiler flags
 AC_SUBST(CXXFLAGS, "")
 
 dnl Have configure check source directory 
-AC_CONFIG_SRCDIR( src/UniformWhiteSpace.c )
+AC_CONFIG_SRCDIR(src/UniformWhiteSpace.c)
 
 dnl Use config.h instead of make file command line arugments
-AC_CONFIG_HEADER( src/config.h ) 
+AC_CONFIG_HEADER(src/config.h) 
 
 dnl AC_PROG_CC([compiler-search-list]) outputs CC as C compiler to use
 AC_PROG_CC
