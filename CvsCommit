@@ -1,17 +1,13 @@
-# Remove space from the end of unique file name checked by configure.
+# Files that should have been commited on 2007-04-06.
 #
 # CvnCommit: this file.
-# whatsnew.omh: Users view of the changes.
-# Build: change vim directory to more recent.
-# configure.ac: fix trailing space.
-# search.c: missing from previous commit.
+# whatsnew.omh: user's view of the change.
+# cross.c: improve cross reference error message.
 add_list="
 "
 change_list="
 	CvsCommit
 	omh/whatsnew.omh
-	Build
-	configure.ac
 	src/search.c
 "
 delete_list="

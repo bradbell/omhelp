@@ -88,6 +88,13 @@ $tend
 
 $$
 
+$head 07-04-06$$
+A common mistake is to include the same file in two different
+places and thereby multiple definitions for the same cross
+reference destination.
+The error message for this case has been improved to 
+suggest that perhaps the same file has been included twice.
+
 $head 07-03-25$$
 There was a problem with the $cref/configure/InstallUnix/Configure/$$
 script whereby there was a space at the end of the name of the
