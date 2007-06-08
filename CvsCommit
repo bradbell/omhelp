@@ -1,14 +1,12 @@
 # Files that should have been commited on 2007-04-06.
 #
 # CvnCommit: this file.
-# whatsnew.omh: user's view of the change.
 # cross.c: improve cross reference error message.
 add_list="
 "
 change_list="
 	CvsCommit
-	omh/whatsnew.omh
-	src/search.c
+	src/cross.c
 "
 delete_list="
 "

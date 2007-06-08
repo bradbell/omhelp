@@ -387,6 +387,7 @@ CrossReference *DefineCrossReference(
 	if( C->defined )
 	{	char *msg1;
 		char *msg2;
+		char *msg3;
 		int  line;
 
 		if( strcmp(file, InputName()) == 0 )
@@ -396,12 +397,15 @@ CrossReference *DefineCrossReference(
 			tag, head, file, line);
 		msg2 = IdentifyCrossReference(
 			C->tag, C->head, C->file, C->line); 
+		msg3 = "\nIf the file names are line number are the same,"
+		       "\nthe file has probably been included twice."
 		fatalerr(
 			"\nTwo defintions for the same ",
 			"cross reference destination:\n",
 			msg1,
 			"\n",
 			msg2,
+			msg3,
 			NULL
 		);
 	}
