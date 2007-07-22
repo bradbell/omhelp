@@ -97,22 +97,24 @@ $index copy, and paste firefox bug$$
 $index paste, firefox bug$$
 The link
 $execute firefox_copy_paste.xml$$
-contains the XHTML commands below.
+is to the XHTML commands below.
 If you select that link,
 then copy all the text,
 then paste it anywhere (e.g., notepad in Windows),
-a blank line will appear between the two lines of text.
+there will be extra white-space in the pasted text
+(as compared to the text display in the Firefox browser).
+For example, there is a blank line between
+"First line." and "Second line." in the copied text:
 $nospell
 $codep
 <?xml version='1.0'?>
-<?xml-stylesheet type='text/xsl' href='pmathml.xsl'?>
+<?xml-stylesheet type='text/xsl'?>
 <html xmlns='http://www.w3.org/1999/xhtml'>
-	<head></head>
-	<body>
-		<code>
-			First line.<br/>Second line.
-		</code>
-	</body>
+        <head></head>
+        <body>
+                First line.<br/>
+                Second line.
+        </body>
 </html>
 $$
 $$
