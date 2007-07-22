@@ -88,6 +88,13 @@ $tend
 
 $$
 
+$head 07-07-21$$
+The $cref/Firefox/$$ back button bug has been removed
+(it seems to be fixed).
+The Firefox $cref/copy and paste/Firefox/Copy and Paste/$$ bug has
+been added.
+
+
 $head 07-04-06$$
 A common mistake is to include the same file in two different
 places and thereby multiple definitions for the same cross
@@ -253,7 +260,8 @@ argument during $cref/Unix installation/InstallUnix/$$.
 
 $head 06-07-08$$
 The deprecated heading has been added to the 
-discussion of the $cref/BackButton/$$ problem in FireFox 1.5.
+discussion of the $code BackButton$$ problem in FireFox 1.5
+(the problem has since been fixed).
 
 $head 06-07-07$$
 The $cref/cref/$$ command was added and the 
@@ -318,7 +326,8 @@ copied to the web version).
 $pre
 
 $$
-The $xref/BackButton/$$ problem has been added to the Firefox browser section.
+The $code BackButton$$ problem has been added to the Firefox browser section
+(the problem has since been fixed).
 In order for this example to work properly, the $xref/execute/$$
 command was changed so that its target frame is the top frame.
 (Perhaps some day, execute will use a delimiter sequence and the 

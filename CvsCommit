@@ -1,12 +1,14 @@
-# Files that should have been commited on 2007-04-06.
+# Update Firefox bug section.
 #
 # CvnCommit: this file.
-# cross.c: improve cross reference error message.
+# firefox.omh: updated section
+# whatsnew.omh: user's view of the changes.
 add_list="
 "
 change_list="
+	omh/firefox.omh
+	omh/whatsnew.omh
 	CvsCommit
-	src/cross.c
 "
 delete_list="
 "

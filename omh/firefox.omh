@@ -63,10 +63,14 @@ $$
 
 
 $section Problems Using Firefox To Display OMhelp Output$$
-$mindex bugzilla firefox browser display error$$
 
+$index bug, firefox$$
+$index firefox, bug$$
+$index browser, firefox$$
+$index error, firefox$$
+
+$comment The bug in backbutton.omh has been fixed$$
 $children%
-	backbutton.omh%
 	latex/NegativeSpace.omh
 %$$
 
@@ -86,12 +90,38 @@ If you have any feed back,
 please send e-mail to:
 $href%mailto:bradbell@seanet.com%bradbell@seanet.com%$$.
 
-$head Back Button$$
-If one uses transitional XML with frames,
-the 
-$xref/BackButton/$$ in Firefox does not work.
+$head Copy and Paste$$
+$index bug, firefox copy and paste$$
+$index firefox, copy and paste bug$$
+$index copy, and paste firefox bug$$
+$index paste, firefox bug$$
+The link
+$execute firefox_copy_paste.xml$$
+contains the XHTML commands below.
+If you select that link,
+then copy all the text,
+then paste it anywhere (e.g., notepad in Windows),
+a blank line will appear between the two lines of text.
+$nospell
+$codep
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='pmathml.xsl'?>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+	<head></head>
+	<body>
+		<code>
+			First line.<br/>Second line.
+		</code>
+	</body>
+</html>
+$$
+$$
+
 
 $head Javascript$$
+$index bug, firefox Javascript$$
+$index firefox, Javascript bug$$
+$index Javascript, firefox bug$$
 The file
 $execute FirefoxJavascript.htm$$
 contains the HTML commands below.
@@ -139,6 +169,9 @@ $$
 $$
 
 $head Background Color$$
+$index bug, firefox background-color$$
+$index firefox, background-color bug$$
+$index background-color, firefox bug$$
 The file
 $execute FirefoxBackground.htm$$
 contains the HTML commands below.
@@ -171,7 +204,9 @@ $$
 $$
 
 $head Negative Space$$
-$mindex negative space$$
+$index bug, firefox negative space$$
+$index firefox, negative space bug$$
+$index negative space, firefox bug$$
 A positive space display is demonstrated by 
 the following input
 $codep
@@ -196,7 +231,10 @@ $tref NegativeSpace$$
 $$
 
 $head Operator Sizes$$
-$mindex operator size$$
+$index bug, firefox operator size$$
+$index firefox, operator size bug$$
+$index operator, size firefox bug$$
+$index size, operator firefox bug$$
 The specification of the minimum size attribute
 does not seem to work for some operators
 (the $code &cap;$$ character has unicode hex value $code 02229$$).
@@ -214,7 +252,9 @@ $latex \[ \mathml{
 } \]$$
 
 $head Symbols$$
-$mindex symbol$$
+$index bug, firefox symbol$$
+$index firefox, symbol bug$$
+$index symbol, firefox bug$$
 The following symbols do not seem to be displayed correctly:
 $table
 $bold Latex $$ 
@@ -252,7 +292,9 @@ $tend
 
 
 $head UnderBar $$
-$mindex underbar$$
+$index bug, firefox underbar$$
+$index firefox, underbar bug$$
+$index underbar, firefox bug$$
 The UnderBar (x00332) 
 does not display at all in the context below.
 Note that the underbar should stretch to fit what it is under.
