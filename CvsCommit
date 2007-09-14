@@ -1,14 +1,18 @@
-# Update Firefox bug section.
+# Minor fixes
 #
 # CvnCommit: this file.
-# firefox.omh: updated section
 # whatsnew.omh: user's view of the changes.
+# Factorial.m: change wspace to newlinech.
+# StartEmbed.omh: fix link to Factorial.m.
+# main.src: add favicon to usage message.
 add_list="
 "
 change_list="
-	omh/firefox.omh
-	omh/whatsnew.omh
 	CvsCommit
+	omh/whatsnew.omh
+	omh/getstarted/Factorial.m
+	omh/getstarted/StartEmbed.omh
+	src/main.src
 "
 delete_list="
 "

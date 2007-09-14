@@ -212,6 +212,7 @@ int main(int argc, const char *argv[])
 			"[-nowarn] "
 			"[-image_link image_link] "
 			"[-image_file image_file] "
+			"[-favicon favicon] "
 			"[-site name] "
 			"[-omhelp_dir dir] "
 			"\n"

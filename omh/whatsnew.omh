@@ -88,6 +88,20 @@ $tend
 
 $$
 
+$head 07-09-14$$
+The $cref/ViewFactorial.m/$$ example used the $cref/wspace/$$ command
+which has been deprecated.
+It was changed to use the $cref/newlinech/$$ command which works better.
+In addition, a link in $cref/StartEmbed/$$ to
+view $code factorial.m$$ was mistakenly to $cref/ViewFactorial.c/$$.
+This has been fixed.
+
+$head 07-08-14$$
+The $cref/favicon/running/favicon/$$ option
+was not listed when OMhelp printed its usage message
+(in response to an improper command line).
+This has been fixed.
+
 $head 07-07-21$$
 The $cref/Firefox/$$ back button bug has been removed
 (it seems to be fixed).

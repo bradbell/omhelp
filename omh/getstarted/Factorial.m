@@ -1,6 +1,6 @@
 function f = Factorial(n)
 %FACTORIAL of a positive integer
-% $begin Factorial.m$$ $wspace %$$
+% $begin Factorial.m$$ $newlinech %$$
 % $spell 
 %	Matlab
 % $$
@@ -16,7 +16,7 @@ function f = Factorial(n)
 % Returns the value
 % $math%
 %	n * (n-1) * ... * 2 * 1
-% $$
+% %$$
 % where $italic n$$ is a positive integer.
 %
 % $head Example$$
