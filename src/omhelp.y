@@ -2851,7 +2851,15 @@ href
 		// linking text for reference
 		if( ntoken < 2 )
 			link = "";
-		else	link = url + strlen(url) + 1;
+		else
+		{	link = url + strlen(url) + 1;
+			if( WhiteSpace(link) ) fatalomh(
+			"In the $href command in line ",
+			int2str($1.line),
+			"\nlinking text specified as empty",
+			NULL
+			);
+		}
 
 		// displaying frame for the reference
 		if( ntoken < 3 || PrintableOmhelp() )

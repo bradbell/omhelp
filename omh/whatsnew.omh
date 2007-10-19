@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	linkingtext
 	Prev
 	childtable
 	favicon
@@ -87,6 +88,10 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 07-10-18$$
+The $cref/href/$$ command was improved to detect when the
+$italic  linkingtext$$ was empty and stop with a fatal error message.
 
 $head 07-09-14$$
 The $cref/ViewFactorial.m/$$ example used the $cref/wspace/$$ command
