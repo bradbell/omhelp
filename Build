@@ -310,6 +310,12 @@ then
 	then
 		exit
 	fi
+	cd omh/getstarted
+	if ! ./run_all.sh batch
+	then
+		echo "omh/getstarted/run_all failed to run"
+		exit 1
+	fi
 fi
 if [ "$1" = "all" ]
 then
