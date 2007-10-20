@@ -27,7 +27,7 @@ $spell
 	omh
 	OMhelp
 	htm
-	headexample
+	head_example
 $$
 
 $children/
@@ -84,12 +84,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ head_example.omh -noframe
+	omhelp ../head_example.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/headexample.htm%$$.
+$syntax%%test%/htm/head_example.htm%$$.
 
 $end

@@ -93,12 +93,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ cref_example_1.omh -noframe
+	omhelp ../cref_example_1.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/cref1example.htm%$$.
+$syntax%%test%/htm/cref_example_1.htm%$$.
 
 $end

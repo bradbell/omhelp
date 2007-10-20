@@ -27,7 +27,7 @@ $spell
 	omh
 	OMhelp
 	htm
-	imageexample
+	image_example
 	gif
 $$
 
@@ -90,12 +90,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ image_example.omh -noframe
+	omhelp ../image_example.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/imageexample.htm%$$.
+$syntax%%test%/htm/image_example.htm%$$.
 
 $end

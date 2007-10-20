@@ -25,7 +25,7 @@ $spell
 	omh
 	htm
 	omhelp
-	simpleexample
+	simple_example
 $$
 
 $section Getting Started With A Simple Section$$
@@ -83,12 +83,12 @@ $subhead Execute OMhelp$$
 In a command window and in the directory $syntax%%test%/htm%$$,
 execute the following command
 $codep
-	omhelp ../ simple_example.omh -noframe
+	omhelp ../simple_example.omh -noframe
 $$
 
 $subhead Example by Itself$$
 If you use a web browser of your choosing to view the file
-$syntax%%test%/htm/simpleexample.htm%$$,
+$syntax%%test%/htm/simple_example.htm%$$,
 $pre
 	$$
 $code $title simple_example$$$$
@@ -100,7 +100,7 @@ is displayed as the title of the web page
 
 $head Output File$$
 The file
-$code simpleexample.htm$$ is created by running the $code omhelp$$
+$code simple_example.htm$$ is created by running the $code omhelp$$
 command above. 
 It contains the HTML version of this web page.
 

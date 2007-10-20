@@ -27,7 +27,7 @@ $spell
 	omh
 	OMhelp
 	htm
-	verbatimexample
+	verbatim_example
 $$
 
 $children/
@@ -82,12 +82,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ verbatim_example.omh -noframe
+	omhelp ../verbatim_example.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/verbatimexample.htm%$$.
+$syntax%%test%/htm/verbatim_example.htm%$$.
 
 $end

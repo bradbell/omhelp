@@ -86,7 +86,7 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ Factorial.c -noframe
+	omhelp ../Factorial.c -noframe
 $$
 
 
@@ -135,7 +135,7 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ Factorial.m -noframe
+	omhelp ../Factorial.m -noframe
 $$
 
 

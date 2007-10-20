@@ -112,13 +112,13 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ multiple_example_1.omh -noframe
+	omhelp ../multiple_example_1.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/multiple1example.htm%$$.
+$syntax%%test%/htm/multiple_example_1.htm%$$.
 
 $head Discussion$$
 The file $code multiple_example_1.omh$$ contains the

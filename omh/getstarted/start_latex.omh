@@ -26,7 +26,7 @@ $spell
 	omh
 	OMhelp
 	htm
-	latexexample
+	latex_example
 	Lamport
 	xml
 $$
@@ -83,8 +83,8 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ latex_example.omh  -noframe
-	omhelp ../ latex_example.omh -xml -noframe
+	omhelp ../latex_example.omh  -noframe
+	omhelp ../latex_example.omh -xml -noframe
 $$
 The first command creates a set of HTML files.
 The second command creates a set of
@@ -98,10 +98,10 @@ and the viewer will see the mathematics.
 
 $subhead Example by Itself$$
 Use any browser to view the file
-$syntax%%test%/htm/latexexample.htm%$$.
+$syntax%%test%/htm/latex_example.htm%$$.
 Use the
 $href%http://www.mozilla.org%Mozilla%$$ 
 web browser to view the file
-$syntax%%test%/htm/latexexample.xml%$$.
+$syntax%%test%/htm/latex_example.xml%$$.
 
 $end

@@ -107,12 +107,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ index_example_1.omh -noframe
+	omhelp ../index_example_1.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/index1example.htm%$$.
+$syntax%%test%/htm/index_example_1.htm%$$.
 
 $end
