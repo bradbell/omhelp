@@ -19,6 +19,8 @@
 $begin StartEmbed$$
 $dollar @$$
 $spell
+	noframe
+	noframe
 	Matlab
 	omhelp
 	omh
@@ -59,8 +61,8 @@ create the file $code Factorial.c$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 the contents of which can be seen by selecting 
 $cref/ViewFactorial.c/$$.
 Note that you can copy and paste the contents of
@@ -76,7 +78,7 @@ by selecting
 $xref/Factorial.c/$$.
 
 $subhead Execute OMhelp$$
-In a Dos window and 
+In a command window and 
 in the 
 $xref/
 	StartSimple/
@@ -84,13 +86,13 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ..\Factorial.c
+	omhelp ../ Factorial.c -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%omh%\htm\factorial.c.htm%$$.
+$syntax%%test%/htm/factorial.c.htm%$$.
 
 
 $head A Language with only One Line Comments$$
@@ -108,8 +110,8 @@ create the file $code Factorial.m$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 the contents of which can be seen by selecting 
 $cref/ViewFactorial.m/$$.
 Note that you can copy and paste the contents of
@@ -125,7 +127,7 @@ by selecting
 $xref/Factorial.m/$$.
 
 $subhead Execute OMhelp$$
-In a Dos window and 
+In a command window and 
 in the 
 $xref/
 	StartSimple/
@@ -133,12 +135,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ..\Factorial.m
+	omhelp ../ Factorial.m -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%omh%\htm\factorial.m.htm%$$.
+$syntax%%test%/htm/factorial.m.htm%$$.
 
 $end

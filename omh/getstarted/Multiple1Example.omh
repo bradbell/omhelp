@@ -19,10 +19,9 @@
 # END SHORT COPYRIGHT
 #
 $begin Multiple1Example$$
-$section An Example With Multiple Input Files and Sections$$
+$section An Example With a Child$$
 
 $contents/
-	Multiple2Example.omh/
 	Multiple3Example.omh/$$
 	
 

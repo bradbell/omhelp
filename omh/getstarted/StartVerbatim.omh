@@ -22,6 +22,7 @@ $begin StartVerbatim$$
 $dollar @$$
 $escape #$$
 $spell
+	noframe
 	omhelp
 	omh
 	OMhelp
@@ -53,8 +54,8 @@ create the file $code  VerbatimExample.omh$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 with the following contents:
 $code
 $pre
@@ -73,7 +74,7 @@ by selecting
 $xref/VerbatimExample/$$.
 
 $subhead Execute OMhelp$$
-In a Dos window and 
+In a command window and 
 in the 
 $xref/
 	StartSimple/
@@ -81,12 +82,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ..\VerbatimExample.omh
+	omhelp ../ VerbatimExample.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%omh%\htm\verbatimexample.htm%$$.
+$syntax%%test%/htm/verbatimexample.htm%$$.
 
 $end

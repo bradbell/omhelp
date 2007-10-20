@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	omh
 	linkingtext
 	Prev
 	childtable
@@ -88,6 +89,19 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 07-10-20$$
+The script file for batching the $cref/GetStarted/$$ examples
+$code RunAll$$ was no longer working.
+Change it to a bash script called $code run_all.sh$$
+(which now works). 
+$pre
+
+$$ 
+The name used for the directory where the user copies the $cref/GetStarted/$$ 
+examples was changed from the $italic omh$$ directory to the 
+$cref/test/StartSimple/Execute The Following Steps/Test Directory/$$ directory
+(to avoid confusion with the $code omh$$ directory in the OMhelp distribution).
 
 $head 07-10-18$$
 The $cref/href/$$ command was improved to detect when the

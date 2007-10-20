@@ -22,6 +22,7 @@ $begin StartIndex$$
 $dollar @$$
 $escape #$$
 $spell
+	noframe
 	omhelp
 	omh
 	OMhelp
@@ -64,8 +65,8 @@ create the file $code Index1Example.omh$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 with the following contents:
 $code
 $pre
@@ -82,8 +83,8 @@ create the file $code  Index2Example.omh$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 with the following contents:
 $code
 $pre
@@ -98,7 +99,7 @@ by selecting
 $xref/Index1Example/$$.
 
 $subhead Execute OMhelp$$
-In a Dos window and 
+In a command window and 
 in the 
 $xref/
 	StartSimple/
@@ -106,12 +107,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ..\Index1Example.omh
+	omhelp ../ Index1Example.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%omh%\htm\index1example.htm%$$.
+$syntax%%test%/htm/index1example.htm%$$.
 
 $end

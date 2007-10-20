@@ -20,6 +20,7 @@ $begin StartCref$$
 $dollar @$$
 $escape #$$
 $spell
+	noframe
 	Cref
 	omh
 	OMhelp
@@ -50,8 +51,8 @@ create the file $code Cref1Example.omh$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 with the following contents:
 $code
 $pre
@@ -68,8 +69,8 @@ create the file $code  Cref2Example.omh$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 with the following contents:
 $code
 $pre
@@ -84,7 +85,7 @@ by selecting
 $xref/Cref1Example/$$.
 
 $subhead Execute OMhelp$$
-In a Dos window and 
+In a command window and 
 in the 
 $xref/
 	StartSimple/
@@ -92,12 +93,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ..\Cref1Example.omh
+	omhelp ../ Cref1Example.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%omh%\htm\cref1example.htm%$$.
+$syntax%%test%/htm/cref1example.htm%$$.
 
 $end

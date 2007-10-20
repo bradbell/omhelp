@@ -18,6 +18,6 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin ChildOneExample$$
-$section First Example Child Section$$
+$begin Multiple2Example$$
+$section Example With no Children$$
 $end

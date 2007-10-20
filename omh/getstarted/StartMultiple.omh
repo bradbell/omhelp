@@ -20,6 +20,8 @@ $begin StartMultiple$$
 $dollar @$$
 $escape #$$
 $spell
+	noframe
+	noframe
 	omhelp
 	omh
 	OMhelp
@@ -29,7 +31,8 @@ $spell
 $$
 
 $children/
-	Multiple1Example.omh/$$
+	Multiple1Example.omh/
+	Multiple2Example.omh/$$
 
 $section An Example With Multiple Input Files and Sections$$
 $index multiple, get started$$
@@ -41,8 +44,8 @@ The $xref/children//contents, childtable, and children/$$
 commands can be used to specify input files.
 All of the sections in these files are children
 of the current section and are siblings of each other
-(see the $bold Children$$ and $bold Siblings$$ headings in the
-navigation bar.
+(see the drop down menu labeled $code StartMultiple$$ at the
+top of this web page).
 
 $head Execute The Following Steps$$
 
@@ -52,8 +55,8 @@ create the file $code  Multiple1Example.omh$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 with the following contents:
 $code
 $pre
@@ -70,8 +73,8 @@ create the file $code  Multiple2Example.omh$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 with the following contents:
 $code
 $pre
@@ -84,8 +87,8 @@ create the file $code  Multiple3Example.omh$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 with the following contents:
 $code
 $pre
@@ -101,7 +104,7 @@ by selecting
 $xref/Multiple1Example/$$.
 
 $subhead Execute OMhelp$$
-In a Dos window and 
+In a command window and 
 in the 
 $xref/
 	StartSimple/
@@ -109,13 +112,13 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ..\Multiple1Example.omh
+	omhelp ../ Multiple1Example.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%omh%\htm\multiple1example.htm%$$.
+$syntax%%test%/htm/multiple1example.htm%$$.
 
 $head Discussion$$
 The file $code Multiple1Example.omh$$ contains the
@@ -126,8 +129,8 @@ corresponding web site because the root section
 contains a
 $xref/children//contents/$$ command.
 For this reason,
-a navigation frame is included along the left margin
-and the following navigation sections are generated:
+a navigation links are included in the web page
+and the following navigation sections are automatically generated:
 $xref/_contents/$$,
 $xref/_reference/$$,
 $xref/_index/$$,

@@ -20,6 +20,7 @@ $begin StartSimple$$
 $dollar @$$
 $escape #$$
 $spell
+	noframe
 	OMhelp
 	omh
 	htm
@@ -51,13 +52,13 @@ The first step is to
 $xref/install/$$ OMhelp on your system.
 Then you can run any of the following examples:
 
-$subhead Omh Directory$$
+$subhead Test Directory$$
 Create an empty directory with a name of your choosing
-that we will refer to as $italic omh$$ below.
+that we will refer to as $italic test$$ below.
 
 $subhead SimpleExample.omh$$
 Use the editor of your choice to
-create the file $syntax%%omh%\SimpleExample.omh%$$ 
+create the file $syntax%%test%/SimpleExample.omh%$$ 
 with the following contents:
 $code
 $pre
@@ -76,18 +77,18 @@ by selecting
 $xref/SimpleExample/$$.
 
 $subhead Htm Directory$$
-Create the directory $syntax%%omh%\htm%$$.
+Create the directory $syntax%%test%/htm%$$.
 
 $subhead Execute OMhelp$$
-In a Dos window and in the directory $syntax%%omh%\htm%$$,
+In a command window and in the directory $syntax%%test%/htm%$$,
 execute the following command
 $codep
-	omhelp ..\SimpleExample.omh
+	omhelp ../ SimpleExample.omh -noframe
 $$
 
 $subhead Example by Itself$$
 If you use a web browser of your choosing to view the file
-$syntax%%omh%\htm\simpleexample.htm%$$,
+$syntax%%test%/htm/simpleexample.htm%$$,
 $pre
 	$$
 $code $title SimpleExample$$$$
@@ -97,19 +98,10 @@ is displayed as the title of the web page
 (and that is all that is displayed).
 
 
-$head Files$$
-$list number$$
+$head Output File$$
 The file
-$code simpleexample.htm$$
-contains a definition of the frames for this web page
-(and there is only one frame).
-$lnext
-The file $code simpleexample_frame1.htm$$
-contains the actual output that you see.
-$lnext The file 
-$xref/running/Output File Names/index.htm/$$ 
-is an automatically generated copy of 
-$code simpleexample$$.
-$lend
+$code simpleexample.htm$$ is created by running the $code omhelp$$
+command above. 
+It contains the HTML version of this web page.
 
 $end

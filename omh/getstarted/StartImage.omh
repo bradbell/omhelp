@@ -22,6 +22,7 @@ $begin StartImage$$
 $dollar @$$
 $escape #$$
 $spell
+	noframe
 	omhelp
 	omh
 	OMhelp
@@ -48,8 +49,8 @@ create the file $code  ImageExample.omh$$
 in the 
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 with the following contents:
 $code
 $pre
@@ -68,8 +69,8 @@ $$
 to the file $code w3c_home.gif$$ in the
 $xref/
 	StartSimple/
-	Execute The Following Steps.Omh Directory/
-	omh directory/$$
+	Execute The Following Steps.Test Directory/
+	test directory/$$
 You may just copy the file with the same name from the 
 $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
@@ -81,7 +82,7 @@ by selecting
 $xref/ImageExample/$$.
 
 $subhead Execute OMhelp$$
-In a Dos window and 
+In a command window and 
 in the 
 $xref/
 	StartSimple/
@@ -89,12 +90,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ..\ImageExample.omh
+	omhelp ../ ImageExample.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%omh%\htm\imageexample.htm%$$.
+$syntax%%test%/htm/imageexample.htm%$$.
 
 $end
