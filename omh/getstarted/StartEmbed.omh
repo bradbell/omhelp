@@ -45,8 +45,13 @@ by OMhelp.
 It is intended that these commands be comments in the language.
 
 
-$head A C Source Code Example$$
-$index C, embed in source code$$
+$head A Language with Block Structured Comments$$
+This example covers all languages that have block structured comments; e.g.,
+C, C++, Java, Python.
+$index C, omhelp example$$
+$index C++, omhelp example$$
+$index Java, omhelp example$$
+$index Python, omhelp example$$
 
 $subhead Factorial.c$$
 Use an editor of your choice to
@@ -57,7 +62,7 @@ $xref/
 	Execute The Following Steps.Omh Directory/
 	omh directory/$$
 the contents of which can be seen by selecting 
-$xref/ViewFactorial.c//Factorial.c/$$.
+$cref/ViewFactorial.c/$$.
 Note that you can copy and paste the contents of
 $code Factorial.c$$ to your editor window.
 You may just copy the file $code Factorial.c$$ from the 
@@ -88,8 +93,14 @@ Use a web browser of your choosing to view the file
 $syntax%%omh%\htm\factorial.c.htm%$$.
 
 
-$head A Matlab Source Code Example$$
-$index Matlab, embed in source code$$
+$head A Language with only One Line Comments$$
+This example covers languages that only have one line comments; e.g.,
+Matlab, Fortran, R.
+(The R language uses the @ character, this it may be necessary to change
+the OMhelp $cref/KeyCharacter/$$.)
+$index Matlab, omhelp example$$
+$index Fortran, omhelp example$$
+$index R, omhelp example$$
 
 $subhead Factorial.m$$
 Use an editor of your choice to
