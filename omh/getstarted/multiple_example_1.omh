@@ -18,6 +18,11 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin SimpleExample$$
-$section Simple Example$$
+$begin multiple_example_1$$
+$section An Example With a Child$$
+
+$contents/
+	multiple_example_3.omh/$$
+	
+
 $end

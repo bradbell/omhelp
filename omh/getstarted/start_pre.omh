@@ -18,7 +18,7 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin StartPre$$
+$begin start_pre$$
 $dollar @$$
 $escape #$$
 $spell
@@ -31,7 +31,7 @@ $spell
 $$
 
 $children/
-	PreExample.omh/$$
+	pre_example.omh/$$
 
 $section Pre-Formatted Text Example$$
 $index pre, get started$$
@@ -47,18 +47,18 @@ columns in the output.
 
 $head Execute The Following Steps$$
 
-$subhead PreExample.omh$$
+$subhead pre_example.omh$$
 Use an editor of your choice to
-create the file $code  PreExample.omh$$ 
+create the file $code  pre_example.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%PreExample.omh%5%#036begin %$$
+     $$@begin $verbatim%pre_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
@@ -67,21 +67,21 @@ $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code PreExample.omh$$
+result of making $code pre_example.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/PreExample/$$.
+$xref/pre_example/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ PreExample.omh -noframe
+	omhelp ../ pre_example.omh -noframe
 $$
 
 

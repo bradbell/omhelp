@@ -44,19 +44,19 @@ then
 	exit 1
 fi
 input_list="
-	SimpleExample.omh
-	HeadExample.omh
-	ImageExample.omh
-	PreExample.omh
-	FontExample.omh
-	SpellExample.omh
-	VerbatimExample.omh
+	simple_example.omh
+	head_example.omh
+	image_example.omh
+	pre_example.omh
+	font_example.omh
+	spell_example.omh
+	verbatim_example.omh
 	Factorial.c
 	Factorial.m
-	Multiple1Example.omh
-	Cref1Example.omh
-	Index1Example.omh
-	LatexExample.omh
+	multiple_example_1.omh
+	cref_example_1.omh
+	index_example_1.omh
+	latex_example.omh
 "
 for input in $input_list
 do
@@ -89,7 +89,7 @@ do
 		fi
 	fi
 done
-input=LatexExample.omh
+input=latex_example.omh
 output=`echo $input | tr '[A-Z]' '[a-z]' | sed -e 's/\.omh/.xml/'`
 cmd="../../../src/omhelp 
 	../$input -xml -debug -noframe -omhelp_dir ../../../OMhelp"

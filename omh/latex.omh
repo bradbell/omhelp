@@ -38,7 +38,7 @@ $bold Syntax$$
 $cnext $syntax/@latex /commands/ @@/$$ $rnext
 $cnext $syntax/@latex \[ /commands/ \] @@/$$ $rnext
 $bold See Also$$
-$cnext $xref/StartLatex//getting started/$$
+$cnext $xref/start_latex//getting started/$$
 $tend
 
 $fend 25$$

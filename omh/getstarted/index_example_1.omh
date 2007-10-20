@@ -18,32 +18,16 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin LatexExample$$
-$spell
-	Mozilla
-$$
-$section An Example Using Latex To Display Mathematics$$
+$begin index_example_1$$
 
-$head Browser$$
-Any browser can be used to view the HTML file for this example.
-The Mozilla
-browser should be used to view the XML file for this example.
+$section Parent Section For Indexing Examples$$
+$index index, example$$
 
-$head In Line$$
-The sum
-$latex 
-	\sum_{n=1}^\infty 2^{-n} 
-$$
-is equal to one.
+$head Viewing Index$$
+Select the following link to view the index for this web site:
+$xref/_index//Keyword Index/$$
 
-$head Display Mode$$
-The sum
-$latex
-\[
-	\sum_{n=1}^\infty \frac{1}{2^n}
-\]
-$$
-is equal to one.
-
+$contents/
+	index_example_2.omh/$$
 
 $end

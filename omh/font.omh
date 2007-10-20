@@ -44,7 +44,7 @@ $tend
 
 $rnext
 $bold See Also$$
-$cnext	$xref/StartFont//getting started/$$,
+$cnext	$xref/start_font//getting started/$$,
 	$xref/special/$$,
 	$xref/format/$$
 $tend

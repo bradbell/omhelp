@@ -91,28 +91,33 @@ $tend
 $$
 
 $head 07-10-20$$
-The script file for batching the $cref/GetStarted/$$ examples
+The script file for batching the $cref/getstarted/$$ examples
 $code RunAll$$ was no longer working.
 Change it to a bash script called $code run_all.sh$$
 (which now works). 
 $pre
 
 $$ 
-The name used for the directory where the user copies the $cref/GetStarted/$$ 
+The name used for the directory where the user copies the $cref/getstarted/$$ 
 examples was changed from the $italic omh$$ directory to the 
-$cref/test/StartSimple/Execute The Following Steps/Test Directory/$$ directory
+$cref/test/start_simple/Execute The Following Steps/Test Directory/$$ directory
 (to avoid confusion with the $code omh$$ directory in the OMhelp distribution).
+$pre
+
+$$
+All of the section names and file names in $cref/getstarted/$$ were
+changed from mixed case to lower case.
 
 $head 07-10-18$$
 The $cref/href/$$ command was improved to detect when the
 $italic  linkingtext$$ was empty and stop with a fatal error message.
 
 $head 07-09-14$$
-The $cref/ViewFactorial.m/$$ example used the $cref/wspace/$$ command
+The $cref/view_factorial.m/$$ example used the $cref/wspace/$$ command
 which has been deprecated.
 It was changed to use the $cref/newlinech/$$ command which works better.
-In addition, a link in $cref/StartEmbed/$$ to
-view $code factorial.m$$ was mistakenly to $cref/ViewFactorial.c/$$.
+In addition, a link in $cref/start_embed/$$ to
+view $code factorial.m$$ was mistakenly to $cref/view_factorial.c/$$.
 This has been fixed.
 
 $head 07-08-14$$

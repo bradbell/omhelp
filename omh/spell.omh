@@ -37,7 +37,7 @@ $bold Syntax$$
 $cnext
 $syntax/@spell /word list/@@/$$ $rnext
 $bold See Also$$
-$cnext $xref/StartSpell//getting started/$$, $mref/nospell/$$
+$cnext $xref/start_spell//getting started/$$, $mref/nospell/$$
 $tend
 
 $fend 20$$

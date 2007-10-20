@@ -16,7 +16,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
-$begin StartSimple$$
+$begin start_simple$$
 $dollar @$$
 $escape #$$
 $spell
@@ -34,7 +34,7 @@ $index section, get started$$
 $index end, get started$$
 
 $children/
-	SimpleExample.omh/$$
+	simple_example.omh/$$
 
 $head Introduction$$
 The $xref/begin/$$ command starts a new section
@@ -56,13 +56,13 @@ $subhead Test Directory$$
 Create an empty directory with a name of your choosing
 that we will refer to as $italic test$$ below.
 
-$subhead SimpleExample.omh$$
+$subhead simple_example.omh$$
 Use the editor of your choice to
-create the file $syntax%%test%/SimpleExample.omh%$$ 
+create the file $syntax%%test%/simple_example.omh%$$ 
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%SimpleExample.omh%5%#036begin %$$
+     $$@begin $verbatim%simple_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 into your editor window.
@@ -71,10 +71,10 @@ $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code SimpleExample.omh$$
+result of making $code simple_example.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/SimpleExample/$$.
+$xref/simple_example/$$.
 
 $subhead Htm Directory$$
 Create the directory $syntax%%test%/htm%$$.
@@ -83,7 +83,7 @@ $subhead Execute OMhelp$$
 In a command window and in the directory $syntax%%test%/htm%$$,
 execute the following command
 $codep
-	omhelp ../ SimpleExample.omh -noframe
+	omhelp ../ simple_example.omh -noframe
 $$
 
 $subhead Example by Itself$$
@@ -91,7 +91,7 @@ If you use a web browser of your choosing to view the file
 $syntax%%test%/htm/simpleexample.htm%$$,
 $pre
 	$$
-$code $title SimpleExample$$$$
+$code $title simple_example$$$$
 $pre
 $$
 is displayed as the title of the web page

@@ -18,6 +18,25 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin Multiple2Example$$
-$section Example With no Children$$
+$begin verbatim_example$$
+$spell
+	dat
+$$
+
+$section Example Inclusion of Text File Information$$
+
+$head Contents of verbatim_example.dat$$
+$verbatim%verbatim_example.dat%5%$$
+
+$head Just Program Output$$
+$fixed
+$verbatim%verbatim_example.dat%5%PROGRAM OUTPUT%$$
+$$
+
+$head Just Input Parameters$$
+$code
+$verbatim%verbatim_example.dat%5%INPUT PARAMETERS%PROGRAM OUTPUT%$$
+$$
+
+
 $end

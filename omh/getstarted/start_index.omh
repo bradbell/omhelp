@@ -1,5 +1,6 @@
+# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -15,90 +16,103 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
 #
-$begin StartCref$$
+$begin start_index$$
 $dollar @$$
 $escape #$$
 $spell
 	noframe
-	Cref
+	omhelp
 	omh
 	OMhelp
-	omhelp
 	htm
+	childtable
+	indexexample
+	mindex
+	cindex
+	aindex
+	internet
 $$
 
 $children/
-	Cref1Example.omh/$$
+	index_example_1.omh/$$
 
-$section An Example Linking To Other Pages In The Same Web Site$$
-$index cref, get started$$
-$index link, get started$$
-$index cross reference, get started$$
+$section An Indexing Example$$
+$index keyword, get started$$
+$index index, get started$$
+$index mindex, get started$$
+$index cindex, get started$$
+$index aindex, get started$$
 
-$head Purpose$$
-The cross reference command 
-$cref/cref/$$
-is used to link to another destination in the same web site.
-If the requested destination does not exist,
-a warning is printed on $cref/stdout/$$.
+$head Introduction$$
+The 
+$xref/keyword//index/$$
+commands control the contents of the
+$xref/_index//index/$$, and
+$xref/_search//search/$$ pages.
+In addition, 
+they broadcast information about a particular web page
+to the internet search engines. 
+This makes it easy for people to find information
+in your web site that is relevant to a particular topic.
 
 $head Execute The Following Steps$$
 
-$subhead Cref1Example.omh$$
+$subhead index_example_1.omh$$
 Use an editor of your choice to
-create the file $code Cref1Example.omh$$ 
+create the file $code index_example_1.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%Cref1Example.omh%5%#036begin %$$
+     $$@begin $verbatim%index_example_1.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
 You may just copy the file with the same name from the 
 $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
-$subhead Cref2Example.omh$$
+$subhead index_example_2.omh$$
 Use an editor of your choice to
-create the file $code  Cref2Example.omh$$ 
+create the file $code  index_example_2.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%Cref2Example.omh%5%#036begin %$$
+     $$@begin $verbatim%index_example_2.omh%5%#036begin %$$
 $$
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code Cref1Example.omh$$
+result of making $code index_example_1.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/Cref1Example/$$.
+$xref/index_example_1/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ Cref1Example.omh -noframe
+	omhelp ../ index_example_1.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/cref1example.htm%$$.
+$syntax%%test%/htm/index1example.htm%$$.
 
 $end

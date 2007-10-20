@@ -18,7 +18,7 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin StartVerbatim$$
+$begin start_head$$
 $dollar @$$
 $escape #$$
 $spell
@@ -27,39 +27,41 @@ $spell
 	omh
 	OMhelp
 	htm
-	verbatimexample
+	headexample
 $$
 
 $children/
-	VerbatimExample.omh/$$
+	head_example.omh/$$
 
-$section Example Using Verbatim Inclusion of a Text File$$
-$index verbatim, get started$$
-$index inclusion, verbatim$$
-$index text, include$$
-$index file, include$$
+$section Headings and Subheadings Example$$
+$index head, get started$$
+$index subhead, get started$$
 
 $head Introduction$$
-The $xref/verbatim/$$ command
-enables one to include all of part of a text file.
-This avoids having to maintain a separate copy of 
-the corresponding information in the documentation.
-(For example, the output of a program which might change over time.)
+The $xref/head/$$ and $code subhead$$ commands
+start new paragraphs with a specified title.
+Each section has an tree structure in which the 
+$xref/section//section title/$$
+corresponds to the root, 
+the headings titles correspond to the next level,
+and the subheadings titles correspond to 
+the last level of the tree.
+
 
 $head Execute The Following Steps$$
 
-$subhead VerbatimExample.omh$$
+$subhead head_example.omh$$
 Use an editor of your choice to
-create the file $code  VerbatimExample.omh$$ 
+create the file $code  head_example.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%VerbatimExample.omh%5%#036begin %$$
+     $$@begin $verbatim%head_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
@@ -68,26 +70,26 @@ $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code VerbatimExample.omh$$
+result of making $code head_example.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/VerbatimExample/$$.
+$xref/head_example/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ VerbatimExample.omh -noframe
+	omhelp ../ head_example.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/verbatimexample.htm%$$.
+$syntax%%test%/htm/headexample.htm%$$.
 
 $end

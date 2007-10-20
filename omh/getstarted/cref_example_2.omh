@@ -17,7 +17,7 @@
 # ---------------------------------------------------------------------------
 #
 ----------------------------------------------------------------------
-$begin Cref2Example$$
+$begin cref_example_2$$
 $spell
 	cref
 $$
@@ -27,7 +27,7 @@ $section An Example Specifying the Cross Reference Tag$$
 If there is more than one argument to a cref command,
 the second argument specifies the cross reference tag. 
 For example, if you select the following link:
-$cref/parent of this section/Cref1Example/$$.
+$cref/parent of this section/cref_example_1/$$.
 
 $end
 ----------------------------------------------------------------------
@@ -42,7 +42,7 @@ $section An Example Specifying a Heading $$
 The third argument to a cref command specifies the heading
 for the cross reference.
 For example, if you select the following link:
-$cref/first argument/Cref1Example/First Argument/$$.
+$cref/first argument/cref_example_1/First Argument/$$.
 
 $end
 ----------------------------------------------------------------------

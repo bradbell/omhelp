@@ -46,7 +46,7 @@ $syntax/@cref%/text/%/tag/%/heading/%@@
 $syntax/@cref%/text/%/tag/%/heading/%/subheading/%@@/$$ 
 
 $head See Also$$
-$cref/StartCref/$$
+$cref/start_cref/$$
 
 
 $head Purpose$$

@@ -18,19 +18,6 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin SpellExample$$
-$spell
-	Fft
-	not not
-$$
-$section Example Spelling Exceptions$$
-
-$head Misspelled Words$$
-The word Fft is not in the dictionary.
-
-$head Repeated Words$$
-The word not is repeated in the sentence
-$pre
-	$$It is not not true.
-
+$begin multiple_example_2$$
+$section Example With no Children$$
 $end

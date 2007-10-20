@@ -223,17 +223,17 @@ $head Getting Started$$
 $index getstarted, using OMhelp$$
 $index OMhelp, getstarted using$$
 You can build the 
-$xref/Multiple1Example/$$ subtree of the OMhelp user documentation 
+$xref/multiple_example_1/$$ subtree of the OMhelp user documentation 
 by executing the following commands starting in the distribution directory 
 $syntax%
 	cd omh/getstarted
 	mkdir htm
 	cd htm
 	rm *.htm
-	omhelp ../Multiple1Example.omh
+	omhelp ../multiple_example_1.omh
 %$$
 Note that the $code mkdir$$ and $code rm$$ commands will report
 errors if they are unnecessary.
-See the $xref/GetStarted/$$ section for more examples.
+See the $xref/getstarted/$$ section for more examples.
 	
 $end

@@ -38,7 +38,7 @@ $cnext $syntax/@head /heading/@@/$$    $rnext
 $cnext $syntax/@subhead /subheading/@@/$$ $rnext
 $bold See Also$$
 $cnext
-	$xref/StartHead//getting started/$$,
+	$xref/start_head//getting started/$$,
 	$xref/fend/$$
 $tend
 

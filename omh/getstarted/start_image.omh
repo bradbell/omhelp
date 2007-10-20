@@ -18,7 +18,7 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin StartSpell$$
+$begin start_image$$
 $dollar @$$
 $escape #$$
 $spell
@@ -27,76 +27,75 @@ $spell
 	omh
 	OMhelp
 	htm
-	spellexample
+	imageexample
+	gif
 $$
 
 $children/
-	SpellExample.omh/$$
+	image_example.omh/$$
 
-$section Spelling Command Example$$
-$index spell, get started$$
-$index error, spell$$
+$section An Example Using Images$$
+$index image, get started$$
+$index picture, get started$$
 
 $head Introduction$$
-In OMhelp, a word starts either with an upper case letter or a lower
-case letter that is preceded by a non-letter.
-The words continues to, but does not include,
-the next upper case letter or non-letter.
-$pre
-
-$$
-The $xref/spell/$$ command is used to specify 
-special words that are not spelling errors and are not in the 
-$xref/spell/Dictionary/dictionary/$$.
-It is also used to specify repeated words 
-that should not be flagged as errors.
-(A repeated word is where 
-the same word occurs twice with just 
-$xref/glossary/White Space/white space/$$
-between occurrences.)
+The $xref/image//image and icon/$$ commands are used to display images.
 
 $head Execute The Following Steps$$
 
-$subhead SpellExample.omh$$
+$subhead pre_example.omh$$
 Use an editor of your choice to
-create the file $code  SpellExample.omh$$ 
+create the file $code  image_example.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%SpellExample.omh%5%#036begin %$$
+     $$@begin $verbatim%image_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
 You may just copy the file with the same name from the 
 $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
+$subhead W3c_home.gif$$
+Copy the file
+$center
+$href%http://www.w3.org/TR/1998/REC-html40-19980424/images/w3c_home.gif%$$
+$$
+to the file $code w3c_home.gif$$ in the
+$xref/
+	start_simple/
+	Execute The Following Steps.Test Directory/
+	test directory/$$
+You may just copy the file with the same name from the 
+$xref/getstarted/Getting Started Directory/getting started directory/$$.
+
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code SpellExample.omh$$
+result of making $code image_example.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/SpellExample/$$.
+$xref/image_example/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ SpellExample.omh -noframe
+	omhelp ../ image_example.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/spellexample.htm%$$.
+$syntax%%test%/htm/imageexample.htm%$$.
 
 $end

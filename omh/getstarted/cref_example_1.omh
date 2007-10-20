@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,20 +15,37 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
-$begin HeadExample$$
-$section Example Headings$$
+$begin cref_example_1$$
+$spell
+	Cref
+$$
 
-$head First Heading$$
-The text "First Heading" is the heading above this paragraph.
+$section Parent Section For Cross Referencing Examples$$
 
-$subhead Subheading Of First Heading$$
-The text "Subheading Of First Heading" is the subheading
-above this paragraph.
+$head First Argument$$
+The first argument to a cref command is the text
+that the user sees for the link.
+This is also the default value for the cross reference tag of the 
+section that we are linking to.
+Each section starts with a begin command 
+that contains its cross reference tag as an argument.
+The cross reference tag for this section is cref_example_1.
+The cross reference tags for the children of this section are
+$cref/_contents/$$,
+$cref/cref_example_2/$$,
+$cref/Cref3Example/$$,
+$cref/_reference/$$,
+$cref/_index/$$, or
+$cref/_search/$$.
+Note that the sections corresponding to
+_contents,
+_reference,
+_index,
+and _search,
+are automatically generated.
 
-$head Second Heading$$
-The text "Second Heading" is the heading above this paragraph.
-
+$contents/
+	cref_example_2.omh/$$
 
 $end

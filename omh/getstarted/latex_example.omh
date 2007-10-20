@@ -18,11 +18,32 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin Multiple1Example$$
-$section An Example With a Child$$
+$begin latex_example$$
+$spell
+	Mozilla
+$$
+$section An Example Using Latex To Display Mathematics$$
 
-$contents/
-	Multiple3Example.omh/$$
-	
+$head Browser$$
+Any browser can be used to view the HTML file for this example.
+The Mozilla
+browser should be used to view the XML file for this example.
+
+$head In Line$$
+The sum
+$latex 
+	\sum_{n=1}^\infty 2^{-n} 
+$$
+is equal to one.
+
+$head Display Mode$$
+The sum
+$latex
+\[
+	\sum_{n=1}^\infty \frac{1}{2^n}
+\]
+$$
+is equal to one.
+
 
 $end

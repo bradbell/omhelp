@@ -49,7 +49,7 @@ $cnext $syntax/@childtable%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
 $cnext $syntax/@children%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
 $bold See Also$$
 $cnext
-	$xref/StartMultiple//get started/$$,
+	$xref/start_multiple//get started/$$,
  	$mref/include/verbatim/image/$$ 
 $tend
 

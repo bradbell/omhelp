@@ -16,7 +16,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
-$begin GetStarted$$
+$begin getstarted$$
 $dollar @$$
 $spell
 	yy
@@ -43,34 +43,34 @@ getting started examples listed below.
 
 
 $children/
-	StartSimple.omh/
-	StartHead.omh/
-	StartImage.omh/
-	StartPre.omh/
-	StartFont.omh/
-	StartSpell.omh/
-	StartLatex.omh/
-	StartVerbatim.omh/
-	StartEmbed.omh/
-	StartMultiple.omh/
-	StartCref.omh/
-	StartIndex.omh/$$
+	start_simple.omh/
+	start_head.omh/
+	start_image.omh/
+	start_pre.omh/
+	start_font.omh/
+	start_spell.omh/
+	start_latex.omh/
+	start_verbatim.omh/
+	start_embed.omh/
+	start_multiple.omh/
+	start_cref.omh/
+	start_index.omh/$$
 
 $table
 $bold Commands$$                $cnext $bold Getting Started$$ $rnext
-$mref/begin/section/$$          $cnext $tref StartSimple$$    $rnext
-$xref/head/$$                   $cnext $tref StartHead$$      $rnext
-$xref/image/$$                  $cnext $tref StartImage$$     $rnext
-$xref/pre/$$                    $cnext $tref StartPre$$       $rnext
-$xref/font/$$                   $cnext $tref StartFont$$      $rnext
-$xref/spell/$$                  $cnext $tref StartSpell$$     $rnext
-$xref/latex/$$                  $cnext $tref StartLatex$$     $rnext
-$xref/verbatim/$$               $cnext $tref StartVerbatim$$  $rnext
+$mref/begin/section/$$          $cnext $tref start_simple$$    $rnext
+$xref/head/$$                   $cnext $tref start_head$$      $rnext
+$xref/image/$$                  $cnext $tref start_image$$     $rnext
+$xref/pre/$$                    $cnext $tref start_pre$$       $rnext
+$xref/font/$$                   $cnext $tref start_font$$      $rnext
+$xref/spell/$$                  $cnext $tref start_spell$$     $rnext
+$xref/latex/$$                  $cnext $tref start_latex$$     $rnext
+$xref/verbatim/$$               $cnext $tref start_verbatim$$  $rnext
 $mref/begin/syntax/codep/wspace/$$
-                                $cnext $tref StartEmbed$$     $rnext
-$xref/children/$$               $cnext $tref StartMultiple$$  $rnext
-$xref/cref/$$                   $cnext $tref StartCref$$      $rnext
-$xref/keyword//index/$$         $cnext $tref StartIndex$$
+                                $cnext $tref start_embed$$     $rnext
+$xref/children/$$               $cnext $tref start_multiple$$  $rnext
+$xref/cref/$$                   $cnext $tref start_cref$$      $rnext
+$xref/keyword//index/$$         $cnext $tref start_index$$
 $tend
 
 $head Getting Started Directory$$

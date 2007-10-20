@@ -18,25 +18,14 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin VerbatimExample$$
-$spell
-	dat
-$$
+$begin view_factorial.c$$
 
-$section Example Inclusion of Text File Information$$
+$section Contents of the File Factorial.c$$
 
-$head Contents of VerbatimExample.dat$$
-$verbatim%VerbatimExample.dat%5%$$
-
-$head Just Program Output$$
-$fixed
-$verbatim%VerbatimExample.dat%5%PROGRAM OUTPUT%$$
-$$
-
-$head Just Input Parameters$$
 $code
-$verbatim%VerbatimExample.dat%5%INPUT PARAMETERS%PROGRAM OUTPUT%$$
-$$
 
+$verbatim%getstarted\Factorial.c%$$
+
+$$
 
 $end

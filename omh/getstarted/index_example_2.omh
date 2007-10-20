@@ -18,16 +18,28 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin Index1Example$$
+----------------------------------------------------------------------
+$begin index_example_2$$
+$spell
+	Mindex
+$$
 
-$section Parent Section For Indexing Examples$$
-$index index, example$$
-
-$head Viewing Index$$
-Select the following link to view the index for this web site:
-$xref/_index//Keyword Index/$$
-
-$contents/
-	Index2Example.omh/$$
+$section An Example Using The Mindex Command$$
+$mindex mindex child example$$
 
 $end
+----------------------------------------------------------------------
+$begin Index3Example$$
+$spell
+	Aindex
+	aindex
+$$
+$aindex section$$
+
+$comment Supress not have index entry corresponding to An Using or The$$
+$escape @$$
+
+$section @An Example @Using @The Aindex Command$$
+
+$end
+----------------------------------------------------------------------

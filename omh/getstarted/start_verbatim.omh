@@ -18,7 +18,7 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin StartIndex$$
+$begin start_verbatim$$
 $dollar @$$
 $escape #$$
 $spell
@@ -27,92 +27,67 @@ $spell
 	omh
 	OMhelp
 	htm
-	childtable
-	indexexample
-	mindex
-	cindex
-	aindex
-	internet
+	verbatimexample
 $$
 
 $children/
-	Index1Example.omh/$$
+	verbatim_example.omh/$$
 
-$section An Indexing Example$$
-$index keyword, get started$$
-$index index, get started$$
-$index mindex, get started$$
-$index cindex, get started$$
-$index aindex, get started$$
+$section Example Using Verbatim Inclusion of a Text File$$
+$index verbatim, get started$$
+$index inclusion, verbatim$$
+$index text, include$$
+$index file, include$$
 
 $head Introduction$$
-The 
-$xref/keyword//index/$$
-commands control the contents of the
-$xref/_index//index/$$, and
-$xref/_search//search/$$ pages.
-In addition, 
-they broadcast information about a particular web page
-to the internet search engines. 
-This makes it easy for people to find information
-in your web site that is relevant to a particular topic.
+The $xref/verbatim/$$ command
+enables one to include all of part of a text file.
+This avoids having to maintain a separate copy of 
+the corresponding information in the documentation.
+(For example, the output of a program which might change over time.)
 
 $head Execute The Following Steps$$
 
-$subhead Index1Example.omh$$
+$subhead verbatim_example.omh$$
 Use an editor of your choice to
-create the file $code Index1Example.omh$$ 
+create the file $code  verbatim_example.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%Index1Example.omh%5%#036begin %$$
+     $$@begin $verbatim%verbatim_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
 You may just copy the file with the same name from the 
 $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
-$subhead Index2Example.omh$$
-Use an editor of your choice to
-create the file $code  Index2Example.omh$$ 
-in the 
-$xref/
-	StartSimple/
-	Execute The Following Steps.Test Directory/
-	test directory/$$
-with the following contents:
-$code
-$pre
-     $$@begin $verbatim%Index2Example.omh%5%#036begin %$$
-$$
-
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code Index1Example.omh$$
+result of making $code verbatim_example.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/Index1Example/$$.
+$xref/verbatim_example/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ Index1Example.omh -noframe
+	omhelp ../ verbatim_example.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/index1example.htm%$$.
+$syntax%%test%/htm/verbatimexample.htm%$$.
 
 $end

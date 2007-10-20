@@ -53,7 +53,7 @@ $cnext $syntax/@cindex /multiple_entries/@@/$$  $rnext
 $cnext $syntax/@aindex /automatic_mindex/@@/$$ $rnext
 $bold See Also$$
 $cnext 
-	$xref/StartIndex//getting started/$$,
+	$xref/start_index//getting started/$$,
 	$xref/_index//index/$$, 
 	$xref/_contents//contents/$$
 $tend

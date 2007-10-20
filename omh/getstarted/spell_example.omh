@@ -18,26 +18,19 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin FontExample$$
+$begin spell_example$$
+$spell
+	Fft
+	not not
+$$
+$section Example Spelling Exceptions$$
 
-$section Example Using Font Commands$$
+$head Misspelled Words$$
+The word Fft is not in the dictionary.
 
-$fixed This text is in the fixed font.$$
+$head Repeated Words$$
+The word not is repeated in the sentence
 $pre
-$$
-$code This text is in the code font.$$
-$pre
-$$
-$italic This text is in the italic font.$$
-$pre
-$$
-$bold This text is in the bold font.$$
-$pre
-$$
-$big This text is in a bigger font.$$
-$pre
-$$
-$small This text is in a smaller font.$$
-
+	$$It is not not true.
 
 $end

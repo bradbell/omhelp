@@ -42,7 +42,7 @@ $bold Syntax$$
 $cnext $syntax/@image /filename/@@/$$ $rnext
 $cnext $syntax/@icon /filename/@@/$$  $rnext
 $bold See Also$$
-$cnext $xref/StartImage//getting started/$$, $xref/verbatim/$$
+$cnext $xref/start_image//getting started/$$, $xref/verbatim/$$
 $tend
 
 $fend 25$$

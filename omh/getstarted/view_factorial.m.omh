@@ -18,13 +18,13 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin ViewFactorial.c$$
+$begin view_factorial.m$$
 
-$section Contents of the File Factorial.c$$
+$section Contents of the File Factorial.m$$
 
 $code
 
-$verbatim%getstarted\Factorial.c%$$
+$verbatim%getstarted\Factorial.m%$$
 
 $$
 

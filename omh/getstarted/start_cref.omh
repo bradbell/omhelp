@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,86 +15,90 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
-$begin StartImage$$
+$begin start_cref$$
 $dollar @$$
 $escape #$$
 $spell
 	noframe
-	omhelp
+	Cref
 	omh
 	OMhelp
+	omhelp
 	htm
-	imageexample
-	gif
 $$
 
 $children/
-	ImageExample.omh/$$
+	cref_example_1.omh/$$
 
-$section An Example Using Images$$
-$index image, get started$$
-$index picture, get started$$
+$section An Example Linking To Other Pages In The Same Web Site$$
+$index cref, get started$$
+$index link, get started$$
+$index cross reference, get started$$
 
-$head Introduction$$
-The $xref/image//image and icon/$$ commands are used to display images.
+$head Purpose$$
+The cross reference command 
+$cref/cref/$$
+is used to link to another destination in the same web site.
+If the requested destination does not exist,
+a warning is printed on $cref/stdout/$$.
 
 $head Execute The Following Steps$$
 
-$subhead PreExample.omh$$
+$subhead cref_example_1.omh$$
 Use an editor of your choice to
-create the file $code  ImageExample.omh$$ 
+create the file $code cref_example_1.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%ImageExample.omh%5%#036begin %$$
+     $$@begin $verbatim%cref_example_1.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
 You may just copy the file with the same name from the 
 $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
-$subhead W3c_home.gif$$
-Copy the file
-$center
-$href%http://www.w3.org/TR/1998/REC-html40-19980424/images/w3c_home.gif%$$
-$$
-to the file $code w3c_home.gif$$ in the
+$subhead cref_example_2.omh$$
+Use an editor of your choice to
+create the file $code  cref_example_2.omh$$ 
+in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
-You may just copy the file with the same name from the 
-$xref/getstarted/Getting Started Directory/getting started directory/$$.
+with the following contents:
+$code
+$pre
+     $$@begin $verbatim%cref_example_2.omh%5%#036begin %$$
+$$
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code ImageExample.omh$$
+result of making $code cref_example_1.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/ImageExample/$$.
+$xref/cref_example_1/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ ImageExample.omh -noframe
+	omhelp ../ cref_example_1.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/imageexample.htm%$$.
+$syntax%%test%/htm/cref1example.htm%$$.
 
 $end

@@ -18,7 +18,7 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin PreExample$$
+$begin pre_example$$
 $section Example Pre-Formatted Text$$
 
 $head A Paragraph Without Heading or Subheading$$

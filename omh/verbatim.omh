@@ -46,7 +46,7 @@ $cnext $syntax/@verbatim%/filename/%/indent/%/start/%@@/$$  $rnext
 $cnext $syntax/@verbatim%/filename/%/indent/%/start/%/stop/%@@/$$  $rnext
 $cnext $syntax/@verbatim%/filename/%/indent/%/start/%/stop/%/skip/%@@/$$  $rnext
 $bold See Also$$
-$cnext	$xref/StartVerbatim//getting started/$$,
+$cnext	$xref/start_verbatim//getting started/$$,
 	$mref/include/codep/execute/$$
 $tend
 

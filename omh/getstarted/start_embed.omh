@@ -16,7 +16,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
-$begin StartEmbed$$
+$begin start_embed$$
 $dollar @$$
 $spell
 	noframe
@@ -29,9 +29,9 @@ $spell
 $$
 
 $children/
-	ViewFactorial.c.omh/
+	view_factorial.c.omh/
 	getstarted\Factorial.c/
-	ViewFactorial.m.omh/
+	view_factorial.m.omh/
 	getstarted\Factorial.m/$$
 
 $section Embedding OMhelp Commands in Source Code$$
@@ -60,11 +60,11 @@ Use an editor of your choice to
 create the file $code Factorial.c$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 the contents of which can be seen by selecting 
-$cref/ViewFactorial.c/$$.
+$cref/view_factorial.c/$$.
 Note that you can copy and paste the contents of
 $code Factorial.c$$ to your editor window.
 You may just copy the file $code Factorial.c$$ from the 
@@ -81,7 +81,7 @@ $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command
@@ -109,11 +109,11 @@ Use an editor of your choice to
 create the file $code Factorial.m$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 the contents of which can be seen by selecting 
-$cref/ViewFactorial.m/$$.
+$cref/view_factorial.m/$$.
 Note that you can copy and paste the contents of
 $code Factorial.m$$ to your editor window.
 You may just copy the file $code Factorial.m$$ from the 
@@ -130,7 +130,7 @@ $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command

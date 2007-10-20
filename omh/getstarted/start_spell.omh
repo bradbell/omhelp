@@ -1,5 +1,6 @@
+# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -15,52 +16,59 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
 #
-$begin StartLatex$$
+$begin start_spell$$
 $dollar @$$
 $escape #$$
 $spell
-	noframe
 	noframe
 	omhelp
 	omh
 	OMhelp
 	htm
-	latexexample
-	Lamport
-	xml
+	spellexample
 $$
 
 $children/
-	LatexExample.omh/$$
+	spell_example.omh/$$
 
-$section An Example Using Latex Math Formula Commands$$
-$index latex, get started$$
-$index math, get started$$
+$section Spelling Command Example$$
+$index spell, get started$$
+$index error, spell$$
 
 $head Introduction$$
-The $xref/latex/$$ command is used to 
-display mathematics that is specified using 
-the Latex math formula commands 
-defined in Section 3.3 of $xref/latex/Reference/Lamport's book/$$.
-These commands are documented in the 
-$xref/latex/Command Documentation/latex command documentation/$$ 
-sections of this web site.
+In OMhelp, a word starts either with an upper case letter or a lower
+case letter that is preceded by a non-letter.
+The words continues to, but does not include,
+the next upper case letter or non-letter.
+$pre
+
+$$
+The $xref/spell/$$ command is used to specify 
+special words that are not spelling errors and are not in the 
+$xref/spell/Dictionary/dictionary/$$.
+It is also used to specify repeated words 
+that should not be flagged as errors.
+(A repeated word is where 
+the same word occurs twice with just 
+$xref/glossary/White Space/white space/$$
+between occurrences.)
 
 $head Execute The Following Steps$$
 
-$subhead LatexExample.omh$$
+$subhead spell_example.omh$$
 Use an editor of your choice to
-create the file $code  LatexExample.omh$$ 
+create the file $code  spell_example.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%LatexExample.omh%5%#036begin %$$
+     $$@begin $verbatim%spell_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
@@ -69,39 +77,26 @@ $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code ImageExample.omh$$
+result of making $code spell_example.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/LatexExample/$$.
+$xref/spell_example/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ LatexExample.omh  -noframe
-	omhelp ../ LatexExample.omh -xml -noframe
+	omhelp ../ spell_example.omh -noframe
 $$
-The first command creates a set of HTML files.
-The second command creates a set of
-$xref/running/xml/XML/$$ files.
-In the HTML case,
-the Latex commands appear to the viewer.
-In the XML case,
-the Latex commands are translated to MathML commands
-and the viewer will see the mathematics.
 
 
 $subhead Example by Itself$$
-Use any browser to view the file
-$syntax%%test%/htm/latexexample.htm%$$.
-Use the
-$href%http://www.mozilla.org%Mozilla%$$ 
-web browser to view the file
-$syntax%%test%/htm/latexexample.xml%$$.
+Use a web browser of your choosing to view the file
+$syntax%%test%/htm/spellexample.htm%$$.
 
 $end

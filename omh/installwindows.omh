@@ -248,9 +248,9 @@ and change into your $italic after_setup_dir$$ directory.
 $lnext
 Create a file
 (in the $italic after_setup_dir$$ directory)
-called $code SimpleExample.omh$$ with the following contents:
+called $code simple_example.omh$$ with the following contents:
 $codep
-	@begin SimpleExample@@
+	@begin simple_example@@
 	@section Simple Example@@
 	@end
 $$
@@ -260,7 +260,7 @@ Execute the following commands:
 $codep
 	mkdir htm
 	cd htm
-	omhelp ..\SimpleExample.omh
+	omhelp ..\simple_example.omh
 $$
 Note that the $code mkdir$$ command will report an error
 if the directory already exists.

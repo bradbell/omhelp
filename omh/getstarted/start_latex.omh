@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,51 +15,52 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
-$begin StartFont$$
+$begin start_latex$$
 $dollar @$$
 $escape #$$
 $spell
+	noframe
 	noframe
 	omhelp
 	omh
 	OMhelp
 	htm
-	headexample
+	latexexample
+	Lamport
+	xml
 $$
 
 $children/
-	FontExample.omh/$$
+	latex_example.omh/$$
 
-$section Example Using Font Commands$$
-$index font, get started$$
+$section An Example Using Latex Math Formula Commands$$
+$index latex, get started$$
+$index math, get started$$
 
 $head Introduction$$
-The $xref/font/$$ commands
-$code fixed$$,
-$code code$$,
-$code italic$$,
-$code bold$$,
-$code big$$,
-$code small$$,
-change to the specified font.
-
+The $xref/latex/$$ command is used to 
+display mathematics that is specified using 
+the Latex math formula commands 
+defined in Section 3.3 of $xref/latex/Reference/Lamport's book/$$.
+These commands are documented in the 
+$xref/latex/Command Documentation/latex command documentation/$$ 
+sections of this web site.
 
 $head Execute The Following Steps$$
 
-$subhead FontExample.omh$$
+$subhead latex_example.omh$$
 Use an editor of your choice to
-create the file $code  FontExample.omh$$ 
+create the file $code  latex_example.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%FontExample.omh%5%#036begin %$$
+     $$@begin $verbatim%latex_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
@@ -69,26 +69,39 @@ $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code FontExample.omh$$
+result of making $code image_example.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/FontExample/$$.
+$xref/latex_example/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ FontExample.omh -noframe
+	omhelp ../ latex_example.omh  -noframe
+	omhelp ../ latex_example.omh -xml -noframe
 $$
+The first command creates a set of HTML files.
+The second command creates a set of
+$xref/running/xml/XML/$$ files.
+In the HTML case,
+the Latex commands appear to the viewer.
+In the XML case,
+the Latex commands are translated to MathML commands
+and the viewer will see the mathematics.
 
 
 $subhead Example by Itself$$
-Use a web browser of your choosing to view the file
-$syntax%%test%/htm/headexample.htm%$$.
+Use any browser to view the file
+$syntax%%test%/htm/latexexample.htm%$$.
+Use the
+$href%http://www.mozilla.org%Mozilla%$$ 
+web browser to view the file
+$syntax%%test%/htm/latexexample.xml%$$.
 
 $end

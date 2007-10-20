@@ -1,5 +1,6 @@
+# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -15,37 +16,28 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
 #
-$begin Cref1Example$$
-$spell
-	Cref
+$begin font_example$$
+
+$section Example Using Font Commands$$
+
+$fixed This text is in the fixed font.$$
+$pre
 $$
+$code This text is in the code font.$$
+$pre
+$$
+$italic This text is in the italic font.$$
+$pre
+$$
+$bold This text is in the bold font.$$
+$pre
+$$
+$big This text is in a bigger font.$$
+$pre
+$$
+$small This text is in a smaller font.$$
 
-$section Parent Section For Cross Referencing Examples$$
-
-$head First Argument$$
-The first argument to a cref command is the text
-that the user sees for the link.
-This is also the default value for the cross reference tag of the 
-section that we are linking to.
-Each section starts with a begin command 
-that contains its cross reference tag as an argument.
-The cross reference tag for this section is Cref1Example.
-The cross reference tags for the children of this section are
-$cref/_contents/$$,
-$cref/Cref2Example/$$,
-$cref/Cref3Example/$$,
-$cref/_reference/$$,
-$cref/_index/$$, or
-$cref/_search/$$.
-Note that the sections corresponding to
-_contents,
-_reference,
-_index,
-and _search,
-are automatically generated.
-
-$contents/
-	Cref2Example.omh/$$
 
 $end

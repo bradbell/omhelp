@@ -45,7 +45,7 @@ $syntax/@begin /tag/@@
 /. . ./
 @end/$$ $rnext
 $bold See Also$$
-$cnext $xref/StartSimple//getting started/$$
+$cnext $xref/start_simple//getting started/$$
 $tend
 
 $fend 30$$
@@ -127,7 +127,7 @@ $table
 $bold Syntax$$
 $cnext $syntax/@section /title/@@/$$ $rnext
 $bold See Also$$
-$cnext $xref/StartSimple//getting started/$$ 
+$cnext $xref/start_simple//getting started/$$ 
 $tend
 
 $fend 20$$

@@ -16,7 +16,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
-$begin StartMultiple$$
+$begin start_multiple$$
 $dollar @$$
 $escape #$$
 $spell
@@ -31,8 +31,8 @@ $spell
 $$
 
 $children/
-	Multiple1Example.omh/
-	Multiple2Example.omh/$$
+	multiple_example_1.omh/
+	multiple_example_2.omh/$$
 
 $section An Example With Multiple Input Files and Sections$$
 $index multiple, get started$$
@@ -44,75 +44,75 @@ The $xref/children//contents, childtable, and children/$$
 commands can be used to specify input files.
 All of the sections in these files are children
 of the current section and are siblings of each other
-(see the drop down menu labeled $code StartMultiple$$ at the
+(see the drop down menu labeled $code start_multiple$$ at the
 top of this web page).
 
 $head Execute The Following Steps$$
 
-$subhead Multiple1Example.omh$$
+$subhead multiple_example_1.omh$$
 Use an editor of your choice to
-create the file $code  Multiple1Example.omh$$ 
+create the file $code  multiple_example_1.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%Multiple1Example.omh%5%#036begin %$$
+     $$@begin $verbatim%multiple_example_1.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
 You may just copy the file with the same name from the 
 $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
-$subhead Multiple2Example.omh$$
+$subhead multiple_example_2.omh$$
 Use an editor of your choice to
-create the file $code  Multiple2Example.omh$$ 
+create the file $code  multiple_example_2.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%Multiple2Example.omh%5%#036begin %$$
+     $$@begin $verbatim%multiple_example_2.omh%5%#036begin %$$
 $$
 
-$subhead Multiple3Example.omh$$
+$subhead multiple_example_3.omh$$
 Use an editor of your choice to
-create the file $code  Multiple3Example.omh$$ 
+create the file $code  multiple_example_3.omh$$ 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%Multiple3Example.omh%5%#036begin %$$
+     $$@begin $verbatim%multiple_example_3.omh%5%#036begin %$$
 $$
 
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code Multiple1Example.omh$$
+result of making $code multiple_example_1.omh$$
 part of the OMhelp help web site 
 by selecting 
-$xref/Multiple1Example/$$.
+$xref/multiple_example_1/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
 in the 
 $xref/
-	StartSimple/
+	start_simple/
 	Execute The Following Steps.Htm Directory/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../ Multiple1Example.omh -noframe
+	omhelp ../ multiple_example_1.omh -noframe
 $$
 
 
@@ -121,7 +121,7 @@ Use a web browser of your choosing to view the file
 $syntax%%test%/htm/multiple1example.htm%$$.
 
 $head Discussion$$
-The file $code Multiple1Example.omh$$ contains the
+The file $code multiple_example_1.omh$$ contains the
 $cref/root section/running/root_file/$$
 for this example.
 There is more than one section in the 

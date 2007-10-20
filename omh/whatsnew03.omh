@@ -253,12 +253,12 @@ $head 06-12$$
 The script that
 which runs all the getting started examples
 was printing out the wrong 
-$xref/GetStarted/Getting Started Directory/getting started directory/$$.
+$xref/getstarted/Getting Started Directory/getting started directory/$$.
 This has been fixed.
 
 $head 06-11$$
 A getting started section for
-$xref/StartEmbed//embedding/$$ OMhelp commands in
+$xref/start_embed//embedding/$$ OMhelp commands in
 computer source code was added.
 
 $head 06-05$$
@@ -645,7 +645,7 @@ $href%http://www.dessci.com/webmath/mathplayer%Design Science%$$.
 
 $head 02-10$$
 Getting started examples were added for the
-$xref/StartFont//font/$$ and $xref/StartVerbatim//verbatim/$$
+$xref/start_font//font/$$ and $xref/start_verbatim//verbatim/$$
 commands.
 $pre
 
@@ -828,7 +828,7 @@ $pre
 
 $$
 The 
-$xref/GetStarted/Getting Started Directory/getting started directory/$$
+$xref/getstarted/Getting Started Directory/getting started directory/$$
 batch file $code RunAll$$
 was changed so that both the HTML and XML output is generated for
 the $xref/latex/$$ example.
@@ -916,7 +916,7 @@ This has been fixed.
 
 $head 01-01$$
 A 
-$xref/StartIndex//getting started section/$$ 
+$xref/start_index//getting started section/$$ 
 for the $xref/keyword//indexing commands/$$
 was added.
 

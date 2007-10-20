@@ -74,9 +74,9 @@ Its purpose is to assist you in learning the about
 changes between versions of OMhelp.
 
 $head 12-21$$
-The $tref GetStarted$$ section was improved
+The $tref getstarted$$ section was improved
 by including the resulting output files for each example.
-In addition, an $xref/StartSpell//example/$$ for the
+In addition, an $xref/start_spell//example/$$ for the
 $xref/spell/$$ command was included.
 
 
