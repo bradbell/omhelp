@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2007 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -15,14 +15,28 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
+# automake input file
 #
-$begin view_near_equal.f$$
+BUILT_SOURCES = \
+	ok_near_equal_f.f \
+	near_equal_f.f 
+	
 
-$section Contents of the File near_equal.f$$
+noinst_PROGRAMS = run_all
 
-$comment no indent, start output at text following END COPYRIGHT$$
-$code
-$verbatim%near_equal.f%0%END COPYRIGHT%$$
-$$
+run_all_SOURCES = \
+	ok_near_equal.c \
+	ok_near_equal_f.f \
+	near_equal.c \
+	near_equal_f.f \
+	run_all.c
+	
+#
+# Built sources (used so fortran and C do not have same target object file)
+#
+ok_near_equal_f.f: ok_near_equal.f
+	cp ok_near_equal.f ok_near_equal_f.f
 
-$end
+near_equal_f.f: near_equal.f
+	cp near_equal.f near_equal_f.f
+

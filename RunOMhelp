@@ -69,3 +69,4 @@ then
 		echo "See the complete warning messages in OMhelp.Doc.log."
 	fi
 fi
+exit 0

@@ -306,15 +306,30 @@ then
 	cd omhelp-$AcDate
 	./Build configure
 	make
-	if [ "$1" != "all" ]
+	if ! ./RunOMhelp Doc
 	then
-		exit
+		echo "user doc problem; see omhelp-$AcDate/OMhelp.Doc.log"
+		exit 1
+	fi
+	if ! ./RunOMhelp Dev
+	then
+		echo "dev doc problem; see omhelp-$AcDate/OMhelp.Dev.log"
+		exit 1
 	fi
 	cd omh/getstarted
 	if ! ./run_all.sh batch
 	then
-		echo "omh/getstarted/run_all failed to run"
+		echo "omh/getstarted/run_all.sh failed to run"
 		exit 1
+	fi
+	if ! ./run_all
+	then
+		echo "one of the tests in omh/getstarted/run_all.c failed"
+		exit 1
+	fi
+	if [ "$1" != "all" ]
+	then
+		exit
 	fi
 fi
 if [ "$1" = "all" ]

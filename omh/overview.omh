@@ -35,6 +35,8 @@ $path/image/.png/$$
 $path/getstarted/.omh/$$
 $path/getstarted/.gif/$$
 $path/getstarted/.dat/$$
+$path/getstarted/.c/$$
+$path/getstarted/.f/$$
 
 $comment The following absolute paths are for running from the debugger
 path/d:\omhelp\omh/.omh/
@@ -47,7 +49,7 @@ $$
 
 
 $index overview$$
-$section Source Code -> Web Based Help:  OMhelp Version 07-10-20$$
+$section Source Code -> Web Based Help:  OMhelp Version 07-10-21$$
 
 $head User Support For OMhelp$$
 $index support$$

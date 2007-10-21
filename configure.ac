@@ -18,7 +18,7 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 07-03-25, bradbell@seanet.com)
+AC_INIT(OMhelp, 07-10-21, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
 
@@ -51,6 +51,8 @@ AC_CONFIG_HEADER(src/config.h)
 dnl AC_PROG_CC([compiler-search-list]) outputs CC as C compiler to use
 AC_PROG_CC
 
+dnl AC_PROG_F77([complier-search-list]) outputs F77 as Fortran compiler to use
+AC_PROG_F77
 dnl AC_PROG_CP outputs CPP as command to run C preprocessor
 AC_PROG_CPP
 
@@ -59,6 +61,7 @@ dnl read file.in, do its substitutions, and create file
 AC_CONFIG_FILES([ 
 	Makefile
 	src/Makefile
+	omh/getstarted/makefile
 ])
 
 dnl create all the requested output files

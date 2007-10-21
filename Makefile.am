@@ -29,7 +29,7 @@ endif
 #
 nobase_include_HEADERS = src/config.h 
 #
-SUBDIRS                = src
+SUBDIRS                = src omh/getstarted
 #
 noinst_DATA            = OMhelp.Dev.log OMhelp.Doc.log
 #

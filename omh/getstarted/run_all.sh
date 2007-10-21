@@ -1,8 +1,7 @@
 #! /bin/bash
 #
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2007 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -18,7 +17,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 if [ "$1" != "" ] && [ "$1" != "batch" ]
 then
@@ -51,8 +49,8 @@ input_list="
 	font_example.omh
 	spell_example.omh
 	verbatim_example.omh
-	Factorial.c
-	Factorial.m
+	near_equal.c
+	near_equal.f
 	multiple_example_1.omh
 	cref_example_1.omh
 	index_example_1.omh
@@ -62,7 +60,7 @@ for input in $input_list
 do
 	output=`echo $input | \
 		tr '[A-Z]' '[a-z]' |\
-		sed -e s/\.omh/.htm/ -e 's|\.[cm]|&.htm|'`
+		sed -e s/\.omh/.htm/ -e 's|\.[cf]|&.htm|'`
 	cmd="../../../src/omhelp 
 		../$input -debug -noframe -omhelp_dir ../../../OMhelp"
 	echo $cmd

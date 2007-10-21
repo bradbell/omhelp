@@ -1,5 +1,22 @@
-/*
+/* -----------------------------------------------------------------------
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ---------------------------------------------------------------------------
+END COPYRIGHT
+
 $begin near_equal.c$$
 $spell
 	OMhelp
@@ -12,7 +29,7 @@ $$
 $section Determine if Two Values Are Nearly Equal$$
 
 $head Syntax$$
-$syntax%e = near_equal(%x%, %y%, %r%, %a%)%$$
+$syntax%%e% = near_equal(%x%, %y%, %r%, %a%)%$$
 
 $head Purpose$$
 Returns true, 
@@ -64,29 +81,14 @@ Otherwise, it is zero.
 
 
 $head Example$$
-If the preprocessor directive $code TEST_NEAR_EQUAL$$ is defined,
-the following program should print yes
-(The C source code below is both in program and OMhelp output):
-$codep */
+The following is an example and test of $code near_equal$$,
+it returns true if the test succeeds and false if it fails:
 
-# ifdef TEST_NEAR_EQUAL
-# include <stdio.h>
+$comment no indent, start output at text following END COPYRIGHT$$
+$code
+$verbatim%ok_near_equal.c%0%END COPYRIGHT%$$
+$$
 
-extern int near_equal(double x, double y, double r, double a);
-main()
-{	double x = 1.1;
-	double y = 1.2;
-	double r = .1;
-	double a = 0.;
- 	if( near_equal(x, y, r, a) )
-		printf("yes\n");
-	else	printf("no\n");
-	exit(0);
-}
-
-# endif
-
-/* $$
 
 $end
 ---------------------------------------------------------------------------

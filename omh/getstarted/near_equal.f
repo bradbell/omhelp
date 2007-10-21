@@ -1,3 +1,22 @@
+c ---------------------------------------------------------------------------
+c OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+c 
+c This program is free software; you can redistribute it and/or
+c modify it under the terms of the GNU General Public License
+c as published by the Free Software Foundation; either version 2
+c of the License, or (at your option) any later version.
+c 
+c This program is distributed in the hope that it will be useful,
+c but WITHOUT ANY WARRANTY; without even the implied warranty of
+c MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+c GNU General Public License for more details.
+c 
+c You should have received a copy of the GNU General Public License
+c along with this program; if not, write to the Free Software
+c Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+c ---------------------------------------------------------------------------
+c END COPYRIGHT
+c
 c $begin near_equal.f$$ $newlinech c$$
 c $spell
 c $$
@@ -5,7 +24,7 @@ c
 c $section Determine if Two Values Are Nearly Equal$$
 c 
 c $head Syntax$$
-c $syntax%e = near_equal(%x%, %y%, %r%, %a%)%$$
+c $syntax%%e% = near_equal(%x%, %y%, %r%, %a%)%$$
 c 
 c $head Purpose$$
 c Returns true, 
@@ -14,19 +33,19 @@ c
 c $head x$$
 c The argument $italic x$$ has prototype
 c $syntax%
-c 	DOUBLE PRECISION %x%
+c 	double precision %x%
 c %$$
 c 
 c $head y$$
 c The argument $italic y$$ has prototype
 c $syntax%
-c 	DOUBLE PRECISION %y%
+c 	double precision %y%
 c %$$
 c 
 c $head r$$
 c The relative error criteria $italic r$$ has prototype
 c $syntax%
-c 	DOUBLE PRECISION %r%
+c 	double precision %r%
 c %$$
 c It must be greater than or equal zero.
 c The relative error condition is satisfied if
@@ -38,7 +57,7 @@ c
 c $head a$$
 c The absolute error criteria $italic a$$ has prototype
 c $syntax%
-c 	DOUBLE PRECISION %a%
+c 	double precision %a%
 c %$$
 c It must be greater than or equal zero.
 c The absolute error condition is satisfied if
@@ -57,30 +76,21 @@ c Otherwise, it is false.
 c 
 c 
 c $head Example$$
-c The Fortran following program would print yes:
-c $codep
-c     PROGRAM main
-c     DOUBLE PRECISION x, y, r, a
-c     LOGICAL near_equal
-c     external near_equal
-c     x = 1.1
-c     y = 1.2
-c     r = .1
-c     a = 0.
-c     IF( near_equal(x, y, r, a) ) THEN
-c           write(6, *) 'yes'
-c     ELSE
-c           write(6, *) 'no'
-c     ENDIF
-c     END
+c The following is an example and test of $code near_equal$$.
+c It returns true if the test succeeds and false if it fails.
+c
+c $comment no indent, start output at text following END COPYRIGHT$$
+c $code
+c $verbatim%ok_near_equal.f%0%END COPYRIGHT%$$
 c $$
+c
 c $end
 c ---------------------------------------------------------------------------
-      LOGICAL function near_equal(x, y, r, a)
-      DOUBLE PRECISION x, y, r, a
-      DOUBLE PRECISION ax, ay, d
+      logical function near_equal(x, y, r, a)
+      double precision x, y, r, a
+      double precision ax, ay, d
       ax = dabs(x);
       ay = dabs(y);
       ad = dabs(x - y);
-      near_equal = (ad .LE. a) .OR. (ad .LE. r * (ax + ay));
-      END
+      near_equal = (ad .le. a) .or. (ad .le. r * (ax + ay));
+      end
