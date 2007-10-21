@@ -28,11 +28,11 @@ $spell
 	htm
 $$
 
-$children/
-	view_factorial.c.omh/
-	getstarted\Factorial.c/
-	view_factorial.m.omh/
-	getstarted\Factorial.m/$$
+$children%
+	view_near_equal.c.omh%
+	getstarted/near_equal.c%
+	view_near_equal.f.omh%
+	getstarted/near_equal.f%$$
 
 $section Embedding OMhelp Commands in Source Code$$
 $index source code, embed in$$
@@ -55,27 +55,27 @@ $index C++, omhelp example$$
 $index Java, omhelp example$$
 $index Python, omhelp example$$
 
-$subhead Factorial.c$$
+$subhead near_equal.c$$
 Use an editor of your choice to
-create the file $code Factorial.c$$ 
+create the file $code near_equal.c$$ 
 in the 
 $xref/
 	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 the contents of which can be seen by selecting 
-$cref/view_factorial.c/$$.
+$cref/view_near_equal.c/$$.
 Note that you can copy and paste the contents of
-$code Factorial.c$$ to your editor window.
-You may just copy the file $code Factorial.c$$ from the 
+$code near_equal.c$$ to your editor window.
+You may just copy the file $code near_equal.c$$ from the 
 $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code Factorial.c$$
+result of making $code near_equal.c$$
 part of the OMhelp help web site 
 by selecting 
-$xref/Factorial.c/$$.
+$xref/near_equal.c/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
@@ -86,13 +86,13 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../Factorial.c -noframe
+	omhelp ../near_equal.c -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/factorial.c.htm%$$.
+$syntax%%test%/htm/near_equal.c.htm%$$.
 
 
 $head A Language with only One Line Comments$$
@@ -104,27 +104,27 @@ $index Matlab, omhelp example$$
 $index Fortran, omhelp example$$
 $index R, omhelp example$$
 
-$subhead Factorial.m$$
+$subhead near_equal.f$$
 Use an editor of your choice to
-create the file $code Factorial.m$$ 
+create the file $code near_equal.f$$ 
 in the 
 $xref/
 	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 the contents of which can be seen by selecting 
-$cref/view_factorial.m/$$.
+$cref/view_near_equal.f/$$.
 Note that you can copy and paste the contents of
-$code Factorial.m$$ to your editor window.
-You may just copy the file $code Factorial.m$$ from the 
+$code near_equal.f$$ to your editor window.
+You may just copy the file $code near_equal.f$$ from the 
 $xref/getstarted/Getting Started Directory/getting started directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code Factorial.m$$
+result of making $code near_equal.f$$
 part of the OMhelp help web site 
 by selecting 
-$xref/Factorial.m/$$.
+$xref/near_equal.f/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
@@ -135,12 +135,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../Factorial.m -noframe
+	omhelp ../near_equal.f -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/factorial.m.htm%$$.
+$syntax%%test%/htm/near_equal.f.htm%$$.
 
 $end
