@@ -18,13 +18,13 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin view_factorial.c$$
+$begin view_near_equal.c$$
 
-$section Contents of the File Factorial.c$$
+$section Contents of the File near_equal.c$$
 
 $code
 
-$verbatim%getstarted\Factorial.c%$$
+$verbatim%getstarted/near_equal.c%$$
 
 $$
 
