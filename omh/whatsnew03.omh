@@ -253,7 +253,7 @@ $head 06-12$$
 The script that
 which runs all the getting started examples
 was printing out the wrong 
-$xref/getstarted/Getting Started Directory/getting started directory/$$.
+$xref/get_started/Getting Started Directory/getting started directory/$$.
 This has been fixed.
 
 $head 06-11$$
@@ -823,12 +823,12 @@ $pre
 
 $$
 The table of examples in the
-$xref/getstarted/$$ section was improved.
+$xref/get_started/$$ section was improved.
 $pre
 
 $$
 The 
-$xref/getstarted/Getting Started Directory/getting started directory/$$
+$xref/get_started/Getting Started Directory/getting started directory/$$
 batch file $code RunAll$$
 was changed so that both the HTML and XML output is generated for
 the $xref/latex/$$ example.
@@ -898,7 +898,7 @@ $pre
 
 $$
 The old example section, and its children were removed because the
-$xref/getstarted/$$ section provides better examples.
+$xref/get_started/$$ section provides better examples.
 
 
 $head 01-08$$

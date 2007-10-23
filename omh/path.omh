@@ -66,7 +66,7 @@ This command is ignored unless it appears in the
 $cref/root section/running/root_file/$$.
 This enables one to use one OMhelp web site as a sub-tree of
 a larger OMhelp web site.
-(All of the $xref/getstarted//getting started/$$ examples are
+(All of the $xref/get_started//getting started/$$ examples are
 used twice in this way.)
 Each of these web sites may have its starting file in a different directory
 and therefore require different $code path$$ commands.

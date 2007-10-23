@@ -75,7 +75,7 @@ used to break the OMhelp search utility.
 
 $head 10-16$$
 Fixed an error in one of the asserts in the $code BlockAlloc$$ example
-(which was later replaced by the $tref getstarted$$ section).
+(which was later replaced by the $tref get_started$$ section).
 To be specific,
 $codep
 	(b->index == info->index) &&
@@ -92,7 +92,7 @@ $head 09-19$$
 The $code Larray$$ and $code Marray$$ classes were getting to complicated
 for an example.
 They have been replaced by the $code BlockAlloc$$ example
-(which was later replaced by the $tref getstarted$$ section).
+(which was later replaced by the $tref get_started$$ section).
 
 $head 08-20$$
 The $code omh\Larray$$ and $code omh\LMarray$$ directories
@@ -115,7 +115,7 @@ $$
 The $code example$$ command was changed to be the $mref/execute/$$ command.
 This was done so that the example would refer to an $code example$$ use of 
 OMhelp to document source code
-(which was later replaced by the $tref getstarted$$ section).
+(which was later replaced by the $tref get_started$$ section).
 If you used the old $code example$$ command, you will need to change 
 $code @example$$ to $code @execute$$.
 

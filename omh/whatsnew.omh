@@ -92,21 +92,21 @@ $tend
 $$
 
 $head 07-10-20$$
-The script file for batching the $cref/getstarted/$$ examples
+The script file for batching the $cref/get_started/$$ examples
 $code RunAll$$ was no longer working.
 Change it to a bash script called $code run_all.sh$$
 (which now works). 
 $pre
 
 $$ 
-The name used for the directory where the user copies the $cref/getstarted/$$ 
+The name used for the directory where the user copies the $cref/get_started/$$ 
 examples was changed from the $italic omh$$ directory to the 
 $cref/test/start_simple/Execute The Following Steps/Test Directory/$$ directory
 (to avoid confusion with the $code omh$$ directory in the OMhelp distribution).
 $pre
 
 $$
-All of the section names and file names in $cref/getstarted/$$ were
+All of the section names and file names in $cref/get_started/$$ were
 changed from mixed case to lower case.
 $pre
 
