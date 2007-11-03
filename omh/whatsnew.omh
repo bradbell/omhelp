@@ -91,6 +91,13 @@ $tend
 
 $$
 
+$head 07-11-03$$
+If a navigate command was used in the
+$cref/root section/navigate/Root Section/$$ 
+the corresponding setting did not get transferred to the
+$cref/table of contents/_contents/$$ section.
+This has been fixed.
+
 $head 07-10-20$$
 The script file for batching the $cref/get_started/$$ examples
 $code RunAll$$ was no longer working.

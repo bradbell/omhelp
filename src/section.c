@@ -472,6 +472,7 @@ $end
 # include "ClipWhiteSpace.h"
 # include "fatalerr.h"
 # include "int2str.h"
+# include "AutoTag.h"
 
 # include "section.h"
 
@@ -860,6 +861,26 @@ const char *SectionNavigate(
 
 		// next token
 		cptr  += len + 1;
+	}
+	// Top section is a special case where we need to change
+	// navigation for contents section (see InitParser)
+	if( S->parent == NULL )
+	{	SectionInfo *F = S->children;
+		assert( strcmp(F->tag, CONTENTS_TAG) == 0 );
+
+		// free old navigation information for table of contents
+		for(index = 0; index < F->navigate.number; index++)
+			FreeMem( F->navigate.item[index].label );
+
+		// copy navigation information from top section
+		F->navigate.number = S->navigate.number;
+		for(index = 0; index < F->navigate.number; index++)
+		{	F->navigate.item[index].nav_type = 
+				S->navigate.item[index].nav_type;
+			F->navigate.item[index].label = str_alloc( 
+				S->navigate.item[index].label 
+			);
+		}
 	}
 	return "";
 }
