@@ -1193,10 +1193,10 @@ element
 	| nobreak
 	| nospell
 	| number
-	| path
-	| pre
 	| navigate
 	| newlinech
+	| path
+	| pre
 	| rmark
 	| rnext
 	| section
