@@ -37,6 +37,7 @@ omhelp_SOURCES = \
 	BinarySearch.h \
 	ClipWhiteSpace.h \
 	Color.h \
+	color_switch.h \
 	DirSep.h \
 	FileEqual.h \
 	FrameSet.h \
@@ -82,6 +83,7 @@ omhelp_SOURCES = \
 	omhelp.h \
 	omhparse.h \
 	output.h \
+	output_text.h \
 	pending.h \
 	relative.h \
 	search.h \
@@ -98,6 +100,7 @@ omhelp_SOURCES = \
 	BinarySearch.c \
 	ClipWhiteSpace.c \
 	Color.c \
+	color_switch.c \
 	DirSep.c \
 	FileEqual.c \
 	Internal2Out.c \
@@ -139,6 +142,7 @@ omhelp_SOURCES = \
 	math.c \
 	omhelp.c \
 	output.c \
+	output_text.c \
 	pending.c \
 	relative.c \
 	search.c \

@@ -340,7 +340,8 @@ The $xref/nobreak/$$ command was added so one can ensure that
 a sequence of text appears on the same line.
 
 $head 05-08$$
-Pre-formatted text in $mref/pre/math/verbatim/$$ commands
+$cref/Pre-formatted/glossary/Pre-formatted Font/$$
+text in $mref/pre/math/verbatim/$$ commands
 (and elsewhere) could have line breaks at non-white space characters.
 For example, at the $code -$$ character.
 This has been fixed.

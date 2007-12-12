@@ -314,6 +314,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\color_switch.c">
+			</File>
+			<File
 				RelativePath="content.c">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -804,6 +807,9 @@
 						Optimization="2"
 						PreprocessorDefinitions=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\output_text.c">
 			</File>
 			<File
 				RelativePath="PatternMatch.c">

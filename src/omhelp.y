@@ -26,6 +26,8 @@ If there is no section with the specificed
 cross reference tag, NULL is returned.
 */
 
+# include "output_text.h"
+# include "color_switch.h"
 # include "Color.h"
 # include "InitParser.h"
 # include "Tag2Title.h"
@@ -243,71 +245,8 @@ static int WhiteSpace(char *s)
 }
 		
 
-static void outtext(int line, const char *s, int pre)
-{	const char *bad = NULL;
-	int nchar;
-
-	if( *s == '\0' ) return;
-
-	if( pre )
-	{	// a standard compliant way to inhibit line breaks at 
-		// '-' in MS Internet Explorer (should not be necessary)
-		OutputString("<span style='white-space: nowrap'>");
-	}
-
-	while( *s != '\0' )
-	{	
-		if( CheckSpell )
-			bad = SpellingError(s, &nchar);
-
-		if( bad == NULL )
-			bad = s + strlen(s);
-	
-		while( s < bad )
-		{	line += (*s == '\n');	
-			ConvertOutputCh(*s++, pre);
-		}
-
-		assert( bad != NULL );
-		if( *bad != '\0' )
-		{
-			assert( nchar > 0 );
-			if( PostWarnings() )
-			{	printf(
-					"\nOMhelp Warning: spelling "
-					"in line %d of file %s: ",
-					line,
-					InputName()
-				);	
-				OutputString("<font color=\"");
-				OutputString(ErrorColor);
-				OutputString("\">");
-
-				while( nchar-- )
-				{
-					if( isspace(*s) )
-						printf(" ");
-					else	printf("%c", *s);
-
-					line += (*s == '\n');	
-					ConvertOutputCh(*s++, pre);
-				}
-				OutputString("</font>");
-				printf("\n");
-			}
-			else	while( nchar-- )
-			{
-				line += (*s == '\n');	
-				ConvertOutputCh(*s++, pre);
-			}
-		}
-	}
-	if( pre )
-		OutputString("</span>");
-}
-
 static void OutPre(int line, const char *s)
-{	outtext(line, s, 1); }
+{	output_text(line,s,1,'\0',CheckSpell,ErrorColor); }
 
 
 
@@ -1076,6 +1015,7 @@ void InitParser(const char *StartingInputFile)
 %token CNEXT_lex
 %token CODE_lex
 %token CODECOLOR_lex
+%token CODEI_lex
 %token CODEP_lex
 %token COMMENT_lex
 %token CONTENTS_lex
@@ -1092,6 +1032,7 @@ void InitParser(const char *StartingInputFile)
 %token FIXED_lex
 %token HEAD_lex
 %token HREF_lex
+%token ICODE_lex
 %token ICON_lex
 %token IMAGE_lex
 %token INCLUDE_lex
@@ -1166,6 +1107,7 @@ element
 	| cnext
 	| code
 	| codecolor
+	| codei
 	| codep
 	| comment
 	| cref
@@ -1180,6 +1122,7 @@ element
 	| fixed
 	| head
 	| href
+	| icode
 	| image
 	| include
 	| index
@@ -1229,7 +1172,7 @@ element
 			// otherwise suspend judgement on the extra new line
 		}
 	
-		outtext($1.line, $1.str, 0);
+		output_text($1.line,$1.str,0,'\0',CheckSpell,ErrorColor);
 		FreeMem($1.str);
 
 		$$.str  = NULL;
@@ -1640,7 +1583,8 @@ big
 		$$ = $1;
 	}
 	;
-	
+
+
 bold_begin
 	: BOLD_lex 
 	{	assert( $1.str == NULL );
@@ -1664,6 +1608,30 @@ bold
 		$$ = $1;
 	}
 	;
+
+codei
+	: CODEI_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| CODEI_lex text DOUBLE_DOLLAR_lex
+	{
+		assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		if( PreviousOutputWasHeading )
+		{	ConvertForcedNewline(1);
+			PreviousOutputWasHeading = 0;
+		}
+
+		color_switch($2.str, "blue", "black", Escape,
+			$1.line, "codei", CheckSpell, ErrorColor);
+		
+		FreeMem($2.str);
+		$$ = $1;
+	}
+	;
+	
 	
 cnext
 	: cnext_cases
@@ -1794,7 +1762,7 @@ childhead
 			FreeMem(converted);
 		}
 
-		outtext($1.line, "Contents", 0);
+		output_text($1.line,"Contents",0,'\0',CheckSpell,ErrorColor);
 		OutputString("</a></big></b>\n");
 		ConvertForcedNewline(1);
 
@@ -2062,7 +2030,7 @@ codep
 		OutputString(CodeColor);
 		OutputString("\">");
 		OutputString("\n");
-		outtext($2.line, $2.str, 1);
+		output_text($2.line,$2.str,1,'\0',CheckSpell,ErrorColor);
 		OutputString("\n");
 		OutputString("</font></code>\n");
 		
@@ -2754,7 +2722,7 @@ head
 			FreeMem(converted);
 		}
 
-		outtext($2.line, noEscape, 0);
+		output_text($2.line,noEscape,0,'\0',CheckSpell,ErrorColor);
 		OutputString("</a></big></b>\n");
 
 		// defined cross reference point
@@ -2901,7 +2869,7 @@ href
 
 		if( ntoken >= 2 && PrintableOmhelp() )
 		{	OutputString(" (");
-			outtext($2.line, url, 0);
+			output_text($2.line,url,0,'\0',CheckSpell,ErrorColor);
 			OutputString(") ");
 		}
 		
@@ -2909,6 +2877,29 @@ href
 		FreeMem(tag);
 		FreeMem($2.str);
 
+		$$ = $1;
+	}
+	;
+
+icode
+	: ICODE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| ICODE_lex text DOUBLE_DOLLAR_lex
+	{
+		assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		if( PreviousOutputWasHeading )
+		{	ConvertForcedNewline(1);
+			PreviousOutputWasHeading = 0;
+		}
+
+		color_switch($2.str, "black", "blue", Escape,
+			$1.line, "icode", CheckSpell, ErrorColor);
+		
+		FreeMem($2.str);
 		$$ = $1;
 	}
 	;
@@ -3657,7 +3648,7 @@ nobreak
 		assert( $3.str == NULL );
 
 		OutputString("<span style='white-space: nowrap'>");
-		outtext($2.line, $2.str, pre);
+		output_text($2.line,$2.str,pre,'\0',CheckSpell,ErrorColor);
 		OutputString("</span>\n");
 		
 		FreeMem($2.str);
@@ -3964,14 +3955,17 @@ section
 				);
 				OutputString(printid);
 				OutputString(": ");
-				outtext($2.line, noEscape, 0);
+				output_text($2.line,noEscape,0,'\0',
+					CheckSpell,ErrorColor);
 				OutputString("</a>\n");
 			}
-			else	outtext($2.line, noEscape, 0);
+			else	output_text($2.line,noEscape,0,'\0',
+					CheckSpell,ErrorColor);
 
 			FreeMem(printid);
 		}
-		else	outtext($2.line, noEscape, 0);
+		else	output_text($2.line,noEscape,0,'\0',
+					CheckSpell,ErrorColor);
 		OutputString("</big></big></b></center>\n");
 
 		// the end of centering starts a new line
@@ -4145,7 +4139,7 @@ subhead
 			FreeMem(converted);
 		}
 
-		outtext($2.line, noEscape, 0);
+		output_text($2.line,noEscape,0,'\0',CheckSpell,ErrorColor);
 		OutputString("</a></b>\n");
 
 		// defined cross reference point
@@ -4234,7 +4228,8 @@ syntax
 			if( count % 2 == 0 )
 			{	OutputString("<i>");
 				ClipWhiteSpace(token);
-				outtext($2.line, token, 1);
+				output_text($2.line,token,1,'\0',
+					CheckSpell,ErrorColor);
 				OutputString("</i>");
 			}
 			else
@@ -4242,7 +4237,8 @@ syntax
 				OutputString("<code><font color=\"");
 				OutputString(CodeColor);
 				OutputString("\">");
-				outtext($2.line, token, 1);
+				output_text($2.line,token,1,'\0',
+					CheckSpell,ErrorColor);
 				OutputString("</font></code>");
 			}
 			count++;
@@ -4453,7 +4449,7 @@ th
 
 		// output the index in italic followed by "-th"
 		OutputString("<i>");
-		outtext($2.line, $2.str, 0);
+		output_text($2.line,$2.str,0,'\0',CheckSpell,ErrorColor);
 		OutputString("</i>");
 		OutputString("-th");
 		

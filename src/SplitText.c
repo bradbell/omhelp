@@ -30,7 +30,7 @@ $section Splitting Text At Each Delimiter$$
 
 $table
 $bold Syntax$$ $cend $syntax%int SplitText(
-	char *%line%, 
+	int   %line%, 
 	char *%cmd%, 
 	char *%text%
 )%$$

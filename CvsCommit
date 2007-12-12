@@ -1,14 +1,51 @@
-# Fix navigation transference from top to table of contents
+# Add codei command (better version of syntax)
+#
+# codei.omh:  documentation for new command.
+# color_switch.c: routine to swith colors at each delimiter.
+# color_switch.h: include file for color_switch.c.
+# output_text.c: version of outtext split out from omhelp.y.
+# output_text.h: include file for output_text.c.
 #
 # CvnCommit: this file.
+# Build: update VIMRUNTIME directory.
+# omhelp.vim: add the codei and icode keywords.
+# children_cmd.omh: include the codei.omh section.
+# codep.omh: change cross reference for pre-formatted font.
+# glossary: improve definition of pre-formatter font.
+# math.omh: reference pre-formatted font.
+# nobreak.omh: reference pre-formatted font.
+# pre.omh: reference pre-formatted font.
 # whatsnew.omh: user's view of the changes.
-# section.c: actual change
+# whats_new03.omh: reference pre-formatted font.
+# Makefile.am: add color_swith and output_text source files. 
+# SplitText.c: fix developer documentation.
+# lexomh.c: add codei and icode tokens.
+# omhelp.y: move outtext to separate file and include new commands.
+# src.vcproj: add color_swith and output_text source files. 
 add_list="
+	omh/codei.omh
+	src/color_switch.c
+	src/color_switch.h
+	src/output_text.c
+	src/output_text.h
 "
 change_list="
 	CvsCommit
+	Build
+	OMhelp/omhelp.vim
+	omh/children_cmd.omh
+	omh/codep.omh
+	omh/glossary.omh
+	omh/math.omh
+	omh/nobreak.omh
+	omh/pre.omh
 	omh/whatsnew.omh
-	src/section.c
+	omh/whatsnew03.omh
+	src/Makefile.am
+	src/SplitText.c
+	src/lexomh.c
+	src/omhelp.y
+	src/src.vcproj
 "
 delete_list="
 "

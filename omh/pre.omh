@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin pre$$
 $spell 
@@ -48,7 +46,7 @@ $fend 20$$
 
 $head Description$$
 All of the characters in $italic text$$ are printed in a 
-$xref/glossary/Uniformly Spaced Font/uniformly sized font/$$.
+$cref/pre-formatted font/glossary/Pre-formatted Font/$$.
 There can be no $code @$$ characters in $italic text$$.
 The $code pre$$ command uses a font that is close to the
 normal font, but uniformly spaced.

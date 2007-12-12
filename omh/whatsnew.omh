@@ -19,6 +19,8 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	codei
+	icode
 	Cvs
 	omh
 	linkingtext
@@ -90,6 +92,15 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 07-12-09$$
+The $code codei$$ and $code icode$$ commands were added.
+These commands switch
+$cref/pre-formatted/glossary/Pre-formatted Font/$$ text between
+code and italic font.
+See the $cref/remark/codei/Remark/$$ at the end
+of the command.
+
 
 $head 07-11-03$$
 If a navigate command was used in the

@@ -124,6 +124,18 @@ file for the current section in a
 $xref/children//contents/$$, $code childtable$$, or
 $code children$$ command.
 
+$head Pre-formatted Font$$
+A Pre-formatted font displays text with a 
+$cref/uniformly spaced font/glossary/Uniformly Spaced Font/$$.
+In addition,
+$xref/glossary/White Space/white space/$$
+characters in the input are preserved in the output.
+This enables you to line up text between different lines.
+If you use an editor that displays the input text in a uniformly
+spaced font, a visual inspection will enable you to see the
+characters that will line up between different lines. 
+
+
 $head Section$$
 A section of an OMhelp web site is the information 
 between a $mref/begin/$$ and the corresponding $code end$$
@@ -145,15 +157,7 @@ $code children$$ command.
 
 $head Uniformly Spaced Font$$
 A uniformly spaced font is a character font
-in which all character use
-the same amount of horizontal space.
-In addition,
-$xref/glossary/White Space/white space/$$
-characters in the input are preserved in the output.
-This enables you to line up text between different lines.
-If you use an editor that displays the input text in a uniformly
-spaced font, a visual inspection will enable you to see the
-characters that will line up between different lines. 
+in which all character use the same amount of horizontal space.
 
 $head White Space$$
 The following ascii characters are considered white space:

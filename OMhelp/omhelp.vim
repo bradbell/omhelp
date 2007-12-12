@@ -57,6 +57,9 @@
 :syntax match omh_codecolor       /\$codecolor/
 :highlight link omh_codecolor     Keyword
 
+:syntax match omh_codei           /\$codei/
+:highlight link omh_codei         Keyword
+
 :syntax match omh_codep           /\$codep/
 :highlight link omh_codep         Keyword
 
@@ -98,6 +101,9 @@
 
 :syntax match omh_href            /\$href/
 :highlight link omh_href          Keyword
+
+:syntax match omh_icode           /\$icode/
+:highlight link omh_icode         Keyword
 
 :syntax match omh_icon            /\$icon/
 :highlight link omh_icon          Keyword

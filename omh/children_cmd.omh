@@ -30,13 +30,14 @@ $children/
 	nobreak.omh/
 	pre.omh/
 	codep.omh/
-	syntax.omh/
+	codei.omh/
 	center.omh/
 	table.omh/
 	list.omh/
 	math.omh/
 	special.omh/
-	color.omh/$$
+	color.omh/
+	syntax.omh/$$
 
 $head Command Limited$$
 The effect of the following commands 
@@ -45,8 +46,10 @@ $table
 $rref nobreak$$
 $rref pre$$
 $rref codep$$
-$rref syntax$$
+$rref codei$$
+$rref color$$
 $rref math$$
+$rref syntax$$
 $tend
 
 $head Not Command Limited$$
