@@ -23,7 +23,6 @@ $spell
 	const
 	cmd
 $$
-$escape #$$
 $dollar @$$
 
 
@@ -116,20 +115,19 @@ $codei|
 
 $subhead Escape$$
 The $cref escape$$ character is useful because
-the delimiter character does not appear in the output.
+the delimiter character does not appear in the output
+(the default value for this character is $code \$$).
 For example, the input
 $codep
-	@escape #@@
 	@codei%
 	%x%   = 1 + %a% + %b%
-	%y%   = 2 + # #   %b%
+	%y%   = 2 + \ \   %b%
 	%@@
 $$
 produces the following output
-$escape #$$
 $codei%
 	%x%   = 1 + %a% + %b%
-	%y%   = 2 + # #   %b%
+	%y%   = 2 + \ \   %b%
 %$$
 
 $head Remark$$

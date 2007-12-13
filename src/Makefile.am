@@ -134,7 +134,7 @@ omhelp_SOURCES = \
 	int2str.c \
 	latex.c \
 	lexomh.c \
-	lextex.c \
+	lex.tex.c \
 	libyyerr.c \
 	libyywra.c \
 	links.c \
@@ -168,6 +168,10 @@ omhelp.c: omhelp.y
 	bison omhelp.y --defines -p omh -o omhelp.c
 	mv omhelp.c omhelp.tmp
 	sed -f fixbison.sed < omhelp.tmp > omhelp.c
+#
+# Rule for lex.tex.c
+lex.tex.c: latex.l
+	flex -Ptex latex.l
 #
 # Rule for latex.h
 latex.h: latex.y

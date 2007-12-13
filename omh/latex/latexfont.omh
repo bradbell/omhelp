@@ -1,6 +1,5 @@
-# BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2007 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -16,12 +15,13 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
-# END SHORT COPYRIGHT
 #
 $begin latexfont$$
 $escape #$$
 $dollar @$$
 $spell
+	Firefox
+	mathvariant
 	sf
 	tt
 	xml
@@ -53,17 +53,33 @@ the Latex font command where $italic font$$ is one of the
 commands in the following table:
 
 $table
-$italic font$$ $cnext $italic Meaning$$ $cnext Example $rnext
-               $cnext default           $cnext $latex \sqrt{x y}$$     $rnext
-\bf            $cnext bold              $cnext $latex \bf \sqrt{x y}$$ $rnext
-\rm            $cnext roman             $cnext $latex \rm \sqrt{x y}$$ $rnext
-\tt            $cnext typewriter        $cnext $latex \tt \sqrt{x y}$$ $rnext
-\sf            $cnext sans serif        $cnext $latex \sf \sqrt{x y}$$ $rnext
+$italic font$$ $pre  $$ $cnext $italic Meaning$$ $pre  $$ $cnext 
+	Example 
+$rnext
+               $cnext default           $cnext 
+	$latex abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
+$rnext
+$code \bf $$   $cnext bold              $cnext 
+	$latex \bf abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
+$rnext
+$code \rm$$    $cnext roman             $cnext 
+	$latex \rm abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
+$rnext
+$code \tt$$    $cnext typewriter        $cnext 
+	$latex \tt abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
+$rnext
+$code \cal$$   $cnext calligraphic       $cnext 
+	$latex \cal abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
+$rnext
+$code \sf$$    $cnext sans serif        $cnext 
+	$latex \sf abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
 $tend
 
 Note that these font commands affect all output text
 and this is different from the description in Section 3.3.8 of
 $xref/latex/Reference/Lamport's book/$$.
+Also note that, in Firefox, the $code \cal$$ commands does not display properly 
+do to a bug in it's $cref/mathvariant/Firefox/mathvariant/$$ display.
 
 $head Braces$$
 Latex font commands are terminated by their enclosing braces.

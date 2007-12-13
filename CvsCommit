@@ -1,53 +1,30 @@
-# Add codei command (better version of syntax)
+# Add \cal font option
 #
-# codei.omh:  documentation for new command.
-# color_switch.c: routine to swith colors at each delimiter.
-# color_switch.h: include file for color_switch.c.
-# output_text.c: version of outtext split out from omhelp.y.
-# output_text.h: include file for output_text.c.
+# ./Makefile.am: remove object and executables from distribution.
+# codei.omh: use default escape character.
+# firefox.omh: add bug report for mathvariant.
+# whatsnew.omh: user's view of changes.
+# latexfont.omh: add \cal font and change example to alphabet.
+# src/Makefile.am: use lex.tex.c in place of lextex.c.
+# latex.l: add \cal command.
+# src.vcproj: use lex.tex.c in place of lextex.c.
 #
-# CvnCommit: this file.
-# Build: update VIMRUNTIME directory.
-# omhelp.vim: add the codei and icode keywords.
-# children_cmd.omh: include the codei.omh section.
-# codep.omh: change cross reference for pre-formatted font.
-# glossary: improve definition of pre-formatter font.
-# math.omh: reference pre-formatted font.
-# nobreak.omh: reference pre-formatted font.
-# pre.omh: reference pre-formatted font.
-# whatsnew.omh: user's view of the changes.
-# whats_new03.omh: reference pre-formatted font.
-# Makefile.am: add color_swith and output_text source files. 
-# SplitText.c: fix developer documentation.
-# lexomh.c: add codei and icode tokens.
-# omhelp.y: move outtext to separate file and include new commands.
-# src.vcproj: add color_swith and output_text source files. 
+# lextex.c: should be in repository, instead use flex output lex.tex.c.
 add_list="
-	omh/codei.omh
-	src/color_switch.c
-	src/color_switch.h
-	src/output_text.c
-	src/output_text.h
 "
 change_list="
 	CvsCommit
-	Build
-	OMhelp/omhelp.vim
-	omh/children_cmd.omh
-	omh/codep.omh
-	omh/glossary.omh
-	omh/math.omh
-	omh/nobreak.omh
-	omh/pre.omh
+	Makefile.am
+	omh/codei.omh
+	omh/firefox.omh
 	omh/whatsnew.omh
-	omh/whatsnew03.omh
+	omh/latex/latexfont.omh
 	src/Makefile.am
-	src/SplitText.c
-	src/lexomh.c
-	src/omhelp.y
+	src/latex.l
 	src/src.vcproj
 "
 delete_list="
+	src/lextex.c
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same

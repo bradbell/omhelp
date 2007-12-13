@@ -93,13 +93,19 @@ $tend
 
 $$
 
-$head 07-12-09$$
+$head 07-12-13$$
 The $code codei$$ and $code icode$$ commands were added.
 These commands switch
 $cref/pre-formatted/glossary/Pre-formatted Font/$$ text between
 code and italic font.
 See the $cref/remark/codei/Remark/$$ at the end
 of the command.
+$pre
+
+$$
+The latex Calligraphic font $cref/\cal/latexfont/$$ was added.
+This turned up another problem in $cref/Firefox/$$; see
+the $cref/mathvariant/Firefox/mathvariant/$$ bug entry.
 
 
 $head 07-11-03$$

@@ -73,8 +73,11 @@ OMhelp.Doc.log: OMhelp.Dev.log
 # Make sure that unix install rebuilds main.c from main.src.
 # Remove all the CVS informaiton.
 # Remove the dictionary.bin (does in data directory but is machine dependent).
+# Remove all object and binary files from omh/getstarted 
 dist-hook:
 	touch $(distdir)/src/main.src
-	rm -r `find $(distdir)/omh -name CVS`
-	rm -r `find $(distdir)/src/omh -name CVS`
-	rm $(distdir)/OMhelp/dictionary.bin
+	rm -rf `find $(distdir)/omh -name CVS`
+	rm -rf `find $(distdir)/omh/getstarted -name '*.o'`
+	rm -rf `find $(distdir)/omh/getstarted -name '*.exe'`
+	rm -rf `find $(distdir)/src/omh -name CVS`
+	rm -rf $(distdir)/OMhelp/dictionary.bin

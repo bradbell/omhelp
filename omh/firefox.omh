@@ -21,6 +21,7 @@ $path%..\image%.png%$$
 $dollar !$$
 $escape #$$
 $spell
+	www.w3.org
 	Firefox
 	Javascript
 	minsize
@@ -89,6 +90,16 @@ appears to have problems displaying MathML commands.
 If you have any feed back,
 please send e-mail to:
 $href%mailto:bradbell@seanet.com%bradbell@seanet.com%$$.
+
+$head mathvariant$$
+The $code mathvariant='script'$$ option does not work properly in Firefox.
+To see this select the following link to a $code www.w3.org$$ test case:
+$href%http://www.w3.org/Math/testsuite/testsuite/Presentation/TokenElements/mi/mimathvariant14.xml%
+	mimathvariant14.xml
+%$$
+This bug has the effect of displaying the Latex $code \cal$$ font
+the same as its default font.
+
 
 $head Copy and Paste$$
 $index bug, firefox copy and paste$$

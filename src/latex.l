@@ -1,7 +1,6 @@
 %{
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2007 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -17,7 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 Lexical analyizer for a subset of Latex Commands
 $begin  LatexLexPut$$
@@ -278,10 +276,14 @@ white          ([ \t\r]*)
 		SetTexLval(yytext, "bold" );
 		return CMD_FONT_lex;
 	}
+\\cal	{
+		SetTexLval(yytext, "italic" );
+		return CMD_FONT_lex;
+	}
 \\end[{]array[}] {
 		SetTexLval(yytext, NULL);
 		return CMD_END_ARRAY_lex;
-}
+	}
 \\frac	{
 		SetTexLval(yytext, NULL);
 		return CMD_FRAC_lex;
@@ -368,9 +370,9 @@ white          ([ \t\r]*)
 		return CHAR_AMPERSAND_lex;
 	}
 {caretchar} {
-	SetTexLval(yytext, NULL);
-	return CHAR_CARET_lex;
-}
+		SetTexLval(yytext, NULL);
+		return CHAR_CARET_lex;
+	}
 {command} {
 	const char *name;
 	const char  *str;
