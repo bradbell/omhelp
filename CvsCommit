@@ -1,30 +1,10 @@
-# Add \cal font option
-#
-# ./Makefile.am: remove object and executables from distribution.
-# codei.omh: use default escape character.
-# firefox.omh: add bug report for mathvariant.
-# whatsnew.omh: user's view of changes.
-# latexfont.omh: add \cal font and change example to alphabet.
-# src/Makefile.am: use lex.tex.c in place of lextex.c.
-# latex.l: add \cal command.
-# src.vcproj: use lex.tex.c in place of lextex.c.
-#
-# lextex.c: should be in repository, instead use flex output lex.tex.c.
+# whatsnew.omh: bring up to date with current version.
 add_list="
 "
 change_list="
 	CvsCommit
-	Makefile.am
-	omh/codei.omh
-	omh/firefox.omh
-	omh/whatsnew.omh
-	omh/latex/latexfont.omh
-	src/Makefile.am
-	src/latex.l
-	src/src.vcproj
 "
 delete_list="
-	src/lextex.c
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same

@@ -19,6 +19,10 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	executables
+	mathvariant
+	getstarted
+	executable
 	codei
 	icode
 	Cvs
@@ -106,7 +110,13 @@ $$
 The latex Calligraphic font $cref/\cal/latexfont/$$ was added.
 This turned up another problem in $cref/Firefox/$$; see
 the $cref/mathvariant/Firefox/mathvariant/$$ bug entry.
+$pre
 
+$$
+Remove some objects that executables that were mistakenly part
+of the distribution copy of $code omh/getstarted$$.
+(This caused the $code make$$ command to fail on other systems
+because they were not built from source.)
 
 $head 07-11-03$$
 If a navigate command was used in the
