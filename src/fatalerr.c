@@ -254,12 +254,13 @@ void fataltex(const char *s1, ...)
 	// check for an active macro expansion
 	expand = LatexMacroExpandInput();
 	if( expand != NULL ) printf(
-			"\nThe macro %s is defined in line %d of %s.\n"
-			"It current expansion is\n%s\n",
-			LatexMacroExpandName(),
-			LatexMacroInputLine(),
-			LatexMacroInputFile(),
-			expand
+		"\nThe macro \\%s is defined in line %d of %s.\n"
+		"Its current expansion is\n%s\n",
+		LatexMacroExpandName(),
+		LatexMacroInputLine(),
+		LatexMacroInputFile(),
+		expand,
+		"\nNote: Latex mode does no allow macros inside of macros."
 	);
 
 	// allocate memory for tex tokens
