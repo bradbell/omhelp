@@ -47,7 +47,7 @@ fi
 list=`cat LatexAtomic.txt`
 for text in $list
 do
-	if ! grep "$text"  byalpha.txt > /dev/null
+	if ! grep "^$text"  byalpha.txt > /dev/null
 	then
 		echo "cannot find $text"
 	fi

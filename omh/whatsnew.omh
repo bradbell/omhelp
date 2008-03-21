@@ -19,6 +19,8 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	diamondsuit
+	heartsuit
 	executables
 	mathvariant
 	getstarted
@@ -64,6 +66,7 @@ $spell
 	OMhelp
 	omhelp
 	dir dir
+	hh
 $$
 
 $index readme, whats new$$
@@ -96,6 +99,172 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 08-03-21$$
+Some of the Latex $cref/symbols/symbol/$$ were using character codes 
+of the form $syntax/&#x0F5/hh/$$ (where $italic hh$$ is two hex digits).
+Such codes are not in the current MathML standard; e.g., see
+$pre
+	$$ $href%http://www.w3.org/TR/MathML2/byalpha.html%$$
+$pre
+$$
+This has been fixed.
+Most all the codes now come directly from the standard document listed above.
+The exceptions are $code \diamondsuit$$ and $code \heartsuit$$.
+You can find a list of which of these codes are not displayed properly for
+Firefox and IE Explorer at the following links:
+$cref/Firefox/Firefox/Symbols/$$, $cref/IE Explorer/Explorer/MathML/Symbols/$$.
+Here is a list of the OMhelp Latex symbols that changed with 
+this correction to OMhelp:
+
+
+$nospell $table
+$bold Latex$$  $pre  $$
+	$cnext $bold Display$$       $pre  $$
+	$cnext $bold Old Code$$      $pre  $$
+	$cnext $bold Old Display$$   $pre  $$
+	$cnext $bold New Code$$      $pre  $$
+	$cnext $bold New Display$$ $rnext
+\Box $pre  $$
+	$cnext $latex \Box $$ $pre  $$
+	$cnext &#x025FD; $pre  $$
+	$cnext $latex \mathml{<mo>&#x025FD;</mo>} $$ $pre  $$
+	$cnext &#x025A1; $pre  $$
+	$cnext $latex \mathml{<mo>&#x025A1;</mo>} $$ $rnext
+\Longleftarrow $pre  $$
+	$cnext $latex \Longleftarrow $$ $pre  $$
+	$cnext &#x0F579; $pre  $$
+	$cnext $latex \mathml{<mo>&#x0F579;</mo>} $$ $pre  $$
+	$cnext &#x027F8; $pre  $$
+	$cnext $latex \mathml{<mo>&#x027F8;</mo>} $$ $rnext
+\Longleftrightarrow $pre  $$
+	$cnext $latex \Longleftrightarrow $$ $pre  $$
+	$cnext &#x0F57B; $pre  $$
+	$cnext $latex \mathml{<mo>&#x0F57B;</mo>} $$ $pre  $$
+	$cnext &#x027FA; $pre  $$
+	$cnext $latex \mathml{<mo>&#x027FA;</mo>} $$ $rnext
+\Longrightarrow $pre  $$
+	$cnext $latex \Longrightarrow $$ $pre  $$
+	$cnext &#x0F57A; $pre  $$
+	$cnext $latex \mathml{<mo>&#x0F57A;</mo>} $$ $pre  $$
+	$cnext &#x027F9; $pre  $$
+	$cnext $latex \mathml{<mo>&#x027F9;</mo>} $$ $rnext
+\bigodot $pre  $$
+	$cnext $latex \bigodot $$ $pre  $$
+	$cnext &#x02299; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02299;</mo>} $$ $pre  $$
+	$cnext &#x02A00; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02A00;</mo>} $$ $rnext
+\bigoplus $pre  $$
+	$cnext $latex \bigoplus $$ $pre  $$
+	$cnext &#x02295; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02295;</mo>} $$ $pre  $$
+	$cnext &#x02A01; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02A01;</mo>} $$ $rnext
+\bigotimes $pre  $$
+	$cnext $latex \bigotimes $$ $pre  $$
+	$cnext &#x02297; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02297;</mo>} $$ $pre  $$
+	$cnext &#x02A02; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02A02;</mo>} $$ $rnext
+\biguplus $pre  $$
+	$cnext $latex \biguplus $$ $pre  $$
+	$cnext &#x0228E; $pre  $$
+	$cnext $latex \mathml{<mo>&#x0228E;</mo>} $$ $pre  $$
+	$cnext &#x02A04; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02A04;</mo>} $$ $rnext
+\diamondsuit $pre  $$
+	$cnext $latex \diamondsuit $$ $pre  $$
+	$cnext &#x02666; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02666;</mo>} $$ $pre  $$
+	$cnext &#x02662; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02662;</mo>} $$ $rnext
+\epsilon $pre  $$
+	$cnext $latex \epsilon $$ $pre  $$
+	$cnext &#x003B5; $pre  $$
+	$cnext $latex \mathml{<mo>&#x003B5;</mo>} $$ $pre  $$
+	$cnext &#x02208; $pre  $$
+	$cnext $latex \mathml{<mi mathvariant='normal'>&#x02208;</mi>} $$ $rnext
+\longleftarrow $pre  $$
+	$cnext $latex \longleftarrow $$ $pre  $$
+	$cnext &#x0F576; $pre  $$
+	$cnext $latex \mathml{<mo>&#x0F576;</mo>} $$ $pre  $$
+	$cnext &#x027F5; $pre  $$
+	$cnext $latex \mathml{<mo>&#x027F5;</mo>} $$ $rnext
+\longleftrightarrow $pre  $$
+	$cnext $latex \longleftrightarrow $$ $pre  $$
+	$cnext &#x0F578; $pre  $$
+	$cnext $latex \mathml{<mo>&#x0F578;</mo>} $$ $pre  $$
+	$cnext &#x027F7; $pre  $$
+	$cnext $latex \mathml{<mo>&#x027F7;</mo>} $$ $rnext
+\longmapsto $pre  $$
+	$cnext $latex \longmapsto $$ $pre  $$
+	$cnext &#x0F57D; $pre  $$
+	$cnext $latex \mathml{<mo>&#x0F57D;</mo>} $$ $pre  $$
+	$cnext &#x027FC; $pre  $$
+	$cnext $latex \mathml{<mo>&#x027FC;</mo>} $$ $rnext
+\longrightarrow $pre  $$
+	$cnext $latex \longrightarrow $$ $pre  $$
+	$cnext &#x0F577; $pre  $$
+	$cnext $latex \mathml{<mo>&#x0F577;</mo>} $$ $pre  $$
+	$cnext &#x027F6; $pre  $$
+	$cnext $latex \mathml{<mo>&#x027F6;</mo>} $$ $rnext
+\oslash $pre  $$
+	$cnext $latex \oslash $$ $pre  $$
+	$cnext &#x000F8; $pre  $$
+	$cnext $latex \mathml{<mo>&#x000F8;</mo>} $$ $pre  $$
+	$cnext &#x02298; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02298;</mo>} $$ $rnext
+\phi $pre  $$
+	$cnext $latex \phi $$ $pre  $$
+	$cnext &#x003C6; $pre  $$
+	$cnext $latex \mathml{<mo>&#x003C6;</mo>} $$ $pre  $$
+	$cnext &#x003D5; $pre  $$
+	$cnext $latex \mathml{<mi mathvariant='normal'>&#x003D5;</mi>} $$ $rnext
+\star $pre  $$
+	$cnext $latex \star $$ $pre  $$
+	$cnext &#x022C6; $pre  $$
+	$cnext $latex \mathml{<mo>&#x022C6;</mo>} $$ $pre  $$
+	$cnext &#x02605; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02605;</mo>} $$ $rnext
+\succeq $pre  $$
+	$cnext $latex \succeq $$ $pre  $$
+	$cnext &#x0227D; $pre  $$
+	$cnext $latex \mathml{<mo>&#x0227D;</mo>} $$ $pre  $$
+	$cnext &#x02AB0; $pre  $$
+	$cnext $latex \mathml{<mo>&#x02AB0;</mo>} $$ $rnext
+\triangle $pre  $$
+	$cnext $latex \triangle $$ $pre  $$
+	$cnext &#x025B5; $pre  $$
+	$cnext $latex \mathml{<mo>&#x025B5;</mo>} $$ $pre  $$
+	$cnext &#x025B3; $pre  $$
+	$cnext $latex \mathml{<mo>&#x025B3;</mo>} $$ $rnext
+\triangleleft $pre  $$
+	$cnext $latex \triangleleft $$ $pre  $$
+	$cnext &#x025C3; $pre  $$
+	$cnext $latex \mathml{<mo>&#x025C3;</mo>} $$ $pre  $$
+	$cnext &#x022B2; $pre  $$
+	$cnext $latex \mathml{<mo>&#x022B2;</mo>} $$ $rnext
+\triangleright $pre  $$
+	$cnext $latex \triangleright $$ $pre  $$
+	$cnext &#x025B9; $pre  $$
+	$cnext $latex \mathml{<mo>&#x025B9;</mo>} $$ $pre  $$
+	$cnext &#x022B3; $pre  $$
+	$cnext $latex \mathml{<mo>&#x022B3;</mo>} $$ $rnext
+\varepsilon $pre  $$
+	$cnext $latex \varepsilon $$ $pre  $$
+	$cnext &#x0025B; $pre  $$
+	$cnext $latex \mathml{<mo>&#x0025B;</mo>} $$ $pre  $$
+	$cnext &#x003B5; $pre  $$
+	$cnext $latex \mathml{<mi mathvariant='normal'>&#x003B5;</mi>} $$ $rnext
+\varphi $pre  $$
+	$cnext $latex \varphi $$ $pre  $$
+	$cnext &#x003D5; $pre  $$
+	$cnext $latex \mathml{<mo>&#x003D5;</mo>} $$ $pre  $$
+	$cnext &#x003C6; $pre  $$
+	$cnext $latex \mathml{<mi mathvariant='normal'>&#x003C6;</mi>} $$ $rnext
+$tend $$
+
 
 $head 07-12-13$$
 The $code codei$$ and $code icode$$ commands were added.
