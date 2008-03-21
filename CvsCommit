@@ -5,6 +5,21 @@ change_list="
 	CvsCommit
 "
 delete_list="
+	omh/image/U0222B.png
+	omh/image/U025B5.png
+	omh/image/U025B9.png
+	omh/image/U025C3.png
+	omh/image/U025EF.png
+	omh/image/U025FB.png
+	omh/image/U025FD.png
+	omh/image/U02A3F.png
+	omh/image/U0F576.png
+	omh/image/U0F577.png
+	omh/image/U0F578.png
+	omh/image/U0F579.png
+	omh/image/U0F57A.png
+	omh/image/U0F57B.png
+	omh/image/U0F57D.png
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same
