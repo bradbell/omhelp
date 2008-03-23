@@ -19,6 +19,8 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	bigcap
+	bigcup
 	diamondsuit
 	heartsuit
 	executables
@@ -99,6 +101,12 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 08-03-22$$
+Modify the method where by symbols change size in displayed formulas;
+see $cref/DisplaySym/$$.
+This fixed $code \bigcap$$ and $code \bigcup$$ in displayed formulas.
+
 
 $head 08-03-21$$
 Some of the Latex $cref/symbols/symbol/$$ were using character codes 

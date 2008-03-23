@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2007 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 %{
 
 # include <stdio.h>
@@ -1594,8 +1592,8 @@ sym_display
 		assert( LengthStype(& $1) == 1 );
 
 		if( BlockDisplay )
-			s = "<mo stretchy='false' minsize='2em'>";
-		else	s = "<mo stretchy='false' >";
+			s = "<mo displaystyle='true' largeop='true'>";
+		else	s = "<mo displaystyle='false' largeop='true' >";
 		CharPlusStype(s, & $1);
 		StypePlusChar(& $1, "</mo>\n");
 
