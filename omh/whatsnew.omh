@@ -325,7 +325,7 @@ $$
 Due to a problem with using Cvs with Cygwin, it is not possible
 to change just change the case of a file name.
 For this reason, the examples $code Factorial.c$$ and $code Factorial.m$$
-have been replaced by $cref/near_equal.c/$$ and $cref/near_equal.f/$$.
+have been replaced by $cref/near_equal_c/$$ and $cref/near_equal_f/$$.
 
 $head 07-10-18$$
 The $cref/href/$$ command was improved to detect when the
