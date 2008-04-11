@@ -130,7 +130,7 @@ $bold Name$$
 	$cnext $bold Unicode Command$$ 
 	$cnext $bold W3 File$$ 
 	$cnext $bold W3 Image$$
-	$cnext $bold Result$$
+	$cnext $bold Explorer$$
 	$rnext
 \succeq
 	$cnext $code <mo>&#x02AB0;</mo> $$
