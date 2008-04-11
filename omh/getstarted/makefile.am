@@ -17,26 +17,11 @@
 # ---------------------------------------------------------------------------
 # automake input file
 #
-BUILT_SOURCES = \
-	ok_near_equal_f.f \
-	near_equal_f.f 
-	
-
 noinst_PROGRAMS = run_all
 
 run_all_SOURCES = \
-	ok_near_equal.c \
+	ok_near_equal_c.c \
 	ok_near_equal_f.f \
-	near_equal.c \
+	near_equal_c.c \
 	near_equal_f.f \
 	run_all.c
-	
-#
-# Built sources (used so fortran and C do not have same target object file)
-#
-ok_near_equal_f.f: ok_near_equal.f
-	cp ok_near_equal.f ok_near_equal_f.f
-
-near_equal_f.f: near_equal.f
-	cp near_equal.f near_equal_f.f
-
