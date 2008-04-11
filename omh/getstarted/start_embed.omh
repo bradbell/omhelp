@@ -29,10 +29,10 @@ $spell
 $$
 
 $children%
-	view_near_equal.c.omh%
-	getstarted/near_equal.c%
-	view_near_equal.f.omh%
-	getstarted/near_equal.f%$$
+	view_near_equal_c.omh%
+	getstarted/near_equal_c.c%
+	view_near_equal_f.omh%
+	getstarted/near_equal_f.f%$$
 
 $section Embedding OMhelp Commands in Source Code$$
 $index source code, embed in$$
@@ -55,27 +55,27 @@ $index C++, omhelp example$$
 $index Java, omhelp example$$
 $index Python, omhelp example$$
 
-$subhead near_equal.c$$
+$subhead near_equal_c.c$$
 Use an editor of your choice to
-create the file $code near_equal.c$$ 
+create the file $code near_equal_c.c$$ 
 in the 
 $xref/
 	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 the contents of which can be seen by selecting 
-$cref/view_near_equal.c/$$.
+$cref/view_near_equal_c/$$.
 Note that you can copy and paste the contents of
-$code near_equal.c$$ to your editor window.
-You may just copy the file $code near_equal.c$$ from the 
+$code near_equal_c.c$$ to your editor window.
+You may just copy the file $code near_equal_c.c$$ from the 
 $xref/get_started/Getting Started Directory/getting started directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code near_equal.c$$
+result of making $code near_equal_c.c$$
 part of the OMhelp help web site 
 by selecting 
-$xref/near_equal.c/$$.
+$xref/near_equal_c/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
@@ -86,13 +86,13 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../near_equal.c -noframe
+	omhelp ../near_equal_c.c -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/near_equal.c.htm%$$.
+$syntax%%test%/htm/near_equal_c.htm%$$.
 
 
 $head A Language with only One Line Comments$$
@@ -104,27 +104,27 @@ $index Matlab, omhelp example$$
 $index Fortran, omhelp example$$
 $index R, omhelp example$$
 
-$subhead near_equal.f$$
+$subhead near_equal_f.f$$
 Use an editor of your choice to
-create the file $code near_equal.f$$ 
+create the file $code near_equal_f.f$$ 
 in the 
 $xref/
 	start_simple/
 	Execute The Following Steps.Test Directory/
 	test directory/$$
 the contents of which can be seen by selecting 
-$cref/view_near_equal.f/$$.
+$cref/view_near_equal_f/$$.
 Note that you can copy and paste the contents of
-$code near_equal.f$$ to your editor window.
-You may just copy the file $code near_equal.f$$ from the 
+$code near_equal_f.f$$ to your editor window.
+You may just copy the file $code near_equal_f.f$$ from the 
 $xref/get_started/Getting Started Directory/getting started directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code near_equal.f$$
+result of making $code near_equal_f.f$$
 part of the OMhelp help web site 
 by selecting 
-$xref/near_equal.f/$$.
+$xref/near_equal_f/$$.
 
 $subhead Execute OMhelp$$
 In a command window and 
@@ -135,12 +135,12 @@ $xref/
 	htm directory/$$
 execute the following command
 $codep
-	omhelp ../near_equal.f -noframe
+	omhelp ../near_equal_f.f -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/near_equal.f.htm%$$.
+$syntax%%test%/htm/near_equal_f.htm%$$.
 
 $end

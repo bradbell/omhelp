@@ -17,14 +17,14 @@ c Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 c ---------------------------------------------------------------------------
 c END COPYRIGHT
 c
-c $begin near_equal.f$$ $newlinech c$$
+c $begin near_equal_f$$ $newlinech c$$
 c $spell
 c $$
 c 
 c $section Determine if Two Values Are Nearly Equal$$
 c 
 c $head Syntax$$
-c $syntax%%e% = near_equal(%x%, %y%, %r%, %a%)%$$
+c $syntax%%e% = near_equal_f(%x%, %y%, %r%, %a%)%$$
 c 
 c $head Purpose$$
 c Returns true, 
@@ -76,21 +76,21 @@ c Otherwise, it is false.
 c 
 c 
 c $head Example$$
-c The following is an example and test of $code near_equal$$.
+c The following is an example and test of $code near_equal_f$$.
 c It returns true if the test succeeds and false if it fails.
 c
 c $comment no indent, start output at text following END COPYRIGHT$$
 c $code
-c $verbatim%ok_near_equal.f%0%END COPYRIGHT%$$
+c $verbatim%ok_near_equal_f.f%0%END COPYRIGHT%$$
 c $$
 c
 c $end
 c ---------------------------------------------------------------------------
-      logical function near_equal(x, y, r, a)
+      logical function near_equal_f(x, y, r, a)
       double precision x, y, r, a
       double precision ax, ay, d
       ax = dabs(x);
       ay = dabs(y);
       ad = dabs(x - y);
-      near_equal = (ad .le. a) .or. (ad .le. r * (ax + ay));
+      near_equal_f = (ad .le. a) .or. (ad .le. r * (ax + ay));
       end

@@ -17,7 +17,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ---------------------------------------------------------------------------
 END COPYRIGHT
 
-$begin near_equal.c$$
+$begin near_equal_c$$
 $spell
 	OMhelp
 	ifdef
@@ -29,7 +29,7 @@ $$
 $section Determine if Two Values Are Nearly Equal$$
 
 $head Syntax$$
-$syntax%%e% = near_equal(%x%, %y%, %r%, %a%)%$$
+$syntax%%e% = near_equal_c(%x%, %y%, %r%, %a%)%$$
 
 $head Purpose$$
 Returns true, 
@@ -81,12 +81,12 @@ Otherwise, it is zero.
 
 
 $head Example$$
-The following is an example and test of $code near_equal$$,
+The following is an example and test of $code near_equal_c$$,
 it returns true if the test succeeds and false if it fails:
 
 $comment no indent, start output at text following END COPYRIGHT$$
 $code
-$verbatim%ok_near_equal.c%0%END COPYRIGHT%$$
+$verbatim%ok_near_equal_c.c%0%END COPYRIGHT%$$
 $$
 
 
@@ -95,7 +95,7 @@ $end
 */
 # include <math.h>
 
-int near_equal(double x, double y, double r, double a)
+int near_equal_c(double x, double y, double r, double a)
 {	double ax = fabs(x);
 	double ay = fabs(y);
 	double ad = fabs(x - y);

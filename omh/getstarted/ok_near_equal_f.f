@@ -17,17 +17,17 @@ c Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 c ---------------------------------------------------------------------------
 c END COPYRIGHT
 c Use integer for return value so that this function is callable by C
-      integer function ok_near_equal()
+      integer function ok_near_equal_f()
       double precision x, y, r, a
-      logical near_equal
-      external near_equal
+      logical near_equal_f
+      external near_equal_f
       x = 1.1
       y = 1.2
       r = .1
       a = 0.
-      if( near_equal(x, y, r, a) ) then
-            ok_near_equal = 1
+      if( near_equal_f(x, y, r, a) ) then
+            ok_near_equal_f = 1
       else
-            ok_near_equal = 0
+            ok_near_equal_f = 0
       endif
       end

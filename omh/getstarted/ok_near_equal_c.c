@@ -17,15 +17,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 // END COPYRIGHT
 // This extern statement should be in an include file so that it can be
-// included and checked by near_equal.c.
-extern int near_equal(double x, double y, double r, double a);
+// included and checked by near_equal_c.c.
+extern int near_equal_c(double x, double y, double r, double a);
 
-int ok_near_equal()
+int ok_near_equal_c()
 {	double x = 1.1;
 	double y = 1.2;
 	double r = .1;
 	double a = 0.;
- 	if( near_equal(x, y, r, a) )
+ 	if( near_equal_c(x, y, r, a) )
 		return 1; // expected return value (true)
 	else	return 0; // error return value (false)
 }

@@ -15,17 +15,17 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-extern int ok_near_equal(void);   // C version
-extern int ok_near_equal_(void);  // Fortran version
+extern int ok_near_equal_c(void);    // C version
+extern int ok_near_equal_f__(void);  // Fortran version
 int main()
 {	int not_ok = 0;
-	if( ok_near_equal() )
+	if( ok_near_equal_c() )
 		printf("ok: C version of near_equal\n");
 	else
 	{	not_ok = 1;
 		printf("error: C version of near_equal\n");
 	}
-	if( ok_near_equal__() )
+	if( ok_near_equal_f__() )
 		printf("ok: Fortran version of near_equal\n");
 	else
 	{	not_ok = 1;

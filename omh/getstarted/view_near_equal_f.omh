@@ -16,13 +16,13 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
-$begin view_near_equal.f$$
+$begin view_near_equal_f$$
 
-$section Contents of the File near_equal.f$$
+$section Contents of the File near_equal_f.f$$
 
 $comment no indent, start output at text following END COPYRIGHT$$
 $code
-$verbatim%near_equal.f%0%END COPYRIGHT%$$
+$verbatim%near_equal_f.f%0%END COPYRIGHT%$$
 $$
 
 $end

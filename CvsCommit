@@ -1,15 +1,32 @@
-# whatsnew.omh: bring up to date with current version.
-# firefox.omh: change entry for variable sized symbols.
-# latex.y: different method for changing symbol sizes.
+# Change near_equal.[cf] to near_equal_[cf].[cf]
+#
+# makefile.am: no longer need built sources.
+# run_all.c: replace near_equal by near_equal[cf].
+# start_embed.omh: change near_equal.[cf] to near_equal_[cf].[cf]
+# view_near_equal.[cf].omh: move to view_near_equal_[cf].omh
+# near_equal.[cf]: move to near_equal_[cf].[cf]
+# ok_near_equal.[cf]: move to ok_near_equal_[cf].[cf]
 add_list="
+	omh/getstarted/near_equal_c.c
+	omh/getstarted/near_equal_f.f
+	omh/getstarted/ok_near_equal_c.c
+	omh/getstarted/ok_near_equal_f.f
+	omh/getstarted/view_near_equal_c.omh
+	omh/getstarted/view_near_equal_f.omh
 "
 change_list="
 	CvsCommit
-	omh/firefox.omh
-	omh/whatsnew.omh
-	src/latex.y
+	makefile.am
+	omh/getstarted/run_all.c
+	omh/getstarted/start_embed.omh
 "
 delete_list="
+	omh/getstarted/near_equal.c
+	omh/getstarted/near_equal.f
+	omh/getstarted/ok_near_equal.c
+	omh/getstarted/ok_near_equal.f
+	omh/getstarted/view_near_equal.c.omh
+	omh/getstarted/view_near_equal.f.omh
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same
