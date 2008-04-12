@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -33,6 +33,8 @@ SUBDIRS                = src omh/getstarted
 #
 noinst_DATA            = OMhelp.Dev.log OMhelp.Doc.log
 #
+# dictonary.bin gets removed and then rebuilt on target machine; see dist-hook.
+# It is only included here so that it gets installed.
 nobase_dist_data_DATA = \
 	OMhelp/omhelp.vim \
 	OMhelp/_close.gif \
@@ -62,9 +64,13 @@ EXTRA_DIST = \
 	src/omh \
 	src/omhelp.y \
 	src/src.sln \
-	src/src.vcproj 
+	src/src.vcproj \
+	wish_list.omh
 #
-OMhelp/dictionary.bin OMhelp.Dev.log:
+OMhelp/dictionary.bin:
+	src/omhelp ./wish_list.omh -noframe -omhelp_dir OMhelp
+#
+OMhelp.Dev.log:
 	./RunOMhelp Dev
 #
 OMhelp.Doc.log: OMhelp.Dev.log
@@ -72,8 +78,8 @@ OMhelp.Doc.log: OMhelp.Dev.log
 # 
 # Make sure that unix install rebuilds main.c from main.src.
 # Remove all the CVS informaiton.
-# Remove the dictionary.bin (does in data directory but is machine dependent).
 # Remove all object and binary files from omh/getstarted 
+# Remove the dictionary.bin and then rebuild it on target machine.
 dist-hook:
 	touch $(distdir)/src/main.src
 	rm -rf `find $(distdir)/omh -name CVS`

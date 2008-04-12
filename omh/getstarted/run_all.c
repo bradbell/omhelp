@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -15,8 +15,16 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-extern int ok_near_equal_c(void);    // C version
-extern int ok_near_equal_f__(void);  // Fortran version
+
+# include <stdio.h>
+# include <stdlib.h>
+
+# include "../../src/config.h"
+
+# define OK_NEAR_EQUAL_F F77_FUNC_(ok_near_equal_f, OK_NEAR_EQUAL_F)
+
+extern int ok_near_equal_c(void);  // C version
+extern int OK_NEAR_EQUAL_F(void);  // Fortran version
 int main()
 {	int not_ok = 0;
 	if( ok_near_equal_c() )
@@ -25,7 +33,7 @@ int main()
 	{	not_ok = 1;
 		printf("error: C version of near_equal\n");
 	}
-	if( ok_near_equal_f__() )
+	if( OK_NEAR_EQUAL_F() )
 		printf("ok: Fortran version of near_equal\n");
 	else
 	{	not_ok = 1;

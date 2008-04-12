@@ -1,6 +1,6 @@
 # ! /bin/bash
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -47,6 +47,11 @@ then
 fi
 if [ "$1" = Doc ]
 then
+	if [ ! -e OMhelp.Dev.log ]
+	then
+		echo "Must run \"./RunOMhelp Dev\" before \"./RunOMhelp Doc\""
+		exit 1
+	fi
 	echo "Building user documentation"
 	if [ -e Doc ]
 	then

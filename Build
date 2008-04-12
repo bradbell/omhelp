@@ -1,6 +1,6 @@
 #!/bin/bash
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -254,8 +254,7 @@ then
 			omhelp-$AcDate/$dir/*.omh \
 			omhelp-$AcDate/$dir/*.dat \
 			omhelp-$AcDate/$dir/*.m \
-			omhelp-$AcDate/$dir/*.c \
-			omhelp-$AcDate/$dir/RunAll
+			omhelp-$AcDate/$dir/*.c
 		do
 			unix2dos $file
 		done
@@ -306,16 +305,6 @@ then
 	cd omhelp-$AcDate
 	./Build configure
 	make
-	if ! ./RunOMhelp Doc
-	then
-		echo "user doc problem; see omhelp-$AcDate/OMhelp.Doc.log"
-		exit 1
-	fi
-	if ! ./RunOMhelp Dev
-	then
-		echo "dev doc problem; see omhelp-$AcDate/OMhelp.Dev.log"
-		exit 1
-	fi
 	cd omh/getstarted
 	if ! ./run_all.sh batch
 	then

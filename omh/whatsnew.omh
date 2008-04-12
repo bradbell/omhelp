@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -108,6 +108,14 @@ $code near_equal.c$$ and $code near_equal.f$$
 to $cref/near_equal_c/$$ and $cref/near_equal_f/$$.
 This makes it simpler to avoid conflicts between
 the C and Fortran versions of these files.
+$pre
+
+$$
+The test of $cref/near_equal_f/$$ was failing to link properly
+to the corresponding C main program.
+This has been fixed by 
+adding configuration testing that checks how Fortran names
+should be linked from C. 
 
 
 $head 08-03-22$$

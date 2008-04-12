@@ -1,0 +1,15 @@
+$begin wish_list$$
+$spell
+	CppAD
+	OMhelp
+$$
+
+$section OMhelp Wish List$$
+
+$list number$$
+Use the $code C_FLAGS$$ configure variable in the same way
+that the $code CXX_FLAGS$$ variable is used by CppAD.
+This will allow compiler flags to adapt to the particular compiler.
+$lend
+
+$end

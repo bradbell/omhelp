@@ -1,32 +1,33 @@
-# Change near_equal.[cf] to near_equal_[cf].[cf]
+# Fix some problems in OMhelp distribution.
+# 
+# Build: fix mistake in error message and remove reference to RunAll.
+# CvsCommit: script that did commit.
+# CvsCommit.sed: change copyright year to 2008.
+# Makefile.am: simplify and add comments.
+# RunOMhelp: check that OMhelp.Dev.log exists before build user doc.
+# configure.ac: add commands to check C to F77 calling interface.
+# whatsnew.omh: user's view of the changes.
+# makefile.am: add -g and -Wall to compliation flags.
+# run_all.c: use configure macros for linking F77 to C.
+# run_all.sh: adapt to change in name of near_equal omhelp sections.
+# wish_list.omh: wish list and used to build OMhelp/dictionary.bin.
 #
-# makefile.am: no longer need built sources.
-# run_all.c: replace near_equal by near_equal[cf].
-# start_embed.omh: change near_equal.[cf] to near_equal_[cf].[cf]
-# view_near_equal.[cf].omh: move to view_near_equal_[cf].omh
-# near_equal.[cf]: move to near_equal_[cf].[cf]
-# ok_near_equal.[cf]: move to ok_near_equal_[cf].[cf]
 add_list="
-	omh/getstarted/near_equal_c.c
-	omh/getstarted/near_equal_f.f
-	omh/getstarted/ok_near_equal_c.c
-	omh/getstarted/ok_near_equal_f.f
-	omh/getstarted/view_near_equal_c.omh
-	omh/getstarted/view_near_equal_f.omh
+	wish_list.omh
 "
 change_list="
+	Build
 	CvsCommit
-	makefile.am
+	CvsCommit.sed
+	Makefile.am
+	RunOMhelp
+	configure.ac
+	omh/whatsnew.omh
+	omh/getstarted/makefile.am
 	omh/getstarted/run_all.c
-	omh/getstarted/start_embed.omh
+	omh/getstarted/run_all.sh
 "
 delete_list="
-	omh/getstarted/near_equal.c
-	omh/getstarted/near_equal.f
-	omh/getstarted/ok_near_equal.c
-	omh/getstarted/ok_near_equal.f
-	omh/getstarted/view_near_equal.c.omh
-	omh/getstarted/view_near_equal.f.omh
 "
 #----------------------------------------------------------------------
 # Edit section above for individual cases, section below stays the same
