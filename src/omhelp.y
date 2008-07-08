@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -2028,11 +2028,10 @@ codep
 
 		OutputString("<code><font color=\"");
 		OutputString(CodeColor);
-		OutputString("\">");
-		OutputString("\n");
-		output_text($2.line,$2.str,1,'\0',CheckSpell,ErrorColor);
-		OutputString("\n");
-		OutputString("</font></code>\n");
+		OutputString("\"><pre style=\"display:inline ");
+		OutputString(" white-space:nowrap\">"); 
+		output_text($2.line,$2.str,0,'\0',CheckSpell,ErrorColor);
+		OutputString("</pre></font></code>\n");
 		
 		FreeMem($2.str);
 
@@ -4703,7 +4702,7 @@ verbatim
 
 		// a standard compliant way to inhibit line breaks at 
 		// '-' in MS Internet Explorer (should not be necessary)
-		OutputString("<span style='white-space: nowrap'>");
+		OutputString("<pre style='display:inline white-space:nowrap'>");
 
 		match = 0;
 		while(ch != '\001' )
@@ -4717,13 +4716,13 @@ verbatim
 				if( ! isspace(ch) && ! (ch == '\001') )
 				{	previous = ch;
 					for(i = 0; i < nspace; i++)
-						ConvertOutputCh(' ', 1);
+						ConvertOutputCh(' ', 0);
 				}
 			}
 			else	previous = ch;
 
 			if( (ch != '\001') & (ch != '\0') )
-				ConvertOutputCh(ch, 1);
+				ConvertOutputCh(ch, 0);
 
 			// check for stopping point after outputing ch
 			if( match )
@@ -4734,7 +4733,7 @@ verbatim
 		}
 
 		// stop preformatted output
-		OutputString("</span>");
+		OutputString("</pre>");
 
 		
 		if( ntoken < 3  )

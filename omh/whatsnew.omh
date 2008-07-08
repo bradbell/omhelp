@@ -102,7 +102,14 @@ $tend
 
 $$
 
-$head 08=04-11$$
+$head 08-07-08$$
+There is a problem with Firefox's 
+$cref/copy and paste/Firefox/Copy and Paste/$$ which results
+in extra new lines.
+The $cref/codep/$$ and $cref/verbatim/$$ 
+command outputs have been changed so that these commands are not affected.
+
+$head 08-04-11$$
 Change getting started examples
 $code near_equal.c$$ and $code near_equal.f$$
 to $cref/near_equal_c/$$ and $cref/near_equal_f/$$.

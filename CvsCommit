@@ -1,31 +1,15 @@
-# Fix some problems in OMhelp distribution.
+# Change $codep and $verbatim commands so not affected by Firefox bug
 # 
-# Build: fix mistake in error message and remove reference to RunAll.
 # CvsCommit: script that did commit.
-# CvsCommit.sed: change copyright year to 2008.
-# Makefile.am: simplify and add comments.
-# RunOMhelp: check that OMhelp.Dev.log exists before build user doc.
-# configure.ac: add commands to check C to F77 calling interface.
 # whatsnew.omh: user's view of the changes.
-# makefile.am: add -g and -Wall to compliation flags.
-# run_all.c: use configure macros for linking F77 to C.
-# run_all.sh: adapt to change in name of near_equal omhelp sections.
-# wish_list.omh: wish list and used to build OMhelp/dictionary.bin.
+# omhelp.y: change code and verbatim to use <pre> with inline display.
 #
 add_list="
-	wish_list.omh
 "
 change_list="
-	Build
 	CvsCommit
-	CvsCommit.sed
-	Makefile.am
-	RunOMhelp
-	configure.ac
 	omh/whatsnew.omh
-	omh/getstarted/makefile.am
-	omh/getstarted/run_all.c
-	omh/getstarted/run_all.sh
+	src/omhelp.y
 "
 delete_list="
 "
