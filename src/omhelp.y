@@ -2026,10 +2026,9 @@ codep
 			FreeMem(text);
 		}
 
-		OutputString("<code><font color=\"");
+		OutputString("<code><font color='");
 		OutputString(CodeColor);
-		OutputString("\"><pre style=\"display:inline ");
-		OutputString(" white-space:nowrap\">"); 
+		OutputString("'><pre style='display:inline'>");
 		output_text($2.line,$2.str,0,'\0',CheckSpell,ErrorColor);
 		OutputString("</pre></font></code>\n");
 		
@@ -4702,7 +4701,7 @@ verbatim
 
 		// a standard compliant way to inhibit line breaks at 
 		// '-' in MS Internet Explorer (should not be necessary)
-		OutputString("<pre style='display:inline white-space:nowrap'>");
+		OutputString("<pre style='display:inline'>");
 
 		match = 0;
 		while(ch != '\001' )

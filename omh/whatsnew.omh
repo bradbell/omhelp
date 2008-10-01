@@ -102,6 +102,12 @@ $tend
 
 $$
 
+$head 08-10-01$$
+The $cref/codep/$$ and $cref/verbatim/$$ commands
+were generating extra new lines at the beginning and end of the
+corresponding text (after the fix on 08-07-08).
+This has been fixed.
+
 $head 08-07-08$$
 There is a problem with Firefox's 
 $cref/copy and paste/Firefox/Copy and Paste/$$ which results

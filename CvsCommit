@@ -1,8 +1,8 @@
-# Change $codep and $verbatim commands so not affected by Firefox bug
+# Change $codep and $verbatim remove extra line feeds at beginning and end.
 # 
 # CvsCommit: script that did commit.
 # whatsnew.omh: user's view of the changes.
-# omhelp.y: change code and verbatim to use <pre> with inline display.
+# omhelp.y: do not need white-space:nowarp inside of <pre>
 #
 add_list="
 "
