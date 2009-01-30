@@ -135,6 +135,9 @@ $end
 
 # include "TexStype.h"
 # define YYSTYPE  TexStype
+# ifdef WIN32
+# define YY_NO_UNISTD_H
+# endif
 
 // maximum input token buffer sizes
 # define MAX_TOKEN_LENGTH 100
