@@ -21,6 +21,8 @@ $path%..\image%.png%$$
 $dollar !$$
 $escape #$$
 $spell
+	newline
+	Inline
 	coprod
 	largeop
 	displaystyle
@@ -75,9 +77,9 @@ $index firefox, bug$$
 $index browser, firefox$$
 $index error, firefox$$
 
-$comment The bug in backbutton.omh has been fixed$$
+$comment no longer a problem, but referened by whatsnew$$
 $children%
-	latex/NegativeSpace.omh
+        latex/NegativeSpace.omh
 %$$
 
 $head Format$$
@@ -95,6 +97,26 @@ appears to have problems displaying MathML commands.
 If you have any feed back,
 please send e-mail to:
 $href%mailto:bradbell@seanet.com%bradbell@seanet.com%$$.
+
+$head Display Inline$$
+The file $execute dispaly_inline.htm$$
+contains the HTML commands below.
+Firefox does not display the new line before 
+$code x = 5$$ 
+(it will display the newline if you add a space directly after the 
+$code <pre style='display:inline'>$$).
+$nospell
+$codep
+<html>
+	<head></head>
+	<body>
+		Before <pre style='display:inline'>
+			x = 5
+		</pre> After.
+	</body>
+</html>
+$$
+$$
 
 $head mathvariant$$
 The $code mathvariant='script'$$ option does not work properly in Firefox.
@@ -221,33 +243,6 @@ $codep
 $$
 $$
 
-$head Negative Space$$
-$index bug, firefox negative space$$
-$index firefox, negative space bug$$
-$index negative space, firefox bug$$
-A positive space display is demonstrated by 
-the following input
-$codep
-	<mi>=</mi><mspace width="1em"/><mi>/</mi>
-$$
-which generates the output
-$latex \[ \mathml{
-	<mi>=</mi><mspace width="1em"/><mi>/</mi>
-} \] $$
-The negative spaces do not display as expected 
-as demonstrated by the following input
-$codep
-	<mi>=</mi><mspace width="-1em"/><mi>/</mi>
-$$
-which generates the output
-$latex \[ \mathml{
-	<mi>=</mi><mspace width="-1em"/><mi>/</mi>
-} \] $$
-A formal bug report for this is given in the section
-$center
-$tref NegativeSpace$$
-$$
-
 $head Operator Sizes$$
 $index bug, firefox operator size$$
 $index firefox, operator size bug$$
@@ -274,27 +269,6 @@ $latex \[ \mathml{
 	<mo displaystyle="true" largeop="true">&#x022C1;</mo> 
 } \]$$
 
-$head UnderBar $$
-$index bug, firefox underbar$$
-$index firefox, underbar bug$$
-$index underbar, firefox bug$$
-The UnderBar (x00332) 
-does not display at all in the context below.
-Note that the underbar should stretch to fit what it is under.
-The input
-$codep
-	<munder>
-		<mrow> <mi>a</mi><mo>+</mo><mi>b</mi> </mrow>
-		<mo> &#x00332; </mo>
-	</munder>
-$$
-results in the following output
-$latex \[ \mathml{
-	<munder>
-		<mrow> <mi>a</mi><mo>+</mo><mi>b</mi> </mrow>
-		<mo> &#x00332; </mo>
-	</munder>
-} \] $$
 
 $head Symbols$$
 $index bug, firefox symbol$$
@@ -308,90 +282,6 @@ $bold Latex $$
 	$cnext $bold W3 File$$ 
 	$cnext $bold W3 Image$$
 	$cnext $bold Firefox$$
-	$rnext
-\triangleleft
-	$cnext $code <mo>&#x022B2;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/022.html%022.html%$$
-	$cnext $icon U022B2.png$$
-	$cnext $latex \mathml{<mo>&#x022B2;</mo>} $$
-	$rnext
-\triangleright
-	$cnext $code <mo>&#x022B3;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/022.html%022.html%$$
-	$cnext $icon U022B3.png$$
-	$cnext $latex \mathml{<mo>&#x022B3;</mo>} $$
-	$rnext
-\preceq
-	$cnext $code <mo>&#x02AAF;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/02A.html%02A.html%$$
-	$cnext $icon U02AAF.png$$
-	$cnext $latex \mathml{<mo>&#x02AAF;</mo>} $$
-	$rnext
-\succeq
-	$cnext $code <mo>&#x02AB0;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/02A.html%02A.html%$$
-	$cnext $icon U02AB0.png$$
-	$cnext $latex \mathml{<mo>&#x02AB0;</mo>} $$
-	$rnext
-\longleftarrow
-	$cnext $code <mo>&#x027F5;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/027.html%027.html%$$
-	$cnext $icon U027F5.png$$
-	$cnext $latex \mathml{<mo>&#x027F5;</mo>} $$
-	$rnext
-\Longleftarrow
-	$cnext $code <mo>&#x027F8;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/027.html%027.html%$$
-	$cnext $icon U027F8.png$$
-	$cnext $latex \mathml{<mo>&#x027F8;</mo>} $$
-	$rnext
-\longrightarrow
-	$cnext $code <mo>&#x027F6;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/027.html%027.html%$$
-	$cnext $icon U027F6.png$$
-	$cnext $latex \mathml{<mo>&#x027F6;</mo>} $$
-	$rnext
-\Longrightarrow
-	$cnext $code <mo>&#x027F9;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/027.html%027.html%$$
-	$cnext $icon U027F9.png$$
-	$cnext $latex \mathml{<mo>&#x027F9;</mo>} $$
-	$rnext
-\longleftrightarrow
-	$cnext $code <mo>&#x027F7;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/027.html%027.html%$$
-	$cnext $icon U027F7.png$$
-	$cnext $latex \mathml{<mo>&#x027F7;</mo>} $$
-	$rnext
-\Longleftrightarrow
-	$cnext $code <mo>&#x027FA;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/027.html%027.html%$$
-	$cnext $icon U027FA.png$$
-	$cnext $latex \mathml{<mo>&#x027FA;</mo>} $$
-	$rnext
-\longmapsto
-	$cnext $code <mo>&#x027FC;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/027.html%027.html%$$
-	$cnext $icon U027FC.png$$
-	$cnext $latex \mathml{<mo>&#x027FC;</mo>} $$
-	$rnext
-\bigodot
-	$cnext $code <mo>&#x02A00;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/02A.html%02A.html%$$
-	$cnext $icon U02A00.png$$
-	$cnext $latex \mathml{<mo>&#x02A00;</mo>} $$
-	$rnext
-\bigotimes
-	$cnext $code <mo>&#x02A02;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/02A.html%02A.html%$$
-	$cnext $icon U02A02.png$$
-	$cnext $latex \mathml{<mo>&#x02A02;</mo>} $$
-	$rnext
-\bigoplus
-	$cnext $code <mo>&#x02A01;</mo> $$
-	$cnext $href%http://w3.org/TR/MathMl2/02A.html%02A.html%$$
-	$cnext $icon U02A01.png$$
-	$cnext $latex \mathml{<mo>&#x02A01;</mo>} $$
 	$rnext
 \biguplus
 	$cnext $code <mo>&#x02A04;</mo> $$

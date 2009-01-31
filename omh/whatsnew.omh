@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	underbar
 	bigcap
 	bigcup
 	diamondsuit
@@ -101,6 +102,18 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 09-01-28$$
+Firefox version 3 fixed the $cref/NegativeSpace/$$ problem so it
+has been removed from the $cref/Firefox Bug List/Firefox/$$.
+It also fixed the underbar problem and
+a lot of the improperly displayed symbols, so they were 
+also removed from the bug list.
+$pre
+
+$$
+A $cref/display inline/Firefox/Display Inline/$$ 
+item has been added to the Firefox bug list.
 
 $head 08-10-01$$
 The $cref/codep/$$ and $cref/verbatim/$$ commands
