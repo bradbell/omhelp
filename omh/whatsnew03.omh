@@ -601,10 +601,11 @@ $head 02-18$$
 The display of the 
 Mozilla
 in the Mozilla browser seems to be broken
-(this is now reported in $xref/Firefox/UnderBar/Firefox under bar/$$).
+(this is now reported in $code Firefox under bar$$).
 The over bar (instead of the under parenthesis)
 is now used in its place.
 This makes the display in MS Internet Explorer better.
+(This problem has since been fixed.)
 $pre
 
 $$

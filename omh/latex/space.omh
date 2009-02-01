@@ -59,10 +59,9 @@ $xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
 Latex spacing commands.
 
 $head Warning$$
-The case where $italic unit$$ is 
-$xref/Firefox/Negative Space/negative/$$ 
-does not display properly in the Firefox browser
-(this should be fixed in the next release of Firefox).
+The case where $italic unit$$ is negative
+does not display properly in the Firefox browser.
+(This was fixed in version 3 of Firefox.)
 
 $head Space$$
 The following table demonstrates

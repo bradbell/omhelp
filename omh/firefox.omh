@@ -98,26 +98,6 @@ If you have any feed back,
 please send e-mail to:
 $href%mailto:bradbell@seanet.com%bradbell@seanet.com%$$.
 
-$head Display Inline$$
-The file $execute dispaly_inline.htm$$
-contains the HTML commands below.
-Firefox does not display the new line before 
-$code x = 5$$ 
-(it will display the newline if you add a space directly after the 
-$code <pre style='display:inline'>$$).
-$nospell
-$codep
-<html>
-	<head></head>
-	<body>
-		Before <pre style='display:inline'>
-			x = 5
-		</pre> After.
-	</body>
-</html>
-$$
-$$
-
 $head mathvariant$$
 The $code mathvariant='script'$$ option does not work properly in Firefox.
 To see this select the following link to a $code www.w3.org$$ test case:

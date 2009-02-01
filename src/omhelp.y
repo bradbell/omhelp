@@ -2028,7 +2028,9 @@ codep
 
 		OutputString("<code><font color='");
 		OutputString(CodeColor);
-		OutputString("'><pre style='display:inline'>");
+		// need space after > so first newline is not ignored; see
+		// https://bugzilla.mozilla.org/show_bug.cgi?id=476324
+		OutputString("'><pre style='display:inline'> ");
 		output_text($2.line,$2.str,0,'\0',CheckSpell,ErrorColor);
 		OutputString("</pre></font></code>\n");
 		
@@ -4702,6 +4704,10 @@ verbatim
 		// a standard compliant way to inhibit line breaks at 
 		// '-' in MS Internet Explorer (should not be necessary)
 		OutputString("<pre style='display:inline'>");
+		// if first character is a newline, add space before. See
+		// https://bugzilla.mozilla.org/show_bug.cgi?id=476324
+		if( ch == '\n' )
+			OutputString(" ");
 
 		match = 0;
 		while(ch != '\001' )
