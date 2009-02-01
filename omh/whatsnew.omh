@@ -103,6 +103,12 @@ $tend
 
 $$
 
+$head 09-02-01$$
+The $cref/default/navigate/Default/$$ navigation headings were
+changed so that $code Prev$$ and $code Next$$ come first.
+This makes it easier for the user to repeatedly select this items
+(because their position does not change from page to page).
+
 $head 09-01-31$$
 Sometimes the first newline in a $cref/codep/$$ or $cref/verbatim/$$
 command was not included in the output.

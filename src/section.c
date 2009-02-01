@@ -509,10 +509,10 @@ static NavigateInfo NavigateType = {
 static NavigateInfo Default = {
 	10,
 	{
-		{ ACROSS_nav,    "Index"     },
-		{ UP_nav,        "Up"        },
 		{ PREV_nav,      "Prev"      },
 		{ NEXT_nav,      "Next"      },
+		{ ACROSS_nav,    "Index"     },
+		{ UP_nav,        "Up"        },
 		{ DOWN_UP_4_nav, "_up_4"     },
 		{ DOWN_UP_3_nav, "_up_3"     },
 		{ DOWN_UP_2_nav, "_up_2"     },

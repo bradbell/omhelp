@@ -109,6 +109,20 @@ the $cref/cross reference tag/glossary/Cross Reference Tag/$$
 for the section $italic i$$ levels up from the current section
 is used for the label.
 
+$head Prev and Next$$
+$index Prev, navigate$$
+$index navigate, Prev$$
+$index Next, navigate$$
+$index navigate, Next$$
+Note that the size of the label corresponding to $syntax%_up_%i%$$
+will change from section to section. 
+Hence the position of subsequent labels in the navigation command will change.
+Because the user will often repeatedly select $code Prev$$ or $code Next$$,
+it is desirable to have their positions the same for all sections.
+This requires placing them before any labels that will change
+size between sections.
+
+
 $head No Such Section$$
 If $syntax%Down_up_%i%$$ is the specified type,
 and there is no section $italic i$$ levels up,
@@ -121,10 +135,10 @@ $head Default$$
 The default value for the navigation command is
 $codep
 	@navigate%
-		Across%Index%
-		Up%Up%
 		Prev%Prev%
 		Next%Next%
+		Across%Index%
+		Up%Up%
 		Down_up_4%_up_4%
 		Down_up_3%_up_3%
 		Down_up_2%_up_2%
