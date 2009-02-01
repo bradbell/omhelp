@@ -4708,6 +4708,9 @@ verbatim
 		// https://bugzilla.mozilla.org/show_bug.cgi?id=476324
 		if( ch == '\n' )
 			OutputString(" ");
+		// Add to column count in ConvertOuputCh so that Column > 0
+		// and hence initial white space will be printed
+		ConvertAddColumn(1);
 
 		match = 0;
 		while(ch != '\001' )
