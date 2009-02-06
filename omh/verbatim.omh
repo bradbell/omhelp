@@ -18,6 +18,8 @@
 #
 $begin verbatim$$
 $spell 
+	hilitecmd
+	hilitetok
 	OMhelp
 	codep
 	omh
@@ -112,6 +114,18 @@ $code
 $verbatim!copyright.omh!$$
 $$
 
+$head Highlighting$$
+The $cref/hilite/$$ command can be used to highlight text in the output
+created by the $code verbatim$$ command.  For example,
+$codep
+	@hilitecmd%verbatim%@@
+	@hilitetok%OMhelp%%@@
+	@verbatim!copyright.omh!@@
+$$
+creates the following output
+$hilitecmd%verbatim%$$
+$hilitetok%OMhelp%%$$
+$verbatim!copyright.omh!$$
 
 $head Indent$$
 If $italic indent$$ is present,

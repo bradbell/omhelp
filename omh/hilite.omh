@@ -62,9 +62,9 @@ $head hilitecmd$$
 The values $icode command_1$$, ... , $icode command_m$$,
 specify the commands (with out the $code @$$ character)
 for which this automatic highlighting and cross referencing is to be done.
-Currently, the only valid command for 
-automatic highlighting and cross reference 
-is the $cref/codep/$$ command.
+Currently, the only valid commands for 
+automatic highlighting and cross referencing
+are the $cref/codep/$$, and $cref/verbatim/$$ commands.
 
 $head hilitetok$$
 The values $icode token_1$$ through $icode token_n$$

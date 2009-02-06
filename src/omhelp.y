@@ -4632,6 +4632,9 @@ verbatim
 		int  match;
 		int  len;
 		int  i;
+		char line_buffer[300];
+		int  line_max = 299;
+		int  line_index;
 
 		// initialize token to avoid warning
 		// (compiler does not know fatalerr will not return)
@@ -4773,24 +4776,56 @@ verbatim
 		ConvertAddColumn(1);
 
 		match = 0;
+		line_index = 0;
 		while(ch != '\001' )
 		{
 			if( len > 0 )
 				match = PatternMatchCh(&ch);
 
 			// indent when previous character is a newline
-			if( previous == '\n' )
-			{	// need not indent lines with only white space
-				if( ! isspace(ch) && ! (ch == '\001') )
-				{	previous = ch;
-					for(i = 0; i < nspace; i++)
-						ConvertOutputCh(' ', 0);
-				}
+			if( (previous == '\n') & (ch != '\001' ) )
+			{	for(i = 0; i < nspace; i++)
+					ConvertOutputCh(' ', 0);
 			}
-			else	previous = ch;
+			previous = ch;
 
-			if( (ch != '\001') & (ch != '\0') )
+			// output line buffer when current character is newline
+			if( (ch == '\n') | (ch == '\001')  )
+			{	int spell_check = 0;
+				const char *hilite_color = "purple";
+				int pre = 0;
+				assert( line_index < line_max );
+				line_buffer[line_index] = '\0';
+				hilite_out(
+					"verbatim",
+					$2.line,
+					spell_check,
+					ErrorColor,
+					hilite_color,
+					pre,
+					line_buffer
+				);
+				line_index = 0;
+			}
+			if( ch == '\n' )
 				ConvertOutputCh(ch, 0);
+			else if( (ch != '\001') & (ch != '\0') )
+			{	if( line_index >= line_max )
+				{	line_buffer[line_max-1] = '\n';
+					line_buffer[line_max]   = '\0';
+					fatalomh(
+					"At $verbatim command in line ",
+					int2str($1.line),
+					"\nIn the file ",
+					filename,
+					"\nThe following input line ",
+					"is too long",
+					line_buffer,
+					NULL
+					);
+				}
+				line_buffer[line_index++] = ch;
+			}
 
 			// check for stopping point after outputing ch
 			if( match )

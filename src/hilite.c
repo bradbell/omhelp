@@ -310,8 +310,11 @@ void hilite_command(
 	command  = commands + 1;
 	for(i = 0; i < n_command; i++)
 	{	int len = strlen(command);
+		int ok;
 		ClipWhiteSpace(command);
-		if( strcmp(command, "codep") != 0 ) fatalomh(
+		ok  = strcmp(command, "codep") == 0;
+		ok |= strcmp(command, "verbatim") == 0;
+		if( ! ok ) fatalomh(
 			"Error in hilitecmd command that begins in line ",
 			int2str(line),
 			".\nThe command ",
@@ -363,11 +366,11 @@ void hilite_token(
 			tag,
 			NULL
 		);
-		id = isalpha(token[0]) | (token[0] != '_' );
+		id = (isalpha(token[0]) != 0) | (token[0] != '_' );
 		j  = strlen(token);
 		while(--j)
 		{	char ch = token[j];
-			id &= isalpha(ch) | (ch=='_') | isdigit(ch);
+			id &= (isalpha(ch)!=0) | (ch=='_') | (isdigit(ch)!=0);
 		}
 
 		if( ! id ) fatalomh(

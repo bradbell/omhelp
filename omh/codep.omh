@@ -20,6 +20,9 @@ $begin codep$$
 $escape #$$
 $dollar @$$
 $spell 
+	hilitecmd
+	hilitetok
+	hilite
 	codep 
 	pre
 $$
@@ -89,4 +92,33 @@ $$
 This enables the $code codep$$ command and its corresponding terminating
 $code @@$$ to be commented out so that it is not included in the
 compilation.
+
+$head Highlighting Example$$
+The following input
+$codep
+	@hilitecmd codep@@
+	@hilitetok%
+		codep%%
+		hilitetok%hilite%
+		hilitecmd%hilite
+	%@@
+	@codep
+		The hilitetok and hilitecmd commands can be used
+		to highlight and cross reference text that is inside of a
+		codep command. 
+	@@
+$$
+would create the following output
+$hilitecmd codep$$
+$hilitetok%
+	codep%%
+	hilitetok%hilite%
+	hilitecmd%hilite
+%$$
+$codep
+	The hilitetok and hilitecmd commands can be used
+	to highlight and cross reference text that is inside of a
+	codep command. 
+$$
+
 $end
