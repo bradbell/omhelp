@@ -411,10 +411,11 @@ void hilite_out(
 
 	len   = strlen(text);
 	while( start < len )
-	{	match_indices(text, &start, &end);
+	{	char save;	
+		match_indices(text, &start, &end);
 
 		// check for a token match
-		char save = text[end];
+		save      = text[end];
 		text[end] = '\0';
 		index = -1;
 		for(i = 0; i < Ntoken; i++)
@@ -428,8 +429,8 @@ void hilite_out(
 		{	// output characters from start to end of token
 			if( start > 0 )
 			{	char save         = text[start];
-				text[start]       = '\0';
 				char skip         = '\0';
+				text[start]       = '\0';
 				output_text(line, text, pre, skip,
 					check_spell, error_color
 				);
