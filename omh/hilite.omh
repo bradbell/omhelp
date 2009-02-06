@@ -1,0 +1,108 @@
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+#
+$begin hilite$$
+$dollar @$$
+$spell
+	underbar
+	underbars
+	hilitecmd
+	hilitetok
+	cref
+	codep
+	OMhelp
+	xref
+$$
+
+$section Automatic Highlighting and Cross Referencing Certain Tokens$$
+
+$head Syntax$$
+$codei/@hilitecmd/%/command_1/%/ ... /%/command_m/%/@@
+/$$
+$codei/@hilitetok/%/token_1/%/tag_1/%/ ... /%/token_n/%/tag_n/%/@@
+/$$
+
+$head Purpose$$
+These command enables you to automatically highlight and cross reference 
+certain words in the output text.
+This is useful for examples that contain special tokens that need
+emphasis or explanation. 
+
+$head White Space$$
+Leading and trailing $cref/white space/glossary/White Space/$$
+in each command, token, and tag is ignored.
+
+$head Identifiers$$
+The next identifier in the input text is the maximum number of characters
+that satisfy the following condition:
+$list number$$
+The first character is either an 
+upper case letter [A-Z], lower case letter [a-z] or an underbar [_].
+$lnext
+All the other characters are 
+upper case letters, lower case letters, underbars, or decimal digits [0-9].
+$lend
+
+$head hilitecmd$$
+The values $icode command_1$$, ... , $icode command_m$$,
+specify the commands (with out the $code @$$ character)
+for which this automatic highlighting and cross referencing is to be done.
+Currently, the only valid command for 
+automatic highlighting and cross reference 
+is the $cref/codep/$$ command.
+
+$head hilitetok$$
+The values $icode token_1$$ through $icode token_n$$
+specify the $cref/identifiers/hilite/Identifiers/$$
+that should be highlighted.
+In addition, if $icode tag_j$$ is not empty,
+$icode token_j$$ is linked to the section corresponding to $icode tag_j$$.
+
+$head Example$$
+The following input
+$codep
+	@hilitecmd%codep%@@
+	@hilitetok%
+		cref%cref%
+		xref%
+	%@@
+	@codep
+		The OMhelp xref command has been deprecated, 
+		you should use the cref command instead. 
+	@@
+$$
+generates the following output:
+
+$hilitecmd%codep%$$
+$hilitetok%
+	xref%%
+	cref%cref
+%$$
+$codep
+	The OMhelp xref command has been deprecated, 
+	you should use the cref command instead. 
+$$
+
+$head Root Section$$
+The commands and tokens specified at the end of the
+$cref/root section/running/root_file/$$,
+are used as initial setting for all other sections.
+There are no initial settings for the root section.
+
+
+$end

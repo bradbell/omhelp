@@ -121,7 +121,7 @@ $code omh/browser.omh$$
 This has been fixed.
 
 $head 02-23$$
-The token
+The command 
 $syntax%
 	@OMhelpFileLocalCommandKeyCharacter=
 %$$

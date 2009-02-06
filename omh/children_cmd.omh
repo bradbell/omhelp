@@ -26,18 +26,19 @@ as an example by children.omh.
 $$
 
 $children/
-	font.omh/
 	nobreak.omh/
 	pre.omh/
 	codep.omh/
 	codei.omh/
+	color.omh/
+	math.omh/
+	syntax.omh/
+	hilite.omh/
 	center.omh/
 	table.omh/
 	list.omh/
-	math.omh/
 	special.omh/
-	color.omh/
-	syntax.omh/$$
+	font.omh/$$
 
 $head Command Limited$$
 The effect of the following commands 
@@ -50,6 +51,7 @@ $rref codei$$
 $rref color$$
 $rref math$$
 $rref syntax$$
+$rref hilite$$
 $tend
 
 $head Not Command Limited$$
@@ -58,7 +60,7 @@ $table
 $rref center$$
 $rref table$$
 $rref list$$
-$cnext $tref special$$ $rnext
-$cnext $tref font$$    $rnext
+$rref special$$
+$rref font$$
 $tend
 

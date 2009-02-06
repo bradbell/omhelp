@@ -71,14 +71,14 @@ in any delimiter sequence; i.e.,
 there can not be any commands embedded in a delimiter sequence.
 If the first character in the sequence is a 
 $xref/glossary/White Space/white space/$$ character,
-there is only one token and it is the entire sequence except
+there is only one argument and it is the entire sequence except
 for the first character.
 If the first character in the sequence is not a white space character,
 any character equal to the first is called a delimiter for the sequence.
 In this case,
 the last character in the sequence must also be a delimiter.
-The characters between each pair of delimiters are called tokens.
-The number of tokens in a delimiter sequence is one less 
+The characters between each pair of delimiters are called arguments.
+The number of arguments in a delimiter sequence is one less 
 than the number of delimiters in the sequence.
 
 $head Directory Separator Character$$

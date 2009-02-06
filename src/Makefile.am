@@ -71,6 +71,7 @@ omhelp_SOURCES = \
 	fatalerr.h \
 	funref.h \
 	head.h \
+	hilite.h \
 	href.h \
 	index.h \
 	input.h \
@@ -127,6 +128,7 @@ omhelp_SOURCES = \
 	FrameSet.c \
 	funref.c \
 	head.c \
+	hilite.c \
 	href.c \
 	HtmlHead.c \
 	index.c \

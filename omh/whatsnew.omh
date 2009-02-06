@@ -103,6 +103,10 @@ $tend
 
 $$
 
+$head 09-02-06$$
+Added automatic $cref/highlighting/hilite/$$ and
+cross referencing commands.
+
 $head 09-02-01$$
 The $cref/default/navigate/Default/$$ navigation headings were
 changed so that $code Prev$$ and $code Next$$ come first.

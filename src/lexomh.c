@@ -195,6 +195,8 @@ keyword_table[] =
 	{ "fend",       FEND_lex        },
 	{ "fixed",      FIXED_lex       },
 	{ "head",       HEAD_lex        },
+	{ "hilitecmd",  HILITECMD_lex   },
+	{ "hilitetok",  HILITETOK_lex   },
 	{ "href",       HREF_lex        },
 	{ "icode",      ICODE_lex       },
 	{ "icon",       ICON_lex        },

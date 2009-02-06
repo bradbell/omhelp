@@ -63,6 +63,7 @@ cross reference tag, NULL is returned.
 # include "section.h"
 # include "children.h"
 # include "search.h"
+# include "hilite.h"
 # include "href.h"
 # include "index.h"
 # include "funref.h"
@@ -1031,6 +1032,8 @@ void InitParser(const char *StartingInputFile)
 %token FEND_lex
 %token FIXED_lex
 %token HEAD_lex
+%token HILITECMD_lex
+%token HILITETOK_lex
 %token HREF_lex
 %token ICODE_lex
 %token ICON_lex
@@ -1121,6 +1124,8 @@ element
 	| fend
 	| fixed
 	| head
+	| hilitecmd
+	| hilitetok
 	| href
 	| icode
 	| image
@@ -1514,6 +1519,9 @@ begin
 
 		// erase the current special spelling list
 		SpellingOkList("");
+
+		// get the default settings for this section
+		hilite_get_default();
 
 		// ********************************************************
 		
@@ -2031,7 +2039,19 @@ codep
 		// need space after > so first newline is not ignored; see
 		// https://bugzilla.mozilla.org/show_bug.cgi?id=476324
 		OutputString("'><pre style='display:inline'> ");
-		output_text($2.line,$2.str,0,'\0',CheckSpell,ErrorColor);
+		// already in preformat mode, pre is false in call
+		{	int pre                  = 0;
+			const char *hilite_color = "purple";
+			hilite_out(
+				"codep",
+				$2.line,
+				CheckSpell,
+				ErrorColor,
+				hilite_color,
+				pre,
+				$2.str
+			);
+		}
 		OutputString("</pre></font></code>\n");
 		
 		FreeMem($2.str);
@@ -2283,6 +2303,10 @@ end
 			ExecuteFile,
 			NULL
 		);
+
+		// if this is the root section, copy its hilite settings
+		if( CurrentSection == SectionTree )
+			hilite_set_default();
 
 		// check there are no pending commands
 		if( NumberPending() > 0 )
@@ -2759,6 +2783,40 @@ head
 		$$ = $1;
 
 		PreviousOutputWasHeading = 1;
+	}
+	;
+
+
+hilitecmd
+	: HILITECMD_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| HILITECMD_lex text DOUBLE_DOLLAR_lex
+	{	int n_command;
+		n_command = SplitText($1.line, "hilitecmd", $2.str);
+		hilite_command($1.line, n_command, $2.str);
+
+		FreeMem($2.str);
+	}
+	;
+
+hilitetok
+	: HILITETOK_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| HILITETOK_lex text DOUBLE_DOLLAR_lex
+	{	int n_token, n_pair;
+		n_token = SplitText($1.line, "hilitetok", $2.str);
+		if( n_token % 2 != 0 ) fatalomh(
+			"Error in $hilitetok command in line ",
+			int2str($1.line),
+			".\nThe number of command arguments is not even.",
+			NULL
+		);
+		n_pair = n_token / 2;
+		hilite_token($1.line, n_pair, $2.str);
+
+		FreeMem($2.str);
 	}
 	;
 href
@@ -3252,6 +3310,8 @@ keyword
 	| EXECUTE_lex
 	| FEND_lex
 	| FIXED_lex
+	| HILITECMD_lex
+	| HILITETOK_lex
 	| HEAD_lex
 	| HREF_lex
 	| ICON_lex
