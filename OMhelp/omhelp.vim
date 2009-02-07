@@ -99,6 +99,15 @@
 :syntax match omh_head            /\$head/
 :highlight link omh_head          Keyword
 
+:syntax match omh_hilitcolor      /\$hilitecolor/
+:highlight link omh_hilitecolor   Keyword
+
+:syntax match omh_hilitecmd       /\$hilitecmd/
+:highlight link omh_hilitecmd     Keyword
+
+:syntax match omh_hilitetok       /\$hilitetok/
+:highlight link omh_hilitetok     Keyword
+
 :syntax match omh_href            /\$href/
 :highlight link omh_href          Keyword
 
@@ -125,6 +134,9 @@
 
 :syntax match omh_lend            /\$lend/
 :highlight link omh_lend          Special
+
+:syntax match omh_linkcolor       /\$linkcolor/
+:highlight link omh_linkcolor     Special
 
 :syntax match omh_list            /\$list/
 :highlight link omh_list          Special

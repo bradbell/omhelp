@@ -49,6 +49,7 @@ enum navigateType {
 typedef struct styleInfo {
 	char *textcolor;
 	char *bgcolor;
+	char *linkcolor;
 } StyleInfo;
 
 typedef struct navigateInfo {
@@ -107,6 +108,7 @@ $spell
 	enum
 	OMhelp
 	bgcolor
+	linkcolor
 	textcolor
 $$
 
@@ -135,6 +137,10 @@ $rend
 $code style.bgcolor$$
 $cend $code char*$$  
 $cend the background color for this section
+$rnext
+$code style.linkcolor$$
+$cend $code char*$$  
+$cend the color for links in this section
 $rnext
 $code navigate.number$$
 $cnext $code int$$

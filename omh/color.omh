@@ -18,55 +18,58 @@
 #
 $begin color$$
 $escape #$$
-$textcolor/120/120/120/$$
+$dollar @$$
+$textcolor/100/100/100/$$
 $bgcolor/240/240/240/$$
-
+$linkcolor green$$
 $spell 
-	textcolor
-	bgcolor
 	codecolor
+	hilitecolor
 	errorcolor
+	bgcolor
+	textcolor
+	linkcolor
 	codep
 	OMhelp
 	colorname
+	hilitecmd
+	hilitetok
 $$
-$dollar @$$
 
-$mindex codecolor errorcolor bgcolor$$
-$mindex color code error background$$
+$index color, setting$$
+$index setting, color$$
 
 $section Setting Colors$$
 
-$table
-$bold Syntax$$
-$cnext $syntax/@/command/ /colorname/@@/$$        $rnext
-$cnext $syntax/@/command/%/red/%/green/%/blue/%@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/codep/font/$$
-$tend
+$head Syntax$$
+$codei/@/command/ /colorname/@@
+/$$
+$codei/@/command/%/red/%/green/%/blue/%@@/$$
 
-$fend 25$$
+$head Purpose$$
+The output specified by $icode command$$ is changed to the
+color specified by $icode colorname$$.
+The text following $icode command$$ is a 
+$cref/delimiter sequence/glossary/Delimiter Sequence/$$.
 
-
-$head Description$$
-These commands change the corresponding color to the
-specified value.
-In all cases, 
-the text following $italic command$$ is a 
-$xref/glossary/Delimiter Sequence/delimiter sequence/$$.
-
-$head Command Table$$
-The following is a list of the valid values for $italic command$$:
+$head command$$
+The value $icode command$$
+must be one of the following values:
 
 $table
-$italic command$$ 
+$icode command$$ 
 	$cnext Affected text
 	$cnext Default value
 	$cnext Style
 $rnext
 $code codecolor$$ 
-	$cnext inside $xref/font//code/$$ and $mref/codep/$$ commands
+	$cnext inside $cref/code/font/$$ and $cref/codep/$$ commands
 	$cnext blue
+	$cnext no
+$rnext
+$code hilitecolor$$
+	$cnext color used for $cref/hilite/$$ text
+	$cnext green
 	$cnext no
 $rnext
 $code errorcolor$$
@@ -83,11 +86,16 @@ $code textcolor$$
 	$cnext color of normal text
 	$cnext black
 	$cnext yes
+$rnext
+$code linkcolor$$
+	$cnext color used for cross reference linking
+	$cnext purple
+	$cnext yes
 $tend
 
 
-$head Color Names$$
-The following is a list of the valid values for $italic colorname$$:
+$head colorname$$
+The following is a list of the valid values for $icode colorname$$:
 $table
 $pre     $$ 
 	$cnext black    $cnext green  $rnext
@@ -99,41 +107,43 @@ $pre     $$
 	$cnext purple   $cnext teal   $rnext
 	$cnext fuchsia  $cnext aqua
 $tend
-These values are case in-sensitive.
+These values are case in-sensitive, and
+leading and trailing $cref/white space/glossary/White Space/$$ is ignored.
 
 $head RGB Values$$
+$index RGB, color$$
+$index color, RGB$$
 In addition to the color names above,
-you can use an RGB code to specify a color.
-In this case, the values 
-$italic red$$,
-$italic blue$$,
-and
-$italic green$$ must be unsigned integers between 0 and 255.
+you can use the $icode red$$, $icode blue$$, $icode green$$ syntax
+to describe a color (RGB value).
+The values $icode red$$, $icode blue$$, and $icode green$$ 
+must be unsigned integers between 0 and 255.
 They represent the primary color mix for the 
 RGB code of the color being specified.
+Leading and trailing $cref/white space/glossary/White Space/$$ 
+in an RGB value is ignored.
 
 
-$head Style Commands$$
-Some of the color commands that are specified as styles
-in the $xref/color/Command Table/command table/$$.
-If a command is a style command, 
+$head Style$$
+$index style, color$$
+$index color, style$$
+Some of the colors are specified as styles
+in the $cref/colorname/color/colorname/$$ table above.
+If $icode command$$ is specified by a style, 
 it can only appear once per section.
-If a style command appears in the
+
+$head Root Section$$
+If a color command appears in the
 $cref/root section/running/root_file/$$,
-it specifies a default all the sections in a web site.
-If you wish a style command to only affects 
-a subset of the sections,
-it can be placed in an $xref/include/$$ file.
-This way a change to the include file would effect the 
-entire subset of sections that use it.
+it specifies the default all the other sections in the web site.
+Otherwise, the default color is the one in the 
+$cref/colorname/color/colorname/$$ table above.
 
-$head Code Color$$
+$head Non-Style Examples$$
+
+$subhead codecolor$$
 $index codecolor$$
-The $code codecolor$$ command has effect
-until its next occurrence or 
-the end of the current section (which ever comes first).
-
-$subhead Example$$
+$index color, code$$
 The following text
 $codep 
 	@codecolor green@@
@@ -157,13 +167,9 @@ $codep
 $$
 
 
-$head Error Color$$
-$index codecolor$$
-The $code errorcolor$$ command has effect
-until its next occurrence or 
-the end of the current section (which ever comes first).
-
-$subhead Example$$
+$subhead errorcolor$$
+$index errorcolor$$
+$index color, error$$
 The following text
 $codep 
 	@errorcolor blue@@
@@ -187,12 +193,32 @@ $codecolor blue$$
 Note that if a spelling error occurred in the $code codep$$ command,
 the corresponding word would have been in blue instead of red.
 
+$subhead hilitecolor$$
+$index color, highlight$$
+The commands
+$codep
+	@hilitecolor purple@@
+	@hilitecmd codep@@
+	@hilitetok%codecolor%%@@
+	@codep
+		The codecolor command is useful.
+	@@
+$$
+results in the following output
+$hilitecolor purple$$
+$hilitecmd codep$$
+$hilitetok%codecolor%%$$
+$codep
+	The codecolor command is useful.
+$$
 
-$head Bgcolor$$
-The $code bgcolor$$ command is a 
-$xref/color/Style Commands/style command/$$.
+$head Style Examples$$
 
-$subhead Example$$
+$subhead bgcolor$$
+$index bgcolor$$
+$index background, color$$
+$index color, background$$
+
 The command
 $codep
 	@bgcolor/240/240/240/@@
@@ -201,16 +227,27 @@ appears at the beginning of this section.
 That is why the background color for this section
 is light gray.
 
-$head Textcolor$$
-The $code textcolor$$ command is a 
-$xref/color/Style Commands/style command/$$.
-
-$subhead Example$$
+$subhead textcolor$$
+$index textcolor$$
+$index color, text$$
 The command
 $codep
-	@textcolor/120/120/120/@@
+	@textcolor/100/100/100/@@
 $$
 appears at the beginning of this section.
 That is why the normal text color for this section is dark gray.
+
+$subhead linkcolor$$
+$index linkcolor$$
+$index color, link$$
+The command
+$codep
+	@linkcolor green@@
+$$
+appears at the beginning of this section.
+That is why the links appear in green for this section.
+
+		
+
 
 $end

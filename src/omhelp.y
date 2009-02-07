@@ -150,8 +150,9 @@ static int MindexHead;
 static int MindexSubhead;
 
 // current code font color
-static char *CodeColor  = NULL;
-static char *ErrorColor = NULL;
+static char *CodeColor   = NULL;
+static char *ErrorColor  = NULL;
+static char *HiliteColor = NULL;
 
 // flag that indicates spell checking is on
 static int CheckSpell   = 1;
@@ -1033,6 +1034,7 @@ void InitParser(const char *StartingInputFile)
 %token FIXED_lex
 %token HEAD_lex
 %token HILITECMD_lex
+%token HILITECOLOR_lex
 %token HILITETOK_lex
 %token HREF_lex
 %token ICODE_lex
@@ -1043,6 +1045,7 @@ void InitParser(const char *StartingInputFile)
 %token ITALIC_lex
 %token LATEX_lex
 %token LEND_lex
+%token LINKCOLOR_lex
 %token LIST_lex
 %token LNEXT_lex
 %token MATH_lex
@@ -1125,6 +1128,7 @@ element
 	| fixed
 	| head
 	| hilitecmd
+	| hilitecolor
 	| hilitetok
 	| href
 	| icode
@@ -1134,6 +1138,7 @@ element
 	| italic
 	| latex
 	| lend
+	| linkcolor
 	| list
 	| lnext
 	| math
@@ -1504,8 +1509,10 @@ begin
 		// reset the current color settings
 		assert( ErrorColor   == NULL );    // set at previous end
 		assert( CodeColor    == NULL );
-		CodeColor  = str_alloc("blue");
-		ErrorColor = str_alloc("red");
+		assert( HiliteColor  == NULL );
+		CodeColor   = str_alloc("blue");
+		ErrorColor  = str_alloc("red");
+		HiliteColor = str_alloc("green");
 
 		// initial state of spell checker
 		assert( CheckSpell == 1);
@@ -2041,13 +2048,12 @@ codep
 		OutputString("'><pre style='display:inline'> ");
 		// already in preformat mode, pre is false in call
 		{	int pre                  = 0;
-			const char *hilite_color = "purple";
 			hilite_out(
 				"codep",
 				$2.line,
 				CheckSpell,
 				ErrorColor,
-				hilite_color,
+				HiliteColor,
 				pre,
 				$2.str
 			);
@@ -2351,10 +2357,12 @@ end
 		FreeMem( MaxFrameFile );
 		FreeMem( ErrorColor   );
 		FreeMem( CodeColor    );
+		FreeMem( HiliteColor  );
 
 		MaxFrameFile = NULL;
 		ErrorColor   = NULL;
 		CodeColor    = NULL;
+		HiliteColor  = NULL;
 		
 		PopOutput();
 		
@@ -2799,6 +2807,24 @@ hilitecmd
 		FreeMem($2.str);
 	}
 	;
+
+hilitecolor
+	: HILITECOLOR_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| HILITECOLOR_lex text DOUBLE_DOLLAR_lex
+	{	assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		FreeMem(HiliteColor);
+		HiliteColor = Color($1.line, "$hilitecolor", $2.str);
+
+		FreeMem($2.str);
+		$$ = $1;
+	}
+	;	
+
 
 hilitetok
 	: HILITETOK_lex text not_2_dollar_or_text
@@ -3441,6 +3467,36 @@ lend
 		$$ = $1;
 	}
 	;
+
+linkcolor
+	: LINKCOLOR_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| LINKCOLOR_lex text DOUBLE_DOLLAR_lex
+	{
+		assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		// only one $linkcolor per section
+		if( CurrentSection->style.linkcolor != NULL ) fatalomh(
+			"At $linkcolor comamnd in line ",
+			int2str($1.line),
+			"\nThere is more than one $linkcolor command ",
+			"in this section.",
+			NULL
+		);
+
+
+		CurrentSection->style.linkcolor = Color(
+			$1.line, "$linkcolor", $2.str
+		);
+		
+		FreeMem($2.str);
+		$$ = $1;
+	}
+	;
+
 list
 	: LIST_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
@@ -4792,7 +4848,6 @@ verbatim
 			// output line buffer when current character is newline
 			if( (ch == '\n') | (ch == '\001')  )
 			{	int spell_check = 0;
-				const char *hilite_color = "purple";
 				int pre = 0;
 				assert( line_index < line_max );
 				line_buffer[line_index] = '\0';
@@ -4801,7 +4856,7 @@ verbatim
 					$2.line,
 					spell_check,
 					ErrorColor,
-					hilite_color,
+					HiliteColor,
 					pre,
 					line_buffer
 				);

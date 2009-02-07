@@ -39,6 +39,10 @@ $head Text Color$$
 The value $syntax%%S%->style.textcolor%$$ is used
 for the text color in the style command.
 
+$head Link Color$$
+The value $syntax%%S%->style.linkcolor%$$ is used
+for the link color in the style command.
+
 $head Memory$$
 The return value is allocated using $xref/AllocMem/$$
 and should be freed using $code FreeMem$$
@@ -52,8 +56,9 @@ $end
 # include "StrCat.h"
 
 char *StyleCommand(SectionInfo *S)
-{	char *bgcolor;
-	char *textcolor;
+{	const char *bgcolor;
+	const char *textcolor;
+	const char *linkcolor;
 	char *cmd;
 
 	if( S->style.bgcolor == NULL )
@@ -64,13 +69,25 @@ char *StyleCommand(SectionInfo *S)
 		textcolor = "black";
 	else	textcolor = S->style.textcolor;
 
+	if( S->style.linkcolor == NULL )
+		linkcolor = "purple";
+	else	linkcolor = S->style.linkcolor;
+
+	// note must use the same case for body as is used in the <body>
+	// command for this section or the xml will not display correctly
 	cmd = StrCat(
 		__FILE__,
 		__LINE__,
-		"\n<style type='text/css'>\nBODY { color : ",
+		"\n<style type='text/css'>\nbody { color : ",
 		textcolor,
-		" }\nBODY { background-color : ",
+		" }\nbody { background-color : ",
 		bgcolor,
+		" }\nA:link { color : ",
+		linkcolor,
+		" }\nA:visited { color : ",
+		linkcolor,
+		" }\nA:active { color : ",
+		linkcolor,
 		" }\n</style>\n",
 		NULL
 	);

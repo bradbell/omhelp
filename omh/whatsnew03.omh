@@ -19,6 +19,7 @@
 $begin whatsNew03$$
 $dollar @$$
 $spell
+	colorname
 	Firefox
 	cindex
 	mindex
@@ -311,9 +312,9 @@ they do not just pertain to $xref latex$$ commands.
 
 $head 05-11$$
 All of the $xref/color/$$ commands were modified so that
-they could use either $xref/color/Color Names/color names/$$
+they could use either $cref/colorname/color/colorname/$$
 or $xref/color/RGB Values/RGB values/$$.
-The $xref/color/Textcolor/textcolor/$$ command was added
+The $cref/textcolor/color/$$ command was added
 to control the color of normal text.
 
 $head 05-10$$
@@ -352,7 +353,7 @@ The default background color
 was not being transferred to the table of contents.
 This problem has been fixed.
 (The default background color is
-specified by placing $xref/color/Bgcolor/bgcolor/$$ command in the 
+specified by placing $cref/bgcolor/color/$$ command in the 
 $cref/root section/running/root_file/$$. )
 $pre
 
@@ -374,7 +375,7 @@ $cref/root section/running/root_file/$$.
 
 
 $head 04-30$$
-The $xref/color/Bgcolor/bgcolor/$$ 
+The $cref/bgcolor/color/$$ 
 command was added for setting the background color.
 This command uses RGB codes instead of color names as in
 the other $xref/color/$$ commands.

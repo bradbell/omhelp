@@ -23,10 +23,12 @@ $spell
 	underbars
 	hilitecmd
 	hilitetok
+	hilitecolor
 	cref
 	codep
 	OMhelp
 	xref
+	linkcolor
 $$
 
 $section Automatic Highlighting and Cross Referencing Certain Tokens$$
@@ -69,9 +71,14 @@ are the $cref/codep/$$, and $cref/verbatim/$$ commands.
 $head hilitetok$$
 The values $icode token_1$$ through $icode token_n$$
 specify the $cref/identifiers/hilite/Identifiers/$$
-that should be highlighted.
-In addition, if $icode tag_j$$ is not empty,
-$icode token_j$$ is linked to the section corresponding to $icode tag_j$$.
+that should be highlighted or cross referenced.
+If $icode tag_j$$ is empty,
+then $icode token_j$$ appears in the $cref/hilitecolor/color/$$ 
+in the output (for the commands specified by $code hilitecmd$$). 
+If $icode tag_j$$ is not empty, 
+$icode token_j$$ is linked to the section corresponding to $icode tag_j$$
+and it appears in the $cref/linkcolor/color/$$ in the output 
+(for the commands specified by $code hilitecmd$$).
 
 $head Example$$
 The following input

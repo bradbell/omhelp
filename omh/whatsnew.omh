@@ -19,6 +19,11 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	xml
+	linkcolor
+	hilitecolor
+	bgcolor
+	textcolor
 	underbar
 	bigcap
 	bigcup
@@ -102,6 +107,15 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 09-02-07$$
+Added the $cref/linkcolor/color/$$ and $code hilitecolor$$ commands.
+$pre
+
+$$
+The $code bgcolor$$ and $code textcolor$$
+commands did not display properly in the $icode%*%.xml%$$ output files.
+This has been fixed.
 
 $head 09-02-06$$
 Added automatic $cref/highlighting/hilite/$$ and
