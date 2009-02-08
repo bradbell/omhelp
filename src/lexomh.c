@@ -197,6 +197,7 @@ keyword_table[] =
 	{ "head",       HEAD_lex        },
 	{ "hilitecmd",  HILITECMD_lex   },
 	{ "hilitecolor",HILITECOLOR_lex },
+	{ "hilitepat",  HILITEPAT_lex   },
 	{ "hilitetok",  HILITETOK_lex   },
 	{ "href",       HREF_lex        },
 	{ "icode",      ICODE_lex       },

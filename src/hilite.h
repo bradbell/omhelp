@@ -2,6 +2,11 @@
 # define HILITE_INLUDED
 
 
+void hilite_pattern(
+	int         line      ,
+	int         n_pattern ,
+	char       *patterns 
+);
 void hilite_command(
 	int         line      ,
 	int         n_command ,

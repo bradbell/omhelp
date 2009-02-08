@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	hilitepat
 	xml
 	linkcolor
 	hilitecolor
@@ -107,6 +108,10 @@ $rref whatsNew01$$
 $tend
 
 $$
+
+$head 09-02-08$$
+Changed $cref hilite$$ commands from using identifiers for matching
+to use a user defined pattern defined by $code hilitepat$$.
 
 $head 09-02-07$$
 Added the $cref/linkcolor/color/$$ and $code hilitecolor$$ commands.

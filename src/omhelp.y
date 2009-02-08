@@ -808,6 +808,13 @@ static void FinishUp()
 {
 	char *tmp;
 
+# if 0
+	// free memory corresponding to patterns 
+	hilite_pattern(0, 0, "");
+	hilite_set_default();
+# endif
+
+
 	// done with macros defined at the Root level
 	LatexMacroFree();
 	LatexMacroFree();
@@ -1035,6 +1042,7 @@ void InitParser(const char *StartingInputFile)
 %token HEAD_lex
 %token HILITECMD_lex
 %token HILITECOLOR_lex
+%token HILITEPAT_lex
 %token HILITETOK_lex
 %token HREF_lex
 %token ICODE_lex
@@ -1129,6 +1137,7 @@ element
 	| head
 	| hilitecmd
 	| hilitecolor
+	| hilitepat
 	| hilitetok
 	| href
 	| icode
@@ -2825,6 +2834,19 @@ hilitecolor
 	}
 	;	
 
+
+hilitepat
+	: HILITEPAT_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| HILITEPAT_lex text DOUBLE_DOLLAR_lex
+	{	int n_pattern;
+		n_pattern = SplitText($1.line, "hilitepat", $2.str);
+		hilite_pattern($1.line, n_pattern, $2.str);
+
+		FreeMem($2.str);
+	}
+	;
 
 hilitetok
 	: HILITETOK_lex text not_2_dollar_or_text

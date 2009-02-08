@@ -23,6 +23,7 @@ $textcolor/100/100/100/$$
 $bgcolor/240/240/240/$$
 $linkcolor green$$
 $spell 
+	hilite
 	codecolor
 	hilitecolor
 	errorcolor
@@ -32,6 +33,7 @@ $spell
 	codep
 	OMhelp
 	colorname
+	hilitepat
 	hilitecmd
 	hilitetok
 $$
@@ -194,10 +196,12 @@ Note that if a spelling error occurred in the $code codep$$ command,
 the corresponding word would have been in blue instead of red.
 
 $subhead hilitecolor$$
+$index hilite, example$$
 $index color, highlight$$
 The commands
 $codep
 	@hilitecolor purple@@
+	@hilitepat \([a-z][a-z]*\)@@
 	@hilitecmd codep@@
 	@hilitetok%codecolor%%@@
 	@codep
@@ -206,6 +210,7 @@ $codep
 $$
 results in the following output
 $hilitecolor purple$$
+$hilitepat \([a-z][a-z]*\)$$
 $hilitecmd codep$$
 $hilitetok%codecolor%%$$
 $codep

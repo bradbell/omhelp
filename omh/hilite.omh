@@ -29,12 +29,15 @@ $spell
 	OMhelp
 	xref
 	linkcolor
+	hilitepat
 $$
 
 $section Automatic Highlighting and Cross Referencing Certain Tokens$$
 
 $head Syntax$$
 $codei/@hilitecmd/%/command_1/%/ ... /%/command_m/%/@@
+/$$
+$codei/@hilitepat pattern@@
 /$$
 $codei/@hilitetok/%/token_1/%/tag_1/%/ ... /%/token_n/%/tag_n/%/@@
 /$$
@@ -47,17 +50,30 @@ emphasis or explanation.
 
 $head White Space$$
 Leading and trailing $cref/white space/glossary/White Space/$$
-in each command, token, and tag is ignored.
+in each pattern, command, token, and tag is ignored.
 
-$head Identifiers$$
-The next identifier in the input text is the maximum number of characters
-that satisfy the following condition:
-$list number$$
-The first character is either an 
-upper case letter [A-Z], lower case letter [a-z] or an underbar [_].
+$head Tokens$$
+The next token is the first sub-expression
+in the input text that matches the basic regular expression $icode pattern$$; 
+see
+$href%
+	http://www.opengroup.org/onlinepubs/009695399/functions/regexec.html%
+	IEEE Std 1003.1, 2004 Edition
+%$$.
+Here are some useful details from the standard for basic regular expressions:
+
+$list disk$$
+The first sub-expression is the expression surrounded by the first
+$code \($$, $code \)$$ pair in $icode basic_regular_expression$$.
 $lnext
-All the other characters are 
-upper case letters, lower case letters, underbars, or decimal digits [0-9].
+The notation $codei%[%x%-%y%]%$$ denotes one occurrence of any character
+between $icode x$$ and $icode y$$.
+$lnext
+The notation $codei%[%x%-%y%]*%$$ denotes zero or more occurrences
+of any character between $icode x$$ and $icode y$$.
+$lnext
+The following characters have special meaning:
+$code .$$, $code \$$, $code [$$, $code ^$$, $code @$$, $code *$$. 
 $lend
 
 $head hilitecmd$$
@@ -70,8 +86,7 @@ are the $cref/codep/$$, and $cref/verbatim/$$ commands.
 
 $head hilitetok$$
 The values $icode token_1$$ through $icode token_n$$
-specify the $cref/identifiers/hilite/Identifiers/$$
-that should be highlighted or cross referenced.
+specify the tokens that should be highlighted or cross referenced.
 If $icode tag_j$$ is empty,
 then $icode token_j$$ appears in the $cref/hilitecolor/color/$$ 
 in the output (for the commands specified by $code hilitecmd$$). 
@@ -83,6 +98,7 @@ and it appears in the $cref/linkcolor/color/$$ in the output
 $head Example$$
 The following input
 $codep
+	@hilitepat \([a-z][a-z]*\)@@
 	@hilitecmd%codep%@@
 	@hilitetok%
 		cref%cref%
@@ -95,6 +111,7 @@ $codep
 $$
 generates the following output:
 
+$hilitepat \([a-z][a-z]*\)$$
 $hilitecmd%codep%$$
 $hilitetok%
 	xref%%

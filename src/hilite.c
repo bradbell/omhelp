@@ -17,13 +17,63 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 /*
 --------------------------------------------------------------------------
+$begin hilite_pattern$$
+
+$section Set Pattern for Automatic Highlighting and Corss Referencing$$
+
+$head Syntax$$
+$codei%void hilite_pattern(
+	int       %line%,
+	int       %n_pattern%  ,
+	char     *%patterns%
+%$$
+
+$head Purpose$$
+Set pattern for highlighting and automatic cross reference done by the
+$code hilite_out$$ command.
+
+$head line$$
+Is the line number in the current OMhelp input file 
+that is used for error reporting erros in the $code hilitepat$$ command.
+A fatal error is reported if $icode n_patter$$ is greater than one.
+A fatal error is also reported
+if the pattern is not a valid basic regular expression.
+
+$head n_pattern$$
+Is the number of patterns specified by the character vector
+$icode patterns$$.
+If $icode n_pattern$$ is equal to zero, 
+$icode patterns$$ is not used
+(and the memory connected to the previous pattern is freed).
+
+$head patterns$$
+The first chatacter in $icode patterns$$ is an $code '\0'$$.
+The pattern is the characters between the 
+the first and second $code '\0'$$ in $icode patterns$$.
+$pre
+
+$$
+After a call to $code hlite_pattern$$,
+the state of the vector $icode patterns$$ is unspecified.
+
+$head Memory Allocation$$
+This routine uses $cref AllocMem$$ to store a compiled version
+of the pattern.
+In the special case where $icode%n_pattern% == 0%$$,
+the memory allocated for the previous pattern is freed and no new memory
+is allocated.
+In addition, you can then use $cref hilite_set_default$$ 
+to free the memory allocated for the default pattern.
+
+$end
+--------------------------------------------------------------------------
 $begin hilite_command$$
 
 $section Set Commands for Automatic Highlighting and Cross Referencing$$
 
 $head Syntax$$
-$codei%int hilite_command(
-	int         line        ,
+$codei%void hilite_command(
+	int        %line%       ,
 	int        %n_pattern%  ,
 	char       *%commands%
 %$$
@@ -34,7 +84,7 @@ $code hilite_out$$ command.
 
 $head line$$
 Is the line number in the current OMhelp input file 
-that is used for error reporting erros in the $code hilitepat$$ command.
+that is used for error reporting erros in the $code hilitecmd$$ command.
 A fatal error is reported if $icode n_command$$ is to large.
 A fatal error is also reported
 if one of the commands is not in the list of commands that can be highlighted
@@ -66,8 +116,8 @@ $begin hilite_token$$
 $section Set Tokens for Automatic Highlighting and Cross Referencing$$
 
 $head Syntax$$
-$codei%int hilite_token(
-	int         line        ,
+$codei%void hilite_token(
+	int        %line%       ,
 	int        %n_pair%     ,
 	char      *%pairs%
 %$$
@@ -182,7 +232,8 @@ $head Syntax$$
 $icode hilite_set_default()$$
 
 $head Purpose$$
-The current settings by $cref hilite_command$$ and $cref hilite_token$$
+The current settings by 
+$cref hilite_pattern$$, $cref hilite_command$$ and $cref hilite_token$$
 are stored so that they can be recalled later.
 
 $end
@@ -196,8 +247,8 @@ $icode hilite_get_default()$$
 
 $head Purpose$$
 The values stored by the previous call to 
-$code hilite_set_default$$ are restored as the current settings 
-corresponding to $cref hilite_command$$ and $cref hilite_token$$.
+$code hilite_set_default$$ are restored as the current settings corresponding 
+to $cref hilite_pattern$$, $cref hilite_command$$ and $cref hilite_token$$.
 If there was no previous call to $cref hilite_set_default$$,
 the correspondign settings will not highlite or cross reference any commands.
 
@@ -208,6 +259,7 @@ $end
 # include <assert.h>
 # include <string.h>
 # include <ctype.h>
+# include <regex.h>
 
 # include "fatalerr.h"
 # include "int2str.h"
@@ -216,58 +268,80 @@ $end
 # include "href.h"
 # include "hilite.h"
 # include "ClipWhiteSpace.h"
+# include "allocmem.h"
 
+
+# define MAX_ERROR    200
 # define MAX_TOKEN    200
 # define MAX_NTOKEN   20
 # define MAX_NCOMMAND 20
 # define MAX_NPATTERN 20
 
 // set by previous call to hilite_default
-static int Ncommand_default = 0; 
+static regex_t *Regexp_default = NULL;
+static int  Ncommand_default = 0; 
 static char Command_default[MAX_NTOKEN][MAX_TOKEN];
-
-// set by previous call to hilite_default
 static int  Ntoken_default = 0; 
 static char Token_default[MAX_NTOKEN][MAX_TOKEN];
 static char Tag_default[MAX_NTOKEN][MAX_TOKEN];
 
-// set by previous call to hilite_command with root false
+// set by previous call to hilite_pattern 
+static regex_t *Regexp = NULL;
+
+// set by previous call to hilite_command
 static int Ncommand = 0;
 static char Command[MAX_NTOKEN][MAX_TOKEN];
 
-// set by previous call to hilite_token with root false
+// set by previous call to hilite_token
 static int  Ntoken = 0; 
 static char Token[MAX_NTOKEN][MAX_TOKEN];
 static char Tag[MAX_NTOKEN][MAX_TOKEN];
 
 static void match_indices(const char *text, int *start, int *end)
-{	int i   = *start;
-	char ch = text[i++];
+{	regmatch_t pmatch[2];
+	int        nmatch = 2;
+	int        eflags = 0; // ^ and $ match beginning and end of string
+	int        status;
+	int        len = strlen(text);
 
-	// skip to first matching character
-	while( (ch != '\0')  & (ch != '_') & (isalpha(ch) == 0) )
-		ch = text[i++]; 
-	--i;
+	// if not pattern, then no match
+	if( Regexp == NULL )
+		*start= *end = len;
 
-	// check for no matching characters
-	if( ch == '\0' )
-	{	*start = i;
-		*end   = i;
+	// find next match
+	status = regexec(Regexp, text + *start, nmatch, pmatch, eflags);  
+
+	// check for no match
+	if( status == REG_NOMATCH )
+	{	*start = *end = len;
 		return;
 	}
 
+	// check for error
+	if( status != 0 )
+	{	char error_msg[MAX_ERROR];
+		regerror(status, Regexp, error_msg, MAX_ERROR);
+		// should probably store the input file name and line
+		// during hilite_pattern so can report here.
+		fatalomh(
+			"Error while using current hilitepat pattern\n",
+			error_msg,
+			NULL
+		);
+	}
+
 	// index of the first matching character
-	*start = i;
-
-	while( (ch == '_') | (isalpha(ch) != 0 ) | (isdigit(ch) != 0) )
-		ch = text[++i];
-
-	*end = i;
-	return;
+	*end   = *start + (int) pmatch[1].rm_eo;
+	*start = *start + (int) pmatch[1].rm_so;
 }
 
 void hilite_set_default(void)
 {	int i;
+	if( Regexp_default != NULL )
+	{	regfree(Regexp_default);
+		FreeMem(Regexp_default);
+	}
+	Regexp_default = Regexp;
 	Ncommand_default = Ncommand;
 	for(i = 0; i < Ncommand; i++)
 		strcpy(Command_default[i], Command[i]);
@@ -281,6 +355,11 @@ void hilite_set_default(void)
 
 void hilite_get_default(void)
 {	int i;
+	if( Regexp != NULL )
+	{	regfree(Regexp);
+		FreeMem(Regexp);
+	}
+	Regexp = Regexp_default;
 	Ncommand = Ncommand_default;
 	for(i = 0; i < Ncommand; i++)
 		strcpy(Command[i], Command_default[i]);
@@ -288,6 +367,47 @@ void hilite_get_default(void)
 	for(i = 0; i < Ntoken; i++)
 	{	strcpy(Token[i], Token_default[i]);
 		strcpy(Tag[i], Tag_default[i]);
+	}
+	return;
+}
+
+void hilite_pattern(
+	int         line      ,
+	int         n_pattern ,
+	char       *patterns  )
+{	
+	int  status;
+	int  cflags = 0;
+	char *pattern;
+
+	if( Regexp != NULL )
+	{	regfree(Regexp);
+		FreeMem(Regexp);
+	}
+	if( n_pattern == 0 )
+	{	Regexp = NULL;
+		return;
+	}
+	if( n_pattern > 1 ) fatalomh(
+		"Error in the hilitepat command that begins in line ",
+		int2str(line),
+		"\nThere is more than one pattern in the command",
+		NULL
+	);
+	pattern = patterns + 1;
+	ClipWhiteSpace(pattern);
+	Regexp = (regex_t *) AllocMem(1, sizeof(regex_t));
+	status = regcomp(Regexp, pattern, cflags);
+	if( status != 0 )
+	{	char error_msg[MAX_ERROR];
+		regerror(status, Regexp, error_msg, MAX_ERROR);
+		fatalomh(
+			"Error in the hilitepat command that begins in line ",
+			int2str(line),
+			"\n",
+			error_msg,
+			NULL
+		);
 	}
 	return;
 }
@@ -364,20 +484,6 @@ void hilite_token(
 			int2str(line),
 			".\nThe following tag is to long\n",
 			tag,
-			NULL
-		);
-		id = (isalpha(token[0]) != 0) | (token[0] != '_' );
-		j  = strlen(token);
-		while(--j)
-		{	char ch = token[j];
-			id &= (isalpha(ch)!=0) | (ch=='_') | (isdigit(ch)!=0);
-		}
-
-		if( ! id ) fatalomh(
-			"Error in the hilitetok command that begins in line ",
-			int2str(line),
-			".\nThe following token is not an identifier\n",
-			token,
 			NULL
 		);
 		strncpy(Token[i], token, MAX_TOKEN);

@@ -20,6 +20,7 @@ $begin codep$$
 $escape #$$
 $dollar @$$
 $spell 
+	hilitepat
 	hilitecmd
 	hilitetok
 	hilite
@@ -94,8 +95,10 @@ $code @@$$ to be commented out so that it is not included in the
 compilation.
 
 $head Highlighting Example$$
+$index hilite, example$$
 The following input
 $codep
+	@hilitepat \([a-z][a-z]*\)@@
 	@hilitecmd codep@@
 	@hilitetok%
 		codep%%
@@ -109,6 +112,7 @@ $codep
 	@@
 $$
 would create the following output
+$hilitepat \([a-z][a-z]*\)$$
 $hilitecmd codep$$
 $hilitetok%
 	codep%%
