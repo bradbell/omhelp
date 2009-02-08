@@ -49,7 +49,7 @@ nobase_dist_data_DATA = \
 	OMhelp/dictionary.bin
 #
 EXTRA_DIST = \
-	Build \
+	build.sh \
 	FixMakefile \
 	FixAclocal \
 	install.bat \

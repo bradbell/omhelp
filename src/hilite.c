@@ -259,7 +259,14 @@ $end
 # include <assert.h>
 # include <string.h>
 # include <ctype.h>
+
+# ifdef _MSC_VER
+# include <boost/regex.h>
+# else
+// kludge: for some reason my boost cygwin library has undefined externals
+// but if we use the regex.h in /usr/include, nothing needs to be done.
 # include <regex.h>
+# endif
 
 # include "fatalerr.h"
 # include "int2str.h"
@@ -468,7 +475,6 @@ void hilite_token(
 	for(i = 0; i < n_pair; i++)
 	{	int len   = strlen(token);
 		char *tag = token + len + 1;
-		int id, j;
 		len       = strlen(tag);
 		ClipWhiteSpace(token);
 		ClipWhiteSpace(tag);

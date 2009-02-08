@@ -113,6 +113,15 @@ $syntax|
 |$$
 $lend
 
+$subhead Boost Library$$
+You will the the regular expressions part of the boost library
+to compile and link OMhelp. 
+You can download a free copy of it from
+$href%http://www.boostpro.com/%boostpro%$$.
+If you use the default settings for $code BoostPro 1.33.1 Installer$$,
+you will not need to change the location of the 
+boost library and include files in the Visual Studio project.
+
 $head Dictionary$$ 
 $index dictionary$$
 $index english.wrd$$

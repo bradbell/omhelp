@@ -254,8 +254,8 @@ void fataltex(const char *s1, ...)
 	// check for an active macro expansion
 	expand = LatexMacroExpandInput();
 	if( expand != NULL ) printf(
-		"\nThe macro \\%s is defined in line %d of %s.\n"
-		"Its current expansion is\n%s\n",
+		"\nThe macro %s is defined in line %d of %s.\n"
+		"Its current expansion is\n%s\n%s",
 		LatexMacroExpandName(),
 		LatexMacroInputLine(),
 		LatexMacroInputFile(),
