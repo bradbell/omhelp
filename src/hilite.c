@@ -1,4 +1,4 @@
-/* -----------------------------------------------------------------------
+/*--------------------------------------------------------------------
 OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
@@ -16,56 +16,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 /*
---------------------------------------------------------------------------
-$begin hilite_pattern$$
-
-$section Set Pattern for Automatic Highlighting and Corss Referencing$$
-
-$head Syntax$$
-$codei%void hilite_pattern(
-	int       %line%,
-	int       %n_pattern%  ,
-	char     *%patterns%
-%$$
-
-$head Purpose$$
-Set pattern for highlighting and automatic cross reference done by the
-$code hilite_out$$ command.
-
-$head line$$
-Is the line number in the current OMhelp input file 
-that is used for error reporting erros in the $code hilitepat$$ command.
-A fatal error is reported if $icode n_patter$$ is greater than one.
-A fatal error is also reported
-if the pattern is not a valid basic regular expression.
-
-$head n_pattern$$
-Is the number of patterns specified by the character vector
-$icode patterns$$.
-If $icode n_pattern$$ is equal to zero, 
-$icode patterns$$ is not used
-(and the memory connected to the previous pattern is freed).
-
-$head patterns$$
-The first chatacter in $icode patterns$$ is an $code '\0'$$.
-The pattern is the characters between the 
-the first and second $code '\0'$$ in $icode patterns$$.
-$pre
-
-$$
-After a call to $code hlite_pattern$$,
-the state of the vector $icode patterns$$ is unspecified.
-
-$head Memory Allocation$$
-This routine uses $cref AllocMem$$ to store a compiled version
-of the pattern.
-In the special case where $icode%n_pattern% == 0%$$,
-the memory allocated for the previous pattern is freed and no new memory
-is allocated.
-In addition, you can then use $cref hilite_set_default$$ 
-to free the memory allocated for the default pattern.
-
-$end
 --------------------------------------------------------------------------
 $begin hilite_command$$
 
@@ -113,50 +63,57 @@ $end
 --------------------------------------------------------------------------
 $begin hilite_token$$
 
-$section Set Tokens for Automatic Highlighting and Cross Referencing$$
+$section 
+Set Patterns and Tags for Automatic Highlighting and Cross Referencing$$
 
 $head Syntax$$
 $codei%void hilite_token(
-	int        %line%       ,
-	int        %n_pair%     ,
-	char      *%pairs%
+	int        %line%     ,
+	int        %n_arg%    ,
+	char      *%args%
 %$$
 
 $head Purpose$$
-Set token, tag pairs for highlighting and automatic cross reference 
+Set patterns and tags for highlighting and automatic cross reference 
 done by the $code hilite_out$$ command.
 
 $head line$$
 Is the line number in the current OMhelp input file that is used
 for error reporting erros in the $code hilitecmd$$ command.
-A fatal error is reported if $icode n_pair$$ is not an even number.
-A fatal error is also reported if one of the tokens or tags is too large.
+A fatal error is reported if $icode n_arg$$ is not 
+a multiple of four.
+A fatal error is also reported if one of the patterns or tags is too large.
 
-$head n_pair$$
-Is the number of token, tag pairs specified by the character vector
-$icode tokens$$.
-If $icode n_pair$$ is equal to zero, $icode pairs$$ is not used.
+$head n_arg$$
+Is the number of arguments specified by the character vector
+$icode args$$.
 
-$head pairs$$
-The first character in $icode pairs$$ is a $code '\0'$$.
-The first token goes from $icode%pairs%+1%$$ to the
-second $code '\0'$$ in $icode pairs$$.
-The first tag goes from the second $code '\0'$$
-to the third $code '\0'$$.
+$head args$$
+For $icode%j%=1,%...%n_arg%/4%$$:
 $pre
 
 $$
-For $icode i$$ between two and $icode%n_pair%-1%$$,
-The $th i$$ token goes from the character directly after 
-the $code '\0'$$ terminating the $th i-1$$ tag 
-to the $code '\0'$$ terminating the $th i$$ token.
-The $th i$$ tag goes from the character following the 
-$th i$$ token's $code '\0'$$ to the next $code '\0'$$.
+$icode before_j$$ is the characters between 
+$codei%4*%j% - 3%$$ and the $codei%4*%j% - 2%$$ 
+terminating $code '\0'$$ in $icode args$$. 
 $pre
 
 $$
-Thus there are $codei%2 * %n_pair% + 1%$$ terminating $code '\0'$$ characters
-in $icode tokens$$.
+$icode token_j$$ is the characters between 
+$codei%4*%j% - 2%$$ and the $codei%4*%j% - 1%$$ 
+terminating $code '\0'$$ in $icode args$$. 
+$pre
+
+$$
+$icode after_j$$ is the characters between 
+$codei%4*%j% - 1%$$ and the $codei%4*%j%$$ 
+terminating $code '\0'$$ in $icode args$$. 
+$pre
+
+$$
+$icode tag_j$$ is the characters between 
+$codei%4*%j%$$ and the $codei%4*%j% + 1%$$ 
+terminating $code '\0'$$ in $icode args$$. 
 $pre
 
 $$
@@ -213,15 +170,6 @@ $head text$$
 Is a $code '\0'$$ terminated character vector containing
 the text to be output.
 
-$head matching$$
-A pattern match starts directly after a character not with in limits
-(or with the first character) 
-and end just before another character not with in limits
-(or the last character).
-Pattern matches that are tokens
-are output with the cross reference (and not spell checked).
-All other text is output normally.
-
 $end
 ---------------------------------------------------------------------------
 $begin hilite_set_default$$
@@ -233,7 +181,7 @@ $icode hilite_set_default()$$
 
 $head Purpose$$
 The current settings by 
-$cref hilite_pattern$$, $cref hilite_command$$ and $cref hilite_token$$
+$cref hilite_command$$ and $cref hilite_token$$
 are stored so that they can be recalled later.
 
 $end
@@ -248,7 +196,7 @@ $icode hilite_get_default()$$
 $head Purpose$$
 The values stored by the previous call to 
 $code hilite_set_default$$ are restored as the current settings corresponding 
-to $cref hilite_pattern$$, $cref hilite_command$$ and $cref hilite_token$$.
+$cref hilite_command$$ and $cref hilite_token$$.
 If there was no previous call to $cref hilite_set_default$$,
 the correspondign settings will not highlite or cross reference any commands.
 
@@ -259,14 +207,6 @@ $end
 # include <assert.h>
 # include <string.h>
 # include <ctype.h>
-
-# ifdef _MSC_VER
-# include <boost/regex.h>
-# else
-// kludge: for some reason my boost cygwin library has undefined externals
-// but if we use the regex.h in /usr/include, nothing needs to be done.
-# include <regex.h>
-# endif
 
 # include "fatalerr.h"
 # include "int2str.h"
@@ -285,76 +225,74 @@ $end
 # define MAX_NPATTERN 20
 
 // set by previous call to hilite_default
-static regex_t *Regexp_default = NULL;
 static int  Ncommand_default = 0; 
 static char Command_default[MAX_NTOKEN][MAX_TOKEN];
-static int  Ntoken_default = 0; 
-static char Token_default[MAX_NTOKEN][MAX_TOKEN];
-static char Tag_default[MAX_NTOKEN][MAX_TOKEN];
 
-// set by previous call to hilite_pattern 
-static regex_t *Regexp = NULL;
+static int  Npattern_default = 0; 
+static int  Nbefore_default[MAX_NTOKEN];
+static int  Ntoken_default [MAX_NTOKEN];
+static int  Nafter_default [MAX_NTOKEN];
+static char Pattern_default[MAX_NTOKEN][MAX_TOKEN];
+static char Tag_default    [MAX_NTOKEN][MAX_TOKEN];
 
 // set by previous call to hilite_command
-static int Ncommand = 0;
+static int  Ncommand = 0;
 static char Command[MAX_NTOKEN][MAX_TOKEN];
 
 // set by previous call to hilite_token
-static int  Ntoken = 0; 
-static char Token[MAX_NTOKEN][MAX_TOKEN];
-static char Tag[MAX_NTOKEN][MAX_TOKEN];
+static int  Npattern = 0; 
+static int  Nbefore[MAX_NTOKEN];
+static int  Ntoken [MAX_NTOKEN];
+static int  Nafter [MAX_NTOKEN];
+static char Pattern[MAX_NTOKEN][MAX_TOKEN];
+static char Tag    [MAX_NTOKEN][MAX_TOKEN];
 
-static void match_indices(const char *text, int *start, int *end)
-{	regmatch_t pmatch[2];
-	int        nmatch = 2;
-	int        eflags = 0; // ^ and $ match beginning and end of string
-	int        status;
-	int        len = strlen(text);
 
-	// if not pattern, then no match
-	if( Regexp == NULL )
-		*start= *end = len;
-
-	// find next match
-	status = regexec(Regexp, text + *start, nmatch, pmatch, eflags);  
-
-	// check for no match
-	if( status == REG_NOMATCH )
-	{	*start = *end = len;
-		return;
+static int match(const char *text, int start)
+{	int i, j, k, agree;
+	const char *pattern;
+	for(i = 0; i < Npattern; i++)
+	{	j       = 0;
+		k       = start;
+		pattern = Pattern[i];
+		agree   = (pattern[j] != '\0') & (text[k] != '\0');
+		while( agree )
+		{	if( pattern[j] == ' ' )
+			{	// white space matches the beginning and end
+				// of the input text
+				agree  = isspace( text[k] ) > 0;
+				agree |= k == 0;
+				agree |= text[k] == '\0';
+				if( agree )
+				{	while( isspace(text[k]) )
+						k++;
+					while( pattern[j] == ' ' )
+						j++;
+				}
+			}
+			else if( pattern[j] == '\0' )
+				agree = 0;
+			else 	agree = pattern[j++] == text[k++];
+		}
+		if( pattern[j] == '\0' )
+			return i;
 	}
-
-	// check for error
-	if( status != 0 )
-	{	char error_msg[MAX_ERROR];
-		regerror(status, Regexp, error_msg, MAX_ERROR);
-		// should probably store the input file name and line
-		// during hilite_pattern so can report here.
-		fatalomh(
-			"Error while using current hilitepat pattern\n",
-			error_msg,
-			NULL
-		);
-	}
-
-	// index of the first matching character
-	*end   = *start + (int) pmatch[1].rm_eo;
-	*start = *start + (int) pmatch[1].rm_so;
+	return -1;
 }
+
 
 void hilite_set_default(void)
 {	int i;
-	if( Regexp_default != NULL )
-	{	regfree(Regexp_default);
-		FreeMem(Regexp_default);
-	}
-	Regexp_default = Regexp;
 	Ncommand_default = Ncommand;
 	for(i = 0; i < Ncommand; i++)
 		strcpy(Command_default[i], Command[i]);
-	Ntoken_default = Ntoken;
-	for(i = 0; i < Ntoken; i++)
-	{	strcpy(Token_default[i], Token[i]);
+
+	Npattern_default = Npattern;
+	for(i = 0; i < Npattern; i++)
+	{	Nbefore_default[i] = Nbefore[i];
+		Ntoken_default[i]  = Ntoken[i];
+		Nafter_default[i]  = Nafter[i];
+		strcpy(Pattern_default[i], Pattern[i]);
 		strcpy(Tag_default[i], Tag[i]);
 	}
 	return;
@@ -362,59 +300,16 @@ void hilite_set_default(void)
 
 void hilite_get_default(void)
 {	int i;
-	if( Regexp != NULL )
-	{	regfree(Regexp);
-		FreeMem(Regexp);
-	}
-	Regexp = Regexp_default;
 	Ncommand = Ncommand_default;
 	for(i = 0; i < Ncommand; i++)
 		strcpy(Command[i], Command_default[i]);
-	Ntoken= Ntoken_default;
-	for(i = 0; i < Ntoken; i++)
-	{	strcpy(Token[i], Token_default[i]);
+	Npattern = Npattern_default;
+	for(i = 0; i < Npattern; i++)
+	{	Nbefore[i] = Nbefore_default[i];
+		Ntoken[i]  = Ntoken_default[i];
+		Nafter[i]  = Nafter_default[i];
+		strcpy(Pattern[i], Pattern_default[i]);
 		strcpy(Tag[i], Tag_default[i]);
-	}
-	return;
-}
-
-void hilite_pattern(
-	int         line      ,
-	int         n_pattern ,
-	char       *patterns  )
-{	
-	int  status;
-	int  cflags = 0;
-	char *pattern;
-
-	if( Regexp != NULL )
-	{	regfree(Regexp);
-		FreeMem(Regexp);
-	}
-	if( n_pattern == 0 )
-	{	Regexp = NULL;
-		return;
-	}
-	if( n_pattern > 1 ) fatalomh(
-		"Error in the hilitepat command that begins in line ",
-		int2str(line),
-		"\nThere is more than one pattern in the command",
-		NULL
-	);
-	pattern = patterns + 1;
-	ClipWhiteSpace(pattern);
-	Regexp = (regex_t *) AllocMem(1, sizeof(regex_t));
-	status = regcomp(Regexp, pattern, cflags);
-	if( status != 0 )
-	{	char error_msg[MAX_ERROR];
-		regerror(status, Regexp, error_msg, MAX_ERROR);
-		fatalomh(
-			"Error in the hilitepat command that begins in line ",
-			int2str(line),
-			"\n",
-			error_msg,
-			NULL
-		);
 	}
 	return;
 }
@@ -458,43 +353,64 @@ void hilite_command(
 
 void hilite_token(
 	int         line      ,
-	int         n_pair    ,
-	char        *pairs    )
+	int         n_arg     ,
+	char        *args     )
 {	int i;
-	char *token;
-	assert( *pairs == '\0' );
+	char *before, *token, *after, *tag;
+	assert( *args == '\0' );
 
-	if( n_pair > MAX_NTOKEN ) fatalomh(
+	if( n_arg / 4 > MAX_NTOKEN ) fatalomh(
 		"Error in the hilitetok command that begins in line ",
 		int2str(line),
-		".\nThere are to many (token, tag) pairs in this command",
+		".\nToo many (before, token, after, tag) groups",
 		NULL
 	);
-	Ntoken = n_pair;
-	token  = pairs + 1;
-	for(i = 0; i < n_pair; i++)
-	{	int len   = strlen(token);
-		char *tag = token + len + 1;
-		len       = strlen(tag);
-		ClipWhiteSpace(token);
-		ClipWhiteSpace(tag);
-		if( strlen(token) > MAX_TOKEN - 1 ) fatalomh(
+	if( n_arg % 4 != 0 ) fatalomh(
+		"Error in the hilitetok command that begins in line ",
+		int2str(line),
+		".\nThe number of arguments is not a multiple of four",
+		NULL
+	);
+	Npattern = n_arg / 4;
+	for(i = 0; i < Npattern; i++)
+	{	int j, k;
+		before    = args + 1;
+		token     = before + strlen(before) + 1;
+		after     = token + strlen(token) + 1;
+		tag       = after + strlen(after) + 1;
+		args      = tag + strlen(tag);
+		//
+		Nbefore[i] = token - before - 1;
+		Ntoken[i]  = after - token - 1;
+		Nafter[i]  = tag - after - 1;
+		//
+		if( before - tag > MAX_TOKEN - 1 ) fatalomh(
 			"Error in the hilitetok command that begins in line ",
 			int2str(line),
-			".\nThe following token is to long\n",
-			token,
+			".\nThe following pattern is to long\n",
+			before, token, after,
 			NULL
 		);
-		if( strlen(tag) > MAX_TOKEN - 1 ) fatalomh(
+		if( tag - args > MAX_TOKEN - 1 ) fatalomh(
 			"Error in the hilitetok command that begins in line ",
 			int2str(line),
 			".\nThe following tag is to long\n",
 			tag,
 			NULL
 		);
-		strncpy(Token[i], token, MAX_TOKEN);
+		// copy entire pattern into one buffer
+		k = 0;
+		for(j = 0; j < Nbefore[i]; j++)
+			Pattern[i][k++] = before[j];
+		for(j = 0; j < Ntoken[i]; j++)
+			Pattern[i][k++] = token[j];
+		for(j = 0; j < Nafter[i]; j++)
+			Pattern[i][k++] = after[j];
+		Pattern[i][k] = '\0';
+		assert( k < MAX_TOKEN );
+
+		ClipWhiteSpace(tag);
 		strncpy(Tag[i], tag, MAX_TOKEN);
-		token = tag + len + 1;
 	}
 	return;
 }
@@ -509,44 +425,37 @@ void hilite_out(
 	int         pre            , 
 	char       *text
 )
-{	int i, len, index, match, end;
+{	int i, len, index, flag, done;
 	int  start = 0;
 	char skip  = '\0';
 	
-	match = 0;
+	flag = 0;
 	for(i = 0; i < Ncommand; i++)
-		match |= strcmp(command, Command[i]) == 0;
-	if( ! match )
+		flag |= strcmp(command, Command[i]) == 0;
+	if( ! flag )
 	{	output_text(line, text, pre, skip, check_spell, error_color);
 		return;
 	}
 
 	len   = strlen(text);
+	done  = 0;
 	while( start < len )
-	{	char save;	
-		match_indices(text, &start, &end);
+	{	index = match(text, start);
 
-		// check for a token match
-		save      = text[end];
-		text[end] = '\0';
-		index = -1;
-		for(i = 0; i < Ntoken; i++)
-			if( strcmp(text + start, Token[i]) == 0 )
-				index = i;
-		text[end] = save;
-
-		if( index < 0 )
-			start = end;
-		else
-		{	// output characters from start to end of token
+		if( index >= 0 )
+		{	char save;
+			int  token  = start + Nbefore[index];
+			int  after  = token + Ntoken[index];
+			assert( done <= start );
+			// output characters before token
 			if( start > 0 )
-			{	char save         = text[start];
-				char skip         = '\0';
-				text[start]       = '\0';
-				output_text(line, text, pre, skip,
+			{	char skip         = '\0';
+				save              = text[token];
+				text[token]       = '\0';
+				output_text(line, text + done, pre, skip,
 					check_spell, error_color
 				);
-				text[start]       = save;
+				text[token]       = save;
 			}
 			if( Tag[index][0] == '\0' )
 			{	OutputString("<font color=\"");
@@ -564,18 +473,22 @@ void hilite_out(
 					displayframe
 				);
 			}
-			output_text(line, Token[index], pre, skip, 
+			save        = text[after];
+			text[after] = '\0';
+			output_text(line, text + token, pre, skip, 
 				check_spell, error_color
 			); 
+			text[after] = save;
+
 			if( Tag[index][0] == '\0' )
 				OutputString("</font>");
 			else	HrefEnd("");
 
-			text  = text + end;
-			len   = len - end;
-			start = 0;
+			done = start = after;
 		}
+		else	start++;
+		assert( start <= len );
 	}
-	output_text(line, text, pre, skip, check_spell, error_color);
+	output_text(line, text + done, pre, skip, check_spell, error_color);
 	return;
 }

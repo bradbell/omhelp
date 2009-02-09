@@ -33,7 +33,6 @@ $spell
 	codep
 	OMhelp
 	colorname
-	hilitepat
 	hilitecmd
 	hilitetok
 $$
@@ -201,18 +200,16 @@ $index color, highlight$$
 The commands
 $codep
 	@hilitecolor purple@@
-	@hilitepat \([a-z][a-z]*\)@@
 	@hilitecmd codep@@
-	@hilitetok%codecolor%%@@
+	@hilitetok% %codecolor% %%@@
 	@codep
 		The codecolor command is useful.
 	@@
 $$
 results in the following output
 $hilitecolor purple$$
-$hilitepat \([a-z][a-z]*\)$$
 $hilitecmd codep$$
-$hilitetok%codecolor%%$$
+$hilitetok% %codecolor% %%$$
 $codep
 	The codecolor command is useful.
 $$

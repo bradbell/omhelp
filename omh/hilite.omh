@@ -35,46 +35,18 @@ $$
 $section Automatic Highlighting and Cross Referencing Certain Tokens$$
 
 $head Syntax$$
-$codei/@hilitecmd/%/command_1/%/ ... /%/command_m/%/@@
+$codei/@hilitecmd%/command_1/%/ ... /%/command_m/%/@@
 /$$
-$codei/@hilitepat pattern@@
-/$$
-$codei/@hilitetok/%/token_1/%/tag_1/%/ ... /%/token_n/%/tag_n/%/@@
-/$$
+$codei/@hilitetok%/before_1/%/token_1/%/after_1/%/tag_1/
+	            /.../
+	%/before_n/%/token_n/%/after_n/%/tag_n/
+%@@/$$
 
 $head Purpose$$
 These command enables you to automatically highlight and cross reference 
-certain words in the output text.
+certain tokens in the output text.
 This is useful for examples that contain special tokens that need
 emphasis or explanation. 
-
-$head White Space$$
-Leading and trailing $cref/white space/glossary/White Space/$$
-in each pattern, command, token, and tag is ignored.
-
-$head Tokens$$
-The next token is the first sub-expression
-in the input text that matches the basic regular expression $icode pattern$$; 
-see
-$href%
-	http://www.opengroup.org/onlinepubs/009695399/functions/regexec.html%
-	IEEE Std 1003.1, 2004 Edition
-%$$.
-Here are some useful details from the standard for basic regular expressions:
-
-$list disk$$
-The first sub-expression is the expression surrounded by the first
-$code \($$, $code \)$$ pair in $icode basic_regular_expression$$.
-$lnext
-The notation $codei%[%x%-%y%]%$$ denotes one occurrence of any character
-between $icode x$$ and $icode y$$.
-$lnext
-The notation $codei%[%x%-%y%]*%$$ denotes zero or more occurrences
-of any character between $icode x$$ and $icode y$$.
-$lnext
-The following characters have special meaning:
-$code .$$, $code \$$, $code [$$, $code ^$$, $code @$$, $code *$$. 
-$lend
 
 $head hilitecmd$$
 The values $icode command_1$$, ... , $icode command_m$$,
@@ -85,24 +57,48 @@ automatic highlighting and cross referencing
 are the $cref/codep/$$, and $cref/verbatim/$$ commands.
 
 $head hilitetok$$
-The values $icode token_1$$ through $icode token_n$$
-specify the tokens that should be highlighted or cross referenced.
-If $icode tag_j$$ is empty,
-then $icode token_j$$ appears in the $cref/hilitecolor/color/$$ 
-in the output (for the commands specified by $code hilitecmd$$). 
+
+$subhead Patterns$$
+For $icode%j% = 1,%...%,%n%$$,
+the $th j$$ pattern is defined as the character sequence
+$icode% 
+	pattern_j %=% before_j %+% token_j %+% after_j
+%$$
+where $codei +$$ signifies the joining of two strings to make one and
+in the order that they occur.
+Note that $icode before_j$$ and or $icode after_j$$ may be empty.
+
+$subhead Highlighting$$
+If $icode pattern_j$$ is detected in the input stream
+(for one of the commands specified by $code hilitecmd$$)
+and $icode tag_j$$ empty,
+$icode token_j$$ appears in the $cref/hilitecolor/color/$$ 
+in the corresponding output. 
+
+$subhead Cross Referencing$$
+If $icode pattern_j$$ is detected in the input stream
+(for one of the commands specified by $code hilitecmd$$)
+and $icode tag_j$$ not empty,
+
 If $icode tag_j$$ is not empty, 
 $icode token_j$$ is linked to the section corresponding to $icode tag_j$$
-and it appears in the $cref/linkcolor/color/$$ in the output 
-(for the commands specified by $code hilitecmd$$).
+and it appears in the $cref/linkcolor/color/$$ in the corresponding output.
+
+$head White Space$$
+Leading and trailing white space in any $icode token_j$$
+is not include in the corresponding command or token.
+A single space character in 
+$icode before_j$$, $icode token_j$$, or $icode after_j$$
+will match any number of $cref/white space/glossary/White Space/$$ characters
+(pattern matching includes, but does not cross, end of line characters).
+
 
 $head Example$$
 The following input
 $codep
-	@hilitepat \([a-z][a-z]*\)@@
 	@hilitecmd%codep%@@
-	@hilitetok%
-		cref%cref%
-		xref%
+	@hilitetok% %xref% %
+		% %cref% %cref
 	%@@
 	@codep
 		The OMhelp xref command has been deprecated, 
@@ -111,11 +107,9 @@ $codep
 $$
 generates the following output:
 
-$hilitepat \([a-z][a-z]*\)$$
 $hilitecmd%codep%$$
-$hilitetok%
-	xref%%
-	cref%cref
+$hilitetok% %xref% %
+	% %cref% %cref
 %$$
 $codep
 	The OMhelp xref command has been deprecated, 

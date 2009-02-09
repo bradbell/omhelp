@@ -21,7 +21,6 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\boost\boost_1_33_1&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="5"
@@ -37,11 +36,9 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalOptions="libboost_regex-vc71-sgd-1_33_1.lib"
 				OutputFile="src.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="&quot;C:\Program Files\boost\boost_1_33_1\lib&quot;"
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile=".\Debug/omhelp.pdb"
 				SubSystem="1"

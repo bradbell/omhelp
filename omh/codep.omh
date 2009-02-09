@@ -20,7 +20,6 @@ $begin codep$$
 $escape #$$
 $dollar @$$
 $spell 
-	hilitepat
 	hilitecmd
 	hilitetok
 	hilite
@@ -98,12 +97,10 @@ $head Highlighting Example$$
 $index hilite, example$$
 The following input
 $codep
-	@hilitepat \([a-z][a-z]*\)@@
 	@hilitecmd codep@@
-	@hilitetok%
-		codep%%
-		hilitetok%hilite%
-		hilitecmd%hilite
+	@hilitetok% %codep% %
+		% %hilitetok% %hilite
+		% %hilitecmd% %hilite
 	%@@
 	@codep
 		The hilitetok and hilitecmd commands can be used
@@ -112,12 +109,10 @@ $codep
 	@@
 $$
 would create the following output
-$hilitepat \([a-z][a-z]*\)$$
 $hilitecmd codep$$
-$hilitetok%
-	codep%%
-	hilitetok%hilite%
-	hilitecmd%hilite
+$hilitetok% %codep% %
+	% %hilitetok% %hilite
+	% %hilitecmd% %hilite
 %$$
 $codep
 	The hilitetok and hilitecmd commands can be used

@@ -1042,7 +1042,6 @@ void InitParser(const char *StartingInputFile)
 %token HEAD_lex
 %token HILITECMD_lex
 %token HILITECOLOR_lex
-%token HILITEPAT_lex
 %token HILITETOK_lex
 %token HREF_lex
 %token ICODE_lex
@@ -1137,7 +1136,6 @@ element
 	| head
 	| hilitecmd
 	| hilitecolor
-	| hilitepat
 	| hilitetok
 	| href
 	| icode
@@ -2835,34 +2833,14 @@ hilitecolor
 	;	
 
 
-hilitepat
-	: HILITEPAT_lex text not_2_dollar_or_text
-	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
-	}
-	| HILITEPAT_lex text DOUBLE_DOLLAR_lex
-	{	int n_pattern;
-		n_pattern = SplitText($1.line, "hilitepat", $2.str);
-		hilite_pattern($1.line, n_pattern, $2.str);
-
-		FreeMem($2.str);
-	}
-	;
-
 hilitetok
 	: HILITETOK_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
 	}
 	| HILITETOK_lex text DOUBLE_DOLLAR_lex
-	{	int n_token, n_pair;
+	{	int n_token;
 		n_token = SplitText($1.line, "hilitetok", $2.str);
-		if( n_token % 2 != 0 ) fatalomh(
-			"Error in $hilitetok command in line ",
-			int2str($1.line),
-			".\nThe number of command arguments is not even.",
-			NULL
-		);
-		n_pair = n_token / 2;
-		hilite_token($1.line, n_pair, $2.str);
+		hilite_token($1.line, n_token, $2.str);
 
 		FreeMem($2.str);
 	}

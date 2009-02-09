@@ -19,7 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
-	hilitepat
+	hilitetok
 	xml
 	linkcolor
 	hilitecolor
@@ -110,13 +110,8 @@ $tend
 $$
 
 $head 09-02-08$$
-Changed $cref hilite$$ commands from using identifiers for matching
-to use a user defined pattern defined by $code hilitepat$$.
-$pre
-
-$$
-The OMhelp installation now depends on a copy of the boost regular expression
-libarary. 
+Changed $cref/hilitetok/hilite/$$ to specify before and after strings
+and not restricted to identifies.
 
 $head 09-02-07$$
 Added the $cref/linkcolor/color/$$ and $code hilitecolor$$ commands.
