@@ -248,7 +248,7 @@ static char Pattern[MAX_NTOKEN][MAX_TOKEN];
 static char Tag    [MAX_NTOKEN][MAX_TOKEN];
 
 
-static int match(const char *text, int start)
+static int match_pattern(const char *text, int start)
 {	int i, j, k, agree;
 	const char *pattern;
 	for(i = 0; i < Npattern; i++)
@@ -257,7 +257,7 @@ static int match(const char *text, int start)
 		pattern = Pattern[i];
 		agree   = (pattern[j] != '\0') & (text[k] != '\0');
 		while( agree )
-		{	if( pattern[j] == ' ' )
+		{	if( isspace(pattern[j]) )
 			{	// white space matches the beginning and end
 				// of the input text
 				agree  = isspace( text[k] ) > 0;
@@ -266,7 +266,7 @@ static int match(const char *text, int start)
 				if( agree )
 				{	while( isspace(text[k]) )
 						k++;
-					while( pattern[j] == ' ' )
+					while( isspace(pattern[j]) )
 						j++;
 				}
 			}
@@ -277,6 +277,30 @@ static int match(const char *text, int start)
 		if( pattern[j] == '\0' )
 			return i;
 	}
+	return -1;
+}
+
+
+static int count_before(const char *text, int start, int index)
+{	int j, k, agree;
+	const char *before = Pattern[index];
+	j       = 0;
+	k       = 0;
+	while( j < Nbefore[index] )
+	{	if( isspace(before[j]) )
+		{	while( isspace(text[k + start]) )
+				k++;
+			while( isspace(before[j]) )
+				j++;
+		}
+		else
+		{	assert( before[j] == text[k + start] );
+			j++;
+			k++;
+		}
+	}
+	if( j >= Nbefore[index] )
+		return k;
 	return -1;
 }
 
@@ -380,18 +404,21 @@ void hilite_token(
 		tag       = after + strlen(after) + 1;
 		args      = tag + strlen(tag);
 		//
+		ClipWhiteSpace(token);
+		ClipWhiteSpace(tag);
+		//
 		Nbefore[i] = token - before - 1;
-		Ntoken[i]  = after - token - 1;
+		Ntoken[i]  = strlen(token);
 		Nafter[i]  = tag - after - 1;
 		//
-		if( before - tag > MAX_TOKEN - 1 ) fatalomh(
+		if( tag - before > MAX_TOKEN - 1 ) fatalomh(
 			"Error in the hilitetok command that begins in line ",
 			int2str(line),
 			".\nThe following pattern is to long\n",
 			before, token, after,
 			NULL
 		);
-		if( tag - args > MAX_TOKEN - 1 ) fatalomh(
+		if( strlen(tag) > MAX_TOKEN - 1 ) fatalomh(
 			"Error in the hilitetok command that begins in line ",
 			int2str(line),
 			".\nThe following tag is to long\n",
@@ -409,7 +436,6 @@ void hilite_token(
 		Pattern[i][k] = '\0';
 		assert( k < MAX_TOKEN );
 
-		ClipWhiteSpace(tag);
 		strncpy(Tag[i], tag, MAX_TOKEN);
 	}
 	return;
@@ -440,11 +466,11 @@ void hilite_out(
 	len   = strlen(text);
 	done  = 0;
 	while( start < len )
-	{	index = match(text, start);
+	{	index = match_pattern(text, start);
 
 		if( index >= 0 )
 		{	char save;
-			int  token  = start + Nbefore[index];
+			int  token  = start + count_before(text, start, index);
 			int  after  = token + Ntoken[index];
 			assert( done <= start );
 			// output characters before token

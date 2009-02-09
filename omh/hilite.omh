@@ -37,13 +37,14 @@ $section Automatic Highlighting and Cross Referencing Certain Tokens$$
 $head Syntax$$
 $codei/@hilitecmd%/command_1/%/ ... /%/command_m/%/@@
 /$$
-$codei/@hilitetok%/before_1/%/token_1/%/after_1/%/tag_1/
+$codei/@hilitetok%
+	/before_1/%/token_1/%/after_1/%/tag_1/%
 	            /.../
-	%/before_n/%/token_n/%/after_n/%/tag_n/
+	/before_n/%/token_n/%/after_n/%/tag_n/
 %@@/$$
 
 $head Purpose$$
-These command enables you to automatically highlight and cross reference 
+These commands enables you to automatically highlight and cross reference 
 certain tokens in the output text.
 This is useful for examples that contain special tokens that need
 emphasis or explanation. 
@@ -60,60 +61,64 @@ $head hilitetok$$
 
 $subhead Patterns$$
 For $icode%j% = 1,%...%,%n%$$,
-the $th j$$ pattern is defined as the character sequence
+$icode pattern_j$$ is defined as the character sequence
 $icode% 
-	pattern_j %=% before_j %+% token_j %+% after_j
+	before_j%,%token_j%,%after_j
 %$$
-where $codei +$$ signifies the joining of two strings to make one and
-in the order that they occur.
-Note that $icode before_j$$ and or $icode after_j$$ may be empty.
+where the $codei ,$$ character is not included.
+Note that $icode before_j$$ and or $icode after_j$$ may be empty;
+i.e., contain no characters.
 
 $subhead Highlighting$$
 If $icode pattern_j$$ is detected in the input stream
-(for one of the commands specified by $code hilitecmd$$)
+(for a command specified by $code hilitecmd$$)
 and $icode tag_j$$ empty,
 $icode token_j$$ appears in the $cref/hilitecolor/color/$$ 
 in the corresponding output. 
 
 $subhead Cross Referencing$$
 If $icode pattern_j$$ is detected in the input stream
-(for one of the commands specified by $code hilitecmd$$)
+(for a command specified by $code hilitecmd$$)
 and $icode tag_j$$ not empty,
-
-If $icode tag_j$$ is not empty, 
 $icode token_j$$ is linked to the section corresponding to $icode tag_j$$
 and it appears in the $cref/linkcolor/color/$$ in the corresponding output.
 
 $head White Space$$
-Leading and trailing white space in any $icode token_j$$
-is not include in the corresponding command or token.
-A single space character in 
-$icode before_j$$, $icode token_j$$, or $icode after_j$$
-will match any number of $cref/white space/glossary/White Space/$$ characters
-(pattern matching includes, but does not cross, end of line characters).
+Leading and trailing 
+$cref/white space/glossary/White Space/$$
+is removed from $icode token_j$$ and $icode tag_j$$.
+Any sequence of one or more white space characters in
+$icode before_j$$ and $icode after_j$$
+will match any sequence of one or more white space characters
+in the input.
+It will also match the beginning and end of the input.
 
 
 $head Example$$
 The following input
 $codep
 	@hilitecmd%codep%@@
-	@hilitetok% %xref% %
-		% %cref% %cref
+	@hilitetok%
+		%xref% %%
+		%cref% %cref
 	%@@
 	@codep
 		The OMhelp xref command has been deprecated, 
 		you should use the cref command instead. 
+		This xref, does not have white space after it.
 	@@
 $$
 generates the following output:
 
 $hilitecmd%codep%$$
-$hilitetok% %xref% %
-	% %cref% %cref
+$hilitetok%
+	%xref% %%
+	%cref% %cref
 %$$
 $codep
 	The OMhelp xref command has been deprecated, 
 	you should use the cref command instead. 
+	This xref, does not have white space after it.
 $$
 
 $head Root Section$$

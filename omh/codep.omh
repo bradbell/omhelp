@@ -98,9 +98,10 @@ $index hilite, example$$
 The following input
 $codep
 	@hilitecmd codep@@
-	@hilitetok% %codep% %
-		% %hilitetok% %hilite
-		% %hilitecmd% %hilite
+	@hilitetok% 
+		%codep% %%
+		%hilitetok% %hilite%
+		%hilitecmd% %hilite
 	%@@
 	@codep
 		The hilitetok and hilitecmd commands can be used
@@ -110,9 +111,10 @@ $codep
 $$
 would create the following output
 $hilitecmd codep$$
-$hilitetok% %codep% %
-	% %hilitetok% %hilite
-	% %hilitecmd% %hilite
+$hilitetok%
+	%codep% %%
+	%hilitetok% %hilite%
+	%hilitecmd% %hilite
 %$$
 $codep
 	The hilitetok and hilitecmd commands can be used
