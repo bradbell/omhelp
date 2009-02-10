@@ -105,11 +105,8 @@
 :syntax match omh_hilitecolor      /\$hilitecolor/
 :highlight link omh_hilitecolor   Keyword
 
-:syntax match omh_hilitepat        /\$hilitepat/
-:highlight link omh_hilitepat     Keyword
-
-:syntax match omh_hilitetok       /\$hilitetok/
-:highlight link omh_hilitetok     Keyword
+:syntax match omh_hiliteseq       /\$hiliteseq/
+:highlight link omh_hiliteseq     Keyword
 
 :syntax match omh_href            /\$href/
 :highlight link omh_href          Keyword

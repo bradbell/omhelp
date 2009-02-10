@@ -1042,7 +1042,7 @@ void InitParser(const char *StartingInputFile)
 %token HEAD_lex
 %token HILITECMD_lex
 %token HILITECOLOR_lex
-%token HILITETOK_lex
+%token HILITESEQ_lex
 %token HREF_lex
 %token ICODE_lex
 %token ICON_lex
@@ -1136,7 +1136,7 @@ element
 	| head
 	| hilitecmd
 	| hilitecolor
-	| hilitetok
+	| hiliteseq
 	| href
 	| icode
 	| image
@@ -1519,7 +1519,7 @@ begin
 		assert( HiliteColor  == NULL );
 		CodeColor   = str_alloc("blue");
 		ErrorColor  = str_alloc("red");
-		HiliteColor = str_alloc("green");
+		HiliteColor = str_alloc("purple");
 
 		// initial state of spell checker
 		assert( CheckSpell == 1);
@@ -2833,14 +2833,14 @@ hilitecolor
 	;	
 
 
-hilitetok
-	: HILITETOK_lex text not_2_dollar_or_text
+hiliteseq
+	: HILITESEQ_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
 	}
-	| HILITETOK_lex text DOUBLE_DOLLAR_lex
+	| HILITESEQ_lex text DOUBLE_DOLLAR_lex
 	{	int n_token;
-		n_token = SplitText($1.line, "hilitetok", $2.str);
-		hilite_token($1.line, n_token, $2.str);
+		n_token = SplitText($1.line, "hiliteseq", $2.str);
+		hilite_seq($1.line, n_token, $2.str);
 
 		FreeMem($2.str);
 	}
@@ -3337,7 +3337,7 @@ keyword
 	| FEND_lex
 	| FIXED_lex
 	| HILITECMD_lex
-	| HILITETOK_lex
+	| HILITESEQ_lex
 	| HEAD_lex
 	| HREF_lex
 	| ICON_lex
@@ -4845,26 +4845,8 @@ verbatim
 			}
 			previous = ch;
 
-			// output line buffer when current character is newline
-			if( (ch == '\n') | (ch == '\001')  )
-			{	int spell_check = 0;
-				int pre = 0;
-				assert( line_index < line_max );
-				line_buffer[line_index] = '\0';
-				hilite_out(
-					"verbatim",
-					$2.line,
-					spell_check,
-					ErrorColor,
-					HiliteColor,
-					pre,
-					line_buffer
-				);
-				line_index = 0;
-			}
-			if( ch == '\n' )
-				ConvertOutputCh(ch, 0);
-			else if( (ch != '\001') & (ch != '\0') )
+			// add this character to the output line buffer
+			if( (ch != '\001') & (ch != '\0') & (ch != '\n') )
 			{	if( line_index >= line_max )
 				{	line_buffer[line_max-1] = '\n';
 					line_buffer[line_max]   = '\0';
@@ -4885,6 +4867,27 @@ verbatim
 			// check for stopping point after outputing ch
 			if( match )
 				ch = '\001';
+
+			// output line buffer when current character is newline
+			// or the end of the input
+			if( (ch == '\n') | (ch == '\001')  )
+			{	int spell_check = 0;
+				int pre = 0;
+				assert( line_index < line_max );
+				line_buffer[line_index] = '\0';
+				hilite_out(
+					"verbatim",
+					$2.line,
+					spell_check,
+					ErrorColor,
+					HiliteColor,
+					pre,
+					line_buffer
+				);
+				line_index = 0;
+			}
+			if( ch == '\n' )
+				ConvertOutputCh(ch, 0);
 
 			if( ch != '\001' )
 				ch = InputGet();

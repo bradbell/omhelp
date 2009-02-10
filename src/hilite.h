@@ -12,7 +12,7 @@ void hilite_command(
 	int         n_command ,
 	char       *commands 
 );
-void hilite_token(
+void hilite_seq(
 	int         line      ,
 	int         n_pair    ,
 	char       *pairs   

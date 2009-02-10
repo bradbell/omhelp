@@ -19,10 +19,11 @@
 $begin hilite$$
 $dollar @$$
 $spell
+	cmd
 	underbar
 	underbars
 	hilitecmd
-	hilitetok
+	hiliteseq
 	hilitecolor
 	cref
 	codep
@@ -35,12 +36,12 @@ $$
 $section Automatic Highlighting and Cross Referencing Certain Tokens$$
 
 $head Syntax$$
-$codei/@hilitecmd%/command_1/%/ ... /%/command_m/%/@@
+$codei/@hilitecmd%/cmd_1/%/ ... /%/cmd_m/%/@@
 /$$
-$codei/@hilitetok%
-	/before_1/%/token_1/%/after_1/%/tag_1/%
+$codei/@hiliteseq%
+	/before_1/%/seq_1/%/after_1/%/tag_1/%
 	            /.../
-	/before_n/%/token_n/%/after_n/%/tag_n/
+	/before_n/%/seq_n/%/after_n/%/tag_n/
 %@@/$$
 
 $head Purpose$$
@@ -50,55 +51,68 @@ This is useful for examples that contain special tokens that need
 emphasis or explanation. 
 
 $head hilitecmd$$
-The values $icode command_1$$, ... , $icode command_m$$,
+The values $icode cmd_1$$, ... , $icode cmd_m$$,
 specify the commands (with out the $code @$$ character)
 for which this automatic highlighting and cross referencing is to be done.
 Currently, the only valid commands for 
 automatic highlighting and cross referencing
 are the $cref/codep/$$, and $cref/verbatim/$$ commands.
 
-$head hilitetok$$
+$head hiliteseq$$
 
-$subhead Patterns$$
-For $icode%j% = 1,%...%,%n%$$,
-$icode pattern_j$$ is defined as the character sequence
-$icode% 
-	before_j%,%token_j%,%after_j
-%$$
-where the $codei ,$$ character is not included.
-Note that $icode before_j$$ and or $icode after_j$$ may be empty;
-i.e., contain no characters.
+$subhead seq_j$$
+Is any sequence of characters
+(leading and trailing white space is ignored). 
+If this sequence appears in the input text 
+and matches the before and after requirements below,
+it will be highlighted or cross referenced
+(depending on $icode tag_j$$; see below).
+
+$subhead before_j$$
+A match for the sequence $icode seq_j$$ 
+requires that one of the characters in $icode before_j$$ must 
+directly precede the sequence (not counting space or tab characters).
+If $icode before_j$$ is empty,
+then it suffices to have 
+$cref/white space/glossary/White Space/$$, 
+or the beginning of the text, precede $icode seq_j$$.
+
+$subhead after_j$$
+A pattern match for the sequence $icode seq_j$$ 
+requires that one of the characters in $icode after_j$$ must 
+directly follow the sequence (not counting space or tab characters).
+If $icode after_j$$ is empty,
+then it suffices to have a 
+$cref/white space/glossary/White Space/$$,
+or the end of the text, follow $icode seq_j$$.
+
 
 $subhead Highlighting$$
-If $icode pattern_j$$ is detected in the input stream
+If a pattern match is detected in the input stream
 (for a command specified by $code hilitecmd$$)
 and $icode tag_j$$ empty,
-$icode token_j$$ appears in the $cref/hilitecolor/color/$$ 
+$icode seq_j$$ appears in the $cref/hilitecolor/color/$$ 
 in the corresponding output. 
 
 $subhead Cross Referencing$$
-If $icode pattern_j$$ is detected in the input stream
+If a pattern match is detected in the input stream
 (for a command specified by $code hilitecmd$$)
 and $icode tag_j$$ not empty,
-$icode token_j$$ is linked to the section corresponding to $icode tag_j$$
+$icode seq_j$$ is linked to the section corresponding to $icode tag_j$$
 and it appears in the $cref/linkcolor/color/$$ in the corresponding output.
 
 $head White Space$$
 Leading and trailing 
 $cref/white space/glossary/White Space/$$
-is removed from $icode token_j$$ and $icode tag_j$$.
-Any sequence of one or more white space characters in
-$icode before_j$$ and $icode after_j$$
-will match any sequence of one or more white space characters
-in the input.
-It will also match the beginning and end of the input.
+is removed from 
+$icode before_j$$, $icode seq_j$$, $icode after_j$$, and $icode tag_j$$.
 
 
 $head Example$$
 The following input
 $codep
 	@hilitecmd%codep%@@
-	@hilitetok%
+	@hiliteseq%
 		%xref% %%
 		%cref% %cref
 	%@@
@@ -111,7 +125,7 @@ $$
 generates the following output:
 
 $hilitecmd%codep%$$
-$hilitetok%
+$hiliteseq%
 	%xref% %%
 	%cref% %cref
 %$$

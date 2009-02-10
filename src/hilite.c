@@ -24,7 +24,7 @@ $section Set Commands for Automatic Highlighting and Cross Referencing$$
 $head Syntax$$
 $codei%void hilite_command(
 	int        %line%       ,
-	int        %n_pattern%  ,
+	int        %n_command%  ,
 	char       *%commands%
 %$$
 
@@ -61,13 +61,13 @@ the state of the vector $icode commands$$ is unspecified.
 
 $end
 --------------------------------------------------------------------------
-$begin hilite_token$$
+$begin hilite_pattern$$
 
 $section 
 Set Patterns and Tags for Automatic Highlighting and Cross Referencing$$
 
 $head Syntax$$
-$codei%void hilite_token(
+$codei%void hilite_seq(
 	int        %line%     ,
 	int        %n_arg%    ,
 	char      *%args%
@@ -99,7 +99,7 @@ terminating $code '\0'$$ in $icode args$$.
 $pre
 
 $$
-$icode token_j$$ is the characters between 
+$icode seq_j$$ is the characters between 
 $codei%4*%j% - 2%$$ and the $codei%4*%j% - 1%$$ 
 terminating $code '\0'$$ in $icode args$$. 
 $pre
@@ -117,8 +117,8 @@ terminating $code '\0'$$ in $icode args$$.
 $pre
 
 $$
-After a call to $code hlite_tokens$$,
-the state of the vector $icode pairs$$ is unspecified.
+After a call to $code hlite_seq$$,
+the state of the vector $icode args$$ is unspecified.
 
 
 $end
@@ -181,7 +181,7 @@ $icode hilite_set_default()$$
 
 $head Purpose$$
 The current settings by 
-$cref hilite_command$$ and $cref hilite_token$$
+$cref hilite_command$$ and $cref hilite_seq$$
 are stored so that they can be recalled later.
 
 $end
@@ -196,7 +196,7 @@ $icode hilite_get_default()$$
 $head Purpose$$
 The values stored by the previous call to 
 $code hilite_set_default$$ are restored as the current settings corresponding 
-$cref hilite_command$$ and $cref hilite_token$$.
+$cref hilite_command$$ and $cref hilite_seq$$.
 If there was no previous call to $cref hilite_set_default$$,
 the correspondign settings will not highlite or cross reference any commands.
 
@@ -229,81 +229,82 @@ static int  Ncommand_default = 0;
 static char Command_default[MAX_NTOKEN][MAX_TOKEN];
 
 static int  Npattern_default = 0; 
-static int  Nbefore_default[MAX_NTOKEN];
-static int  Ntoken_default [MAX_NTOKEN];
-static int  Nafter_default [MAX_NTOKEN];
-static char Pattern_default[MAX_NTOKEN][MAX_TOKEN];
+static char Before_default [MAX_NTOKEN][MAX_TOKEN];
+static char Seq_default    [MAX_NTOKEN][MAX_TOKEN];
+static char After_default  [MAX_NTOKEN][MAX_TOKEN];
 static char Tag_default    [MAX_NTOKEN][MAX_TOKEN];
 
 // set by previous call to hilite_command
 static int  Ncommand = 0;
 static char Command[MAX_NTOKEN][MAX_TOKEN];
 
-// set by previous call to hilite_token
+// set by previous call to hilite_seq
 static int  Npattern = 0; 
-static int  Nbefore[MAX_NTOKEN];
-static int  Ntoken [MAX_NTOKEN];
-static int  Nafter [MAX_NTOKEN];
-static char Pattern[MAX_NTOKEN][MAX_TOKEN];
+static char Before [MAX_NTOKEN][MAX_TOKEN];
+static char Seq    [MAX_NTOKEN][MAX_TOKEN];
+static char After  [MAX_NTOKEN][MAX_TOKEN];
 static char Tag    [MAX_NTOKEN][MAX_TOKEN];
 
 
 static int match_pattern(const char *text, int start)
 {	int i, j, k, agree;
-	const char *pattern;
+	const char *seq;
 	for(i = 0; i < Npattern; i++)
-	{	j       = 0;
-		k       = start;
-		pattern = Pattern[i];
-		agree   = (pattern[j] != '\0') & (text[k] != '\0');
-		while( agree )
-		{	if( isspace(pattern[j]) )
-			{	// white space matches the beginning and end
-				// of the input text
-				agree  = isspace( text[k] ) > 0;
-				agree |= k == 0;
-				agree |= text[k] == '\0';
-				if( agree )
-				{	while( isspace(text[k]) )
-						k++;
-					while( isspace(pattern[j]) )
-						j++;
-				}
-			}
-			else if( pattern[j] == '\0' )
-				agree = 0;
-			else 	agree = pattern[j++] == text[k++];
+	{	j     = 0;
+		k     = start;
+		seq   = Seq[i];
+
+		// check for match of before character
+		if( Before[i][0] == '\0' )
+		{	// white space before agrees
+			agree = (k == 0) | (isspace(text[k]) > 0);
+			while( isspace(text[k]) )
+				k++;
 		}
-		if( pattern[j] == '\0' )
-			return i;
+		else
+		{	agree = strchr(Before[i], text[k]) != NULL;
+			k++;
+			while( isspace(text[k]) )
+				k++;
+		}
+
+		// check for match of sequence
+		while( agree & (seq[j] != '\0') & (text[k] != '\0') )
+			agree = seq[j++] == text[k++];
+
+		if( agree & (seq[j] == '\0') )
+		{	// check for match of after character
+			if( After[i][0] == '\0' )
+			{	// white space after agrees
+				if( (text[k] == '\0') | (isspace(text[k])>0) )
+					return i;
+			}
+			else
+			{	while( isspace(text[k]) )
+					k++;
+				if( strchr(After[i], text[k]) != NULL );
+					return i;
+			}
+		}
 	}
 	return -1;
 }
 
 
 static int count_before(const char *text, int start, int index)
-{	int j, k, agree;
-	const char *before = Pattern[index];
-	j       = 0;
-	k       = 0;
-	while( j < Nbefore[index] )
-	{	if( isspace(before[j]) )
-		{	while( isspace(text[k + start]) )
+{	int k = start;
+	if( Before[index][0] == '\0' )
+	{	// white space before agrees
+		while( isspace(text[k]) )
 				k++;
-			while( isspace(before[j]) )
-				j++;
-		}
-		else
-		{	assert( before[j] == text[k + start] );
-			j++;
-			k++;
-		}
 	}
-	if( j >= Nbefore[index] )
-		return k;
-	return -1;
+	else
+	{	k++;
+		while( isspace(text[k]) )
+			k++;
+	}
+	return k - start;
 }
-
 
 void hilite_set_default(void)
 {	int i;
@@ -313,11 +314,10 @@ void hilite_set_default(void)
 
 	Npattern_default = Npattern;
 	for(i = 0; i < Npattern; i++)
-	{	Nbefore_default[i] = Nbefore[i];
-		Ntoken_default[i]  = Ntoken[i];
-		Nafter_default[i]  = Nafter[i];
-		strcpy(Pattern_default[i], Pattern[i]);
-		strcpy(Tag_default[i], Tag[i]);
+	{	strcpy(Before_default[i], Before[i]);
+		strcpy(Seq_default[i],    Seq[i]);
+		strcpy(After_default[i],  After[i]);
+		strcpy(Tag_default[i],    Tag[i]);
 	}
 	return;
 }
@@ -327,16 +327,17 @@ void hilite_get_default(void)
 	Ncommand = Ncommand_default;
 	for(i = 0; i < Ncommand; i++)
 		strcpy(Command[i], Command_default[i]);
-	Npattern = Npattern_default;
+
+	Npattern = Npattern;
 	for(i = 0; i < Npattern; i++)
-	{	Nbefore[i] = Nbefore_default[i];
-		Ntoken[i]  = Ntoken_default[i];
-		Nafter[i]  = Nafter_default[i];
-		strcpy(Pattern[i], Pattern_default[i]);
-		strcpy(Tag[i], Tag_default[i]);
+	{	strcpy(Before[i], Before_default[i]);
+		strcpy(Seq[i],    Seq_default[i]);
+		strcpy(After[i],  After_default[i]);
+		strcpy(Tag[i],    Tag_default[i]);
 	}
 	return;
 }
+
 
 void hilite_command(
 	int         line      ,
@@ -375,68 +376,79 @@ void hilite_command(
 	return;
 }
 
-void hilite_token(
+void hilite_seq(
 	int         line      ,
 	int         n_arg     ,
 	char        *args     )
 {	int i;
-	char *before, *token, *after, *tag;
 	assert( *args == '\0' );
 
 	if( n_arg / 4 > MAX_NTOKEN ) fatalomh(
-		"Error in the hilitetok command that begins in line ",
+		"Error in the hiliteseq command that begins in line ",
 		int2str(line),
-		".\nToo many (before, token, after, tag) groups",
+		".\nToo many (before, seq, after, tag) groups",
 		NULL
 	);
 	if( n_arg % 4 != 0 ) fatalomh(
-		"Error in the hilitetok command that begins in line ",
+		"Error in the hiliteseq command that begins in line ",
 		int2str(line),
 		".\nThe number of arguments is not a multiple of four",
 		NULL
 	);
 	Npattern = n_arg / 4;
 	for(i = 0; i < Npattern; i++)
-	{	int j, k;
+	{	char *before, *seq, *after, *tag;
+		int ok, j;
 		before    = args + 1;
-		token     = before + strlen(before) + 1;
-		after     = token + strlen(token) + 1;
-		tag       = after + strlen(after) + 1;
-		args      = tag + strlen(tag);
+		seq       = before + strlen(before) + 1;
+		after     = seq     + strlen(seq)   + 1;
+		tag       = after  + strlen(after)  + 1;
+		args      = tag    + strlen(tag);
 		//
-		ClipWhiteSpace(token);
-		ClipWhiteSpace(tag);
-		//
-		Nbefore[i] = token - before - 1;
-		Ntoken[i]  = strlen(token);
-		Nafter[i]  = tag - after - 1;
-		//
-		if( tag - before > MAX_TOKEN - 1 ) fatalomh(
-			"Error in the hilitetok command that begins in line ",
+		// Before
+		ClipWhiteSpace(before);
+		if( strlen(before) > MAX_TOKEN - 1) fatalomh(
+			"Error in the hiliteseq command that begins in line ",
 			int2str(line),
-			".\nThe following pattern is to long\n",
-			before, token, after,
+			".\nThe following before is to long\n",
+			before,
 			NULL
 		);
-		if( strlen(tag) > MAX_TOKEN - 1 ) fatalomh(
-			"Error in the hilitetok command that begins in line ",
+		strcpy(Before[i], before);
+		//
+		// Seq
+		ClipWhiteSpace(seq);
+		if( strlen(seq) > MAX_TOKEN - 1) fatalomh(
+			"Error in the hiliteseq command that begins in line ",
+			int2str(line),
+			".\nThe following seq is to long\n",
+			seq,
+			NULL
+		);
+		strcpy(Seq[i], seq);
+		//
+		// After 
+		ClipWhiteSpace(after);
+		if( strlen(after) > MAX_TOKEN - 1) fatalomh(
+			"Error in the hiliteseq command that begins in line ",
+			int2str(line),
+			".\nThe following after is to long\n",
+			after,
+			NULL
+		);
+		strcpy(After[i], after);
+		//
+		// Tag
+		ClipWhiteSpace(tag);
+		if( strlen(tag) > MAX_TOKEN - 1) fatalomh(
+			"Error in the hiliteseq command that begins in line ",
 			int2str(line),
 			".\nThe following tag is to long\n",
 			tag,
 			NULL
 		);
-		// copy entire pattern into one buffer
-		k = 0;
-		for(j = 0; j < Nbefore[i]; j++)
-			Pattern[i][k++] = before[j];
-		for(j = 0; j < Ntoken[i]; j++)
-			Pattern[i][k++] = token[j];
-		for(j = 0; j < Nafter[i]; j++)
-			Pattern[i][k++] = after[j];
-		Pattern[i][k] = '\0';
-		assert( k < MAX_TOKEN );
+		strcpy(Tag[i], tag);
 
-		strncpy(Tag[i], tag, MAX_TOKEN);
 	}
 	return;
 }
@@ -470,18 +482,18 @@ void hilite_out(
 
 		if( index >= 0 )
 		{	char save;
-			int  token  = start + count_before(text, start, index);
-			int  after  = token + Ntoken[index];
+			int  seq    = start + count_before(text, start, index);
+			int  after  = seq    + strlen( Seq[index] );
 			assert( done <= start );
 			// output characters before token
 			if( start > 0 )
 			{	char skip         = '\0';
-				save              = text[token];
-				text[token]       = '\0';
+				save              = text[seq];
+				text[seq]         = '\0';
 				output_text(line, text + done, pre, skip,
 					check_spell, error_color
 				);
-				text[token]       = save;
+				text[seq]         = save;
 			}
 			if( Tag[index][0] == '\0' )
 			{	OutputString("<font color=\"");
@@ -501,7 +513,7 @@ void hilite_out(
 			}
 			save        = text[after];
 			text[after] = '\0';
-			output_text(line, text + token, pre, skip, 
+			output_text(line, text + seq, pre, skip, 
 				check_spell, error_color
 			); 
 			text[after] = save;

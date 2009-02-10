@@ -21,7 +21,7 @@ $escape #$$
 $dollar @$$
 $spell 
 	hilitecmd
-	hilitetok
+	hiliteseq
 	hilite
 	codep 
 	pre
@@ -98,26 +98,26 @@ $index hilite, example$$
 The following input
 $codep
 	@hilitecmd codep@@
-	@hilitetok% 
+	@hiliteseq% 
 		%codep% %%
-		%hilitetok% %hilite%
+		%hiliteseq% %hilite%
 		%hilitecmd% %hilite
 	%@@
 	@codep
-		The hilitetok and hilitecmd commands can be used
+		The hiliteseq and hilitecmd commands can be used
 		to highlight and cross reference text that is inside of a
 		codep command. 
 	@@
 $$
 would create the following output
 $hilitecmd codep$$
-$hilitetok%
+$hiliteseq%
 	%codep% %%
-	%hilitetok% %hilite%
+	%hiliteseq% %hilite%
 	%hilitecmd% %hilite
 %$$
 $codep
-	The hilitetok and hilitecmd commands can be used
+	The hiliteseq and hilitecmd commands can be used
 	to highlight and cross reference text that is inside of a
 	codep command. 
 $$

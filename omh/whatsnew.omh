@@ -106,8 +106,10 @@ $rref whatsNew03$$
 $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
-
 $$
+
+$head 09-02-10$$
+Change the meaning of the $cref/hilite/$$ before and after strings.
 
 $head 09-02-08$$
 Changed $cref/hilitetok/hilite/$$ to specify before and after strings

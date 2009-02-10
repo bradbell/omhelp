@@ -20,7 +20,7 @@ $begin verbatim$$
 $spell 
 	hilite
 	hilitecmd
-	hilitetok
+	hiliteseq
 	OMhelp
 	codep
 	omh
@@ -121,12 +121,12 @@ The $cref/hilite/$$ command can be used to highlight text in the output
 created by the $code verbatim$$ command.  For example,
 $codep
 	@hilitecmd%verbatim%@@
-	@hilitetok% %Bradley M. Bell% %%@@
+	@hiliteseq%%Bradley M. Bell%%%@@
 	@verbatim!copyright.omh!@@
 $$
 creates the following output
 $hilitecmd%verbatim%$$
-$hilitetok% %Bradley M. Bell% %%$$
+$hiliteseq%%Bradley M. Bell%%%$$
 $verbatim!copyright.omh!$$
 
 $head Indent$$

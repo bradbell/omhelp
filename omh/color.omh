@@ -34,7 +34,7 @@ $spell
 	OMhelp
 	colorname
 	hilitecmd
-	hilitetok
+	hiliteseq
 $$
 
 $index color, setting$$
@@ -70,7 +70,7 @@ $code codecolor$$
 $rnext
 $code hilitecolor$$
 	$cnext color used for $cref/hilite/$$ text
-	$cnext green
+	$cnext purple
 	$cnext no
 $rnext
 $code errorcolor$$
@@ -201,7 +201,7 @@ The commands
 $codep
 	@hilitecolor purple@@
 	@hilitecmd codep@@
-	@hilitetok% %codecolor% %%@@
+	@hiliteseq%%codecolor%%%@@
 	@codep
 		The codecolor command is useful.
 	@@
@@ -209,7 +209,7 @@ $$
 results in the following output
 $hilitecolor purple$$
 $hilitecmd codep$$
-$hilitetok% %codecolor% %%$$
+$hiliteseq%%codecolor%%%$$
 $codep
 	The codecolor command is useful.
 $$
