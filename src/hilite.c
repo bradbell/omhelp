@@ -282,7 +282,7 @@ static int match_pattern(const char *text, int start)
 			else
 			{	while( isspace(text[k]) )
 					k++;
-				if( strchr(After[i], text[k]) != NULL );
+				if( strchr(After[i], text[k]) != NULL )
 					return i;
 			}
 		}
@@ -398,7 +398,6 @@ void hilite_seq(
 	Npattern = n_arg / 4;
 	for(i = 0; i < Npattern; i++)
 	{	char *before, *seq, *after, *tag;
-		int ok, j;
 		before    = args + 1;
 		seq       = before + strlen(before) + 1;
 		after     = seq     + strlen(seq)   + 1;
