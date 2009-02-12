@@ -50,6 +50,7 @@ typedef struct styleInfo {
 	char *textcolor;
 	char *bgcolor;
 	char *linkcolor;
+	char *visitcolor;
 } StyleInfo;
 
 typedef struct navigateInfo {
@@ -109,6 +110,7 @@ $spell
 	OMhelp
 	bgcolor
 	linkcolor
+	visitcolor
 	textcolor
 $$
 
@@ -141,6 +143,10 @@ $rnext
 $code style.linkcolor$$
 $cend $code char*$$  
 $cend the color for links in this section
+$rnext
+$code style.visitcolor$$
+$cend $code char*$$  
+$cend the color for links that have been visited in this section
 $rnext
 $code navigate.number$$
 $cnext $code int$$

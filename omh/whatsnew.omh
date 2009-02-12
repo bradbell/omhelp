@@ -108,6 +108,12 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 09-02-12$$
+Add a different color command and default
+for $cref color$$ for visited links
+(default is more like it used to be before adding the $code linkcolor$$
+command).
+
 $head 09-02-10$$
 Change the meaning of the $cref/hilite/$$ before and after strings.
 

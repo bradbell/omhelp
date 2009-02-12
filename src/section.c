@@ -567,6 +567,7 @@ SectionInfo *SectionInfoNew(
 	F->style.textcolor = NULL;
 	F->style.bgcolor   = NULL;
 	F->style.linkcolor = NULL;
+	F->style.visitcolor= NULL;
 
 	if( navigateCopy == NULL )
 	{	F->navigate.number = Default.number;
@@ -606,6 +607,9 @@ void SectionDefaultStyle(
 	if( To->style.linkcolor == NULL &&  From->style.linkcolor != NULL )
 		To->style.linkcolor = str_alloc(From->style.linkcolor);
 
+	if( To->style.visitcolor == NULL &&  From->style.visitcolor != NULL )
+		To->style.visitcolor = str_alloc(From->style.visitcolor);
+
 	return;
 }
 
@@ -632,6 +636,7 @@ static void SectionFreeSubTree(SectionInfo *tree)
 		FreeMem(tree->style.textcolor);
 		FreeMem(tree->style.bgcolor);
 		FreeMem(tree->style.linkcolor);
+		FreeMem(tree->style.visitcolor);
 
 		for(index = 0; index < tree->navigate.number; index++)
 			FreeMem(tree->navigate.item[index].label);

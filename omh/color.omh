@@ -30,6 +30,7 @@ $spell
 	bgcolor
 	textcolor
 	linkcolor
+	visitcolor
 	codep
 	OMhelp
 	colorname
@@ -90,6 +91,11 @@ $code textcolor$$
 $rnext
 $code linkcolor$$
 	$cnext color used for cross reference linking
+	$cnext blue
+	$cnext yes
+
+$code visitcolor$$
+	$cnext color used for cross reference linking that have been visited
 	$cnext purple
 	$cnext yes
 $tend

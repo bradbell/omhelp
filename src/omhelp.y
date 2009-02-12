@@ -1085,6 +1085,7 @@ void InitParser(const char *StartingInputFile)
 %token TRACE_lex
 %token TREF_lex
 %token VERBATIM_lex
+%token VISITCOLOR_lex
 %token WSPACE_lex
 %token XREF_lex
 
@@ -1202,6 +1203,7 @@ element
 	| title
 	| tref
 	| verbatim
+	| visitcolor
 	| wspace
 	| xref
 	;
@@ -4922,6 +4924,34 @@ verbatim
 	}
 	;
 
+visitcolor
+	: VISITCOLOR_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| VISITCOLOR_lex text DOUBLE_DOLLAR_lex
+	{
+		assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		// only one $visitcolor per section
+		if( CurrentSection->style.visitcolor != NULL ) fatalomh(
+			"At $visitcolor comamnd in line ",
+			int2str($1.line),
+			"\nThere is more than one $visitcolor command ",
+			"in this section.",
+			NULL
+		);
+
+
+		CurrentSection->style.visitcolor = Color(
+			$1.line, "$visitcolor", $2.str
+		);
+		
+		FreeMem($2.str);
+		$$ = $1;
+	}
+	;
 wspace
 	: WSPACE_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);

@@ -21,6 +21,7 @@ $spell
 	bgcolor
 	textcolor
 	AllocMem
+	linkcolor
 $$
 
 $section Output Style Command for Current Section$$
@@ -43,6 +44,10 @@ $head Link Color$$
 The value $syntax%%S%->style.linkcolor%$$ is used
 for the link color in the style command.
 
+$head Visited Color$$
+The value $syntax%%S%->style.visitcolor%$$ is used
+for the visited link color in the style command.
+
 $head Memory$$
 The return value is allocated using $xref/AllocMem/$$
 and should be freed using $code FreeMem$$
@@ -59,6 +64,7 @@ char *StyleCommand(SectionInfo *S)
 {	const char *bgcolor;
 	const char *textcolor;
 	const char *linkcolor;
+	const char *visitcolor;
 	char *cmd;
 
 	if( S->style.bgcolor == NULL )
@@ -70,8 +76,12 @@ char *StyleCommand(SectionInfo *S)
 	else	textcolor = S->style.textcolor;
 
 	if( S->style.linkcolor == NULL )
-		linkcolor = "purple";
+		linkcolor = "blue";
 	else	linkcolor = S->style.linkcolor;
+
+	if( S->style.visitcolor == NULL )
+		visitcolor = "purple";
+	else	visitcolor = S->style.linkcolor;
 
 	// note must use the same case for body as is used in the <body>
 	// command for this section or the xml will not display correctly
@@ -85,9 +95,9 @@ char *StyleCommand(SectionInfo *S)
 		" }\nA:link { color : ",
 		linkcolor,
 		" }\nA:visited { color : ",
-		linkcolor,
+		visitcolor,
 		" }\nA:active { color : ",
-		linkcolor,
+		visitcolor,
 		" }\n</style>\n",
 		NULL
 	);
