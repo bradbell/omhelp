@@ -282,8 +282,9 @@ static int match_pattern(const char *text, int start)
 			else
 			{	while( isspace(text[k]) )
 					k++;
-				if( strchr(After[i], text[k]) != NULL )
-					return i;
+				if( text[k] != '\0' )
+					if( strchr(After[i], text[k]) != NULL )
+						return i;
 			}
 		}
 	}

@@ -238,6 +238,7 @@ keyword_table[] =
 	{ "trace",      TRACE_lex       },
 	{ "tref",       TREF_lex        },
 	{ "verbatim",   VERBATIM_lex    },
+	{ "visitcolor", VISITCOLOR_lex  },
 	{ "wspace",     WSPACE_lex      },
 	{ "xref",       XREF_lex        }
 };

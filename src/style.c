@@ -22,6 +22,7 @@ $spell
 	textcolor
 	AllocMem
 	linkcolor
+	visitcolor
 $$
 
 $section Output Style Command for Current Section$$

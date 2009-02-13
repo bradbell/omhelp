@@ -108,11 +108,18 @@ $rref whatsNew01$$
 $tend
 $$
 
+
 $head 09-02-12$$
 Add a different color command and default
 for $cref color$$ for visited links
 (default is more like it used to be before adding the $code linkcolor$$
 command).
+$pre
+
+$$
+Fix bug where the $icode after_j$$ pattern in 
+$cref/highlighting and cross referencing/hilite/$$
+was being ignored at the end of a line.
 
 $head 09-02-10$$
 Change the meaning of the $cref/hilite/$$ before and after strings.
