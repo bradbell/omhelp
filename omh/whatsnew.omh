@@ -19,6 +19,10 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	gfortran
+	Opensuse
+	usr
+	gfortran
 	hilitetok
 	xml
 	linkcolor
@@ -107,6 +111,17 @@ $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
 $$
+
+$head 09-02-24$$
+There is an Opensuse system that is finding 
+$code /usr/math/bin/f77$$ for the Fortran 77 compiler.
+This compiler resulted in the configure error message:
+$code
+	configure:4516: error: cannot compile a simple Fortran program
+$$ 
+In order to get around this problem, 
+$code g77$$ and then $code gfortran$$ were used as the preferable Fortran
+compilers.
 
 
 $head 09-02-12$$

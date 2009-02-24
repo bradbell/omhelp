@@ -19,11 +19,9 @@
 #
 # Build distribution
 #
-# --------------------------------------------------------------------------
 # Default values used for arguments to configure during this script.
 # These defaults are development system dependent and can be changed.
 VIMRUNTIME=/usr/share/vim/vim71
-# --------------------------------------------------------------------------
 #
 # date currently in configure.ac
 AcDate=`grep "^ *AC_INIT(" configure.ac | \
@@ -70,37 +68,36 @@ if [ "$1" = "automake" ] || [ "$1" = "all" ]
 then
 	if [ -e configure ]
 	then
-		if ! rm configure
-		then
-			echo "cannot remove old configure file"
-			exit 1
-		fi
+		rm configure
 	fi
 	echo "---------------------------------------------------------"
 	echo "If aclocal generates warning messages, try running ./FixAclocal"
 	echo "aclocal"
-	aclocal
+	if ! aclocal
+	then
+		echo "build.sh: aclocal failed."
+		exit 1
+	fi
 	echo "---------------------------------------------------------"
-	#
 	#
 	echo "autoheader"
 	if ! autoheader
 	then
-		echo "autoheader failed"
+		echo "build.sh: autoheader failed."
 		exit 1
 	fi
 	#
 	echo "autoconf"
 	if ! autoconf
 	then
-		echo "autoconf failed"
+		echo "build.sh: autoconf failed."
 		exit 1
 	fi
 	#
 	echo "automake -add-missing"
 	if ! automake --add-missing
 	then
-		echo "automake failed"
+		echo "build.sh: automake failed."
 		exit 1
 	fi
 	#
@@ -124,7 +121,7 @@ then
 	echo "./configure $TMP"
 	if ! ./configure $TMP 
 	then
-		echo "configure failed"
+		echo "build.sh: configure failed."
 		exit 1
 	fi
 	#
@@ -151,7 +148,7 @@ then
 	echo "make"
 	if ! make
 	then
-		echo "make failed"
+		echo "build.sh: make failed."
 		exit 1
 	fi
 	#
@@ -168,11 +165,7 @@ then
 	if [ -e omhelp-$AcDate ]
 	then
 		echo "rm -r omhelp-$AcDate"
-		if ! rm -r omhelp-$AcDate
-		then
-			echo "cannot remove old version of omhelp-$AcDate"
-			exit 1
-		fi
+		rm -r omhelp-$AcDate
 	fi
 	for file in OMhelp.dos.zip OMhelp.unix.tar.gz
 	do
@@ -181,7 +174,7 @@ then
 			echo "rm $file"
 			if ! rm $file
 			then
-				echo "cannot remove old version of $file"
+				echo "build.sh rm $file failed."
 				exit 1
 			fi
 		fi
@@ -190,24 +183,20 @@ then
 	echo "make dist"
 	if ! make dist
 	then
-		echo "make dist failed"
+		echo "build.sh make dist failed."
 		exit 1
 	fi
 	#
 	if [ ! -e omhelp-$AcDate.tar.gz ]
 	then
-		echo "omhelp-$AcDate.tar.gz does not exist"
+		echo "build.sh: omhelp-$AcDate.tar.gz does not exist"
 		echo "perhaps version is out of date"
 		#
 		exit 1
 	fi
 	#
 	# create the unix version
-	if ! mv omhelp-$AcDate.tar.gz OMhelp.unix.tar.gz
-	then
-		echo "cannot replace OMhelp.unix.tar.gz"
-		exit 1
-	fi
+	mv omhelp-$AcDate.tar.gz OMhelp.unix.tar.gz
 	#
 	if [ "$1" != "all" ]
 	then
@@ -220,20 +209,20 @@ then
 	then
 		echo "Must use MS project to build src.exe before executing"
 		echo "build.sh dos"
-		exit 1  # error code
+		exit 1 
 	fi
 	if [ ! -e OMhelp.unix.tar.gz ]
 	then
 		echo "Must build unix version before executing: build.sh dos"
-		exit 1
+		exit 0
 	fi
 	#
 	if [ -e omhelp-$AcDate ]
 	then
 		echo "rm -r omhelp-$AcDate"
 		if ! rm -r omhelp-$AcDate
-		then 
-			echo "cannot remove  omhelp-$AcDate"
+		then
+			echo "build.sh: rm -r omhelp-$AcDate failed."
 			exit 1
 		fi
 	fi
@@ -242,7 +231,7 @@ then
 		echo "rm OMhelp.dos.zip"
 		if ! rm OMhelp.dos.zip
 		then
-			echo "cannot remove old OMhelp.dos.zip"
+			echo "build.sh: rm -r OMhelp.dos.zip failed."
 			exit 1
 		fi
 	fi
@@ -252,7 +241,7 @@ then
 	#
 	if [ ! -e omhelp-$AcDate ]
 	then
-		echo "omhelp-$AcDate.tar.gz does not exist"
+		echo "build.sh: omhelp-$AcDate.tar.gz does not exist"
 		echo "perhaps OMhelp.unix.tar.gz is out of date"
 		#
 		exit 1
@@ -263,14 +252,22 @@ then
 	do
 		if [ -f $file ]
 		then
-			unix2dos $file
+			if ! unix2dos $file
+			then
+				echo "build.sh: unix2dos $file failed."
+				exit 1
+			fi
 		fi
 	done
 	for file in omhelp-$AcDate/OMhelp/*.wrd omhelp-$AcDate/OMhelp/*.xsl
 	do
 		if [ -f $file ]
 		then
-			unix2dos $file
+			if ! unix2dos $file
+			then
+				echo "build.sh: unix2dos $file failed."
+				exit 1
+			fi
 		fi
 	done
 	for dir in \
@@ -281,7 +278,11 @@ then
 			omhelp-$AcDate/$dir/*.dat \
 			omhelp-$AcDate/$dir/*.c
 		do
-			unix2dos $file
+			if ! unix2dos $file
+			then
+				echo "build.sh: unix2dos $file failed."
+				exit 1
+			fi
 		done
 	done
 	for dir in \
@@ -294,13 +295,22 @@ then
 		do
 			if [ -f $file ]
 			then
-				unix2dos $file
+				if ! unix2dos $file
+				then
+					echo "build.sh: unix2dos $file failed."
+					exit 1
+				fi
 			fi
 		done
 	done
 	#
 	# copy the executable to the distribution
-	cp src/src.exe omhelp-$AcDate/src/src.exe
+	echo "cp src/src.exe omhelp-$AcDate/src/src.exe"
+	if ! cp src/src.exe omhelp-$AcDate/src/src.exe
+	then
+		echo "build.sh copy src/src.exe failed."
+		exit 1
+	fi
 	#
 	# Make sure that dates in certain files are in certain order
 	# (necessary because of unix2dos conversion above)
@@ -314,10 +324,20 @@ then
 	touch omhelp-$AcDate/configure
 	#
 	# create the dos version
-	zip -r OMhelp.dos.zip omhelp-$AcDate
+	echo "zip -r OMhelp.dos.zip omhelp-$AcDate"
+	if ! zip -r OMhelp.dos.zip omhelp-$AcDate
+	then
+		echo "zip -r OMhelp.dos.zip omhelp-$AcDate failed."
+		exit 1
+	fi
 	#
 	# clean up
-	rm -r omhelp-$AcDate
+	echo "rm -r omhelp-$AcDate"
+	if ! rm -r omhelp-$AcDate
+	then
+		echo "rm -r omhelp-$AcDate failed."
+		exit 1
+	fi
 	#
 	if [ "$1" != "all" ]
 	then
@@ -326,28 +346,36 @@ then
 fi
 if [ "$1" = "test" ] || [ "$1" = "all" ] 
 then
-	tar -xvzf OMhelp.unix.tar.gz
-	cd omhelp-$AcDate
-	dir="omhelp-$AcDate"
+	echo "tar -xvzf OMhelp.unix.tar.gz"
+	if ! tar -xvzf OMhelp.unix.tar.gz
+	then
+		echo "tar -xvzf OMhelp.unix.tar.gz failed."
+		exit 1
+	fi
+	if ! cd omhelp-$AcDate
+	then
+		echo "cd omhelp-$AcDate failed."
+		exit 1
+	fi
 	if ! ./build.sh configure
 	then
-		echo "error running configure $dir"
+		echo "build.sh: build.sh configure failed."
 		exit 1
 	fi
 	if ! make
 	then
-		echo "error running make in $dir"
+		echo "build.sh: make failed."
 		exit 1
 	fi
 	cd omh/getstarted
 	if ! ./run_all.sh batch
 	then
-		echo "omh/getstarted/run_all.sh failed to run in $dir"
+		echo "build.sh: omh/getstarted/run_all.sh failed to run"
 		exit 1
 	fi
 	if ! ./run_all
 	then
-		echo "a test in $dir/omh/getstarted/run_all.c failed"
+		echo "build.sh: a omh/getstarted/run_all.c test failed"
 		exit 1
 	fi
 	if [ "$1" != "all" ]
@@ -357,7 +385,7 @@ then
 fi
 if [ "$1" = "all" ]
 then
-        exit 0
+        exit
 fi
 #
 if [ "$1" = "" ]
@@ -369,6 +397,8 @@ fi
 echo "option"
 echo "------"
 echo "version     update configure.ac and Doc.omh version number"
+echo "aclocal     create aclocal.m4 file"
+echo "autoheader  create a src/config.h.in file"
 echo "automake    run autoconf and automake to create configure script"
 echo "configure   run configure script to create make files"
 echo "make        compile omhlep and use it to build its documentaiton"
@@ -376,8 +406,8 @@ echo "dist        create the distribution files OMhelp.unix.tar.gz"
 echo "dos         create the distribution files OMhelp.dos.zip"
 echo "test        unpack and test unix distribution"
 echo
-echo "build.sh all: execute all the options in the order above"
+echo "build.sh all: This command executes all the options in the order above"
 echo
 echo "build.sh all unix"
-echo "This command will execute all the options in the order above"
+echo "This command executes all the options in the order above"
 echo "with the exception that \"dos\" will be excluded."
