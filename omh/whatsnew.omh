@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	hiliteseq
 	gfortran
 	Opensuse
 	usr
@@ -111,6 +112,24 @@ $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
 $$
+
+$head 09-03-24$$
+Fix an error in $cref/configure/InstallUnix/Configure/$$ 
+command's detection of proper Fortran compiler.
+$pre
+
+$$
+If one used an undefined 
+$cref/cross reference tag/glossary/Cross Reference Tag/$$
+in a $cref/hiliteseq/hilite/$$ command,
+an OMhelp assertion referencing the C source code resulted.
+This has been fixed so the a user oriented error message
+about the undefined cross reference is generated.
+$pre
+
+$$
+The $cref/hiliteseq/hilite/$$ command sometimes caused preceeding text
+to be missing in the output. This has been fixed.
 
 $head 09-02-24$$
 There is an Opensuse system that is finding 

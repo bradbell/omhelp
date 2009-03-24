@@ -208,6 +208,8 @@ $end
 # include <string.h>
 # include <ctype.h>
 
+# include "input.h"
+# include "cross.h"
 # include "fatalerr.h"
 # include "int2str.h"
 # include "output_text.h"
@@ -486,7 +488,7 @@ void hilite_out(
 			int  after  = seq    + strlen( Seq[index] );
 			assert( done <= start );
 			// output characters before token
-			if( start > 0 )
+			if( seq > done )
 			{	char skip         = '\0';
 				save              = text[seq];
 				text[seq]         = '\0';
@@ -501,7 +503,9 @@ void hilite_out(
 				OutputString("\">");
 			}
 			else
-			{	char *head         = "";
+			{	CrossReference *C;
+				char *tag          = Tag[index];
+				char *head         = "";
 				char *external     = "false";
 				char *displayframe = "";
 				HrefOutputPass1(
@@ -510,6 +514,13 @@ void hilite_out(
 					external      ,
 					displayframe
 				);
+
+				// search for this cross reference
+				C = FindCrossReference(tag, head);
+				if( C == NULL )
+					C = CreateCrossReference
+						(tag, head, InputName());
+				assert( C != NULL );
 			}
 			save        = text[after];
 			text[after] = '\0';

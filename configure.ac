@@ -18,7 +18,7 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 09-02-24, bradbell@seanet.com)
+AC_INIT(OMhelp, 09-03-24, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ dnl AC_PROG_CC([compiler-search-list]) outputs CC as C compiler to use
 AC_PROG_CC
 
 dnl AC_PROG_F77([complier-search-list]) outputs F77 as Fortran compiler to use
-AC_PROG_F77(g77, gfortran)
+AC_PROG_F77([g77 gfortran])
 dnl AC_PROG_CP outputs CPP as command to run C preprocessor
 AC_PROG_CPP
 
