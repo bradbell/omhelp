@@ -504,15 +504,17 @@ void hilite_out(
 			}
 			else
 			{	CrossReference *C;
-				char *tag          = Tag[index];
-				char *head         = "";
-				char *external     = "false";
-				char *displayframe = "";
+				char *tag             = Tag[index];
+				char *head            = "";
+				char *external        = "false";
+				char *displayframe    = "";
+				char *display_printid = "false";
 				HrefOutputPass1(
-					Tag[index]    ,
-					head          ,
-					external      ,
-					displayframe
+					Tag[index]      ,
+					head            ,
+					external        ,
+					displayframe    ,
+					display_printid
 				);
 
 				// search for this cross reference

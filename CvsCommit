@@ -1,14 +1,28 @@
-# Change $codep and $verbatim remove extra line feeds at beginning and end.
+# Remove human readable cross reference id from printable hilite command links
 # 
-# CvsCommit: script that did commit.
-# whatsnew.omh: user's view of the changes.
-# omhelp.y: do not need white-space:nowarp inside of <pre>
+# CvsCommit: shell script that made this commit
+# CvsCommit.sed: change date from 2008 to 2009.
+# whatsnew.omh: changes from user's point of view.
 #
+# Add display_printid to HrefOutputPass1 call list.
+# content.c, funref.c, hilite.c, href.c, href.h, omhelp.y
+#
+# Move printing of link id to beginning of displayed text.
+# children.c, omhelp.y, 
 add_list="
 "
 change_list="
 	CvsCommit
+	CvsCommit.sed
 	omh/whatsnew.omh
+	src/browser.c
+	src/children.c
+	src/content.c
+	src/funref.c
+	src/hilite.c
+	src/href.c
+	src/href.h
+	src/index.c
 	src/omhelp.y
 "
 delete_list="

@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2009 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -192,7 +192,7 @@ static void NextSection(SectionInfo *F, int level)
 		title = NULL;
 		if( F->children == NULL )
 		{	// simple case of no children 
-			HrefOutputPass1(F->tag, "", "false", "");
+			HrefOutputPass1(F->tag, "", "false", "", "true");
 
 			// use title as linking text
 			title = ConvertInternalString(F->title);
@@ -241,7 +241,7 @@ static void NextSection(SectionInfo *F, int level)
 			// link to this section is first option in view
 			for(i = 0; i < 4 * level; i++) 
 				ConvertOutputCh(' ', 1);
-			HrefOutputPass1(F->tag, "", "false", "");
+			HrefOutputPass1(F->tag, "", "false", "", "true");
 			OutputString(title);
 			HrefEnd("\n");
 

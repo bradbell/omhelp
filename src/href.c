@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2009 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -34,11 +34,12 @@ $section Output Cross References During Pass1$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void HrefOutputPass1( 
+$cend $codei%void HrefOutputPass1( 
 	const char *%tag%, 
 	const char *%head%, 
 	const char *%external%,
-	const char *%displayframe%
+	const char *%displayframe%,
+	const char *%display_printid%
 )%$$ $rend
 $bold See Also$$ 
 $cend $mref/HrefOutputPass2/$$
@@ -50,8 +51,8 @@ $head Description$$
 The arguments are all
 $code '\0'$$ terminated character vectors.
 The following value is written to the output file:
-$syntax%
-	<HREF="%tag%#%head%#%external%#%displayframe%">
+$codei%
+	<HREF="%tag%#%head%#%external%#%displayframe%#%display_printid%">
 %$$
 $end
 =============================================================================
@@ -71,7 +72,7 @@ $section Output Cross References During Pass2$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void HrefOutputPass2( 
+$cend $codei%void HrefOutputPass2( 
 	const char *%tag%, 
 	const char *%head%, 
 	const char *%external%,
@@ -86,41 +87,40 @@ $fend 25$$
 $head Description$$
 The arguments are all
 $code '\0'$$ terminated character vectors.
-$syntax%
+$codei%
 
 %tag%
 %$$
 This argument specifies the referenced section by its
 cross reference tag.
-$syntax%
+$codei%
 
 %head%
 %$$
 This argument specifies the heading with in the referenced
 section that the link is to. 
 If the link is to the entire section, head is equal to the empty string.
-$syntax%
+$codei%
 
 %external%
 %$$
-If $italic external$$ is $syntax%"%true%"%$$,
-the cross reference is a complete specified by $italic tag$$
+If $icode external$$ is $code "true"$$,
+the cross reference is a complete specified by $icode tag$$
 is a complete URL.
-Otherwise, $italic external$$ must be false
+Otherwise, $icode external$$ must be false
 and the cross reference is internal to the web site being built.
-$syntax%
+$codei%
 
 %displayframe%
 %$$
-If $italic displayframe$$ is the empty string,
+If $icode displayframe$$ is the empty string,
 or if $code NoFrame()$$ is true,
 the entire window is replaced by the link.
-Otherwise, the frame named $syntax%frame%displayframe%$$ is replaced.
-
+Otherwise, the frame named $codei%frame%displayframe%$$ is replaced.
 
 $head Restrictions$$
-The argument $italic tag$$ must satisfy the following conditions:
-$syntax%
+The argument $icode tag$$ must satisfy the following conditions:
+$codei%
 	assert( %tag%[0] != '\0' );
 	assert( ! isspace(%tag%[0]) );
 %$$
@@ -147,8 +147,9 @@ $section Printable Version of Cross References During Pass2$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void HrefPrintablePass2( 
-	const char *%printid%
+$cend $codei%void HrefPrintablePass2( 
+	const char *%printid%,
+	const char *%display_printid%
 )%$$ $rend
 $bold See Also$$ 
 $cend $mref/HrefOutputPass1/HrefOutputPass2/$$
@@ -157,9 +158,9 @@ $tend
 $fend 25$$
 
 $head Description$$
-The argument $italic printid$$ is a
+The argument $icode printid$$ is a
 $code '\0'$$ terminated character vector.
-$syntax%
+$codei%
 
 %printid%
 %$$
@@ -167,7 +168,15 @@ This is the unique id that specifies the cross reference
 within the output file.
 It is assumed that the destination point is defined by an
 anchor with NAME equal to this value
+$codei%
 
+%display_printid%
+%$$
+If $icode display_printid$$ is $code "true"$$,
+the identifier for the printable version of the cross reference
+is displayed directly before the linking text.
+Otherwise, $icode display_printid$$ must be $code "false"$$
+and the identifier it is not displayed. 
 
 $head Restrictions$$
 A call to the routine $mref/HrefEnd/$$ must follow any call
@@ -189,7 +198,7 @@ $section Terminate a Pass1 or Pass2 Cross References$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void HrefEnd(
+$cend $codei%void HrefEnd(
 	const char *%s%
 )%$$ $rend
 $bold See Also$$ 
@@ -205,13 +214,13 @@ $mref/HrefOutputPass2/$$ is what the user sees for
 a cross reference link.
 The routine $code HrefEnd$$ terminates this linking text. 
 In addition, it follows this termination by the text specified
-by $italic s$$ where $italic s$$ is a $code '\0'$$ terminated
+by $icode s$$ where $italic s$$ is a $code '\0'$$ terminated
 character vector.
 
 $head Terminate a Pass1 Reference$$
 If a call to $code HrefOutputPass1$$ preceded the call to $code HrefEnd$$,
 the value
-$syntax%
+$codei%
 	</HREF>%s%
 %$$
 is written to the output file.
@@ -219,7 +228,7 @@ is written to the output file.
 $head Terminate a Pass2 Reference$$
 If a call to $code HrefOutputPass2$$ preceded the call to $code HrefEnd$$,
 the value
-$syntax%
+$codei%
 	</a>%s%
 %$$
 is written to the output file.
@@ -250,7 +259,7 @@ $section Add an Entry to The Cross Reference Tracking List$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void HrefAddList(
+$cend $codei%void HrefAddList(
 	const char *%TagFrom%,
 	const char *%HeadFrom%,
 	const char *%UrlTo%,
@@ -265,36 +274,36 @@ $fend 25$$
 $head Description$$
 A call to $code HrefAddList$$ adds a cross reference to
 the list that is output by a call to $mref/HrefOutputList/$$. 
-$syntax%
+$codei%
 
 %TagFrom%
 %$$
 The $code '\0'$$ 
-terminated character vector $italic TagFrom$$ specifies 
+terminated character vector $icode TagFrom$$ specifies 
 the cross reference tag
 for the section where the cross reference command occurs.
-$syntax%
+$codei%
 
 %HeadFrom%
 %$$
 The $code '\0'$$ 
-terminated character vector $italic TagFrom$$ specifies 
+terminated character vector $icode TagFrom$$ specifies 
 the previous $xref/glossary/Cross Reference Heading/cross reference heading/$$ 
 in the section where the cross reference command occurs.
-$syntax%
+$codei%
 
 %UrlTo%
 %$$
 The $code '\0'$$ terminated character vector 
-$italic UrlTo$$ specifies the destination web resource for the
+$icode UrlTo$$ specifies the destination web resource for the
 cross reference address as a URL.
-$syntax%
+$codei%
 
 %HeadTo%
 %$$
 The $code '\0'$$ terminated character vector 
-$italic HeadTo$$ specifies the heading (or data) for the web resource 
-being referenced by $italic UrlTo$$.
+$icode HeadTo$$ specifies the heading (or data) for the web resource 
+being referenced by $icode UrlTo$$.
 $end
 =============================================================================
 $begin HrefOutputList$$
@@ -312,7 +321,7 @@ $section Output Cross References Tracking List as an HTML File$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void HrefOutputList(
+$cend $codei%void HrefOutputList(
 	SectionInfo *%section%
 )%$$ $rend
 $bold See Also$$
@@ -325,7 +334,7 @@ $fend 25$$
 $head Description$$
 Creates a Pass1 HTML file that contains
 a list of all the references corresponding to calls to $mref/HrefAddList/$$.
-The argument $italic section$$ is a $xref/SectionInfo/$$ pointer
+The argument $icode section$$ is a $xref/SectionInfo/$$ pointer
 that specifies the section corresponding to this automatically 
 generated output.
 The output file has root name $syntax//section/->tag/$$
@@ -403,10 +412,11 @@ static int PreviousItalic = UNDEFINED;
 static int PreviousPass    = UNDEFINED;
 
 void HrefOutputPass1(
-	const char *tag, 
-	const char *head, 
-	const char *external,
-	const char *displayframe)
+	const char *tag             , 
+	const char *head            , 
+	const char *external        ,
+	const char *displayframe    ,
+	const char *display_printid )
 {
 	assert( *tag != '\0' );
 	assert( ! isspace(*tag) );
@@ -416,7 +426,8 @@ void HrefOutputPass1(
 	FormatOutput("<HREF=\"%s",     tag);
 	FormatOutput("#%s", head);
 	FormatOutput("#%s", external);
-	FormatOutput("#%s\">", displayframe);
+	FormatOutput("#%s", displayframe);
+	FormatOutput("#%s\">", display_printid);
 
 	// previous heading is undefined on pass 1
 	PreviousPass    = 1;
@@ -427,7 +438,7 @@ void HrefOutputPass2(
 	const char *tag, 
 	const char *head, 
 	const char *external,
-	const char *displayframe )
+	const char *displayframe)
 {	char *url;
 	char *target;
 
@@ -469,10 +480,19 @@ void HrefOutputPass2(
 }
 
 void HrefPrintablePass2(
-	const char *printid )
+	const char *printid         ,
+	const char *display_printid )
 {
+	assert( strcmp(display_printid, "true") == 0 || 
+	        strcmp(display_printid, "false") == 0 
+	);
+
 	FormatOutput("<a href=\"#%s\">", printid);
 
+	if( strcmp(display_printid, "true") == 0 )
+	{	OutputString(printid);
+		OutputString(": ");
+	}
 
 	PreviousPass   = 2;
 	PreviousItalic = NO;
@@ -594,7 +614,8 @@ void HrefOutputList(SectionInfo *section)
 	track    = Root;
 	while(track != NULL)
 	{	OutputString("\n<tr valign=\"top\"><td>");
-		HrefOutputPass1(track->UrlTo, track->HeadTo, "true", "");
+		HrefOutputPass1(
+			track->UrlTo, track->HeadTo, "true", "", "true");
 
 		OutputString(track->UrlTo);
 		if( track->HeadTo[0] != '\0' )
@@ -610,7 +631,9 @@ void HrefOutputList(SectionInfo *section)
 		if( track->HeadFrom[0] != '\0' )
 			frame = "1";
 
-		HrefOutputPass1(track->TagFrom, track->HeadFrom, "false", frame);
+		HrefOutputPass1(
+			track->TagFrom, track->HeadFrom, "false", frame, "true"
+		);
 		OutputString(track->TagFrom);
 		if( track->HeadFrom[0] != '\0' )
 		{	OutputString("#");

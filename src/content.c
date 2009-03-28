@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2009 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -90,7 +90,7 @@ static void NextContent(SectionInfo *F, int level)
 
 		// include short version of title; i.e., tag in linking text
 		OutputString(": ");
-		HrefOutputPass1(F->tag, "", "false", "");
+		HrefOutputPass1(F->tag, "", "false", "", "true");
 		ConvertOutputString(F->tag, 0);
 		HrefEnd("");
 		

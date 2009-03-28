@@ -447,12 +447,13 @@ static void SecondPass(SectionInfo *F)
 				char *tag;
 				int npound   = 0;
 				int itag     = 0;
-				int ipound[3];
+				int ipound[4];
 				int defined;
 
 				char *head;
 				char *external;
 				char *displayframe;
+				char *display_printid;
 
 				CrossReference *C = NULL;
 				
@@ -462,7 +463,7 @@ static void SecondPass(SectionInfo *F)
 				ch = getc(fpTmp);
 				while( ch != '"' )
 				{	if( ch == '#' )
-					{	assert( npound < 3 );
+					{	assert( npound < 4 );
 						ipound[npound++] = itag;
 					}
 					tag[itag++] = ch;
@@ -474,20 +475,23 @@ static void SecondPass(SectionInfo *F)
 				ch = getc(fpTmp);
 				assert( ch == '>' );
 				
-				assert( npound == 3 );
+				assert( npound == 4 );
 				assert( ipound[0] > 0);
 				assert( ipound[0] < ipound[1] );
 				assert( ipound[1] < ipound[2] );
-				assert( ipound[2] < itag);
+				assert( ipound[2] < ipound[3] );
+				assert( ipound[3] < itag);
 
 				tag[ipound[0]] = '\0';
 				tag[ipound[1]] = '\0';
 				tag[ipound[2]] = '\0';
+				tag[ipound[3]] = '\0';
 				tag[itag]      = '\0';
 
-				head         = tag + ipound[0] + 1;
-				external     = tag + ipound[1] + 1;
-				displayframe = tag + ipound[2] + 1;
+				head            = tag + ipound[0] + 1;
+				external        = tag + ipound[1] + 1;
+				displayframe    = tag + ipound[2] + 1;
+				display_printid = tag + ipound[3] + 1;
 				
 				defined = strcmp(external, "true") == 0;
 				if( ! defined )
@@ -505,7 +509,8 @@ static void SecondPass(SectionInfo *F)
 				&& strcmp(external, "true") != 0 )
 				{	
 					HrefPrintablePass2(
-						C->printid 
+						C->printid,
+						display_printid 
 					);
 				}
 				else if( defined )
@@ -663,7 +668,7 @@ static void SecondPass(SectionInfo *F)
 
 					if( PrintableOmhelp() )
 						HrefPrintablePass2(
-							C->printid);
+							C->printid, "true");
 					else	HrefOutputPass2(
 							tag, "", "false", "");
 
@@ -671,11 +676,6 @@ static void SecondPass(SectionInfo *F)
 					// a row in a table
 					if( match == RREF_match )
 					{	ConvertOutputString(tag, 0);
-						if( PrintableOmhelp() )
-						{	OutputString(": ");
-							OutputString(
-								C->printid);
-						}
 						HrefEnd("");
 						OutputString("</td><td>\n");
 						ConvertOutputString(
@@ -687,11 +687,6 @@ static void SecondPass(SectionInfo *F)
 					{
 						ConvertOutputString(
 							title, 0);
-						if( PrintableOmhelp() )
-						{	OutputString(": ");
-							OutputString(
-								C->printid);
-						}
 						HrefEnd("");
 					}
 				}
@@ -699,15 +694,6 @@ static void SecondPass(SectionInfo *F)
 			}
 			if(match == ENDHREF_match && lastCrossReferenceDefined)
 			{
-				if( lastCrossReference != NULL 
-				&&  PrintableOmhelp() )
-				{
-					OutputString( ": " );
-					OutputString( 
-						lastCrossReference->printid 
-					);
-				}
-
 				HrefEnd("");
 			}
 		
@@ -2201,7 +2187,7 @@ cref
 		// output the cross reference jump without spell checking
 		checkspell = CheckSpell;
 		CheckSpell = 0;
-		HrefOutputPass1(tag, head, external, frame);
+		HrefOutputPass1(tag, head, external, frame, "true");
 
 		// output other information with spell checking
 		if( ntoken >= 2 )
@@ -2940,7 +2926,7 @@ href
 
 		// output the internet reference
 		CheckSpell = 0;
-		HrefOutputPass1(tag, heading, "true", frame);
+		HrefOutputPass1(tag, heading, "true", frame, "true");
 		HrefAddList(
 			CurrentSection->tag,
 			HeadingAndSubHeading(),
@@ -3682,7 +3668,7 @@ mref
 	
 			// output the cross reference
 			OutputString(" ");
-			HrefOutputPass1(tag, "", "false", "");
+			HrefOutputPass1(tag, "", "false", "", "true");
 			OutPre($2.line, tag);
 			HrefEnd("\n");
 			
@@ -5119,7 +5105,7 @@ xref
 
 		// output the cross reference jump without spell checking
 		CheckSpell = 0;
-		HrefOutputPass1(tag, head, "false", frame);
+		HrefOutputPass1(tag, head, "false", frame, "true");
 
 		// do not check spelling on cross reference tags
 		if( ntoken > 2 )

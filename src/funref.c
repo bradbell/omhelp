@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2009 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -216,7 +216,7 @@ void FunRefPass1(SectionInfo *section)
 		}
 		
 		//  output the cross reference tag
-		HrefOutputPass1(tag, "", "false", "");
+		HrefOutputPass1(tag, "", "false", "", "true");
 		OutputString(tag);
 		HrefEnd("<br");
 		OutputString(Internal2Out("SelfTerminateCmd"));

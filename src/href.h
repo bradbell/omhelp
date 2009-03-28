@@ -2,7 +2,7 @@
 # define HREF_INCLUDED
 
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2009 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -25,7 +25,8 @@ extern void HrefOutputPass1(
 	const char *tag, 
 	const char *head, 
 	const char *external,
-	const char *displayframe
+	const char *displayframe,
+	const char *display_printid
 );
 extern void HrefOutputPass2(
 	const char *tag, 
@@ -34,7 +35,8 @@ extern void HrefOutputPass2(
 	const char *displayframe
 );
 extern void HrefPrintablePass2(
-	const char *printid
+	const char *printid,
+	const char *display_printid
 );
 extern void HrefEnd(
 	const char *s

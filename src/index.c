@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2009 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -625,8 +625,8 @@ void IndexPass1(SectionInfo *section)
 
 		// destination for this index entry
 		if( head[0] == '\0' )
-			HrefOutputPass1(tag, head, "false", "");
-		else	HrefOutputPass1(tag, head, "false", "1");
+			HrefOutputPass1(tag, head, "false", "", "true");
+		else	HrefOutputPass1(tag, head, "false", "1", "true");
 		
 		// title for this destination
 		OutPre(title);
