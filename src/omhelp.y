@@ -4853,7 +4853,7 @@ verbatim
 			}
 
 			// check for stopping point after outputing ch
-			if( match )
+			if( match & (ch != '\n') )
 				ch = '\001';
 
 			// output line buffer when current character is newline
@@ -4876,6 +4876,9 @@ verbatim
 			}
 			if( ch == '\n' )
 				ConvertOutputCh(ch, 0);
+
+			if( match )
+				ch = '\001';
 
 			if( ch != '\001' )
 				ch = InputGet();
