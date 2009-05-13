@@ -117,7 +117,7 @@ $head 09-05-12$$
 There was an error in the $cref/stop/verbatim/Stop/$$ option
 for the verbatim command.
 If the character just before the matching stop pattern was a newline,
-it was missing from the ouput text.
+it was missing from the output text.
 This has been fixed.
 
 $head 09-03-28$$
