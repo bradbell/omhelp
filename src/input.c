@@ -605,6 +605,11 @@ void InputPop()
 		SetCommandKeyCharacter( 
 			File[Index].command_key_character_at_push_input 
 		);
+		// This should be done for more than just the '\n' character.
+		// To be specific, it should be done whenever we have looked ahead
+		// one character before reconizing a token.
+		if( File[Index].ch == '\n' )  // this case needed for newlinech 
+			ungetc(File[Index].ch, File[Index].fp);
 	}
 	else	SetCommandKeyCharacter('$');
 	return;

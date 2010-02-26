@@ -34,10 +34,6 @@ $codei%SetCommandKeyCharacter()
 $codei%GetCommandKeyCharacter()
 %$$
 
-$tend
-
-$fend 20$$
-
 $head @OMhelpKeyCharacter$$
 The user input
 $codei%
