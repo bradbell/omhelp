@@ -442,6 +442,7 @@ $end
 # include "StrCat.h"
 # include "DirSep.h"
 # include "OmhLexSetInputLine.h"
+# include "lexomh.h"
 
 # include "input.h"
 
@@ -458,6 +459,7 @@ struct {
 	char *name;
 	int line;
 	char ch;
+	char command_key_character_at_push_input;
 } File[MAX_FILE];
 
 // index of the current file 
@@ -578,6 +580,16 @@ void InputPush(const char *root, const char *ext, const int nspace)
 	FreeMem(localname);
 
 	OmhLexSetInputLine( File[Index].line );
+
+	// save command key character at time of push
+	if( Index > 0 )
+		File[Index-1].command_key_character_at_push_input = 
+			GetCommandKeyCharacter();
+
+	// Initialize command key character for this file.
+	// The $include command will change it back to previous value
+	// (see omhelp.y).
+	SetCommandKeyCharacter('$');
 	return;
 }
 
@@ -588,7 +600,13 @@ void InputPop()
 	FreeMem(File[Index].name);
 	Index--;
 
-	OmhLexSetInputLine( File[Index].line );
+	if( Index >= 0 )
+	{	OmhLexSetInputLine( File[Index].line );
+		SetCommandKeyCharacter( 
+			File[Index].command_key_character_at_push_input 
+		);
+	}
+	else	SetCommandKeyCharacter('$');
 	return;
 }
 

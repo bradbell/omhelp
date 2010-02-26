@@ -3124,6 +3124,7 @@ include
 	| INCLUDE_lex argument DOUBLE_DOLLAR_lex
 	{	char  *root;
 		char  *ext;
+		char  *cmd_key_char;
 
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -3158,8 +3159,14 @@ include
 		}
 		else	ext    = str_alloc("");
 
+		// remember the command key character in the original file
+		cmd_key_char = GetCommandKeyCharacter();
+
 		// set input file 
 		InputPush(root, ext, -1);
+
+		// keep the same command key character in the included file
+		SetCommandKeyCharacter(cmd_key_char);
 
 		FreeMem(ext);
 		FreeMem(root);

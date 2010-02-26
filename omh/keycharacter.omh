@@ -23,9 +23,11 @@ $dollar @$$
 $escape #$$
 $spell
 	OMhelp
+	keycharexample.omh
+	keycharinclude.omh
 $$
 
-$section Changing the Command Key Character @ for an Input File $$
+$section Changing the Command Key Character @ $$
 
 
 $index OMhelpKeyCharacter$$
@@ -33,44 +35,48 @@ $index key character$$
 $index special, key character$$
 $index character, key$$
 $index input, key character$$
+$index command, key character$$
 
-$table
-$bold Syntax$$
-$cnext $syntax%@OMhelpKeyCharacter=%c%$$
-$tend
+$head Syntax$$
+$codei%@OMhelpKeyCharacter=%c%$$
 
-$fend 20$$
-
-$head Description$$
+$head Purpose$$
 This is the only OMhelp command that does not occur between a 
 $code @begin$$,
 $code @end$$ pair.
-It instructs OMhelp to use the single character specified by $italic c$$
+It instructs OMhelp to use the single character specified by $codei c$$
 as the Command Key character 
 (in place of the default character which is the dollar sign $code @$$.)
 $pre
 
 $$
-The character $italic c$$ can not be an alphabetic letter,
+The character $codei c$$ can not be an alphabetic letter,
 a decimal digit, or white space.
 $pre
 
 $$
-The effect of this command is limited
-by the end of the current input file.
+The effect of this limited to sections that have there 
+$code @begin$$ and $code @end$$ commands in the same file.
 
 $children/
 	keycharexample.omh
 /$$
 
-$head Example$$
-The input file 
+$head keycharexample.omh$$
+The input file $code keycharexample.omh$$ contains the text 
 $code
 $pre
      $$@OMhelp$verbatim%keycharexample.omh%5%#036OMhelp%$$
 $$
-results in the following section: $xref/KeyCharExample/$$.
+This input results 
+in the following section: $xref/KeyCharExample/$$.
 
-
+$head keycharinclude.omh$$
+The input above $cref/includes/include/$$ the file
+$code keycharinclude.omh$$ which contains the text
+$code
+$pre
+$$$verbatim%keycharinclude.omh%5%$$
+$$
 
 $end

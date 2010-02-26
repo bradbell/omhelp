@@ -196,7 +196,7 @@ void fatalomh(const char *s1, ...)
 	{	int i = 0;
 		while( s[i] != '\0' )
 		{	if( s[i] == '$' )
-				putchar( CommandKeyCharacter() );
+				putchar( GetCommandKeyCharacter() );
 			else	putchar( s[i] );
 			i++;
 		}

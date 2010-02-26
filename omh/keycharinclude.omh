@@ -1,0 +1,9 @@
+@spell
+	keycharinclude.omh
+	keycharexample.omh
+@@
+@head Include File@@
+This is text comes from the file @code keycharinclude.omh@@
+which is included by @code keycharexample.omh@@.
+Note that the command key character in @code keycharinclude.omh@@ 
+is the same as for @code keycharexample.omh@@.

@@ -24,4 +24,6 @@ $OMhelpKeyCharacter=@
 
 @section Command Key Character Example@@
 
+@include keycharinclude.omh@@
+
 @end

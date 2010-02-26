@@ -18,7 +18,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 
-extern char CommandKeyCharacter(void);
+extern char GetCommandKeyCharacter(void);
+extern void SetCommandKeyCharacter(char c);
 extern char *TokenCode2String(int code);
 
 # endif

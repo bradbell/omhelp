@@ -18,7 +18,7 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 09-03-24, bradbell@seanet.com)
+AC_INIT(OMhelp, 10-02-26, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
 
@@ -40,7 +40,7 @@ dnl nostdinc: Do not define standard include directories in generated Makefiles
 AM_INIT_AUTOMAKE(nostdinc)
 
 dnl No default setting for compiler flags
-AC_SUBST(CXXFLAGS, "")
+AC_SUBST(CFLAGS, "")
 
 dnl Have configure check source directory 
 AC_CONFIG_SRCDIR(src/UniformWhiteSpace.c)

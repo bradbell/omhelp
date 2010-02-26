@@ -113,6 +113,16 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 10-02-25$$
+There was a bug whereby the
+$cref/command key character/KeyCharacter/$$
+was reset to $code @$$ when an
+$cref/include/$$ command was used in an input file.
+This has been fixed. 
+In addition, an 
+$cref/include file/KeyCharExample/Include File/$$
+example was added for this commands documentation.
+
 $head 09-05-12$$
 There was an error in the $cref/stop/verbatim/Stop/$$ option
 for the verbatim command.
