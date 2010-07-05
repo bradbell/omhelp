@@ -76,10 +76,10 @@ static void NextContent(SectionInfo *F, int level)
 		title = str_alloc(F->title);
 		i = j = 0;
 		while(title[i] != '\0')
-		{	if( isspace(title[i]) )
+		{	if( isspace((int) title[i]) )
 			{	title[j++] = ' ';
 				i++;
-				while( isspace(title[i]) )
+				while( isspace((int) title[i]) )
 					i++;
 			}
 			else	title[j++] = title[i++];

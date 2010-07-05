@@ -312,7 +312,7 @@ CrossReference *CreateCrossReference(
 {	CrossReference *C;
 
 	assert( *tag != '\0' );
-	assert( ! isspace(*tag) );
+	assert( ! isspace((int) *tag) );
 
 	C = FindCrossReference(tag, head);
 	assert(C == NULL);
@@ -347,7 +347,7 @@ CrossReference *FindCrossReference(
 	CrossReference *C;
 
 	assert( *tag != '\0' );
-	assert( ! isspace(*tag) );
+	assert( ! isspace((int) *tag) );
 
 	C = CreatedList;
 	while( C != NULL )
@@ -370,7 +370,7 @@ CrossReference *DefineCrossReference(
 	CrossReference *L;
 
 	assert( *tag != '\0' );
-	assert( ! isspace(*tag) );
+	assert( ! isspace((int) *tag) );
 
 	assert( frame == 0 || head[0] != '\0' );
 	assert( strcmp(file, InputName()) == 0 || file[0] == '\0' );

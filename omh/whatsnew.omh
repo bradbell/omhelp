@@ -113,6 +113,26 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 10-07-05$$
+Improve error message when the $cref newlinech$$ character
+is the same as the first character in a 
+$cref/delimiter sequence/glossary/Delimiter Sequence/$$.
+$pre
+
+$$
+Avoid compiler warnings by converting argument type 
+from $code char$$ to $code int$$ for the 
+following functions:
+$nospell
+	$code isalpha$$,
+	$code islower$$,
+	$code isupper$$,
+	$code isspace$$,
+	$code isdigit$$,
+	$code tolower$$, and
+	$code toupper$$.
+$$
+
 $head 10-02-25$$
 There was a bug whereby the
 $cref/command key character/KeyCharacter/$$

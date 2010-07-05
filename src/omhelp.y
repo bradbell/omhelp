@@ -239,7 +239,7 @@ static int WhiteSpace(char *s)
 
 	c = *s++;
 	while( c != '\0' )
-	{	if( ! isspace(c) )
+	{	if( ! isspace((int) c) )
 			return 0;
 		c = *s++;
 	}
@@ -924,6 +924,9 @@ static void SkipCodep(int line, char *s)
 
 /**********************************************************************/
 
+char newline_ch(void)
+{	return NewlineCh; }
+
 const char *Tag2Title(const char *tag)
 {	SectionInfo *F;
 	F = SectionFind(SectionTree, tag);
@@ -1163,7 +1166,7 @@ element
 			char *s = $1.str;
 			char ch = *s++;
 
-			while( isspace(ch) )
+			while( isspace((int) ch) )
 				ch = *s++;
 
 			if( ! ch == '\0' )
@@ -1295,7 +1298,7 @@ aindex
 		s = StrCat(__FILE__, __LINE__, " ", $2.str, " ", NULL);
 
 		for(i = 0; s[i] != '\0'; i++)
-			if( isspace(s[i]) )
+			if( isspace((int) s[i]) )
 				s[i] = ' ';
 
 		MindexSection = strstr(s, " section ") != NULL;
@@ -1844,7 +1847,7 @@ childlist
 			
 			// skip white space
 			name = p + 1;
-			while( isspace(*name) ) name++;
+			while( isspace((int) *name) ) name++;
 
 			// make sure name is not empty
 			if( *name == '\0' ) fatalomh(
@@ -3227,7 +3230,7 @@ index
 
 				assert( nchar > 0 );
 				while( nchar-- )
-				{	if( isspace(s[i]) )
+				{	if( isspace((int) s[i]) )
 					{	printf(" ");
 						ConvertOutputCh(' ', 0);
 					}
@@ -3416,7 +3419,7 @@ latex
 
 				int newline = 0;
 
-				while( isspace(ch) )
+				while( isspace((int) ch) )
 				{	newline = newline || (ch == '\n');
 					ch = *s++;
 				}
@@ -3606,7 +3609,7 @@ math
 
 			int newline = 0;
 
-			while( isspace(ch) )
+			while( isspace((int) ch) )
 			{	newline = newline || (ch == '\n');
 				ch = *s++;
 			}
@@ -3878,7 +3881,7 @@ pre
 
 			int newline = 0;
 
-			while( isspace(ch) )
+			while( isspace((int) ch) )
 			{	newline = newline || (ch == '\n');
 				ch = *s++;
 			}
@@ -4321,7 +4324,7 @@ syntax
 
 			int newline = 0;
 
-			while( isspace(ch) )
+			while( isspace((int) ch) )
 			{	newline = newline || (ch == '\n');
 				ch = *s++;
 			}

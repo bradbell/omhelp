@@ -859,7 +859,7 @@ const char *SectionNavigate(
 		if( tmp[0] == '_' ) if(
 			strlen(tmp) != 5 ||
 	    		strncmp(tmp, "_up_", 4) != 0 ||
-			! isdigit( tmp[4] )
+			! isdigit((int) tmp[4] )
 		) fatalomh(
 			"In the $navigate command in line ",
 			int2str(line),

@@ -70,7 +70,7 @@ when all the cross references have been defined.
 The argument $italic tag$$ must satisfy the following conditions:
 $syntax%
 	assert( %tag%[0] != '\0' );
-	assert( ! isspace(%tag%[0]) );
+	assert( ! isspace((int) %tag%[0]) );
 %$$
 
 $head Memory$$
@@ -111,7 +111,7 @@ char *Url(const char *tag, const char *head, const char *external)
 	CrossReference *C = NULL;
 	
 	assert( *tag != '\0' );
-	assert( ! isspace(*tag) );
+	assert( ! isspace((int) *tag) );
 
 	assert( strcmp(external, "true") == 0 || 
 	        strcmp(external, "false") == 0 
@@ -126,7 +126,7 @@ char *Url(const char *tag, const char *head, const char *external)
 	// links must be in lower case (see discussion in PushOutput)
 	taglower = str_alloc(tag);
 	for(i = 0; taglower[i] != '\0'; i++)
-		taglower[i] = tolower(taglower[i]);
+		taglower[i] = tolower((int) taglower[i]);
 
 	// check for case where only use htm for extension 
 	HtmlOnly =  (strcmp(tag, SEARCH_TAG) == 0)

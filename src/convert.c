@@ -398,13 +398,13 @@ void ConvertOutputCh(const char ch, const int preformatted)
 			}
 		}
 		else
-		{	if( Column != 0 || ! isspace(ch) )
+		{	if( Column != 0 || ! isspace((int) ch) )
 			{	OutputChar(ch);
 				Column++;
 			}
 		}
 
-		if( ! isspace(ch) )
+		if( ! isspace((int) ch) )
 			NewlineOutput = 0;
 
 		break;

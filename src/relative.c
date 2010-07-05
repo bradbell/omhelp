@@ -157,7 +157,7 @@ void RelativeFrame(SectionInfo *This)
 		if( label[0] == '_' )
 		{	assert( strncmp(label, "_up_", 4) == 0 );
 			assert( strlen(label) == 5 );
-			assert( isdigit(label[4]) );
+			assert( isdigit((int) label[4]) );
 			i = atoi(label + 4);
 			F = This;
 			while(i--)
@@ -503,7 +503,7 @@ void RelativeTable(SectionInfo *This)
 		if( label[0] == '_' )
 		{	assert( strncmp(label, "_up_", 4) == 0 );
 			assert( strlen(label) == 5 );
-			assert( isdigit(label[4]) );
+			assert( isdigit((int) label[4]) );
 			i = atoi(label + 4);
 			F = This;
 			while(i--)

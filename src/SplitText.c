@@ -90,6 +90,7 @@ $end
 # include "int2str.h"
 # include "StrCat.h"
 # include "str_alloc.h"
+# include "newline_ch.h"
 
 
 static char *char2str(int ch)
@@ -137,24 +138,40 @@ int SplitText(int line, const char *cmd, char *text)
 	del     = *text;
 
 	// check if sequence begins with white space
-	if( isspace(del) )
+	if( isspace((int) del) )
 	{	text[0] = '\0';
 		return 1;
 	}
 
 	// check last character
-	if( text[len - 1] != del ) fatalomh(
-		"In the ",
-		cmd,
-		" command in line ",
-		int2str(line),
-		":\nThe first character of the delimiter sequence ",
-		char2str(del),
-		",\nis not the same as the last character ",
-		char2str(text[len-1]),
-		".",
-		NULL
-	);
+	if( text[len - 1] != del )
+	{	if( del != newline_ch() ) fatalomh(
+			"In the ",
+			cmd,
+			" command in line ",
+			int2str(line),
+			":\nThe first character of the delimiter sequence ",
+			char2str(del),
+			",\nis not the same as the last character ",
+			char2str(text[len-1]),
+			".",
+			NULL
+		);
+		else	fatalomh(
+			"In the ",
+			cmd,
+			" command in line ",
+			int2str(line),
+			":\nThe first character of the delimiter sequence ",
+			char2str(del),
+			",\nis not the same as the last character ",
+			char2str(text[len-1]),
+			".",
+			"\nNote that the $newlinech character is also equal to",
+			char2str(del),
+			NULL
+		);
+	}
 
 	ndel = 0;
 	for(i = 0; i < len;  i++)

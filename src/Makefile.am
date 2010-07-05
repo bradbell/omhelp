@@ -48,6 +48,7 @@ omhelp_SOURCES = \
 	LatexLexHistory.h \
 	LatexLexPut.h \
 	LatexMacro.h \
+	newline_ch.h\
 	OmhLexSetInputLine.h \
 	OmhStype.h \
 	PatternMatch.h \

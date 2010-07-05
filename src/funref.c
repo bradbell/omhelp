@@ -200,7 +200,7 @@ void FunRefPass1(SectionInfo *section)
 		tag     = Current->tag;
 		title   = Current->title;
 
-		ch      = toupper(tag[0]);
+		ch      = toupper((int) tag[0]);
 		while( ch > heading && heading <= 'Z' )
 			heading++;
 		if( ch == heading && heading <= 'Z' )

@@ -131,7 +131,7 @@ int output_text(
 
 				while( nchar-- )
 				{
-					if( isspace(*s) )
+					if( isspace((int) *s) )
 						printf(" ");
 					else	printf("%c", *s);
 

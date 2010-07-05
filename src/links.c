@@ -258,7 +258,7 @@ void BeginLinks(
 	TagLower = str_alloc(tagfrom);
 	i = 0;
 	while( TagLower[i] != '\0' )
-	{	TagLower[i] = tolower( TagLower[i] );
+	{	TagLower[i] = tolower((int) TagLower[i] );
 		++i;
 	}
 

@@ -84,7 +84,7 @@ static void OutputMathch(char ch)
 		return;
 	}
 
-	if( isalpha(ch) )
+	if( isalpha((int) ch) )
 	{	if( ! ItalicMode )
 		{	OutputString("<i>");
 			ItalicMode = 1;
@@ -128,13 +128,13 @@ void OutputMath(int ntoken, char *s, char escape, int italic)
 					s = s + 1;
 				}
 				else if( s[0] == 'g' && s[1] == 'e'
-				&& ! isalpha(s[2]) )
+				&& ! isalpha((int) s[2]) )
 				{	OutputString("<u>&gt;</u>");
 					s = s + 2;
 					ConvertAddColumn(1);
 				}
 				else if( s[0] == 'l' && s[1] == 'e'
-				&& ! isalpha(s[2]) )
+				&& ! isalpha((int) s[2]) )
 				{	OutputString("<u>&lt;</u>");
 					s = s + 2;
 					ConvertAddColumn(1);
@@ -144,7 +144,7 @@ void OutputMath(int ntoken, char *s, char escape, int italic)
 				    		OutputString("</i>");
 					ItalicMode = 0;
 					ch = *s++;
-					while( isalpha(ch) )
+					while( isalpha((int) ch) )
 					{	ConvertOutputCh(ch, pre);
 						ch = *s++;
 					}

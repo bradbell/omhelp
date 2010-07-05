@@ -775,7 +775,7 @@ void InputSplitName(char **proot, char **pext, const char *filename)
 	char *ext;
 
 	// skip leading white space
-	while( isspace( *filename ) )
+	while( isspace((int) *filename ) )
 		filename++;
 
 	root = str_alloc(filename);
@@ -784,7 +784,7 @@ void InputSplitName(char **proot, char **pext, const char *filename)
 	ext  = root + strlen(root) - 1;
 
 	// skip trailing white space
-	while( isspace( *ext ) )
+	while( isspace((int) *ext ) )
 	{	*ext = '\0';
 		ext--;
 	}

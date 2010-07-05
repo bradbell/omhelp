@@ -16,7 +16,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 /*
-Assumption: ~tag[0] != '\0' and ! isspace(tag[0])
+Assumption: ~tag[0] != '\0' and ! isspace((int) tag[0])
 =============================================================================
 $begin HrefOutputPass1$$
 $escape @$$
@@ -122,7 +122,7 @@ $head Restrictions$$
 The argument $icode tag$$ must satisfy the following conditions:
 $codei%
 	assert( %tag%[0] != '\0' );
-	assert( ! isspace(%tag%[0]) );
+	assert( ! isspace((int) %tag%[0]) );
 %$$
 A call to the routine $mref/HrefEnd/$$ must follow any call
 to $code HrefOutputPass2$$ and precede a call to any of the routines
@@ -419,7 +419,7 @@ void HrefOutputPass1(
 	const char *display_printid )
 {
 	assert( *tag != '\0' );
-	assert( ! isspace(*tag) );
+	assert( ! isspace((int) *tag) );
 	assert(PreviousPass == UNDEFINED);
 
 
@@ -443,7 +443,7 @@ void HrefOutputPass2(
 	char *target;
 
 	assert( *tag != '\0' );
-	assert( ! isspace(*tag) );
+	assert( ! isspace((int) *tag) );
 	assert( strcmp(external, "true") == 0 || 
 	        strcmp(external, "false") == 0 
 	);
@@ -541,8 +541,8 @@ void HrefAddList(
 	assert( *TagFrom != '\0' );
 	assert( *UrlTo != '\0' );
 
-	assert( ! isspace(*TagFrom) );
-	assert( ! isspace(*UrlTo) );
+	assert( ! isspace((int) *TagFrom) );
+	assert( ! isspace((int) *UrlTo) );
 
 	// search to find location of this entry in sorted list
 	track    = Root;

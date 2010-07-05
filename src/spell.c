@@ -209,7 +209,7 @@ static void getWord(
 {	int i;
 
 	// skip leading spaces
-	while( isspace(*ch) )
+	while( isspace((int) *ch) )
 	{	if( *ch == '\n' )
 			(*line)++;
 		*ch = getc(fp);
@@ -223,7 +223,7 @@ static void getWord(
 	}
 
 	// copy word into buffer
-	for(i = 0; ! isspace(*ch) && i < MAX_WORD - 1; i++)
+	for(i = 0; ! isspace((int) *ch) && i < MAX_WORD - 1; i++)
 	{	if( *ch >= 127 ) 
 		{	char number[100];
 			sprintf(number, "%d", *line);
@@ -236,7 +236,7 @@ static void getWord(
 			);
 		}
 		
-		word[i]  = (char) tolower(*ch);
+		word[i]  = (char) tolower((int) *ch);
 		*ch       = getc(fp);
 	}
 	word[i] = '\0';
@@ -483,7 +483,7 @@ const char *SpellingError(const char *text, int *nOut)
 	assert(Memory != NULL);
 
 	// advance to beginning of first word
-	while( *text != '\0' && ! isalpha(*text) )
+	while( *text != '\0' && ! isalpha((int) *text) )
 		text++;
 
 	// initialize previous word as empty
@@ -497,15 +497,15 @@ const char *SpellingError(const char *text, int *nOut)
 		lastWord    = startWord;
 		startWord   = text;
 		lowcase[0]  = ' ';
-		lowcase[1]  = tolower(*text);
+		lowcase[1]  = tolower((int) *text);
 		i           = 1;
 		text        = text + 1;
-		while( *text != '\0' && islower(*text) )
+		while( *text != '\0' && islower((int) *text) )
 		{	if( i > MAX_WORD/2 - 4 )
 			{	*nOut = i - 1;
 				return startWord;
 			}
-			lowcase[i + 1]  = tolower(*text);
+			lowcase[i + 1]  = tolower((int) *text);
 			i++;
 			text++;
 		}
@@ -594,8 +594,8 @@ const char *SpellingError(const char *text, int *nOut)
 
 
 		// advance to beginning of next word
-		while( *text != '\0' && ! isalpha(*text) )
-		{	if( ! isspace(*text) )
+		while( *text != '\0' && ! isalpha((int) *text) )
+		{	if( ! isspace((int) *text) )
 				lowlast[0] = '\0';
 			text++;
 		}
@@ -682,12 +682,12 @@ void SpellingOkList(const char *list)
 		ch    = list[i];
 		space = special[j-1] == ' ';
 
-		if( isupper(ch) )
+		if( isupper((int) ch) )
 			if( ! space )
 				special[j++] = ' ';
 
-		if( isalpha(ch) )
-			special[j++] = tolower(ch);
+		if( isalpha((int) ch) )
+			special[j++] = tolower((int) ch);
 		else	if( ! space )
 				special[j++] = ' ';
 

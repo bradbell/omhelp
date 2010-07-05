@@ -60,25 +60,25 @@ void UniformWhiteSpace(char *s)
 		return;
 
 	// skip leading white space in front of string
-	while( isspace(s[i]) )
+	while( isspace((int) s[i]) )
 		i++;
 
 	// convert multiple white space to one space
 	while( s[i] != '\0' )
-	{	assert( ! isspace(s[i]) ); 	
+	{	assert( ! isspace((int) s[i]) ); 	
 
 		// copy this token from input to output 
-		while( (s[i] != '\0') & (! isspace(s[i]) ) )
+		while( (s[i] != '\0') & (! isspace((int) s[i]) ) )
 			s[j++] = s[i++];
 
 		// find end of white space following this token
 		k = i;
-		while( isspace(s[i]) )
+		while( isspace((int) s[i]) )
 			i++;
 
 		if( s[i] != '\0' )
 		{	assert( i > k );
-			assert( ! isspace(s[i]) );
+			assert( ! isspace((int) s[i]) );
 
 			// another token follows so place a space between 
 			assert( i > j );

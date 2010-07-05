@@ -228,7 +228,7 @@ static int IndexOrder(const char *s1, const char *s2)
 		done = (c1 == '\0') | (c2 == '\0');		
 		++i;
 
-		diff = tolower(c1) - tolower(c2);
+		diff = tolower((int) c1) - tolower((int) c2);
 		if( diff != 0 )
 			return diff;
 		diff = c1 - c2;
@@ -254,7 +254,7 @@ static int KeyCompare(IndexEntry *E, IndexEntry *F)
 
 
 static int Space(char current, char previous, char escape)
-{	return isspace(current) && (previous != escape);
+{	return isspace((int) current) && (previous != escape);
 }
 
 static void OutPre(const char *s)
@@ -275,8 +275,8 @@ static void OutKey(char *s)
 	while( ch != '\0' )
 	{	
 		// determine if switching to or from bold
-		flag  = isalpha(ch);
-		flag |= isdigit(ch);
+		flag  = isalpha((int) ch);
+		flag |= isdigit((int) ch);
 		flag |= ch == ',';
 		flag  = ! flag;
 
@@ -288,7 +288,7 @@ static void OutKey(char *s)
 
 		bold = flag;
 
-		if( isspace(ch) )
+		if( isspace((int) ch) )
 			ConvertOutputCh(ch, ' ');
 		else	ConvertOutputCh(ch, preformatted);
 
@@ -333,7 +333,7 @@ void InsertInIndex(
 		E->minor = s + 1; 
 
 		// skip leading white space
-		while( isspace( *(E->minor) ) )
+		while( isspace((int) *(E->minor) ) )
 			++(E->minor);
 
 		// end of major key
@@ -341,7 +341,7 @@ void InsertInIndex(
 		--s;
 
 		// skip trailing white space
-		while( s > E->major && isspace( *s ) )
+		while( s > E->major && isspace((int) *s ) )
 		{	*s = '\0';
 			--s;
 		}
@@ -383,10 +383,10 @@ void MultipleIntoIndex(
 {	char keyword[MAX_WORD];
 	char ch;
 
-	assert( ! isspace(escape) );
+	assert( ! isspace((int) escape) );
 
 	// skip leading white space
-	while( isspace(*key) )
+	while( isspace((int) *key) )
 		key++;
 
 	ch = '\0';
@@ -400,7 +400,7 @@ void MultipleIntoIndex(
 		else
 		{	int   i;
 
-			assert( ! isspace( *key ) );
+			assert( ! isspace((int) *key ) );
 
 			i = 0;
 			keyword[i++] = ch = *key++;
@@ -420,7 +420,7 @@ void MultipleIntoIndex(
 		}
 
 		// skip leading white space
-		while( isspace(*key) )
+		while( isspace((int) *key) )
 			key++;
 	}
 	
@@ -440,10 +440,10 @@ void CycleIntoIndex(
 	int    comma;
 	int      len;
 
-	assert( ! isspace(escape) );
+	assert( ! isspace((int) escape) );
 
 	// skip spaces at the beginning of key
-	while( isspace(*key) )
+	while( isspace((int) *key) )
 		++key;
 
 	// length ot key
@@ -477,7 +477,7 @@ void CycleIntoIndex(
 		{	ch = key[i];
 			++i; 
 		}
-		assert( ! isspace( key[i] ) );
+		assert( ! isspace((int) key[i] ) );
 
 		// insert this entry
 		if( key[i] != '\0' && key[i] != escape )
@@ -571,7 +571,7 @@ void IndexPass1(SectionInfo *section)
 		assert(title != NULL);
 
 		// check for next letter in alphabet
-		ch = tolower(Current->major[0]);
+		ch = tolower((int) Current->major[0]);
 		while(ch > 'a' + letter && letter < 26)
 			letter++;
 		if( ch == 'a' + letter && letter < 26 )

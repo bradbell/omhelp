@@ -417,19 +417,19 @@ int omhlex(void)
 				}
 				if( State == CHANGE_state )
 				{
-					if( isalpha(Ch)) fatalomh(
+					if( isalpha((int) Ch)) fatalomh(
 						"Attempt to set the command "
 						"key character to a letter "
 						"in A-Z or a-z.",
 						NULL
 					);
-					if( isspace(Ch)) fatalomh(
+					if( isspace((int) Ch)) fatalomh(
 						"Attempt to set the command "
 						"key character to a white "
 						"space character.",
 						NULL
 					);
-					if( isdigit(Ch)) fatalomh(
+					if( isdigit((int) Ch)) fatalomh(
 						"Attempt to set the command "
 						"key character to a decimal "
 						"digit.",
@@ -492,7 +492,7 @@ int omhlex(void)
 			// check for keyword ------------------------------
 			match           = 0;
 			Buffer[match++] = CommandKeyChar;
-			while( isalpha(Ch) )
+			while( isalpha((int) Ch) )
 			{	Buffer[match++] = Ch;
 				Ch              = InputGet();
 				if( match >= MAX_TOKEN )
@@ -559,10 +559,10 @@ int omhlex(void)
 
 
 			// check for number following dollar -----------------
-			if( isdigit(Ch) | (Ch=='.') | (Ch=='+') | (Ch=='-' ) )
+			if( isdigit((int) Ch) | (Ch=='.') | (Ch=='+') | (Ch=='-' ) )
 			{
 				while( 
-					isdigit(Ch) | 
+					isdigit((int) Ch) | 
 					(Ch == '.')   | 
 					(Ch == '+')   | 
 					(Ch == '-') 

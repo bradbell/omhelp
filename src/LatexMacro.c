@@ -367,7 +367,7 @@ static char SkipUserWhite()
 {	char ch;
 
 	ch = UserGetCh();
-	while( isspace(ch) )
+	while( isspace((int) ch) )
 		ch = UserGetCh();
 
 	return ch;
@@ -445,7 +445,7 @@ static void DefineLatexMacro()
 	);
 	i  = 0;
 	ch = UserGetCh();
-	while( isalpha(ch) )
+	while( isalpha((int) ch) )
 	{	token[i] = ch;
 		i++;
 
@@ -847,7 +847,7 @@ char LatexMacroGetCh()
 
 			ch         = UserGetCh();
 			i          = 0;
-			while( isalpha(ch) )
+			while( isalpha((int) ch) )
 			{	if( i < MAX_LENGTH )
 					token[i++] = ch;
 				ch        = UserGetCh();

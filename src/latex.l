@@ -434,7 +434,7 @@ white          ([ \t\r]*)
 	assert( i > 0 );
 
 	// check begins with a letter
-	assert( isalpha( yytext[0] ) );
+	assert( isalpha((int) yytext[0] ) );
 
 	SetTexLval(yytext, yytext);
 

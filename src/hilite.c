@@ -259,14 +259,14 @@ static int match_pattern(const char *text, int start)
 		// check for match of before character
 		if( Before[i][0] == '\0' )
 		{	// white space before agrees
-			agree = (k == 0) | (isspace(text[k]) > 0);
-			while( isspace(text[k]) )
+			agree = (k == 0) | (isspace((int) text[k]) > 0);
+			while( isspace((int) text[k]) )
 				k++;
 		}
 		else
 		{	agree = strchr(Before[i], text[k]) != NULL;
 			k++;
-			while( isspace(text[k]) )
+			while( isspace((int) text[k]) )
 				k++;
 		}
 
@@ -278,11 +278,11 @@ static int match_pattern(const char *text, int start)
 		{	// check for match of after character
 			if( After[i][0] == '\0' )
 			{	// white space after agrees
-				if( (text[k] == '\0') | (isspace(text[k])>0) )
+				if( (text[k] == '\0') | (isspace((int) text[k])>0) )
 					return i;
 			}
 			else
-			{	while( isspace(text[k]) )
+			{	while( isspace((int) text[k]) )
 					k++;
 				if( text[k] != '\0' )
 					if( strchr(After[i], text[k]) != NULL )
@@ -298,12 +298,12 @@ static int count_before(const char *text, int start, int index)
 {	int k = start;
 	if( Before[index][0] == '\0' )
 	{	// white space before agrees
-		while( isspace(text[k]) )
+		while( isspace((int) text[k]) )
 				k++;
 	}
 	else
 	{	k++;
-		while( isspace(text[k]) )
+		while( isspace((int) text[k]) )
 			k++;
 	}
 	return k - start;

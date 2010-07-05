@@ -231,9 +231,9 @@ static void Output(const char *list, const char *terminate)
 	ch   = *list++;
 	while( ch != '\0' )
 	{	
-		if( ! ( isspace(ch) && isspace(last) ) )
+		if( ! ( isspace((int) ch) && isspace((int) last) ) )
 		{	
-			if( isspace(last) )
+			if( isspace((int) last) )
 				fputc(' ', Fp);
 			else	fputc(last, Fp);
 
@@ -245,7 +245,7 @@ static void Output(const char *list, const char *terminate)
 		last = ch;
 		ch   = *list++;
 	}
-	if( ! isspace(last) )
+	if( ! isspace((int) last) )
 		fputc(last, Fp);
 	fprintf(Fp, "%s", terminate);
 	return;
@@ -420,13 +420,13 @@ static void MakeKeywordList()
 
 	while( ch != '\0' )
 	{	i = 0;
-		while( ! ( ch == '\0' || isspace(ch) ) )
+		while( ! ( ch == '\0' || isspace((int) ch) ) )
 		{	if( i > MAX_WORD - 1 ) fatalomh(
 				keywords,
 				"\nis to long an index keyword",
 				NULL
 			);
-			word[i++] = tolower(ch);
+			word[i++] = tolower((int) ch);
 			ch        = *keywords++;
 		}  
 		word[i]          = '\0';
@@ -447,10 +447,10 @@ static void MakeKeywordList()
 				KeywordList[n++] = word[j];
 		}
 
-		if( isspace(ch) )
+		if( isspace((int) ch) )
 			KeywordList[n++] = ch;
 
-		while( isspace(ch) )
+		while( isspace((int) ch) )
 			ch  = *keywords++;
 
 		KeywordList[n] = '\0';
@@ -572,7 +572,7 @@ void SearchBegin(const char *tag)
 	ch   = *tag++;
 	last = '\0';
 	while( ch != '\0' )
-	{	if( isspace(ch) && isspace(last) ) fatalomh(
+	{	if( isspace((int) ch) && isspace((int) last) ) fatalomh(
 			"The cross reference tag \"", 
 			tag,
 			"\"\n",
@@ -605,7 +605,7 @@ void SearchTitle(const char *title)
 void SearchKeywords(const char *keyword, const char escape)
 {	char   ch;
 
-	assert( ! isspace(escape) );
+	assert( ! isspace((int) escape) );
 	assert( SectionOpen );
 
 	ch    = *keyword++;
@@ -615,7 +615,7 @@ void SearchKeywords(const char *keyword, const char escape)
 		char word[MAX_WORD];
 
 		// skip leading white space 
-		while( isspace(ch) )
+		while( isspace((int) ch) )
 			ch   = *keyword++;
 
 		// get next word in keyword and surround by spaces
@@ -626,14 +626,14 @@ void SearchKeywords(const char *keyword, const char escape)
 			ch = *keyword++;
 		while(
 			ch != '\0' 
-			&& ! isspace(ch)
+			&& ! isspace((int) ch)
 			&&  ch != escape
 		)
 		{	if( i > MAX_WORD - 2 ) fatalomh(
 				keyword,
 				"\nis to long a keyword\n"
 			);
-			word[i++] = tolower(ch);
+			word[i++] = tolower((int) ch);
 			ch        = *keyword++;
 		}  
 		word[i++] = ' ';
