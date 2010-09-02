@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -3323,9 +3323,11 @@ keyword
 	| CNEXT_lex
 	| CODE_lex
 	| CODECOLOR_lex
+	| CODEI_lex
 	| CODEP_lex
 	| COMMENT_lex
 	| CONTENTS_lex
+	| CREF_lex
 	| DATE_lex
 	| DOLLAR_lex
 	| END_lex
@@ -3334,10 +3336,12 @@ keyword
 	| EXECUTE_lex
 	| FEND_lex
 	| FIXED_lex
-	| HILITECMD_lex
-	| HILITESEQ_lex
 	| HEAD_lex
+	| HILITECMD_lex
+	| HILITECOLOR_lex
+	| HILITESEQ_lex
 	| HREF_lex
+	| ICODE_lex
 	| ICON_lex
 	| IMAGE_lex
 	| INCLUDE_lex
@@ -3345,11 +3349,13 @@ keyword
 	| ITALIC_lex
 	| LATEX_lex
 	| LEND_lex
+	| LINKCOLOR_lex
 	| LIST_lex
 	| LNEXT_lex
 	| MATH_lex
 	| MINDEX_lex
 	| MREF_lex
+	| NAVIGATE_lex
 	| NEWLINECH_lex
 	| NOBREAK_lex
 	| NOSPELL_lex
@@ -3374,6 +3380,7 @@ keyword
 	| TRACE_lex
 	| TREF_lex
 	| VERBATIM_lex
+	| VISITCOLOR_lex
 	| WSPACE_lex
 	| XREF_lex
 	{	$$ = $1;

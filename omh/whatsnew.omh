@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -132,6 +132,28 @@ $nospell
 	$code tolower$$, and
 	$code toupper$$.
 $$
+
+$head 10-09-02$$
+The error message for certain parsing errors was not as helpful as it could
+have been because a keyword table was out of date. For example, the code
+$codep
+	@icode%x% = %y% and @icode%x% = %z%@@
+$$
+generated the error message
+$codei%
+	OMhelp Error: in file %file_name%
+	OMhelp parsing error.
+	Error occurred in or before line %line number%.
+
+	OMhelp exiting with status equal to 1.
+%$$
+This has been fixed and now has the form:
+$code%
+	OMhelp Error: in file %file_name%
+	Error in the @icode command that begins in line %line_number%.
+	This command is not terminated by @@ before @code appears.
+	Error occurred in or before line %line_number%.
+%$$
 
 $head 10-02-25$$
 There was a bug whereby the
