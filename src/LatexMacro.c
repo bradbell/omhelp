@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2009 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 -----------------------------------------------------------------------------
 $begin LatexMacroUserInput$$
@@ -159,21 +157,28 @@ $spell
 	const
 $$
 
-$section Determine the Current Latex Macro Expansion$$
+$section Return Curerent Expansion for All Active Latex Macros$$
 
-$table
-$bold Syntax$$
-$cnext $syntax%const char *LatexMacroExpandInput()%$$
-$tend
+$head Syntax$$
+$code char* LatexMacroExpandInput()$$
 
-$head Description$$
-Returns the current macro expansion that corresponds to the next character
-returned by $xref LatexMacroGetCh$$.
-
-If the next character will come from user input instead of a macro
+$head Details$$
+If the previous two characters came from file input instead of a macro
 expansion, the return value of $code LatexMacroExpandInput$$ is $code NULL$$.
+Otherwise,
+each macro expansion is identified by the macro name, and its 
+expansion value,
+up to the current point in the expansion (where input is currently 
+being taken from).
+If the current input point corresponds to a macro,
+then the expansion of that macro is included.
 
+$head Memory Allocation$$
+The return value is memory that was allocated with $cref AllocMem$$
+and should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$
+(or used for a fatal error message).
 
+$head ?$$
 If no call has been made to $code LatexMacroUserInput$$,
 the value $code NULL$$ is returned.
 $end
@@ -278,8 +283,9 @@ $end
 
 // Prerocessor Definitions  =================================================
 
-# define MAX_DEFINE   1000
-# define MAX_LENGTH   500
+# define MAX_DEFINE   1000 // maximum number of latex macros defined
+# define MAX_LENGTH   500  // maximum lenght of a macro
+# define MAX_EXPAND   1    // will be increased when recursion is completed
 
 // Data Only Used In This File ==============================================
 
@@ -293,11 +299,6 @@ static int    UserIndex = 0;
 
 // was previous user input character the beginning of an escape sequence
 static int  UserEscape = 0;
-
-// current macro expansion
-static int  ExpandDefine;     
-static int  ExpandIndex  = 0;
-static char *ExpandInput  = NULL;
 
 // number of macros defined so far (must be <= MAX_DEFINE
 static int Ndefine = 0;
@@ -327,6 +328,25 @@ static int         DefineIndex[MAX_DEFINE];
 static int Nkeep = 0;
 static const char *KeepName[MAX_DEFINE];
 static int         KeepIndex[MAX_DEFINE];
+
+// current macro expansion
+// static int  ExpandDefine;     
+// static int  ExpandIndex  = 0;
+// static char *ExpandInput  = NULL;
+
+typedef struct macro_expansion {
+	Definition *macro; // definition for this macro in the macro Define array
+	int    text_index; // index of the next character in this expansion 
+	char*        text; // current macro expansion 
+} MacroExpansion;
+
+// number of macros currently being expanded
+static int NumExpandInput = 0;
+
+// expansion for each of the macros
+// For i > 0, ExpandInput[i] occurs in ExpandInput[i-1]
+// For i == 0, ExpandInput[i] occurs in current input file.
+static MacroExpansion ExpandInput[MAX_EXPAND]; 
 
 // Functions Only Used In This File =======================================
 
@@ -677,20 +697,14 @@ static void DefineLatexMacro()
 void ExpandLatexMacro(int index)
 {	Definition      *macro;
 	char                ch;
-	int                  i;
-	int                  j;
-	char              *tmp;
-	int              count;
-	int          startLine;
+	int                  i, j, k;
+	char              *tmp, *expansion;
+	int              count, startLine;
 
 	char arg[9][MAX_LENGTH];
 
-	assert( ExpandInput == NULL );
 
-	ExpandDefine = index;
-	ExpandIndex  = 0;
-	macro        = Define + index;
-
+	macro       = Define + index;
 	startLine   = UserLine;
 	for(i = 0; i < macro->narg; i++)
 	{	assert( i < 9 );
@@ -744,13 +758,13 @@ void ExpandLatexMacro(int index)
 		arg[i][j] = '\0';
 	}
 
-	ExpandInput = str_alloc( macro->text[0] );
+	expansion = str_alloc( macro->text[0] );
 	for(j = 0; j < macro->nrep; j++)
 	{	// macro argument for this replacement
 		i = macro->iarg[j] - 1;
 	
-		tmp         = ExpandInput;
-		ExpandInput = StrCat(
+		tmp         = expansion;
+		expansion   = StrCat(
 			__FILE__,
 			__LINE__,
 			tmp,
@@ -760,14 +774,71 @@ void ExpandLatexMacro(int index)
 		);
 		FreeMem(tmp);
 	}
+
+	// later change this assert to a fatal error message about recursion
+	// is too deep
+	assert( NumExpandInput < MAX_EXPAND );
+	k                         = NumExpandInput;
+	ExpandInput[k].macro      = macro;
+	ExpandInput[k].text       = expansion;
+	ExpandInput[k].text_index = 0;
+	NumExpandInput++;
 	return;
+}
+
+static char *MacroExpansionMessage(void)
+{	int   i, j;
+	char ch;
+	char *this = NULL, *all = NULL, *tmp = NULL;
+
+	for(i = 0; i < NumExpandInput; i++)
+	{	
+		j  = ExpandInput[i].text_index;
+		ch = ExpandInput[i].text[j];
+		ExpandInput[i].text[j] = '\0';
+		tmp  = int2str(ExpandInput[i].macro->line);
+		this = StrCat(
+			__FILE__,
+			__LINE__,
+			"Macro \"",
+			ExpandInput[i].macro->name,
+			"\" is defined at line ",
+			tmp,
+			" of ",
+			ExpandInput[i].macro->file,
+			"\nIt's current expansion is: ",
+			ExpandInput[i].text,
+			"\n",
+			NULL
+		);
+		FreeMem(tmp);
+		ExpandInput[i].text[j] = ch;
+		//
+		if(i == 0 )
+			all = this;
+		else
+		{	tmp = StrCat(
+				__FILE__,
+				__LINE__,
+				all,
+				this,
+				NULL
+			);
+			FreeMem(all);
+			FreeMem(this);
+			all = tmp;
+		}
+	}  
+
+	return all;
 }
 
 // Functions Used External From This File ===============================
 
 void LatexMacroUserInput(int line, const char *input)
 {	
-	assert( ExpandInput == NULL );
+	// this is temporary until have multiple macros
+	assert( NumExpandInput == 0 );
 
 	FreeMem(UserFile);
 	UserFile  = str_alloc(InputName());
@@ -820,27 +891,34 @@ void LatexMacroFree()
 
 // get next combination of user input and macro expansion
 char LatexMacroGetCh()
-{	char ch;
+{	static int count_not_from_macro = 0;
+	char ch;
 	int  startIndex;
 	char token[MAX_LENGTH];
-	int  i;
+	int  i, j;
+
+	i  = NumExpandInput;
+	ch = '\0';
+	while( (i > 0) & (ch == '\0') )
+	{	i--;
+		j  = ExpandInput[i].text_index;
+		assert( (unsigned int) j <= strlen(ExpandInput[i].text) );
+		ch = ExpandInput[i].text[j];
+		if( (ch == '\0') & (count_not_from_macro > 1) )
+		{	FreeMem(ExpandInput[i].text);
+			NumExpandInput--;
+		}
+		else	(ExpandInput[i].text_index)++;
+	} 
 
 	if( UserFile == NULL )
 		return '\001';
 
-	if( ExpandInput != NULL )
-	{	if( ExpandInput[ExpandIndex] == '\0' )
-		{	FreeMem(ExpandInput);
-			ExpandInput = NULL;
-		}
-	}
-
-	if( ExpandInput != NULL )
-	{	assert( (unsigned int) ExpandIndex < strlen(ExpandInput) );
-		ch = ExpandInput[ExpandIndex++];
-	}
+	if( ch != '\0' )
+		count_not_from_macro = 0;
 	else
 	{	ch = UserGetCh();
+		count_not_from_macro++;
 
 		if( UserEscape )
 		{	startIndex = UserIndex;
@@ -901,25 +979,25 @@ const char *LatexMacroExpandInput()
 {	if( UserFile == NULL )
 		return NULL;
 
-	return ExpandInput; 
+	return MacroExpansionMessage();
 }
 
 int LatexMacroExpandLine()
-{	assert( ExpandInput != NULL );
+{	assert( NumExpandInput > 0 );
 
-	return Define[ExpandDefine].line;
+	return ExpandInput[0].macro->line;
 }	
 
 const char *LatexMacroExpandFile()
-{	assert( ExpandInput != NULL );
+{	assert( NumExpandInput > 0 );
 
-	return Define[ExpandDefine].file;
+	return ExpandInput[0].macro->file;
 }	
 
 const char *LatexMacroExpandName()
-{	assert( ExpandInput != NULL );
+{	assert( NumExpandInput > 0 );
 
-	return Define[ExpandDefine].name;
+	return ExpandInput[0].macro->name;
 }	
 
 void LatexMacroKeep()

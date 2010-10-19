@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2009 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -240,7 +240,7 @@ void fataltex(const char *s1, ...)
 	if( strcmp(LatexMacroInputFile(), "NONE") == 0 )
 		printf("\nLatex error with no current input file ?\n");
 	else	printf(
-		"\nOMhelp Error: Latex in file %s:\n",
+		"\nOMhelp Latex Error in file\n%s\n",
 		LatexMacroInputFile()
 	);
 
@@ -251,18 +251,6 @@ void fataltex(const char *s1, ...)
 		s = va_arg(argList, const char *);
 	}
 
-	// check for an active macro expansion
-	expand = LatexMacroExpandInput();
-	if( expand != NULL ) printf(
-		"\nThe macro %s is defined in line %d of %s.\n"
-		"Its current expansion is\n%s\n%s",
-		LatexMacroExpandName(),
-		LatexMacroInputLine(),
-		LatexMacroInputFile(),
-		expand,
-		"\nNote: Latex mode does no allow macros inside of macros."
-	);
-
 	// allocate memory for tex tokens
 	for(i = 0; i < MAX_NUMBER; i++)
 		token[i] = AllocMem(MAX_LENGTH, sizeof(char));
@@ -270,10 +258,10 @@ void fataltex(const char *s1, ...)
 	number = LatexLexHistory(MAX_NUMBER, MAX_LENGTH, line, token);
 
 	if( number > 1 )
-		printf("\nThe previous Latex input tokens are\n");
+		printf("\n\nPrevious Latex input tokens are\n");
 	else if( number == 1 )
-		printf("\nThe previous Latex input token is ");
-	else	printf("\nError occurred in the next token after $latex command."); 
+		printf("\nPrevious Latex input token is ");
+	else	printf("\nError occurred in next token after $latex command."); 
 	for(i = 1; i <= number; i++)
 	{	printf(" %s", token[number - i] );
 		FreeMem( token[number - i] );
@@ -294,6 +282,10 @@ void fataltex(const char *s1, ...)
 			InputLine()
 		);
 	}
+
+	// check for an active macro expansions
+	expand = LatexMacroExpandInput();
+	if( expand != NULL ) printf("\n%s", expand);
 
 	trace_exit(1);
 }
