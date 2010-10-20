@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2009 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -178,7 +178,7 @@ The return value is memory that was allocated with $cref AllocMem$$
 and should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$
 (or used for a fatal error message).
 
-$head ?$$
+$head Input File$$
 If no call has been made to $code LatexMacroUserInput$$,
 the value $code NULL$$ is returned.
 $end
@@ -285,7 +285,7 @@ $end
 
 # define MAX_DEFINE   1000 // maximum number of latex macros defined
 # define MAX_LENGTH   500  // maximum lenght of a macro
-# define MAX_EXPAND   1    // will be increased when recursion is completed
+# define MAX_EXPAND   30   // will be increased when recursion is completed
 
 // Data Only Used In This File ==============================================
 
@@ -329,11 +329,8 @@ static int Nkeep = 0;
 static const char *KeepName[MAX_DEFINE];
 static int         KeepIndex[MAX_DEFINE];
 
-// current macro expansion
-// static int  ExpandDefine;     
-// static int  ExpandIndex  = 0;
-// static char *ExpandInput  = NULL;
 
+// Information for one macro expansion
 typedef struct macro_expansion {
 	Definition *macro; // definition for this macro in the macro Define array
 	int    text_index; // index of the next character in this expansion 
@@ -382,13 +379,25 @@ static char UserGetCh()
 	return ch;
 }
 
-// skip white space 
+// skip user space 
 static char SkipUserWhite()
 {	char ch;
 
 	ch = UserGetCh();
 	while( isspace((int) ch) )
 		ch = UserGetCh();
+
+	return ch;
+}
+
+// skip latex space 
+static char SkipLatexWhite()
+{	char ch;
+	extern char LatexMacroGetCh(void);
+
+	ch = LatexMacroGetCh();
+	while( isspace((int) ch) )
+		ch = LatexMacroGetCh();
 
 	return ch;
 }
@@ -702,7 +711,7 @@ void ExpandLatexMacro(int index)
 	int              count, startLine;
 
 	char arg[9][MAX_LENGTH];
-
+	extern char LatexMacroGetCh(void);
 
 	macro       = Define + index;
 	startLine   = UserLine;
@@ -710,17 +719,10 @@ void ExpandLatexMacro(int index)
 	{	assert( i < 9 );
 		// place this macro argument in arg
 
-		ch    = SkipUserWhite();
+		ch    = SkipLatexWhite();
 		if( ch != '{' ) fataltex(
-			"In the macro expansion that starts ",
-			"with the \\",
+			"In expansion of macro \\",
 			macro->name,
-			"\nin in line ",
-			int2str(startLine),
-			"\nwhich is defined in line ",
-			int2str(macro->line),
-			" of the file ",
-			macro->file,
 			"\nExpected the character '{' before argument number ",
 			int2str(i + 1),
 			NULL
@@ -728,22 +730,15 @@ void ExpandLatexMacro(int index)
 		count = 1;
 		j     = 0;
 		while( count > 0 )
-		{	ch = UserGetCh();
+		{	ch = LatexMacroGetCh();
 			if( ch == '{' )
 				count++;
 			if( ch == '}' )
 				count--;
 
 			if( j >= MAX_LENGTH-1 ) fataltex(
-				"In the macro expansion that starts ",
-				"with the \\",
+				"In expansion of macro \\",
 				macro->name,
-				"\nin in line ",
-				int2str(startLine),
-				"\nwhich is defined in line ",
-				int2str(macro->line),
-				" of the file ",
-				macro->file,
 				"\nArgument number ",
 				int2str(i + 1),
 				" is to long\n",
@@ -777,7 +772,11 @@ void ExpandLatexMacro(int index)
 
 	// later change this assert to a fatal error message about recursion
 	// is too deep
-	assert( NumExpandInput < MAX_EXPAND );
+	if( NumExpandInput >= MAX_EXPAND ) fataltex(
+		"Too many macros currently expanded, cannot expand macro \\",
+		macro->name,
+		NULL
+	);
 	k                         = NumExpandInput;
 	ExpandInput[k].macro      = macro;
 	ExpandInput[k].text       = expansion;
@@ -892,11 +891,25 @@ void LatexMacroFree()
 // get next combination of user input and macro expansion
 char LatexMacroGetCh()
 {	static int count_not_from_macro = 0;
+	static int previous_backslash   = 0;
 	char ch;
 	int  startIndex;
 	char token[MAX_LENGTH];
-	int  i, j;
+	int  i, j, k, ell;
 
+
+	i  = NumExpandInput;
+	ch = '\0';
+	while( (count_not_from_macro > 1) & (i > 0) & (ch == '\0') )
+	{	i--;
+		j  = ExpandInput[i].text_index;
+		assert( (unsigned int) j <= strlen(ExpandInput[i].text) );
+		ch = ExpandInput[i].text[j];
+		if( ch == '\0' )
+		{	FreeMem(ExpandInput[i].text);
+			NumExpandInput--;
+		}
+	}
 	i  = NumExpandInput;
 	ch = '\0';
 	while( (i > 0) & (ch == '\0') )
@@ -904,19 +917,74 @@ char LatexMacroGetCh()
 		j  = ExpandInput[i].text_index;
 		assert( (unsigned int) j <= strlen(ExpandInput[i].text) );
 		ch = ExpandInput[i].text[j];
-		if( (ch == '\0') & (count_not_from_macro > 1) )
-		{	FreeMem(ExpandInput[i].text);
-			NumExpandInput--;
+
+		// skip comments
+		if( ch == '%' )
+		{	ch = ExpandInput[i].text[++j];
+			while( (ch != '\n') & (ch != '\0') )
+				ch = ExpandInput[i].text[++j];
+
+			// done with characters we have skipped
+			ExpandInput[i].text_index = j;
 		}
-		else	(ExpandInput[i].text_index)++;
+
+		if( ch != '\0' )
+		{	// this is a usable macro character
+			count_not_from_macro = 0;
+			// advanced macro index to next character
+			ExpandInput[i].text_index = j+1;
+		}
+
+		if( (ch == '\\') & (! previous_backslash) )
+		{	// check for a recursive macro
+
+			// get token corresponding to a possible macro
+			k   = ExpandInput[i].text_index;
+			ch  = ExpandInput[i].text[k];
+			ell = 0;
+			while( isalpha((int) ch) )
+			{	if( ell < MAX_LENGTH )
+					token[ell++] = ch;
+				ch  = ExpandInput[i].text[++k];
+			}
+
+			// terminate the token
+			if( ell < MAX_LENGTH )
+				token[ell] = '\0';
+			else	token[MAX_LENGTH-1] = '\0';
+
+			// newcommand inside of macro not legal
+			if( strcmp(token, "newcommand") == 0 ) fataltex(
+				"\\newcommand occurs inside of a macro"
+			);
+
+			// see if it is a macro
+			ell = BinarySearch(DefineName, Ndefine, token);
+
+			// check if we have a new macro inside of this macro expansion
+			if( ell < Ndefine )
+			{	// advance input for this macro past new macro 
+				ExpandInput[i].text_index = k;
+				
+				// increase expansion level and have i point to new macro
+				i = NumExpandInput;
+				ExpandLatexMacro(DefineIndex[ell]);
+				assert( NumExpandInput == i + 1 );
+
+				// get first character from new macro expansion
+				previous_backslash = 0;
+				ch = LatexMacroGetCh();
+			}
+			else	
+			{	// this backslash does not start a macro so
+				// terminate this while loop
+				previous_backslash = 1;
+				ch                 = '\\';
+			}
+		}
 	} 
 
-	if( UserFile == NULL )
-		return '\001';
-
-	if( ch != '\0' )
-		count_not_from_macro = 0;
-	else
+	if( ch == '\0' )
 	{	ch = UserGetCh();
 		count_not_from_macro++;
 
@@ -957,6 +1025,7 @@ char LatexMacroGetCh()
 			}
 		}		
 	}
+	previous_backslash = (ch == '\\');
 
 	return ch;
 }

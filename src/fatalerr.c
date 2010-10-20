@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2009 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -240,7 +240,8 @@ void fataltex(const char *s1, ...)
 	if( strcmp(LatexMacroInputFile(), "NONE") == 0 )
 		printf("\nLatex error with no current input file ?\n");
 	else	printf(
-		"\nOMhelp Latex Error in file\n%s\n",
+		"\nOMhelp Latex Error at line %d in file\n%s\n",
+		LatexMacroInputLine(),
 		LatexMacroInputFile()
 	);
 
