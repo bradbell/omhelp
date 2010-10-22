@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -49,7 +49,7 @@ $$
 
 
 $index overview$$
-$section Source Code -> Web Based Help:  OMhelp Version 10-07-05$$
+$section Source Code -> Web Based Help:  OMhelp Version 10-10-22$$
 
 $head User Support For OMhelp$$
 $index support$$

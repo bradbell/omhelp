@@ -268,6 +268,21 @@ This can be done by calling $code LatexMacroKeep$$ before
 processing a section and $xref LatexMacroFree$$ after.
 
 $end
+------------------------------------------------------------------------\
+$begin LatexMacroPopFullyExpandedInput$$
+
+$section Remove Fully Expanded Latex Macros and Fee Corresponding Memory$$
+
+The fully expanded latex macros's are kept around for one extra 
+input character.
+This help error message when an error is detected at the end of a macro.
+In the case where there are no more latex commands after the end
+of the last macro in the OMhelp input, there can be 
+$cref AllocMem$$ left over for this purpose that must be freed
+before checking for memory leaks.
+This function will free that memory.
+
+$end
 */
 
 # include "BinarySearch.h"
@@ -337,12 +352,12 @@ typedef struct macro_expansion {
 	char*        text; // current macro expansion 
 } MacroExpansion;
 
-// number of macros currently being expanded
+// number of macros currently expanded
 static int NumExpandInput = 0;
 
-// expansion for each of the macros
-// For i > 0, ExpandInput[i] occurs in ExpandInput[i-1]
-// For i == 0, ExpandInput[i] occurs in current input file.
+// Expansion for each of the macros
+// For i > 0, ExpandInput[i] comes from a macro in ExpandInput[i-1]
+// For i == 0, ExpandInput[i] comes from a macro in current input file.
 static MacroExpansion ExpandInput[MAX_EXPAND]; 
 
 // Functions Only Used In This File =======================================
@@ -609,8 +624,9 @@ static void DefineLatexMacro()
 	Determine value of the macro->text and macro->iarg arrays
 	*/
 	macro->nrep = count;
-	macro->text = (char **) AllocMem(count+1, sizeof(char *));
 	macro->iarg = (int *) AllocMem(count, sizeof(int));
+	macro->text = (char **) AllocMem(count+1, sizeof(char *));
+	macro->text[count] = NULL;
 	i      = 0;
 	count  = 0;
 	escape = 0;
@@ -657,6 +673,9 @@ static void DefineLatexMacro()
 		}
 	}
 	assert( count == macro->nrep );
+	// check for case where no characters follow the last replacement number
+	if( macro->text[count] == NULL )
+		macro->text[count] = str_alloc("");
 
 	// determine the position of the new macro in the ordered list
 	i     = 0;
@@ -799,13 +818,13 @@ static char *MacroExpansionMessage(void)
 		this = StrCat(
 			__FILE__,
 			__LINE__,
-			"Macro \"",
+			"The macro \"",
 			ExpandInput[i].macro->name,
 			"\" is defined at line ",
 			tmp,
 			" of ",
 			ExpandInput[i].macro->file,
-			"\nIt's current expansion is: ",
+			"\nIt's current expansion is:\n\t",
 			ExpandInput[i].text,
 			"\n",
 			NULL
@@ -834,8 +853,30 @@ static char *MacroExpansionMessage(void)
 
 // Functions Used External From This File ===============================
 
+void LatexMacroPopFullyExpandedInput(void)
+{	int i, j;
+	char ch;
+
+	i  = NumExpandInput;
+	ch = '\0';
+	while( (i > 0) & (ch == '\0') )
+	{	i--;
+		j  = ExpandInput[i].text_index;
+		assert( (unsigned int) j <= strlen(ExpandInput[i].text) );
+		ch = ExpandInput[i].text[j];
+		if( ch == '\0' )
+		{	FreeMem(ExpandInput[i].text);
+			NumExpandInput--;
+		}
+	}
+
+}
+
 void LatexMacroUserInput(int line, const char *input)
 {	
+	// start of new input, free old expansions
+	LatexMacroPopFullyExpandedInput();
+
 	// this is temporary until have multiple macros
 	assert( NumExpandInput == 0 );
 
@@ -897,19 +938,9 @@ char LatexMacroGetCh()
 	char token[MAX_LENGTH];
 	int  i, j, k, ell;
 
+	if( count_not_from_macro > 0 )
+		LatexMacroPopFullyExpandedInput();
 
-	i  = NumExpandInput;
-	ch = '\0';
-	while( (count_not_from_macro > 1) & (i > 0) & (ch == '\0') )
-	{	i--;
-		j  = ExpandInput[i].text_index;
-		assert( (unsigned int) j <= strlen(ExpandInput[i].text) );
-		ch = ExpandInput[i].text[j];
-		if( ch == '\0' )
-		{	FreeMem(ExpandInput[i].text);
-			NumExpandInput--;
-		}
-	}
 	i  = NumExpandInput;
 	ch = '\0';
 	while( (i > 0) & (ch == '\0') )

@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -84,11 +84,11 @@ void AutomaticLink(int navigation, SectionInfo *section)
 	assert( fileName != NULL );
 	if( navigation )
 	{
-
 		// automatically generated links
 		i = 0;
 		while( AutomaticTag(i) != NULL )
-		if( AutomaticTag(i) != CONTENTS_TAG )
+		// commented this out on 2010-10-22
+		// if( AutomaticTag(i) != CONTENTS_TAG )
 		{
 			const char *tag = AutomaticTag(i);
 			int link        = strcmp(tag, section->tag) != 0;

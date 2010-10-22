@@ -3127,7 +3127,7 @@ include
 	| INCLUDE_lex argument DOUBLE_DOLLAR_lex
 	{	char  *root;
 		char  *ext;
-		char  *cmd_key_char;
+		char  cmd_key_char;
 
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );

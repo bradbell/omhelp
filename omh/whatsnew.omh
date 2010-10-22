@@ -113,6 +113,10 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 10-10-20$$
+Add the ability for macros to be used inside of macros; i.e.,
+macro $cref/recursion/LatexMacro/Examples/Recursion/$$.
+
 $head 10-07-05$$
 Improve error message when the $cref newlinech$$ character
 is the same as the first character in a 

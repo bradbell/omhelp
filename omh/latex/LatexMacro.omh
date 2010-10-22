@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -17,6 +17,7 @@
 # ---------------------------------------------------------------------------
 #
 $begin LatexMacro$$
+$escape $$ 
 $dollar @$$
 $spell
 	inline
@@ -37,27 +38,18 @@ $$
 $section The Latex Macro Preprocessor$$
 
 
-$table
-$bold Definition$$
-$cnext $syntax%\newcommand{ \%Name% }{%$$
-	$latex Text_0$$ $code }$$
-$rnext
-$cnext $syntax%\newcommand{ \%Name% }[ %M% ]{%$$
-	$latex Text_0$$ $syntax%#%J(1)%$$
-	$latex Text_1 \; \ldots \; Text_{N-1}$$ $syntax%#%J(N)%$$
-	$latex Text_N $$ $code }$$
-$rnext
-$bold Usage$$
-$cnext $syntax%\%Name%$$
-$rnext
-$cnext $syntax%\%Name%{%$$
-	$latex A_1$$ $code }$$
-	$latex \; \ldots \; $$ $code {$$
-	$latex A_M$$ $code }$$
-$rnext
-$tend
+$head Syntax$$
 
-$fend 25$$
+$subhead Definition$$
+$codei%\newcommand{\%Name%}{%Text0%}
+%$$
+$codei%\newcommand{\%Name%}[%M%]{%Text0% #%J1% ... %$$
+$icode%TextN-1% #%JN% %TextN%}%$$
+
+$subhead Usage$$
+$codei%\%Name%
+%$$
+$codei%\%Name%{%A1%}% ... %{%AM%}%$$
 
 $head Definition$$
 When running OMhelp with the
@@ -86,67 +78,58 @@ i.e., they do not affect any other sections.
 
 $subhead Name$$
 The sequence of upper or lower case letters 
-$latex Name$$ specifies the name of the macro.
+$icode Name$$ specifies the name of the macro.
 
 $subhead Text$$
-For $latex K = 0 , \ldots , N$$,
-$latex Text_K$$ is a sequence of characters.
-The character $code #$$ does not appear in $latex Text_K$$
+For $icode K = 0 , ... , N$$,
+$icode TextK$$ is a sequence of characters.
+The character $code #$$ does not appear in $icode TextK$$
 except if directly preceded by a back slash; i.e., $code \#$$.
-In addition, $latex Text_K$$ does not contain
+In addition, $icode TextK$$ does not contain
 any $code }$$ characters unless preceded by a matching $code {$$ character.
 
 $subhead M$$
-The decimal digit $latex M$$ is between one and nine inclusive.
-It specifies the number of arguments connected to each use of 
-$syntax%\%Name%%$$.
-If $latex M$$ is not present in the macro definition,
+The decimal digit $icode M$$ is between one and nine inclusive.
+It specifies the number of arguments connected to the corresponding
+$codei%\%Name%$$ macro.
+If $icode M$$ is not present in the macro definition,
 it is implicitly zero in the discussion below.
 
 $subhead N$$
 The number of replacements made with each use of the macro
-is denoted by $latex N$$.
+is denoted by $icode N$$.
 
-$subhead J(K)$$
-For $latex K = 1 , \ldots , N$$, the decimal digit $latex J(K)$$ 
-is between one and $latex M$$.
-It specifies which argument is placed directly before $latex Text_K$$
+$subhead JK$$
+For $icode K = 1 , ... , N$$, the decimal digit $icode JK$$ 
+is between one and $icode M$$.
+It specifies which argument is placed directly before $icode TextK$$
 in the macro expansion.
 
-
 $head Usage$$
-If the macro $italic Name$$ is defined with zero arguments,
+If the macro $codei%\%Name%$$ is defined with no arguments,
 the macro usage
-$syntax%
+$codei%
 	\%Name%
 %$$ 
 has the replacement value
-$pre
-	$$
-$latex Text_0$$
-$pre
-$$
-corresponding to the definition of $italic Name$$.
-In general, the macro usage
-$syntax%
-	\%Name%{%$$
-	$latex A_1$$ $code }$$
-	$latex \; \ldots \; $$ $code {$$
-	$latex A_M$$ $syntax% }
+$codei%
+	%Text0
+%$$
+corresponding to the definition of $codei%\%Name%$$.
+If the macro $codei%\%Name%$$ is defined with $icode M$$ arguments,
+the macro usage
+$codei%
+	\%Name%{%A1%}% ... %{%AM%}
 %$$
 has the replacement value
-$pre
-	$$
-$latex
-Text_0 \; A_{J(1)} \; Text_1 \; \cdots \; Text_{N-1} \; A_{J(N)} \; Text_N
-$$
-$pre
-$$
-where $latex M$$, $latex N$$, and
-$latex Text_K$$ for $latex K = 1 , \ldots , N$$, 
-corresponds to the definition of $italic Name$$.
+$codei%
+	%Text0 A1 Text_1 ... TextN-1 AN TextN
+%$$
+where $icode N$$, and
+$icode TextK$$ for $icode K = 1 , .. , N$$, 
+corresponds to the definition of $codei%\%Name%$$.
 
-$head Example$$
+$head Examples$$
 
 $subhead No Arguments$$
 The input
@@ -156,13 +139,13 @@ $codep
 	\Dx
 \] @@
 $$
-results in the output
+results in the output:
 $latex \[
 	\newcommand{\Dx}{ \frac{d \hspace{1ex} }{d x} }
 	\Dx
 \] $$
 
-$subhead Arguments$$
+$subhead Two Arguments$$
 The input
 $codep
 @latex \[
@@ -170,11 +153,47 @@ $codep
 	\D{y}{x}
 \] @@
 $$
-results in the output
+results in the output:
 $latex \[
 	\newcommand{\D}[2]{ \frac{d #1}{d #2} }
 	\D{y}{x}
 \] $$
+
+$subhead Using Pound Sign in a Macro$$
+The input
+$codep
+@latex \[
+	\newcommand{\Pound}{The \; pound \; sign \; \# \; must \; be \; escaped}
+	\Pound
+\] @@
+$$
+results in the output:
+$latex \[
+	\newcommand{\Pound}{The \; pound \; sign \; \# \; must \; be \; escaped}
+	\Pound
+\] $$
+
+$subhead Recursion$$
+You can use macros inside of macros.
+In addition, you can defined macros inside of inline latex commands.
+For example, the input
+$codep
+@latex 
+	\newcommand{\one}[1]{#1}
+	\newcommand{\two}[1]{\one{#1} \; #1}
+	\newcommand{\three}[1]{\two{#1} \; #1}
+	\newcommand{\four}[1]{\three{#1} \; #1}
+@@
+@latex \four{4}@@.
+$$
+results in the output:
+$latex 
+	\newcommand{\one}[1]{#1}
+	\newcommand{\two}[1]{\one{#1} \; #1}
+	\newcommand{\three}[1]{\two{#1} \; #1}
+	\newcommand{\four}[1]{\three{#1} \; #1}
+$$
+$latex \four{4}$$.
 
 $subhead Mathml$$
 Macros combined with

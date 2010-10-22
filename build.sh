@@ -1,6 +1,6 @@
 #!/bin/bash
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -397,8 +397,6 @@ fi
 echo "option"
 echo "------"
 echo "version     update configure.ac and Doc.omh version number"
-echo "aclocal     create aclocal.m4 file"
-echo "autoheader  create a src/config.h.in file"
 echo "automake    run autoconf and automake to create configure script"
 echo "configure   run configure script to create make files"
 echo "make        compile omhlep and use it to build its documentaiton"

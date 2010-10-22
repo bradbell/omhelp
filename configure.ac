@@ -18,7 +18,7 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 10-07-05, bradbell@seanet.com)
+AC_INIT(OMhelp, 10-10-22, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
 

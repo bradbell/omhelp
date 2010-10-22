@@ -1,6 +1,5 @@
-// BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -16,7 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
-// END SHORT COPYRIGHT
 /*
 The documentation below is for these routines with respect to other files; i.e.,
 it does not include communication through static variables in this file.
@@ -230,7 +228,7 @@ void PushOutput(const char *name)
 
 	lower = str_alloc(name);
 	for(i = 0; lower[i] != '\0'; i++)
-		lower[i] = tolower(lower[i]);
+		lower[i] = (char) tolower((int) lower[i]);
 
 	Fp[Index]   = fopen(lower, "w");
 	Name[Index] = lower;
