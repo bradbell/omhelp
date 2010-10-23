@@ -62,8 +62,11 @@ then
 fi
 for file in $list
 do
-	echo "sed -f commit.sed -i $file"
-	sed -f commit.sed -i $file
+	if [ -e $file ]
+	then
+		echo "sed -f commit.sed -i $file"
+		sed -f commit.sed -i $file
+	fi
 done
 #
 echo "cvs commit -m '$msg' $list"
