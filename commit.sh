@@ -1,9 +1,8 @@
 # ! /bin/bash
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # License: GNU General Public License; version 2 or higher.
 # ---------------------------------------------------------------------------
-#
 # replacement text for this commit
 cat << EOF > commit.$$
 This is a template file for making commits to the OMhelpPackage repository.
@@ -43,9 +42,12 @@ msg=`sed -e '/@ *$/d' -e 's|.*/\([^/]*@\)|\1|' -e 's|@|:|' commit.$$`
 # -----------------------------------------------------------------------
 for file in $list
 do
-	echo "sed -f commit.sed < $file > commit.$$"
-	sed -f commit.sed < $file > commit.$$
-	diff $file commit.$$
+	if [ -e $file ]
+	then
+		echo "sed -f commit.sed < $file > commit.$$"
+		sed -f commit.sed < $file > commit.$$
+		diff $file commit.$$
+	fi
 done
 rm commit.$$
 echo "--------------------------------------------------------------------"
@@ -61,6 +63,7 @@ fi
 for file in $list
 do
 	echo "sed -f commit.sed -i $file"
+	sed -f commit.sed -i $file
 done
 #
 echo "cvs commit -m '$msg' $list"
