@@ -16,10 +16,8 @@ EOF
 # -----------------------------------------------------------------------
 if [ "$1" == 'files' ]
 then
-	cvs update 2> /dev/null | sed -n \
-		-e '/^[RAM] /p' \
-			-e 's/^[RAM] //' \
-			-e 's/$/@/' | sort -u
+	cvs update 2> /dev/null | sed -n -e '/^[RAM] /p' | \
+		sed -e 's/^[RAM] //' -e 's/$/@/' | sort -u
 	rm commit.$$
 	exit 0
 fi
