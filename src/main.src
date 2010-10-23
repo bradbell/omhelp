@@ -94,6 +94,8 @@ extern void InitLex(void);
 
 int main(int argc, const char *argv[])
 {
+	extern void LatexMacroPopFullyExpandedInput(void);
+
 	const char *omhdir   = NULL;
 	const char *root_file= NULL;
 	const char *image    = NULL;
@@ -394,7 +396,6 @@ int main(int argc, const char *argv[])
 	FreeMem(omhDir);
 	FreeMem(imageFile);
 
-	extern void LatexMacroPopFullyExpandedInput(void);
 	LatexMacroPopFullyExpandedInput();
 
 	CheckMemoryLeak();

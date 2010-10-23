@@ -155,9 +155,10 @@ $end
 $begin LatexMacroExpandInput$$
 $spell
 	const
+	AllocMem
 $$
 
-$section Return Curerent Expansion for All Active Latex Macros$$
+$section Return Current Expansion for All Active Latex Macros$$
 
 $head Syntax$$
 $code char* LatexMacroExpandInput()$$
@@ -270,6 +271,9 @@ processing a section and $xref LatexMacroFree$$ after.
 $end
 ------------------------------------------------------------------------\
 $begin LatexMacroPopFullyExpandedInput$$
+$spell
+	OMhelp
+$$
 
 $section Remove Fully Expanded Latex Macros and Fee Corresponding Memory$$
 
