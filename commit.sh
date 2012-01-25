@@ -5,9 +5,9 @@
 # ---------------------------------------------------------------------------
 # replacement text for this commit
 cat << EOF > commit.$$
-This is a template file for making commits to the OMhelpPackage repository.
+This is a template for making commits to the OMhelpPackage repository.
 Lines with no 'at' characters, are general comments not connected to 
-a specifi file. Lines containing an 'at' character are "file name" 
+a specific file. Lines containing an 'at' character are "file name" 
 followed by comment; for example
 
 commit.sh@ For this example, commit.sh is the only file committed.
