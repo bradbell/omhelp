@@ -22,6 +22,7 @@
 # Default values used for arguments to configure during this script.
 # These defaults are development system dependent and can be changed.
 VIMRUNTIME=/usr/share/vim/vim71
+PREFIX=$HOME/prefix/omhelp
 #
 # date currently in configure.ac
 AcDate=`grep "^ *AC_INIT(" configure.ac | \
@@ -118,8 +119,8 @@ then
 	else
 		TMP=""
 	fi
-	echo "./configure $TMP"
-	if ! ./configure $TMP 
+	echo "./configure --prefix=$PREFIX $TMP"
+	if ! ./configure --prefix=$PREFIX $TMP 
 	then
 		echo "build.sh: configure failed."
 		exit 1

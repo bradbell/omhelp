@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -404,7 +404,7 @@ int omhlex(void)
 
 				case CHANGE_state:
 				match = 1;
-				while( (0 < match) & (match < changeLen) )
+				while( (State == CHANGE_state) & (match < changeLen) )
 				{	if( Ch == eof )
 						State = EOF_state;
 					else if( Ch == CommandKeyChar )

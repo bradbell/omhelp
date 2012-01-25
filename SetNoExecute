@@ -1,6 +1,5 @@
 # Cvs does not maintain permissions well, so use this script to set them
 chmod -x AUTHORS
-chmod -x BUGS
 chmod -x COPYING
 chmod -x ChangeLog
 chmod -x INSTALL

@@ -113,6 +113,11 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 12-01-25$$
+OMhelp could fall into an infinite loop when the command
+$cref/@OMhelpKeyCharacter=/KeyCharacter/$$ command was misspelled.
+This has been fixed.
+
 $head 10-10-20$$
 Add the ability for macros to be used inside of macros; i.e.,
 macro $cref/recursion/LatexMacro/Examples/Recursion/$$.
