@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -44,8 +44,6 @@ nobase_dist_data_DATA = \
 	OMhelp/_openblue.gif \
 	OMhelp/english.wrd \
 	OMhelp/local.wrd \
-	OMhelp/pmathml.xsl \
-	OMhelp/pmathmlcss.xsl \
 	OMhelp/dictionary.bin
 #
 EXTRA_DIST = \

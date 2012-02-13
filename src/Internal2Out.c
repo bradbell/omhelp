@@ -1,6 +1,6 @@
 // BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -92,9 +92,10 @@ static char *Table[] = {
 "HtmlOnlyExtension",   ".htm", "_xml.htm",
 "SelfTerminateCmd",       ">",       "/>",
 "StartOutputFile",   "<html>", 
-"<?xml version='1.0'?>\n"
-"<?xml-stylesheet type='text/xsl' href='pmathml.xsl'?>\n"
-"<html xmlns='http://www.w3.org/1999/xhtml'>\n"
+	"<?xml version='1.0'?>\n"
+	"<html xmlns='http://www.w3.org/1999/xhtml'\n"
+	"      xmlns:math='http://www.w3.org/1998/Math/MathML'\n"
+	">\n"
 };
 static const unsigned int TableSize   = sizeof(Table) / sizeof(Table[0]);
 static const unsigned int NumberOfCol = 3;

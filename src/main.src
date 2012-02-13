@@ -358,6 +358,8 @@ int main(int argc, const char *argv[])
 		FreeMem(fullname);
 	}
 
+# if 0
+	// No longer necessary as of 2012-02-12.
 	// copy the mathml style files to the current directory
 	if( GenerateXml )
 	{	
@@ -388,6 +390,7 @@ int main(int argc, const char *argv[])
 		FreeMem( fullname );
 
 	}
+# endif
 
 	InitSpelling(omhDir);
 

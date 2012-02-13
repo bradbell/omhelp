@@ -113,6 +113,13 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 12-02-12$$
+The $cref/xml/running/xml/$$ rendering case, cross references to a
+$cref/heading/cref/heading/$$ in another section were going to
+the beginning of the section instead of the heading.
+This has been fixed.
+
+
 $head 12-01-25$$
 OMhelp could fall into an infinite loop when the command
 $cref/@OMhelpKeyCharacter=/KeyCharacter/$$ command was misspelled.
