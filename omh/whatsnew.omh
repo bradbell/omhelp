@@ -113,6 +113,12 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 12-02-24$$
+Extend $cref image$$ command so that it can have a different
+value for 
+$cref/file_in/image/file_in/$$ and
+$cref/file_out/image/file_out/$$.
+
 $head 12-02-12$$
 The $cref/xml/running/xml/$$ rendering case, cross references to a
 $cref/heading/cref/heading/$$ in another section were going to

@@ -2997,7 +2997,7 @@ image_begin
 	
 	
 image
-	: image_begin argument DOUBLE_DOLLAR_lex
+	: image_begin text DOUBLE_DOLLAR_lex
 	{	
 
 		char *root;
@@ -3013,62 +3013,101 @@ image
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
 
+const char* text = $2.str;
 
-		// Brad Bell: 07/19/02
-		// removed so no warning occurs
-		// const char *path;
 
-		if( $2.str[0] == '_' ) fatalomh(
-			"The file name following ",
+		// split text into tokens
+		int ntoken = SplitText($1.line, $1.str, $2.str);
+		if( ntoken > 2 ) fatalomh(
 			$1.str,
 			" command in line ",
 			int2str($1.line),
-			"\nbegins with the \"_\" character",
+			"\nMore than 3 delimiters in command",
 			NULL
 		);
 
+		// first token
+		const char* file_in  = $2.str + 1;
+		const char* file_out = NULL;
+		if( ntoken == 2 )
+			file_out = file_in + strlen(file_in) + 1;
+			
+
 		// determine root and extension
-		InputSplitName(&root, &ext, $2.str);
+		InputSplitName(&root, &ext, file_in);
 
 		// check for case of default extension
 		if( ext[0] == '\0' )
 		{	FreeMem(ext);
 			ext = str_alloc(".gif");
 		}
-		else if( stricmp(
-		ext, Internal2Out("OutputExtension") ) == 0 ) fatalomh( 
-				"The file name following ",
-				$1.str,
-				" command in line ",
-				int2str($1.line),
-				"\nuses ",
-				Internal2Out("OutputExtension"),
-				" for its file extension",
-				NULL
+		else if( stricmp( ext, Internal2Out("OutputExtension") ) == 0 )
+		fatalomh( 
+			"The file ",
+			file_in,
+			" following command ",
+			$1.str,
+			" at line ",
+			int2str($1.line),
+			"\nuses ",
+			Internal2Out("OutputExtension"),
+			" for its file extension",
+			NULL
 		);
 		
 		
-		// Brad Bell: 07/28/01
-		// The following line generates a const qualifier warning 
-		// from the MS compiler. It looks to me that the compiler is
-		// wrong.
-		// path     = InputSearch(root, ext);
-
 		// file name including extension
 		name     = strjoin(root, ext);
 		fullname = strjoin( InputSearch(root, ext) , name);
+
+		const char* file = NULL;
+		if( file_out != NULL )
+			file = file_out;
+		else	file = fullname;
 	
 		// determine the local file name
-		i = strlen(fullname) - 1;
-		while( i > 0 && fullname[i] != '\\' && fullname[i] != '/' )
+		i = strlen(file) - 1;
+		while( i > 0 && file[i] != '\\' && file[i] != '/' )
 			i--;
-			
-		// make a local copy of the file
-		if( i > 0 )
-		{	localname = fullname + i + 1;
+
+		if( file_out != NULL )
+		{	if( i > 0 ) fatalomh(
+				"The file ",
+				file_out,
+				" in command ",
+				$1.str,
+				" at line ",
+				int2str($1.line),
+				"\nuses either the / or \\ character",
+				NULL
+			);
+			file = file_out;
+			i = strlen(ext);
+			int j = strlen(file_out);
+			int ok = 1;
+			while(i--)
+			{	j--;
+				ok = ok && (file_out[j] == ext[i]);
+			}
+			if( ! ok ) fatalomh(
+				"In command ",
+				$1.str,
+				" at line ",
+				int2str($1.line),
+				"\nFile extensions do not match between\n",
+				file_in,
+				"\n",
+				file_out,
+				NULL
+			);
+
 		}
-		else	localname = fullname;
-		localname = StrLowAlloc(localname);
+		else
+		{	if( i > 0 )
+				file = fullname + i + 1;
+			else	file = fullname;
+		}
+		localname = StrLowAlloc(file);
 		copyfile(localname, fullname);
 
 		FreeMem(fullname);

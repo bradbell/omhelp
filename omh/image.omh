@@ -1,6 +1,6 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -20,6 +20,8 @@
 #
 $begin image$$
 $spell 
+	cmd
+	xml
 	dos 
 	cend 
 	gif 
@@ -39,38 +41,50 @@ $section Displaying Graphical Images$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@image /filename/@@/$$ $rnext
-$cnext $syntax/@icon /filename/@@/$$  $rnext
+$cnext $codei/@/cmd/%/file_in/%@@/$$ $rnext
+$cnext $codei/@/cmd/%/file_in/%/file_out/%@@/$$ $rnext
 $bold See Also$$
-$cnext $xref/start_image//getting started/$$, $xref/verbatim/$$
+$cnext $cref/getting started/start_image/$$, $cref verbatim$$
 $tend
 
-$fend 25$$
-
-$head Description$$
-These commands include the picture stored in the 
-$xref/glossary/Input File Searching/input file/$$
-specified by $italic filename$$.
+$head Purpose$$
+These commands include the picture in the 
+$cref/input file/glossary/Input File Searching/$$
+specified by $icode file_in$$.
 Both leading and trailing 
-$xref/glossary/White Space/white space/$$
-in $italic filename$$
+$cref/white space/glossary/White Space/$$
+in $icode file_in$$
 is ignored and there cannot be any $code @$$ characters
-in $italic filename$$.
-$pre
+in $icode file_in$$.
+The argument 
+$codei/
+	%/file_in/%/file_out/%
+/$$
+is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$.
 
-$$
-The default extension for $italic filename$$ is $code .gif$$; i.e.,
-if there is no $code .$$ characters in $italic filename$$,
-the extension $code .gif$$ is automatically added to filename.
-The extension $code .htm$$ (with out regard to case) cannot be used
-for these file names.
-$pre
-
-$$
+$head cmd$$
+The command $icode cmd$$ must be either $code image$$ or $code icon$$.
 The $code image$$ command is intended for use with large pictures and
 centers a picture on its own line. 
 The $code icon$$ command is intended for use with small pictures and includes
 a picture in the current text line.
+
+$head file_in$$
+The default extension for $icode file_in$$ is $code .gif$$; i.e.,
+if there is no dot ($code .$$) characters in $icode file_in$$,
+the extension $code .gif$$ is automatically added to $icode file_in$$.
+The extensions $code .htm$$ and $code .xml$$ 
+(with out regard to case) cannot be used
+for these file names.
+
+$head file_out$$
+If $icode file_out$$ is present, it is a local file name,
+with out any directories, where the file will be stored.
+Otherwise $icode file_in$$, with out any directories, 
+is used for $icode file_out$$.
+This specifies the file name in the web site
+and must be different for each $icode image$$ and $icode icon$$ command.
+It must have the same file extension as $icode file_out$$.
 
 $head Example$$
 The following input
@@ -78,7 +92,7 @@ $codep
 	@pre
 	
 	@@
-	@image run@@
+	@image%run.gif%image_run.jpg%@@
 	@pre
 	
 	@@
@@ -86,10 +100,12 @@ $$
 displays the a screen capture corresponding to 
 the June 15, 2001 version of the OMhelp section
 $tref running$$ as displayed by Netscape.
+Note that $code image$$ has been added to the name incase
+another section stores a different file with the name $code run;.gif$$.
 $pre
 
 $$
-$image run$$
+$image%run.gif%image_run.gif%$$
 $pre
 
 $$
