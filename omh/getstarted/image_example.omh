@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@ $image w3c_home.gif$$
 
 $head Discussion$$
 As you can see above, the $code image$$ command 
-display an image centered and by itself.
+displays an image centered and by itself.
 As you can see in this sentence,
 the $code icon$$ command
 $icon w3c_home.gif$$

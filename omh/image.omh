@@ -76,6 +76,7 @@ the extension $code .gif$$ is automatically added to $icode file_in$$.
 The extensions $code .htm$$ and $code .xml$$ 
 (with out regard to case) cannot be used
 for these file names.
+Leading and trailing white space in $icode file_in$$ is ignored.
 
 $head file_out$$
 If $icode file_out$$ is present, it is a local file name,
@@ -85,6 +86,7 @@ is used for $icode file_out$$.
 This specifies the file name in the web site
 and must be different for each $icode image$$ and $icode icon$$ command.
 It must have the same file extension as $icode file_out$$.
+Leading and trailing white space in $icode file_out$$ is ignored.
 
 $head Example$$
 The following input
@@ -92,7 +94,7 @@ $codep
 	@pre
 	
 	@@
-	@image%run.gif%image_run.jpg%@@
+	@image%run.gif % image_run.jpg%@@
 	@pre
 	
 	@@
@@ -101,7 +103,8 @@ displays the a screen capture corresponding to
 the June 15, 2001 version of the OMhelp section
 $tref running$$ as displayed by Netscape.
 Note that $code image$$ has been added to the name incase
-another section stores a different file with the name $code run;.gif$$.
+another section stores a different file with the name $code run.gif$$.
+(This is not necessary when all the image files come from the same directory.)
 $pre
 
 $$

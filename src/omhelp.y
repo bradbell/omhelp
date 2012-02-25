@@ -3013,9 +3013,6 @@ image
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
 
-const char* text = $2.str;
-
-
 		// split text into tokens
 		int ntoken = SplitText($1.line, $1.str, $2.str);
 		if( ntoken > 2 ) fatalomh(
@@ -3027,10 +3024,13 @@ const char* text = $2.str;
 		);
 
 		// first token
-		const char* file_in  = $2.str + 1;
-		const char* file_out = NULL;
+		char* file_in  = $2.str + 1;
+		char* file_out = NULL;
 		if( ntoken == 2 )
-			file_out = file_in + strlen(file_in) + 1;
+		{	file_out = file_in + strlen(file_in) + 1;
+			ClipWhiteSpace(file_out);
+		}
+		ClipWhiteSpace(file_in);
 			
 
 		// determine root and extension
