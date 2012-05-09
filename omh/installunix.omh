@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -19,6 +19,9 @@
 $begin InstallUnix$$
 $dollar @$$
 $spell
+	filetype
+	ftdetect
+	highlighting
 	ls sed
 	vimrc au Buf setfiletype
 	make make
@@ -68,82 +71,79 @@ $codep
 $$
 to decompress and extract the unix format version into the 
 distribution directory
-$syntax%
+$codei%
 	omhelp-%yy%-%mm%-%dd%
 %$$
-The value $syntax%%yy%-%mm%-%dd%$$ is the corresponding 
+The value $icode%yy%-%mm%-%dd%$$ is the corresponding 
 version of OMhelp.
 
 $head Configure$$
 $index prefix$$
 Enter the distribution directory and execute the command:
-$syntax%
-	./configure [ --prefix=%prefix% ] [ VIMRUNTIME=%vim_runtime% ]
+$codei%
+	./configure [ --prefix=%prefix% ] 
 %$$
 where the entries between the brackets $code [$$ and $code ]$$ are optional,
 the brackets are not included, and the word in italic is replaced
 by the value you chose.
 The OMhelp utility files will be stored in the directory
-$syntax%
+$codei%
 	%prefix%/share/OMhelp
 %$$
 
 $head prefix$$
-The default value for $italic prefix$$ is $code @HOME$$; i.e.,
+The default value for $icode prefix$$ is $code @HOME$$; i.e.,
 by default the OMhelp executable is installed in 
 $codep
 	@HOME/bin/omhelp
 $$
-If $syntax%%prefix%/bin%$$ is not in your path,
+If $icode%prefix%/bin%$$ is not in your path,
 you will have to specify the entire path for $code omhelp$$ when 
 you execute it.
 The data files used by OMhelp are installed in
-$syntax%
+$codei%
 	@HOME/share/OMhelp
 %$$
 
-$head vim_runtime$$
+$head Vim Editor$$
 $index vim, highlight syntax$$
 $index syntax, highlight vim$$
 $index highlight, syntax vim$$
-If the command line argument $italic vim_runtime$$ is specified,
-it is the directory where the 
+The following 
 $href%
 	http://www.vim.org/%
 	vim editor
 %$$
-is looking for its runtime files.
-You can determine this directory on your system by executing the commands
-$codep
-	vim
-	:echo @VIMRUNTIME
-$$
-If you specify this argument on the $code configure$$ command line, 
-after the $xref/InstallUnix/Install OMhelp/install omhelp/$$ step,
-the $code vim$$ commands
+syntax highlighting files are included in the distribution:
+$codei%
+	%prefix%/share/OMhelp/vim/syntax/omhelp.vim
+	%prefix%/share/OMhelp/vim/ftdetect/omhelp.vim
+%$$
+If you copy the respective files to 
+$codei%
+	@HOME/.vim/syntax/omhelp.vim
+	@HOME/.vim/ftdetect/omhelp.vim
+%$$
+you will be able to use OMhelp syntax highlighting.
+The $code vim$$ commands
 $codep
 	:syntax on
 	:set syntax=omhelp
 $$
 will turn on OMhelp syntax highlighting for the file you are currently 
-editing. If your OMhelp commands are embedded in a C source code file, 
-you could convert back to C highlighting by executing the command
+editing. 
+You could convert back to the original highlighting by executing the command
 $codep
-	:set syntax=c
+	:echo &filetype
+	:set syntax=%filetype%
 $$
-To get a listing of the available syntax assignment values, 
-execute the follow command
-$syntax%
-	ls %vim_runtime%/syntax | sed -e 's/.vim@//'
-%$$
-
-You may also want to automatically set OMhelp syntax highlighting for
-files that end with the extension $code .omh$$. 
+where $icode filetype$$ is the value echoed by the $code :echo &filetype$$
+command.
+You may also want to automatically turn on vim syntax highlighting.
 You can do this by placing the following text in the
 file $code .vimrc$$ in your home directory:
 $codep
 	:syntax on
-	au BufRead,BufNewFile *.omh setfiletype omhelp
 $$
 
 $head Build Executable and Documentation$$
@@ -165,10 +165,10 @@ $tend
 the file $code src/omhelp$$ may possibly be $code src/omhelp.exe$$.) 
 The $code Doc$$ sub-directory of the distribution directory
 contains the user documentation for OMhelp.
-The files $syntax%Doc/%*%.htm%$$ are in HTML format.
+The files $codei%Doc/%*%.htm%$$ are in HTML format.
 If your browser supports XHTML+MathML format,
 an easier to read copy is available in the files
-$syntax%Doc/%*%.xml%$$.
+$codei%Doc/%*%.xml%$$.
 
 $head Install OMhelp$$
 In the distribution directory, execute the following command:
@@ -215,7 +215,7 @@ $codep
 	make install
 $$ 
 This will create the new dictionary and copy it to
-$syntax%
+$codei%
 	%prefix%/share/OMhelp
 %$$
 
@@ -223,9 +223,9 @@ $head Getting Started$$
 $index getstarted, using OMhelp$$
 $index OMhelp, getstarted using$$
 You can build the 
-$xref/multiple_example_1/$$ subtree of the OMhelp user documentation 
+$cref multiple_example_1$$ subtree of the OMhelp user documentation 
 by executing the following commands starting in the distribution directory 
-$syntax%
+$codei%
 	cd omh/getstarted
 	mkdir htm
 	cd htm
@@ -234,6 +234,6 @@ $syntax%
 %$$
 Note that the $code mkdir$$ and $code rm$$ commands will report
 errors if they are unnecessary.
-See the $xref/get_started/$$ section for more examples.
+See the $cref get_started$$ section for more examples.
 	
 $end

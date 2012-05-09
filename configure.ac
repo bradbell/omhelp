@@ -18,19 +18,18 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 12-02-25, bradbell@seanet.com)
+AC_INIT(OMhelp, 12-05-09, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
+AC_MSG_NOTICE([** Check for command line arguments that are no longer used **])
 
-dnl The director where vim data is stored
-AC_MSG_CHECKING( [VIMRUNTIME] )
-AC_SUBST(VIMRUNTIME)
-AM_CONDITIONAL(OMhelp_VIMRUNTIME, test "$VIMRUNTIME" != "" )
-if test "$VIMRUNTIME" != "" ; then
-	AC_MSG_RESULT( [$VIMRUNTIME] )
-else
-	AC_MSG_RESULT( [no] )
+if test "$VIMRUNTIME" != '' ; then
+AC_MSG_ERROR([
+	VIMRUNTIME no longer used. 
+	See the heading Vim in install instructions.]
+)
 fi
+dnl --------------------------------------------------------------------------
 
 dnl Set the default install prefix to the installers home directory
 AC_PREFIX_DEFAULT(${HOME})

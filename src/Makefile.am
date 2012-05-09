@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # 
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -163,14 +163,10 @@ main.c: main.src
 # Rule for omhelp.h
 omhelp.h: omhelp.y
 	bison omhelp.y --defines -p omh -o omhelp.c
-	mv omhelp.c omhelp.tmp
-	sed -f fixbison.sed < omhelp.tmp > omhelp.c
+	sed -i -f fixbison.sed omhelp.c
 #
-# Same rule for omhelp.c
-omhelp.c: omhelp.y
-	bison omhelp.y --defines -p omh -o omhelp.c
-	mv omhelp.c omhelp.tmp
-	sed -f fixbison.sed < omhelp.tmp > omhelp.c
+omhelp.c: omhelp.h
+	echo "omhelp.c was created during build of omhelp.h"
 #
 # Rule for lex.tex.c
 lex.tex.c: latex.l

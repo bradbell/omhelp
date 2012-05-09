@@ -21,22 +21,17 @@
 # Note that config.h is needed by VC++; i.e., for users that do not run
 # the configure script but rather use project files
 #
-# check if vim data directory has been specified
-if OMhelp_VIMRUNTIME
-vimsyntaxdir           = $(VIMRUNTIME)/syntax
-vimsyntax_DATA         = OMhelp/omhelp.vim
-endif
-#
 nobase_include_HEADERS = src/config.h 
 #
 SUBDIRS                = src omh/getstarted
 #
-noinst_DATA            = OMhelp.Dev.log OMhelp.Doc.log
+noinst_DATA            = wish_list.htm OMhelp.Dev.log OMhelp.Doc.log
 #
 # dictonary.bin gets removed and then rebuilt on target machine; see dist-hook.
 # It is only included here so that it gets installed.
 nobase_dist_data_DATA = \
-	OMhelp/omhelp.vim \
+	OMhelp/vim/ftdetect/omhelp.vim \
+	OMhelp/vim/syntax/omhelp.vim \
 	OMhelp/_close.gif \
 	OMhelp/_closeblue.gif \
 	OMhelp/_image.gif \
@@ -65,19 +60,22 @@ EXTRA_DIST = \
 	src/src.vcproj \
 	wish_list.omh
 #
-OMhelp/dictionary.bin:
+wish_list.htm:
 	src/omhelp ./wish_list.omh -noframe -omhelp_dir OMhelp
+#
+OMhelp/dictionary.bin: wish_list.htm
+	echo "OMhelp/dictionary.bin was created during build of wish_list.htm"
 #
 OMhelp.Dev.log:
 	./RunOMhelp Dev
 #
 OMhelp.Doc.log: OMhelp.Dev.log
 	./RunOMhelp Doc
-# 
+#
 # Make sure that unix install rebuilds main.c from main.src.
 # Remove all the CVS informaiton.
 # Remove all object and binary files from omh/getstarted 
-# Remove the dictionary.bin and then rebuild it on target machine.
+# Remove the dictionary.bin so it is rebuilt on target machine.
 dist-hook:
 	touch $(distdir)/src/main.src
 	rm -rf `find $(distdir)/omh -name CVS`

@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash -e
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 # 
@@ -21,7 +21,6 @@
 #
 # Default values used for arguments to configure during this script.
 # These defaults are development system dependent and can be changed.
-VIMRUNTIME=/usr/share/vim/vim71
 PREFIX=$HOME/prefix/omhelp
 #
 # date currently in configure.ac
@@ -67,6 +66,16 @@ fi
 #
 if [ "$1" = "automake" ] || [ "$1" = "all" ]
 then
+	# sources that are built my make command
+	list='wish_list.htm OMhelp/dictionary.bin OMhelp.Doc.log OMhelp.Dev.log'
+	for file in $list
+	do
+		if [ -e $file ]
+		then
+			echo "rm $file"
+			rm $file
+		fi
+	done
 	if [ -e configure ]
 	then
 		rm configure
@@ -113,12 +122,6 @@ fi
 if [ "$1" = "configure" ] || [ "$1" = "all" ]
 then
 	#
-	if [ -e $VIMRUNTIME/syntax ]
-	then
-		TMP="VIMRUNTIME=$VIMRUNTIME"
-	else
-		TMP=""
-	fi
 	echo "./configure --prefix=$PREFIX $TMP"
 	if ! ./configure --prefix=$PREFIX $TMP 
 	then

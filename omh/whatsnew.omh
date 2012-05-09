@@ -113,6 +113,11 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 12-05-09$$
+Change the $cref/vim/InstallUnix/Vim Editor/$$ installation instructions.
+This removed the $code VIMRUNTIME$$ option from the 
+$cref/configure/InstallUnix/Configure/$$ command line.
+
 $head 12-02-24$$
 Extend $cref image$$ command so that it can have a different
 value for 
@@ -736,8 +741,8 @@ beginning of the automatically generated links.
 $head 06-07-12$$
 More discussion of using syntax highlighting has been added the
 documentation for the
-$cref/vim_runtime/InstallUnix/vim_runtime/$$
-argument during $cref/Unix installation/InstallUnix/$$.
+$cref/vim/InstallUnix/Vim Editor/$$
+during $cref/Unix installation/InstallUnix/$$.
 
 
 $head 06-07-08$$
@@ -873,7 +878,7 @@ output with a single tab following the newline character.
 
 $head 06-01-25$$
 OMhelp syntax highlighting was added for the
-$xref/InstallUnix/vim_runtime/vim editor/$$. 
+$cref/vim editor/InstallUnix/Vim Editor/$$. 
 
 $head 06-01-07$$
 A executable version of OMhelp is now distributed
