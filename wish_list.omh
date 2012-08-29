@@ -1,4 +1,5 @@
 $begin wish_list$$
+$dollar @$$
 $spell
 	CppAD
 	OMhelp
@@ -7,6 +8,12 @@ $$
 $section OMhelp Wish List$$
 
 $list number$$
+Change the $code @th$$ command to use the same font as $code @icode$$.
+$lnext
+Only commands that do not allow other commands inside should be terminated
+by the $code @@$$. Use a special termination command for others; e.g.,
+$code @center$$ could be terminated by $code @endc$$.
+$lnext
 Use the $code C_FLAGS$$ configure variable in the same way
 that the $code CXX_FLAGS$$ variable is used by CppAD.
 This will allow compiler flags to adapt to the particular compiler.
