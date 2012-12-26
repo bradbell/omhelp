@@ -1,6 +1,9 @@
 $begin wish_list$$
 $dollar @$$
 $spell
+	backslash
+	endc
+	icode
 	CppAD
 	OMhelp
 $$
@@ -17,6 +20,12 @@ $lnext
 Use the $code C_FLAGS$$ configure variable in the same way
 that the $code CXX_FLAGS$$ variable is used by CppAD.
 This will allow compiler flags to adapt to the particular compiler.
+$lnext
+Add command line argument so there is no default escape character
+(backslash is often missing from output because it is escape character).
+$lnext
+Have a way for verbatim command to refer to current file
+(so works automatically when one moves or copies the file).
 $lend
 
 $end
