@@ -792,8 +792,6 @@ static void Appendices()
 
 static void FinishUp()
 {
-	char *tmp;
-
 # if 0
 	// free memory corresponding to patterns 
 	hilite_pattern(0, 0, "");
@@ -812,26 +810,27 @@ static void FinishUp()
 	printf("\nBegin Second Pass\n");
 
 	if( ! PrintableOmhelp() )
-	{	char *index;
-
+	{
 		SecondPass(SectionTree);
 
 		if( RootHasChildren )
-		{
-			// use index.ext to link to the starting seciton
-			index = strjoin(
-				"index",
-				Internal2Out("OutputExtension")
-			);
-			tmp   = strjoin(
+		{	FILE *fp;
+			char *root_file;
+
+			// file corresponding to root section
+			root_file = strjoin(
 				SectionTree->tagLower, 
 				Internal2Out("OutputExtension")
 			);
-
-			copyfile(index, tmp);
-
-			FreeMem(tmp);
-			FreeMem(index);
+			// create index.html as a link to the root file
+			fp = fopen("index.html", "w");
+			assert( fp != NULL );
+			fprintf(fp, "<html><head><script>\n");
+			fprintf(fp, "\twindow.location.href=\"%s\";\n", root_file);
+			fprintf(fp, "</script></head></html>\n");
+			fclose(fp);
+			
+			FreeMem(root_file);
 		}
 	}
 	else

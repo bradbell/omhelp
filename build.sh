@@ -38,9 +38,9 @@ then
 	sed configure.ac > configure.tmp -e \
 	"s/(OMhelp, [0-9][0-9]-[0-9][0-9]-[0-9][0-9],/(OMhelp, $Today,/"
 	#
-	if diff configure.ac  configure.tmp
+	if ! diff configure.ac  configure.tmp
 	then
-		mv   configure.tmp configure.ac
+		mv  configure.tmp configure.ac
 	fi
 	#
 	# change Autoconf date to today
@@ -49,7 +49,7 @@ then
 	sed omh/overview.omh > overview.tmp -e \
 	"s/Version [0-9][0-9]-[0-9][0-9]-[0-9][0-9]/Version $Today/g"
 	#
-	if diff omh/overview.omh overview.tmp
+	if ! diff omh/overview.omh overview.tmp
 	then
 		mv   overview.tmp     omh/overview.omh
 	fi
