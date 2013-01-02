@@ -1,6 +1,11 @@
 $begin wish_list$$
 $dollar @$$
 $spell
+	xml
+	htm
+	html
+	cppad
+	href
 	backslash
 	endc
 	icode
@@ -26,6 +31,16 @@ Add command line argument so there is no default escape character
 $lnext
 Have a way for verbatim command to refer to current file
 (so works automatically when one moves or copies the file).
+$lnext
+Have the $code xml$$ option generate the file $code index.htm$$
+instead of $code index.xml$$ which loads the root web page.
+For example, if the root web page is $code cppad.xml$$,
+$code index.htm$$ could be
+$codep
+	<html><head><script>
+		window.location.href="cppad.xml";
+	</script></head></html>
+$$
 $lend
 
 $end
