@@ -114,10 +114,7 @@ $tend
 $$
 
 $head 13-01-02$$
-If $cref/-printable/running/printable/$$ is not specified
-on the OMhelp command line,
-and if the root section has subsections,
-the file $code index.html$$ is created as a link to the root section.
+The file $code index.html$$ is created as a link to the root section.
 This is an aid when viewing over the web because referencing the 
 directory will automatically load the root section.
 

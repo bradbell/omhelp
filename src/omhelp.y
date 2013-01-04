@@ -791,7 +791,9 @@ static void Appendices()
 }
 
 static void FinishUp()
-{
+{	char *root_file_name = NULL;
+	FILE *fp = NULL;
+
 # if 0
 	// free memory corresponding to patterns 
 	hilite_pattern(0, 0, "");
@@ -810,38 +812,22 @@ static void FinishUp()
 	printf("\nBegin Second Pass\n");
 
 	if( ! PrintableOmhelp() )
-	{
-		SecondPass(SectionTree);
+	{	SecondPass(SectionTree);
 
-		if( RootHasChildren )
-		{	FILE *fp;
-			char *root_file;
+		// file corresponding to the root section
+		root_file_name = strjoin(
+			SectionTree->tagLower, 
+			Internal2Out("OutputExtension")
+		);
 
-			// file corresponding to root section
-			root_file = strjoin(
-				SectionTree->tagLower, 
-				Internal2Out("OutputExtension")
-			);
-			// create index.html as a link to the root file
-			fp = fopen("index.html", "w");
-			assert( fp != NULL );
-			fprintf(fp, "<html><head><script>\n");
-			fprintf(fp, "\twindow.location.href=\"%s\";\n", root_file);
-			fprintf(fp, "</script></head></html>\n");
-			fclose(fp);
-			
-			FreeMem(root_file);
-		}
 	}
 	else
-	{
-		char *filename;
-		filename = strjoin(
+	{	// file corresponding to the root section
+		root_file_name = strjoin(
 			PRINTABLE_TAG, 
 			Internal2Out("OutputExtension")
 		);
-		PushOutput(filename);
-		FreeMem(filename);
+		PushOutput(root_file_name);
 		OutputString(Internal2Out("StartOutputFile"));
 		OutputString("\n");
 
@@ -857,6 +843,14 @@ static void FinishUp()
 		OutputString("\n</body>\n</html>\n");
 		PopOutput();
 	}
+	// create index.html as a link to the root file
+	fp = fopen("index.html", "w");
+	assert( fp != NULL );
+	fprintf(fp, "<html><head><script>\n");
+	fprintf(fp, "\twindow.location.href=\"%s\";\n", root_file_name);
+	fprintf(fp, "</script></head></html>\n");
+	fclose(fp);
+	FreeMem(root_file_name);
 	
 	FunRefFree();
 	IndexFreeMem();

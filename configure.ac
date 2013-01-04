@@ -18,7 +18,7 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 13-01-02, bradbell@seanet.com)
+AC_INIT(OMhelp, 13-01-04, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
 AC_MSG_NOTICE([** Check for command line arguments that are no longer used **])
