@@ -118,6 +118,9 @@ then
 	if [ "$1" != "all" ]
 	then
 		exit 0
+	else
+		# get around some sort of wierd bug in CYGWIN_NT-6.1-WOW64
+		chmod +x configure
 	fi
 fi
 #
@@ -126,8 +129,8 @@ fi
 if [ "$1" = "configure" ] || [ "$1" = "all" ]
 then
 	#
-	echo "./configure --prefix=$PREFIX $TMP"
-	if ! ./configure --prefix=$PREFIX $TMP 
+	echo "./configure --prefix=$PREFIX"
+	if ! ./configure --prefix=$PREFIX
 	then
 		echo "build.sh: configure failed."
 		exit 1
@@ -381,9 +384,24 @@ then
 		echo "build.sh: omh/getstarted/run_all.sh failed to run"
 		exit 1
 	fi
-	if ! ./run_all
+	# cygwin adds *.exe to executable that works,
+	# also create ./run_all that does not seem to work, (bug ?)
+	if [ -e run_all.exe ]
 	then
-		echo "build.sh: a omh/getstarted/run_all.c test failed"
+		if ! ./run_all.exe
+		then
+			echo "build.sh: a omh/getstarted/run_all.c test failed"
+			exit 1
+		fi
+	elif [ -e run_all ]
+	then
+		if ! ./run_all
+		then
+			echo "build.sh: a omh/getstarted/run_all.c test failed"
+			exit 1
+		fi
+	else
+		echo "build.sh: cannot find omh/getstarted/run_all executable."
 		exit 1
 	fi
 	if [ "$1" != "all" ]
