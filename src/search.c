@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -271,19 +271,19 @@ static char *FrameOne =
 "	name=\"string\"\n"
 "	onkeydown=\"UpdateList(event)\"\n"
 "	size=\"80\"\n"
-"	></input></td>\n"
+"	/></td>\n"
 "</tr><tr>\n"
 "	<td><input\n"
 "	name=\"select\"\n"
 "	type=\"button\"\n"
 "	value=\"First Match\"\n"
 "	onclick=\"Choose()\"\n"
-"	></input></td><td>\n"
+"	/></td><td>\n"
 "	<input\n"
 "	type=\"text\"\n"
 "	name=\"choice\"\n"
 "	size=\"20\"\n"
-"	></input></td>\n"
+"	/></td>\n"
 "</tr>\n"
 "</table></p>\n"
 "<p><table>\n"

@@ -113,6 +113,12 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 13-01-16$$
+The $cref _search$$ section was using the non-standard XHTML code 
+$codei%<input% input parameters%></input>%$$.
+This has been converted to 
+$codei%<input% input parameters%/>%$$.
+
 $head 13-01-02$$
 The file $code index.html$$ is created as a link to the root section.
 This is an aid when viewing over the web because referencing the 
