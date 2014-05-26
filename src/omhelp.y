@@ -4601,9 +4601,9 @@ th
 		}
 
 		// output the index in italic followed by "-th"
-		OutputString("<i>");
+		OutputString("<code><i>");
 		output_text($2.line,$2.str,0,'\0',CheckSpell,ErrorColor);
-		OutputString("</i>");
+		OutputString("</i></code>");
 		OutputString("-th");
 		
 		FreeMem($2.str);

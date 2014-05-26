@@ -113,6 +113,24 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 14-05-26$$
+There was a bug in display of the $cref th$$ command. 
+It did not use a code $cref font$$ while the $cref math$$ command did.
+This has been fixed so that now the input
+$codep
+	@math%x_i%@@ is the @th i@@ element of @math x@@
+$$
+generates
+$pre
+	$$
+	$math%x_i%$$ is the $th i$$ element of $math x$$
+$pre
+$$
+Where as it used to generate
+$pre
+	$$
+	$math%x_i%$$ is the $italic i$$-th element of $math x$$
+
 $head 13-01-16$$
 The $cref _search$$ section was using the non-standard XHTML code 
 $codei%<input% input parameters%></input>%$$.
