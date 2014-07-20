@@ -113,15 +113,14 @@ $rref whatsNew01$$
 $tend
 $$
 
-$head 14-07-17$$
-$list number$$
+$head 14-07-20$$
 Only report spelling errors once per word for each section 
 (that way it is easier to see all the misspelled words in a section).
-$lnext
+
+$head 14-07-17$$
 The $cref/with-fortran/InstallUnix/Configure/with-fortran/$$ was 
 added to the $code configure$$ command line so that it is possible
 to build and run the tests on systems that do not have a fortran compiler.
-$lend
 
 $head 14-05-26$$
 There was a bug in display of the $cref th$$ command. 
