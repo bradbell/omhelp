@@ -113,6 +113,16 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 14-07-17$$
+$list number$$
+Only report spelling errors once per word for each section 
+(that way it is easier to see all the misspelled words in a section).
+$lnext
+The $cref/with-fortran/InstallUnix/Configure/with-fortran/$$ was 
+added to the $code configure$$ command line so that it is possible
+to build and run the tests on systems that do not have a fortran compiler.
+$lend
+
 $head 14-05-26$$
 There was a bug in display of the $cref th$$ command. 
 It did not use a code $cref font$$ while the $cref math$$ command did.
@@ -966,7 +976,7 @@ $syntax%
 was created the first time OMhelp was run.
 This would cause an error if the user running
 the program did not have permission to write in the
-$xref/InstallUnix/prefix/prefix/$$ directory.
+$cref/prefix/InstallUnix/Configure/prefix/$$ directory.
 This has been fixed by changing the 
 $xref/InstallUnix/Dictionary/dictionary/$$ install procedure.
 

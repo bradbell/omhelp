@@ -18,10 +18,10 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 14-05-26, bradbell@seanet.com)
+AC_INIT(OMhelp, 14-07-17, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
-AC_MSG_NOTICE([** Check for command line arguments that are no longer used **])
+AC_MSG_NOTICE([** Check command line arguments **])
 
 if test "$VIMRUNTIME" != '' ; then
 AC_MSG_ERROR([
@@ -29,6 +29,18 @@ AC_MSG_ERROR([
 	See the heading Vim in install instructions.]
 )
 fi
+dnl --------------------------------------------------------------------------
+dnl Command line arguments
+AC_MSG_CHECKING([--with-fortran])
+AC_ARG_WITH( [fortran],
+	[AS_HELP_STRING([--with-fortran],
+		[run fortran example during tests])],
+	[with_fortran=true],
+	[with_fortran=false]
+)
+AM_CONDITIONAL([WITH_FORTRAN], [test $with_fortran = true])
+AC_MSG_RESULT([$with_fortran])
+AC_MSG_NOTICE([** End check command line arguments **])
 dnl --------------------------------------------------------------------------
 
 dnl Set the default install prefix to the installers home directory
@@ -50,13 +62,15 @@ AC_CONFIG_HEADER(src/config.h)
 dnl AC_PROG_CC([compiler-search-list]) outputs CC as C compiler to use
 AC_PROG_CC
 
-dnl AC_PROG_F77([complier-search-list]) outputs F77 as Fortran compiler to use
-AC_PROG_F77([g77 gfortran])
 dnl AC_PROG_CP outputs CPP as command to run C preprocessor
 AC_PROG_CPP
 
-dnl Macros for linking fortran to C
-AC_F77_WRAPPERS
+if test "$with_fortran" = true ; then
+	dnl outputs F77 as Fortran compiler to use
+	AC_PROG_F77([g77 gfortran])
+	dnl Macros for linking fortran to C
+	AC_F77_WRAPPERS
+fi
 
 dnl AC_CONFIG_FILES(file-list) for each file in the list, configure will 
 dnl read file.in, do its substitutions, and create file

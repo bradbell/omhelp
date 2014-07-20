@@ -573,7 +573,8 @@ const char *SpellingError(const char *text, int *nOut)
 				next     = next->next;
 			}
 			if( next == NULL || strcmp(next->word, lowcase+1) > 0 )
-			{
+			{	// new spelling error: strcmp(next-word, lowcase+1) != 0.
+
 				// new entry for the list
 				current = AllocMem(1, sizeof(SpellError));
 				current->word = AllocMem(len, sizeof(char));
@@ -587,11 +588,11 @@ const char *SpellingError(const char *text, int *nOut)
 				if( previous == NULL )
 					ErrorList      = current;
 				else	previous->next = current;
+				//
+				*nOut = text - startWord;
+				return startWord;
 			}
-			*nOut = text - startWord;
-			return startWord;
 		}
-
 
 		// advance to beginning of next word
 		while( *text != '\0' && ! isalpha((int) *text) )

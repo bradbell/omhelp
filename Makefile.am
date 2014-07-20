@@ -23,7 +23,11 @@
 #
 nobase_include_HEADERS = src/config.h 
 #
+if WITH_FORTRAN
 SUBDIRS                = src omh/getstarted
+else
+SUBDIRS                = src 
+endif
 #
 noinst_DATA            = wish_list.htm OMhelp.Dev.log OMhelp.Doc.log
 #

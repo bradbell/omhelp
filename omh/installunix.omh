@@ -81,7 +81,7 @@ $head Configure$$
 $index prefix$$
 Enter the distribution directory and execute the command:
 $codei%
-	./configure [ --prefix=%prefix% ] 
+	./configure [ --prefix=%prefix% ] [--with-fortran]
 %$$
 where the entries between the brackets $code [$$ and $code ]$$ are optional,
 the brackets are not included, and the word in italic is replaced
@@ -91,7 +91,7 @@ $codei%
 	%prefix%/share/OMhelp
 %$$
 
-$head prefix$$
+$subhead prefix$$
 The default value for $icode prefix$$ is $code @HOME$$; i.e.,
 by default the OMhelp executable is installed in 
 $codep
@@ -104,6 +104,14 @@ The data files used by OMhelp are installed in
 $codei%
 	@HOME/share/OMhelp
 %$$
+
+$subhead with-fortran$$
+If you specify
+$codep
+	--with-fortran
+$$
+on the command line the $cref near_equal_f$$ example will be compiled
+and linked as part of the examples / tests.
 
 $head Vim Editor$$
 $index vim, highlight syntax$$

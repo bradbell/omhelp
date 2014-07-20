@@ -129,8 +129,8 @@ fi
 if [ "$1" = "configure" ] || [ "$1" = "all" ]
 then
 	#
-	echo "./configure --prefix=$PREFIX"
-	if ! ./configure --prefix=$PREFIX
+	echo "./configure --prefix=$PREFIX --with-fortran"
+	if ! ./configure --prefix=$PREFIX --with-fortran
 	then
 		echo "build.sh: configure failed."
 		exit 1
@@ -368,7 +368,7 @@ then
 		echo "cd omhelp-$AcDate failed."
 		exit 1
 	fi
-	if ! ./build.sh configure
+	if ! ./build.sh configure --with-fortran
 	then
 		echo "build.sh: build.sh configure failed."
 		exit 1
