@@ -573,8 +573,7 @@ const char *SpellingError(const char *text, int *nOut)
 				next     = next->next;
 			}
 			if( next == NULL || strcmp(next->word, lowcase+1) > 0 )
-			{	// new spelling error: strcmp(next-word, lowcase+1) != 0.
-
+			{
 				// new entry for the list
 				current = AllocMem(1, sizeof(SpellError));
 				current->word = AllocMem(len, sizeof(char));
@@ -588,10 +587,13 @@ const char *SpellingError(const char *text, int *nOut)
 				if( previous == NULL )
 					ErrorList      = current;
 				else	previous->next = current;
-				//
-				*nOut = text - startWord;
-				return startWord;
 			}
+			// add work to OK list so only one warning per word per section
+			SpellingOkList(lowcase);
+			//
+			// warn about this occurance of the word
+			*nOut = text - startWord;
+			return startWord;
 		}
 
 		// advance to beginning of next word

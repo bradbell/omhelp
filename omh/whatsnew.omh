@@ -113,6 +113,11 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 14-07-27$$
+Spelling errors were being reported once per run, not once per section
+(since 14-07-20).
+This has been fixed.
+
 $head 14-07-20$$
 Only report spelling errors once per word for each section 
 (that way it is easier to see all the misspelled words in a section).
