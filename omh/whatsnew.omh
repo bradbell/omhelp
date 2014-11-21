@@ -113,6 +113,10 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 14-11-21$$
+The $cref/search/_search/$$ feature has been improved by using
+selection from the list of keyword matches.
+
 $head 14-07-27$$
 Spelling errors were being reported once per run, not once per section
 (since 14-07-20).
