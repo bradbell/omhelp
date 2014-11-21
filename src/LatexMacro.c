@@ -731,13 +731,12 @@ void ExpandLatexMacro(int index)
 	char                ch;
 	int                  i, j, k;
 	char              *tmp, *expansion;
-	int              count, startLine;
+	int              count;
 
 	char arg[9][MAX_LENGTH];
 	extern char LatexMacroGetCh(void);
 
 	macro       = Define + index;
-	startLine   = UserLine;
 	for(i = 0; i < macro->narg; i++)
 	{	assert( i < 9 );
 		// place this macro argument in arg
