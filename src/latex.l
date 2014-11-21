@@ -139,6 +139,9 @@ $end
 # define YY_NO_UNISTD_H
 # endif
 
+// see http://sourceware.org/ml/gdb-patches/2010-01/msg00372.html
+# define YY_NO_INPUT
+
 // maximum input token buffer sizes
 # define MAX_TOKEN_LENGTH 100
 # define MAX_TOKEN_NUMBER 10
