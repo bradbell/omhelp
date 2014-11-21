@@ -330,10 +330,8 @@ static void SecondPass(SectionInfo *F)
 	int  ch;
 	int  match;
 
-	// initialize to avoid warning
-	// (compiler does not know it will be reset before used)
-	int            lastCrossReferenceDefined = 0; 
-	CrossReference *lastCrossReference = NULL;
+	// initialize to not defined
+	int   lastCrossReferenceDefined = 0; 
 	
 	// following buffer must be enough larger than MAX_TAG
 	char buffer[200];
@@ -503,7 +501,6 @@ static void SecondPass(SectionInfo *F)
 					defined = C->defined;
 				}
 				lastCrossReferenceDefined = defined;
-				lastCrossReference        = C;
 				if( defined 
 				&& PrintableOmhelp() 
 				&& strcmp(external, "true") != 0 )
