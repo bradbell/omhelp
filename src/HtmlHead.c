@@ -18,6 +18,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 /*
 $begin HtmlHead$$
 $spell
+	http
+	equiv
+	charset
+	utf
 	favicon
 	rel
 	png
@@ -41,6 +45,14 @@ A $code <title>$$ record is output with the following value
 $syntax%
 	%F->title%
 %$$.
+
+$head Character Encoding$$
+A $code <meta>$$ record is output with the following values
+$codei%
+	http-equiv='Content-Type'
+	content='text/html'
+	charset='utf-8'
+%$$
 
 $head Description$$
 A $code <meta>$$ record is output with the following values
@@ -106,6 +118,12 @@ void OutputHtmlHead(SectionInfo *F)
 	OutputString("<head>\n<title>");
 	ConvertOutputString(F->title, 0);
 	OutputString("</title>");
+
+	// Declare character type as ascii
+	OutputString(
+	"\n<meta http-equiv='Content-Type' content='text/html' charset='utf-8'"
+	);
+	OutputString(Internal2Out("SelfTerminateCmd"));
 
 	// Use title for description
 	OutputString(
