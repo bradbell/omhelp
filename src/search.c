@@ -261,9 +261,9 @@ static char *FrameOne =
 "<form name='search'>\n"
 "<p><table>\n"
 "<tr><td>\n"
-"	Enter keywords separated by spaces\n"
+"	1: Enter keywords separated by spaces\n"
 "	</td><td>\n"
-"	<input\n"
+"	3: <input\n"
 "	type='button'\n"
 "	value='Goto'\n"
 "	onclick='Goto()'\n"
@@ -272,7 +272,7 @@ static char *FrameOne =
 "</td><tr><td>\n"
 "	<input\n"
 "	type='text'\n"
-"	name='string'\n"
+"	name='keywords'\n"
 "	onkeydown='UpdateList(event)'\n"
 "	size='70'\n"
 "	/></td>\n"
@@ -285,7 +285,7 @@ static char *FrameOne =
 "</td></tr>\n"
 "</table></p>\n"
 "<p><table>\n"
-"<tr><td>Select from following list of keyword matches</td></tr>\n"
+"<tr><td>2: Select from following list of keyword matches</td></tr>\n"
 "<tr><td><textarea\n"
 "	name='list'\n"
 "	rows='20'\n"
@@ -315,7 +315,7 @@ static char *Javascript =
 	// do a search for the empty string
 "	UpdateList();\n"
 	// set the cursor to the users input field
-"	document.search.string.focus();\n"
+"	document.search.keywords.focus();\n"
 "}\n"
 "function UpdateList(event)\n"
 "{\n"
@@ -332,7 +332,7 @@ static char *Javascript =
 "		return;\n"
 "	}\n"
 	// search string
-"	var string  = document.search.string.value;\n"
+"	var string  = document.search.keywords.value;\n"
 
 	// No change ?
 "	if( Nstring == string.length )\n"
