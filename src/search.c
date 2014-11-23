@@ -237,9 +237,9 @@ static void Output(const char *list, const char *terminate)
 				fputc(' ', Fp);
 			else	fputc(last, Fp);
 
-			// put backslash before double quote because this text
-			// is inside of double quotes
-			if( ch == '\"' )
+			// put backslash before single quote because this text
+			// is inside of single quotes
+			if( ch == '\'' )
 				fputc('\\', Fp);
 		}
 		last = ch;
@@ -274,7 +274,7 @@ static char *FrameOne =
 "	type='text'\n"
 "	name='keywords'\n"
 "	onkeydown='UpdateList(event)'\n"
-"	size='70'\n"
+"	size='50'\n"
 "	/></td>\n"
 "	</td><td>\n"
 "	<input\n"
@@ -289,7 +289,7 @@ static char *FrameOne =
 "<tr><td><textarea\n"
 "	name='list'\n"
 "	rows='20'\n"
-"	cols='90'\n"
+"	cols='80'\n"
 "	onclick='Choose(this)'"
 "	></textarea></td></tr>\n"
 "</table></p>\n"
@@ -307,7 +307,7 @@ static char *Javascript =
 "\n"
 "var MaxList = 100;\n"
 "var Nstring = -1;\n"
-"var Nkeyword = Keyword.length;\n"
+"var Nkeyword = Keyword.length / 2;\n"
 "Initialize();\n"
 "\n"
 "function Initialize()\n"
@@ -362,12 +362,15 @@ static char *Javascript =
 		// does this line match the search string
 "		var match = true;\n"
 "		for(j = 0; j < nword; j++)\n"
-"			match = match && pattern[j].test(Keyword[i]);\n"
+"		{	var flag = pattern[j].test(Keyword[2*i]);\n"
+"			flag     = flag || pattern[j].test(Keyword[2*i+1]);\n"
+"			match    = match && flag;\n"
+"		}\n"
 "\n"
 "		if( match )\n"
 "		{\n"
 			// store first match as choice
-"			line  = Keyword[i].split(/\\s+/);\n"
+"			line  = Keyword[2*i].split(/\\s+/);\n"
 "			line  = line.join(' ');\n"
 "			list  = list + line + '\\n';\n"
 "			nlist = nlist + 1;\n"
@@ -749,11 +752,11 @@ void SearchEnd()
 	assert( Title != NULL);
 	assert( Fp != NULL );
 
-	fprintf(Fp, "\n\"");
+	fprintf(Fp, "\n'");
 	Output(Tag, "  ");
-	Output(Title, "  ");
+	Output(Title, "  ','");
 	MakeKeywordList();
-	Output(KeywordList, "\"");
+	Output(KeywordList, " '");
 
 	FreeMem(Tag);
 	FreeMem(TagLower);
