@@ -116,8 +116,13 @@ $tend
 $$
 
 $head 14-11-23$$
+$list number$$
 Use the $cref/root section aindex/Keyword/Aindex/Root Section/$$ 
 setting as the default for all other sections.
+$lnext
+Use the $cref/root section escape/Escape/Root Section/$$ 
+setting as the default for all other sections.
+$lend
 
 $head 14-11-21$$
 $list number$$

@@ -68,6 +68,20 @@ $math%
 	    \ 0  0  1 /
 %$$
 
+$head No Escape Character$$
+There is no escape character if the command
+$codep
+	@escape @@
+$$
+appears in the current section.
+
+$head Root Section$$
+In the special case where an $code @escape$$ command appears in the 
+$cref/root section/running/root_file/$$ section, 
+and does not appear in the current section,
+the value specified in the root section is used for the current section; i.e.,
+it replaces the backslash $code \$$ as the default escape character.
+
 $head Reference$$
 The $code escape$$ command has effect till the next such command
 is executed or the end of the current section (which ever comes first). 

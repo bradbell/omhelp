@@ -143,11 +143,17 @@ static char NewlineCh;
 
 // current escape character
 static char Escape;
+static char EscapeRoot = '\\';
 
 // current automatic mindex commands
 static int MindexSection;
 static int MindexHead;
 static int MindexSubhead;
+
+// the automaitc mindex sections for root section 
+static int MindexSectionRoot = 0;
+static int MindexHeadRoot    = 0;
+static int MindexSubheadRoot = 0;
 
 // current code font color
 static char *CodeColor   = NULL;
@@ -1295,6 +1301,12 @@ aindex
 		MindexHead    = strstr(s, " head ")    != NULL;
 		MindexSubhead = strstr(s, " subhead ") != NULL;
 
+		if( CurrentSection->parent == NULL )
+		{	MindexSectionRoot = MindexSection;
+			MindexHeadRoot    = MindexHead;
+			MindexSubheadRoot = MindexSubhead;
+		}
+
 		FreeMem(s);
 		FreeMem($2.str);
 
@@ -1487,12 +1499,12 @@ begin
 		NewlineCh = '\0';
 		
 		// reset the current escape character
-		Escape = '\\';
+		Escape = EscapeRoot;
 
 		// reset the automatic mindex command connections
-		MindexSection = 0;
-		MindexHead    = 0;
-		MindexSubhead = 0;
+		MindexSection = MindexSectionRoot;
+		MindexHead    = MindexHeadRoot;
+		MindexSubhead = MindexSubheadRoot;
 
 		// reset the current color settings
 		assert( ErrorColor   == NULL );    // set at previous end
@@ -2511,6 +2523,9 @@ escape
 		assert( $3.str == NULL );
 
 		Escape = *($2.str);
+
+		if( CurrentSection->parent == NULL )
+			EscapeRoot = Escape;
 		
 		FreeMem($2.str);
 
