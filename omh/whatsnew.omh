@@ -19,6 +19,8 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	aindex
+	gcc
 	hiliteseq
 	gfortran
 	Opensuse
@@ -113,9 +115,18 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 14-11-23$$
+Use the $cref/root section aindex/Keyword/Aindex/Root Section/$$ 
+setting as the default for all other sections.
+
 $head 14-11-21$$
+$list number$$
 The $cref/search/_search/$$ feature has been improved by using
 selection from the list of keyword matches.
+$lnext
+Fix some warnings that occurred when compiling with 
+gcc 4.8.3.
+$lend
 
 $head 14-07-27$$
 Spelling errors were being reported once per run, not once per section
