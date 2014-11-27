@@ -18,7 +18,7 @@ dnl .--------------------------------------------------------------------------
 dnl Process this file with autoconf to produce a configure script
 
 dnl        package   version           bug-report
-AC_INIT(OMhelp, 14-11-23, bradbell@seanet.com)
+AC_INIT(OMhelp, 14-11-27, bradbell@seanet.com)
 
 dnl --------------------------------------------------------------------------
 AC_MSG_NOTICE([** Check command line arguments **])
@@ -43,8 +43,8 @@ AC_MSG_RESULT([$with_fortran])
 AC_MSG_NOTICE([** End check command line arguments **])
 dnl --------------------------------------------------------------------------
 
-dnl Set the default install prefix to the installers home directory
-AC_PREFIX_DEFAULT(${HOME})
+dnl No longer set the default install prefix to the installers home directory
+dnl AC_PREFIX_DEFAULT(${HOME})
 
 dnl Run any macros required for proper operations of generated Makefiles
 dnl nostdinc: Do not define standard include directories in generated Makefiles

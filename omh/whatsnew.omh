@@ -115,6 +115,11 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 14-11-27$$
+Change the default install
+$cref/prefix/InstallUnix/Configure/prefix/$$ from $code @HOME$$ to
+$code /usr/local$$.
+
 $head 14-11-23$$
 $list number$$
 Use the $cref/root section aindex/Keyword/Aindex/Root Section/$$ 

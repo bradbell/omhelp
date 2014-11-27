@@ -92,17 +92,19 @@ $codei%
 %$$
 
 $subhead prefix$$
-The default value for $icode prefix$$ is $code @HOME$$; i.e.,
+The default value for $icode prefix$$ is $code /usr/local$$; i.e.,
 by default the OMhelp executable is installed in 
 $codep
-	@HOME/bin/omhelp
+	/usr/local/bin/omhelp
 $$
+If you do not have write premission for $code /usr/local$$,
+you must specify a $icode prefix$$.
 If $icode%prefix%/bin%$$ is not in your path,
 you will have to specify the entire path for $code omhelp$$ when 
 you execute it.
 The data files used by OMhelp are installed in
 $codei%
-	@HOME/share/OMhelp
+	/usr/local/share/OMhelp
 %$$
 
 $subhead with-fortran$$
