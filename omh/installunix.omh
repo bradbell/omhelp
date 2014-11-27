@@ -47,6 +47,7 @@ $spell
 	htm
 	xml
 	Mathplayer
+	usr
 $$
 
 
@@ -97,7 +98,7 @@ by default the OMhelp executable is installed in
 $codep
 	/usr/local/bin/omhelp
 $$
-If you do not have write premission for $code /usr/local$$,
+If you do not have write permission for $code /usr/local$$,
 you must specify a $icode prefix$$.
 If $icode%prefix%/bin%$$ is not in your path,
 you will have to specify the entire path for $code omhelp$$ when 
