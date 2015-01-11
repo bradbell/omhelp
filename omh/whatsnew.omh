@@ -115,6 +115,13 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 15-01-10$$
+The program would sometimes crash while reporting spelling errors
+in $cref keyword$$ index commands.
+This bug was introduced on $cref/14-07-20/whatsnew/14-07-20/$$
+where misspelled words are only reported once per section.
+It has been fixed.
+
 $head 14-11-27$$
 Change the default install
 $cref/prefix/InstallUnix/Configure/prefix/$$ from $code @HOME$$ to

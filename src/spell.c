@@ -95,6 +95,8 @@ Otherwise the return value is a pointer to the beginning of the first
 spelling error in $italic text$$. 
 The error extends from this pointer, 
 for $italic nOut$$ characters.
+The spelling error is added to the list of OK words for this
+section so that the error is only reported once.
 $syntax/
 
 

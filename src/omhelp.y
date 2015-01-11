@@ -3244,11 +3244,12 @@ index
 			const char *s = $2.str;
 			int i, j;
 			int nchar;
+			const char* next_error = SpellingError(s, &nchar);
 
 			i = 0;
 			j = 0;
-			while( SpellingError(s + i, &nchar) != NULL )
-			{	i = SpellingError(s + i, &nchar) - s;
+			while( next_error != NULL )
+			{	i = next_error - s;
 
 				// advance line counter to spelling error
 				while( j < i )
@@ -3291,6 +3292,9 @@ index
 				// end browser version of error
 				OutputString("</font>");
 				ConvertForcedNewline(1);
+
+				// search for next error
+				next_error = SpellingError(s + i, &nchar);
 			}
 		}
 		
