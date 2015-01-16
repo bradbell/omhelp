@@ -1,2 +1,36 @@
-see Doc/overview.htm
-or  Doc/overview.xml
+Homepage:
+	http://www.seanet.com/~bradbell/omhelp/overview.xml
+
+License:
+GNU GENERAL PUBLIC LICENSE, Version 2, June 1991
+
+Sub-Directories:
+bin               Helper shell and sed scripts used for OMhelp development.
+bug               Demonstration of know bugs (may be empty).
+omh               Documentaiton files (without source code) in OMhelp format.
+OMhelp            Data files that are distributed with OMhelp.
+src               Source code for the omhelp program.
+
+Files:
+AUTHORS           Statement of authorship.
+build.sh          Script used to build and test new versions of OMhelp.
+ChangeLog         Pointer to logs for recent changes.
+COPYING           Statement of user license for this software.
+NEWS              Pointer to release notes; i.e., whats new.
+README            This file.
+wish_list.omh     An omhelp wish list.
+configure.ac      Autoconf input files.
+Makefile.am
+CheckIncludeDef   Helper script files that should be moved to bin directory.
+CheckIncludeFile
+CheckIncludeOmh
+CleanOMhelp
+commit.sed
+commit.sh
+cvs_status.sh
+FixAclocal
+FixMakefile
+install.bat
+RunOMhelp
+RunOMhelp.bat
+SetNoExecute
