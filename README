@@ -24,13 +24,9 @@ Makefile.am
 CheckIncludeDef   Helper script files that should be moved to bin directory.
 CheckIncludeFile
 CheckIncludeOmh
-CleanOMhelp
 commit.sed
 commit.sh
 cvs_status.sh
-FixAclocal
 FixMakefile
 install.bat
-RunOMhelp
 RunOMhelp.bat
-SetNoExecute
