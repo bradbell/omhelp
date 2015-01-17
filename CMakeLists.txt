@@ -16,7 +16,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 # Set the minimum required version of cmake for this project
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 SET(omhelp_version      "2015.0116")
 SET(omhelp_description  "Language independent embedded code documentation")
 SET(omhelp_url          "http://www.seanet.com/~bradbell/omhelp")
@@ -34,6 +34,8 @@ MACRO(command_line_arg variable_out default_in type_in description_in)
 	SET(${variable_out} "${default_in}" CACHE ${type_in} "${description_in}")
 	MESSAGE(STATUS "${variable_out} = \"${${variable_out}}\"")
 ENDMACRO( command_line_arg )
+SET(srcdir ${CMAKE_CURRENT_SOURCE_DIR})
+SET(bindir ${CMAKE_CURRENT_BINARY_DIR})
 # ---------------------------------------------------------------------------
 # omhelp_prefix
 command_line_arg(omhelp_prefix /usr PATH 
@@ -52,3 +54,12 @@ IF( FortranCInterface_MODULE_FOUND )
 	# 2DO: include just C examples when Fortran linking not available
 	ADD_SUBDIRECTORY(omh/getstarted)
 ENDIF( FortranCInterface_MODULE_FOUND )
+# ---------------------------------------------------------------------------
+INSTALL(
+	PROGRAMS    ${bindir}/src/omhelp
+	DESTINATION ${omhelp_prefix}/bin
+)
+INSTALL(
+	DIRECTORY   OMhelp
+	DESTINATION ${omhelp_prefix}/${omhelp_datadir}
+)

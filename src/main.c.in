@@ -224,7 +224,7 @@ int main(int argc, const char *argv[])
 # endif
 
 	if( omhdir == NULL )
-		omhdir = "@omhelp_datadir@/OMhelp";
+		omhdir = "@omhelp_prefix@/@omhelp_datadir@/OMhelp";
 # if 0 
 	// old windows install (before cmake)
 	if( omhdir == NULL )
