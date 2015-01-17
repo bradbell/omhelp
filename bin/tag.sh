@@ -18,27 +18,27 @@ fi
 if [ "$option" != 'create' ] && [ "$option" != 'delete' ]
 then
 	echo 'usage: bin/tag.sh create description'
-	echo '       bin/tag.sh delete tag_name'
+	echo '       bin/tag.sh delete version'
 	exit 1
 fi
 if [ "$option" == 'create' ]
 then
 	description="$2"
 else
-	tag_name="$2"
+	version="$2"
 fi
 # -----------------------------------------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {
-	echo 
-	eval 
+	echo $*
+	eval $*
 }
 # -----------------------------------------------------------------------------
 if [ "$option" == 'delete' ]
 then
-	if ! git tag -n | grep "$tag_name"
+	if ! git tag -n | grep "$version"
 	then
-		echo "git tag $tag_name does not exist"
+		echo "git tag $version does not exist"
 		exit 
 	fi
 	read -p 'delete this tag are you sure [yes/no] ?' response
@@ -46,7 +46,8 @@ then
 	then
 		exit 1
 	fi
-	git tag -d "$tag_name"
+	echo_eval git tag -d $version
+	echo_eval git push --delete origin $version
 	echo 'tag.sh: OK'
 	exit 0
 fi
@@ -65,6 +66,8 @@ then
 	echo "tag.sh: 'bin/version.sh copy' changed something"
 	exit 1
 fi
+echo "git tag -a -m \"$description\" $version"
 git tag -a -m "$description" "$version"
+echo_eval git push origin $version
 #
 echo 'tag.sh: OK'
