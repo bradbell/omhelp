@@ -1,7 +1,9 @@
 build
+dev
 new
 #
 *.swp
+*.log
 */*.swp
 #
 junk.*
