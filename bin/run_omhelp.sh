@@ -10,9 +10,10 @@ then
 	echo "bin/run_omhelp.sh: must be executed from its parent directory"
 	exit 1
 fi
-if [ "$1" != "Doc" ] && [ "$1" != "dev" ]
+if [ "$1" != "doc" ] && [ "$1" != "dev" ]
 then
-	echo "RunOMhelp target: where target is Doc or dev"
+	echo 'usage: bin/run_omhelp.sh target'
+	echo 'where target is doc or dev'
 	exit 1
 fi
 if [ "$1" = dev ]
@@ -23,48 +24,50 @@ then
 	fi
 	mkdir dev
 	cd    dev
-	if ! ../build/src/omhelp ../src/omh/omhelp.omh > ../OMhelp.dev.log \
+	if ! ../build/src/omhelp ../src/omh/omhelp.omh > ../omhelp.dev.log \
 		-debug -omhelp_dir ../OMhelp
 	then
-		grep "^OMhelp Error:" ../OMhelp.dev.log
+		cat ../omhelp.dev.log
 		echo "OMhelp could not build developer documentation."
-		echo "See the complete error message in OMhelp.dev.log."
+		echo "See the complete error message in omhelp.dev.log."
+		grep "^OMhelp Error:" ../omhelp.dev.log
 		exit 1
 	fi
 	cd ..
-	if grep "^OMhelp Warning:" OMhelp.dev.log
+	if grep "^OMhelp Warning:" omhelp.dev.log
 	then
-		echo "See the complete warning messages in OMhelp.dev.log."
+		echo "See the complete warning messages in omhelp.dev.log."
 		exit 1
 	fi
 fi
-if [ "$1" = Doc ]
+if [ "$1" = doc ]
 then
-	if [ ! -e OMhelp.dev.log ]
+	if [ ! -e omhelp.dev.log ]
 	then
-		echo "Must run \"./RunOMhelp dev\" before \"./RunOMhelp Doc\""
+		echo 'must run bin/run_omhelp.sh dev'
+		echo 'before   bin/run_omhelp.sh doc'
 		exit 1
 	fi
-	echo "Building user documentation"
-	if [ -e Doc ]
+	if [ -e doc ]
 	then
-		rm -r -f Doc
+		rm -r -f doc
 	fi
-	mkdir Doc
-	cd    Doc
-	if ! ../build/src/omhelp ../omh/overview.omh > ../OMhelp.Doc.log \
+	mkdir doc
+	cd    doc
+	if ! ../build/src/omhelp ../omh/overview.omh > ../omhelp.doc.log \
 		-noframe -xml -debug -omhelp_dir ../OMhelp
 	then
-		grep "^OMhelp Error:" ../OMhelp.Doc.log
+		cat ../omhelp.dev.log
 		echo "OMhelp could not build user documentation."
-		echo "See the complete error message in OMhelp.Doc.log."
+		echo "See the complete error message in omhelp.doc.log."
+		grep "^OMhelp Error:" ../omhelp.doc.log
 		exit 1
 	fi
 	../build/src/omhelp ../omh/overview.omh  -noframe -debug -omhelp_dir ../OMhelp
 	cd ..
-	if grep "^OMhelp Warning:" OMhelp.Doc.log
+	if grep "^OMhelp Warning:" omhelp.doc.log
 	then
-		echo "See the complete warning messages in OMhelp.Doc.log."
+		echo "See the complete warning messages in omhelp.doc.log."
 	fi
 fi
 echo 'run_omhelp.sh OK'

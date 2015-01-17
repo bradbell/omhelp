@@ -32,30 +32,45 @@ ADD_CUSTOM_COMMAND(OUTPUT omhelp.h omhelp.c
 ADD_CUSTOM_COMMAND(OUTPUT latex.h latex.c
 	COMMAND bison ${srcdir}/latex.y --defines -p tex -o latex.c
 )
+# create lex.tex.c
+ADD_CUSTOM_COMMAND(OUTPUT lex.tex.c
+	COMMAND flex -Ptex ${srcdir}/latex.l 
+)
+
 
 ADD_EXECUTABLE(omhelp
 	${bindir}/main.c
 	${bindir}/omhelp.c
 	${bindir}/latex.c
+	${bindir}/lex.tex.c
+	AutomaticLink.c
+	BinarySearch.c
+	ClipWhiteSpace.c
+	Color.c
+	color_switch.c
+	DirSep.c
+	FileEqual.c
+	Internal2Out.c
+	LatexAtomic.c
+	LatexMacro.c
+	PatternMatch.c
+	SplitText.c
+	StrCat.c
+	StrLowCase.c
+	StrRemove.c
+	UniformWhiteSpace.c
 	alloca.c
 	allocate.c
 	allocmem.c
 	automatic.c
-	AutomaticLink.c
-	BinarySearch.c
 	browser.c
 	children.c
-	ClipWhiteSpace.c
-	Color.c
-	color_switch.c
 	content.c
 	convert.c
 	copyfile.c
 	cross.c
-	DirSep.c
 	execute.c
 	fatalerr.c
-	FileEqual.c
 	FrameSet.c
 	funref.c
 	head.c
@@ -65,30 +80,20 @@ ADD_EXECUTABLE(omhelp
 	index.c
 	input.c
 	int2str.c
-	Internal2Out.c
-	LatexAtomic.c
-	LatexMacro.c
 	lexomh.c
-	lextex.c
 	libyyerr.c
 	libyywra.c
 	links.c
 	math.c
 	output.c
 	output_text.c
-	PatternMatch.c
 	pending.c
 	relative.c
 	search.c
 	section.c
-	spell.c
-	SplitText.c
-	StrCat.c
-	StrLowCase.c
-	StrRemove.c
 	style.c
+	spell.c
 	trace_exit.c
-	UniformWhiteSpace.c
 	url.c
 	warning.c
 )
