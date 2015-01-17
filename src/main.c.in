@@ -17,7 +17,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 
 # include "trace_exit.h"
-# include "config.h"
 # include "allocmem.h"
 # include "strjoin.h"
 # include "str_alloc.h"
@@ -201,7 +200,7 @@ int main(int argc, const char *argv[])
 
 	// version information
 	printf("OMhelp: Version=%s, ndebug=%s, win32=%s\n", 
-		VERSION, ndebug, win32
+		@omhelp_version@, ndebug, win32
 	);
 	if( error )
 	{	
@@ -224,10 +223,10 @@ int main(int argc, const char *argv[])
 	}
 # endif
 
-# ifndef WIN32
 	if( omhdir == NULL )
-		omhdir = "DATA_DIR/OMhelp";
-# else 
+		omhdir = "@omhelp_datadir@/OMhelp";
+# if 0 
+	// old windows install (before cmake)
 	if( omhdir == NULL )
 		omhdir = getenv("omhelp_dir");
 	if( omhdir == NULL )

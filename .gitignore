@@ -1,0 +1,11 @@
+build
+new
+#
+*.swp
+*/*.swp
+#
+junk.*
+*/junk.*
+#
+junk
+*/junk
