@@ -60,6 +60,6 @@ INSTALL(
 	DESTINATION ${omhelp_prefix}/bin
 )
 INSTALL(
-	DIRECTORY   OMhelp
+	DIRECTORY   omhelp_data
 	DESTINATION ${omhelp_prefix}/${omhelp_datadir}
 )

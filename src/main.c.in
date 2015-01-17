@@ -125,7 +125,7 @@ int main(int argc, const char *argv[])
 	//
 	root_file = "../../omh/latex/latexfont.omh";
 	printf("root file = %s\n", root_file);
-	omhdir = "../../OMhelp";
+	omhdir = "../../omhelp_data";
 	printf("omhelp_dir = %s\n", omhdir);
 	//
 	// Internal2OutSet("xml");
@@ -224,7 +224,7 @@ int main(int argc, const char *argv[])
 # endif
 
 	if( omhdir == NULL )
-		omhdir = "@omhelp_prefix@/@omhelp_datadir@/OMhelp";
+		omhdir = "@omhelp_prefix@/@omhelp_datadir@/omhelp_data";
 # if 0 
 	// old windows install (before cmake)
 	if( omhdir == NULL )

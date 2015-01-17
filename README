@@ -8,7 +8,7 @@ Sub-Directories:
 bin               Helper shell and sed scripts used for OMhelp development.
 bug               Demonstration of know bugs (may be empty).
 omh               Documentaiton files (without source code) in OMhelp format.
-OMhelp            Data files that are distributed with OMhelp.
+omhelp_data       Data files that are distributed with OMhelp.
 src               Source code for the omhelp program.
 
 Files:

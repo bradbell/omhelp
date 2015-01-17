@@ -2,7 +2,7 @@ build
 dev
 doc
 new
-OMhelp/dictionary.bin
+omhelp_data/dictionary.bin
 #
 *.swp
 *.log
