@@ -13,7 +13,7 @@ fi
 if [ "$1" != 'create' ] && [ "$1" != 'delete' ]
 then
 	echo 'usage: bin/tag.sh create description'
-	echo '       bin/tage.s delete tag_name'
+	echo '       bin/tag.sh delete tag_name'
 	exit 1
 fi
 # -----------------------------------------------------------------------------
@@ -34,3 +34,21 @@ then
 	exit 0
 fi
 # -----------------------------------------------------------------------------
+description="$2"
+list=`git status -s`
+if [ "$list" != '' ]
+then
+	echo "tag.sh: 'git status -s' is not empty"
+	exit 1
+fi
+version=`bin/version.sh get`
+echo_eval bin/version.sh copy
+list=`git status -s`
+if [ "$list" != '' ]
+then
+	echo "tag.sh: 'bin/version.sh copy' changed something"
+	exit 1
+fi
+git tag -a -m "description" "$version"
+#
+echo 'tag.sh: OK'
