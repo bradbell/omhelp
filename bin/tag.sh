@@ -10,17 +10,33 @@ then
 	echo "bin/tag.sh: must be executed from its parent directory"
 	exit 1
 fi
-if [ "$1" != 'create' ] && [ "$1" != 'delete' ]
+option="$1"
+if [ "$2" == '' ]
+then
+	option=''
+fi
+if [ "$option" != 'create' ] && [ "$option" != 'delete' ]
 then
 	echo 'usage: bin/tag.sh create description'
 	echo '       bin/tag.sh delete tag_name'
 	exit 1
 fi
+if [ "$option" == 'create' ]
+then
+	description="$2"
+else
+	tag_name="$2"
+fi
+# -----------------------------------------------------------------------------
+# bash function that echos and executes a command
+echo_eval() {
+	echo 
+	eval 
+}
 # -----------------------------------------------------------------------------
 if [ "$option" == 'delete' ]
 then
-	tag_name="$2"
-	if ! tag | grep "$tag_name"
+	if ! git tag -n | grep "$tag_name"
 	then
 		echo "git tag $tag_name does not exist"
 		exit 
@@ -31,10 +47,10 @@ then
 		exit 1
 	fi
 	git tag -d "$tag_name"
+	echo 'tag.sh: OK'
 	exit 0
 fi
 # -----------------------------------------------------------------------------
-description="$2"
 list=`git status -s`
 if [ "$list" != '' ]
 then
@@ -49,6 +65,6 @@ then
 	echo "tag.sh: 'bin/version.sh copy' changed something"
 	exit 1
 fi
-git tag -a -m "description" "$version"
+git tag -a -m "$description" "$version"
 #
 echo 'tag.sh: OK'
