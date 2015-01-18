@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#            Copyright (C) 2003-15 Bradley M. Bell
+#           Copyright (C) 1998-2015 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
@@ -43,7 +43,7 @@ case $ext in
 	cat << EOF  > bin/add_copyright.$$
 /* -----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-           Copyright (C) 2003-15 Bradley M. Bell
+          Copyright (C) 1998-2015 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -55,7 +55,7 @@ EOF
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#            Copyright (C) 2003-15 Bradley M. Bell
+#           Copyright (C) 1998-2015 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
