@@ -59,7 +59,6 @@ ADD_EXECUTABLE(omhelp
 	StrLowCase.c
 	StrRemove.c
 	UniformWhiteSpace.c
-	alloca.c
 	allocate.c
 	allocmem.c
 	automatic.c
