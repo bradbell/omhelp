@@ -56,7 +56,7 @@ IF( FortranCInterface_MODULE_FOUND )
 ENDIF( FortranCInterface_MODULE_FOUND )
 # ---------------------------------------------------------------------------
 INSTALL(
-	PROGRAMS    ${bindir}/src/omhelp
+	PROGRAMS    ${bindir}/src/omhelp${CMAKE_EXECUTABLE_SUFFIX}
 	DESTINATION ${omhelp_prefix}/bin
 )
 INSTALL(
