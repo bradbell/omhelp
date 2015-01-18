@@ -30,7 +30,7 @@ then
 fi
 # -----------------------------------------------------------------------------
 sed -n -e '1,17p' $file_name > add_copyright.$$
-if diff add_copyright.$$ bin/old_copyright.txt
+if diff add_copyright.$$ bin/old_copyright.txt > /dev/null
 then
 	echo "add_copyright.sh: remove old copyright from $file_name"
 	sed -e '1,17d' -i $file_name
@@ -63,6 +63,20 @@ EOF
 	echo "chmod +x bin/add_copyright.$$"
 	      chmod +x bin/add_copyright.$$
 	;;
+
+	bat)
+	cat << EOF  > bin/add_copyright.$$
+ECHO off
+REM ---------------------------------------------------------------------------
+REM OMhelp: Language Independent Embedded Documentation
+REM           Copyright (C) 1998-2015 Bradley M. Bell
+REM OMhelp is distributed under the terms of the
+REM             GNU General Public License Version 2.
+REM ---------------------------------------------------------------------------
+ECHO on
+EOF
+	;;
+
 
 	*)
 	echo bin/"add_copyright.sh: extension $ext is not yet supported"
