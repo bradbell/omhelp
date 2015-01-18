@@ -28,6 +28,14 @@ then
 	echo "bin/add_copyright.sh: file_name does not have an extension"
 	exit 1
 fi
+# -----------------------------------------------------------------------------
+sed -n -e '1,17p' $file_name > add_copyright.$$
+if diff add_copyright.$$ bin/old_copyright.txt
+then
+	echo "add_copyright.sh: remove old copyright from $file_name"
+	sed -e '1,17d' -i $file_name
+fi
+# -----------------------------------------------------------------------------
 #
 echo "write copyright message to bin/add_copyright.$$"
 case $ext in

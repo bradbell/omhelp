@@ -32,7 +32,6 @@ char msg[];
 
 # include "pending.h"
 # include "fatalerr.h"
-# include "string.h"
 # include "int2str.h"
 # include "LatexLexHistory.h"
 # include "str_alloc.h"

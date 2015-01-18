@@ -21,8 +21,7 @@ README            This file.
 wish_list.omh     An omhelp wish list.
 configure.ac      Autoconf input files.
 Makefile.am
-CheckIncludeFile  Helper script files that should be moved to bin directory.
-CheckIncludeOmh
+CheckIncludeOmh   Helper script files that should be moved to bin directory.
 FixMakefile
 install.bat
 RunOMhelp.bat
