@@ -64,10 +64,14 @@ fi
 # Make the version number in the relevant files is the same
 list='
 	omh/overview.omh
+	omh/installunix.omh
 '
 for file in $list
 do
-	sed -e "s/omhelp-[0-9]\{8\}/omhelp-$version/" -i.old $file
+	sed \
+		-e "s/omhelp-[0-9]\{8\}/omhelp-$version/" \
+		-e "s|/[0-9]\{8\}\.tar\.gz|$version.tar.gz|" \
+		-i.old $file
 done 
 for name in $list
 do
