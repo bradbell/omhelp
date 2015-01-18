@@ -100,7 +100,7 @@ $$
 was executed in the $code omhelp\omh$$ directory during the installation
 of this version:
 $code
-$verbatim%../OMhelp.Dev.log%$$
+$verbatim%../omhelp.dev.log%$$
 $$
 $$
 

@@ -25,7 +25,7 @@ then
 	mkdir dev
 	cd    dev
 	if ! ../build/src/omhelp ../src/omh/omhelp.omh > ../omhelp.dev.log \
-		-debug -omhelp_dir ../OMhelp
+		-debug -omhelp_dir ../omhelp_data
 	then
 		cat ../omhelp.dev.log
 		echo "OMhelp could not build developer documentation."
@@ -55,7 +55,7 @@ then
 	mkdir doc
 	cd    doc
 	if ! ../build/src/omhelp ../omh/overview.omh > ../omhelp.doc.log \
-		-noframe -xml -debug -omhelp_dir ../OMhelp
+		-noframe -xml -debug -omhelp_dir ../omhelp_data
 	then
 		cat ../omhelp.dev.log
 		echo "OMhelp could not build user documentation."
@@ -63,7 +63,8 @@ then
 		grep "^OMhelp Error:" ../omhelp.doc.log
 		exit 1
 	fi
-	../build/src/omhelp ../omh/overview.omh  -noframe -debug -omhelp_dir ../OMhelp
+	../build/src/omhelp ../omh/overview.omh  \
+		-noframe -debug -omhelp_dir ../omhelp_data
 	cd ..
 	if grep "^OMhelp Warning:" omhelp.doc.log
 	then

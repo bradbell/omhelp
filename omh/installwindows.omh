@@ -19,6 +19,7 @@
 $begin InstallWindows$$
 $dollar @$$
 $spell 
+	yyyymmdd
 	autoexec
 	simpleexample
 	Dev
@@ -187,12 +188,12 @@ $xref/InstallWindows/Advanced/Advanced/$$ below.
 
 $list number$$
 The file
-$syntax|
-	omhelp-|yy|-|mm|-|dd|\install.bat
-|$$
+$codei%
+	omhelp-%yyyymmdd%\bin\setup.bat
+%$$
 contains the following text
 $code
-$verbatim%../install.bat%5%BEGIN USER CHANGES%END USER CHANGES%$$
+$verbatim%../bin/setup.bat%5%REM BEGIN USER CHANGES%REM END USER CHANGES%$$
 $$
 $pre
 $$
