@@ -52,12 +52,14 @@ then
 	exit 0
 fi
 # -----------------------------------------------------------------------------
+# check that local branch is up to date
 list=`git status -s`
 if [ "$list" != '' ]
 then
 	echo "tag.sh: 'git status -s' is not empty"
 	exit 1
 fi
+# check that version is set correctly
 version=`bin/version.sh get`
 echo_eval bin/version.sh copy
 list=`git status -s`
@@ -66,6 +68,21 @@ then
 	echo "tag.sh: 'bin/version.sh copy' changed something"
 	exit 1
 fi
+# check that remote branch agrees with local
+branch_name=`git branch | grep '^\*' | sed -e 's|^\* *||'`
+local_hash=`git show-ref $branch_name | \
+	grep "refs/heads/$branch_name" | \
+	sed -e "s| *refs/heads/$branch_name||"`
+remote_hash=`git show-ref $branch_name | \
+	grep "refs/remotes/origin/$branch_name" | \
+	sed -e "s| *refs/remotes/origin/$branch_name||"`
+if [ "$local_hash" != "$remote_hash" ]
+then
+	echo_eval git show-ref $branch_name
+	echo 'tag.sh: exiting because local and remote branch differ'
+	exit 1
+fi
+# now create the new tag
 echo "git tag -a -m \"$description\" $version"
 git tag -a -m "$description" "$version"
 echo_eval git push origin $version
