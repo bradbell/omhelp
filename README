@@ -18,7 +18,6 @@ COPYING           Statement of user license for this software.
 NEWS              Pointer to release notes; i.e., whats new.
 README            This file.
 wish_list.omh     An omhelp wish list.
-configure.ac      Autoconf input files.
 Makefile.am
 CheckIncludeOmh   Helper script files that should be moved to bin directory.
 RunOMhelp.bat
