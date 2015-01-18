@@ -46,14 +46,16 @@ command_line_arg(omhelp_datadir share STRING
 	"directory below prefix where cmake will install omhelp data files"
 )
 # ---------------------------------------------------------------------------
-ENABLE_LANGUAGE( Fortran )
-INCLUDE( FortranCInterface )
-# ---------------------------------------------------------------------------
 ADD_SUBDIRECTORY(src)
-IF( FortranCInterface_MODULE_FOUND )
-	# 2DO: include just C examples when Fortran linking not available
-	ADD_SUBDIRECTORY(omh/getstarted)
-ENDIF( FortranCInterface_MODULE_FOUND )
+# ---------------------------------------------------------------------------
+ENABLE_LANGUAGE( Fortran )
+IF( CMAKE_Fortran_COMPILER_WORKS )
+	INCLUDE( FortranCInterface )
+	IF( FortranCInterface_MODULE_FOUND )
+		# 2DO: include just C examples when Fortran linking not available
+		ADD_SUBDIRECTORY(omh/getstarted)
+	ENDIF( FortranCInterface_MODULE_FOUND )
+ENDIF( CMAKE_Fortran_COMPILER_WORKS )
 # ---------------------------------------------------------------------------
 INSTALL(
 	PROGRAMS    ${bindir}/src/omhelp${CMAKE_EXECUTABLE_SUFFIX}
