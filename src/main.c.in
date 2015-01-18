@@ -200,7 +200,7 @@ int main(int argc, const char *argv[])
 
 	// version information
 	printf("OMhelp: Version=%s, ndebug=%s, win32=%s\n", 
-		@omhelp_version@, ndebug, win32
+		"@omhelp_version@", ndebug, win32
 	);
 	if( error )
 	{	
