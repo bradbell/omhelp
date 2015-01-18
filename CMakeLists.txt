@@ -48,7 +48,7 @@ command_line_arg(omhelp_datadir share STRING
 # ---------------------------------------------------------------------------
 ADD_SUBDIRECTORY(src)
 # ---------------------------------------------------------------------------
-ENABLE_LANGUAGE( Fortran )
+ENABLE_LANGUAGE( Fortran OPTIONAL )
 IF( CMAKE_Fortran_COMPILER_WORKS )
 	INCLUDE( FortranCInterface )
 	IF( FortranCInterface_MODULE_FOUND )
