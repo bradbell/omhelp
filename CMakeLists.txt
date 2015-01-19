@@ -47,7 +47,7 @@ command_line_arg(omhelp_datadir share STRING
 )
 # ---------------------------------------------------------------------------
 # omhelp_c_flags
-command_line_arg(omhelp_c_flags NOTFOND STRING
+command_line_arg(omhelp_c_flags NOTFOUND STRING
 	"extra flags used to compile omhelp souce (besided debug and release flags)"
 )
 IF( omhelp_c_flags )
