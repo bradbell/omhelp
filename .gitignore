@@ -3,6 +3,7 @@ dev
 doc
 new
 omhelp_data/dictionary.bin
+xam
 #
 *.swp
 *.log

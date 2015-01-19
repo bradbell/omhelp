@@ -10,10 +10,10 @@ then
 	echo "bin/run_omhelp.sh: must be executed from its parent directory"
 	exit 1
 fi
-if [ "$1" != "doc" ] && [ "$1" != "dev" ]
+if [ "$1" != "doc" ] && [ "$1" != "dev" ] && [ "$1" != 'xam' ]
 then
 	echo 'usage: bin/run_omhelp.sh target'
-	echo 'where target is doc or dev'
+	echo 'where target is doc or dev or xam'
 	exit 1
 fi
 if [ "$1" = dev ]
@@ -69,6 +69,31 @@ then
 	if grep "^OMhelp Warning:" omhelp.doc.log
 	then
 		echo "See the complete warning messages in omhelp.doc.log."
+		exit 1
+	fi
+fi
+if [ "$1" == 'xam' ]
+then
+	if [ -e xam ]
+	then
+		rm -r -f xam
+	fi
+	mkdir xam
+	cd xam
+	if ! ../build/src/omhelp ../omh/getstarted/multiple_example_1.omh \
+			> ../omhelp.xam.log -omhelp_dir ../omhelp_data
+	then
+		cat ../omhelp.xam.log
+		echo "OMhelp could not build example case."
+		echo "See the complete error message in omhelp.xam.log."
+		grep "^OMhelp Error:" ../omhelp.xam.log
+		exit 1
+	fi
+	cd ..
+	if grep "^OMhelp Warning:" omhelp.xam.log
+	then
+		echo "See the complete warning messages in omhelp.xam.log."
+		exit 1
 	fi
 fi
 echo 'run_omhelp.sh OK'

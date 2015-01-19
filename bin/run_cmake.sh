@@ -25,5 +25,6 @@ echo_eval cd build
 echo_eval cmake \
 	-D omhelp_prefix=$HOME/prefix/omhelp \
 	-D omhelp_datadir=share \
+	-D omhelp_c_flags='-Wall'
 	..
 echo 'run_cmake.sh: OK'

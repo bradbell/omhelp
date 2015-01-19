@@ -10,8 +10,9 @@ bug               Demonstration of know bugs (may be empty).
 omh               Documentaiton files (without source code) in OMhelp format.
 omhelp_data       Data files that are distributed with OMhelp.
 src               Source code for the omhelp program.
-doc               Created during install, used to store user documentation
-dev               Created during install, used to store developer documentation
+dev               Developer documentation created during install
+doc               User documentation created during install
+xam               Example output directory created during install.
 
 Files:
 AUTHORS           Statement of authorship.

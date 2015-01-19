@@ -46,6 +46,14 @@ command_line_arg(omhelp_datadir share STRING
 	"directory below prefix where cmake will install omhelp data files"
 )
 # ---------------------------------------------------------------------------
+# omhelp_c_flags
+command_line_arg(omhelp_c_flags NOTFOND STRING
+	"extra flags used to compile omhelp souce (besided debug and release flags)"
+)
+IF( omhelp_c_flags )
+	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${omhelp_c_flags}")
+ENDIF( omhelp_c_flags )
+# ---------------------------------------------------------------------------
 ADD_SUBDIRECTORY(src)
 # ---------------------------------------------------------------------------
 ENABLE_LANGUAGE( Fortran OPTIONAL )

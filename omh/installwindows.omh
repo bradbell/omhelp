@@ -19,6 +19,7 @@
 $begin InstallWindows$$
 $dollar @$$
 $spell 
+	xam
 	OMhelp
 	Cygwin
 	Gw
@@ -175,6 +176,7 @@ $codei|
 		-G "NMake Makefiles" ^
 		-D omhelp_prefix=|omhelp_prefix|  ^
 		-D omhelp_datadir=|omhelp_datadir|  ^
+		-D omhelp_c_flags=|omhelp_c_flags|  ^
 		..
 |$$
 Only the program $code%cmake_prefix%cmake$$,
@@ -203,6 +205,11 @@ $codei%
 	%omhelp_prefix%\%omhelp_datadir%\omhelp_data
 %$$
 The default value for $icode omhelp_datadir$$ is $code share$$.
+
+$subhead omhelp_c_flags$$
+These are extra flags, besides the debug and release flags,
+that are used during compilation.
+The default value for $icode omhelp_c_flags$$ is none. 
 
 $head Build Executable$$
 In the directory $code omhelp-20150118\build$$ execute the following command
@@ -251,14 +258,15 @@ $cref multiple_example_1$$ subtree of the OMhelp user documentation
 by executing the following commands starting in the 
 $code omhelp-20150118$$ directory:
 $codei%
-	cd omh\getstarted
-	mkdir htm
-	cd htm
-	del *.htm
-	"%omhelp_prefix%\bin\omhelp" ..\multiple_example_1.omh
+	mkdir xam
+	cd xam
+	"%omhelp_prefix%\bin\omhelp" ..\omh\getstarted\multiple_example_1.omh
 %$$
-Note that the $code mkdir$$ and $code del$$ commands will report
-errors if they are unnecessary.
+Note that if $icode%omhelp_prefix%/bin%$$ is in you execution path,
+you can use the command
+$codei%
+	omhelp ../omh/getstarted/multiple_example_1.omh
+%$$
 See the $cref get_started$$ section for more examples.
 
 $head Dictionary$$ 
