@@ -101,7 +101,7 @@ fi
 echo_log_eval bin/run_cmake.sh
 # -----------------------------------------------------------------------------
 # Build Executable 
-echo_log cd build
+echo_log_eval cd build
 echo_log_eval make
 echo_log_eval cd ..
 # -----------------------------------------------------------------------------
