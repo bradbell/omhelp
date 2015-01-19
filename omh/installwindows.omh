@@ -19,32 +19,30 @@
 $begin InstallWindows$$
 $dollar @$$
 $spell 
-	autoexec
-	simpleexample
-	Dev
-	wrd
-	src src
-	ini
-	subtree
-	omh
-	getstarted
-	mkdir
-	Mathplayer
-	xml
-	htm
-	dir
 	OMhelp
 	Cygwin
 	Gw
-	gz
+	cmake
 	omhelp
-	yy
-	mm
-	dd
-	Microsoft
-	sln
+	vcvarsall
+	mkdir
+	Makefiles
+	datadir
+	usr
+	nmake
 	src
 	exe
+	omh
+	getstarted
+	dev
+	noframe
+	xml
+	dir
+	subtree
+	htm
+	del
+	wrd
+	Microsoft
 $$
 
 $index free, install OMhelp$$
@@ -54,83 +52,233 @@ $index OMhelp, install windows$$
 
 $section Windows Installation and Testing$$
 
-$head The Easy Way$$
-If you are satisfied to use the version of 
-OMhelp currently distributed by Harmonic Software,
-use the following link for a packaged install: 
-$href%http://www.omatrix.com/omaddons.html%O-Matrix Add-Ons%$$.
-
 $head Using Cygwin and MinGw$$
 If you are using 
-$href|
-	http://www.cygwin.com|
-	Cygwin
-|$$
+$href%http://www.cygwin.com%cygwin%$$
 or,
-$href|
-	http://www.mingw.org|
-	MinGW with MSYS
-|$$,
-with Unix formatted files,
-just follow all of the $xref/InstallUnix//Unix installation/$$ steps.
+$href%http://www.mingw.org%mingw%$$,
+just follow all of the $cref/unix install/InstallUnix/$$ steps.
 If you are using Dos formatted files, download the DOS version
 (see next step) and then follow the Unix installation steps.
 
+$head Requirements$$
+$index requirements$$
+The following programs are required to install OMhelp under windows:
+
+$subhead 7z$$
+$href%http://www.7-zip.org/%7-zip%$$,
+a program for unpacking zip files
+(a different archiving program could be used).
+
+$subhead cmake$$
+$href%http://www.cmake.org/%cmake%$$,
+a program that installs other programs.
+
+$subhead GnuWin$$
+The following files should all be installed with a prefix
+that does not include spaces:
+
+$list number$$
+$href%http://gnuwin32.sourceforge.net/packages/bison.htm%bison%$$,
+a parser generator.
+$lnext
+$href%http://gnuwin32.sourceforge.net/packages/flex.htm%flex%$$,
+a lexical analyzer.
+$lend
+
+$subhead Visual Studio$$
+$href%http://www.visualstudio.com/downloads/download-visual-studio-vs
+	%Visual Studio Express
+%$$,
+which contains a C compiler
+(other C compilers could be used).
+
+$head Environment Variables$$
+We assume that the following variables below have been defined.
+
+$subhead zip_prefix$$
+The value of $code%zip_prefix%$$ is the prefix for the install of
+$code 7z$$; e.g., the following file must exist:
+$codep
+	%zip_prefix%\bin\7z
+$$
+For example
+$codep
+	SET zip_prefix=C:\Program Files\7-Zip
+$$
+
+$subhead cmake_prefix$$
+The value of $code%cmake_prefix%$$ is the prefix for the install of
+$code cmake$$; e.g., the following file must exist:
+$codep
+	%cmake_prefix%\bin\cmake
+$$
+For example
+$codep
+	SET cmake_prefix=C:\Program Files (x86)\CMake
+$$
+
+$subhead gnu_prefix$$
+The value of $code%gnu_prefix%$$ is the prefix for the install of
+$code flex$$ and $code bison$$; e.g., the following file must exist:
+$codep
+	%gnu_prefix%\bin\flex
+	%gnu_prefix%\bin\bison
+$$
+For example
+$codep
+	SET gnu_prefix=C:\GnuWin32
+$$
+
+$subhead studio_prefix$$
+The value of $code%studio_prefix%$$ is the prefix for the install of
+Visual Studio install; e.g., the following file must exist:
+$codep
+	%studio_prefix%\vcvarsall.bat
+$$
+For example
+$codep
+	SET studio_prefix=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC
+$$
+
+$subhead Setup Environment$$
+Execute the following commands:
+$codep
+	CALL "%studio_prefix%\vcvarsall.bat" x86
+	SET PATH=%gnu_prefix%/bin;%PATH%
+$$
+
 $head Download OMhelp$$
-Download the file current version of the file
-$href|
-	http://www.seanet.com/~bradbell/OMhelp.dos.zip|
-	OMhelp.dos.zip
-|$$
+Use the following link to download the current version of OMhelp:
+$href%
+	https://github.com/bradbell/omhelp/archive/20150118.zip%
+	omhelp-20150118.zip
+%$$
 
 $head Create Distribution Directory$$
-Use $href|http://www.winzip.com|WinZip|$$ 
-or some other program to decompress the files in
-$code OMhelp.dos.zip$$ 
-and extract them to the distribution directory
-$syntax|
-	omhelp-|yy|-|mm|-|dd|
-|$$
-All of the commands below are to be executed from this directory.
+Use the command
+$codep
+	"%zip_prefix%\7z" x omhelp-20150118.zip
+$$
+where $icode zip_prefix$$ is the prefix for the install of
+$code 7-zip$$.
 
-$head Build The Executable$$
-The executable $code src/src.exe$$ is part of the distribution.
-If you have Visual Studio, you can rebuild this file as follows:
-$list number$$
-Open Microsoft Visual Studio dot Net.
-$lnext
-Select $code File | Open | Project$$ an in the dialog that appears
-select the file
-$syntax|
-	omhelp-|yy|-|mm|-|dd|\src\src.sln
+$head CMake Command$$
+$index cmake, command$$
+$index command, cmake$$
+Execute the following commands:
+$codei|
+	cd omhelp-20150118
+	mkdir build
+	cd build
+	"%cmake_prefix%\bin\cmake" ^
+		-G "NMake Makefiles" ^
+		-D omhelp_prefix=|omhelp_prefix|  ^
+		-D omhelp_datadir=|omhelp_datadir|  ^
+		..
 |$$
-and then select the $code Open$$ button.
-$lnext
-Select $code Build | Build src$$. 
-This should create the file
-$syntax|
-	omhelp-|yy|-|mm|-|dd|\src\src.exe
-|$$
-$lend
+Only the program $code%cmake_prefix%cmake$$,
+the type of make files $code -G "NMake Makefiles"$$,
+and the distribution directory reference $code ..$$,
+are required.
+The other entries use default values if they are not specified.
+
+$subhead omhelp_prefix$$
+$index omhelp_prefix$$
+The default value for $icode omhelp_prefix$$ is $code \usr$$; i.e.,
+by default the OMhelp executable is installed in 
+$codep
+	\usr\bin\omhelp.exe
+$$
+If you do not have write permission for $code \usr$$,
+you must specify a $icode prefix$$.
+If $icode%omhelp_prefix%\bin%$$ is not in your path,
+you will have to specify the entire path 
+$icode%omhelp_prefix%\bin\omhelp%$$ when 
+you execute it.
+
+$subhead omhelp_datadir$$
+The data files used by OMhelp are installed in
+$codei%
+	%omhelp_prefix%\%omhelp_datadir%\omhelp_data
+%$$
+The default value for $icode omhelp_datadir$$ is $code share$$.
+
+$head Build Executable$$
+In the directory $code omhelp-20150118\build$$ execute the following command
+$codep
+	nmake
+$$
+This should build the program
+$codep
+	omhelp-20150118\build\src\omhelp.exe
+$$
+If you have fortran, 
+and CMake can figure out how to link C to Fortran,
+the following program will also be built
+$codep
+	omhelp-20150118\build\omh\getstarted\run_all.exe
+$$
+
+$head Build Documentation$$
+Starting in the $code omhelp-20150118$$ directory,
+execute the following commands
+$codep
+	mkdir dev
+	cd dev
+	..\build\src\omhelp ..\src\omh\omhelp.omh > ..\omhelp.dev.log ^
+		-noframe -xml -debug -omhelp_dir ..\omhelp_data
+	cd ..
+	mkdir doc
+	cd doc
+	..\build\src\omhelp ..\omh\overview.omh -noframe -xml -debug ^
+		-omhelp_dir ..\omhelp_data
+$$
+This should complete without error, and so also functions as a test
+of the distribution.
+
+$head Install OMhelp$$
+In the directory $code omhelp-20150118\build$$ execute the following command
+$codep
+	nmake install
+$$
+
+$head Getting Started$$
+$index getstarted, using OMhelp$$
+$index OMhelp, getstarted using$$
+You can build the 
+$cref multiple_example_1$$ subtree of the OMhelp user documentation 
+by executing the following commands starting in the 
+$code omhelp-20150118$$ directory:
+$codei%
+	cd omh\getstarted
+	mkdir htm
+	cd htm
+	del *.htm
+	"%omhelp_prefix%\bin\omhelp" ..\multiple_example_1.omh
+%$$
+Note that the $code mkdir$$ and $code del$$ commands will report
+errors if they are unnecessary.
+See the $cref get_started$$ section for more examples.
 
 $head Dictionary$$ 
 $index dictionary$$
 $index english.wrd$$
 $index local.wrd$$
 $index dictionary.bin$$
-OMhelp utility files are stored in the $code OMhelp$$ subdirectory
-of the distribution directory.
-This directory must contains the files
+OMhelp utility files are stored in the 
+$code omhelp-20150118\omhelp_data$$ directory.
+This directory can contain the files
 $codep
-	OMhelp\english.wrd
-	OMhelp\local.wrd
+	omhelp_data\english.wrd
+	omhelp_data\local.wrd
 $$
+the file $code local.wrd$$ is optional.
 If the file $code dictionary.bin$$ is not present,
-OMhelp will to create a new dictionary 
-that combines $code english.wrd$$ and $code local.wrd$$
-(the file $code local.wrd$$ is optional) to form
+OMhelp combines $code english.wrd$$ and $code local.wrd$$
+to form
 $codep
-	OMhelp\dictionary.bin
+	omhelp_data\dictionary.bin
 $$
 The words in $code english.wrd$$ and $code local.wrd$$
 must be in alphabetic order, lower case, and contain only letters
@@ -145,185 +293,16 @@ $$
 If you make any changes to $code english.wrd$$ or $code local.wrd$$,
 the file $code dictionary.bin$$ should be deleted.
 A new $code dictionary.bin$$ that combines the words $code english.wrd$$
-and $code local.wrd$$ will be created the next time $code OMhelp$$ is run.
-
-$head Building Documentation and Testing OMhelp$$
-In a Dos box, execute the following command:
+and $code local.wrd$$ can be created and installed by executing following 
+commands in the $code omhelp-20150118$$ directory:
 $codep
-	RunOMhelp Dev
-$$
-This will run the OMhelp program and
-create a copy of the OMhelp development documentation directory $code Dev$$.
-Now continue by executing the following command:
-$codep
-	RunOMhelp Doc
-$$
-This will run the OMhelp program and
-create a copy of the OMhelp user documentation directory $code Doc$$.
-Make sure OMhelp is functioning correctly by loading the file
-$code
-	Doc\getstarted.htm
-$$
-into your web browser. 
-This should be a local copy of the web page
-$pre
-	$$
-$href|
-	http://www.seanet.com/~bradbell/omhelp/getstarted.htm
-|$$.
-$pre
-$$
-The files $syntax|Doc/|*|.htm|$$ are in HTML format.
-If your browser supports XHTML+MathML format,
-an easier to read copy is available in the files
-$syntax|Doc/|*|.xml|$$.
-
-$head Install OMhelp$$
-The following instructions provide a way to have a desktop shortcut
-that you can run OMhelp in with out setting system environment variables
-or modifying the $code win.ini$$ file. If you would rather do that,
-see the heading
-$xref/InstallWindows/Advanced/Advanced/$$ below.
-
-$list number$$
-The file
-$syntax|
-	omhelp-|yy|-|mm|-|dd|\install.bat
-|$$
-contains the following text
-$code
-$verbatim%../install.bat%5%BEGIN USER CHANGES%END USER CHANGES%$$
-$$
-$pre
-$$
-The choice for $italic install_sub_dir$$ is standard and probably
-does not need to be changed.
-On the other hand, you will probably want to change the choice for
-$italic after_setup_dir$$.
-
-$lnext
-Execute this batch file and follow its instruction
-by beginning with the command:
-$codep
-	install
-$$
- 
-$lnext
-Use the Mouse to bring select the following choice:
-$codep
-	start | All Programs | Accessories | Command Prompt | Create Shortcut 
-$$
-You will have to select the right mouse button over $code Command Prompt$$
-to get $code Create Shortcut$$ to display and then select the 
-left mouse button over $code Create Shortcut$$.
-
-$lnext
-Highlight the shortcut you created and drag it to the desk top.
-Then highlight the name below the shortcut and change it to OMhelp.
-Then highlight the shortcut and select the right mouse button
-and select $code Properties$$.
-Change the $code Start in$$ directory to
-$syntax%
-	c:\Program Files\%install_sub_dir%
-%$$
-where $italic install_sub_dir$$ is replaced by your choice 
-for the installation subdirectory.
-Then select the $code OK$$ button.
-
-$lend
-
-$head Getting Started$$
-$index getstarted, using OMhelp$$
-$index OMhelp, getstarted using$$
-
-$list number$$
-Open the OMhelp shortcut that you created during installation
-an execute the command
-$codep
-	setup
-$$
-You need to do this to initialize the window
-and change into your $italic after_setup_dir$$ directory.
-
-$lnext
-Create a file
-(in the $italic after_setup_dir$$ directory)
-called $code simple_example.omh$$ with the following contents:
-$codep
-	@begin simple_example@@
-	@section Simple Example@@
-	@end
-$$
-
-$lnext
-Execute the following commands:
-$codep
-	mkdir htm
-	cd htm
-	omhelp ..\simple_example.omh
-$$
-Note that the $code mkdir$$ command will report an error
-if the directory already exists.
-You can view the results by using your web browser to open the file
-$syntax%
-	%after_setup_dir%\htm\simpleexample.htm
-%$$
-$lend
-
-$head Advanced$$
-This section is intended for people who know how to modify the 
-Windows system environment.
-In this case you can choose any directory as the 
-OMhelp installation directory and we refer to that directory as
-$italic omhelp_dir$$ below.
-
-$subhead Copy Files$$
-The first step is to copy if files
-$syntax|
-	omhelp-|yy|-|mm|-|dd|/OMhelp/|*|
-|$$
-to the $italic omhelp_dir$$ directory.
-
-$subhead omhelp_dir$$
-Choose one of the following alternatives for setting the
-environment variable $code omhelp_dir$$
-(remember that $italic omhelp_dir$$ is replaced by your choice
-for the OMhelp installation directory):
-
-$list number$$
-You can set the environment variable $code omhelp_dir$$ 
-in the $code autoexec.bat$$ file with the command
-$syntax%
-	set omhelp_dir=%omhelp_dir%
-%$$
-On some Windows systems, it is hard to find the proper
-$code autoexec.bat$$ file.
-
-$lnext
-At the system start button select Control Panel.
-In the Control Panel select System.
-In the System Properties dialog select the Advanced tab.
-In the Advanced tab select the Environment Variables button.
-In the Environment Variables dialog, under system variables, 
-select the New button.
-Enter $code omhelp_dir$$ in the Variable name field
-and $italic omhelp_dir$$ in the Variable value field
-Then select the OK button.
-
-$lnext
-You can set the value of $code omhelp_dir$$
-by adding the following text to the $code win.ini$$ file:
-$syntax|
-	[OMhelp]
-	omhelp_dir=|omhelp_dir|
-|$$
-$lend
-
-$subhead Path$$
-You may also want to add $italic omhelp_dir$$ to the $code Path$$ 
-environment variable.
-You can do this in the $code autoexec.bat$$ file or in the control
-panel in a similar fashion to how $code omhelp_dir$$ was set.
+	del omhelp_data\dictionary.bin
+	cd doc
+	..\build\src\omhelp ..\omh\overview -noframe -xml -debug \
+		-omhelp_dir ..\omhelp_data
+	cd ..\build
+	make install
+$$ 
 
 
 $end

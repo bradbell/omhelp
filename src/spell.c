@@ -314,9 +314,8 @@ void InitSpelling(const char *dir)
 	fpEng   = fopen(fileEng, "r");
 	if( fpEng == NULL )
 	{	printf("Cannot open the file %s\n", fileEng);
-		printf("Check windows INI file and\n");
-		printf("the environment variable omhelp_dir\n");
-		printf("which are described in running.htm\n");
+		printf("Check the command line argument omhelp_dir\n");
+		printf("which is described in running.htm\n");
 		trace_exit(1);
 	}
 	fileLoc   = strjoin(dir, "local.wrd");

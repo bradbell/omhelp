@@ -18,6 +18,7 @@
 #
 $begin stdout$$
 $spell 
+	dev
 	stdout
 	OMhelp
 	childtable
@@ -87,21 +88,13 @@ The $mref/include/$$ command does not cause the name of the corresponding
 file to be printed on standard output.
 
 $head Example$$
-The files $code RunOMhelp$$ and $code RunOMhelp.bat$$,
-in the $code omhelp\omh$$ directory,
-user OMhelp to process the OMhelp user documentation files to create
-the corresponding web site.
-Below is a listing of some of the  text was printed to standard output
-when the OMhelp developer documentation was built with the command 
-$nospell
-$codep
-	RunOMhelp Dev
-$$
-was executed in the $code omhelp\omh$$ directory during the installation
-of this version:
+The Build Documentation instructions for
+$cref/unix/InstallUnix/Build Documentation/$$ and
+$cref/windows/InstallWindows/Build Documentation/$$
+store the example output file in $code omhelp.dev.log$$ 
+which is listed below
 $code
-$verbatim%../OMhelp.Dev.log%$$
-$$
+$verbatim%../omhelp.dev.log%$$
 $$
 
 $end

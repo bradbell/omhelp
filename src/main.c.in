@@ -17,7 +17,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 
 # include "trace_exit.h"
-# include "config.h"
 # include "allocmem.h"
 # include "strjoin.h"
 # include "str_alloc.h"
@@ -124,9 +123,9 @@ int main(int argc, const char *argv[])
 
 # if RUN_IN_DEBUGGER
 	//
-	root_file = "../omh/overview.omh";
+	root_file = "../../omh/latex/latexfont.omh";
 	printf("root file = %s\n", root_file);
-	omhdir = "../OMhelp";
+	omhdir = "../../omhelp_data";
 	printf("omhelp_dir = %s\n", omhdir);
 	//
 	// Internal2OutSet("xml");
@@ -201,7 +200,7 @@ int main(int argc, const char *argv[])
 
 	// version information
 	printf("OMhelp: Version=%s, ndebug=%s, win32=%s\n", 
-		VERSION, ndebug, win32
+		"@omhelp_version@", ndebug, win32
 	);
 	if( error )
 	{	
@@ -219,15 +218,15 @@ int main(int argc, const char *argv[])
 			"[-omhelp_dir dir] "
 			"\n"
 		);
-		printf("see the file Doc/running.htm or Doc/running.xml\n");
+		printf("see the file doc/running.htm or doc/running.xml\n");
 		trace_exit(1);
 	}
 # endif
 
-# ifndef WIN32
 	if( omhdir == NULL )
-		omhdir = "DATA_DIR/OMhelp";
-# else 
+		omhdir = "@omhelp_prefix@/@omhelp_datadir@/omhelp_data";
+# if 0 
+	// old windows install (before cmake)
 	if( omhdir == NULL )
 		omhdir = getenv("omhelp_dir");
 	if( omhdir == NULL )
@@ -338,7 +337,7 @@ int main(int argc, const char *argv[])
 				favicon
 			);
 			printf(
-			"see favicon in Doc/running.htm or Doc/running.xml\n"
+			"see favicon in doc/running.htm or doc/running.xml\n"
 			);
 			trace_exit(1);
 		}

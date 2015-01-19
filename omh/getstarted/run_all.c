@@ -19,9 +19,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # include <stdio.h>
 # include <stdlib.h>
 
-# include "../../src/config.h"
+# include "c2fortran.h"
 
-# define OK_NEAR_EQUAL_F F77_FUNC_(ok_near_equal_f, OK_NEAR_EQUAL_F)
+# define OK_NEAR_EQUAL_F C2FORTRAN_GLOBAL_(ok_near_equal_f, OK_NEAR_EQUAL_F)
 
 extern int ok_near_equal_c(void);  // C version
 extern int OK_NEAR_EQUAL_F(void);  // Fortran version

@@ -1,5 +1,0 @@
-# batch editing script file
-sed -f $HOME/bin/BatchEdit.sed < $1 > BatchEdit.tmp
-diff $1 BatchEdit.tmp 
-chmod +w $1
-mv BatchEdit.tmp $1

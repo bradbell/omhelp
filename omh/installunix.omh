@@ -19,34 +19,30 @@
 $begin InstallUnix$$
 $dollar @$$
 $spell
-	filetype
-	ftdetect
-	highlighting
-	ls sed
-	vimrc au Buf setfiletype
-	make make
-	runtime
-	wrd
-	dir
-	subtree
-	omh
-	mkdir
-	rm
-	OMhelp
-	xvzf
-	gz
-	omhelp
-	yy
-	mm
-	dd
+	dev
+	cmake
 	src
-	exe
 	Cygwin
 	Gw
+	exe
+	omh
 	getstarted
-	htm
+	noframe
 	xml
-	Mathplayer
+	dir
+	subtree
+	htm
+	rm
+	wrd
+	ftdetect
+	filetype
+	vimrc
+	OMhelp
+	xzf
+	omhelp
+	gz
+	mkdir
+	datadir
 	usr
 $$
 
@@ -57,64 +53,185 @@ $index download, unix OMhelp$$
 
 $section Unix Installation and Testing$$
 
+$head Requirements$$
+Building OMhelp requires that 
+$href%http://flex.sourceforge.net/%flex%$$, and
+$href%http://bison.sourceforge.net/%bison%$$
+are in your execution path.
+In addition, it requires a C compiler.
 
 $head Download OMhelp$$
-Download the current version of the file
+
+$subhead Current Version$$
+This current version of OMhelp uses
+$href%http://www.cmake.org%cmake%$$ version 2.8 or greater
+for its build procedure.
+Use the following link to download this version:
+$href%
+	https://github.com/bradbell/omhelp/archive/20150118.tar.gz%
+	omhelp-20150118.tar.gz
+%$$
+
+$subhead Deprecated$$
+The old download procedure (not documented here) can be used
+with the following version of OMhelp:
 $href%
 	http://www.seanet.com/~bradbell/OMhelp.unix.tar.gz%
 	OMhelp.unix.tar.gz
-%$$
+%$$.
 
 $head Create Distribution Directory$$
 Use the command
 $codep
-	tar -xvzf OMhelp.unix.tar.gz
+	tar -xzf omhelp-20150118.tar.gz
 $$
 to decompress and extract the unix format version into the 
 distribution directory
 $codei%
-	omhelp-%yy%-%mm%-%dd%
-%$$
-The value $icode%yy%-%mm%-%dd%$$ is the corresponding 
-version of OMhelp.
-
-$head Configure$$
-$index prefix$$
-Enter the distribution directory and execute the command:
-$codei%
-	./configure [ --prefix=%prefix% ] [--with-fortran]
-%$$
-where the entries between the brackets $code [$$ and $code ]$$ are optional,
-the brackets are not included, and the word in italic is replaced
-by the value you chose.
-The OMhelp utility files will be stored in the directory
-$codei%
-	%prefix%/share/OMhelp
+	omhelp-20150118
 %$$
 
-$subhead prefix$$
-The default value for $icode prefix$$ is $code /usr/local$$; i.e.,
+$head CMake Command$$
+$index cmake, command$$
+$index command, cmake$$
+Execute the following commands:
+$codei%
+	cd omhelp-20150118
+	mkdir build
+	cd build
+	cmake \
+		-D omhelp_prefix=%omhelp_prefix%  \
+		-D omhelp_datadir=%omhelp_datadir%  \
+		..
+%$$
+Only the program name $code cmake$$,
+and the distribution directory reference $code ..$$,
+are required.
+The other entries use default values if they are not specified.
+
+$subhead omhelp_prefix$$
+$index omhelp_prefix$$
+The default value for $icode omhelp_prefix$$ is $code /usr$$; i.e.,
 by default the OMhelp executable is installed in 
 $codep
-	/usr/local/bin/omhelp
+	/usr/bin/omhelp
 $$
-If you do not have write permission for $code /usr/local$$,
+If you do not have write permission for $code /usr$$,
 you must specify a $icode prefix$$.
-If $icode%prefix%/bin%$$ is not in your path,
-you will have to specify the entire path for $code omhelp$$ when 
+If $icode%omhelp_prefix%/bin%$$ is not in your path,
+you will have to specify the entire path 
+$icode%omhelp_prefix%/bin/omhelp%$$ when 
 you execute it.
+
+
+$subhead omhelp_datadir$$
 The data files used by OMhelp are installed in
 $codei%
-	/usr/local/share/OMhelp
+	%omhelp_prefix%/%omhelp_datadir%/omhelp_data
 %$$
+The default value for $icode omhelp_datadir$$ is $code share$$.
 
-$subhead with-fortran$$
-If you specify
+$head Build Executable$$
+In the directory $code omhelp-20150118/build$$ execute the following command
 $codep
-	--with-fortran
+	make
 $$
-on the command line the $cref near_equal_f$$ example will be compiled
-and linked as part of the examples / tests.
+This should build the program
+$codep
+	omhelp-20150118/build/src/omhelp
+$$
+If you are using Cygwin or MinGw,
+the file $code omhelp$$ may possibly be $code omhelp.exe$$.
+If you have fortran, 
+and CMake can figure out how to link C to Fortran,
+the following program will also be built
+$codep
+	omhelp-20150118/build/omh/getstarted/run_all
+$$
+
+$head Build Documentation$$
+Starting in the $code omhelp-20150118$$ directory,
+execute the following commands
+$codep
+	mkdir dev
+	cd dev
+	../build/src/omhelp ../src/omh/omhelp.omh > ../omhelp.dev.log \
+		-noframe -xml -debug -omhelp_dir ../omhelp_data
+	cd ..
+	mkdir doc
+	cd doc
+	../build/src/omhelp ../omh/overview.omh -noframe -xml -debug \
+		-omhelp_dir ../omhelp_data
+$$
+This should complete without error, and so also functions as a test
+of the distribution.
+
+$head Install OMhelp$$
+In the directory $code omhelp-20150118/build$$ execute the following command
+$codep
+	make install
+$$
+
+$head Getting Started$$
+$index getstarted, using OMhelp$$
+$index OMhelp, getstarted using$$
+You can build the 
+$cref multiple_example_1$$ subtree of the OMhelp user documentation 
+by executing the following commands starting in the 
+$code omhelp-20150118$$ directory:
+$codei%
+	cd omh/getstarted
+	mkdir htm
+	cd htm
+	rm *.htm
+	omhelp ../multiple_example_1.omh
+%$$
+Note that the $code mkdir$$ and $code rm$$ commands will report
+errors if they are unnecessary.
+See the $cref get_started$$ section for more examples.
+
+$head Dictionary$$ 
+$index dictionary$$
+$index english.wrd$$
+$index local.wrd$$
+$index dictionary.bin$$
+OMhelp utility files are stored in the 
+$code omhelp-20150118/omhelp_data$$ directory.
+This directory can contain the files
+$codep
+	omhelp_data/english.wrd
+	omhelp_data/local.wrd
+$$
+the file $code local.wrd$$ is optional.
+If the file $code dictionary.bin$$ is not present,
+OMhelp combines $code english.wrd$$ and $code local.wrd$$
+to form
+$codep
+	omhelp_data/dictionary.bin
+$$
+The words in $code english.wrd$$ and $code local.wrd$$
+must be in alphabetic order, lower case, and contain only letters
+with one per line.
+For example,
+$codep
+	a
+	aardvark
+	aardvarks
+	...
+$$
+If you make any changes to $code english.wrd$$ or $code local.wrd$$,
+the file $code dictionary.bin$$ should be deleted.
+A new $code dictionary.bin$$ that combines the words $code english.wrd$$
+and $code local.wrd$$ can be created and installed by executing following 
+commands in the $code omhelp-20150118$$ directory:
+$codep
+	rm omhelp_data/dictionary.bin
+	cd doc
+	../build/src/omhelp ../omh/overview -noframe -xml -debug \
+		-omhelp_dir ../omhelp_data
+	cd ../build
+	make install
+$$ 
 
 $head Vim Editor$$
 $index vim, highlight syntax$$
@@ -125,10 +242,10 @@ $href%
 	http://www.vim.org/%
 	vim editor
 %$$
-syntax highlighting files are included in the distribution:
+syntax highlighting files are installed in:
 $codei%
-	%prefix%/share/OMhelp/vim/syntax/omhelp.vim
-	%prefix%/share/OMhelp/vim/ftdetect/omhelp.vim
+	%omhelp_prefix%/%omhelp_datadir%/omhelp_data/vim/syntax/omhelp.vim
+	%omhelp_prefix%/%omhelp_datadir%/omhelp_data/vim/ftdetect/omhelp.vim
 %$$
 If you copy the respective files to 
 $codei%
@@ -156,95 +273,5 @@ file $code .vimrc$$ in your home directory:
 $codep
 	:syntax on
 $$
-
-$head Build Executable and Documentation$$
-In the distribution directory, execute the following command:
-$codep
-	make
-$$
-This should create the following files and sub-directories of
-the distribution directory:
-
-$table
-$code src/omhelp$$            $cnext OMhelp executable program           $rnext
-$code OMhelp/dictionary.bin$$ $cnext OMhelp binary dictionary            $rnext
-$code Doc$$                   $cnext user documentation directory        $rnext
-$code Doc$$                   $cnext developer documentation directory  
-$tend
-
-(If you are using Cygwin or MinGw,
-the file $code src/omhelp$$ may possibly be $code src/omhelp.exe$$.) 
-The $code Doc$$ sub-directory of the distribution directory
-contains the user documentation for OMhelp.
-The files $codei%Doc/%*%.htm%$$ are in HTML format.
-If your browser supports XHTML+MathML format,
-an easier to read copy is available in the files
-$codei%Doc/%*%.xml%$$.
-
-$head Install OMhelp$$
-In the distribution directory, execute the following command:
-$codep
-	make install
-$$
-
-$head Dictionary$$ 
-$index dictionary$$
-$index english.wrd$$
-$index local.wrd$$
-$index dictionary.bin$$
-OMhelp utility files are stored in the $code OMhelp$$ subdirectory
-of the distribution directory.
-This directory must contains the files
-$codep
-	OMhelp/english.wrd
-	OMhelp/local.wrd
-$$
-If the file $code dictionary.bin$$ is not present,
-OMhelp will to creates a new dictionary 
-that combines $code english.wrd$$ and $code local.wrd$$
-(the file $code local.wrd$$ is optional) to form
-$codep
-	OMhelp/dictionary.bin
-$$
-The words in $code english.wrd$$ and $code local.wrd$$
-must be in alphabetic order, lower case, and contain only letters
-with one per line.
-For example,
-$codep
-	a
-	aardvark
-	aardvarks
-	...
-$$
-If you make any changes to $code english.wrd$$ or $code local.wrd$$,
-the file $code dictionary.bin$$ should be deleted.
-A new $code dictionary.bin$$ that combines the words $code english.wrd$$
-and $code local.wrd$$ will be created and installed by following 
-the installation steps:
-$codep
-	make
-	make install
-$$ 
-This will create the new dictionary and copy it to
-$codei%
-	%prefix%/share/OMhelp
-%$$
-
-$head Getting Started$$
-$index getstarted, using OMhelp$$
-$index OMhelp, getstarted using$$
-You can build the 
-$cref multiple_example_1$$ subtree of the OMhelp user documentation 
-by executing the following commands starting in the distribution directory 
-$codei%
-	cd omh/getstarted
-	mkdir htm
-	cd htm
-	rm *.htm
-	omhelp ../multiple_example_1.omh
-%$$
-Note that the $code mkdir$$ and $code rm$$ commands will report
-errors if they are unnecessary.
-See the $cref get_started$$ section for more examples.
 	
 $end

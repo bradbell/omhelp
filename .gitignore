@@ -1,0 +1,15 @@
+build
+dev
+doc
+new
+omhelp_data/dictionary.bin
+#
+*.swp
+*.log
+*/*.swp
+#
+junk.*
+*/junk.*
+#
+junk
+*/junk
