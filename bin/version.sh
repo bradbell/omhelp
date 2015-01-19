@@ -65,12 +65,14 @@ fi
 list='
 	omh/overview.omh
 	omh/installunix.omh
+	omh/installwindows.omh
 '
 for file in $list
 do
 	sed \
 		-e "s/omhelp-[0-9]\{8\}/omhelp-$version/" \
-		-e "s|/[0-9]\{8\}\.tar\.gz|$version.tar.gz|" \
+		-e "s|/[0-9]\{8\}\.tar\.gz|/$version.tar.gz|" \
+		-e "s|omhelp_version=[0-9]\{8\}|omhelp_version=$version|" \
 		-i.old $file
 done 
 for name in $list

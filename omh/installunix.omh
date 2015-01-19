@@ -68,7 +68,7 @@ $href%http://www.cmake.org%cmake%$$ version 2.8 or greater
 for its build procedure.
 Use the following link to download this version:
 $href%
-	https://github.com/bradbell/omhelp/archive20150118.tar.gz%
+	https://github.com/bradbell/omhelp/archive/20150118.tar.gz%
 	omhelp-20150118.tar.gz
 %$$
 
@@ -116,7 +116,7 @@ by default the OMhelp executable is installed in
 $codep
 	/usr/bin/omhelp
 $$
-If you do not have write permission for $code /usr/local$$,
+If you do not have write permission for $code /usr$$,
 you must specify a $icode prefix$$.
 If $icode%omhelp_prefix%/bin%$$ is not in your path,
 you will have to specify the entire path 
@@ -199,15 +199,15 @@ OMhelp utility files are stored in the
 $code omhelp-20150118/omhelp_data$$ directory.
 This directory can contain the files
 $codep
-	OMhelp/english.wrd
-	OMhelp/local.wrd
+	omhelp_data/english.wrd
+	omhelp_data/local.wrd
 $$
 the file $code local.wrd$$ is optional.
 If the file $code dictionary.bin$$ is not present,
 OMhelp combines $code english.wrd$$ and $code local.wrd$$
 to form
 $codep
-	OMhelp/dictionary.bin
+	omhelp_data/dictionary.bin
 $$
 The words in $code english.wrd$$ and $code local.wrd$$
 must be in alphabetic order, lower case, and contain only letters
