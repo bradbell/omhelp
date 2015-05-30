@@ -43,7 +43,7 @@ $section Maps Strings From Internal Meaning To Output File Representation$$
 $table
 $bold Syntax$$
 $cend $syntax%void Internal2OutSet(const char *%out%)%$$          $rnext
-$cend $syntax%const char *Internal2Out(const char *%internal%)%$$ 
+$cend $syntax%const char *Internal2Out(const char *%internal%)%$$
 $tend
 
 $fend 25$$
@@ -52,15 +52,15 @@ $head Description$$
 $syntax/Internal2OutSet/
 /$$
 sets the current output file type to $italic out$$ where
-$italic out$$ is equal to $code htm$$ or $code xml$$. 
+$italic out$$ is equal to $code htm$$ or $code xml$$.
 $syntax/
 
 /StrInternal2Out(/internal/)
 /$$
-The argument $italic internal$$ must be one of the internal 
+The argument $italic internal$$ must be one of the internal
 $xref/glossary/String/strings/$$
 listed in the table below.
-The return value it is one of the output strings listed in the 
+The return value it is one of the output strings listed in the
 table below
 (and depends on the output file type).
 
@@ -85,7 +85,7 @@ $pre <?xml version='1.0'?>
 <?xml-stylesheet type='text/xsl' href='pmathml.xsl'?>
 <html xmlns='http://www.w3.org/1999/xhtml'> $$
 
-$tend             
+$tend
 
 $end
 */
@@ -102,7 +102,7 @@ static char *Table[] = {
 "OutputExtension",     ".htm",     ".xml",
 "HtmlOnlyExtension",   ".htm", "_xml.htm",
 "SelfTerminateCmd",       ">",       "/>",
-"StartOutputFile",   "<html>", 
+"StartOutputFile",   "<html>",
 	"<?xml version='1.0'?>\n"
 	"<html xmlns='http://www.w3.org/1999/xhtml'\n"
 	"      xmlns:math='http://www.w3.org/1998/Math/MathML'\n"
