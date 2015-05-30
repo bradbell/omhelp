@@ -87,7 +87,7 @@ cross reference tag, NULL is returned.
 # include "math_jax.h"
 
 # ifndef WIN32
-# define stricmp strcasecmp 
+# define stricmp strcasecmp
 # endif
 
 
@@ -151,7 +151,7 @@ static int MindexSection;
 static int MindexHead;
 static int MindexSubhead;
 
-// the automaitc mindex sections for root section 
+// the automaitc mindex sections for root section
 static int MindexSectionRoot = 0;
 static int MindexHeadRoot    = 0;
 static int MindexSubheadRoot = 0;
@@ -208,11 +208,11 @@ enum MatchType {
 	CHILDTABLE_match,
 	ACCENT_match
 };
-	
+
 static char *MatchText[]  = {
-	"<HREF=\"", 
-	"<CONTENTS>", 
-	"<EXECUTE=\"", 
+	"<HREF=\"",
+	"<CONTENTS>",
+	"<EXECUTE=\"",
 	"<FEND>",
 	"<TITLE=\"",
 	"<TREF=\"",
@@ -233,7 +233,7 @@ static void fatal_not_2_dollar_or_text(int code_cmd1, int line1, int code_cmd2)
 		"Error in the ",
 		TokenCode2String(code_cmd1),
 		" command that begins in line ",
-		int2str(line1), 
+		int2str(line1),
 		".\nThis command is not terminated by $$ before ",
 		TokenCode2String( code_cmd2 ),
 		" appears.",
@@ -252,7 +252,7 @@ static int WhiteSpace(char *s)
 	}
 	return 1;
 }
-		
+
 
 static void OutPre(int line, const char *s)
 {	output_text(line,s,1,'\0',CheckSpell,ErrorColor); }
@@ -262,9 +262,9 @@ static void OutPre(int line, const char *s)
 
 static void PushOmhInput(SectionInfo *S)
 {	SectionInfo *P;
-	
+
 	int  nparent;
-	
+
 	// number of parents for this file
 	nparent  = 0;
 	P        = S->parent;
@@ -272,7 +272,7 @@ static void PushOmhInput(SectionInfo *S)
 	{	nparent++;
 		P = P->parent;
 	}
-	
+
 	// set next input file and index nparent spaces when
 	// printing its name on standard output
 	InputPush(S->root, S->ext, nparent);
@@ -319,18 +319,18 @@ static int MatchOrOutput(int ch)
 		return 0;
 	}
 	for(i = 0; i < MatchIndex; i++)
-		OutputChar(MatchBuffer[i]);			
+		OutputChar(MatchBuffer[i]);
 	MatchIndex = 0;
-	
+
 	if( ch != EOF )
 		OutputChar((char) ch);
-	
+
 	return 0;
 }
 
 
 static void SecondPass(SectionInfo *F)
-{	
+{
 	char *tagLower;
 	char *NameTmp;
 	FILE *fpTmp;
@@ -338,11 +338,11 @@ static void SecondPass(SectionInfo *F)
 	int  match;
 
 	// initialize to not defined
-	int   lastCrossReferenceDefined = 0; 
-	
+	int   lastCrossReferenceDefined = 0;
+
 	// following buffer must be enough larger than MAX_TAG
 	char buffer[200];
-	
+
 
 	assert( RootHasChildren || F == SectionTree );
 
@@ -379,9 +379,9 @@ static void SecondPass(SectionInfo *F)
 		}
 		else if( NoFrame() )
 		{	// new output file for this section
-			sprintf(buffer, 
-				"%s%s", 
-				tagLower, 
+			sprintf(buffer,
+				"%s%s",
+				tagLower,
 				FrameOneExt
 			);
 			PushOutput(buffer);
@@ -401,14 +401,14 @@ static void SecondPass(SectionInfo *F)
 			if( RootHasChildren )
 				RelativeFrame(F);
 			OutputFrameSet(F, FrameOneExt, RootHasChildren);
-	
+
 			// initialize user side frame index
 			iFrame = 1;
-			
+
 			// create first output file
-			sprintf(buffer, 
-				"%s_frame%d%s", 
-				tagLower, 
+			sprintf(buffer,
+				"%s_frame%d%s",
+				tagLower,
 				iFrame,
 				FrameOneExt
 			);
@@ -429,7 +429,7 @@ static void SecondPass(SectionInfo *F)
 				AutomaticLink(RootHasChildren, F);
 			}
 		}
-		
+
 		// read until end of file
 		ch    = getc(fpTmp);
 		while( ch != EOF )
@@ -437,7 +437,7 @@ static void SecondPass(SectionInfo *F)
 			match = MatchOrOutput(ch);
 
 			// check for an accent over a vowel
-			if( match == ACCENT_match ) 
+			if( match == ACCENT_match )
 			{	// convert to proper accent
 				buffer[0] = getc(fpTmp);
 				buffer[1] = '\0';
@@ -445,10 +445,10 @@ static void SecondPass(SectionInfo *F)
 				ch = getc(fpTmp);
 				assert( ch == '>' );
 			}
-			
+
 			// check for a cross reference
 			if( match == HREF_match )
-			{	
+			{
 				char *tag;
 				int npound   = 0;
 				int itag     = 0;
@@ -461,9 +461,9 @@ static void SecondPass(SectionInfo *F)
 				char *display_printid;
 
 				CrossReference *C = NULL;
-				
+
 				tag = AllocMem(1000, sizeof(char));
-				
+
 				// get the full pass1 cross reference
 				ch = getc(fpTmp);
 				while( ch != '"' )
@@ -479,7 +479,7 @@ static void SecondPass(SectionInfo *F)
 				// remove the matching >
 				ch = getc(fpTmp);
 				assert( ch == '>' );
-				
+
 				assert( npound == 4 );
 				assert( ipound[0] > 0);
 				assert( ipound[0] < ipound[1] );
@@ -497,7 +497,7 @@ static void SecondPass(SectionInfo *F)
 				external        = tag + ipound[1] + 1;
 				displayframe    = tag + ipound[2] + 1;
 				display_printid = tag + ipound[3] + 1;
-				
+
 				defined = strcmp(external, "true") == 0;
 				if( ! defined )
 				{
@@ -508,31 +508,31 @@ static void SecondPass(SectionInfo *F)
 					defined = C->defined;
 				}
 				lastCrossReferenceDefined = defined;
-				if( defined 
-				&& PrintableOmhelp() 
+				if( defined
+				&& PrintableOmhelp()
 				&& strcmp(external, "true") != 0 )
-				{	
+				{
 					HrefPrintablePass2(
 						C->printid,
-						display_printid 
+						display_printid
 					);
 				}
 				else if( defined )
 				{	HrefOutputPass2(
-						tag, 
-						head, 
+						tag,
+						head,
 						external,
 						displayframe
 					);
 				}
 				else
 				{	int matchtmp;
-					// remove the cross reference 
+					// remove the cross reference
 
 					// put cross reference text in red
 					if( PostWarnings() )
 					OutputString("<u><font color=\"red\">");
-					
+
 					// read and output until find </HREF>
 					matchtmp = NO_match;
 					while( matchtmp != ENDHREF_match )
@@ -544,7 +544,7 @@ static void SecondPass(SectionInfo *F)
 					if( PostWarnings() )
 					OutputString("</font></u>\n");
 				}
-				
+
 				FreeMem(tag);
 			}
 
@@ -552,23 +552,23 @@ static void SecondPass(SectionInfo *F)
 			if( match == CHILDTABLE_match )
 			{	TableChildren(F, PrintableOmhelp() );
 			}
-			if( match == CONTENTS_match ) 
+			if( match == CONTENTS_match )
 			{	ListChildren(F, PrintableOmhelp() );
 			}
 			if( match == CHILDREN_match )
 			{	// do nothing
 			}
-			
+
 			// check for execute reference
 			if( match == EXECUTE_match )
 			{	char *execute;
 				char *lower;
 
 				int i = 0;
-				
+
 				execute = AllocMem(1000, sizeof(char));
 				ch = getc(fpTmp);
-				
+
 				while( ch != '"' )
 				{	execute[i++] = ch;
 					ch = getc(fpTmp);
@@ -584,12 +584,12 @@ static void SecondPass(SectionInfo *F)
 				// note the color for cross reference
 				// that referrs to an execute
 				FormatOutput(
-					"<a href=\"%s\" target=\"_top\">", 
+					"<a href=\"%s\" target=\"_top\">",
 					lower
 				);
 				OutputString("<font color=\"green\">");
 				FormatOutput("%s</font></a>", execute);
-				
+
 				FreeMem(lower);
 				FreeMem(execute);
 			}
@@ -605,9 +605,9 @@ static void SecondPass(SectionInfo *F)
 
 				iFrame++;
 				sprintf(
-					buffer, 
-					"%s_frame%d%s", 
-					tagLower, 
+					buffer,
+					"%s_frame%d%s",
+					tagLower,
 					iFrame,
 					Internal2Out("OutputExtension")
 				);
@@ -620,8 +620,8 @@ static void SecondPass(SectionInfo *F)
 				// Automatic links to this section and frame
 				AutomaticLink(0, F);
 			}
-	
-			if( match == TREF_match || 
+
+			if( match == TREF_match ||
 			    match == RREF_match ||
 			    match == TITLE_match
 			)
@@ -700,19 +700,19 @@ static void SecondPass(SectionInfo *F)
 			{
 				HrefEnd("");
 			}
-		
+
 			// get next character
 			ch = getc(fpTmp);
 		}
 
-		
+
 		// flush output and reset state to zero
 		MatchOrOutput(EOF);
 		if( ! PrintableOmhelp() )
 		{	OutputString("\n</body>\n</html>\n");
 			PopOutput();
 		}
-		
+
 		// close this input file
 		fclose(fpTmp);
 
@@ -730,7 +730,7 @@ static void SecondPass(SectionInfo *F)
 			assert( strcmp(F->children->tag, CONTENTS_TAG) == 0 );
 			assert( F->next     == NULL );
 		}
-		
+
 		// now siblings
 		F = F->next;
 
@@ -749,7 +749,7 @@ static void Appendices()
 	AutomaticAppendSection(
 		SectionTree,
 		REFERENCE_TAG,
-		"Alphabetic Listing of Cross Reference Tags", 
+		"Alphabetic Listing of Cross Reference Tags",
 		letterheadings
 	);
 	FunRefPass1( SectionFind(SectionTree, REFERENCE_TAG) );
@@ -786,8 +786,8 @@ static void Appendices()
 			"External Internet References",
 			letterheadings
 		);
-		HrefOutputList( 
-			SectionFind(SectionTree, EXTERNAL_TAG) 
+		HrefOutputList(
+			SectionFind(SectionTree, EXTERNAL_TAG)
 		);
 	}
 
@@ -799,7 +799,7 @@ static void FinishUp()
 	FILE *fp = NULL;
 
 # if 0
-	// free memory corresponding to patterns 
+	// free memory corresponding to patterns
 	hilite_pattern(0, 0, "");
 	hilite_set_default();
 # endif
@@ -820,7 +820,7 @@ static void FinishUp()
 
 		// file corresponding to the root section
 		root_file_name = strjoin(
-			SectionTree->tagLower, 
+			SectionTree->tagLower,
 			Internal2Out("OutputExtension")
 		);
 
@@ -828,7 +828,7 @@ static void FinishUp()
 	else
 	{	// file corresponding to the root section
 		root_file_name = strjoin(
-			PRINTABLE_TAG, 
+			PRINTABLE_TAG,
 			Internal2Out("OutputExtension")
 		);
 		PushOutput(root_file_name);
@@ -855,7 +855,7 @@ static void FinishUp()
 	fprintf(fp, "</script></head></html>\n");
 	fclose(fp);
 	FreeMem(root_file_name);
-	
+
 	FunRefFree();
 	IndexFreeMem();
 
@@ -878,7 +878,7 @@ static void FinishUp()
 static void SkipCodep(int line, char *s)
 {	char *next;
 	char *last;
-	
+
 	next = s;
 	last  = s + strlen(s) - 1;
 
@@ -910,7 +910,7 @@ static void SkipCodep(int line, char *s)
 		NULL
 	);
 
-	
+
 	// skift the string pointed to by s
 	while( next <= last )
 		*s++ = *next++;
@@ -938,7 +938,7 @@ void InitParser(const char *StartingInputFile)
 	char *searchTitle;
 	int letterheadings;
 
-	// initialize LocalName to avoid warning 
+	// initialize LocalName to avoid warning
 	// (compiler does not know fatalerr will not return)
 	char *LocalName = NULL;
 
@@ -962,7 +962,7 @@ void InitParser(const char *StartingInputFile)
 
 
 	InputInit(LocalDirectory);
-	
+
 	assert(SectionTree == NULL);
 
 	// starting of section tree
@@ -1088,12 +1088,12 @@ start
 	;
 
 init
-	: 
+	:
 	{	yydebug = 0;
 	}
 	;
-	
-element 
+
+element
 	: accent
 	| aindex
 	| align
@@ -1159,7 +1159,7 @@ element
 	{	assert( $1.str != NULL );
 
 		if( PreviousOutputWasHeading )
-		{	
+		{
 			char *s = $1.str;
 			char ch = *s++;
 
@@ -1175,7 +1175,7 @@ element
 			}
 			// otherwise suspend judgement on the extra new line
 		}
-	
+
 		output_text($1.line,$1.str,0,'\0',CheckSpell,ErrorColor);
 		FreeMem($1.str);
 
@@ -1193,11 +1193,11 @@ element
 	| wspace
 	| xref
 	;
-	
+
 element_list
 	: element
 	{	assert( $1.str == NULL );
-		$$ = $1; 
+		$$ = $1;
 	}
 	| element_list element
 	{	assert( $1.str == NULL );
@@ -1206,7 +1206,7 @@ element_list
 	;
 
 accent
-	: ACCENT_lex 
+	: ACCENT_lex
 	{	char ch;
 
 		// initlaize to avoid warning
@@ -1350,7 +1350,7 @@ align
 		FreeMem($2.str);
 	}
 	;
-	
+
 argument
 	: text
 	{	assert( $1.str != NULL );
@@ -1372,7 +1372,7 @@ begin
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
-		
+
 		if( BeginCount != EndCount ) fatalomh(
 			"The $begin command on line ",
 			int2str($1.line),
@@ -1380,7 +1380,7 @@ begin
 			"was terminated by a $end",
 			NULL
 		);
-		BeginCount++; 
+		BeginCount++;
 
 		assert( PreviousOutputWasHeading == 0 );
 
@@ -1400,7 +1400,7 @@ begin
 				NULL
 			);
 			F = SectionInfoNew(SectionTree, InputName());
-			
+
 			// links for this section
 			F->next           = CurrentSection->next;
 			F->previous       = CurrentSection;
@@ -1421,7 +1421,7 @@ begin
 		tag = $2.str;
 		SectionSetTag(CurrentSection, tag);
 		tag_lower = CurrentSection->tagLower;
-		
+
 		/*
 		check for an invalid section tag
 		*/
@@ -1498,7 +1498,7 @@ begin
 
 		// erase the current program comment character
 		NewlineCh = '\0';
-		
+
 		// reset the current escape character
 		Escape = EscapeRoot;
 
@@ -1521,7 +1521,7 @@ begin
 
 		// reset the current number of characters between tab columns
 		ConvertSetTabSize(TAB_SIZE);
-			
+
 		// erase the current heading setting
 		InitializeHeading();
 
@@ -1532,7 +1532,7 @@ begin
 		hilite_get_default();
 
 		// ********************************************************
-		
+
 		// define cross reference point
 		number = SectionNumber(CurrentSection);
 		C      = DefineCrossReference(tag, "", InputName(), 0, number);
@@ -1570,14 +1570,14 @@ bgcolor
 		CurrentSection->style.bgcolor = Color(
 			$1.line, "$bgcolor", $2.str
 		);
-		
+
 		FreeMem($2.str);
 		$$ = $1;
 	}
 	;
 
 big_begin
-	: BIG_lex 
+	: BIG_lex
 	{	assert( $1.str == NULL );
 
 		OutputString("<big>");
@@ -1602,7 +1602,7 @@ big
 
 
 bold_begin
-	: BOLD_lex 
+	: BOLD_lex
 	{	assert( $1.str == NULL );
 
 		OutputString("<b>");
@@ -1642,13 +1642,13 @@ codei
 
 		color_switch($2.str, "blue", "black", Escape,
 			$1.line, "codei", CheckSpell, ErrorColor);
-		
+
 		FreeMem($2.str);
 		$$ = $1;
 	}
 	;
-	
-	
+
+
 cnext
 	: cnext_cases
 	{	assert( $1.str == NULL );
@@ -1676,14 +1676,14 @@ cnext
 cnext_cases
 	: CEND_lex
 	{	assert( $1.str == NULL );
-		$$ = $1; 
+		$$ = $1;
 	}
 	| CNEXT_lex
 	{	assert( $1.str == NULL );
-		$$ = $1; 
+		$$ = $1;
 	}
 	;
-	
+
 center_begin
 	: CENTER_lex
 	{	assert( $1.str == NULL );
@@ -1728,7 +1728,7 @@ contents
 		$$.line = $1.line;
 	}
 	;
-	
+
 childhead
 	: contents
 	{
@@ -1759,7 +1759,7 @@ childhead
 		OutputString("<b><big>");
 		if( PrintableOmhelp() )
 		{	FormatOutput2(
-				"<a name=\"%s\" id=\"%s\">", 
+				"<a name=\"%s\" id=\"%s\">",
 				printid,
 				printid
 			);
@@ -1771,7 +1771,7 @@ childhead
 				HeadingAndSubHeading()
 			);
 			FormatOutput2(
-				"<a name=\"%s\" id=\"%s\">", 
+				"<a name=\"%s\" id=\"%s\">",
 				converted,
 				converted
 			);
@@ -1784,7 +1784,7 @@ childhead
 
 		// defined cross reference point
 		C = DefineCrossReference(
-			CurrentSection->tag, 
+			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			InputName(),
 			iFrame,
@@ -1827,7 +1827,7 @@ childlist
 
 		// delimiter is first character in text;
 		del        = *($2.str);
-	       
+
 		// last character in text
 		p          = $2.str + strlen($2.str) - 1;
 		if( *p != del ) fatalomh(
@@ -1844,10 +1844,10 @@ childlist
 		while(p - 1 > $2.str)
 		{	// end of this file name
 			*p = '\0';
-			
+
 			// find begining of this file name
 			while( *p != del ) p--;
-			
+
 			// skip white space
 			name = p + 1;
 			while( isspace((int) *name) ) name++;
@@ -1861,22 +1861,22 @@ childlist
 				int2str($1.line),
 				NULL
 			);
-			
+
 			// add to the file list
 			F = SectionInfoNew(SectionTree, name);
 
 			// if the file does not exist, generate error
 			// message when it is specified and not later
 			InputSearch(F->root, F->ext);
-			
+
 			// link it up at the front of the list of children
 			F->next = list;
 			if( list != NULL )
 				list->previous  = F;
 			F->parent   = CurrentSection;
 			list = F;
-		}	
-		
+		}
+
 		// link this list to parent
 		if( CurrentSection->children == NULL )
 			CurrentSection->children = list;
@@ -1898,7 +1898,7 @@ childlist
 			OutputString("<CHILDTABLE>");
 		else	assert(0);
 
-		
+
 		FreeMem($1.str);
 		FreeMem($2.str);
 
@@ -1908,7 +1908,7 @@ childlist
 	;
 
 children
-	: CHILDREN_lex 
+	: CHILDREN_lex
 	{	assert( $1.str == NULL );
 
 		RootHasChildren = 1;
@@ -1934,13 +1934,13 @@ cmindex : CINDEX_lex
 	| MINDEX_lex
 	{	assert( $1.str == NULL );
 
-		$$.str  = str_alloc("$mindex"); 
+		$$.str  = str_alloc("$mindex");
 		$$.line = $1.line;
 	}
 	| INDEX_lex
 	{	assert( $1.str == NULL );
 
-		$$.str  = str_alloc("$index"); 
+		$$.str  = str_alloc("$index");
 		$$.line = $1.line;
 	}
 	;
@@ -1953,9 +1953,9 @@ cmark
 	{	assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
-	
+
 		Cmark  = *($2.str);
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -1963,7 +1963,7 @@ cmark
 	;
 
 code_begin
-	: CODE_lex 
+	: CODE_lex
 	{	assert( $1.str == NULL );
 
 		OutputString("<code><font color=\"");
@@ -2003,7 +2003,7 @@ codecolor
 		FreeMem($2.str);
 		$$ = $1;
 	}
-	;	
+	;
 
 
 codep
@@ -2060,7 +2060,7 @@ codep
 			);
 		}
 		OutputString("</pre></font></code>\n");
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -2107,7 +2107,7 @@ cref
 		{	ConvertForcedNewline(1);
 			PreviousOutputWasHeading = 0;
 		}
-		
+
 
 		// split text into tokens
 		ntoken = SplitText($1.line, "$cref", $2.str);
@@ -2117,7 +2117,7 @@ cref
 			"\nMore than 5 delimiters in $cref command",
 			NULL
 		);
-		
+
 		// text for reference
 		text = $2.str + 1;
 		tag  = text + strlen(text) + 1;
@@ -2145,7 +2145,7 @@ cref
 			tag = text;
 		}
 
-		// head 
+		// head
 		if( ntoken >= 3 )
 		{	subhead = head + strlen(head) + 1;
 			UniformWhiteSpace(head);
@@ -2186,7 +2186,7 @@ cref
 			j         = 0;
 			head[i++] = '.';
 			while( subhead[j] != '\0' )
-				head[i++] = subhead[j++];	
+				head[i++] = subhead[j++];
 			head[i] = '\0';
 		}
 
@@ -2198,10 +2198,10 @@ cref
 		// output other information with spell checking
 		if( ntoken >= 2 )
 			CheckSpell = checkspell;
-		
+
 		OutPre($2.line, text);
 		HrefEnd("\n");
-		
+
 		// search for this cross reference
 		C = FindCrossReference(tag, head);
 		if( C == NULL )
@@ -2210,7 +2210,7 @@ cref
 
 		// restore spell checking to initial setting
 		CheckSpell = checkspell;
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -2264,7 +2264,7 @@ dollar
 		assert( $3.str == NULL );
 
 		Dollar = *($2.str);
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -2272,7 +2272,7 @@ dollar
 	;
 
 end
-	: END_lex 
+	: END_lex
 	{	assert( $1.str == NULL );
 
 		// do not need extra new line after previous heading
@@ -2347,7 +2347,7 @@ end
 
 		// output name of current input file
 		if( DebugOmhelp ) FormatOutput2(
-			"\n<hr%sInput File: %s\n", 
+			"\n<hr%sInput File: %s\n",
 			Internal2Out("SelfTerminateCmd"),
 			InputName()
 		);
@@ -2364,13 +2364,13 @@ end
 		ErrorColor   = NULL;
 		CodeColor    = NULL;
 		HiliteColor  = NULL;
-		
+
 		PopOutput();
-		
+
 		$$ = $1;
 	}
 	;
-	
+
 
 eof
 	: EOF_lex
@@ -2399,7 +2399,7 @@ eof
 		else
 		{
 		// not include file case ***********************************
-		
+
 		if( BeginCount == 0 ) fatalomh(
 			"No ",
 			$1.str,
@@ -2435,11 +2435,11 @@ eof
 		// multiple sections in it
 		while( S->previous != NULL )
 			S = S->previous;
-		
+
 		// check for an unread input file  (skip automatic sections)
 		done = 1;
 		while( done && S != NULL )
-		{	
+		{
 			// check children first
 			I    = S->children;
 			while( IsAutomaticSection(I) )
@@ -2467,12 +2467,12 @@ eof
 					assert( S == NULL ||
 						SectionTagNotDefined(
 							S->children
-						) == NULL 
+						) == NULL
 					);
 				}
 			}
-		}	
-				
+		}
+
 		// erase the current heading setting
 		InitializeHeading();
 
@@ -2483,7 +2483,7 @@ eof
 
 		}
 		else
-		{	
+		{
 			if( RootHasChildren )
 				Appendices();
 			FinishUp();
@@ -2512,7 +2512,7 @@ errorcolor
 		FreeMem($2.str);
 		$$ = $1;
 	}
-	;	
+	;
 
 escape
 	: ESCAPE_lex text not_2_dollar_or_text
@@ -2527,14 +2527,14 @@ escape
 
 		if( CurrentSection->parent == NULL )
 			EscapeRoot = Escape;
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
 	}
 	;
 
-	
+
 execute
 	: EXECUTE_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
@@ -2562,7 +2562,7 @@ execute
 			InputName(),
 			NULL
 		);
-		
+
 	       	// file name for error reporting
 		ExecuteFile = str_alloc(InputName());
 		ExecuteLine = $1.line;
@@ -2570,16 +2570,16 @@ execute
 		// file name to write to
 		assert( CurrentSection->tag != NULL );
 		ExecuteSetFile($2.str, CurrentSection->tag);
-		
+
 		// insert link to execute
 		FormatOutput("<EXECUTE=\"%s\">", $2.str);
-	
+
 		FreeMem($2.str);
 
 		$$ = $1;
-	}	
+	}
 	;
-	
+
 
 fend
 	: FEND_lex text not_2_dollar_or_text
@@ -2613,7 +2613,7 @@ fend
 				int2str($1.line),
 				NULL
 			);
-	
+
 			above   = atoi($2.str);
 			if( above < 5 ) fatalomh(
 				"In the $fend command in line ",
@@ -2622,7 +2622,7 @@ fend
 				"is less than 5 percent\n",
 				NULL
 			);
-	
+
 			below = CurrentSection->Frame[iFrame - 1] - above;
 			if( below < 5 ) fatalomh(
 				"At the $fend command in line ",
@@ -2633,17 +2633,17 @@ fend
 				"is greater than 95 percent",
 				NULL
 			);
-	
+
 			CurrentSection->Frame[iFrame - 1] = above;
 			CurrentSection->Frame[iFrame]     = below;
 			CurrentSection->nFrame = iFrame   = iFrame + 1;
-			
+
 			OutputString("\n<FEND>\n");
 
 			// a new frame separates as well as two newlines
 			ConvertAddPrevious(2);
-			
-	
+
+
 		}
 		else
 		{	// use two newlines to separate in printable version
@@ -2656,7 +2656,7 @@ fend
 	;
 
 fixed_begin
-	: FIXED_lex 
+	: FIXED_lex
 	{	assert( $1.str == NULL );
 
 		OutputString("<code>");
@@ -2684,7 +2684,7 @@ head
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
 	}
 	| HEAD_lex argument DOUBLE_DOLLAR_lex
-	{	
+	{
 		CrossReference *C;
 		char           *noEscape;
 		char           *converted;
@@ -2715,7 +2715,7 @@ head
  			"\nThe character '#' is not allowed in headings",
  			NULL
  		);
- 
+
 		// version of heading without escape characters
 		noEscape = str_alloc($2.str);
 		if( MindexHead )
@@ -2739,7 +2739,7 @@ head
 		OutputString("<b><big>");
 		if( PrintableOmhelp() )
 		{	FormatOutput2(
-				"<a name=\"%s\" id=\"%s\">", 
+				"<a name=\"%s\" id=\"%s\">",
 				printid,
 				printid
 			);
@@ -2751,7 +2751,7 @@ head
 				HeadingAndSubHeading()
 			);
 			FormatOutput2(
-				"<a name=\"%s\" id=\"%s\">", 
+				"<a name=\"%s\" id=\"%s\">",
 				converted,
 				converted
 			);
@@ -2763,7 +2763,7 @@ head
 
 		// defined cross reference point
 		C = DefineCrossReference(
-			CurrentSection->tag, 
+			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			InputName(),
 			iFrame,
@@ -2778,10 +2778,10 @@ head
 
 			// add keywords to search for this section
 			SearchKeywords(lower, Escape);
-		
+
 			MultipleIntoIndex(
-				lower, 
-				CurrentSection->tag, 
+				lower,
+				CurrentSection->tag,
 				HeadingAndSubHeading(),
 				Escape
 			);
@@ -2827,7 +2827,7 @@ hilitecolor
 		FreeMem($2.str);
 		$$ = $1;
 	}
-	;	
+	;
 
 
 hiliteseq
@@ -2864,7 +2864,7 @@ href
 		{	ConvertForcedNewline(1);
 			PreviousOutputWasHeading = 0;
 		}
-		
+
 		// initial state of spell checker
 		checkspell = CheckSpell;
 
@@ -2876,7 +2876,7 @@ href
 			"\nTo many delimiters in the delimiter sequence",
 			NULL
 		);
-		
+
 		// internet address for reference
 		url = $2.str + 1;
 
@@ -2895,7 +2895,7 @@ href
 			int2str($1.line),
 			"\nMust use \"/\" in place of \"\\\" in uri",
 			NULL
-		); 
+		);
 
 		// linking text for reference
 		if( ntoken < 2 )
@@ -2930,8 +2930,8 @@ href
 		{	*heading = '\0';
 			heading++;
 		}
-		else	heading = "\0"; 
-		
+		else	heading = "\0";
+
 
 		// output the internet reference
 		CheckSpell = 0;
@@ -2942,7 +2942,7 @@ href
 			tag,
 			heading
 		);
-		
+
 		if( ntoken < 2 )
 			OutPre($2.line, url);
 		else	OutPre($2.line, link);
@@ -2953,7 +2953,7 @@ href
 			output_text($2.line,url,0,'\0',CheckSpell,ErrorColor);
 			OutputString(") ");
 		}
-		
+
 		CheckSpell = checkspell;
 		FreeMem(tag);
 		FreeMem($2.str);
@@ -2979,32 +2979,32 @@ icode
 
 		color_switch($2.str, "black", "blue", Escape,
 			$1.line, "icode", CheckSpell, ErrorColor);
-		
+
 		FreeMem($2.str);
 		$$ = $1;
 	}
 	;
 
 image_begin
-	: ICON_lex 
+	: ICON_lex
 	{	assert( $1.str == NULL );
-	
+
 		$$.str  = str_alloc("$icon");
 		$$.line = $1.line;
 
 	}
-	| IMAGE_lex 
+	| IMAGE_lex
 	{	assert( $1.str == NULL );
 
 		$$.str  = str_alloc("$image");
 		$$.line = $1.line;
 	}
 	;
-	
-	
+
+
 image
 	: image_begin text DOUBLE_DOLLAR_lex
-	{	
+	{
 
 		char *root;
 		char *ext;
@@ -3037,7 +3037,7 @@ image
 			ClipWhiteSpace(file_out);
 		}
 		ClipWhiteSpace(file_in);
-			
+
 
 		// determine root and extension
 		InputSplitName(&root, &ext, file_in);
@@ -3048,7 +3048,7 @@ image
 			ext = str_alloc(".gif");
 		}
 		else if( stricmp( ext, Internal2Out("OutputExtension") ) == 0 )
-		fatalomh( 
+		fatalomh(
 			"The file ",
 			file_in,
 			" following command ",
@@ -3060,8 +3060,8 @@ image
 			" for its file extension",
 			NULL
 		);
-		
-		
+
+
 		// file name including extension
 		name     = strjoin(root, ext);
 		fullname = strjoin( InputSearch(root, ext) , name);
@@ -3070,7 +3070,7 @@ image
 		if( file_out != NULL )
 			file = file_out;
 		else	file = fullname;
-	
+
 		// determine the local file name
 		i = strlen(file) - 1;
 		while( i > 0 && file[i] != '\\' && file[i] != '/' )
@@ -3145,7 +3145,7 @@ image
 
 			OutputString("<center>");
 			FormatOutput2(
-				"<img src=\"%s\"%s\n", 
+				"<img src=\"%s\"%s\n",
 				localname,
 				Internal2Out("SelfTerminateCmd")
 			);
@@ -3210,7 +3210,7 @@ include
 		// remember the command key character in the original file
 		cmd_key_char = GetCommandKeyCharacter();
 
-		// set input file 
+		// set input file
 		InputPush(root, ext, -1);
 
 		// keep the same command key character in the included file
@@ -3222,10 +3222,10 @@ include
 		FreeMem($2.str);
 
 		$$ = $1;
-	} 
+	}
 	;
-		
-		 
+
+
 index
 	: cmindex text DOUBLE_DOLLAR_lex
 	{	char *text = $2.str;
@@ -3238,10 +3238,10 @@ index
 
 		// add keywords to search for this section
 		SearchKeywords(text, Escape);
-		
+
 		// check for seplling error
 		if( CheckSpell )
-		{	
+		{
 			const char *s = $2.str;
 			int i, j;
 			int nchar;
@@ -3257,7 +3257,7 @@ index
 				{	line += (s[j] == '\n');
 					j++;
 				}
-				
+
 
 				// begin standard output version of error
 				printf(
@@ -3298,24 +3298,24 @@ index
 				next_error = SpellingError(s + i, &nchar);
 			}
 		}
-		
-	
+
+
 		// new entry
 		if( strcmp($1.str, "$index") == 0 ) InsertInIndex(
-			text, 
-			CurrentSection->tag, 
+			text,
+			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			Escape
 		);
 		else if( strcmp($1.str, "$cindex") == 0 ) CycleIntoIndex(
-			text, 
-			CurrentSection->tag, 
+			text,
+			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			Escape
 		);
 		else if( strcmp($1.str, "$mindex") == 0 ) MultipleIntoIndex(
-			text, 
-			CurrentSection->tag, 
+			text,
+			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			Escape
 		);
@@ -3330,7 +3330,7 @@ index
 	;
 
 italic_begin
-	: ITALIC_lex 
+	: ITALIC_lex
 	{	assert( $1.str == NULL );
 
 		OutputString("<i>");
@@ -3463,7 +3463,7 @@ latex
 		{	int checkspell = CheckSpell;
 			CheckSpell     = 0;
 
-			assert( strcmp(".htm", 
+			assert( strcmp(".htm",
 				Internal2Out("OutputExtension") ) == 0 );
 
 
@@ -3488,14 +3488,14 @@ latex
 			math_jax($2.str);
 			CheckSpell = checkspell;
 		}
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
 	}
 	;
 
-	
+
 lend
 	: LEND_lex
 	{	assert( $1.str == NULL );
@@ -3541,7 +3541,7 @@ linkcolor
 		CurrentSection->style.linkcolor = Color(
 			$1.line, "$linkcolor", $2.str
 		);
-		
+
 		FreeMem($2.str);
 		$$ = $1;
 	}
@@ -3607,7 +3607,7 @@ list
 			NULL
 		);
 
-		ListLevel++;	
+		ListLevel++;
 
 		OutputString(cmd);
 
@@ -3673,12 +3673,12 @@ math
 		}
 
 		OutputMath(ntoken, $2.str + 1, Escape, ItalicCount > 0);
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
 	}
-	
+
 	;
 
 mref
@@ -3700,14 +3700,14 @@ mref
 		{	ConvertForcedNewline(1);
 			PreviousOutputWasHeading = 0;
 		}
-		
+
 		// suspend spell checking
 		checkspell = CheckSpell;
 		CheckSpell = 0;
 
 		// split text into tokens
 		nref = SplitText($1.line, "$mref", $2.str);
-		
+
 		// tag for reference
 		tag = $2.str + 1;
 
@@ -3727,13 +3727,13 @@ mref
 				"following $mref command",
 				NULL
 			);
-	
+
 			// output the cross reference
 			OutputString(" ");
 			HrefOutputPass1(tag, "", "false", "", "true");
 			OutPre($2.line, tag);
 			HrefEnd("\n");
-			
+
 			// search for this cross reference
 			C = FindCrossReference(tag, "");
 			if( C == NULL )
@@ -3742,15 +3742,15 @@ mref
 
 		       	// next cross reference
 			tag = next;
-			
+
 			// separator between entries
 			if( nref >= 1)
 				OutputString(", ");
 		}
-		
+
 		// restore spell checking to original state
 		CheckSpell = checkspell;
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -3775,7 +3775,7 @@ navigate
 		FreeMem($2.str);
 	}
 	;
-			
+
 
 newlinech
 	: NEWLINECH_lex text not_2_dollar_or_text
@@ -3795,7 +3795,7 @@ newlinech
 		);
 
 		NewlineCh = *($2.str);
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -3816,7 +3816,7 @@ nobreak
 		OutputString("<span style='white-space: nowrap'>");
 		output_text($2.line,$2.str,pre,'\0',CheckSpell,ErrorColor);
 		OutputString("</span>\n");
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -3867,8 +3867,8 @@ number
 			PreviousOutputWasHeading = 0;
 		}
 
-		OutputMath(1, $1.str, '\0', ItalicCount > 0);	
-		
+		OutputMath(1, $1.str, '\0', ItalicCount > 0);
+
 		FreeMem($1.str);
 
 		$$.str  = NULL;
@@ -3888,7 +3888,7 @@ path
 		assert( $3.str == NULL );
 
 		// only use path command at root level
-		if( CurrentSection == SectionTree ) 
+		if( CurrentSection == SectionTree )
 		{
 			// split text into tokens
 			ntoken = SplitText($1.line, "$path", $2.str);
@@ -3898,17 +3898,17 @@ path
 				"\n$path command expects three delimiters",
 				NULL
 			);
-		
+
 			// path token
 			path = $2.str + 1;
-	
+
 			// extension token
 			ext  = path + strlen(path) + 1;
 
 			InputAddPath(path, ext);
 		}
 
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -3949,7 +3949,7 @@ pre
 		OutputString("<code>");
 		OutPre($2.line, $2.str);
 		OutputString("</code>");
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -4014,7 +4014,7 @@ rmark
 		assert( $3.str == NULL );
 
 		Rmark  = *($2.str);
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -4051,7 +4051,7 @@ rref
 
 		// output the cross reference
 		FormatOutput("<RREF=\"%s\">", tag);
-			
+
 		// search for this cross reference
 		C = FindCrossReference(tag, "");
 		if( C == NULL )
@@ -4063,7 +4063,7 @@ rref
 		$$ = $1;
 	}
 	;
-	
+
 section
 	: SECTION_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
@@ -4075,7 +4075,7 @@ section
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
 
-		// I guess some one might put a paragraph heading 
+		// I guess some one might put a paragraph heading
 		// for an empty paragraph directly before the section title
 		if( PreviousOutputWasHeading )
 			PreviousOutputWasHeading = 0;
@@ -4094,7 +4094,7 @@ section
 		if( MindexSection )
 			StrRemove(noEscape, Escape);
 		CurrentSection->title = str_alloc(noEscape);
-		
+
 		// title for this topic
 		SearchTitle(noEscape);
 
@@ -4115,7 +4115,7 @@ section
 			if( printid[0] != '\0' )
 			{
 				FormatOutput2(
-					"<a name=\"%s\" id=\"%s\">", 
+					"<a name=\"%s\" id=\"%s\">",
 					printid,
 					printid
 				);
@@ -4142,10 +4142,10 @@ section
 
 			// add keywords to search for this section
 			SearchKeywords(lower, Escape);
-		
+
 			MultipleIntoIndex(
-				lower, 
-				CurrentSection->tag, 
+				lower,
+				CurrentSection->tag,
 				HeadingAndSubHeading(),
 				Escape
 			);
@@ -4172,11 +4172,11 @@ skipnl
 			"the OMhelp language",
 			NULL
 		);
-	}	
+	}
 	;
-	
+
 small_begin
-	: SMALL_lex 
+	: SMALL_lex
 	{	assert( $1.str == NULL );
 
 		OutputString("<small>");
@@ -4199,7 +4199,7 @@ small
 		$$ = $1;
 	}
 	;
-	
+
 spell
 	: SPELL_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
@@ -4217,14 +4217,14 @@ spell
 
 		$$ = $1;
 	}
-	;	
+	;
 
 subhead
 	: SUBHEAD_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
 	}
 	| SUBHEAD_lex argument DOUBLE_DOLLAR_lex
-	{	
+	{
 		CrossReference *C;
 		char           *number = NULL;
 		char           *printid = NULL;
@@ -4234,7 +4234,7 @@ subhead
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
-		
+
 		if( TableLevel > 0 ) fatalomh(
 			"The $subhead command in line ",
 			int2str($1.line),
@@ -4252,7 +4252,7 @@ subhead
  			"\nThe character '#' is not allowed in headings",
  			NULL
  		);
- 
+
  		// make sure no # characters in heading
  		if( strchr($2.str, '#') != NULL ) fatalomh(
  			"$subhead command in line ",
@@ -4286,7 +4286,7 @@ subhead
 		OutputString("<b>");
 		if( PrintableOmhelp() )
 		{	FormatOutput2(
-				"<a name=\"%s\" id=\"%s\">", 
+				"<a name=\"%s\" id=\"%s\">",
 				printid,
 				printid
 			);
@@ -4298,7 +4298,7 @@ subhead
 				HeadingAndSubHeading()
 			);
 			FormatOutput2(
-				"<a name=\"%s\" id=\"%s\">", 
+				"<a name=\"%s\" id=\"%s\">",
 				converted,
 				converted
 			);
@@ -4310,7 +4310,7 @@ subhead
 
 		// defined cross reference point
 		C = DefineCrossReference(
-			CurrentSection->tag, 
+			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			InputName(),
 			iFrame,
@@ -4325,10 +4325,10 @@ subhead
 
 			// add keywords to search for this section
 			SearchKeywords(lower, Escape);
-		
+
 			MultipleIntoIndex(
-				lower, 
-				CurrentSection->tag, 
+				lower,
+				CurrentSection->tag,
 				HeadingAndSubHeading(),
 				Escape
 			);
@@ -4364,7 +4364,7 @@ syntax
 
 		// first token
 		token = $2.str + 1;
-		
+
 		// initialize delimter count flag
 		count  = 1;
 
@@ -4386,7 +4386,7 @@ syntax
 
 			PreviousOutputWasHeading = 0;
 		}
-		
+
 
 		// for each token
 		while( ntoken-- )
@@ -4410,13 +4410,13 @@ syntax
 			count++;
 			token = next;
 		}
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
 	}
 	;
-	
+
 table
 	: TABLE_lex
 	{	assert( $1.str == NULL );
@@ -4425,7 +4425,7 @@ table
 		if( PreviousOutputWasHeading )
 			PreviousOutputWasHeading = 0;
 
-		TableLevel++;	
+		TableLevel++;
 
 		OutputString("<table><tr>");
 		FormatOutput("<td align='%s' ", HorizontalAlign);
@@ -4474,7 +4474,7 @@ tabsize
 		$$ = $1;
 	}
 	;
-		 
+
 
 tend
 	: TEND_lex
@@ -4519,9 +4519,9 @@ text_raw
 		assert( REGISTERED_TRADE_MARK_CHARACTER < 5 );
 		assert( COPYRIGHT_CHARACTER < 5 );
 
-		// convert special characters 
+		// convert special characters
 		while(*p != '\0' )
-		{	
+		{
 			// error cases
 			if( *p < 5 ) fatalomh(
 				"Line ",
@@ -4592,7 +4592,7 @@ textcolor
 		CurrentSection->style.textcolor = Color(
 			$1.line, "$textcolor", $2.str
 		);
-		
+
 		FreeMem($2.str);
 		$$ = $1;
 	}
@@ -4618,14 +4618,14 @@ th
 		output_text($2.line,$2.str,0,'\0',CheckSpell,ErrorColor);
 		OutputString("</i></code>");
 		OutputString("-th");
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
 	}
-	
+
 	;
-	
+
 trace
 	: TRACE_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
@@ -4661,7 +4661,7 @@ title
 
 		// output the cross reference
 		FormatOutput("<TITLE=\"%s\">", tag);
-			
+
 		// search for this cross reference
 		C = FindCrossReference(tag, "");
 		if( C == NULL )
@@ -4681,7 +4681,7 @@ tref
 	| TREF_lex argument DOUBLE_DOLLAR_lex
 	{	char *tag;
 		CrossReference *C;
-		
+
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
@@ -4706,7 +4706,7 @@ tref
 
 		// output the cross reference
 		FormatOutput("<TREF=\"%s\">", tag);
-			
+
 		// search for this cross reference
 		C = FindCrossReference(tag, "");
 		if( C == NULL )
@@ -4782,8 +4782,8 @@ verbatim
 		InputSplitName(&root, &ext, filename);
 		InputPush(root, ext, -1);
 
-		if( ntoken < 3 ) 
-		{	
+		if( ntoken < 3 )
+		{
 			if( ConvertPreviousNewline() < 1 )
 			{	ConvertForcedNewline(1);
 				PreviousOutputWasHeading = 0;
@@ -4870,7 +4870,7 @@ verbatim
 			);
 		}
 
-		// a standard compliant way to inhibit line breaks at 
+		// a standard compliant way to inhibit line breaks at
 		// '-' in MS Internet Explorer (should not be necessary)
 		OutputString("<pre style='display:inline'>");
 		// if first character is a newline, add space before. See
@@ -4949,7 +4949,7 @@ verbatim
 		// stop preformatted output
 		OutputString("</pre>");
 
-		
+
 		if( ntoken < 3  )
 		{	if( ConvertPreviousNewline() < 1 )
 				ConvertForcedNewline(1);
@@ -4966,7 +4966,7 @@ verbatim
 			filename,
 			NULL
 		);
-		
+
 		FreeMem(root);
 		FreeMem(ext);
 		FreeMem($2.str);
@@ -4998,7 +4998,7 @@ visitcolor
 		CurrentSection->style.visitcolor = Color(
 			$1.line, "$visitcolor", $2.str
 		);
-		
+
 		FreeMem($2.str);
 		$$ = $1;
 	}
@@ -5014,7 +5014,7 @@ wspace
 		assert( $3.str == NULL );
 
 		Wspace = *($2.str);
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;
@@ -5045,7 +5045,7 @@ xref
 		{	ConvertForcedNewline(1);
 			PreviousOutputWasHeading = 0;
 		}
-		
+
 		// initial state of spell checker
 		checkspell = CheckSpell;
 
@@ -5057,7 +5057,7 @@ xref
 			"\nMore than 6 delimiters in $xref command",
 			NULL
 		);
-		
+
 		// tag for reference
 		tag = $2.str + 1;
 
@@ -5130,7 +5130,7 @@ xref
 				"\nwhen a particular frame is specified.",
 				NULL
 			);
-		} 
+		}
 
 		// if subheading is specified, check that heading is not empty
 		if( subhead[0] != '\0' && head[0] == '\0' ) fatalomh(
@@ -5148,7 +5148,7 @@ xref
 			head[i++] = '.';
 			while( subhead[j] != '\0' )
 			{	assert( head + i < link - 1 );
-				head[i++] = subhead[j++];	
+				head[i++] = subhead[j++];
 			}
 			head[i] = '\0';
 		}
@@ -5175,10 +5175,10 @@ xref
 		// do not check spelling on cross reference tags
 		if( ntoken > 2 )
 			CheckSpell = checkspell;
-		
+
 		OutPre($2.line, link);
 		HrefEnd("\n");
-		
+
 		// search for this cross reference
 		C = FindCrossReference(tag, head);
 		if( C == NULL )
@@ -5187,7 +5187,7 @@ xref
 
 		// restore spell checking to initial setting
 		CheckSpell = checkspell;
-		
+
 		FreeMem($2.str);
 
 		$$ = $1;

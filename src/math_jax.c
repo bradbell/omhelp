@@ -9,13 +9,13 @@ $head Syntax$$
 $codei%math_jax(const char* latex_commands)%$$
 
 $head Purpose$$
-If the output file is 
+If the output file is
 $cref/htm/Internal2Out/Internal2OutSet/htm/$$,
-this routine outputs the latex commands so they will be processed by 
+this routine outputs the latex commands so they will be processed by
 MathJax.
 
 $latex_commands$$
-Is the latex commands. These are all math mode comamnds except for possibly 
+Is the latex commands. These are all math mode comamnds except for possibly
 beginning with $code \[$$ and ending with $code \]$$.
 If the latex commands begin and end this way, the math commands
 are displayed in Latex display mode.
@@ -54,7 +54,7 @@ void math_jax(const char* latex_commands)
 	// determine if begins with \[
 	bool display_mode = strncmp(start, "\\[", 2) == 0;
 	if( display_mode )
-	{	assert( start <= end-2 );	
+	{	assert( start <= end-2 );
 		if( ! strncmp(end-2, "\\]", 2) == 0 )
 		{	fatalomh(
 			"$latex command begins with \\[ but does not end with \\]",

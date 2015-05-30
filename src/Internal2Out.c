@@ -179,7 +179,7 @@ const char *Internal2Out(const char *internal)
 	for(i = 0; i < TableSize; i += NumberOfCol)
 		if( strcmp(Table[i], internal) == 0 )
 		{	const char* ret = Table[i + OutputCol - 1];
-			assert( strcmp(ret, "") != 0 ); 
+			assert( strcmp(ret, "") != 0 );
 			return ret;
 		}
 
