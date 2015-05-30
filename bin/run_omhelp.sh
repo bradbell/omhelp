@@ -25,7 +25,7 @@ then
 	mkdir dev
 	cd    dev
 	if ! ../build/src/omhelp ../src/omh/omhelp.omh > ../omhelp.dev.log \
-		-debug -omhelp_dir ../omhelp_data
+		-noframe -debug -omhelp_dir ../omhelp_data
 	then
 		cat ../omhelp.dev.log
 		echo "OMhelp could not build developer documentation."
