@@ -25,6 +25,9 @@ $path/..\/.h/$$
 $path/..\/.c/$$
 $path/..\/.l/$$
 
+$comment default automatic indexing command for all CppAD documentaiton$$
+$aindex section head subhead$$
+
 $section Documentation of OMhelp Source Code$$
 
 $head Description$$
