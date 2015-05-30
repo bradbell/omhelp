@@ -5,7 +5,8 @@ $section Output Functions$$
 $contents%
 	FrameSet.c%
 	HtmlHead.c%
-	output.c
+	output.c%
+	output_text.c
 %$$
 
 $end

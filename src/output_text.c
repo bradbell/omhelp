@@ -17,8 +17,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 /*
 $begin output_text$$
+$spell
+	const
+$$
 
-$section Outputing Text$$
+$section Outputting Text$$
 
 $head Syntax$$
 $codei%int output_text(
@@ -42,7 +45,7 @@ The argument $icode s$$ contains the text that is to be output.
 
 $head pre$$
 The argument $icode pre$$ is either true or false.
-If it is true, the output is pre-fromatted, otherwise it is not pre-formatted.
+If it is true, the output is pre-formatted, otherwise it is not pre-formatted.
 (This is pre-formatted just in the sense that white space is significant,
 the font is not changed to be uniformly spaced.)
 
