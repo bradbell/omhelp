@@ -20,7 +20,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 /*
 $begin Internal2Out$$
 $spell
+	stylesheet
+	xsl
+	href
+	pmathml
+	xmlns
+	http
 	const
+	htm
+	xml
+	str
+	html
+	cmd
+	http://www.w3.org/1999/xhtml
 $$
 
 $index Internal2Out$$
@@ -34,14 +46,12 @@ $cend $syntax%void Internal2OutSet(const char *%out%)%$$          $rnext
 $cend $syntax%const char *Internal2Out(const char *%internal%)%$$ 
 $tend
 
-$end
-
 $fend 25$$
 
-$head Description
+$head Description$$
 $syntax/Internal2OutSet/
 /$$
-sets the current output file type to $itlaic out$$ where
+sets the current output file type to $italic out$$ where
 $italic out$$ is equal to $code htm$$ or $code xml$$. 
 $syntax/
 
@@ -67,9 +77,9 @@ OutputExtension    $cnext .htm         $cnext .xml
 $rnext
 HtmlOnlyExtension  $cnext .htm         $cnext _xml.htm
 $rnext
-SelfTerminateCmd   $cnext >            $cndex />
+SelfTerminateCmd   $cnext >            $cnext />
 $rnext
-StartOutputFile    $cndex <html>       $cnext
+StartOutputFile    $cnext <html>       $cnext
 
 $pre <?xml version='1.0'?>
 <?xml-stylesheet type='text/xsl' href='pmathml.xsl'?>
@@ -77,6 +87,7 @@ $pre <?xml version='1.0'?>
 
 $tend             
 
+$end
 */
 
 # include "Internal2Out.h"
