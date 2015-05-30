@@ -84,6 +84,7 @@ cross reference tag, NULL is returned.
 # include "texparse.h"
 # include "lexomh.h"
 # include "AutoTag.h"
+# include "math_jax.h"
 
 # ifndef WIN32
 # define stricmp strcasecmp 
@@ -3484,11 +3485,7 @@ latex
 
 				PreviousOutputWasHeading = 0;
 			}
-
-			OutputString("<code>\n");
-			OutPre($2.line, $2.str);
-			OutputString("</code>\n");
-
+			math_jax($2.str);
 			CheckSpell = checkspell;
 		}
 		

@@ -84,6 +84,7 @@ ADD_EXECUTABLE(omhelp
 	libyywra.c
 	links.c
 	math.c
+	math_jax.c
 	output.c
 	output_text.c
 	pending.c
