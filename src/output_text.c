@@ -25,8 +25,8 @@ $section Outputting Text$$
 
 $head Syntax$$
 $codei%int output_text(
-	int         %line%        , 
-	const char *%s%           , 
+	int         %line%        ,
+	const char *%s%           ,
 	int         %pre%         ,
 	char        %skip%        ,
 	int         %check_spell% ,
@@ -82,8 +82,8 @@ $end
 # include <ctype.h>
 
 int output_text(
-	int         line        , 
-	const char *s           , 
+	int         line        ,
+	const char *s           ,
 	int         pre         ,
 	char        skip        ,
 	int         check_spell ,
@@ -96,22 +96,22 @@ int output_text(
 	if( *s == '\0' ) return line;
 
 	if( pre )
-	{	// a standard compliant way to inhibit line breaks at 
+	{	// a standard compliant way to inhibit line breaks at
 		// '-' in MS Internet Explorer (should not be necessary)
 		// (also done in color_switch.c).
 		OutputString("<span style='white-space: nowrap'>");
 	}
 
 	while( *s != '\0' )
-	{	
+	{
 		if( check_spell )
 			bad = SpellingError(s, &nchar);
 
 		if( bad == NULL )
 			bad = s + strlen(s);
-	
+
 		while( s < bad )
-		{	line += (*s == '\n');	
+		{	line += (*s == '\n');
 			if( *s != skip )
 				ConvertOutputCh(*s, pre);
 			s++;
@@ -127,7 +127,7 @@ int output_text(
 					"in line %d of file %s: ",
 					line,
 					InputName()
-				);	
+				);
 				OutputString("<font color=\"");
 				OutputString(error_color);
 				OutputString("\">");
@@ -138,7 +138,7 @@ int output_text(
 						printf(" ");
 					else	printf("%c", *s);
 
-					line += (*s == '\n');	
+					line += (*s == '\n');
 					ConvertOutputCh(*s++, pre);
 				}
 				OutputString("</font>");
@@ -146,7 +146,7 @@ int output_text(
 			}
 			else	while( nchar-- )
 			{
-				line += (*s == '\n');	
+				line += (*s == '\n');
 				if( *s != skip )
 					ConvertOutputCh(*s, pre);
 				s++;
