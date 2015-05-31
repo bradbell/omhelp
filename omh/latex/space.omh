@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -55,8 +55,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
-Latex spacing commands.
+Display Latex spacing commands.
 
 $head Warning$$
 The case where $italic unit$$ is negative
@@ -68,8 +67,8 @@ The following table demonstrates
 the result for the possible values of $italic space$$:
 
 $table
-	$bold Space$$ 
-	$cnext $bold Description$$ 
+	$bold Space$$
+	$cnext $bold Description$$
 	$cnext $bold Example$$
 	$cnext $bold Output$$
 $rnext
@@ -79,18 +78,18 @@ $rnext
 $rnext
 	$code \,$$
     	$cnext thin space
-	$cnext $code @latex | \, | @@ $$ 
-	$cnext $latex | \, | $$ 
+	$cnext $code @latex | \, | @@ $$
+	$cnext $latex | \, | $$
 $rnext
 	$code \:$$
     	$cnext medium space
-	$cnext $code @latex | \: | @@ $$ 
-	$cnext $latex | \: | $$ 
+	$cnext $code @latex | \: | @@ $$
+	$cnext $latex | \: | $$
 $rnext
 	$code \;$$
     	$cnext thick space
-	$cnext $code @latex | \; | @@ $$ 
-	$cnext $latex | \; | $$ 
+	$cnext $code @latex | \; | @@ $$
+	$cnext $latex | \; | $$
 
 $tend
 
@@ -102,45 +101,45 @@ and $italic unit$$ must be one of the units listed below
 
 $table
 	$bold Unit$$
-	$cnext $bold Description$$ 
+	$cnext $bold Description$$
 	$cnext $bold Example$$
 	$cnext $bold Output$$
 $rnext
 	$code em $$
-	$cnext approximate width of M (current font) 
-	$cnext $code @latex | \hspace{1em} | @@ $$ 
-	$cnext $latex | \hspace{1em} | $$ 
+	$cnext approximate width of M (current font)
+	$cnext $code @latex | \hspace{1em} | @@ $$
+	$cnext $latex | \hspace{1em} | $$
 $rnext
 	$code ex $$
-	$cnext approximate height of x (current font) 
-	$cnext $code @latex | \hspace{2ex} | @@ $$ 
-	$cnext $latex | \hspace{2ex} | $$ 
+	$cnext approximate height of x (current font)
+	$cnext $code @latex | \hspace{2ex} | @@ $$
+	$cnext $latex | \hspace{2ex} | $$
 $rnext
 	$code cm $$
 	$cnext centimeters
-	$cnext $code @latex | \hspace{0.4cm} | @@ $$ 
-	$cnext $latex | \hspace{0.4cm} | $$ 
+	$cnext $code @latex | \hspace{0.4cm} | @@ $$
+	$cnext $latex | \hspace{0.4cm} | $$
 $rnext
 	$code mm $$
 	$cnext millimeters
-	$cnext $code @latex | \hspace{4mm} | @@ $$ 
-	$cnext $latex | \hspace{4mm} | $$ 
+	$cnext $code @latex | \hspace{4mm} | @@ $$
+	$cnext $latex | \hspace{4mm} | $$
 $rnext
 	$code in $$
 	$cnext inches
-	$cnext $code @latex | \hspace{0.15in} | @@ $$ 
-	$cnext $latex | \hspace{0.15in} | $$ 
+	$cnext $code @latex | \hspace{0.15in} | @@ $$
+	$cnext $latex | \hspace{0.15in} | $$
 $rnext
 	$code pt $$
 	$cnext points (72 points = 1 inch)
-	$cnext $code @latex | \hspace{12pt} | @@ $$ 
-	$cnext $latex | \hspace{12pt} | $$ 
+	$cnext $code @latex | \hspace{12pt} | @@ $$
+	$cnext $latex | \hspace{12pt} | $$
 $rnext
 	$code pc $$
 	$cnext picas (1 pica = 12 points)
-	$cnext $code @latex | \hspace{1pc} | @@ $$ 
-	$cnext $latex | \hspace{1pc} | $$ 
+	$cnext $code @latex | \hspace{1pc} | @@ $$
+	$cnext $latex | \hspace{1pc} | $$
 $tend
 
- 
+
 $end

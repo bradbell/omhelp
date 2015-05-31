@@ -18,53 +18,60 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin latexcomment$$
-$escape #$$
-$spell
-	Latex
-	rcl
-	xml
-	vdots
-$$
+$begin diff_xml_htm$$
 $dollar @$$
-
-$mindex latex comment command$$
-
-$section The Latex Comment Command$$
-
-$table
-$bold Syntax$$
-$cnext $syntax/@latex % /text/ @@/$$
-$tend
-
-$fend 15$$
-
-$head Description$$
-All  of the character in
-$italic text$$ are ignored where
-$italic text$$ is any sequence of characters not including
-a new line character or the double dollar $code @@$$.
-
-$head Example$$
-There are three Latex comment commands in the following input
-$codep
-@latex \[
-	% align columns: first right, second centered, and third left
-	 \begin{array}{rcl}
-		a b & =      & c   \\ % first equation
-		    & \vdots &     \\
-		x   & =      & y z    % last equation
-	\end{array}
-\] @@
+$escape $$
+$spell
+	Jax
+	xml
+	htm
+	mathml
+	mi
+	mathvariant
+	cdots
 $$
-The Latex mode output below corresponds to the input above:
+
+$section Difference Between MathML(xml) and MathJax(htm) Display$$
+
+$head Purpose$$
+This section lists the known difference between how MathJax
+and MathML display Latex commands.
+
+$head MathML (xml)$$
+To get the MathML display of this page select
+$href%diff_xml_htm.xml%$$.
+
+$head MathJax (htm)$$
+To get the MathJax display of this page select
+$href%diff_xml_htm.htm%$$.
+
+$head mathml$$
+The $cref mathml$$ macro is not support by the MathJax. For example,
+the input text
+$codep
+	@latex \[
+		\mathml{ <mi mathvariant="bold">x</mi> }
+	\] @@
+$$
+displays as
 $latex \[
-	% align columns: first right, second centered, and third left
-	 \begin{array}{rcl}
-		a b & =      & c   \\ % first equation
-		    & \vdots &     \\
-		x   & =      & y z    % last equation
-	\end{array}
+	\mathml{ <mi mathvariant="bold">x</mi> }
 \] $$
+
+$head Sub-script and Super-script$$
+The input text
+$codep
+	@latex \[
+		x_12, x^12
+	\] @@
+$$
+displays as
+$latex \[
+	x_12, x^12
+\] $$
+See the sub-script and super-script
+$cref/warning/subsup/Warning/$$.
+
+
 
 $end

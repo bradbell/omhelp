@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -28,139 +28,110 @@ $spell
 	Leslie
 	xy
 	frac
+	Jax
 $$
 
 $mindex convert latex MathML$$
 $section Using Latex Math Formulas in OMhelp$$
 
-$table
-$bold Syntax$$
-$cnext $syntax/@latex /commands/ @@/$$ $rnext
-$cnext $syntax/@latex \[ /commands/ \] @@/$$ $rnext
-$bold See Also$$
-$cnext $xref/start_latex//getting started/$$
-$tend
+$head Syntax$$
+$codei%@latex %commands%@@
+%$$
+$codei%@latex \[ %commands% \]@@%$$
 
-$fend 25$$
+$head See Also$$
+$cref/getting started/start_latex/$$
 
 $head Introduction$$
 $href%http://www.tug.org/begin.html%Latex%$$
 is a widely used language for expressing mathematics in terms of text input.
-OMhelp will convert Latex math formulas 
-to MathML so that they 
-can be displayed in a browser. 
-The Latex math formula commands
-are defined in Section 3.3 of 
+OMhelp will display math formulas expressed using the
+Latex math language.
+The Latex math language is defined in Section 3.3 of
 $xref/latex/Reference/Lamport's book/$$.
-These commands are documented in the 
-$xref/latex/Command Documentation/latex command documentation/$$ 
+These commands are documented in the
+$xref/latex/Command Documentation/latex command documentation/$$
 sections of this web site.
 
-$head XML Dependent Interpretation$$
-If the $xref/running/xml/-xml/$$ 
+$head MathML (xml)$$
+If the $xref/running/xml/-xml/$$
 command line option is specified,
-$italic commands$$ must be a sequence of the Latex 
-math mode commands 
-(see Section 3.3 of $xref/latex/Reference/Lamport's book/$$).
-In this case,
-these commands are converted to MathML,
-and the corresponding output files have the $code .xml$$ extension. 
+the Latex commands are converted to MathML
+and the corresponding output files have the $code .xml$$ extension.
 You can view the XML
 version of this section by selecting
-$href%latex.xml%$$. 
+$href%latex.xml%$$.
 (If your browser does not display MathML,
 refer to the
 $xref/Install/MathML/MathML/$$ section of the installation guide.)
-$pre
 
-$$
+$head MathJax (htm)$$
 If the $code -xml$$ option is $bold not$$ specified,
-the corresponding output files have the
-$code .htm$$ extension.
+the corresponding output files have the $code .htm$$ extension.
 In this case,
-the $code latex$$ command
-has the same effect as the $xref/pre/$$ command except
-that $xref/nospell//spell checking/$$ is not preformed on $italic commands$$.
+the $code latex$$ command are displayed using
+$href%http://docs.mathjax.org/en/latest/index.html%MathJax%$$.
 You can view the HTML
 version of this section by selecting
-$href%latex.htm%$$. 
+$href%latex.htm%$$.
+This requires an internet connection
+in order to use the MathJax content delivery network.
 
 $head Inline Formulas$$
-$index latex, inline$$
-$index inline, latex$$
 
 The input
 $codep
-	The ratio @latex \frac{1}{2 \pi} @@ is very useful. 
+	The ratio @latex \frac{1}{2 \pi} @@ is very useful.
 $$
 generates the output
 $pre
-	$$The ratio  $latex \frac{1}{2 \pi} $$ is very useful. 
+	$$The ratio  $latex \frac{1}{2 \pi} $$ is very useful.
 $pre
 $$
 It is ok to have an empty inline formula
-and this is useful for defining 
+and this is useful for defining
 $xref/LatexMacro//Latex macros/$$.
 
 $head Displayed Formulas$$
-$index latex, display$$
-$index display, latex$$
 
 The input
 $codep
-	The ratio @latex \[ \frac{1}{2 \pi} \] @@ is very useful. 
+	The ratio @latex \[ \frac{1}{2 \pi} \] @@ is very useful.
 $$
 generates the output
 $pre
-	$$The ratio  
-	$latex \[ \frac{1}{2 \pi} \] $$ 
+	$$The ratio
+	$latex \[ \frac{1}{2 \pi} \] $$
 
-$pre	$$is very useful. 
+$pre	$$is very useful.
 
 
 
 $head Command Documentation$$
 Only the Latex
-commands documented below are allowed in $italic commands$$. 
+commands documented below are allowed in $italic commands$$.
 
 
-$children/
-	latex\symbol.omh/
-	latex\diacritical.omh/
-	latex\stdfun.omh/
-	latex\subsup.omh/
-	latex\frac.omh/
-	latex\sqrt.omh/
-	latex\array.omh/
-	latex\left_right.omh/
-	latex\under_over.omh/
-	latex\stackrel.omh/
-	latex\latexfont.omh/
-	latex\latexcomment.omh/
-	latex\LatexMacro.omh/
-	latex\mathml.omh/$$
-
-$table
-$tref symbol$$       $rnext
-$tref diacritical$$  $rnext
-$tref latexnumber$$  $rnext
-$tref stdfun$$       $rnext
-$tref subsup$$       $rnext
-$tref frac$$         $rnext
-$tref sqrt$$         $rnext
-$tref array$$        $rnext
-$tref left_right$$   $rnext
-$tref under_over$$   $rnext
-$tref stackrel$$     $rnext
-$tref latexfont$$    $rnext
-$tref space$$        $rnext
-$tref latexcomment$$ $rnext
-$tref mathml$$ 
-$tend
+$childtable%latex\symbol.omh
+	%latex\diacritical.omh
+	%latex\stdfun.omh
+	%latex\subsup.omh
+	%latex\frac.omh
+	%latex\sqrt.omh
+	%latex\array.omh
+	%latex\left_right.omh
+	%latex\under_over.omh
+	%latex\stackrel.omh
+	%latex\latexfont.omh
+	%latex\latexcomment.omh
+	%latex\LatexMacro.omh
+	%latex\mathml.omh
+	%latex\diff_xml_htm.omh
+%$$
 
 
 $head Reference$$
-Latex is documented in 
+Latex is documented in
 Leslie Lamport's book
 $italic
 A Document Preparation System LaTex

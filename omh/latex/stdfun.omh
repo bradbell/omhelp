@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -43,9 +43,9 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
-the standard mathematical function specified by $italic Command$$ where 
-$italic Command$$ is one of the 
+Display in Latex mode
+the standard mathematical function specified by $italic Command$$ where
+$italic Command$$ is one of the
 commands listed in the table below.
 This table contains the Log-Like functions
 in Table 3.9 of
@@ -71,7 +71,7 @@ $italic Command$$    $cnext $italic Display$$     $rend
 \cos                 $cnext $latex \cos                 $$ $rend
 \cosh                $cnext $latex \cosh                $$ $rend
 \cot                 $cnext $latex \cot                 $$ $rend
-\coth                $cnext $latex \coth                $$ 
+\coth                $cnext $latex \coth                $$
 $tend
 
 $cnext
@@ -81,7 +81,7 @@ $italic Command$$    $cnext $italic Display$$     $rend
 \csc                 $cnext $latex \csc                 $$ $rend
 \deg                 $cnext $latex \deg                 $$ $rend
 \det                 $cnext $latex \det                 $$ $rend
-\dim                 $cnext $latex \dim                 $$ 
+\dim                 $cnext $latex \dim                 $$
 $tend
 
 $cnext
@@ -91,7 +91,7 @@ $italic Command$$    $cnext $italic Display$$     $rend
 \exp                 $cnext $latex \exp                 $$ $rend
 \gcd                 $cnext $latex \gcd                 $$ $rend
 \hom                 $cnext $latex \hom                 $$ $rend
-\inf                 $cnext $latex \inf                 $$ 
+\inf                 $cnext $latex \inf                 $$
 $tend
 
 $tend
@@ -145,10 +145,10 @@ $$
 $head Inline Formulas$$
 The standard math functions listed below display subscripts and superscripts
 differently in line than in displayed formulas.
-Here is some example output corresponding to 
+Here is some example output corresponding to
 $xref/latex/Inline Formulas/inline formulas/$$:
 $center
-$latex 
+$latex
 \min_{x > 0} \; , \;
 \max_{x > 0} \; , \;
 \lim_{x > 0} \; , \;

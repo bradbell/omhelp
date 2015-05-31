@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -27,7 +27,7 @@ $spell
 	OMhelp
 $$
 
-$mindex enclose left right$$ 
+$mindex enclose left right$$
 $index latex, left$$
 $index latex, right$$
 $index latex, delimiter$$
@@ -43,12 +43,12 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
-the specified command list enclosed by the 
+Display in Latex mode
+the specified command list enclosed by the
 specified symbols.
-The enclosing symbols are stretched to be 
+The enclosing symbols are stretched to be
 as large as the output corresponding to the command list.
-The values $italic s1$$ and $italic s2$$ must be one of the 
+The values $italic s1$$ and $italic s2$$ must be one of the
 $xref/left_right/Enclosing Symbols/enclosing symbols/$$.
 $pre
 
@@ -126,7 +126,7 @@ $code \lceil$$                 $cnext $latex \lceil $$ $rend
 $code \uparrow$$               $cnext $latex \uparrow $$ $rend
 $code \downarrow$$             $cnext $latex \downarrow $$ $rend
 $code \updownarrow$$           $cnext $latex \updownarrow $$ $rend
-$code  .$$ $cnext 
+$code  .$$ $cnext
 $tend
 
 $cnext

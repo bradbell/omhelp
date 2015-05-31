@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -56,9 +56,9 @@ $tend
 $fend 30$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the array $italic A$$ with
-$th j$$ column is aligned according to the value of $italic cj$$ where  
+$th j$$ column is aligned according to the value of $italic cj$$ where
 $code l$$ means align to the left,
 $code c$$ means align each to the center,
 and $code r$$ means align to the right.
@@ -68,7 +68,7 @@ and $code r$$ means align to the right.
 $head Example$$
 The input
 $codep
-	@latex 
+	@latex
 		\begin{array}{clcr}
 			a+b++c & uv    & x-y & 27     \\
 			a+b    & u+v   & z   & 134    \\
@@ -79,7 +79,7 @@ $$
 results in the following output
 $pre
 	$$
-	$latex 
+	$latex
 		\begin{array}{clcr}
 			a+b++c & uv    & x-y & 27     \\
 	        	a+b    & u+v   & z   & 134    \\
@@ -93,7 +93,7 @@ The first line in the syntax above can have the form
 $syntax/
 	@latex \begin{array}[/r/]{/c1 ... cn/}
 /$$
-In this case the value of $italic r$$ 
+In this case the value of $italic r$$
 specifies how each row is aligned where
 $code t$$ means align the top,
 $code c$$ means align the center,

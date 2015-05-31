@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2007 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -48,56 +48,55 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
-the Latex font command where $italic font$$ is one of the 
-commands in the following table:
+Display in Latex using the specified font where
+$italic font$$ is one of the commands in the following table:
 
 $table
-$italic font$$ $pre  $$ $cnext $italic Meaning$$ $pre  $$ $cnext 
-	Example 
+$italic font$$ $pre  $$ $cnext $italic Meaning$$ $pre  $$ $cnext
+	Example
 $rnext
-               $cnext default           $cnext 
+               $cnext default           $cnext
 	$latex abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
 $rnext
-$code \bf $$   $cnext bold              $cnext 
+$code \bf $$   $cnext bold              $cnext
 	$latex \bf abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
 $rnext
-$code \rm$$    $cnext roman             $cnext 
+$code \rm$$    $cnext roman             $cnext
 	$latex \rm abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
 $rnext
-$code \tt$$    $cnext typewriter        $cnext 
+$code \tt$$    $cnext typewriter        $cnext
 	$latex \tt abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
 $rnext
-$code \cal$$   $cnext calligraphic       $cnext 
+$code \cal$$   $cnext calligraphic       $cnext
 	$latex \cal abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
 $rnext
-$code \sf$$    $cnext sans serif        $cnext 
+$code \sf$$    $cnext sans serif        $cnext
 	$latex \sf abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ $$
 $tend
 
 Note that these font commands affect all output text
 and this is different from the description in Section 3.3.8 of
 $xref/latex/Reference/Lamport's book/$$.
-Also note that, in Firefox, the $code \cal$$ commands does not display properly 
+Also note that, in Firefox, the $code \cal$$ commands does not display properly
 do to a bug in it's $cref/mathvariant/Firefox/mathvariant/$$ display.
 
 $head Braces$$
 Latex font commands are terminated by their enclosing braces.
 For example, the input
 $codep
-	@latex 
+	@latex
 	\[
-	{ abc \bf abc }  abc 
+	{ abc \bf abc }  abc
 	\]
 	@@
 $$
 results in the following output
-$latex 
+$latex
 \[
-	{ abc \bf abc }  abc 
+	{ abc \bf abc }  abc
 \]
 $$
-Note that the bold font is terminate by the $code }$$. 
+Note that the bold font is terminate by the $code }$$.
 
 $head Arrays$$
 Latex Font commands that appear with in an entry in an array

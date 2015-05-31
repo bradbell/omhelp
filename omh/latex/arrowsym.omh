@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -45,12 +45,12 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
-the arrow symbol specified by $italic Command$$ where 
-$italic Command$$ is one of the 
+Display in Latex mode
+the arrow symbol specified by $italic Command$$ where
+$italic Command$$ is one of the
 Latex commands in the tables below.
 The following tables contain the arrow symbols
-in Table 3.6 of 
+in Table 3.6 of
 $xref/latex/Reference/Lamport/$$.
 $pre
 
@@ -61,7 +61,7 @@ and \leadsto are in the list of
 $xref/Explorer/MathML/Symbols/symbols/1/$$
 that MS Internet Explorer does not display properly.
 Also note that
-\longmapsto is in the list of 
+\longmapsto is in the list of
 $xref/Firefox/Symbols/symbols/$$
 that Firefox does not display properly.
 
@@ -115,7 +115,7 @@ $italic Command$$ $cnext $italic Output$$   $rend
 \nearrow             $cnext $latex \nearrow             $$ $rend
 \searrow             $cnext $latex \searrow             $$ $rend
 \swarrow             $cnext $latex \swarrow             $$ $rend
-\nwarrow             $cnext $latex \nwarrow             $$ 
+\nwarrow             $cnext $latex \nwarrow             $$
 $tend
 
 $tend
