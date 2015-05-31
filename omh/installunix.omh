@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -48,14 +48,14 @@ $spell
 $$
 
 
-$index free, unix install$$ 
+$index free, unix install$$
 $index OMhelp, unix install$$
 $index download, unix OMhelp$$
 
 $section Unix Installation and Testing$$
 
 $head Requirements$$
-Building OMhelp requires that 
+Building OMhelp requires that
 $href%http://flex.sourceforge.net/%flex%$$, and
 $href%http://bison.sourceforge.net/%bison%$$
 are in your execution path.
@@ -86,7 +86,7 @@ Use the command
 $codep
 	tar -xzf omhelp-20150531.tar.gz
 $$
-to decompress and extract the unix format version into the 
+to decompress and extract the unix format version into the
 distribution directory
 $codei%
 	omhelp-20150531
@@ -114,15 +114,15 @@ The other entries use default values if they are not specified.
 $subhead omhelp_prefix$$
 $index omhelp_prefix$$
 The default value for $icode omhelp_prefix$$ is $code /usr$$; i.e.,
-by default the OMhelp executable is installed in 
+by default the OMhelp executable is installed in
 $codep
 	/usr/bin/omhelp
 $$
 If you do not have write permission for $code /usr$$,
 you must specify a $icode prefix$$.
 If $icode%omhelp_prefix%/bin%$$ is not in your path,
-you will have to specify the entire path 
-$icode%omhelp_prefix%/bin/omhelp%$$ when 
+you will have to specify the entire path
+$icode%omhelp_prefix%/bin/omhelp%$$ when
 you execute it.
 
 
@@ -136,7 +136,7 @@ The default value for $icode omhelp_datadir$$ is $code share$$.
 $subhead omhelp_c_flags$$
 These are extra flags, besides the debug and release flags,
 that are used during compilation.
-The default value for $icode omhelp_c_flags$$ is none. 
+The default value for $icode omhelp_c_flags$$ is none.
 
 $head Build Executable$$
 In the directory $code omhelp-20150531/build$$ execute the following command
@@ -149,7 +149,7 @@ $codep
 $$
 If you are using Cygwin or MinGw,
 the file $code omhelp$$ may possibly be $code omhelp.exe$$.
-If you have fortran, 
+If you have fortran,
 and CMake can figure out how to link C to Fortran,
 the following program will also be built
 $codep
@@ -182,9 +182,9 @@ $$
 $head Getting Started$$
 $index getstarted, using OMhelp$$
 $index OMhelp, getstarted using$$
-You can build the 
-$cref multiple_example_1$$ subtree of the OMhelp user documentation 
-by executing the following commands starting in the 
+You can build the
+$cref multiple_example_1$$ subtree of the OMhelp user documentation
+by executing the following commands starting in the
 $code omhelp-20150531$$ directory:
 $codei%
 	mkdir xam
@@ -198,12 +198,12 @@ $codei%
 %$$
 See the $cref get_started$$ section for more examples.
 
-$head Dictionary$$ 
+$head Dictionary$$
 $index dictionary$$
 $index english.wrd$$
 $index local.wrd$$
 $index dictionary.bin$$
-OMhelp utility files are stored in the 
+OMhelp utility files are stored in the
 $code omhelp-20150531/omhelp_data$$ directory.
 This directory can contain the files
 $codep
@@ -230,7 +230,7 @@ $$
 If you make any changes to $code english.wrd$$ or $code local.wrd$$,
 the file $code dictionary.bin$$ should be deleted.
 A new $code dictionary.bin$$ that combines the words $code english.wrd$$
-and $code local.wrd$$ can be created and installed by executing following 
+and $code local.wrd$$ can be created and installed by executing following
 commands in the $code omhelp-20150531$$ directory:
 $codep
 	rm omhelp_data/dictionary.bin
@@ -239,13 +239,13 @@ $codep
 		-omhelp_dir ../omhelp_data
 	cd ../build
 	make install
-$$ 
+$$
 
 $head Vim Editor$$
 $index vim, highlight syntax$$
 $index syntax, highlight vim$$
 $index highlight, syntax vim$$
-The following 
+The following
 $href%
 	http://www.vim.org/%
 	vim editor
@@ -255,7 +255,7 @@ $codei%
 	%omhelp_prefix%/%omhelp_datadir%/omhelp_data/vim/syntax/omhelp.vim
 	%omhelp_prefix%/%omhelp_datadir%/omhelp_data/vim/ftdetect/omhelp.vim
 %$$
-If you copy the respective files to 
+If you copy the respective files to
 $codei%
 	@HOME/.vim/syntax/omhelp.vim
 	@HOME/.vim/ftdetect/omhelp.vim
@@ -266,8 +266,8 @@ $codep
 	:syntax on
 	:set syntax=omhelp
 $$
-will turn on OMhelp syntax highlighting for the file you are currently 
-editing. 
+will turn on OMhelp syntax highlighting for the file you are currently
+editing.
 You could convert back to the original highlighting by executing the command
 $codep
 	:echo &filetype
@@ -281,5 +281,5 @@ file $code .vimrc$$ in your home directory:
 $codep
 	:syntax on
 $$
-	
+
 $end
