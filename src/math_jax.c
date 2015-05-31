@@ -125,14 +125,24 @@ void math_jax(const char* macro_cmd, const char* latex_cmds)
 		}
 		start      = start + 2;
 		*(end - 2) = '\0';
+		// MathJax's idea of proper size is too large
+		OutputString("<small>");
 		OutputString( Internal2Out("math_jax_begin_display") );
+		OutputString("\n");
 		OutputString(start);
+		OutputString("\n");
 		OutputString( Internal2Out("math_jax_end_display") );
+		OutputString("</small>");
 	}
 	else
-	{	OutputString( Internal2Out("math_jax_begin_inline") );
+	{	// MathJax's idea of proper size is too large
+		OutputString("<small>");
+		OutputString( Internal2Out("math_jax_begin_inline") );
+		OutputString("\n");
 		OutputString(start);
+		OutputString("\n");
 		OutputString( Internal2Out("math_jax_end_inline") );
+		OutputString("</small>");
 	}
 	FreeMem(latex_tmp);
 	if( add )
