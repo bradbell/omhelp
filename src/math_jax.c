@@ -72,7 +72,7 @@ static char* next_in_newcommand(char* s, const char* valid)
 }
 
 void math_jax(const char* macro_cmd, const char* latex_cmds)
-{	char *held_macros = NULL;
+{	static char *held_macros = NULL;
 
 	bool add      = strcmp(macro_cmd, "add") == 0;
 	bool output   = strcmp(macro_cmd, "output") == 0;
@@ -84,6 +84,7 @@ void math_jax(const char* macro_cmd, const char* latex_cmds)
 	{	assert( latex_cmds == NULL );
 		FreeMem( held_macros );
 		held_macros = NULL;
+		return;
 	}
 	if( output )
 	{	assert( latex_cmds == NULL );
@@ -199,7 +200,7 @@ void math_jax(const char* macro_cmd, const char* latex_cmds)
 						__FILE__,
 						__LINE__,
 						held_macros,
-						" ",
+						"\n",
 						start,
 						NULL
 					);

@@ -805,9 +805,14 @@ static void FinishUp()
 # endif
 
 
-	// done with macros defined at the Root level
+	// done with xml macros defined at the Root level
 	LatexMacroFree();
 	LatexMacroFree();
+
+	// done with htm macros defined at the Root level
+	const char* macro_cmd  = "clear";
+	const char* latex_cmds = NULL;
+	math_jax(macro_cmd, latex_cmds);
 
 	// must close search file even if root has no children
 	CloseSearchFile( ! RootHasChildren );
@@ -1540,9 +1545,18 @@ begin
 
 		assert( C != NULL );
 
-		printf(" %s:", tag);
-		FreeMem($2.str);
+		// output root level macros for math_jax use in this section
+		if( strcmp(".htm", Internal2Out("OutputExtension") ) == 0 )
+		{	const char* macro_cmd  = "output";
+			const char* latex_cmds = NULL;
+			math_jax(macro_cmd, latex_cmds);
+		}
 
+		// print program progress
+		printf(" %s:", tag);
+
+		// cleanup
+		FreeMem($2.str);
 		$$ = $1;
 	}
 	;
@@ -2329,11 +2343,13 @@ end
 			assert(Contents != NULL );
 			SectionDefaultStyle(Contents, SectionTree);
 
-			// keep macros defined at the root level
+			// xml only: keep macros defined in the root section
 			LatexMacroKeep();
 		}
 		else
 		{	SectionDefaultStyle(CurrentSection, SectionTree);
+
+			// xml only: remove the macros defined in this section
 			LatexMacroFree();
 			LatexMacroKeep();
 		}
@@ -3485,9 +3501,13 @@ latex
 
 				PreviousOutputWasHeading = 0;
 			}
+			// html: only add macros defined in the root section
 			const char* macro_cmd  = "ignore";
+			if( CurrentSection == SectionTree )
+				macro_cmd = "add";
 			const char* latex_cmds = $2.str;
 			math_jax(macro_cmd, latex_cmds);
+
 			CheckSpell = checkspell;
 		}
 
