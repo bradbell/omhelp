@@ -40,7 +40,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the fraction specified by the $code \frac$$ command
 where $italic numerator$$ and $italic denominator$$
 are any valid Latex commands.

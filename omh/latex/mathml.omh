@@ -31,45 +31,48 @@ $spell
 	em
 	OMhelp
 	mspace
+	Firefox
+	Jax
+	xml
 $$
 
 $section The MathML Command$$
-
-$index mathml$$
 $index test, browser$$
 $index test, mathml$$
 
-$table
-$bold Syntax$$
-$cnext $syntax%@latex \mathml{%Start% &\#x%Unicode%; %Stop%> } @@ %$$
-$tend
+$head Syntax$$
+$codei%@latex \mathml{%start% %text% %stop%}@@
+%$$
 
-$fend 20$$
+$head Restriction$$
+The Latex $code \mathml$$ command only works using the $icode%*%.xml%$$
+files and a browser that supports
+$cref/MathML/latex/MathML (xml)/$$; e.g., Firefox (and not Chrome). 
 
 $head Description$$
-The $code mathml$$ command will
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
-the specified MathML command. 
-This command is not 
-$xref/latex/Reference/standard Latex/$$.
-Between the $code {$$ and the $code }$$ in the syntax,
-the sequence $code \#$$ is converted to $code #$$
-(so that the $code mathml$$ can be used with $xref/LatexMacro//macros/$$).
+This command is not $cref/Standard Latex/latex/Reference/$$
+(which is why it does not work with 
+$cref/MathJax/latex/MathJax (htm)/$$).
 The $code mathml$$ command has two purposes described below:
 
 $head Extending the Available Set of Latex Symbols$$
-The argument  $italic Unicode$$
-must be a valid MathML Unicode value.
-(For a list of the valid Unicode values see
+The argument  $icode text$$ is a sequence of characters.
+They can use the Unicode representation
+$codei%
+	&x%unicode%;
+%$$
+where $icode unicode$$ be a valid MathML Unicode value.
+For a list of the valid Unicode values see
 $href%http://www.w3.org/TR/MathML2/chapter6.html#chars_unicodechars%Section 6.2.1%$$
 of the
 $href%http://www.w3.org/TR/MathML2/overview.html%MathML 2.0%$$
-specifications
-.)
+specifications.
 
-The argument $italic Start$$ can be one of the following:
+The arguments $icode start$$, $icode stop$$, $icode text$$
+can be one of the following:
 $table
-$italic Start$$ $cnext $italic Stop$$ $cnext $italic Unicode$$ $rnext
+$icode start$$ $cnext $icode stop$$ $cnext $icode text$$ 
+$rnext
 $code <mo stretchy='false'>$$ $cnext $code </mo>$$ $cnext
 	an operator that should not stretch to fit 
 $rnext

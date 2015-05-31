@@ -57,9 +57,7 @@ $codep
 	\end{array}
 \] @@
 $$
-The 
-$xref/latex/XML Dependent Interpretation/XML dependently interpretation/$$
-of this input is
+The Latex mode output below corresponds to the input above:
 $latex \[
 	% align columns: first right, second centered, and third left
 	 \begin{array}{rcl}

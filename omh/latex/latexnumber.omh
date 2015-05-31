@@ -37,7 +37,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the numeric value specified by $italic Number$$ where 
 $italic Number$$ is either a Latex integer or a 
 Latex real (as defined below). 

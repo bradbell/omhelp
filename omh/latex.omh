@@ -28,42 +28,35 @@ $spell
 	Leslie
 	xy
 	frac
+	Jax
 $$
 
 $mindex convert latex MathML$$
 $section Using Latex Math Formulas in OMhelp$$
 
-$table
-$bold Syntax$$
-$cnext $syntax/@latex /commands/ @@/$$ $rnext
-$cnext $syntax/@latex \[ /commands/ \] @@/$$ $rnext
-$bold See Also$$
-$cnext $xref/start_latex//getting started/$$
-$tend
+$head Syntax$$
+$codei%@latex %commands%@@
+%$$ 
+$codei%@latex \[ %commands% \]@@%$$
 
-$fend 25$$
+$head See Also$$
+$cref/getting started/start_latex/$$
 
 $head Introduction$$
 $href%http://www.tug.org/begin.html%Latex%$$
 is a widely used language for expressing mathematics in terms of text input.
-OMhelp will convert Latex math formulas 
-to MathML so that they 
-can be displayed in a browser. 
-The Latex math formula commands
-are defined in Section 3.3 of 
+OMhelp will display math formulas expressed using the 
+Latex math language.
+The Latex math language is defined in Section 3.3 of 
 $xref/latex/Reference/Lamport's book/$$.
 These commands are documented in the 
 $xref/latex/Command Documentation/latex command documentation/$$ 
 sections of this web site.
 
-$head XML Dependent Interpretation$$
+$head MathML (xml)$$
 If the $xref/running/xml/-xml/$$ 
 command line option is specified,
-$italic commands$$ must be a sequence of the Latex 
-math mode commands 
-(see Section 3.3 of $xref/latex/Reference/Lamport's book/$$).
-In this case,
-these commands are converted to MathML,
+the Latex commands are converted to MathML
 and the corresponding output files have the $code .xml$$ extension. 
 You can view the XML
 version of this section by selecting
@@ -71,23 +64,20 @@ $href%latex.xml%$$.
 (If your browser does not display MathML,
 refer to the
 $xref/Install/MathML/MathML/$$ section of the installation guide.)
-$pre
 
-$$
+$head MathJax (htm)$$
 If the $code -xml$$ option is $bold not$$ specified,
-the corresponding output files have the
-$code .htm$$ extension.
+the corresponding output files have the $code .htm$$ extension.
 In this case,
-the $code latex$$ command
-has the same effect as the $xref/pre/$$ command except
-that $xref/nospell//spell checking/$$ is not preformed on $italic commands$$.
+the $code latex$$ command are displayed using
+$href%http://docs.mathjax.org/en/latest/index.html%MathJax%$$.
 You can view the HTML
 version of this section by selecting
 $href%latex.htm%$$. 
+This requires an internet connection 
+in order to use the MathJax content delivery network.
 
 $head Inline Formulas$$
-$index latex, inline$$
-$index inline, latex$$
 
 The input
 $codep
@@ -103,8 +93,6 @@ and this is useful for defining
 $xref/LatexMacro//Latex macros/$$.
 
 $head Displayed Formulas$$
-$index latex, display$$
-$index display, latex$$
 
 The input
 $codep

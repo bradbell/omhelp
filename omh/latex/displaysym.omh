@@ -51,7 +51,7 @@ $fend 20$$
 
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the symbol specified by $italic Symbol$$ where 
 $italic Symbol$$ is one of the 
 Latex symbols in the tables below.

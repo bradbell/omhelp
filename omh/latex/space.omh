@@ -55,8 +55,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
-Latex spacing commands.
+Display Latex spacing commands.
 
 $head Warning$$
 The case where $italic unit$$ is negative

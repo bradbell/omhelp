@@ -42,7 +42,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the subscripts and superscripts specified by $italic Command$$ where 
 $italic Command$$ contains the underbar character $code _$$,
 the caret character $code ^$$ or both.

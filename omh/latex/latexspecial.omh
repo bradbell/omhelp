@@ -53,7 +53,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the character specified by $italic c$$
 where $italic c$$ is one of the following:
 #, @, %, &, _, {, }.

@@ -43,7 +43,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the specified command list enclosed by the 
 specified symbols.
 The enclosing symbols are stretched to be 

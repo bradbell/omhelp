@@ -86,7 +86,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the specified commands
 with the diacritical mark specified by
 $italic name$$ above the output corresponding to $italic commands$$.

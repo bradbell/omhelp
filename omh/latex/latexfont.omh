@@ -48,9 +48,8 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
-the Latex font command where $italic font$$ is one of the 
-commands in the following table:
+Display in Latex using the specified font where 
+$italic font$$ is one of the commands in the following table:
 
 $table
 $italic font$$ $pre  $$ $cnext $italic Meaning$$ $pre  $$ $cnext 

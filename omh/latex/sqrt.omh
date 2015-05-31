@@ -41,7 +41,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the square root of $italic base$$
 or the $th index$$ root of $italic base$$,
 where $italic base$$ and $italic index$$

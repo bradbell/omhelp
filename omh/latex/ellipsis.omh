@@ -45,7 +45,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the specified ellipsis where $italic Command$$ is
 one of the following: 
 

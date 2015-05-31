@@ -56,7 +56,7 @@ $tend
 $fend 30$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the array $italic A$$ with
 $th j$$ column is aligned according to the value of $italic cj$$ where  
 $code l$$ means align to the left,

@@ -43,7 +43,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the standard mathematical function specified by $italic Command$$ where 
 $italic Command$$ is one of the 
 commands listed in the table below.

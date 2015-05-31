@@ -39,7 +39,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-$xref/latex/XML Dependent Interpretation/XML dependently interpret/$$
+Display in Latex mode
 the output corresponding to $italic commands$$ with the
 specified output above it.
 
