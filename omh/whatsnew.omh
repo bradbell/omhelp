@@ -117,7 +117,7 @@ $rref whatsNew01$$
 $tend
 $$
 
-$head 15-06-01$$
+$head 15-05-31$$
 Added $cref/MathJax/latex/MathJax (htm)/$$ display of Latex mode
 in $icode%*%.htm%$$ files.
 This helps for browsers, such as Chrome, that do not support MathML.

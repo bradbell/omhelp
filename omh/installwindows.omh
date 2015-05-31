@@ -153,13 +153,13 @@ $head Download OMhelp$$
 Use the following link to download the current version of OMhelp:
 $href%
 	https://github.com/bradbell/omhelp/archive/20150118.zip%
-	omhelp-20150119.zip
+	omhelp-20150531.zip
 %$$
 
 $head Create Distribution Directory$$
 Use the command
 $codep
-	"%zip_prefix%\7z" x omhelp-20150119.zip
+	"%zip_prefix%\7z" x omhelp-20150531.zip
 $$
 where $icode zip_prefix$$ is the prefix for the install of
 $code 7-zip$$.
@@ -169,7 +169,7 @@ $index cmake, command$$
 $index command, cmake$$
 Execute the following commands:
 $codei|
-	cd omhelp-20150119
+	cd omhelp-20150531
 	mkdir build
 	cd build
 	"%cmake_prefix%\bin\cmake" ^
@@ -212,23 +212,23 @@ that are used during compilation.
 The default value for $icode omhelp_c_flags$$ is none. 
 
 $head Build Executable$$
-In the directory $code omhelp-20150119\build$$ execute the following command
+In the directory $code omhelp-20150531\build$$ execute the following command
 $codep
 	nmake
 $$
 This should build the program
 $codep
-	omhelp-20150119\build\src\omhelp.exe
+	omhelp-20150531\build\src\omhelp.exe
 $$
 If you have fortran, 
 and CMake can figure out how to link C to Fortran,
 the following program will also be built
 $codep
-	omhelp-20150119\build\omh\getstarted\run_all.exe
+	omhelp-20150531\build\omh\getstarted\run_all.exe
 $$
 
 $head Build Documentation$$
-Starting in the $code omhelp-20150119$$ directory,
+Starting in the $code omhelp-20150531$$ directory,
 execute the following commands
 $codep
 	mkdir dev
@@ -245,7 +245,7 @@ This should complete without error, and so also functions as a test
 of the distribution.
 
 $head Install OMhelp$$
-In the directory $code omhelp-20150119\build$$ execute the following command
+In the directory $code omhelp-20150531\build$$ execute the following command
 $codep
 	nmake install
 $$
@@ -256,7 +256,7 @@ $index OMhelp, getstarted using$$
 You can build the 
 $cref multiple_example_1$$ subtree of the OMhelp user documentation 
 by executing the following commands starting in the 
-$code omhelp-20150119$$ directory:
+$code omhelp-20150531$$ directory:
 $codei%
 	mkdir xam
 	cd xam
@@ -275,7 +275,7 @@ $index english.wrd$$
 $index local.wrd$$
 $index dictionary.bin$$
 OMhelp utility files are stored in the 
-$code omhelp-20150119\omhelp_data$$ directory.
+$code omhelp-20150531\omhelp_data$$ directory.
 This directory can contain the files
 $codep
 	omhelp_data\english.wrd
@@ -302,7 +302,7 @@ If you make any changes to $code english.wrd$$ or $code local.wrd$$,
 the file $code dictionary.bin$$ should be deleted.
 A new $code dictionary.bin$$ that combines the words $code english.wrd$$
 and $code local.wrd$$ can be created and installed by executing following 
-commands in the $code omhelp-20150119$$ directory:
+commands in the $code omhelp-20150531$$ directory:
 $codep
 	del omhelp_data\dictionary.bin
 	cd doc
