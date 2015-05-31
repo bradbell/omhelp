@@ -18,42 +18,60 @@
 # ---------------------------------------------------------------------------
 # END SHORT COPYRIGHT
 #
-$begin ellipsis$$
+$begin diff_xml_htm$$
 $dollar @$$
 $escape $$
 $spell
+	Jax
 	xml
 	htm
+	mathml
+	mi
+	mathvariant
 	cdots
-	ddots
-	ldots
-	vdots
 $$
 
-$section Latex Ellipsis Commands$$
+$section Difference Between MathML(xml) and MathJax(htm) Display$$
 
-$head Syntax$$
-$codei%@latex %command%@@%$$
+$head Purpose$$
+This section lists the known difference between how MathJax
+and MathML display Latex commands.
 
-$head Description$$
-Display in Latex mode
-the specified ellipsis where $icode command$$ is
-one of the following:
-$pre
+$head MathML (xml)$$
+To get the MathML display of this page select
+$href%diff_xml_htm.xml%$$.
 
+$head MathJax (htm)$$
+To get the MathJax display of this page select
+$href%diff_xml_htm.htm%$$.
+
+$head mathml$$
+The $cref mathml$$ macro is not support by the MathJax. For example,
+the input text
+$codep
+	@latex \[
+		\mathml{ <mi mathvariant="bold">x</mi> }
+	\] @@
 $$
-$icode command $$  $codei% @latex 1, 2, %command%, N@@
-%$$
-$codei \cdots  $$  $latex 1, 2, \cdots, N%$$
-$pre
+displays as
+$latex \[
+	\mathml{ <mi mathvariant="bold">x</mi> }
+\] $$
+
+$head Sub-script and Super-script$$
+The input text
+$codep
+	@latex \[
+		x_12, x^12
+	\] @@
 $$
-$codei \ddots  $$  $latex 1, 2, \ddots, N%$$
-$pre
-$$
-$codei \ldots  $$  $latex 1, 2, \ldots, N%$$
-$pre
-$$
-$codei \vdots  $$  $latex 1, 2, \vdots, N%$$
+displays as
+$latex \[
+	x_12, x^12
+\] $$
+See the sub-script and super-script
+$cref/warning/subsup/Warning/$$.
+
 
 
 $end

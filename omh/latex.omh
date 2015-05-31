@@ -112,39 +112,22 @@ Only the Latex
 commands documented below are allowed in $italic commands$$.
 
 
-$children/
-	latex\symbol.omh/
-	latex\diacritical.omh/
-	latex\stdfun.omh/
-	latex\subsup.omh/
-	latex\frac.omh/
-	latex\sqrt.omh/
-	latex\array.omh/
-	latex\left_right.omh/
-	latex\under_over.omh/
-	latex\stackrel.omh/
-	latex\latexfont.omh/
-	latex\latexcomment.omh/
-	latex\LatexMacro.omh/
-	latex\mathml.omh/$$
-
-$table
-$tref symbol$$       $rnext
-$tref diacritical$$  $rnext
-$tref latexnumber$$  $rnext
-$tref stdfun$$       $rnext
-$tref subsup$$       $rnext
-$tref frac$$         $rnext
-$tref sqrt$$         $rnext
-$tref array$$        $rnext
-$tref left_right$$   $rnext
-$tref under_over$$   $rnext
-$tref stackrel$$     $rnext
-$tref latexfont$$    $rnext
-$tref space$$        $rnext
-$tref latexcomment$$ $rnext
-$tref mathml$$
-$tend
+$childtable%latex\symbol.omh
+	%latex\diacritical.omh
+	%latex\stdfun.omh
+	%latex\subsup.omh
+	%latex\frac.omh
+	%latex\sqrt.omh
+	%latex\array.omh
+	%latex\left_right.omh
+	%latex\under_over.omh
+	%latex\stackrel.omh
+	%latex\latexfont.omh
+	%latex\latexcomment.omh
+	%latex\LatexMacro.omh
+	%latex\mathml.omh
+	%latex\diff_xml_htm.omh
+%$$
 
 
 $head Reference$$

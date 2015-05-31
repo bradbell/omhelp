@@ -121,6 +121,7 @@ $head 15-06-01$$
 Added $cref/MathJax/latex/MathJax (htm)/$$ display of Latex mode
 in $icode%*%.htm%$$ files.
 This helps for browsers, such as Chrome, that do not support MathML.
+See $tref diff_xml_htm$$.
 
 $head 15-01-18$$
 The download and install procedures where changed to use
