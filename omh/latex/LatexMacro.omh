@@ -1,23 +1,23 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin LatexMacro$$
-$escape $$ 
+$escape $$
 $dollar @$$
 $spell
 	inline
@@ -57,14 +57,14 @@ $xref/running/xml/-xml/$$ command line option,
 Latex macros can be defined and used in $xref/latex/$$ mode.
 
 $subhead Global Scope$$
-Macros defined using a $code \newcommand$$ in the 
+Macros defined using a $code \newcommand$$ in the
 $cref/root section/running/root_file/$$
 have global scope; i.e., are defined for all sections.
-This avoids having to entirely 
+This avoids having to entirely
 reprocess all the macros for each section
 (which could be time consuming for large numbers of macros).
 It is suggested that you put all these macros in one file
-using an 
+using an
 $xref/latex/Inline Formulas/inline/$$ latex command.
 (You cannot use a
 $xref/latex/Displayed Formulas/displayed/$$ latex command
@@ -72,12 +72,12 @@ when you are just defining macros and there is no output to be displayed.)
 
 $subhead Section Scope$$
 Macros defined in sections, other than the root section,
-are limited in scope to the section they are defined in; 
+are limited in scope to the section they are defined in;
 i.e., they do not affect any other sections.
 
 
 $subhead Name$$
-The sequence of upper or lower case letters 
+The sequence of upper or lower case letters
 $icode Name$$ specifies the name of the macro.
 
 $subhead Text$$
@@ -100,7 +100,7 @@ The number of replacements made with each use of the macro
 is denoted by $icode N$$.
 
 $subhead JK$$
-For $icode K = 1 , ... , N$$, the decimal digit $icode JK$$ 
+For $icode K = 1 , ... , N$$, the decimal digit $icode JK$$
 is between one and $icode M$$.
 It specifies which argument is placed directly before $icode TextK$$
 in the macro expansion.
@@ -110,7 +110,7 @@ If the macro $codei%\%Name%$$ is defined with no arguments,
 the macro usage
 $codei%
 	\%Name%
-%$$ 
+%$$
 has the replacement value
 $codei%
 	%Text0
@@ -126,7 +126,7 @@ $codei%
 	%Text0 A1 Text_1 ... TextN-1 AN TextN
 %$$
 where $icode N$$, and
-$icode TextK$$ for $icode K = 1 , .. , N$$, 
+$icode TextK$$ for $icode K = 1 , .. , N$$,
 corresponds to the definition of $codei%\%Name%$$.
 
 $head Examples$$
@@ -178,7 +178,7 @@ You can use macros inside of macros.
 In addition, you can defined macros inside of inline latex commands.
 For example, the input
 $codep
-@latex 
+@latex
 	\newcommand{\one}[1]{#1}
 	\newcommand{\two}[1]{\one{#1} \; #1}
 	\newcommand{\three}[1]{\two{#1} \; #1}
@@ -187,7 +187,7 @@ $codep
 @latex \four{4}@@.
 $$
 results in the output:
-$latex 
+$latex
 	\newcommand{\one}[1]{#1}
 	\newcommand{\two}[1]{\one{#1} \; #1}
 	\newcommand{\three}[1]{\two{#1} \; #1}
@@ -206,7 +206,7 @@ $href%http://www.w3.org/TR/MathML2/byalpha.html%MathML symbol%$$ Ropf
 is used in the input
 $codep
 @latex \[
-	\newcommand{\Ropf}{ 
+	\newcommand{\Ropf}{
 		\mathml{ <mi mathvariant='normal'> &\#x0211D; </mi> }
 	}
 	x \in \Ropf^n
@@ -214,8 +214,8 @@ $codep
 $$
 which results in the output
 $latex \[
-	\newcommand{\Ropf}{ 
-		\mathml{ <mi mathvariant='normal'> &\#x0211D; </mi> } 
+	\newcommand{\Ropf}{
+		\mathml{ <mi mathvariant='normal'> &\#x0211D; </mi> }
 	}
 	x \in \Ropf^n
 \] $$
@@ -225,8 +225,8 @@ If two macros are defined with the same value of $italic Name$$,
 an error message is printed and OMhelp stops.
 
 $head Nonstandard$$
-Latex macros in OMhelp are different from those in standard 
-Section 3.4.1 of 
+Latex macros in OMhelp are different from those in standard
+Section 3.4.1 of
 $xref/latex/Reference/Lamport's book/$$.
 The following is a list of these differences:
 
@@ -237,9 +237,8 @@ commands.
 
 $lnext
 Macro replacement values cannot use other macros; i.e.,
-the values of $latex Text_K$$ in an macro definition,
-and the value of $latex A_J$$ in a macro usage,
-cannot use other macros.
+the values $icode A1$$, ..., $icode AM$$ in a macro
+$cref/usage/LatexMacro/Syntax/Usage/$$ cannot use other macros.
 
 $lnext
 Macros defined in sections, other than the

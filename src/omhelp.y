@@ -3485,7 +3485,9 @@ latex
 
 				PreviousOutputWasHeading = 0;
 			}
-			math_jax($2.str);
+			const char* macro_cmd  = "ignore";
+			const char* latex_cmds = $2.str;
+			math_jax(macro_cmd, latex_cmds);
 			CheckSpell = checkspell;
 		}
 
