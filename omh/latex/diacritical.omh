@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -67,7 +67,7 @@ $section Diacritical Marks Above Other Output$$
 $table
 $bold Syntax$$
 $cnext $syntax/@latex \/name/{/commands/} @@/$$ $rend
-$cnext where $italic name$$ is 
+$cnext where $italic name$$ is
 $code acute$$,
 $code bar$$,
 $code breve$$,
@@ -90,7 +90,7 @@ Display in Latex mode
 the specified commands
 with the diacritical mark specified by
 $italic name$$ above the output corresponding to $italic commands$$.
-(As of version 1.2b, Mozilla seems to have a problem with the 
+(As of version 1.2b, Mozilla seems to have a problem with the
 acute, breve, ddot, dot, grave, and vec
 cases.)
 
@@ -115,7 +115,7 @@ $pre
 	$$
 	$latex \widehat{x} + \widehat{y + z} $$
 
-$head Table of Diacritical Marks$$ 
+$head Table of Diacritical Marks$$
 
 $nospell
 
@@ -135,7 +135,7 @@ $code \grave{x} $$     $cnext $latex \grave{x} $$  $rnext
 $code \tilde{x} $$     $cnext $latex \tilde{x} $$  $rnext
 $code \vec{x} $$       $cnext $latex \vec{x}  $$   $rnext
 $code \widthat{x} $$   $cnext $latex \widehat{x}  $$   $rnext
-$code \widetilde{x} $$ $cnext $latex \widetilde{x}  $$ 
+$code \widetilde{x} $$ $cnext $latex \widetilde{x}  $$
 
 $tend
 $cnext
@@ -154,7 +154,7 @@ $code \grave{x + y} $$     $cnext $latex \grave{x + y} $$  $rnext
 $code \tilde{x + y} $$     $cnext $latex \tilde{x + y} $$  $rnext
 $code \vec{x + y} $$       $cnext $latex \vec{x + y}  $$   $rnext
 $code \widehat{x + y} $$   $cnext $latex \widehat{x + y} $$   $rnext
-$code \widetilde{x + y} $$ $cnext $latex \widetilde{x + y}  $$ 
+$code \widetilde{x + y} $$ $cnext $latex \widetilde{x + y}  $$
 
 $tend
 

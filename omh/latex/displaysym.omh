@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -52,17 +52,17 @@ $fend 20$$
 
 $head Description$$
 Display in Latex mode
-the symbol specified by $italic Symbol$$ where 
-$italic Symbol$$ is one of the 
+the symbol specified by $italic Symbol$$ where
+$italic Symbol$$ is one of the
 Latex symbols in the tables below.
-These symbols are larger in 
+These symbols are larger in
 $xref/latex/Displayed Formulas/displayed formulas/$$
 than in inline formulas.
 In addition,
 subscripts and superscripts attached directly to these symbols
 are placed above and below in displayed formulas
 (instead of after the symbol).
-These symbols appear in Table 3.8 of 
+These symbols appear in Table 3.8 of
 $xref/latex/Reference/Lamport/$$.
 
 $head Inline Formulas$$
@@ -78,7 +78,7 @@ $bold Symbol$$ $cnext $bold Output$$   $rend
 \prod                $cnext $latex \prod                $$ $rend
 \coprod              $cnext $latex \coprod              $$ $rend
 \int                 $cnext $latex \int                 $$ $rend
-\oint                $cnext $latex \oint                $$ 
+\oint                $cnext $latex \oint                $$
 $tend
 
 $cnext
@@ -108,7 +108,7 @@ $$
 $head Display Formulas$$
 The following is an example
 of these symbols in displayed formulas.
-Note the operator size problem with both the 
+Note the operator size problem with both the
 $xref/Firefox/Operator Sizes/Firefox/$$
 and
 $xref/Explorer/MathML/Operator Sizes/Explorer/1/$$
@@ -117,7 +117,7 @@ $latex \[
 \sum
 \prod
 \coprod
-\int 
+\int
 \oint
 \bigcap
 \bigcup
@@ -131,7 +131,7 @@ $latex \[
 
 
 $head Example$$
-The input 
+The input
 $codep
 	The sum @latex \sum_{i=1}^\infty f(i) @@  converges
 $$
@@ -141,14 +141,14 @@ $pre
 The sum $latex \sum_{i=1}^\infty f(i) $$  converges
 $pre
 $$
-The input 
+The input
 $codep
 	The sum @latex \[ \sum_{i=1}^\infty f(i) \] @@  converges
 $$
 generates the output
 $pre
-	$$The sum 
-$latex \[ \sum_{i=1}^\infty f(i) \] $$  
+	$$The sum
+$latex \[ \sum_{i=1}^\infty f(i) \] $$
 $pre	$$converges
 
 $head Exception$$
@@ -165,14 +165,14 @@ $pre
 The integral $latex \int_{i=1}^\infty f(i) di $$  converges
 $pre
 $$
-The input 
+The input
 $codep
 	The integral @latex \[ \int_{i=1}^\infty f(i) di \] @@  converges
 $$
 generates the output
 $pre
-	$$The integral 
-$latex \[ \int_{i=1}^\infty f(i) di \] $$  
+	$$The integral
+$latex \[ \int_{i=1}^\infty f(i) di \] $$
 $pre	$$converges
 
 $end

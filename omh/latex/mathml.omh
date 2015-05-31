@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -47,11 +47,11 @@ $codei%@latex \mathml{%start% %text% %stop%}@@
 $head Restriction$$
 The Latex $code \mathml$$ command only works using the $icode%*%.xml%$$
 files and a browser that supports
-$cref/MathML/latex/MathML (xml)/$$; e.g., Firefox (and not Chrome). 
+$cref/MathML/latex/MathML (xml)/$$; e.g., Firefox (and not Chrome).
 
 $head Description$$
 This command is not $cref/Standard Latex/latex/Reference/$$
-(which is why it does not work with 
+(which is why it does not work with
 $cref/MathJax/latex/MathJax (htm)/$$).
 The $code mathml$$ command has two purposes described below:
 
@@ -71,13 +71,13 @@ specifications.
 The arguments $icode start$$, $icode stop$$, $icode text$$
 can be one of the following:
 $table
-$icode start$$ $cnext $icode stop$$ $cnext $icode text$$ 
+$icode start$$ $cnext $icode stop$$ $cnext $icode text$$
 $rnext
 $code <mo stretchy='false'>$$ $cnext $code </mo>$$ $cnext
-	an operator that should not stretch to fit 
+	an operator that should not stretch to fit
 $rnext
 $code <mi mathvariant='normal'>$$ $cnext $code </mi>$$ $cnext
-	an identifier that should be displayed in normal font 
+	an identifier that should be displayed in normal font
 $rnext
 $tend
 
@@ -96,31 +96,31 @@ $href%http://www.w3.org/TR/MathML2/chapter3.html#presm_tokel%$$
 $pre
 $$
 there is a paragraph with the text:
-"Finally, there is a redundancy problem 
-with the mathvariant attribute that must 
-be dealt with as a special case. 
-When the mathvariant attribute 
+"Finally, there is a redundancy problem
+with the mathvariant attribute that must
+be dealt with as a special case.
+When the mathvariant attribute
 is used on an mi element containing a single character ...
 the resulting rendering will be visually indistinguishable
-from an mi element with no attributes containing 
+from an mi element with no attributes containing
 the corresponding SMP character."
 From this discussion, it seems to me that both of the
 $code x$$ in the commands below should
 be displayed the same.
 $codep
-	@latex \[ 
-		\mathml{ 
+	@latex \[
+		\mathml{
 			<mi>x</mi>
-			<mi mathvariant="normal">x</mi> 
-		} 
+			<mi mathvariant="normal">x</mi>
+		}
 	\]@@
 $$
 generates the output
 $latex \[
-		\mathml{ 
+		\mathml{
 			<mi>x</mi>
-			<mi mathvariant="normal">x</mi> 
-		} 
+			<mi mathvariant="normal">x</mi>
+		}
 \]$$
 On the other hand, it appears that the browsers are changing
 fonts as requested.
@@ -134,7 +134,7 @@ by $code mi$$ elements that have single character values.
 $head Overbrace Compared To Tilde$$
 The OverBrace (U0FE37) stretches to fit the entire base
 and the tilde (U002DC) does not.
-This is a good thing because it agrees with LaTex, 
+This is a good thing because it agrees with LaTex,
 but it is unclear how the MathML specifications lead to this display.
 The input
 $codep
