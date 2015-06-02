@@ -34,8 +34,8 @@ MACRO(command_line_arg variable_out default_in type_in description_in)
 	SET(${variable_out} "${default_in}" CACHE ${type_in} "${description_in}")
 	MESSAGE(STATUS "${variable_out} = \"${${variable_out}}\"")
 ENDMACRO( command_line_arg )
-SET(srcdir ${CMAKE_CURRENT_SOURCE_DIR})
-SET(bindir ${CMAKE_CURRENT_BINARY_DIR})
+SET(topsrcdir ${CMAKE_CURRENT_SOURCE_DIR})
+SET(topbindir ${CMAKE_CURRENT_BINARY_DIR})
 # ---------------------------------------------------------------------------
 # omhelp_prefix
 command_line_arg(omhelp_prefix /usr PATH
@@ -55,18 +55,10 @@ IF( omhelp_c_flags )
 ENDIF( omhelp_c_flags )
 # ---------------------------------------------------------------------------
 ADD_SUBDIRECTORY(src)
-# ---------------------------------------------------------------------------
-ENABLE_LANGUAGE( Fortran OPTIONAL )
-IF( CMAKE_Fortran_COMPILER_WORKS )
-	INCLUDE( FortranCInterface )
-	IF( FortranCInterface_MODULE_FOUND )
-		# 2DO: include just C examples when Fortran linking not available
-		ADD_SUBDIRECTORY(omh/getstarted)
-	ENDIF( FortranCInterface_MODULE_FOUND )
-ENDIF( CMAKE_Fortran_COMPILER_WORKS )
+ADD_SUBDIRECTORY(omh/getstarted)
 # ---------------------------------------------------------------------------
 INSTALL(
-	PROGRAMS    ${bindir}/src/omhelp${CMAKE_EXECUTABLE_SUFFIX}
+	PROGRAMS    ${topbindir}/src/omhelp${CMAKE_EXECUTABLE_SUFFIX}
 	DESTINATION ${omhelp_prefix}/bin
 )
 INSTALL(
