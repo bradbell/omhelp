@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -18,9 +18,9 @@
 #
 $begin spell$$
 $dollar @$$
-$spell 
-	OMhelp 
-	cend 
+$spell
+	OMhelp
+	cend
 	wrd
 	dir
 	omhelp
@@ -49,22 +49,22 @@ followed by a sequence and lower case letters.
 For example, $code AddNumber$$ is two words namely $code Add$$
 and $code Number$$.
 Often, there are words in the text of a document that are not
-part of the standard or local  
+part of the standard or local
 $xref/spell/Dictionary/dictionary/$$.
-Any words that appear in $italic word list$$ 
-will be considered correctly spelled even if they are not in 
+Any words that appear in $italic word list$$
+will be considered correctly spelled even if they are not in
 either of the dictionaries.
 
 $head Double Words$$
 Double words are also flagged as spelling errors.
 To be specific,
-a double word is two copies of the same word 
-(ignoring case of the first letter and longer than one letter) 
+a double word is two copies of the same word
+(ignoring case of the first letter and longer than one letter)
 with only
 $xref/glossary/White Space/white space/$$
 between the two copies.
 If a double word appears in $italic word list$$,
-it will be considered correctly spelled. 
+it will be considered correctly spelled.
 
 $head Effect Limits$$
 A $code spell$$ command has effect from the point of the command to
@@ -90,15 +90,15 @@ $codep
 		wordtwo
 	@@
 	@codep
-		wordone 
-		Wordtwo 
+		wordone
+		Wordtwo
 		wordthree
 	@@
 $$
 results in the following output
 $pre
 	$$$code wordone$$$pre
-	$$$code Wordtwo$$$pre 
+	$$$code Wordtwo$$$pre
 	$$$codecolor Red$$$code wordthree$$$pre
 $$
 $codecolor Blue$$
@@ -116,8 +116,8 @@ $codep
 		word word
 	@@
 	@codep
-		this this 
-		word word 
+		this this
+		word word
 	@@
 $$
 results in the following output
@@ -131,16 +131,16 @@ as a spelling error is printed on standard output.
 
 $head Spelling Error Output$$
 $mindex spell error output$$
-Spelling errors are printed on 
+Spelling errors are printed on
 $xref/stdout//standard output/$$.
 If the $xref/running/debug/-debug/$$ option is chosen,
 an alphabetic list of spelling errors
-is stored in the file 
-$xref/running/debug/error.wrd/$$ 
+is stored in the file
+$xref/running/debug/error.wrd/$$
 in the current directory
 (where OMhelp is $xref/running//run/$$).
 If you change dictionaries (see below) and you get
-spelling errors with your new dictionary, 
+spelling errors with your new dictionary,
 you can add the words in $code error.wrd$$ to your new dictionary
 to make your new dictionary compatible with your current help system.
 
@@ -149,12 +149,12 @@ $head Dictionary$$
 $index spell$$
 $index dictionary$$
 The dictionary used by OMhelp is determined during installation
-(see the spelling list instructions for installing under 
+(see the spelling list instructions for installing under
 $cref/Unix/InstallUnix/Spelling List/$$ or
 $cref/Windows/InstallWindows/Spelling List/$$).
-The standard dictionary is located in a file called 
+The standard dictionary is located in a file called
 $code english.wrd$$
-and the local dictionary is located in a file called 
+and the local dictionary is located in a file called
 $code local.wrd$$.
 A combined binary version of these dictionaries is located in a file called
 $code dictionary.bin$$

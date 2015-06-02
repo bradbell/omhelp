@@ -1,23 +1,23 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin stdout$$
-$spell 
+$spell
 	dev
 	stdout
 	OMhelp
@@ -33,7 +33,7 @@ $index output, standard$$
 $section Standard Output Information$$
 
 $head Purpose$$
-OMhelp prints a trace of its activity on standard output to 
+OMhelp prints a trace of its activity on standard output to
 show that processing is proceeding and to help in debugging.
 
 $head Version Identification$$
@@ -46,18 +46,18 @@ $index input, file$$
 $index file, input$$
 A line of trace information is printed for each input file.
 The line begins with the name of the file that is being processed.
-The file being processed appeared in a $code contents$$, $code childtable$$, 
+The file being processed appeared in a $code contents$$, $code childtable$$,
 or $code children$$ command of one of the previous files
 (see $tref children$$).
 The level of indentation for each file is one space greater than
-the level of indentation for the file that contained the 
+the level of indentation for the file that contained the
 command causing it to be processed.
 
 $head Cross Reference Tags$$
 $index cross, reference tag$$
 $index tag, cross reference$$
 $index reference, tag$$
-The 
+The
 $xref/glossary/Cross Reference Tag/cross reference tag/$$
 for each of the sections that are defined in the file
 are printed following the file name and on the same line.
@@ -91,7 +91,7 @@ $head Example$$
 The Build Documentation instructions for
 $cref/unix/InstallUnix/OMhelp Documentation/$$ and
 $cref/unix/InstallWindows/OMhelp Documentation/$$
-store the example output file in $code omhelp.dev.log$$ 
+store the example output file in $code omhelp.dev.log$$
 which is listed below
 $code
 $verbatim%../omhelp.dev.log%$$
