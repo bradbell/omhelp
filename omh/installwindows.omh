@@ -46,12 +46,8 @@ $spell
 	Microsoft
 $$
 
-$index free, install OMhelp$$
-$index install, windows OMhelp$$
-$index windows, OMhelp install$$
-$index OMhelp, install windows$$
-
 $section Windows Installation and Testing$$
+$index free, install OMhelp$$
 
 $head Using Cygwin and MinGw$$
 If you are using
@@ -165,8 +161,6 @@ where $icode zip_prefix$$ is the prefix for the install of
 $code 7-zip$$.
 
 $head CMake Command$$
-$index cmake, command$$
-$index command, cmake$$
 Execute the following commands:
 $codei|
 	cd omhelp-20150531
@@ -186,7 +180,6 @@ are required.
 The other entries use default values if they are not specified.
 
 $subhead omhelp_prefix$$
-$index omhelp_prefix$$
 The default value for $icode omhelp_prefix$$ is $code \usr$$; i.e.,
 by default the OMhelp executable is installed in
 $codep
@@ -251,8 +244,6 @@ $codep
 $$
 
 $head Getting Started$$
-$index getstarted, using OMhelp$$
-$index OMhelp, getstarted using$$
 You can build the
 $cref multiple_example_1$$ subtree of the OMhelp user documentation
 by executing the following commands starting in the
@@ -270,7 +261,6 @@ $codei%
 See the $cref get_started$$ section for more examples.
 
 $head Dictionary$$
-$index dictionary$$
 $index english.wrd$$
 $index local.wrd$$
 $index dictionary.bin$$

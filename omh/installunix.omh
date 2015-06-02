@@ -48,11 +48,8 @@ $spell
 $$
 
 
-$index free, unix install$$
-$index OMhelp, unix install$$
-$index download, unix OMhelp$$
-
 $section Unix Installation and Testing$$
+$index free, unix install$$
 
 $head Requirements$$
 Building OMhelp requires that
@@ -93,8 +90,6 @@ $codei%
 %$$
 
 $head CMake Command$$
-$index cmake, command$$
-$index command, cmake$$
 Execute the following commands:
 $codei%
 	cd omhelp-20150531
@@ -180,8 +175,6 @@ $codep
 $$
 
 $head Getting Started$$
-$index getstarted, using OMhelp$$
-$index OMhelp, getstarted using$$
 You can build the
 $cref multiple_example_1$$ subtree of the OMhelp user documentation
 by executing the following commands starting in the
@@ -199,7 +192,6 @@ $codei%
 See the $cref get_started$$ section for more examples.
 
 $head Dictionary$$
-$index dictionary$$
 $index english.wrd$$
 $index local.wrd$$
 $index dictionary.bin$$
