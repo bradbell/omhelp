@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	wrd
 	cmake
 	aindex
 	gcc
@@ -116,6 +117,18 @@ $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
 $$
+
+$head 5-06-02$$
+$list number$$
+Modify the install process so that it is no longer necessary to build the
+$cref/omhelp documentation/InstallUnix/OMhelp Documentation/$$ begin
+$cref/installing omhelp/InstallUnix/Install OMhelp/$$
+$lnext
+Improve the documentation for the spelling list files
+$cref/english.wrd/InstallUnix/Spelling List/english.wrd/$$,
+$cref/local.wrd/InstallUnix/Spelling List/local.wrd/$$, and
+$cref/dictionary.bin/InstallUnix/Spelling List/dictionary.bin/$$.
+$lend
 
 $head 15-05-31$$
 Added $cref/MathJax/latex/MathJax (htm)/$$ display of Latex mode
@@ -1026,7 +1039,7 @@ This would cause an error if the user running
 the program did not have permission to write in the $icode prefix$$
 directory.
 This has been fixed by changing the
-$xref/InstallUnix/Dictionary/dictionary/$$ install procedure.
+$cref/spelling list/InstallUnix/Spelling List/$$ install procedure.
 
 $head 05-08-15$$
 The install directory was not being properly embedded in the program

@@ -89,8 +89,8 @@ file to be printed on standard output.
 
 $head Example$$
 The Build Documentation instructions for
-$cref/unix/InstallUnix/Build Documentation/$$ and
-$cref/windows/InstallWindows/Build Documentation/$$
+$cref/unix/InstallUnix/OMhelp Documentation/$$ and
+$cref/unix/InstallWindows/OMhelp Documentation/$$
 store the example output file in $code omhelp.dev.log$$ 
 which is listed below
 $code

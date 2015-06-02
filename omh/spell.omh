@@ -149,9 +149,9 @@ $head Dictionary$$
 $index spell$$
 $index dictionary$$
 The dictionary used by OMhelp is determined during installation
-(see the dictionary instructions for installing under 
-$xref/InstallUnix/Dictionary/Unix/$$ or
-$xref/InstallWindows/Dictionary/Windows/$$).
+(see the spelling list instructions for installing under 
+$cref/Unix/InstallUnix/Spelling List/$$ or
+$cref/Windows/InstallWindows/Spelling List/$$).
 The standard dictionary is located in a file called 
 $code english.wrd$$
 and the local dictionary is located in a file called 

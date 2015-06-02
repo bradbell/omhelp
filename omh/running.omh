@@ -174,9 +174,9 @@ containing an alphabetic list of all the misspelled words is generated.
 In some cases, you may decide that some or all of there words
 should be added to $code local.wrd$$.
 In this case, see
-the dictionary instructions for installing under 
-$xref/InstallUnix/Dictionary/Unix/$$ or
-$xref/InstallWindows/Dictionary/Windows/$$.
+the spelling list instructions for installing under 
+$cref/Unix/InstallUnix/Spelling List/$$ or
+$cref/Windows/InstallWindows/Spelling List/$$.
 
 
 $head xml$$
