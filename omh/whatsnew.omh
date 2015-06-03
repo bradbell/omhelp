@@ -118,7 +118,19 @@ $rref whatsNew01$$
 $tend
 $$
 
-$head 5-06-02$$
+$head 15-06-03$$
+$list number$$
+Add an $code @aindex$$ command in the
+$cref/aindex/keyword/Aindex/Root Section/$$ of the OMhelp documentation.
+This improves the OMhelp documentation
+$cref/index/_index/$$ and search $cref/search/_search/$$ sections.
+$lnext
+The old auto-tools install procedure has been removed from the
+$cref/unix install/InstallUnix/$$ instructions and $code cmake$$
+has been added to its requirements.
+$lend
+
+$head 15-06-02$$
 $list number$$
 Modify the install process so that it is no longer necessary to build the
 $cref/omhelp documentation/InstallUnix/OMhelp Documentation/$$ begin

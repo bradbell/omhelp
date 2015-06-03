@@ -53,46 +53,34 @@ $index free, unix install$$
 
 $head Requirements$$
 Building OMhelp requires that
-$href%http://flex.sourceforge.net/%flex%$$, and
-$href%http://bison.sourceforge.net/%bison%$$
+$href%http://flex.sourceforge.net/%flex%$$,
+$href%http://bison.sourceforge.net/%bison%$$, and
+$href%http://www.cmake.org%cmake%$$ version 2.8 or greater
 are in your execution path.
 In addition, it requires a C compiler.
 
 $head Download OMhelp$$
-
-$subhead Current Version$$
-This current version of OMhelp uses
-$href%http://www.cmake.org%cmake%$$ version 2.8 or greater
-for its build procedure.
 Use the following link to download this version:
 $href%
-	https://github.com/bradbell/omhelp/archive/20150531.tar.gz%
-	omhelp-20150531.tar.gz
+	https://github.com/bradbell/omhelp/archive/20150603.tar.gz%
+	omhelp-20150603.tar.gz
 %$$
-
-$subhead Deprecated$$
-The old download procedure (not documented here) can be used
-with the following version of OMhelp:
-$href%
-	http://www.seanet.com/~bradbell/OMhelp.unix.tar.gz%
-	OMhelp.unix.tar.gz
-%$$.
 
 $head Create Distribution Directory$$
 Use the command
 $codep
-	tar -xzf omhelp-20150531.tar.gz
+	tar -xzf omhelp-20150603.tar.gz
 $$
 to decompress and extract the unix format version into the
 distribution directory
 $codei%
-	omhelp-20150531
+	omhelp-20150603
 %$$
 
 $head CMake Command$$
 Execute the following commands:
 $codei%
-	cd omhelp-20150531
+	cd omhelp-20150603
 	mkdir build
 	cd build
 	cmake \
@@ -133,13 +121,13 @@ that are used during compilation.
 The default value for $icode omhelp_c_flags$$ is none.
 
 $head Build Executable$$
-In the directory $code omhelp-20150531/build$$ execute the following command
+In the directory $code omhelp-20150603/build$$ execute the following command
 $codep
 	make
 $$
 This should build the program
 $codep
-	omhelp-20150531/build/src/omhelp
+	omhelp-20150603/build/src/omhelp
 $$
 If you are using Cygwin or MinGw,
 the file $code omhelp$$ may possibly be $code omhelp.exe$$.
@@ -147,7 +135,7 @@ If you have fortran,
 and CMake can figure out how to link C to Fortran,
 the following program will also be built
 $codep
-	omhelp-20150531/build/omh/getstarted/run_all
+	omhelp-20150603/build/omh/getstarted/run_all
 $$
 
 $head OMhelp Documentation$$
@@ -156,9 +144,9 @@ OMhelp developer and user documentation before installing OMhelp;
 i.e., you can skip these steps.
 
 $subhead Developer Documentation$$
-Starting in the $code omhelp-20150531$$ directory,
+Starting in the $code omhelp-20150603$$ directory,
 the following commands create the developer documentation in the
-directory $code omhelp-20150531/dev$$:
+directory $code omhelp-20150603/dev$$:
 $codep
 	mkdir dev
 	cd dev
@@ -170,9 +158,9 @@ This should complete without error, and so also functions as a test
 of the distribution.
 
 $subhead User Documentation$$
-Starting in the $code omhelp-20150531$$ directory,
+Starting in the $code omhelp-20150603$$ directory,
 the following commands create the user documentation in the
-directory $code omhelp-20150531/doc$$:
+directory $code omhelp-20150603/doc$$:
 $codep
 	mkdir doc
 	cd doc
@@ -183,7 +171,7 @@ This should complete without error, and so also functions as a test
 of the distribution.
 
 $head Install OMhelp$$
-In the directory $code omhelp-20150531/build$$ execute the following command
+In the directory $code omhelp-20150603/build$$ execute the following command
 $codep
 	make install
 $$
@@ -192,7 +180,7 @@ $head Getting Started$$
 You can build the
 $cref multiple_example_1$$ subtree of the OMhelp user documentation
 by executing the following commands starting in the
-$code omhelp-20150531$$ directory:
+$code omhelp-20150603$$ directory:
 $codei%
 	mkdir xam
 	cd xam
@@ -207,11 +195,11 @@ See the $cref get_started$$ section for more examples.
 
 $head Spelling List$$
 The OMhelp utility files are stored in the
-$code omhelp-20150531/omhelp_data$$ directory.
+$code omhelp-20150603/omhelp_data$$ directory.
 The spelling lists below are a subset of these files.
 
 $subhead english.wrd$$
-The file $code omhelp-20150531/omhelp_data/english.wrd$$ is a
+The file $code omhelp-20150603/omhelp_data/english.wrd$$ is a
 list of standard english words.
 The words must be in alphabetic order, lower case, and contain only letters.
 For example,
@@ -224,7 +212,7 @@ $$
 A default $code english.wrd$$ file is distributed with OMhelp.
 
 $subhead local.wrd$$
-The file $code omhelp-20150531/omhelp_data/local.wrd$$ is an optional
+The file $code omhelp-20150603/omhelp_data/local.wrd$$ is an optional
 list of special words, not in $code english.wrd$$ that are to be
 considered correctly spelled.
 These words
@@ -234,13 +222,13 @@ $subhead dictionary.bin$$
 OMhelp combines the files $code english.wrd$$ and $code local.wrd$$
 to form
 $codep
-	omhelp-20150531/omhelp_data/dictionary.bin
+	omhelp-20150603/omhelp_data/dictionary.bin
 $$
 If you make any changes to $code english.wrd$$ or $code local.wrd$$,
 the file $code dictionary.bin$$ should be deleted.
 A new $code dictionary.bin$$ that combines the words $code english.wrd$$
 and $code local.wrd$$ can be created and installed by executing following
-commands in the $code omhelp-20150531$$ directory:
+commands in the $code omhelp-20150603$$ directory:
 $codep
 	rm omhelp_data/dictionary.bin
 	cd build/omh/getstarted
