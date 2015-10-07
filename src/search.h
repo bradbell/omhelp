@@ -25,8 +25,8 @@ extern void OpenSearchFile(const char *fileTag, const char *siteTitle);
 extern void SearchBegin(const char *tag);
 extern void SearchTitle(const char *title);
 extern void SearchKeywords(
-	const char *list   , 
-	const char escape  , 
+	const char *list   ,
+	const char escape  ,
 	const char* ignore
 );
 extern char *SearchGetKeywords();

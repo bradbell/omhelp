@@ -33,7 +33,7 @@ $section Keyword and Index Utilities$$
 $table
 $bold Syntax$$
 $cend
-$syntax%InsertInIndex(%key%, %tag%, %head%, %escape%)%$$ 
+$syntax%InsertInIndex(%key%, %tag%, %head%, %escape%)%$$
 $rend $cend
 $syntax%MultipleIntoIndex(%key%, %tag%, %head%, %escape%, %ignore%)%$$
 $rend $cend
@@ -50,9 +50,9 @@ The '\0' terminated character vector $italic key$$
 is the key for the index entry.
 It contains the text that will be in alphabetic order in the index.
 Key escape characters (see below) are used to convey special meaning
-to the routines in this section and will not appear in the 
+to the routines in this section and will not appear in the
 index entries.
-Upper case alphabetic letters in $italic key$$ are assumed to be 
+Upper case alphabetic letters in $italic key$$ are assumed to be
 part of a spelling error.
 They are converted to lower case and displayed in Red.
 
@@ -68,7 +68,7 @@ that is not directly preceeded by an key escape character.
 
 $subhead Key Space Character$$
 We define a key space character in $italic key$$
-as any white space character 
+as any white space character
 that is not directly preceeded by an key escape character.
 
 $subhead Key Word$$
@@ -79,7 +79,7 @@ or the '\0' at the end of $italic key$$.
 
 $subhead Key Comment$$
 We define a key comment in $italic key$$
-as a key word that 
+as a key word that
 is directly preceeded by a key escape character.
 
 $head Tag$$
@@ -88,14 +88,14 @@ tag for this index entry. It specifies the section that the index entry
 points to.
 
 $head Head$$
-The '\0' terminated character vector $italic head$$ is the 
+The '\0' terminated character vector $italic head$$ is the
 $xref/glossary/Cross Reference Heading/cross reference heading/$$
-for this index entry. 
+for this index entry.
 It specifies the location with in the section
-that the index entry points to. 
-If $italic head$$ equals NULL or 
-$syntax//head/[0]/$$ equals '\0', 
-the entry points to the entire section specified by $italic tag$$. 
+that the index entry points to.
+If $italic head$$ equals NULL or
+$syntax//head/[0]/$$ equals '\0',
+the entry points to the entire section specified by $italic tag$$.
 
 $head Escape$$
 This is the current escape character
@@ -105,7 +105,7 @@ and does not appear in the index entries.
 
 $head Section$$
 This is a $xref/SectionInfo/$$ pointer
-that specifies the section corresponding to the automatically 
+that specifies the section corresponding to the automatically
 generated index page.
 
 $head InsertInIndex$$
@@ -121,9 +121,9 @@ the second level of the index entry.
 
 $head MultipleIntoIndex$$
 $index MultipleIntoIndex$$
-This routine will insert a one level index entry for each 
+This routine will insert a one level index entry for each
 $xref/KeywordIndex/Key.Key Word/key word/$$
-that is not a 
+that is not a
 $xref/KeywordIndex/Key.Key Comment/key comment/$$.
 (For this function,
 the comma does not have the special meaning it has in $code InsertInIndex$$.)
@@ -131,9 +131,9 @@ Words that appear in $icode ignore$$ will not be included in the index.
 
 $head CycleIntoIndex$$
 $index CycleIntoIndex$$
-This routine will insert a two level index entry for each 
+This routine will insert a two level index entry for each
 $xref/KeywordIndex/Key.Key Word/key word/$$
-that is not a 
+that is not a
 $xref/KeywordIndex/Key.Key Comment/key comment/$$.
 The first level of the index entry will be the key word.
 The second level will be the entire $italic key$$.
@@ -141,7 +141,7 @@ $pre
 
 $$
 If a comma character appears in $italic key$$ and it not
-is preceded by the 
+is preceded by the
 $xref/KeywordIndex/Key.Key Escape Character/key escape/$$ character,
 an error message for the $code cindex$$ command is generated.
 
@@ -155,7 +155,7 @@ It is a Pass1 version because
 the cross references use the HrefOutputPass1 format.
 In addition, for the $italic letter$$
 between $code A$$ and $code Z$$ that has index entries
-starting with that letter: 
+starting with that letter:
 there a heading for that letter together with a
 $syntax%
 	<a name="%letter%"></a>
@@ -167,12 +167,12 @@ $head IndexFreeMem$$
 The routines listed above allocate memory using $xref/AllocMem/$$.
 The routine $code IndexFreeMem$$ must be called
 after the last call to any of the routines above,
-and before calling 
+and before calling
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$.
 
 
 $head Errors$$
-All the routines documented above use 
+All the routines documented above use
 $xref/fatalerr//fatalomh/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.
@@ -226,7 +226,7 @@ static int IndexOrder(const char *s1, const char *s2)
 	while( ! done )
 	{	c1   = s1[i];
 		c2   = s2[i];
-		done = (c1 == '\0') | (c2 == '\0');		
+		done = (c1 == '\0') | (c2 == '\0');
 		++i;
 
 		diff = tolower((int) c1) - tolower((int) c2);
@@ -238,12 +238,12 @@ static int IndexOrder(const char *s1, const char *s2)
 	}
 	return 0;
 }
-		
+
 
 static int KeyCompare(IndexEntry *E, IndexEntry *F)
 {	int major;
 	int minor;
- 
+
 	major = IndexOrder(E->major, F->major);
 	minor = IndexOrder(E->minor, F->minor);
 
@@ -274,7 +274,7 @@ static void OutKey(char *s)
 
 	ch = *s++;
 	while( ch != '\0' )
-	{	
+	{
 		// determine if switching to or from bold
 		flag  = isalpha((int) ch);
 		flag |= isdigit((int) ch);
@@ -300,9 +300,9 @@ static void OutKey(char *s)
 }
 
 void InsertInIndex(
-	const char *key, 
-	const char *tag, 
-	const char *head, 
+	const char *key,
+	const char *tag,
+	const char *head,
 	const char escape
 )
 {	char *s;
@@ -323,22 +323,22 @@ void InsertInIndex(
 
 	// check for a comma with out an escape
 	ch = '\0';
-	s  = E->major; 
+	s  = E->major;
 	while( *s != '\0' && (*s != ',' || ch == escape) )
-		ch = *s++; 
+		ch = *s++;
 
-	// if there, it is the beginning of the minor key 
+	// if there, it is the beginning of the minor key
 	// note no allocation for E->minor in either case
 	if( *s == ',' )
 	{	// beginning of minor key
-		E->minor = s + 1; 
+		E->minor = s + 1;
 
 		// skip leading white space
 		while( isspace((int) *(E->minor) ) )
 			++(E->minor);
 
 		// end of major key
-		*s = '\0'; 
+		*s = '\0';
 		--s;
 
 		// skip trailing white space
@@ -355,18 +355,18 @@ void InsertInIndex(
 	// remove escape characters from major and minor keys
 	StrRemove(E->major, escape);
 	StrRemove(E->minor, escape);
-	
-	// move E to proper place in index 
+
+	// move E to proper place in index
 	if( Index == NULL )
 		Index = E;
 	else if( KeyCompare(E, Index) < 0 )
 		Index   = E;
 	else
 	{	L  = Index;
-		N  = L->next; 
-		while( N != NULL && KeyCompare(E, N) > 0 ) 
+		N  = L->next;
+		while( N != NULL && KeyCompare(E, N) > 0 )
 		{	L = N;
-		    	N = N->next;
+			N = N->next;
 		}
 		L->next = E;
 		E->next = N;
@@ -413,12 +413,12 @@ void MultipleIntoIndex(
 			}
 			keyword[i] = '\0';
 
-			if( strstr(ignore, keyword) == NULL ) 
+			if( strstr(ignore, keyword) == NULL )
 			{
 				InsertInIndex(
-					keyword, 
-					tag, 
-					head, 
+					keyword,
+					tag,
+					head,
 					escape
 				);
 			}
@@ -428,7 +428,7 @@ void MultipleIntoIndex(
 		while( isspace((int) *key) )
 			key++;
 	}
-	
+
 	return;
 }
 
@@ -437,7 +437,7 @@ void CycleIntoIndex(
 	const char *key,
 	const char *tag,
 	const char *head,
-	const char escape 
+	const char escape
 )
 {	char  *entry;
 	char      ch;
@@ -457,10 +457,10 @@ void CycleIntoIndex(
 	// space for twice as many characters as in key plus one.
 	entry = StrCat(__FILE__, __LINE__, key, ",", key, NULL);
 	assert( strlen(entry) == ( (unsigned) 2 * len + 1 ));
-	
+
 	// check for a comma that is not preceded by an escape
 	for(i = 0; i < len; i++)
-	{	
+	{
 		if( i == 0 )
 			comma = key[i] == ',';
 		else	comma = key[i] == ',' && key[i-1] != escape;
@@ -480,7 +480,7 @@ void CycleIntoIndex(
 		// skip spaces infront of next word
 		while( key[i] != '\0' &&  Space(key[i], ch, escape) )
 		{	ch = key[i];
-			++i; 
+			++i;
 		}
 		assert( ! isspace((int) key[i] ) );
 
@@ -490,7 +490,7 @@ void CycleIntoIndex(
 			// copy word starting at index i into major key
 			j = 0;
 			entry[j++] = ch = key[i++];
-			while(key[i] != '\0' && ! Space(key[i], ch, escape)) 
+			while(key[i] != '\0' && ! Space(key[i], ch, escape))
 				entry[j++] = ch = key[i++];
 
 			// separate major from minor key
@@ -503,25 +503,25 @@ void CycleIntoIndex(
 
 			// check length assumption
 			assert( j <= 2 * len + 1 );
-			
+
 			InsertInIndex(
-				entry, 
-				tag, 
-				head, 
+				entry,
+				tag,
+				head,
 				escape
 			);
 		}
 
 		// skip escaped words
-		while(key[i] != '\0' && ! Space(key[i], ch, escape)) 
+		while(key[i] != '\0' && ! Space(key[i], ch, escape))
 			ch = key[i++];
 	}
-	
+
 	FreeMem(entry);
 	return;
 }
 void IndexPass1(SectionInfo *section)
-{	
+{
 	char *filename;
 	char *major;
 	char *minor;
@@ -535,8 +535,8 @@ void IndexPass1(SectionInfo *section)
 
 	IndexEntry *Previous;
 	IndexEntry *Current;
-	
-	
+
+
 	// open output file
 	filename = strjoin(section->tag, ".tmp");
 	PushOutput(filename);
@@ -558,7 +558,7 @@ void IndexPass1(SectionInfo *section)
 	}
 	else	OutputString(section->title);
 	OutputString("</big></big></b></center>\n");
-	
+
 	// initialize
 	letter         = 0;
 	letterHead[1]  = '\0';
@@ -580,7 +580,7 @@ void IndexPass1(SectionInfo *section)
 		while(ch > 'a' + letter && letter < 26)
 			letter++;
 		if( ch == 'a' + letter && letter < 26 )
-		{	
+		{
 			letterHead[0] = 'A' + letter;
 			FormatOutput("\n<b><big><a name=\"%s\">", letterHead);
 			FormatOutput("%s</a></big></b>\n", letterHead);
@@ -589,9 +589,9 @@ void IndexPass1(SectionInfo *section)
 				section->tag, letterHead, "", 1, letterHead);
 			letter++;
 		}
-		
 
-		if( Previous == NULL || 
+
+		if( Previous == NULL ||
 		    IndexOrder(Previous->major, major) != 0 )
 		{	// new major part of key
 			OutKey(major);
@@ -615,7 +615,7 @@ void IndexPass1(SectionInfo *section)
 		// output the minor part of the key
 		if( minor[0] != '\0' )
 		{	int i;
-		
+
 			// indentation for minor keys
 			for(i = 0; i < TAB_SIZE; i++)
 				OutputString("&#160;");
@@ -623,7 +623,7 @@ void IndexPass1(SectionInfo *section)
 			// output the minor key
 			OutKey(minor);
 		}
-		
+
 
 		// space
 		OutputString("&#160;");
@@ -632,14 +632,14 @@ void IndexPass1(SectionInfo *section)
 		if( head[0] == '\0' )
 			HrefOutputPass1(tag, head, "false", "", "true");
 		else	HrefOutputPass1(tag, head, "false", "1", "true");
-		
+
 		// title for this destination
 		OutPre(title);
 		if( strlen(head) > 0 )
-		{ 	OutputString(":&#160;");
+		{	OutputString(":&#160;");
 			OutPre(head);
 		}
-		
+
 		// end of this index entry
 		HrefEnd("<br");
 		OutputString(Internal2Out("SelfTerminateCmd"));

@@ -29,7 +29,7 @@ $$
 $section Routines That Create Search Page For a Web Site$$
 
 $mindex search page keyword$$
-$mindex 
+$mindex
 	OpenSearchFile
 	SearchBegin
 	SearchTitle
@@ -46,8 +46,8 @@ $cend $syntax%SearchBegin(%tag%)%$$               $rend
 $cend $syntax%SearchTitle(%title%)%$$             $rend
 $cend $syntax%SearchKeywords(%list%, %escape%, %ignore%)%$$ $rend
 $cend $syntax%SearchGetKeywords()%$$              $rend
-$cend $syntax%SearchEnd()%$$                      $rend        
-$cend $syntax%CloseSearchFile(%delete%)%$$        
+$cend $syntax%SearchEnd()%$$                      $rend
+$cend $syntax%CloseSearchFile(%delete%)%$$
 $tend
 
 $fend 25$$
@@ -56,7 +56,7 @@ $head Description$$
 These routines create a Pass One version of the
 web page that searches the web site being created.
 It is a Pass One version because it is written
-to a file with extension $code .tmp%$$ and does not have any 
+to a file with extension $code .tmp%$$ and does not have any
 Pass One escape sequences; i.e., no matches for
 $code MatchText$$ in $code omhelp.y$$.
 $syntax%
@@ -66,10 +66,10 @@ OpenSearchFile(%fileTag%, %siteTitle%)%
 The '\0' terminated character vector $italic fileTag$$
 specifies the cross reference tag for the search utility.
 The '\0' terminated character string $italic siteTitle$$
-specifies the title for the automatically generated web page that 
+specifies the title for the automatically generated web page that
 is a search utility for this web site.
-This call opens a new file called 
-$syntax%%fileTag%.tmp%$$ 
+This call opens a new file called
+$syntax%%fileTag%.tmp%$$
 in which the search information is written.
 This will be a  Pass One version of the web page that
 can be used to search the web site being created.
@@ -92,8 +92,8 @@ to the web page $syntax%%tag%.%ext%$$
 (where $italic ext$$ is the output file extension specified by
 $xref/Internal2Out/$$).
 If multiple sequential white spaces characters
-occur in $italic tag$$, a fatal error message 
-is generated and the program is terminated. 
+occur in $italic tag$$, a fatal error message
+is generated and the program is terminated.
 $pre
 
 $$
@@ -102,19 +102,19 @@ $syntax%
 SearchTitle(%title%)%
 %$$
 The '\0' terminated character vector $italic title$$ specifies the title
-for the current section.  
+for the current section.
 The current section is defined as the one specified by the
 previous call to $code SearchBegin$$.
 It is assumed that the corresponding call to $code SearchEnd$$
 has not yet occurred.
-It is also assumed that there is one and only one call to 
+It is also assumed that there is one and only one call to
 $code SearchTitle$$ between each call to $code SectionBegin$$
 and the next call to $code SectionEnd$$.
 $syntax%
 
 SearchKeywords(%list%, %escape%, %ignore%)%
 %$$
-Adds the keywords in $italic list$$ to the 
+Adds the keywords in $italic list$$ to the
 set of keywords for the current section
 where $italic list$$ is a '\0' terminated character vector.
 $pre
@@ -128,9 +128,9 @@ $pre
 
 $$
 A keyword is any sequence of characters (in $italic list$$) not including
-white space or commas. 
+white space or commas.
 Keywords beginning with the character $italic escape$$
-are not included. 
+are not included.
 Commas are treated as white space
 except for those commas that are preceded by the $italic escape$$
 character.
@@ -140,7 +140,7 @@ $syntax%
 
 SearchGetKeywords()
 %$$
-returns a '\0' terminate copy of the keywords for the 
+returns a '\0' terminate copy of the keywords for the
 current section.
 The words have been converted to lower case,
 duplicate keywords have been removed,
@@ -165,14 +165,14 @@ Calls to the other routines documented above are invalid
 after this call.
 If $italic delete$$ is true,
 it is assumed that the search file
-$syntax%%fileTag%.tmp%$$ 
+$syntax%%fileTag%.tmp%$$
 is not used and so it is
 deleted from the directory (as well as a supporting Javascript file).
 (Temporary memory that is allocated for these file names
 is freed when $code CloseSearchFile$$ is called.)
 
 $head Errors$$
-All the routines documented above use 
+All the routines documented above use
 $xref/fatalerr//fatalomh/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.
@@ -232,9 +232,9 @@ static void Output(const char *list, const char *terminate)
 	last = ch;
 	ch   = *list++;
 	while( ch != '\0' )
-	{	
+	{
 		if( ! ( isspace((int) ch) && isspace((int) last) ) )
-		{	
+		{
 			if( isspace((int) last) )
 				fputc(' ', Fp);
 			else	fputc(last, Fp);
@@ -412,7 +412,7 @@ static char *Javascript =
 ;
 
 static void MakeKeywordList()
-{	
+{
 	char word[MAX_WORD];
 	char *keywords = KeywordLower;
 	char  ch       = *keywords++;
@@ -438,7 +438,7 @@ static void MakeKeywordList()
 			);
 			word[i++] = tolower((int) ch);
 			ch        = *keywords++;
-		}  
+		}
 		word[i]          = '\0';
 
 		ok = strstr(KeywordList, word) == NULL;
@@ -469,14 +469,14 @@ static void MakeKeywordList()
 
 
 void OpenSearchFile(const char *fileTag, const char *siteTitle)
-{	
+{
 	char *frameOne;
 	char *str;
 	char *next;
 
 	// open the pass one version of the browser search file
 	assert( FrameOneName == NULL );
-	FrameOneName = strjoin(fileTag, ".tmp"); 
+	FrameOneName = strjoin(fileTag, ".tmp");
 	DirSep(FrameOneName);
 	Fp = fopen(FrameOneName, "w");
 	if( Fp == NULL )
@@ -508,7 +508,7 @@ void OpenSearchFile(const char *fileTag, const char *siteTitle)
 	// replace SiteTitle in output
 	fprintf(Fp, "%s", str);
 	fprintf(Fp, "%s", siteTitle);
-	
+
 	// make sure only one SiteTitle in frameOne
 	str = next + 9;
 	assert( strstr(str, "SiteTitle") == NULL );
@@ -538,17 +538,17 @@ void OpenSearchFile(const char *fileTag, const char *siteTitle)
 	if( Fp == NULL ) fatalomh(
 		"Cannot create a new ",
 		JavascriptName,
-		" file\n", 
+		" file\n",
 		NULL
 	);
 
-	// write copyright message 
+	// write copyright message
 	fprintf(Fp,
 		"// ------------------------------------------------------- \n"
-		"// Copyright (C) Bradley M. Bell 2003, All rights reserved \n" 
+		"// Copyright (C) Bradley M. Bell 2003, All rights reserved \n"
 		"// ------------------------------------------------------- \n"
 	);
-	// the keyword data starts with /^\[$/ and it ends 
+	// the keyword data starts with /^\[$/ and it ends
 	// with /^\]$/ so it can be extracted easily with sed
 	fprintf(Fp, "Keyword = \n[");
 
@@ -583,14 +583,14 @@ void SearchBegin(const char *tag)
 	last = '\0';
 	while( ch != '\0' )
 	{	if( isspace((int) ch) && isspace((int) last) ) fatalomh(
-			"The cross reference tag \"", 
+			"The cross reference tag \"",
 			tag,
 			"\"\n",
 			"has multiple sequential white space characters\n",
 			NULL
 		);
 		if( i >= MAX_WORD - 1 ) fatalomh(
-			"The cross reference tag \"", 
+			"The cross reference tag \"",
 			tag,
 			"\"\n",
 			"has to many characters in it\n",
@@ -598,12 +598,12 @@ void SearchBegin(const char *tag)
 		);
 		last = ch;
 		ch   = *tag++;
-	}	
+	}
 
 }
 
 void SearchTitle(const char *title)
-{	
+{
 	assert( SectionOpen );
 	assert( Title == NULL );
 	assert( TitleLower == NULL );
@@ -613,7 +613,7 @@ void SearchTitle(const char *title)
 }
 
 void SearchKeywords(
-	const char *keyword , 
+	const char *keyword ,
 	const char escape   ,
 	const char* ignore  )
 {	char   ch;
@@ -627,7 +627,7 @@ void SearchKeywords(
 		int ok;
 		char word[MAX_WORD];
 
-		// skip leading white space 
+		// skip leading white space
 		while( isspace((int) ch) )
 			ch   = *keyword++;
 
@@ -638,7 +638,7 @@ void SearchKeywords(
 		if( ch != '\0' )
 			ch = *keyword++;
 		while(
-			ch != '\0' 
+			ch != '\0'
 			&& ! isspace((int) ch)
 			&&  ch != escape
 		)
@@ -648,7 +648,7 @@ void SearchKeywords(
 			);
 			word[i++] = tolower((int) ch);
 			ch        = *keyword++;
-		}  
+		}
 		word[i++] = ' ';
 		word[i]   = '\0';
 
@@ -675,7 +675,7 @@ void SearchKeywords(
 			assert( word[1] == ',' );
 			StrRemove(word + 2, ',' );
 		}
-		else if(ok) 
+		else if(ok)
 		{	// remove all commas
 			StrRemove(word, ',');
 		}
@@ -689,15 +689,15 @@ void SearchKeywords(
 		{	char *tmp = KeywordLower;
 
 			// KeywordLower always ends in a space
-			assert( 
-				KeywordLower[ strlen(KeywordLower) - 1 ] == ' ' 
+			assert(
+				KeywordLower[ strlen(KeywordLower) - 1 ] == ' '
 			);
 
 			// hence skip the space at the beginning of word
 			assert( word[0] == ' ' );
 
 			// add the word to the keyword list
-			KeywordLower = strjoin( KeywordLower, word + 1 );	
+			KeywordLower = strjoin( KeywordLower, word + 1 );
 
 			FreeMem(tmp);
 		}
@@ -715,7 +715,7 @@ char *SearchGetKeywords()
 	for(i = 0; i < len; i++)
 	{		if( KeywordLower[i] == '&' )
 				k += 8;
-	}  
+	}
 
 	s = AllocMem(k + 1, sizeof(char));
 
@@ -792,7 +792,7 @@ void CloseSearchFile(int delete)
 	assert(SectionCount >= 1);
 	assert( Fp != NULL );
 
-	// the keyword data starts with /^\[$/ and it ends 
+	// the keyword data starts with /^\[$/ and it ends
 	// with /^\]$/ so it can be extracted easily with sed
 	fprintf(Fp, "\n]\n");
 

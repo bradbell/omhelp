@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -22,7 +22,7 @@ $begin Keyword$$
 $escape #$$
 $dollar @$$
 $aindex head$$
-$spell 
+$spell
 	cindex
 	mindex
 	OMhelp
@@ -52,23 +52,23 @@ $cnext $syntax/@mindex /multiple_entries/@@/$$  $rnext
 $cnext $syntax/@cindex /multiple_entries/@@/$$  $rnext
 $cnext $syntax/@aindex /automatic_mindex/@@/$$ $rnext
 $bold See Also$$
-$cnext 
+$cnext
 	$xref/start_index//getting started/$$,
-	$xref/_index//index/$$, 
+	$xref/_index//index/$$,
 	$xref/_contents//contents/$$
 $tend
 
 $fend 25$$
 
 $head Description$$
-These commands add entries to the 
-$xref/_index//Keyword index/$$ 
+These commands add entries to the
+$xref/_index//Keyword index/$$
 for the current section.
 $pre
 
 $$
-There can be no $code @$$ characters in 
-$italic one_entry$$, 
+There can be no $code @$$ characters in
+$italic one_entry$$,
 $italic multiple_entries$$, or $italic automatic_mindex$$.
 In addition, leading and trailing
 $xref/glossary/White Space/white space/$$
@@ -76,13 +76,13 @@ in these arguments are ignored.
 
 $head The Keyword Index$$
 The entries in the Keyword index are alphabetically ordered.
-There are two levels to this ordering and each 
+There are two levels to this ordering and each
 index entry has a major and minor key.
 The major key corresponds to the overall ordering.
 The minor key corresponds to the ordering with in each
 value for the major key.
-You can link to the 
-$xref/_index//Keyword index/$$ using the 
+You can link to the
+$xref/_index//Keyword index/$$ using the
 $code _index$$ cross reference
 $xref/glossary/Cross Reference Tag/tag/$$.
 
@@ -90,8 +90,8 @@ $xref/glossary/Cross Reference Tag/tag/$$.
 $head Keyword List$$
 $cindex Keyword list$$
 Each section has an associated Keyword list.
-This consists of all the words 
-that appear in $code index$$, $code cindex$$ or $code mindex$$ 
+This consists of all the words
+that appear in $code index$$, $code cindex$$ or $code mindex$$
 commands for that section.
 Words that begin with an escape character
 will not appear in this Keyword list.
@@ -112,14 +112,14 @@ $pre
 
 $$
 When using the $code cindex$$ and $code mindex$$ commands,
-any commas in $italic multiple_entries$$ 
+any commas in $italic multiple_entries$$
 must be directly preceded by an escape character.
 
 
 $head Headings$$
 If the $code index$$, $code cindex$$ or $code mindex$$
-command occurs before any $mref/head/$$ commands 
-in the a section, 
+command occurs before any $mref/head/$$ commands
+in the a section,
 the corresponding links are to the entire section.
 If they occur after a $code head$$ command
 and before any $code subhead$$ commands,
@@ -132,8 +132,8 @@ The following command appears before any of the headings in this section:
 $codep
 	@cindex Keyword index@@
 $$
-The corresponding entries in the 
-Keyword index are: 
+The corresponding entries in the
+Keyword index are:
 $pre
 	$$Keyword $pre
 		$$index
@@ -151,15 +151,15 @@ link to the specific subheadings with in this section.
 
 $head Index$$
 $cindex index command$$
-The $code index$$ command specifies a single 
-$xref/_index//Keyword index/$$ 
+The $code index$$ command specifies a single
+$xref/_index//Keyword index/$$
 entry that points to the current section.
 If there is a comma in $italic one_entry$$
 the portion of $italic one_entry$$ to the left of the
 comma specifies the major key and the part to the right
-specifies the minor key. 
+specifies the minor key.
 If a comma is directly preceded by the $mref/escape/$$ character,
-it is normal text and 
+it is normal text and
 does not split the key into its major and minor parts.
 
 $subhead Example$$
@@ -170,8 +170,8 @@ The following command appears directly after the subheading above:
 $codep
 	@index major key@@
 $$
-The corresponding entry in the 
-$xref/_index//Keyword index/$$ is: 
+The corresponding entry in the
+$xref/_index//Keyword index/$$ is:
 $pre
 	$$major key
 $xref/Keyword/Index.Example/Keyword Index: Index.Example/$$
@@ -183,8 +183,8 @@ The following command appears directly after the subheading above:
 $codep
 	@index major key, minor key@@
 $$
-The corresponding entry in the 
-Keyword index is: 
+The corresponding entry in the
+Keyword index is:
 $pre
 	$$major key $pre
 		$$minor key
@@ -193,7 +193,7 @@ $pre
 
 $$
 If you want the comma character to appear in an index entry,
-you must escape it. 
+you must escape it.
 The $xref/escape/$$ character for this section is $code #$$.
 The following command appears directly after the subheading above:
 $codep
@@ -206,36 +206,36 @@ $xref/Keyword/Index.Example/Keyword Index: Index.Example/$$
 
 $head Mindex$$
 $cindex mindex command$$
-This command adds an index entry for each key word in 
+This command adds an index entry for each key word in
 $italic multiple_entries$$.
 The index entry has the key word as its
 major key and its minor key is empty.
 $pre
 
 $$
-A key word is terminated by a 
+A key word is terminated by a
 $xref/glossary/White Space/white space/$$
-character that is not directly preceded by an 
+character that is not directly preceded by an
 $xref/escape/$$ character.
 If a key word  begins with an
 escape character, it is not included in the index entries.
 
 $subhead Example$$
-$mindex 
-	multiple 
-	major 
+$mindex
+	multiple
+	major
 	key# word
 $$
 The following command appears directly after the subheading above:
 $codep
-	@mindex 
-		multiple 
-		major 
+	@mindex
+		multiple
+		major
 		key# word
 	@@
 $$
-The corresponding entries in the 
-$xref/_index//Keyword index/$$ are: 
+The corresponding entries in the
+$xref/_index//Keyword index/$$ are:
 $pre
 	$$multiple
 $xref/Keyword/Mindex.Example/Keyword Index: Mindex.Example/$$
@@ -249,7 +249,7 @@ $xref/Keyword/Mindex.Example/Keyword Index: Mindex.Example/$$
 $head Aindex$$
 There are three commands that can be automatically connected
 to the $xref/Keyword/Mindex/mindex/$$ command; namely the
-$xref/section/Aindex/section/$$, 
+$xref/section/Aindex/section/$$,
 $xref/head/Aindex/head and subhead/$$ commands.
 If $italic automatic_mindex$$ contains the word
 "section", "head", or "subhead",
@@ -264,8 +264,8 @@ The $code aindex$$ command does not automatically include the following words:
 $codei%a%, %an%, %and%, %as%, %at%, %by%, %for%, %in%, %of%, %or%, %to%$$.
 
 $subhead Root Section$$
-In the special case where an $code @aindex$$ command appears in the 
-$cref/root section/running/root_file/$$ section, 
+In the special case where an $code @aindex$$ command appears in the
+$cref/root section/running/root_file/$$ section,
 and does not appear in the current section,
 the value specified in the root section is used for the current section; i.e.,
 it replaces the default which is to not do automatic indexing
@@ -277,9 +277,9 @@ in this section:
 $codep
 	@aindex head@@
 $$
-The 
+The
 $xref/_index//Keyword index/$$ entry corresponding the heading
-$bold Aindex$$ is: 
+$bold Aindex$$ is:
 $pre
 	$$aindex
 $italic
@@ -290,21 +290,21 @@ $$
 Note that the word Aindex has been converted to lower case.
 In general all Keyword entries created using the $code @aindex$$ command
 are converted to lower case.
-Also note that the links generated by 
+Also note that the links generated by
 $code @aindex section$$ are to the entire section,
 $code @aindex head$$ links to the corresponding headings, and
 $code @aindex subhead$$ links to the corresponding subheading.
 
 $head Cindex$$
 $cindex cindex command$$
-This command adds an index entry for each key word in 
+This command adds an index entry for each key word in
 $italic multiple_entries$$.
 The major key for the index entry is the Keyword.
 Its minor key is the entire string $italic multiple_entries$$.
 $pre
 
 $$
-A key word is terminated by a 
+A key word is terminated by a
 $xref/glossary/White Space/white space/$$
 character that is not directly preceded by an escape character.
 Any key word may begin with an $mref/escape/$$ character
@@ -318,8 +318,8 @@ The following command appears directly after the subheading above:
 $codep
 	@cindex cindex example@@
 $$
-The corresponding entries in the 
-Keyword index are: 
+The corresponding entries in the
+Keyword index are:
 $pre
 	$$cindex $pre
 		$$cindex example

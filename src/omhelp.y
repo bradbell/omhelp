@@ -505,7 +505,7 @@ static void SecondPass(SectionInfo *F)
 				defined = strcmp(external, "true") == 0;
 				if( ! defined )
 				{
-			       		// check the cross reference
+					// check the cross reference
 					C = FindCrossReference(tag, head);
 					assert(C != NULL);
 
@@ -649,7 +649,7 @@ static void SecondPass(SectionInfo *F)
 				assert(ch == '>');
 
 
-	       			// check the cross reference
+				// check the cross reference
 				C = FindCrossReference(tag, "");
 				assert(C != NULL);
 
@@ -1279,7 +1279,7 @@ accent
 			fatalomh(
 			"The character following a $' command in line ",
 			int2str( $1.line ),
-	 		" is not a vowel.",
+			" is not a vowel.",
 			NULL
 			);
 		}
@@ -2583,7 +2583,7 @@ execute
 			NULL
 		);
 
-	       	// file name for error reporting
+		// file name for error reporting
 		ExecuteFile = str_alloc(InputName());
 		ExecuteLine = $1.line;
 
@@ -2726,15 +2726,15 @@ head
 			"between a $table and the corresponding $tend",
 			NULL
 		);
- 		// make sure no # characters in heading
- 		if( strchr($2.str, '#') != NULL ) fatalomh(
- 			"$head command in line ",
- 			int2str($1.line),
- 			" has heading\n",
- 			$2.str,
- 			"\nThe character '#' is not allowed in headings",
- 			NULL
- 		);
+		// make sure no # characters in heading
+		if( strchr($2.str, '#') != NULL ) fatalomh(
+			"$head command in line ",
+			int2str($1.line),
+			" has heading\n",
+			$2.str,
+			"\nThe character '#' is not allowed in headings",
+			NULL
+		);
 
 		// version of heading without escape characters
 		noEscape = str_alloc($2.str);
@@ -3768,7 +3768,7 @@ mref
 				C = CreateCrossReference(tag, "", InputName());
 			assert( C != NULL );
 
-		       	// next cross reference
+			// next cross reference
 			tag = next;
 
 			// separator between entries
@@ -4272,25 +4272,25 @@ subhead
 			NULL
 		);
 
- 		// make sure no # characters in subheading
- 		if( strchr($2.str, '#') != NULL ) fatalomh(
- 			"$head command in line ",
- 			int2str($1.line),
- 			" has heading\n",
- 			$2.str,
- 			"\nThe character '#' is not allowed in headings",
- 			NULL
- 		);
-
- 		// make sure no # characters in heading
- 		if( strchr($2.str, '#') != NULL ) fatalomh(
- 			"$subhead command in line ",
- 			int2str($1.line),
- 			" has subheading\n",
- 			$2.str,
+		// make sure no # characters in subheading
+		if( strchr($2.str, '#') != NULL ) fatalomh(
+			"$head command in line ",
+			int2str($1.line),
+			" has heading\n",
+			$2.str,
 			"\nThe character '#' is not allowed in headings",
- 			NULL
- 		);
+			NULL
+		);
+
+		// make sure no # characters in heading
+		if( strchr($2.str, '#') != NULL ) fatalomh(
+			"$subhead command in line ",
+			int2str($1.line),
+			" has subheading\n",
+			$2.str,
+			"\nThe character '#' is not allowed in headings",
+			NULL
+		);
 
 		if( ConvertPreviousNewline() < 2 )
 			ConvertForcedNewline(2 - ConvertPreviousNewline() );
