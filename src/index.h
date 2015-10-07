@@ -31,7 +31,8 @@ extern void MultipleIntoIndex(
 	const char *key,
 	const char *tag,
 	const char *head,
-	const char escape
+	const char escape,
+	const char *ignore
 );
 extern void CycleIntoIndex(
 	const char *key,

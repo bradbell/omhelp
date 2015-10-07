@@ -148,13 +148,13 @@ $head Download OMhelp$$
 Use the following link to download the current version of OMhelp:
 $href%
 	https://github.com/bradbell/omhelp/archive/20150118.zip%
-	omhelp-20150603.zip
+	omhelp-20151007.zip
 %$$
 
 $head Create Distribution Directory$$
 Use the command
 $codep
-	"%zip_prefix%\7z" x omhelp-20150603.zip
+	"%zip_prefix%\7z" x omhelp-20151007.zip
 $$
 where $icode zip_prefix$$ is the prefix for the install of
 $code 7-zip$$.
@@ -162,7 +162,7 @@ $code 7-zip$$.
 $head CMake Command$$
 Execute the following commands:
 $codei|
-	cd omhelp-20150603
+	cd omhelp-20151007
 	mkdir build
 	cd build
 	"%cmake_prefix%\bin\cmake" ^
@@ -204,19 +204,19 @@ that are used during compilation.
 The default value for $icode omhelp_c_flags$$ is none.
 
 $head Build Executable$$
-In the directory $code omhelp-20150603\build$$ execute the following command
+In the directory $code omhelp-20151007\build$$ execute the following command
 $codep
 	nmake
 $$
 This should build the program
 $codep
-	omhelp-20150603\build\src\omhelp.exe
+	omhelp-20151007\build\src\omhelp.exe
 $$
 If you have fortran,
 and CMake can figure out how to link C to Fortran,
 the following program will also be built
 $codep
-	omhelp-20150603\build\omh\getstarted\run_all.exe
+	omhelp-20151007\build\omh\getstarted\run_all.exe
 $$
 
 $head OMhelp Documentation$$
@@ -225,9 +225,9 @@ OMhelp developer and user documentation before installing OMhelp;
 i.e., you can skip these steps.
 
 $subhead Developer Documentation$$
-Starting in the $code omhelp-20150603$$ directory,
+Starting in the $code omhelp-20151007$$ directory,
 the following commands create the developer documentation in the
-directory $code omhelp-20150603/dev$$:
+directory $code omhelp-20151007/dev$$:
 $codep
 	mkdir dev
 	cd dev
@@ -239,9 +239,9 @@ This should complete without error, and so also functions as a test
 of the distribution.
 
 $subhead User Documentation$$
-Starting in the $code omhelp-20150603$$ directory,
+Starting in the $code omhelp-20151007$$ directory,
 the following commands create the user documentation in the
-directory $code omhelp-20150603/doc$$:
+directory $code omhelp-20151007/doc$$:
 $codep
 	mkdir doc
 	cd doc
@@ -252,7 +252,7 @@ This should complete without error, and so also functions as a test
 of the distribution.
 
 $head Install OMhelp$$
-In the directory $code omhelp-20150603\build$$ execute the following command
+In the directory $code omhelp-20151007\build$$ execute the following command
 $codep
 	nmake install
 $$
@@ -261,7 +261,7 @@ $head Getting Started$$
 You can build the
 $cref multiple_example_1$$ subtree of the OMhelp user documentation
 by executing the following commands starting in the
-$code omhelp-20150603$$ directory:
+$code omhelp-20151007$$ directory:
 $codei%
 	mkdir xam
 	cd xam
@@ -276,11 +276,11 @@ See the $cref get_started$$ section for more examples.
 
 $head Spelling List$$
 The OMhelp utility files are stored in the
-$code omhelp-20150603\omhelp_data$$ directory.
+$code omhelp-20151007\omhelp_data$$ directory.
 The spelling lists below are a subset of these files.
 
 $subhead english.wrd$$
-The file $code omhelp-20150603\omhelp_data\english.wrd$$ is a
+The file $code omhelp-20151007\omhelp_data\english.wrd$$ is a
 list of standard english words.
 The words must be in alphabetic order, lower case, and contain only letters.
 For example,
@@ -293,7 +293,7 @@ $$
 A default $code english.wrd$$ file is distributed with OMhelp.
 
 $subhead local.wrd$$
-The file $code omhelp-20150603\omhelp_data\local.wrd$$ is an optional
+The file $code omhelp-20151007\omhelp_data\local.wrd$$ is an optional
 list of special words, not in $code english.wrd$$ that are to be
 considered correctly spelled.
 These words
@@ -303,13 +303,13 @@ $subhead dictionary.bin$$
 OMhelp combines the files $code english.wrd$$ and $code local.wrd$$
 to form
 $codep
-	omhelp-20150603\omhelp_data\dictionary.bin
+	omhelp-20151007\omhelp_data\dictionary.bin
 $$
 If you make any changes to $code english.wrd$$ or $code local.wrd$$,
 the file $code dictionary.bin$$ should be deleted.
 A new $code dictionary.bin$$ that combines the words $code english.wrd$$
 and $code local.wrd$$ can be created and installed by executing following
-commands in the $code omhelp-20150603$$ directory:
+commands in the $code omhelp-20151007$$ directory:
 $codep
 	del omhelp_data\dictionary.bin
 	cd build\omh\getstarted

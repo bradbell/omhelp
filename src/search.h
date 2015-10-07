@@ -24,7 +24,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 extern void OpenSearchFile(const char *fileTag, const char *siteTitle);
 extern void SearchBegin(const char *tag);
 extern void SearchTitle(const char *title);
-extern void SearchKeywords(const char *list, const char escape);
+extern void SearchKeywords(
+	const char *list   , 
+	const char escape  , 
+	const char* ignore
+);
 extern char *SearchGetKeywords();
 extern void SearchEnd(void);
 extern void CloseSearchFile(int delete);

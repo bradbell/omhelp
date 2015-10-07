@@ -35,7 +35,7 @@ $bold Syntax$$
 $cend
 $syntax%InsertInIndex(%key%, %tag%, %head%, %escape%)%$$ 
 $rend $cend
-$syntax%MultipleIntoIndex(%key%, %tag%, %head%, %escape%)%$$
+$syntax%MultipleIntoIndex(%key%, %tag%, %head%, %escape%, %ignore%)%$$
 $rend $cend
 $syntax%CycleIntoIndex(%key%, %tag%, %head%, %escape%)%$$
 $rend $cend
@@ -127,6 +127,7 @@ that is not a
 $xref/KeywordIndex/Key.Key Comment/key comment/$$.
 (For this function,
 the comma does not have the special meaning it has in $code InsertInIndex$$.)
+Words that appear in $icode ignore$$ will not be included in the index.
 
 $head CycleIntoIndex$$
 $index CycleIntoIndex$$
@@ -378,7 +379,8 @@ void MultipleIntoIndex(
 	const char *key,
 	const char *tag,
 	const char *head,
-	const char escape 
+	const char escape,
+	const char *ignore
 )
 {	char keyword[MAX_WORD];
 	char ch;
@@ -410,13 +412,16 @@ void MultipleIntoIndex(
 				ch = *key++;
 			}
 			keyword[i] = '\0';
-		
-			InsertInIndex(
-				keyword, 
-				tag, 
-				head, 
-				escape
-			);
+
+			if( strstr(ignore, keyword) == NULL ) 
+			{
+				InsertInIndex(
+					keyword, 
+					tag, 
+					head, 
+					escape
+				);
+			}
 		}
 
 		// skip leading white space

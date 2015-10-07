@@ -1,6 +1,7 @@
 build
 dev
 doc
+git_commit.sh
 new
 omhelp_data/dictionary.bin
 xam

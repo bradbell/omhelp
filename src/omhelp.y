@@ -166,6 +166,10 @@ static int CheckSpell   = 1;
 
 // ************************* Other Static Data  ************************
 
+// words ignored by automatic indexing
+static const char* AutomaticIndexIgnore =
+	" a an and as at by for in of or to";
+
 // Was previous output a heading
 static int PreviousOutputWasHeading = 0;
 int PreviousOmhelpOutputWasHeading()
@@ -2793,13 +2797,14 @@ head
 		{	char *lower = StrLowAlloc($2.str);
 
 			// add keywords to search for this section
-			SearchKeywords(lower, Escape);
+			SearchKeywords(lower, Escape, AutomaticIndexIgnore);
 
 			MultipleIntoIndex(
 				lower,
 				CurrentSection->tag,
 				HeadingAndSubHeading(),
-				Escape
+				Escape,
+				AutomaticIndexIgnore
 			);
 
 			FreeMem(lower);
@@ -3253,7 +3258,7 @@ index
 		assert( $3.str == NULL );
 
 		// add keywords to search for this section
-		SearchKeywords(text, Escape);
+		SearchKeywords(text, Escape, "");
 
 		// check for seplling error
 		if( CheckSpell )
@@ -3333,7 +3338,8 @@ index
 			text,
 			CurrentSection->tag,
 			HeadingAndSubHeading(),
-			Escape
+			Escape,
+			""
 		);
 		else	assert(0);
 
@@ -4163,13 +4169,14 @@ section
 		{	char *lower = StrLowAlloc($2.str);
 
 			// add keywords to search for this section
-			SearchKeywords(lower, Escape);
+			SearchKeywords(lower, Escape, AutomaticIndexIgnore);
 
 			MultipleIntoIndex(
 				lower,
 				CurrentSection->tag,
 				HeadingAndSubHeading(),
-				Escape
+				Escape,
+				AutomaticIndexIgnore
 			);
 
 			FreeMem(lower);
@@ -4346,13 +4353,14 @@ subhead
 		{	char *lower = StrLowAlloc($2.str);
 
 			// add keywords to search for this section
-			SearchKeywords(lower, Escape);
+			SearchKeywords(lower, Escape, AutomaticIndexIgnore);
 
 			MultipleIntoIndex(
 				lower,
 				CurrentSection->tag,
 				HeadingAndSubHeading(),
-				Escape
+				Escape,
+				AutomaticIndexIgnore
 			);
 
 			FreeMem(lower);

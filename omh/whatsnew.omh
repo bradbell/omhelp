@@ -118,6 +118,10 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 15-10-07$$
+Some very common and simple words; e.g. $code an$$, are now excluded from
+automatic indexing; see $cref/excluded words/Keyword/Aindex/Excluded Words/$$.
+
 $head 15-06-03$$
 $list number$$
 Add an $code @aindex$$ command in the

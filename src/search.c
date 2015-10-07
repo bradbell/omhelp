@@ -44,7 +44,7 @@ $bold Syntax$$
 $cend $syntax%OpenSearchFile(%fileTag%, %siteTitle%)%$$  $rend
 $cend $syntax%SearchBegin(%tag%)%$$               $rend
 $cend $syntax%SearchTitle(%title%)%$$             $rend
-$cend $syntax%SearchKeywords(%list%, %escape%)%$$ $rend
+$cend $syntax%SearchKeywords(%list%, %escape%, %ignore%)%$$ $rend
 $cend $syntax%SearchGetKeywords()%$$              $rend
 $cend $syntax%SearchEnd()%$$                      $rend        
 $cend $syntax%CloseSearchFile(%delete%)%$$        
@@ -112,7 +112,7 @@ $code SearchTitle$$ between each call to $code SectionBegin$$
 and the next call to $code SectionEnd$$.
 $syntax%
 
-SearchKeywords(%list%, %escape%)%
+SearchKeywords(%list%, %escape%, %ignore%)%
 %$$
 Adds the keywords in $italic list$$ to the 
 set of keywords for the current section
@@ -134,6 +134,8 @@ are not included.
 Commas are treated as white space
 except for those commas that are preceded by the $italic escape$$
 character.
+Words that appear in $icode ignore$$, surrounded by spaces, are not included
+in the search keywords.
 $syntax%
 
 SearchGetKeywords()
@@ -610,7 +612,10 @@ void SearchTitle(const char *title)
 	TitleLower = StrLowAlloc(title);
 }
 
-void SearchKeywords(const char *keyword, const char escape)
+void SearchKeywords(
+	const char *keyword , 
+	const char escape   ,
+	const char* ignore  )
 {	char   ch;
 
 	assert( ! isspace((int) escape) );
@@ -677,6 +682,8 @@ void SearchKeywords(const char *keyword, const char escape)
 
 		if( ok )
 			ok = strstr(KeywordLower, word) == NULL;
+		if( ok )
+			ok = strstr(ignore, word) == NULL;
 
 		if( ok )
 		{	char *tmp = KeywordLower;
