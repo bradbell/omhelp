@@ -1,3 +1,5 @@
+# top directory only
+bug/htm
 build
 dev
 doc
@@ -5,13 +7,17 @@ git_commit.sh
 new
 omhelp_data/dictionary.bin
 xam
-#
-*.swp
 *.log
+# all directories
+*.swp
 */*.swp
-#
-junk.*
-*/junk.*
-#
+*/*/*.swp
+*.tmp
+*/*.tmp
+*/*/*.tmp
 junk
 */junk
+*/*/junk
+junk.*
+*/junk.*
+*/*/junk.*
