@@ -338,7 +338,7 @@ void ConvertSetTabSize(const int size)
 }
 
 void ConvertOutputCh(const char ch, const int preformatted)
-{
+{	assert(0 <= preformatted && preformatted <= 1);
 	int ntab;
 
 	switch(ch)
