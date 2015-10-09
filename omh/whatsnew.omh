@@ -120,9 +120,16 @@ $tend
 $$
 
 $head 15-10-08$$
+$list number$$
 The $cref/default/tabsize/Default/$$ value for $icode tabsize$$ is now
 the same as its value at the end of the
 $cref/root section/running/root_file/$$.
+$lnext
+The $cref tabsize$$ command was not affecting the size of tabs in
+$cref codep$$ commands. This bug is connect to (started with) the addition of
+$cref hilite$$ command.
+It has been fixed.
+$lend
 
 $head 15-10-07$$
 Some very common and simple words; e.g. $code an$$, are now excluded from

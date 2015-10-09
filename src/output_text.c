@@ -44,10 +44,21 @@ $head s$$
 The argument $icode s$$ contains the text that is to be output.
 
 $head pre$$
-The argument $icode pre$$ is either true or false.
-If it is true, the output is pre-formatted, otherwise it is not pre-formatted.
-(This is pre-formatted just in the sense that white space is significant,
-the font is not changed to be uniformly spaced.)
+The argument $icode pre$$ is either zero, one, or two.
+
+$subhead zero$$.
+If $icode pre$$ is zero, the text being output is not pre-formatted.
+
+$subhead one$$
+If $icode pre$$ is one,
+the output is changed to be non-wrapping white space.
+This is pre-formatted just in the sense that white space is significant,
+the font is not changed to be uniformly spaced.
+
+$subhead two$$
+If $icode pre$$ is two,
+the output is pre-formatted text and the current output formatting is
+already pre-formatted..
 
 $head skip$$
 The argument $icode skip$$ specifies a character that is not included in the
@@ -88,14 +99,16 @@ int output_text(
 	char        skip        ,
 	int         check_spell ,
 	const char *error_color )
-{	const char *bad = NULL;
+{	assert( 0 <= pre && pre <= 2 );
+
+	const char *bad = NULL;
 	int nchar;
 
 	assert(error_color != NULL );
 
 	if( *s == '\0' ) return line;
 
-	if( pre )
+	if( pre == 1 )
 	{	// a standard compliant way to inhibit line breaks at
 		// '-' in MS Internet Explorer (should not be necessary)
 		// (also done in color_switch.c).
@@ -153,7 +166,7 @@ int output_text(
 			}
 		}
 	}
-	if( pre )
+	if( pre == 1 )
 		OutputString("</span>");
 
 	return line;

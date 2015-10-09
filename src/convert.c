@@ -54,6 +54,8 @@ $escape #$$
 $spell
 	const
 	ch
+	preformatted
+	newline
 $$
 
 $index ConvertOutputCh$$
@@ -65,9 +67,9 @@ $section Convert Special Characters and Output Text in HTML Format$$
 $table
 $bold Syntax$$
 $cend
-$syntax/void ConvertOutputCh(const char /ch/, const int /pre/)/$$
+$syntax/void ConvertOutputCh(const char /ch/, const int /preformatted/)/$$
 $rend $cend
-$syntax%void ConvertOutputString(const char *%s%, const int %pre%)%$$
+$syntax%void ConvertOutputString(const char *%s%, const int %preformatted%)%$$
 $tend
 
 $fend 25$$
@@ -101,12 +103,27 @@ is equal to one of these codes
 it is converted to the corresponding output in HTML format.
 
 
-$head Pre-formatted Output$$
-If $italic pre$$ is equal one,
+$head preformatted$$
+The argument $icode preformatted$$ is either zero, one, or two.
+
+$subhead zero$$
+If $icode preformatted$$ is zero,
 the space, tab, and new line characters,
-are converted so that they are visible
+are not converted (just output as is).
+There is one exception, when the current output column is the
+beginning of a line, tab, and newline are not output at all.
+
+$subhead one$$
+If $icode preformatted$$ is one,
+the space, tab, and new line characters,
+are converted so that each one is visible
 when the HTML file is viewed in a browser.
-Otherwise, $italic pre$$ must be equal to zero.
+
+$subhead two$$
+If $icode preformatted$$ is two,
+this text is preformatted and that both space and newline
+are output as is.
+The tab characters are converted to the corresponding number of spaces.
 
 $end
 ==============================================================================
@@ -338,7 +355,7 @@ void ConvertSetTabSize(const int size)
 }
 
 void ConvertOutputCh(const char ch, const int preformatted)
-{	assert(0 <= preformatted && preformatted <= 1);
+{	assert( 0 <= preformatted && preformatted <= 2);
 	int ntab;
 
 	switch(ch)
@@ -367,7 +384,7 @@ void ConvertOutputCh(const char ch, const int preformatted)
 		break;
 
 		default:
-		if( preformatted )
+		if( preformatted == 1 )
 		{	switch(ch)
 			{
 				case ' ':
@@ -397,13 +414,35 @@ void ConvertOutputCh(const char ch, const int preformatted)
 				break;
 			}
 		}
+		else if( preformatted == 2 )
+		{	switch(ch)
+			{
+				case '\t':
+				ntab = TabSize - Column % TabSize;
+				if( ntab == 0 ) ntab = TabSize;
+				Column = Column + ntab;
+				while( ntab-- )
+					OutputChar(' ');
+				break;
+
+				case '\n':
+				OutputChar(ch);
+				Column = 0;
+				NewlineOutput += 1;
+				break;
+
+				default:
+				OutputChar(ch);
+				Column++;
+				break;
+			}
+		}
 		else
 		{	if( Column != 0 || ! isspace((int) ch) )
 			{	OutputChar(ch);
 				Column++;
 			}
 		}
-
 		if( ! isspace((int) ch) )
 			NewlineOutput = 0;
 

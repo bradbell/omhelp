@@ -2069,7 +2069,7 @@ codep
 		// https://bugzilla.mozilla.org/show_bug.cgi?id=476324
 		OutputString("'><pre style='display:inline'> ");
 		// already in preformat mode, pre is false in call
-		{	int pre                  = 0;
+		{	int pre  = 2;
 			hilite_out(
 				"codep",
 				$2.line,

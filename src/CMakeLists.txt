@@ -27,6 +27,7 @@ CONFIGURE_FILE(main.c.in main.c)
 # crete omhelp.h , omhelp.c
 ADD_CUSTOM_COMMAND(OUTPUT omhelp.h omhelp.c
 	COMMAND bison ${srcdir}/omhelp.y --defines -p omh -o omhelp.c
+	DEPENDS omhelp.y
 )
 # create latex.h , latex.c
 ADD_CUSTOM_COMMAND(OUTPUT latex.h latex.c
