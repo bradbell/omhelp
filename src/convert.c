@@ -21,9 +21,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 =============================================================================
 $begin ConvertNewline$$
 $escape #$$
-$spell 
+$spell
 	const
-	int 
+	int
 	Newline
 $$
 
@@ -33,7 +33,7 @@ $cindex new line #in output file$$
 $section Outputs the New Line in HTML format$$
 
 $table
-$bold Syntax$$ 
+$bold Syntax$$
 $cend $syntax/void ConvertForcedNewline(const int /n/)/$$  $rend
 $tend
 
@@ -60,13 +60,13 @@ $index ConvertOutputCh$$
 $index ConvertOutputString$$
 $cindex convert special character #in output$$
 
-$section Convert Special Characters and Output Text in HTML Format$$ 
+$section Convert Special Characters and Output Text in HTML Format$$
 
-$table 
+$table
 $bold Syntax$$
-$cend 
+$cend
 $syntax/void ConvertOutputCh(const char /ch/, const int /pre/)/$$
-$rend $cend 
+$rend $cend
 $syntax%void ConvertOutputString(const char *%s%, const int %pre%)%$$
 $tend
 
@@ -78,12 +78,12 @@ to the current output file.
 
 $head ConvertOutputString$$
 This just calls $code ConvertOutputCh$$ for each element
-of the $code '\0'$$ terminated character vector $italic s$$ 
+of the $code '\0'$$ terminated character vector $italic s$$
 excluding the $code '\0'$$ (which is the last element of $italic s$$).
 
 
 $head Always Converted$$
-If $italic ch$$ (or a character in $italic s$$) 
+If $italic ch$$ (or a character in $italic s$$)
 is one of the special characters,
 $code <$$,
 $code >$$,
@@ -92,11 +92,11 @@ $code "$$,
 it is converted to its representation in HTML.
 
 $head Special Symbols$$
-The ascii character codes 
-$code COPYRIGHT_CHARACTER$$ and 
+The ascii character codes
+$code COPYRIGHT_CHARACTER$$ and
 $code REGISTERED_TRADE_MARK_CHARACTER$$,
 are defined in $code convert.h$$.
-If $italic ch$$ (or a character in $italic s$$) 
+If $italic ch$$ (or a character in $italic s$$)
 is equal to one of these codes
 it is converted to the corresponding output in HTML format.
 
@@ -158,7 +158,7 @@ $$
 $escape #$$
 
 $index ConvertSetTabSize$$
-$cindex tab character column number$$ 
+$cindex tab character column number$$
 
 $section Set the Number of Columns Corresponding to a Tab Character$$
 
@@ -205,7 +205,7 @@ $syntax/
 ConvertPreviousNewline()
 /$$
 Returns the number of newlines, since the previous non white space character,
-that were output by any of the 
+that were output by any of the
 $xref/convert/Convert Routines/convert routines/$$.
 
 $syntax/
@@ -219,8 +219,8 @@ a positive value of $italic n$$ will adjust for this.
 $pre
 
 $$
-If non-white space is output by routines other than 
-the convert routines, the function call 
+If non-white space is output by routines other than
+the convert routines, the function call
 $codep
 	ConvertAddPrevious(- ConvertPreviousNewline() )
 $$
@@ -228,7 +228,7 @@ will reset the previous newline counter to zero.
 $pre
 
 $$
-If $italic n$$ is greater than zero, the current 
+If $italic n$$ is greater than zero, the current
 $xref/ConvertAddColumn//column counter/$$ is set to zero.
 
 
@@ -245,11 +245,11 @@ $$
 $index ConvertInternalString$$
 $mindex convert special character format$$
 
-$section Internal Conversion of Special Characters (no output)$$ 
+$section Internal Conversion of Special Characters (no output)$$
 
-$table 
+$table
 $bold Syntax$$
-$cend 
+$cend
 $syntax%char *ConvertInternalString(const char *%s%)%$$ $rnext
 $bold See Also$$
 $xref/ConvertOutput/$$
@@ -259,17 +259,17 @@ $fend 25$$
 
 $head Description$$
 The return value is a copy of $italic s$$ with certain characters converted.
-If a character in $italic s$$ 
+If a character in $italic s$$
 is one of the special characters,
 $code <$$,
 $code >$$,
 $code &$$,
 $code "$$,
-$code COPYRIGHT_CHARACTER$$ or 
+$code COPYRIGHT_CHARACTER$$ or
 $code REGISTERED_TRADE_MARK_CHARACTER$$,
 it is converted to its representation in HTML.
-The ascii character codes 
-$code COPYRIGHT_CHARACTER$$ and 
+The ascii character codes
+$code COPYRIGHT_CHARACTER$$ and
 $code REGISTERED_TRADE_MARK_CHARACTER$$,
 are defined in $code convert.h$$.
 
@@ -377,7 +377,7 @@ void ConvertOutputCh(const char ch, const int preformatted)
 				);
 				Column++;
 				break;
-				
+
 				case '\t':
 				ntab = TabSize - Column % TabSize;
 				if( ntab == 0 ) ntab = TabSize;
@@ -386,7 +386,7 @@ void ConvertOutputCh(const char ch, const int preformatted)
 					Internal2Out("NonBreakingSpace")
 				);
 				break;
-				
+
 				case '\n':
 				ConvertForcedNewline(1);
 				break;
@@ -413,7 +413,7 @@ void ConvertOutputCh(const char ch, const int preformatted)
 }
 
 void ConvertOutputString(const char *s, const int preformatted)
-{	
+{
 	while ( *s != '\0' )
 		ConvertOutputCh( *s++, preformatted );
 }
@@ -464,7 +464,7 @@ char *ConvertInternalString(const char *s)
 	char      *result;
 	const char  *stmp;
 	const char    *Ch;
-	
+
 
 	stmp = s;
 	len  = 0;
