@@ -16,38 +16,20 @@ echo_eval mkdir htm
 echo "create htm/one.omh"
 cat << EOF > htm/one.omh
 @begin one@@
-@section 2015-10-08: Set Tab Size in this Root Section@@
-@tabsize 10@@
+@section 2015-10-08: Demonstrate Bub in Tab Setting@@
+@tabsize 20@@
 
 @head Use Tab Size@@
-@pre
+@codep
 012345678901234567890
 There is no tab on this line.
-	This line stars with a tab.
-@@
-
-@contents%two.omh%@@
-
-@end
-EOF
-# ------------------------------------------------------------------
-echo "create htm/two.omh"
-cat << EOF > htm/two.omh
-@begin two@@
-@section Use Tab Size in this Child Section@@
-
-@head Use Tab Size@@
-@pre
-012345678901234567890
-There is no tab on this line.
-	This line stars with a tab.
+	This text should start at column 20.
 @@
 
 @end
 EOF
 # ------------------------------------------------------------------
 sed -e 's|@|$|g' -i htm/one.omh
-sed -e 's|@|$|g' -i htm/two.omh
 #
 program='../build/src/omhelp'
 if [ ! -e "$program"  ]
