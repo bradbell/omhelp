@@ -290,7 +290,7 @@ static void OutKey(char *s)
 		bold = flag;
 
 		if( isspace((int) ch) )
-			ConvertOutputCh(ch, ' ');
+			ConvertOutputCh(' ', preformatted);
 		else	ConvertOutputCh(ch, preformatted);
 
 		ch = *s++;
