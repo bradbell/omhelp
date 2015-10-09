@@ -19,15 +19,17 @@ cat << EOF > htm/one.omh
 
 @index erf@@
 
-@end 
+@end
 EOF
 sed -e 's|@|$|g' -i htm/one.omh
 #
-if [ ! -e '../OMhelp' ]
+program='../build/src/omhelp'
+if [ ! -e "$program"  ]
 then
-	echo '../OMhelp does not exist'
-	echo 'must first run: ./build.sh automake'
+	echo "$program does not exist"
+	echo 'The following commands will build it:"'
+	echo '	cd .. ; bin/run_cmake ; cd build ; make'
 	exit 1
 fi
 echo_eval cd htm
-echo_eval ../../src/omhelp ./one.omh -xml -omhelp_dir ../../OMhelp
+echo_eval ../$program ./one.omh -xml -omhelp_dir ../../omhelp_data

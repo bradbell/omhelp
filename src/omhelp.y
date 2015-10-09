@@ -142,6 +142,9 @@ static char Wspace;
 // current program comment character
 static char NewlineCh;
 
+// current tab size during root seciton (constant after)
+static int TabSizeRoot = TAB_SIZE;
+
 // current escape character
 static char Escape;
 static char EscapeRoot = '\\';
@@ -1529,7 +1532,7 @@ begin
 
 
 		// reset the current number of characters between tab columns
-		ConvertSetTabSize(TAB_SIZE);
+		ConvertSetTabSize(TabSizeRoot);
 
 		// erase the current heading setting
 		InitializeHeading();
@@ -4498,6 +4501,8 @@ tabsize
 			size = TAB_SIZE;
 
 		ConvertSetTabSize(size);
+		if( CurrentSection->parent == NULL )
+			TabSizeRoot = size;
 
 		FreeMem($2.str);
 

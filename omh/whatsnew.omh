@@ -19,6 +19,7 @@
 $begin whatsNew$$
 $dollar @$$
 $spell
+	tabsize
 	wrd
 	cmake
 	aindex
@@ -117,6 +118,11 @@ $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
 $$
+
+$head 15-10-08$$
+The $cref/default/tabsize/Default/$$ value for $icode tabsize$$ is now
+the same as its value at the end of the
+$cref/root section/running/root_file/$$.
 
 $head 15-10-07$$
 Some very common and simple words; e.g. $code an$$, are now excluded from
