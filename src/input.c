@@ -24,8 +24,6 @@ $bold See Also$$
 $cend $mref/InputPush/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 Get the next character from the top of the input
 $xref/InputPush//stack/$$.
@@ -54,8 +52,6 @@ $cend $syntax%void InputInit(
 	const char *%directory%
 )%$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 The $code '\0'$$ terminated character vector $italic directory$$
@@ -103,8 +99,6 @@ $cend $syntax%void InputPush(
 $bold See Also$$
 $cend $mref/InputSplitName/InputPop/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 The $code '\0'$$ terminated character row vector $italic ext$$
@@ -155,8 +149,6 @@ $bold See Also$$
 $cend $mref/InputPush/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 The file currently on the top of the input stack is closed
 and removed from the stack.
@@ -179,8 +171,6 @@ $cend $syntax%const char *InputName()%$$ $rend
 $bold See Also$$
 $cend $mref/InputLine/InputPush/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 Returns the $italic root$$ plus $italic ext$$ corresponding
@@ -216,8 +206,6 @@ $bold See Also$$
 $cend $mref/InputName/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 Returns the line number corresponding to the next call to
 next character read from the current input file.
@@ -246,8 +234,6 @@ $cend $syntax%void InputAddPath(
 $bold See Also$$
 $cend $mref/InputSearch/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 Adds the search path specified by $italic path$$
@@ -281,8 +267,6 @@ $cend $syntax%const char *InputSearch(
 $bold See Also$$
 $cend $mref/InputAddPath/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 Searches the set of paths corresponding to the
@@ -345,8 +329,6 @@ $bold See Also$$
 $cend $mref/InputPush/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 Determine the
 $xref/glossary/Root File Name/root/$$
@@ -396,8 +378,6 @@ $cend $syntax%void InputFree()%$$ $rend
 $bold See Also$$
 $cend $mref/input/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 This routines listed in $mref/input/$$ allocate some memory

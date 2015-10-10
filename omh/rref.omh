@@ -29,8 +29,6 @@ $bold See Also$$
 $cnext $mref/mref/tref/children/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 The argument $italic tag$$ specifies the
 $xref/glossary/Cross Reference Tag/cross reference tag/$$ for

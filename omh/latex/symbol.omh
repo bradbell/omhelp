@@ -27,8 +27,6 @@ $bold Syntax$$
 $cnext $syntax/@latex /symbol command/ @@/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 The following sections document special symbols
 that are available using the $xref/latex/$$ command:

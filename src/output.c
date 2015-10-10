@@ -24,8 +24,6 @@ $bold Syntax$$
 $cnext $syntax%void PushOutput(const char *%name%)%$$
 $tend
 
-$fend 25$$
-
 
 $head Description$$
 Opens the file corresponding to the
@@ -58,8 +56,6 @@ $cend $syntax%void FormatOutput(const char *%fmt%, const char *%s1%)%$$
 $rnext
 $cend $syntax%void FormatOutput2(const char *%fmt%, const char *%s1%, const char *%s2%)%$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 Write the
@@ -100,8 +96,6 @@ $bold Syntax$$
 $cend $syntax%void OutputString(const char *%s%)%$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 Write the
 $xref/glossary/String/string/$$
@@ -123,8 +117,6 @@ $bold Syntax$$
 $cend $syntax%void OutputChar(const char %ch%)%$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 Write the
 character specified by $italic ch$$ to the
@@ -144,8 +136,6 @@ $table
 $bold Syntax$$
 $cnext $syntax%void PopOutput()%$$
 $tend
-
-$fend 25$$
 
 
 $head Description$$
@@ -173,8 +163,6 @@ $table
 $bold Syntax$$
 $cnext $syntax%const char *OutputName()%$$
 $tend
-
-$fend 25$$
 
 
 $head Description$$

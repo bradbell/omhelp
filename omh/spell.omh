@@ -29,8 +29,6 @@ $bold See Also$$
 $cnext $xref/start_spell//getting started/$$, $mref/nospell/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 A standard and local dictionary are used to check for misspelled words.
 A word is an upper or lower case letter

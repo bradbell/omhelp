@@ -37,8 +37,6 @@ $bold Syntax$$
 $cnext $syntax/@latex \/c/ @@/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display in Latex mode
 the character specified by $italic c$$

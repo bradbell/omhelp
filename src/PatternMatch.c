@@ -16,8 +16,6 @@ $rnext $cnext
 $syntax%int PatternMatchCh(char *%ch%)%$$
 $tend
 
-$fend 25$$
-
 $head PatternMatchLen$$
 This function initializes the $code PatternMatchCh$$ function
 for matching the pattern defined by the '\0' terminated character

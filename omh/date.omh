@@ -21,8 +21,6 @@ $bold Syntax$$
 $cnext $code @date$$ $rnext
 $tend
 
-$fend 20$$
-
 $head Description$$
 Displays the date
 corresponding to the current execution of OMhelp in the output.

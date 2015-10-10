@@ -37,8 +37,6 @@ $bold See Also$$
 $cnext $xref/start_simple//getting started/$$
 $tend
 
-$fend 30$$
-
 $head Purpose$$
 OMhelp ignores all input in a file except
 between a
@@ -119,8 +117,6 @@ $bold See Also$$
 $cnext $xref/start_simple//getting started/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 This command specifies the $italic title$$
 for the current section.
@@ -177,8 +173,6 @@ $cnext
 $syntax/@title /tag/@@/$$ $rnext
 $bold See Also$$ $cnext $mref/tref/$$
 $tend
-
-$fend 20$$
 
 $head Description$$
 The argument $italic tag$$ specifies the

@@ -18,8 +18,6 @@ $bold Syntax$$
 $cend $syntax%void StrRemove(char *%str%, char %ch%)%$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 All the characters in $italic str$$ that are equal to $italic ch$$
 are removed where $italic str$$ is a '\0' terminated

@@ -17,8 +17,6 @@ $cnext $syntax%void AutomaticLink(
 	SectionInfo *%section%     )%$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Writes the automatically generated links corresponding to the
 specified section to the current output file.

@@ -28,8 +28,6 @@ $bold See Also$$
 $cnext $mref/dollar/rmark/dollar/cmark/newlinech/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Displays the character $italic v$$ with a accent over it
 where $italic v$$ is a vowel; i.e.,

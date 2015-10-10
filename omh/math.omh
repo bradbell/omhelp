@@ -29,8 +29,6 @@ $bold See Also$$
 $cnext $mref/latex/pre/syntax/$$ $rnext
 $tend
 
-$fend 20$$
-
 $head Description$$
 This command is used for displaying mathematical expressions
 in HTML format using only ascii characters.
@@ -156,8 +154,6 @@ $cnext
 $syntax/@/number/@@/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 This command makes it easy to display numbers in the same font as is used
 for $mref/math/$$ mode.
@@ -190,8 +186,6 @@ $bold Syntax$$
 $cnext
 $syntax/@th /index/@@/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 This command is used for displaying an index in math mode and in front

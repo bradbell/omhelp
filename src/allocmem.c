@@ -31,8 +31,6 @@ $rnext $cnext
 $syntax%void CheckMemoryLeak(void)%$$
 $tend
 
-$fend 25$$
-
 $head AllocMemory$$
 $index AllocMemory$$
 This routine returns a pointer to space that is sufficient
@@ -107,8 +105,6 @@ $syntax%void *c_alloc(int %n%, int %size%)%$$
 $rnext $cnext
 $syntax%void c_free(void *%p%)%$$
 $tend
-
-$fend 20$$
 
 $head c_alloc$$
 $index c_alloc$$

@@ -21,8 +21,6 @@ $rend
 $bold See Also$$ $cend $mref/strjoin/str_alloc/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 returns a pointer to the concatenation of the strings
 $italic s1$$, $italic s2$$, ...

@@ -18,8 +18,6 @@ $cnext
 $syntax%void ContentPass1(SectionInfo *%content%)%$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 This routine outputs creates the file
 $syntax//tag/.tmp/$$ and writes

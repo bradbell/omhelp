@@ -19,8 +19,6 @@ $cend $syntax/ListChildren(/S/, /printable/)/$$ $rend
 $cend $syntax/TableChildren(/S/, /printable/)/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 Output (to current output file)
 a list of HTML links to the sections that are children

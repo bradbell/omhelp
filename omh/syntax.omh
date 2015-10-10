@@ -29,8 +29,6 @@ $bold See Also$$
 $cnext $mref/codep/$$, $xref/font//italic/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display text that alternates between
 $code code$$ and $code italic$$ $xref/font/$$.

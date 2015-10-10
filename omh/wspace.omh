@@ -32,8 +32,6 @@ $bold See Also$$
 $cnext $xref/newlinech/$$
 $tend
 
-$fend 20$$
-
 $head Deprecated 2006-07-07$$
 This command has been deprecated and the $xref/newlinech/$$ command
 is the preferred way to encode OMhelp commands in source code for a

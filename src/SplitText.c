@@ -25,8 +25,6 @@ $bold Syntax$$ $cend $syntax%int SplitText(
 )%$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 The '\0' terminated character vector $italic text$$ contains
 a delimiter sequence that is to be split into tokens

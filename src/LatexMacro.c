@@ -19,8 +19,6 @@ $bold Syntax$$
 $cend $syntax%void LatexMacroUserInput(int %line%, const char *%input%)%$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 The Latex macro preprocessor reads its data from memory.
 This call sets the input data to the '\0' terminated

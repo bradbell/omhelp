@@ -31,8 +31,6 @@ $cnext
 	$mref/codep/math/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 All of the characters in $italic text$$ are printed in a
 $cref/pre-formatted font/glossary/Pre-formatted Font/$$.

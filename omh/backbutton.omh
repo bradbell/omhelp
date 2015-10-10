@@ -33,14 +33,10 @@ For some versions of the frame set,
 the back button will return to this frame.
 For other versions, it will not.
 
-$fend 30$$
-
 $head Second Frame$$
 The following link places a
 copy of the second frame in the first frame
 $xref/BackButton/Second Frame/copy second frame into first/$$.
-
-$fend 30$$
 
 $head HTML$$
 Select this link

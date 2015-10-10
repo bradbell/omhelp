@@ -21,8 +21,6 @@ $bold Syntax$$
 $cend $syntax%CreateCrossReference(%tag%, %head%, %file%)%$$ $rend
 $tend
 
-$fend 20$$
-
 $head Description$$
 Uses $mref/AllocMem/$$ to allocate memory for a new
 $code CrossReference$$ record with the following fields and settings:
@@ -122,8 +120,6 @@ $table
 $bold Syntax$$
 $cend $syntax/DefineCrossReference(/tag/, /head/, /file/, /frame/, /printid/)/$$
 $tend
-
-$fend 20$$
 
 $head Description$$
 The cross reference with the specified

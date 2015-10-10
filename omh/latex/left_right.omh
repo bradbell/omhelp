@@ -27,8 +27,6 @@ $bold Syntax$$
 $cnext $syntax%@latex \left %s1 command_list% \right %s2% @@%$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display in Latex mode
 the specified command list enclosed by the

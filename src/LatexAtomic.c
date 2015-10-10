@@ -18,8 +18,6 @@ $bold Syntax$$
 $cnext $syntax/LatexAtomic(/name/, /token/)/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 The arguments $syntax%const char *%name%$$
 is '\0' terminated

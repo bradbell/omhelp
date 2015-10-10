@@ -28,8 +28,6 @@ $rend
 $bold See Also$$ $cend $mref/StrCat/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 returns a pointer to a separately allocated
 copy of the $code '\0'$$ terminated

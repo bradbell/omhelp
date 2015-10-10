@@ -31,8 +31,6 @@ $bold See Also$$
 $cnext $mref/syntax/pre/math/verbatim/$$ $rnext
 $tend
 
-$fend 20$$
-
 $head Description$$
 All of the text in $italic pre-formatted$$ is printed
 in with a $cref/pre-formatted font/glossary/Pre-formatted Font/$$.

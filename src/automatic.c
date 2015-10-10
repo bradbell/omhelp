@@ -16,8 +16,6 @@ $cnext
 $syntax/AutomaticAppendSection(/parent/, /tag/, /title/, /letterHeadings/)/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 This call adds a section to the section tree.
 
@@ -65,8 +63,6 @@ $bold Syntax$$
 $cnext $syntax/IsAutomaticSection(/section/)/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Returns one, if $italic section/$$ is one of the sections generated
 by a previous call to $xref/AutomaticAppendSection/$$,
@@ -89,8 +85,6 @@ $table
 $bold Syntax$$
 $cnext $syntax/AutomaticTag(/i/)/$$
 $tend
-
-$fend 20$$
 
 $head Description$$
 Returns a $code '\0'$$ character vector pointing to

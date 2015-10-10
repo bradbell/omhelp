@@ -45,8 +45,6 @@ $cnext
 	$xref/_contents//contents/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 These commands add entries to the
 $xref/_index//Keyword index/$$

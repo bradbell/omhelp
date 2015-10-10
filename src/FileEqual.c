@@ -21,8 +21,6 @@ $bold Syntax$$
 $cnext $syntax%int FileEqual(const char *%name1%, const char *%name2%)%$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 System dependent check if the file corresponding to
 $italic name1$$ is equal to the file correspond to $italic name2$$

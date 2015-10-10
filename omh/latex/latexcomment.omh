@@ -24,8 +24,6 @@ $bold Syntax$$
 $cnext $syntax/@latex % /text/ @@/$$
 $tend
 
-$fend 15$$
-
 $head Description$$
 All  of the character in
 $italic text$$ are ignored where

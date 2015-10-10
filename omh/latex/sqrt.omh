@@ -25,8 +25,6 @@ $cnext $syntax/@latex \sqrt{/base/}@@/$$ $rend
 $cnext $syntax/@latex \sqrt[/index/]{/base/}@@/$$ $rend
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display in Latex mode
 the square root of $italic base$$

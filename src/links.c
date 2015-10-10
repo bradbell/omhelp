@@ -32,8 +32,6 @@ $cend $syntax/AddLink(/tag/, /head/, /text/)/$$  $rend
 $cend $syntax/EndLinks()/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 The routines in this file manage
 the HTML file that contains the automatically generated

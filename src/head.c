@@ -31,8 +31,6 @@ $cend $syntax%HeadingAndSubHeading()%$$      $rend
 $cend $syntax%HeadingAndSubPrintId()%$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 These routines manage headings and subheadings.
 $syntax%

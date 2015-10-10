@@ -34,8 +34,6 @@ $bold See Also$$
 $mref/href/mref/tref/$$
 $tend
 
-$fend 30$$
-
 $head Deprecated 2006-07-07$$
 With the advent of the
 $cref/-noframe/running/noframe/$$ command line argument,

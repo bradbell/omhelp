@@ -28,8 +28,6 @@ $cnext
 	$mref/pre/math/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 All of the characters in $italic text$$ are displayed on the same line.
 There can be no $code @$$ characters in $italic text$$.

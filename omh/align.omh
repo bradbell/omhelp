@@ -26,8 +26,6 @@ $bold See Also$$
 $cnext $mref/table/array/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Set the alignment for all subsequent $xref/table/$$ commands
 where $italic location$$ is one of the following:

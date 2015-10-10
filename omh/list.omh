@@ -27,8 +27,6 @@ $bold See Also$$
 $cnext $mref/table/pre/$$
 $tend
 
-$fend 30$$
-
 $head Description$$
 These commands are used to enumerate a list of items.
 The $code list$$ command begins a new list.

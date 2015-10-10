@@ -29,8 +29,6 @@ $rend
 $bold See Also$$ $cend $mref/str_alloc/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 returns a pointer to a lower case
 copy of the $code '\0'$$ terminated

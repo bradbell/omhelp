@@ -24,8 +24,6 @@ $bold Syntax$$
 $cnext $syntax/@latex \frac{/numerator/}{/denominator/} @@/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display in Latex mode
 the fraction specified by the $code \frac$$ command

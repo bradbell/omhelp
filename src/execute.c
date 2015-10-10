@@ -21,8 +21,6 @@ $bold See Also$$
 $cend $mref/ExecuteSetFile/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 An execute file is pending between a call to $mref/ExecuteSetFile/$$
 and the following call to $mref/ExecuteWriteFile/$$.
@@ -56,8 +54,6 @@ $syntax%ExecuteSetFile(
 $bold See Also$$
 $cend $mref/ExecuteWriteFile/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 Sets the name of the next execute file
@@ -106,8 +102,6 @@ $bold See Also$$
 $cend $mref/ExecuteNextFile/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 Writes the characters in the '\0' terminated character vector
 $italic text$$ to the file specified by
@@ -141,8 +135,6 @@ $cend $syntax%void ExecuteFree()%$$ $rend
 $bold See Also$$
 $cend $mref/execute/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 This routines listed in $mref/execute/$$ allocate some memory

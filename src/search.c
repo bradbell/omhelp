@@ -39,8 +39,6 @@ $cend $syntax%SearchEnd()%$$                      $rend
 $cend $syntax%CloseSearchFile(%delete%)%$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 These routines create a Pass One version of the
 web page that searches the web site being created.

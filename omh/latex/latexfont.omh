@@ -34,8 +34,6 @@ $bold Syntax$$
 $cnext $syntax/@latex /font/ @@/$$ $rend
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display in Latex using the specified font where
 $italic font$$ is one of the commands in the following table:

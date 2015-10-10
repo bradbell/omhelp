@@ -25,8 +25,6 @@ $cnext
 $syntax/@escape /character/@@/$$
 $tend
 
-$fend 15$$
-
 $head Description$$
 The backslash, $code \$$, is the default escape character.
 This command changes the escape character to the first character in

@@ -74,8 +74,6 @@ $bold Syntax$$
 $cnext $syntax%%string% = TokenCode2String(%code%)%$$
 $tend
 
-$fend 20$$
-
 $head Purpose$$
 The lexical analyzer now passes back token integer codes for error reporting.
 This routine converts the integer code to the corresponding users input

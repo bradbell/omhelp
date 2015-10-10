@@ -29,8 +29,6 @@ $bold Syntax$$
 $cnext $syntax/@latex /Command/ @@/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display in Latex mode
 the standard mathematical function specified by $italic Command$$ where

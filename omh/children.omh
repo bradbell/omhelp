@@ -42,8 +42,6 @@ $cnext
 	$mref/include/verbatim/image/$$
 $tend
 
-$fend 30$$
-
 $head Description$$
 These commands provide different ways to specify which sections are
 $xref/glossary/Children/children/$$

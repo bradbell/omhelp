@@ -24,8 +24,6 @@ $bold See Also$$
 $cnext $mref/pre/math/table/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Centers the output specified by $italic text$$,
 where $italic text$$

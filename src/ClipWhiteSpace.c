@@ -14,8 +14,6 @@ $bold Syntax$$
 $cend $syntax%void ClipWhiteSpace(char *%s%)%$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Leading and trailing white space characters are removed from
 the '\0' terminated character vector $italic s$$.

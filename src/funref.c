@@ -21,8 +21,6 @@ $cend $syntax%InsertInFunRef(%tag%, %title%)%$$ $rend
 $cend $syntax%FunRefPass1(%section%)%$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 These routines manage the function reference table.
 $syntax%

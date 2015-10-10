@@ -19,8 +19,6 @@ $bold Syntax$$
 $cnext $syntax/BinarySearch(/array/, /len/, /name/)/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 The argument $italic array$$ is an array of $italic len$$
 and has prototype

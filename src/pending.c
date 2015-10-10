@@ -35,8 +35,6 @@ OmhPendingError(/line/, /input/)
 TexPendingError(/msg/)/$$
 $tend
 
-$fend 25$$
-
 $syntax/PushPending(/line/, /name/)
 /$$
 This signals the beginning of the specified command

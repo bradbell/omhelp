@@ -28,8 +28,6 @@ $cend $syntax%fatalomh(char *%s1%, %...%)%$$ $rnext
 $cend $syntax%fataltex(char *%s1%, %...%)%$$
 $tend
 
-$fend 25$$
-
 $head Message$$
 The arguments
 $syntax%

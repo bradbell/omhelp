@@ -23,8 +23,6 @@ $bold Syntax$$
 $cnext $syntax/@latex \stackrel{%above%}{%commands%}@@/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display in Latex mode
 the output corresponding to $italic commands$$ with the

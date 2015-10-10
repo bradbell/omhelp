@@ -27,8 +27,6 @@ $bold See Also$$
 $cend $mref/SectionInfoNew/$$
 $tend
 
-$fend 25$$
-
 $head Purpose$$
 Uses $mref/AllocMem/$$ to allocate memory for a new
 $mref/SectionInfo/$$ record.
@@ -87,8 +85,6 @@ $cend $syntax%void SectionDefaultStyle(
 )%$$ $rend
 $tend
 
-$fend 25$$
-
 $head Description$$
 Suppose that $italic field$$ is such that
 $syntax//To/->style/./field/$$
@@ -122,8 +118,6 @@ $cend $syntax%void SectionFreeTree(
 $bold See Also$$
 $cend $mref/SectionInfoNew/$$
 $tend
-
-$fend 25$$
 
 
 $head Description$$
@@ -168,8 +162,6 @@ $cend $syntax%SectionInfo* SectionFind(
 $bold See Also$$
 $cend $mref/SectionInfo/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 Searches the specified
@@ -217,8 +209,6 @@ $bold See Also$$
 $cend $mref/SectionInfo/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 Sets the $code tag$$ field of the specified $mref/SectionInfo/$$
 record to point to a copy of the $code '\0'$$ terminated
@@ -251,8 +241,6 @@ $cend $syntax%char *SectionNumber(
 	SectionInfo *%section%
 )%$$
 $tend
-
-$fend 20$$
 
 $head Description$$
 Returns an identifying $code number$$ corresponding to the specified section.
@@ -296,8 +284,6 @@ $bold See Also$$
 $cend $mref/SectionFind/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 Searches the specified
 $xref/glossary/Section Tree/Section tree/$$
@@ -339,8 +325,6 @@ $cend $syntax%SectionInfo* SectionReadNext( SectionInfo *%section%)%$$
 $rend
 $cend $syntax%SectionInfo* SectionReadPrevious( SectionInfo *%section%)%$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 Read order is described by the numbers

@@ -39,8 +39,6 @@ $cnext $syntax/@latex /space/ @@/$$ $rnext
 $cnext $syntax/@latex \hspace{/number/ /unit/} @@/$$ $rnext
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display Latex spacing commands.
 

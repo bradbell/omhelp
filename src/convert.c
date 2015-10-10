@@ -24,8 +24,6 @@ $bold Syntax$$
 $cend $syntax/void ConvertForcedNewline(const int /n/)/$$  $rend
 $tend
 
-$fend 25$$
-
 $head Description$$
 Outputs $italic n$$ forced new lines; i.e., new lines
 that are not just white space
@@ -58,8 +56,6 @@ $syntax/void ConvertOutputCh(const char /ch/, const int /preformatted/)/$$
 $rend $cend
 $syntax%void ConvertOutputString(const char *%s%, const int %preformatted%)%$$
 $tend
-
-$fend 25$$
 
 $head ConvertOutputCh$$
 Output the character $italic ch$$
@@ -133,8 +129,6 @@ $bold See Also$$
 $cend $mref/ConvertSetTabSize/ConvertOutput/$$
 $tend
 
-$fend 25$$
-
 
 $head Description$$
 The routines listed in $xref/convert/$$
@@ -173,8 +167,6 @@ $bold See Also$$
 $cend $mref/ConvertAddColumn/ConvertOutput/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 The routines $code ConvertOutputCh$$ and $code ConvertOutputString$$
 convert tab characters to the proper number of spaces
@@ -201,8 +193,6 @@ $bold Syntax$$
 $cnext $syntax/int ConvertPreviousNewline()/$$ $rnext
 $cnext $syntax/void ConvertAddPrevious(int /n/)/$$
 $tend
-
-$fend 25$$
 
 $syntax/
 
@@ -258,8 +248,6 @@ $syntax%char *ConvertInternalString(const char *%s%)%$$ $rnext
 $bold See Also$$
 $xref/ConvertOutput/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 The return value is a copy of $italic s$$ with certain characters converted.

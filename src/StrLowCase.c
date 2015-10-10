@@ -23,8 +23,6 @@ $rend
 $bold See Also$$ $cend $mref/StrLowAlloc/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 converts the
 $code '\0'$$ terminated character vector specified by $italic s$$

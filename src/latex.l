@@ -20,8 +20,6 @@ $bold Syntax$$
 $cend $syntax/LatexLexPut(/line/, /input/)/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 The Latex lexical analyzer reads its data from memory.
 This call sets the input data to the $code const$$ '\0' terminated
@@ -49,8 +47,6 @@ $table
 $bold Syntax$$
 $cend $syntax/LatexLexHistory(/number/, /length/, /line/, /token/)/$$
 $tend
-
-$fend 20$$
 
 $head Description$$
 The return value of $code LatexLexHistory$$ is a $code int$$

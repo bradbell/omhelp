@@ -30,8 +30,6 @@ $rend
 $bold See Also$$ $cend $mref/StrCat/str_alloc/$$
 $tend
 
-$fend 15$$
-
 $head Description$$
 returns a pointer to the concatenation of the strings
 $italic s1$$, and $italic s2$$,

@@ -26,10 +26,7 @@ $cnext $syntax/@subhead /subheading/@@/$$ $rnext
 $bold See Also$$
 $cnext
 	$xref/start_head//getting started/$$,
-	$xref/fend/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 A new paragraph is started and it is given the heading

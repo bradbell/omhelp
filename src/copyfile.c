@@ -22,8 +22,6 @@ $cend $syntax/copyfile(/destination/, /source/)/$$ $rend
 $cend $syntax/copyfileFreeMemory()/$$ $rend
 $tend
 
-$fend 20$$
-
 $syntax/
 
 copyfile(/destination/, /source/)

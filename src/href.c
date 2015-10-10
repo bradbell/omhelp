@@ -35,8 +35,6 @@ $bold See Also$$
 $cend $mref/HrefOutputPass2/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 The arguments are all
 $code '\0'$$ terminated character vectors.
@@ -71,8 +69,6 @@ $cend $codei%void HrefOutputPass2(
 $bold See Also$$
 $cend $mref/HrefOutputPass1/HrefPrintablePass2/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 The arguments are all
@@ -145,8 +141,6 @@ $bold See Also$$
 $cend $mref/HrefOutputPass1/HrefOutputPass2/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 The argument $icode printid$$ is a
 $code '\0'$$ terminated character vector.
@@ -194,8 +188,6 @@ $cend $codei%void HrefEnd(
 $bold See Also$$
 $cend $mref/HrefOutputPass1/HrefOutputPass2/$$
 $tend
-
-$fend 25$$
 
 $head Description$$
 The text output after a call to
@@ -259,8 +251,6 @@ $bold See Also$$
 $cend $mref/HrefOutputList/$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 A call to $code HrefAddList$$ adds a cross reference to
 the list that is output by a call to $mref/HrefOutputList/$$.
@@ -318,8 +308,6 @@ $bold See Also$$
 $cend $mref/HrefAddList/$$
 $tend
 
-$fend 25$$
-
 
 $head Description$$
 Creates a Pass1 HTML file that contains
@@ -352,8 +340,6 @@ $cend $syntax/void HrefFreeMemory()/$$  $rend
 $bold See Also$$
 $cend $mref/href/$$
 $tend
-
-$fend 25$$
 
 
 $head Description$$

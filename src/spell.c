@@ -33,8 +33,6 @@ $cend $syntax%const char *SpellingError(const char *%text%, int *%nOut%)%$$ $ren
 $cend $syntax%void FreeSpelling(int %debug%)%$$
 $tend
 
-$fend 25$$
-
 $head Description$$
 Routines that do spell checking and manage the
 current list of special words.

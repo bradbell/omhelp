@@ -29,8 +29,6 @@ $bold See Also$$
 $cnext $mref/cmark/rmark/newlinech/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 All subsequent occurrences of the first character in
 $italic character$$ are converted to the
@@ -69,7 +67,6 @@ $codep
 	%cend %mref/cmark/rmark/newlinech/%%
 	%tend
 
-	%fend 15%%
 $$
 $head Reference$$
 Characters in the $code index$$ and other commands are also converted.

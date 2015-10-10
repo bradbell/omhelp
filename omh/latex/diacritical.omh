@@ -70,8 +70,6 @@ or
 $code widetilde$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display in Latex mode
 the specified commands

@@ -40,8 +40,6 @@ $bold See Also$$
 $cnext $xref/table/$$
 $tend
 
-$fend 30$$
-
 $head Description$$
 Display in Latex mode
 the array $italic A$$ with

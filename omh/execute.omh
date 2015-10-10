@@ -29,8 +29,6 @@ $bold See Also$$
 $cnext $mref/codep/verbatim/$$
 $tend
 
-$fend 20$$
-
 $head Purpose$$
 This command creates the file specified by $italic filename$$
 together with a link to the file.

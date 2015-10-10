@@ -32,8 +32,6 @@ $bold See Also$$
 $cnext $xref/codep/Source Code Examples/codep/$$
 $tend
 
-$fend 20$$
-
 $head Purpose$$
 Some computer languages do not have a multi-line comment mode.
 The $code newlinech$$ command

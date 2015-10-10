@@ -14,8 +14,6 @@ $bold Syntax$$
 $cend $syntax%void UniformWhiteSpace(char *%s%)%$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 For some applications, one or more white space characters
 just represents a delimiter between different tokens in a string.

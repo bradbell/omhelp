@@ -26,8 +26,6 @@ $bold Syntax$$
 $cnext $syntax/@latex /Command/ @@/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display in Latex mode
 the subscripts and superscripts specified by $italic Command$$ where

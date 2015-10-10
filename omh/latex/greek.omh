@@ -22,8 +22,6 @@ $bold Syntax$$
 $cnext $syntax/@latex /Command/ @@/$$
 $tend
 
-$fend 20$$
-
 $head Description$$
 Display in Latex mode
 the greek character specified by $italic Command$$ where

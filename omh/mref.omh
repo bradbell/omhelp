@@ -30,8 +30,6 @@ $bold See Also$$
 $cnext $mref/cref/tref/rref/href/$$  $rnext
 $tend
 
-$fend 20$$
-
 $head Description$$
 Links multiple sections using the
 $xref/glossary/Cross Reference Tag/cross reference tag/$$

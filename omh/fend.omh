@@ -31,8 +31,6 @@ $bold Syntax$$
 $cnext $syntax/@fend /percent/@@/$$
 $tend
 
-$fend 20$$
-
 $head Deprecated 2006-07-07$$
 With the advent of the
 $cref/-noframe/running/noframe/$$ command line argument,
@@ -88,7 +86,6 @@ $codep
 	%cend %mref/head/%%
 	%tend
 
-	%fend 20%%
 $$
 
 $head Effect on Links$$
