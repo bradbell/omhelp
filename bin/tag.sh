@@ -39,7 +39,7 @@ then
 	if ! git tag -n | grep "$version"
 	then
 		echo "git tag $version does not exist"
-		exit 
+		exit
 	fi
 	read -p 'delete this tag are you sure [yes/no] ?' response
 	if [ "$response" != 'yes' ]

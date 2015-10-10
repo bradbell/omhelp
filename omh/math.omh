@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -18,10 +18,10 @@
 #
 $begin math$$
 $comment leave escape character as default until example that changes it$$
-$spell 
-	ge 
-	le 
-	int 
+$spell
+	ge
+	le
+	int
 	dx
 	backslash
 	OMhelp
@@ -51,7 +51,7 @@ The argument $italic text$$ must be a
 $xref/glossary/Delimiter Sequence/delimiter sequence/$$.
 
 $head Pre-formatted$$
-The characters in $italic text$$ are output in a 
+The characters in $italic text$$ are output in a
 $cref/pre-formatted font/glossary/Pre-formatted Font/$$.
 This enables you to line up one equation above another.
 
@@ -69,7 +69,7 @@ $head Escape Sequences$$
 In math mode, the $mref/escape/$$ character and the letters that follow it,
 represent an escape sequence. If the sequence is one of those listed below,
 the output is translated to the corresponding symbol. If the sequence is
-not one of those listed below, the escape character is removed and the 
+not one of those listed below, the escape character is removed and the
 sequences of letters that follow are printed in normal font
 (as opposed to italic font).
 The backslash is the default escape character and
@@ -108,7 +108,7 @@ $math%
 
 $head Using The Delimiter$$
 Neither the delimiter nor the escape character are included in the
-output. 
+output.
 The delimiter can be used for spacing the equations so they line up.
 For example, the input
 $codep
@@ -171,12 +171,12 @@ $fend 25$$
 
 $head Description$$
 This command makes it easy to display numbers in the same font as is used
-for $mref/math/$$ mode. 
+for $mref/math/$$ mode.
 The text in $italic number$$
 can be any sequence of decimal digits, plus signs, minus signs,
 or periods.
 
-$head Example$$ 
+$head Example$$
 The input text
 $codep
 	@math%x(k)%@@ for @math%k%@@ equal to @1@@, @2@@ or @3@@
@@ -205,7 +205,7 @@ $tend
 $fend 25$$
 
 $head Description$$
-This command is used for displaying an index in math mode and in front 
+This command is used for displaying an index in math mode and in front
 of the letters $code th$$.
 The text $italic index$$ does not contain any $code @$$ characters
 and is displayed in $mref/math/$$ mode (without delimiters).

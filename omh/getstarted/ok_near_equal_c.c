@@ -25,7 +25,7 @@ int ok_near_equal_c()
 	double y = 1.2;
 	double r = .1;
 	double a = 0.;
- 	if( near_equal_c(x, y, r, a) )
+	if( near_equal_c(x, y, r, a) )
 		return 1; // expected return value (true)
 	else	return 0; // error return value (false)
 }

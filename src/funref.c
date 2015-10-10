@@ -41,14 +41,14 @@ $syntax%
 %tag%
 %$$
 The '\0' terminated character vector $italic tag$$ is the cross reference
-tag for this function reference entry. 
+tag for this function reference entry.
 This value will appear in alphabetic order in the function reference section.
 $syntax%
 
 %title%
 %$$
 The '\0' terminated character vector $italic title$$ is
-text that will next to the corresponding value of $italic tag$$ 
+text that will next to the corresponding value of $italic tag$$
 in the function reference section.
 $syntax%
 
@@ -61,21 +61,21 @@ $syntax%
 InsertInFunRef(%tag%, %title%)
 %$$
 This call inserts an entry in the function reference table.
-These entries are accumulated until a call is made to 
+These entries are accumulated until a call is made to
 $code FunRefPass1$$.
 $syntax%
 
 FunRefPass1(%section%)
 %$$
 This call creates the pass one version of the
-function reference section in the file with root name 
+function reference section in the file with root name
 $syntax//section/->tag/$$
 and extension $code .tmp$$.
 It is a Pass1 version because
 the cross references use the HrefOutputPass1 format.
 In addition, for the $italic letter$$
 between $code A$$ and $code Z$$ that has function reference entries
-starting with that letter: 
+starting with that letter:
 there a heading for that letter together with a
 $syntax%
 	<a name="%letter%"></a>
@@ -86,7 +86,7 @@ $syntax%
 
 FunRefFree()
 %$$
-The $code InsertInFunRef$$ routine uses 
+The $code InsertInFunRef$$ routine uses
 $xref/AllocMem/$$ to store information that is used by
 $code FunRefPass1$$.
 The routine $code FunRefFree$$ frees all this temporary memory.
@@ -112,7 +112,7 @@ $end
 # include "Internal2Out.h"
 
 # ifndef WIN32
-# define stricmp strcasecmp 
+# define stricmp strcasecmp
 # endif
 
 
@@ -136,18 +136,18 @@ void InsertInFunRef(char *tag, char *title)
 	E->next   = FunRef;
 	E->tag    = str_alloc(tag);
 	E->title  = str_alloc(title);
-	
-	// move E to proper place in index 
+
+	// move E to proper place in index
 	if( FunRef == NULL )
 		FunRef = E;
 	else if( stricmp(tag, FunRef->tag) < 0 )
 		FunRef = E;
 	else
 	{	L  = FunRef;
-		N  = FunRef->next; 
-		while( N != NULL && stricmp(tag, N->tag) >= 0 ) 
+		N  = FunRef->next;
+		while( N != NULL && stricmp(tag, N->tag) >= 0 )
 		{	L = N;
-		    	N = N->next;
+			N = N->next;
 		}
 		L->next = E;
 		E->next = N;
@@ -156,7 +156,7 @@ void InsertInFunRef(char *tag, char *title)
 }
 
 void FunRefPass1(SectionInfo *section)
-{	
+{
 	char    *filename;
 	char         *tag;
 	char       *title;
@@ -167,7 +167,7 @@ void FunRefPass1(SectionInfo *section)
 	char           ch;
 
 	FunRefEntry *Current;
-	
+
 	// open output file
 	filename = strjoin(section->tag, ".tmp");
 	PushOutput(filename);
@@ -196,7 +196,7 @@ void FunRefPass1(SectionInfo *section)
 	heading = 'A';
 	Current = FunRef;
 	while( Current != NULL )
-	{	
+	{
 		tag     = Current->tag;
 		title   = Current->title;
 
@@ -214,7 +214,7 @@ void FunRefPass1(SectionInfo *section)
 				section->tag, letter, "", 1, letter);
 			heading++;
 		}
-		
+
 		//  output the cross reference tag
 		HrefOutputPass1(tag, "", "false", "", "true");
 		OutputString(tag);
@@ -232,7 +232,7 @@ void FunRefPass1(SectionInfo *section)
 
 		// next function reference entry
 		Current  = Current->next;
-		
+
 	}
 
 	OutputString("</td></tr></table>\n");
@@ -244,7 +244,7 @@ void FunRefFree()
 
 	while( FunRef != NULL )
 	{	Next = FunRef->next;
-	
+
 		// free memory for this entry
 		FreeMem(FunRef->tag);
 		FreeMem(FunRef->title);

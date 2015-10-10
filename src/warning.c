@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // END SHORT COPYRIGHT
 /*
 warning(msg)
-prints a warning message on standard output where ~msg is a '\0' 
+prints a warning message on standard output where ~msg is a '\0'
 terminated character row vectos.
 **/
 

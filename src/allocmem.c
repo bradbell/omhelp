@@ -50,18 +50,18 @@ This routine returns a pointer to space that is sufficient
 for $italic num$$ elements each of size $italic size$$
 where $italic num$$ and $italic size$$ are positive integers.
 The memory is allocated using $xref/c_alloc/$$.
-The 
-$xref/glossary/String/string/$$ $italic file$$ is the 
+The
+$xref/glossary/String/string/$$ $italic file$$ is the
 file name and the integer $italic line$$ is the line number
-where the call to $code AllocMemory$$ is made. 
+where the call to $code AllocMemory$$ is made.
 The standard macros $code __FILE__$$ and $code __LINE__$$
 can be used to obtain these values.
 
 $head AllocMem$$
 $index AllocMem$$
-If $code NDEBUG$$ is defined when $code allocmem.h$$ is included, 
+If $code NDEBUG$$ is defined when $code allocmem.h$$ is included,
 this macro calls $code AllocMemory$$ with
-the file and line set by the macros 
+the file and line set by the macros
 $code __FILE__$$ and $code __LINE__$$ respectively.
 Otherwise, this macro just uses
 $xref/c_alloc/$$ to allocate the requested memory.
@@ -73,20 +73,20 @@ The value $italic ptr$$ must be either $code NULL$$
 or a pointer that was allocated using
 $code AllocMemory$$.
 (If it is $code NULL$$, no action is taken).
-The $xref/glossary/String/string/$$ $italic file$$ 
+The $xref/glossary/String/string/$$ $italic file$$
 is the file name and the integer $italic line$$ is the line number
-where the call to $code FreeMemory$$ is made. 
+where the call to $code FreeMemory$$ is made.
 The standard macros $code __FILE__$$ and $code __LINE__$$
-can be used to obtain these values. 
+can be used to obtain these values.
 If the value $italic ptr$$ was not allocated
-using $code AllocMemory$$, 
+using $code AllocMemory$$,
 a fatal error message is printed and execution is terminated.
 
 $head FreeMem$$
 $index FreeMem$$
-If $code NDEBUG$$ is defined when $code allocmem.h$$ is included, 
+If $code NDEBUG$$ is defined when $code allocmem.h$$ is included,
 this macro calls $code FreeMemory$$ with
-the file and line set by the macros 
+the file and line set by the macros
 $code __FILE__$$ and $code __LINE__$$ respectively.
 Otherwise, this macro uses $xref/c_alloc//c_free/$$ to directly
 the memory pointed to by $italic ptr$$.
@@ -126,9 +126,9 @@ $index c_alloc$$
 This routine returns a pointer to space that is sufficient
 for $italic num$$ elements each of size $italic size$$
 where $italic num$$ and $italic size$$ are positive integers.
-If the memory cannot be allocated, 
+If the memory cannot be allocated,
 an error message is generated on standard output and
-the program is terminated. 
+the program is terminated.
 
 $head c_free$$
 $index c_free$$

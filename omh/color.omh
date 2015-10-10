@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -22,7 +22,7 @@ $dollar @$$
 $textcolor/100/100/100/$$
 $bgcolor/240/240/240/$$
 $linkcolor green$$
-$spell 
+$spell
 	hilite
 	codecolor
 	hilitecolor
@@ -51,7 +51,7 @@ $codei/@/command/%/red/%/green/%/blue/%@@/$$
 $head Purpose$$
 The output specified by $icode command$$ is changed to the
 color specified by $icode colorname$$.
-The text following $icode command$$ is a 
+The text following $icode command$$ is a
 $cref/delimiter sequence/glossary/Delimiter Sequence/$$.
 
 $head command$$
@@ -59,12 +59,12 @@ The value $icode command$$
 must be one of the following values:
 
 $table
-$icode command$$ 
+$icode command$$
 	$cnext Affected text
 	$cnext Default value
 	$cnext Style
 $rnext
-$code codecolor$$ 
+$code codecolor$$
 	$cnext inside $cref/code/font/$$ and $cref/codep/$$ commands
 	$cnext blue
 	$cnext no
@@ -104,7 +104,7 @@ $tend
 $head colorname$$
 The following is a list of the valid values for $icode colorname$$:
 $table
-$pre     $$ 
+$pre     $$
 	$cnext black    $cnext green  $rnext
 	$cnext silver   $cnext lime   $rnext
 	$cnext gray     $cnext olive  $rnext
@@ -123,11 +123,11 @@ $index color, RGB$$
 In addition to the color names above,
 you can use the $icode red$$, $icode blue$$, $icode green$$ syntax
 to describe a color (RGB value).
-The values $icode red$$, $icode blue$$, and $icode green$$ 
+The values $icode red$$, $icode blue$$, and $icode green$$
 must be unsigned integers between 0 and 255.
-They represent the primary color mix for the 
+They represent the primary color mix for the
 RGB code of the color being specified.
-Leading and trailing $cref/white space/glossary/White Space/$$ 
+Leading and trailing $cref/white space/glossary/White Space/$$
 in an RGB value is ignored.
 
 
@@ -136,14 +136,14 @@ $index style, color$$
 $index color, style$$
 Some of the colors are specified as styles
 in the $cref/colorname/color/colorname/$$ table above.
-If $icode command$$ is specified by a style, 
+If $icode command$$ is specified by a style,
 it can only appear once per section.
 
 $head Root Section$$
 If a color command appears in the
 $cref/root section/running/root_file/$$,
 it specifies the default all the other sections in the web site.
-Otherwise, the default color is the one in the 
+Otherwise, the default color is the one in the
 $cref/colorname/color/colorname/$$ table above.
 
 $head Non-Style Examples$$
@@ -152,7 +152,7 @@ $subhead codecolor$$
 $index codecolor$$
 $index color, code$$
 The following text
-$codep 
+$codep
 	@codecolor green@@
 	@codep
 		This text is green.
@@ -178,7 +178,7 @@ $subhead errorcolor$$
 $index errorcolor$$
 $index color, error$$
 The following text
-$codep 
+$codep
 	@errorcolor blue@@
 	@codecolor red@@
 	@codep
@@ -255,7 +255,7 @@ $$
 appears at the beginning of this section.
 That is why the links appear in green for this section.
 
-		
+
 
 
 $end

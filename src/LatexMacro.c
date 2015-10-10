@@ -27,7 +27,7 @@ $section Set Input Characters For Latex Macro Preprocessor$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void LatexMacroUserInput(int %line%, const char *%input%)%$$ 
+$cend $syntax%void LatexMacroUserInput(int %line%, const char *%input%)%$$
 $tend
 
 $fend 20$$
@@ -120,10 +120,10 @@ $cnext $syntax%int LatexMacroInputLine()%$$
 $tend
 
 $head Description$$
-Returns the line number corresponding to the next 
-character returned by $xref LatexMacroGetCh$$ 
+Returns the line number corresponding to the next
+character returned by $xref LatexMacroGetCh$$
 (not counting macro expansion).
-This line number corresponds to the file specified 
+This line number corresponds to the file specified
 by the previous call to $xref LatexMacroUserInput$$.
 
 If no call has been made to $code LatexMacroUserInput$$,
@@ -145,7 +145,7 @@ $tend
 
 $head Description$$
 Returns the file name corresponding to the previous call to
-$xref LatexMacroUserInput$$. 
+$xref LatexMacroUserInput$$.
 
 If no call has been made to $code LatexMacroUserInput$$,
 the value "NONE" is returned.
@@ -167,9 +167,9 @@ $head Details$$
 If the previous two characters came from file input instead of a macro
 expansion, the return value of $code LatexMacroExpandInput$$ is $code NULL$$.
 Otherwise,
-each macro expansion is identified by the macro name, and its 
+each macro expansion is identified by the macro name, and its
 expansion value,
-up to the current point in the expansion (where input is currently 
+up to the current point in the expansion (where input is currently
 being taken from).
 If the current input point corresponds to a macro,
 then the expansion of that macro is included.
@@ -198,7 +198,7 @@ Returns the line number where the currently expanded macro is defined.
 This is useful for error reporting.
 
 $head Restrictions$$
-It a programming  error to call this routine if the return value of 
+It a programming  error to call this routine if the return value of
 $xref LatexMacroExpandInput$$ is $code NULL$$.
 
 $end
@@ -220,7 +220,7 @@ Returns the file where the currently expanded macro is defined.
 This is useful for error reporting.
 
 $head Restrictions$$
-It a programming  error to call this routine if the return value of 
+It a programming  error to call this routine if the return value of
 $xref LatexMacroExpandInput$$ is $code NULL$$.
 
 $end
@@ -243,7 +243,7 @@ Returns the name of the currently expanded macro.
 This is useful for error reporting.
 
 $head Restrictions$$
-It a programming  error to call this routine if the return value of 
+It a programming  error to call this routine if the return value of
 $xref LatexMacroExpandInput$$ is $code NULL$$.
 
 $end
@@ -277,11 +277,11 @@ $$
 
 $section Remove Fully Expanded Latex Macros and Fee Corresponding Memory$$
 
-The fully expanded latex macros's are kept around for one extra 
+The fully expanded latex macros's are kept around for one extra
 input character.
 This help error message when an error is detected at the end of a macro.
 In the case where there are no more latex commands after the end
-of the last macro in the OMhelp input, there can be 
+of the last macro in the OMhelp input, there can be
 $cref AllocMem$$ left over for this purpose that must be freed
 before checking for memory leaks.
 This function will free that memory.
@@ -309,7 +309,7 @@ $end
 // Data Only Used In This File ==============================================
 
 // line number and file where user input occurs
-int   UserLine  = 0; 
+int   UserLine  = 0;
 char *UserFile  = NULL;
 
 // actual users input and index of next input character
@@ -330,7 +330,7 @@ typedef struct definition {
 	int   narg;  // number of arguments that the macro has
 	int   nrep;  // number of argument replacements macro has
 	char **text; // text that is placed around each of the replacements
-	int  *iarg;  // arguments that is placed between text 
+	int  *iarg;  // arguments that is placed between text
 
 } Definition;
 
@@ -339,7 +339,7 @@ static Definition Define[MAX_DEFINE];
 
 // alphabetic order of the macros; i.e. , for i = 1 , ..., Ndefine-1
 // DefineName[i] = Define[DefineIndex[i]].name
-// DefineName[i] > Name[i-1]  
+// DefineName[i] > Name[i-1]
 static const char *DefineName[MAX_DEFINE];
 static int         DefineIndex[MAX_DEFINE];
 
@@ -352,8 +352,8 @@ static int         KeepIndex[MAX_DEFINE];
 // Information for one macro expansion
 typedef struct macro_expansion {
 	Definition *macro; // definition for this macro in the macro Define array
-	int    text_index; // index of the next character in this expansion 
-	char*        text; // current macro expansion 
+	int    text_index; // index of the next character in this expansion
+	char*        text; // current macro expansion
 } MacroExpansion;
 
 // number of macros currently expanded
@@ -362,7 +362,7 @@ static int NumExpandInput = 0;
 // Expansion for each of the macros
 // For i > 0, ExpandInput[i] comes from a macro in ExpandInput[i-1]
 // For i == 0, ExpandInput[i] comes from a macro in current input file.
-static MacroExpansion ExpandInput[MAX_EXPAND]; 
+static MacroExpansion ExpandInput[MAX_EXPAND];
 
 // Functions Only Used In This File =======================================
 
@@ -398,7 +398,7 @@ static char UserGetCh()
 	return ch;
 }
 
-// skip user space 
+// skip user space
 static char SkipUserWhite()
 {	char ch;
 
@@ -409,7 +409,7 @@ static char SkipUserWhite()
 	return ch;
 }
 
-// skip latex space 
+// skip latex space
 static char SkipLatexWhite()
 {	char ch;
 	extern char LatexMacroGetCh(void);
@@ -635,7 +635,7 @@ static void DefineLatexMacro()
 	count  = 0;
 	escape = 0;
 	while( buffer[i] != '\0' )
-	{	
+	{
 		// determine macro->text[count]
 		j = 0;
 		while( (escape | (buffer[i] != '#')) & (buffer[i] != '\0') )
@@ -654,7 +654,7 @@ static void DefineLatexMacro()
 		{	++i;
 			ch = buffer[i];
 			j  = 0;
-			while( ('0' <= ch ) & (ch <= '9') ) 
+			while( ('0' <= ch ) & (ch <= '9') )
 			{	j = j * 10 + (ch - '0');
 				++i;
 				ch = buffer[i];
@@ -779,7 +779,7 @@ void ExpandLatexMacro(int index)
 	for(j = 0; j < macro->nrep; j++)
 	{	// macro argument for this replacement
 		i = macro->iarg[j] - 1;
-	
+
 		tmp         = expansion;
 		expansion   = StrCat(
 			__FILE__,
@@ -813,7 +813,7 @@ static char *MacroExpansionMessage(void)
 	char *this = NULL, *all = NULL, *tmp = NULL;
 
 	for(i = 0; i < NumExpandInput; i++)
-	{	
+	{
 		j  = ExpandInput[i].text_index;
 		ch = ExpandInput[i].text[j];
 		ExpandInput[i].text[j] = '\0';
@@ -849,7 +849,7 @@ static char *MacroExpansionMessage(void)
 			FreeMem(this);
 			all = tmp;
 		}
-	}  
+	}
 
 	return all;
 }
@@ -876,7 +876,7 @@ void LatexMacroPopFullyExpandedInput(void)
 }
 
 void LatexMacroUserInput(int line, const char *input)
-{	
+{
 	// start of new input, free old expansions
 	LatexMacroPopFullyExpandedInput();
 
@@ -922,7 +922,7 @@ void LatexMacroFree()
 	i = Nkeep;
 	while(i)
 	{	--i;
-	
+
 		DefineName[i]  = KeepName[i];
 		DefineIndex[i] = KeepIndex[i];
 	}
@@ -997,9 +997,9 @@ char LatexMacroGetCh()
 
 			// check if we have a new macro inside of this macro expansion
 			if( ell < Ndefine )
-			{	// advance input for this macro past new macro 
+			{	// advance input for this macro past new macro
 				ExpandInput[i].text_index = k;
-				
+
 				// increase expansion level and have i point to new macro
 				i = NumExpandInput;
 				ExpandLatexMacro(DefineIndex[ell]);
@@ -1009,14 +1009,14 @@ char LatexMacroGetCh()
 				previous_backslash = 0;
 				ch = LatexMacroGetCh();
 			}
-			else	
+			else
 			{	// this backslash does not start a macro so
 				// terminate this while loop
 				previous_backslash = 1;
 				ch                 = '\\';
 			}
 		}
-	} 
+	}
 
 	if( ch == '\0' )
 	{	ch = UserGetCh();
@@ -1032,7 +1032,7 @@ char LatexMacroGetCh()
 					token[i++] = ch;
 				ch        = UserGetCh();
 			}
-			// undo get of character that was not a letter 
+			// undo get of character that was not a letter
 			if( ch != '\001' )
 				--UserIndex;
 
@@ -1057,7 +1057,7 @@ char LatexMacroGetCh()
 				ch = '\\';
 				UserEscape = 1;
 			}
-		}		
+		}
 	}
 	previous_backslash = (ch == '\\');
 
@@ -1068,14 +1068,14 @@ int LatexMacroInputLine()
 {	if( UserFile == NULL )
 		return 0;
 
-	return UserLine; 
+	return UserLine;
 }
 
 const char *LatexMacroInputFile()
 {	if( UserFile == NULL )
 		return "NONE";
 
-	return UserFile; 
+	return UserFile;
 }
 
 const char *LatexMacroExpandInput()
@@ -1089,19 +1089,19 @@ int LatexMacroExpandLine()
 {	assert( NumExpandInput > 0 );
 
 	return ExpandInput[0].macro->line;
-}	
+}
 
 const char *LatexMacroExpandFile()
 {	assert( NumExpandInput > 0 );
 
 	return ExpandInput[0].macro->file;
-}	
+}
 
 const char *LatexMacroExpandName()
 {	assert( NumExpandInput > 0 );
 
 	return ExpandInput[0].macro->name;
-}	
+}
 
 void LatexMacroKeep()
 {	int i;
@@ -1114,6 +1114,6 @@ void LatexMacroKeep()
 		KeepIndex[i] = DefineIndex[i];
 	}
 
-	
+
 	return;
 }

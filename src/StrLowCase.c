@@ -17,7 +17,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 /*
 $begin StrLowCase$$
-$spell 
+$spell
 	str
 $$
 
@@ -37,7 +37,7 @@ $tend
 $fend 25$$
 
 $head Description$$
-converts the 
+converts the
 $code '\0'$$ terminated character vector specified by $italic s$$
 to lower case.
 The return value is equal to $italic s$$; i.e.,

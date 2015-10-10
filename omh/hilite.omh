@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -45,16 +45,16 @@ $codei/@hiliteseq%
 %@@/$$
 
 $head Purpose$$
-These commands enables you to automatically highlight and cross reference 
+These commands enables you to automatically highlight and cross reference
 certain tokens in the output text.
 This is useful for examples that contain special tokens that need
-emphasis or explanation. 
+emphasis or explanation.
 
 $head hilitecmd$$
 The values $icode cmd_1$$, ... , $icode cmd_m$$,
 specify the commands (with out the $code @$$ character)
 for which this automatic highlighting and cross referencing is to be done.
-Currently, the only valid commands for 
+Currently, the only valid commands for
 automatic highlighting and cross referencing
 are the $cref/codep/$$, and $cref/verbatim/$$ commands.
 
@@ -62,27 +62,27 @@ $head hiliteseq$$
 
 $subhead seq_j$$
 Is any sequence of characters
-(leading and trailing white space is ignored). 
-If this sequence appears in the input text 
+(leading and trailing white space is ignored).
+If this sequence appears in the input text
 and matches the before and after requirements below,
 it will be highlighted or cross referenced
 (depending on $icode tag_j$$; see below).
 
 $subhead before_j$$
-A match for the sequence $icode seq_j$$ 
-requires that one of the characters in $icode before_j$$ must 
+A match for the sequence $icode seq_j$$
+requires that one of the characters in $icode before_j$$ must
 directly precede the sequence (not counting space or tab characters).
 If $icode before_j$$ is empty,
-then it suffices to have 
-$cref/white space/glossary/White Space/$$, 
+then it suffices to have
+$cref/white space/glossary/White Space/$$,
 or the beginning of the text, precede $icode seq_j$$.
 
 $subhead after_j$$
-A pattern match for the sequence $icode seq_j$$ 
-requires that one of the characters in $icode after_j$$ must 
+A pattern match for the sequence $icode seq_j$$
+requires that one of the characters in $icode after_j$$ must
 directly follow the sequence (not counting space or tab characters).
 If $icode after_j$$ is empty,
-then it suffices to have a 
+then it suffices to have a
 $cref/white space/glossary/White Space/$$,
 or the end of the text, follow $icode seq_j$$.
 
@@ -91,8 +91,8 @@ $subhead Highlighting$$
 If a pattern match is detected in the input stream
 (for a command specified by $code hilitecmd$$)
 and $icode tag_j$$ empty,
-$icode seq_j$$ appears in the $cref/hilitecolor/color/$$ 
-in the corresponding output. 
+$icode seq_j$$ appears in the $cref/hilitecolor/color/$$
+in the corresponding output.
 
 $subhead Cross Referencing$$
 If a pattern match is detected in the input stream
@@ -102,9 +102,9 @@ $icode seq_j$$ is linked to the section corresponding to $icode tag_j$$
 and it appears in the $cref/linkcolor/color/$$ in the corresponding output.
 
 $head White Space$$
-Leading and trailing 
+Leading and trailing
 $cref/white space/glossary/White Space/$$
-is removed from 
+is removed from
 $icode before_j$$, $icode seq_j$$, $icode after_j$$, and $icode tag_j$$.
 
 
@@ -117,8 +117,8 @@ $codep
 		%cref% %cref
 	%@@
 	@codep
-		The OMhelp xref command has been deprecated, 
-		you should use the cref command instead. 
+		The OMhelp xref command has been deprecated,
+		you should use the cref command instead.
 		This xref, does not have white space after it.
 	@@
 $$
@@ -130,8 +130,8 @@ $hiliteseq%
 	%cref% %cref
 %$$
 $codep
-	The OMhelp xref command has been deprecated, 
-	you should use the cref command instead. 
+	The OMhelp xref command has been deprecated,
+	you should use the cref command instead.
 	This xref, does not have white space after it.
 $$
 

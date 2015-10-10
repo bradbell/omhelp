@@ -37,19 +37,19 @@ $tend
 $fend 25$$
 
 $head Description$$
-System dependent check if the file corresponding to 
+System dependent check if the file corresponding to
 $italic name1$$ is equal to the file correspond to $italic name2$$
 where $italic name1$$ and $italic name2$$ are $code '\0'$$ terminated
 character vectors.
-The backslash $code \$$ and forward slash $code /$$ 
+The backslash $code \$$ and forward slash $code /$$
 are considered equal in this comparison.
-In Windows, the comparison is not case sensitive, 
+In Windows, the comparison is not case sensitive,
 otherwise it is case sensitive.
 $pre
 
 $$
-Other comparison checks, 
-such as interpreting $code ..$$ as the parent directory, 
+Other comparison checks,
+such as interpreting $code ..$$ as the parent directory,
 may be included in the future.
 
 $end
@@ -75,7 +75,7 @@ static int equal(int c1, int c2)
 
 	flag = s1 && s2;
 
-	if( flag ) 
+	if( flag )
 		return flag;
 
 # ifdef WIN32
@@ -84,14 +84,14 @@ static int equal(int c1, int c2)
 # endif
 
 	return c1 == c2;
-}	
+}
 
 
 int FileEqual(const char *name1, const char *name2)
 {	int c1;
 	int c2;
 	int flag;
-		
+
 	c1 = *name1++;
 	c2 = *name2++;
 	while( c1 != '\0' && c2 != '\0' )

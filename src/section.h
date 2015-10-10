@@ -56,8 +56,8 @@ typedef struct styleInfo {
 typedef struct navigateInfo {
 	int number;                         // number of navigation items
         struct navigateItem {
-		enum navigateType nav_type; // type for this navigation entry 
-		char *label;              // label for each item 
+		enum navigateType nav_type; // type for this navigation entry
+		char *label;              // label for each item
 	} item[MAX_NAVIGATE];
 } NavigateInfo;
 
@@ -67,20 +67,20 @@ typedef struct sectionInfo {
 	char      *root;                // file name without extension
 	char      *ext;                 // "" or file extension including '.'
 
-	// information about this section 
+	// information about this section
 	NavigateInfo navigate;          // navigation information
-	StyleInfo    style;             // style for presenting 
-	char        *tag;               // cross reference tag 
+	StyleInfo    style;             // style for presenting
+	char        *tag;               // cross reference tag
 	char        *tagLower;          // lower case version of tag
 	char        *title;             // title
-	char        *keywords;          // keywords 
-	int         nFrame;             // number of frames 
+	char        *keywords;          // keywords
+	int         nFrame;             // number of frames
 	int         Frame[MAX_FRAME];   // size of each frame
 
-	
+
 
 	// position of section in contents tree
-	struct sectionInfo   *parent;    // section above 
+	struct sectionInfo   *parent;    // section above
 	struct sectionInfo   *children;  // first section below
 	struct sectionInfo   *previous;  // previous section
 	struct sectionInfo   *next;      // next section
@@ -114,38 +114,38 @@ $spell
 	textcolor
 $$
 
-$section Section Information Routines$$ 
+$section Section Information Routines$$
 
 $head Description$$
 Each OMhelp section has a corresponding $code SectionInfo$$ record
 with the following information:
 $table
-$bold Name$$ 
-$cend $bold Type$$ 
-$cend $bold Description$$ 
+$bold Name$$
+$cend $bold Type$$
+$cend $bold Description$$
 $rend
-$code root$$ 
-$cend $code char*$$  
-$cend input file name without extension 
+$code root$$
+$cend $code char*$$
+$cend input file name without extension
 $rend
-$code ext$$  
-$cend $code char*$$  
-$cend input file name extension 
+$code ext$$
+$cend $code char*$$
+$cend input file name extension
 $rend
 $code style.textcolor$$
-$cend $code char*$$  
+$cend $code char*$$
 $cend the color for normal text in this section
 $rend
 $code style.bgcolor$$
-$cend $code char*$$  
+$cend $code char*$$
 $cend the background color for this section
 $rnext
 $code style.linkcolor$$
-$cend $code char*$$  
+$cend $code char*$$
 $cend the color for links in this section
 $rnext
 $code style.visitcolor$$
-$cend $code char*$$  
+$cend $code char*$$
 $cend the color for links that have been visited in this section
 $rnext
 $code navigate.number$$
@@ -160,27 +160,27 @@ $syntax%navigate.item[%j%].label%$$
 $cnext $code char*$$
 $cnext label for the $th j$$ navigation links for this section
 $rend
-$code tag$$  
-$cend $code char*$$  
-$cend cross reference tag for this section 
+$code tag$$
+$cend $code char*$$
+$cend cross reference tag for this section
 $rend
-$code tagLower$$ 
-$cend $code char*$$  
+$code tagLower$$
+$cend $code char*$$
 $cend lower case version of $code tag$$
 $rend
-$code title$$    
+$code title$$
 $cend $code char*$$
-$cend title for this section 
+$cend title for this section
 $rend
-$code keywords$$    
+$code keywords$$
 $cend $code char*$$
-$cend keywords for this section 
+$cend keywords for this section
 $rend
-$code nFrame$$      
+$code nFrame$$
 $cend $code int$$
 $cend number of frames in this section
 $rend
-$code Frame$$       
+$code Frame$$
 $cend $code int[MAX_FRAME]$$
 $cend percent of total window corresponding to each frame
 $rend
@@ -194,11 +194,11 @@ $cend information record for this section's first child
 $rend
 $code next$$
 $cend $code SectionInfo*$$
-$cend information record for this section's next sibling 
+$cend information record for this section's next sibling
 $rend
 $code previous$$
 $cend $code SectionInfo*$$
-$cend information record for this section's previous sibling 
+$cend information record for this section's previous sibling
 $tend
 
 $comment

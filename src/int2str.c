@@ -19,7 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // END SHORT COPYRIGHT
 /*
 $begin int2str$$
-$spell 
+$spell
 	Mem
 	str
 	alloc
@@ -32,7 +32,7 @@ $section Convert and Integer to a String$$
 
 $table
 $bold Syntax$$ $cend
-$syntax%int2str(%i%)%$$ 
+$syntax%int2str(%i%)%$$
 $rend
 $bold See Also$$ $cend $mref/str_alloc/$$
 $tend
@@ -40,19 +40,19 @@ $tend
 $fend 25$$
 
 $head Description$$
-returns a pointer to a 
-$code '\0'$$ terminated character vector that 
+returns a pointer to a
+$code '\0'$$ terminated character vector that
 contains the ascii representation of $italic i$$.
 
 $head Memory$$
 The return value of $code int2str$$
-points to memory that 
+points to memory that
 should be freed using the routine $xref/AllocMem/FreeMem/FreeMem/$$
 when it is no longer needed.
 If this memory is not freed,
-a call to 
+a call to
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$
-will report the corresponding source code line and file where the 
+will report the corresponding source code line and file where the
 corresponding call to $code str_alloc$$ is located.
 
 $head Prototype$$

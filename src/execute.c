@@ -40,7 +40,7 @@ $head Description$$
 An execute file is pending between a call to $mref/ExecuteSetFile/$$
 and the following call to $mref/ExecuteWriteFile/$$.
 If there is no execute file pending,
-$code ExecuteNextFile$$ returns $code NULL$$. 
+$code ExecuteNextFile$$ returns $code NULL$$.
 Otherwise it returns a pointer to a $code '\0'$$
 terminated character string containing the name of the next execute file
 (in lower case).
@@ -73,7 +73,7 @@ $tend
 $fend 25$$
 
 $head Description$$
-Sets the name of the next execute file 
+Sets the name of the next execute file
 (as returned by $mref/ExecuteNextFile/$$) to a lower case version
 of the characters in the $code '\0'$$ terminated character
 vector $italic name$$.
@@ -87,14 +87,14 @@ It is considered a user error if
 the same name was used for a previous execute file.
 It is also a user error if the file name contains the \ or the " character.
 In either of these cases,
-a fatal error message identifying the problem is reported using 
+a fatal error message identifying the problem is reported using
 $xref/fatalerr//fatalomh/$$; i.e.,
 it is assumed that there is an open input file and
 that we are currently parsing OMhelp input.
 
 $head Restriction$$
 It is considered a program error if
-$xref/ExecuteNextFile//ExecuteNextFile()/$$ 
+$xref/ExecuteNextFile//ExecuteNextFile()/$$
 is not equal to $code NULL$$ when $code ExecuteSetFile$$ is called.
 $end
 ==============================================================================
@@ -115,7 +115,7 @@ $bold Syntax$$ $cend
 $syntax%ExecuteWriteFile(
 	const char *%text%
 )%$$ $rend
-$bold See Also$$ 
+$bold See Also$$
 $cend $mref/ExecuteNextFile/$$
 $tend
 
@@ -128,7 +128,7 @@ $xref/ExecuteNextFile//ExecuteNextFile()/$$.
 The value of $code ExecuteNextFile()$$ is then set to $code NULL$$.
 
 $head Error$$
-If the next execute file cannot be written, 
+If the next execute file cannot be written,
 a fatal error message identifying the problem is reported using
 $xref/fatalerr//fatalomh/$$; i.e.,
 it is assumed that there is an open input file and
@@ -137,7 +137,7 @@ that we are currently parsing OMhelp input.
 
 $head Restriction$$
 It is considered a program error if
-$xref/ExecuteNextFile//ExecuteNextFile()/$$ 
+$xref/ExecuteNextFile//ExecuteNextFile()/$$
 is equal to $code NULL$$ when $code ExecuteWriteFile$$ is called.
 $end
 ============================================================================
@@ -145,7 +145,7 @@ $begin ExecuteFree$$
 $escape #$$
 
 $cindex free execute allocate memory$$
-$index ExecuteFree$$ 
+$index ExecuteFree$$
 $section Free Hidden Memory Allocated by Execute Routines$$
 
 $table
@@ -160,7 +160,7 @@ $fend 25$$
 $head Description$$
 This routines listed in $mref/execute/$$ allocate some memory
 that is hidden from the calling routines.
-This routine must be called before 
+This routine must be called before
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$
 or this memory will be reported as a leak.
 No other routines listed in $mref/execute/$$
@@ -182,7 +182,7 @@ $end
 # include "execute.h"
 
 # ifndef WIN32
-# define stricmp strcasecmp 
+# define stricmp strcasecmp
 # endif
 
 // maximum number of executes
@@ -262,16 +262,16 @@ void ExecuteWriteFile(const char *text)
 
 	nchar = strlen(text);
 	if( nchar != fwrite(text, sizeof(char), nchar, fp) ) fatalomh(
-		"Error writing the file ", 
+		"Error writing the file ",
 		NextFile,
 		NULL
 	);
-	
+
 	if( NumberPrevious == MAX_EXECUTE ) fatalomh(
 		"To many $execute commands",
 		NULL
 	);
-	
+
 	fclose(fp);
 	PreviousTag[NumberPrevious]     = NextTag;
 	PreviousFile[NumberPrevious++]  = NextFile;

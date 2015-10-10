@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -21,7 +21,7 @@
 $begin escape$$
 $escape ^$$
 
-$spell 
+$spell
 	backslash
 $$
 $dollar @$$
@@ -76,14 +76,14 @@ $$
 appears in the current section.
 
 $head Root Section$$
-In the special case where an $code @escape$$ command appears in the 
-$cref/root section/running/root_file/$$ section, 
+In the special case where an $code @escape$$ command appears in the
+$cref/root section/running/root_file/$$ section,
 and does not appear in the current section,
 the value specified in the root section is used for the current section; i.e.,
 it replaces the backslash $code \$$ as the default escape character.
 
 $head Reference$$
 The $code escape$$ command has effect till the next such command
-is executed or the end of the current section (which ever comes first). 
+is executed or the end of the current section (which ever comes first).
 
 $end

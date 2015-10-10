@@ -33,12 +33,12 @@ $fend 25$$
 
 $head PatternMatchLen$$
 This function initializes the $code PatternMatchCh$$ function
-for matching the pattern defined by the '\0' terminated character 
+for matching the pattern defined by the '\0' terminated character
 row vector $italic p$$.
 The return value of $code PatternMatchLen$$ is the number of characters,
 not counting the '\0', in the pattern to be matched.
 If the length is to long, $code PatternMatchLen$$ returns minus one.
-If the character $italic escape$$ is not present in pattern, 
+If the character $italic escape$$ is not present in pattern,
 the return value of $code PatternMatchLen$$
 will be the length of the string contained in $italic p$$.
 $pre
@@ -47,40 +47,40 @@ $$
 If the character $italic escape$$ is present in $italic p$$, it specifies
 the beginning of an escape sequence. In this case the next three characters
 after the escape character specify the ascii code for a single
-character to be used in the pattern matching. 
+character to be used in the pattern matching.
 (If there are not three decimal digits following the escape character,
 $code PatternMatchLen$$ returns with the value minus two.)
 
 
 $head PatternMatchCh$$
-Returns one if the input value of 
-$syntax%*%ch%$$ 
+Returns one if the input value of
+$syntax%*%ch%$$
 completes a pattern match,
-and zero others. 
-If the input value of 
-$syntax%*%ch%$$ 
+and zero others.
+If the input value of
+$syntax%*%ch%$$
 completes a pattern match,
 then the previous $italic len$$ character were
 $syntax%
 	%p%[0], %p%[1], ..., %p%[%len%-1]
 %$$
 where $italic len$$
-is the value returned by the previous call to $code PatternMatchLen$$ 
-and $syntax%%p%[%len%-1] corresponds to the input value of 
-$syntax%*%ch%$$ 
-The output value of 
-$syntax%*%ch%$$ 
-is the input value of 
-$syntax%*%ch%$$ 
-$italic len$$ previous calls ago. 
-This enables one to delay use of 
-$syntax%*%ch%$$ 
+is the value returned by the previous call to $code PatternMatchLen$$
+and $syntax%%p%[%len%-1] corresponds to the input value of
+$syntax%*%ch%$$
+The output value of
+$syntax%*%ch%$$
+is the input value of
+$syntax%*%ch%$$
+$italic len$$ previous calls ago.
+This enables one to delay use of
+$syntax%*%ch%$$
 until one is sure that it will not be included in the pattern match.
-(If there are not $italic len$$ calls since the previous call to 
+(If there are not $italic len$$ calls since the previous call to
 $code PatternMatchLen$$,
-the output value of 
-$syntax%*%ch%$$ 
-is '\0'.) 
+the output value of
+$syntax%*%ch%$$
+is '\0'.)
 
 $end
 
@@ -118,7 +118,7 @@ int PatternMatchLen(const char *p, char escape)
 	i = 0;
 	j = 0;
 	while(i < len )
-	{	
+	{
 		if( j >= PatternMatchMax )
 			return -1;
 
@@ -149,8 +149,8 @@ int PatternMatchLen(const char *p, char escape)
 int PatternMatchCh(char *ch)
 {
 	char match;
-	int  retflag; 
- 
+	int  retflag;
+
 	int i, j;
 	i     = Len;
 	j     = Next;

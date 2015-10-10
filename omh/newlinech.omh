@@ -1,23 +1,23 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin newlinech$$
-$spell 
+$spell
 	newlinech
 	logdet
 	det
@@ -39,7 +39,7 @@ $section Setting Programming Source Code Comment Character$$
 $table
 $bold Syntax$$
 $cnext $syntax/@newlinech /character/@@/$$ $rnext
-$bold See Also$$ 
+$bold See Also$$
 $cnext $xref/wspace/$$, $xref/codep/Source Code Examples/codep/$$
 $tend
 
@@ -48,10 +48,10 @@ $fend 20$$
 $head Purpose$$
 Some computer languages do not have a multi-line comment mode.
 The $code newlinech$$ command
-enables you to put OMhelp commands in the source code for 
+enables you to put OMhelp commands in the source code for
 these languages.
 
-$head character$$ 
+$head character$$
 There must be zero or one character in $italic character$$ and it
 can not be the $code @$$ character.
 Leading and trailing
@@ -59,8 +59,8 @@ $xref/glossary/White Space/white space/$$
 in $italic character$$ is ignored.
 All subsequent occurrences of $italic character$$
 at the beginning of a line are ignored.
-In addition, if a space 
-follows such an occurrence of $italic character$$, 
+In addition, if a space
+follows such an occurrence of $italic character$$,
 the space is also ignored.
 (Only one such space is ignored.)
 
@@ -129,9 +129,9 @@ $newlinech $$ $comment erase the newlinech command above$$
 $head Discussion of Example$$
 In the example above,
 note that the $code c$$ that occurs before the first $code newlinech$$
-command is not ignored. 
+command is not ignored.
 You can avoid this by placing the
-$code newlinech$$ command on the same line as the 
+$code newlinech$$ command on the same line as the
 $code begin$$ command for the section.
 For example, the input
 $codep
@@ -154,7 +154,7 @@ all characters before the $code begin$$ command are ignored.
 
 $head Reference$$
 The $code newlinech$$ command has effect till the next such command
-is executed or the end of the current section (which ever comes first). 
+is executed or the end of the current section (which ever comes first).
 The command
 $codep
 	@newlinech @@

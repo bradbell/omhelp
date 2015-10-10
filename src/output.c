@@ -39,18 +39,18 @@ $fend 25$$
 
 
 $head Description$$
-Opens the file corresponding to the 
+Opens the file corresponding to the
 $xref/glossary/String/string/$$ $italic name$$
 and places it on the top of the output stack.
 Upper case letters in $italic name$$
 are interpreted as lower case.
 This is because Microsoft Windows is not really case
-sensitive when it comes to distinguishing file names. 
+sensitive when it comes to distinguishing file names.
 
 $head Current Output File$$
 The file specified by $italic name$$ becomes
 the current output file.
-The $xref/PopOutput/$$ function removes the 
+The $xref/PopOutput/$$ function removes the
 current output file from the top of the stack
 and makes the previous output file the current one.
 
@@ -73,9 +73,9 @@ $tend
 $fend 25$$
 
 $head Description$$
-Write the 
+Write the
 $xref/glossary/String/string/$$
-specified by $italic s1$$ 
+specified by $italic s1$$
 (and $italic s2$$ if it is present)
 using the format specified by $italic fmt$$.
 The output is written to the
@@ -114,7 +114,7 @@ $tend
 $fend 25$$
 
 $head Description$$
-Write the 
+Write the
 $xref/glossary/String/string/$$
 specified by $italic s$$ to the
 $xref/PushOutput/Current Output File/current output file/$$.
@@ -137,7 +137,7 @@ $tend
 $fend 25$$
 
 $head Description$$
-Write the 
+Write the
 character specified by $italic ch$$ to the
 $xref/PushOutput/Current Output File/current output file/$$.
 
@@ -160,7 +160,7 @@ $fend 25$$
 
 
 $head Description$$
-Closes the 
+Closes the
 $xref/PushOutput/Current Output File/current output file/$$
 and removes it from the top of the output stack.
 This makes the previous output file the current one.
@@ -213,7 +213,7 @@ $end
 static FILE *Fp[MAX_FILE];
 static char *Name[MAX_FILE];
 
-// index of the current file 
+// index of the current file
 static int Index = -1;
 
 void PushOutput(const char *name)
@@ -233,7 +233,7 @@ void PushOutput(const char *name)
 	Fp[Index]   = fopen(lower, "w");
 	Name[Index] = lower;
 	if( Fp[Index] == NULL ) fatalerr(
-		"Cannot open the output file: ", 
+		"Cannot open the output file: ",
 		lower,
 		NULL
 	);
@@ -243,7 +243,7 @@ void PushOutput(const char *name)
 
 void PopOutput(void)
 {	if( Index >= 0 )
-    	{	fclose(Fp[Index]);
+	{	fclose(Fp[Index]);
 		FreeMem(Name[Index]);
 		--Index;
 	}

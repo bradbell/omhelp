@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -19,11 +19,11 @@
 $begin codep$$
 $escape #$$
 $dollar @$$
-$spell 
+$spell
 	hilitecmd
 	hiliteseq
 	hilite
-	codep 
+	codep
 	pre
 $$
 
@@ -46,7 +46,7 @@ $fend 20$$
 
 $head Description$$
 All of the text in $italic pre-formatted$$ is printed
-in with a $cref/pre-formatted font/glossary/Pre-formatted Font/$$. 
+in with a $cref/pre-formatted font/glossary/Pre-formatted Font/$$.
 There can be no $code @$$ characters in $italic pre-formatted$$.
 The $code codep$$ command uses the exact same font as
 the $xref/font//code/$$ command to signify that the text is
@@ -83,7 +83,7 @@ $codep
 	}
 	/* @@
 $$
-would create the following output 
+would create the following output
 $codep
 	{
 		x = 1
@@ -98,7 +98,7 @@ $index hilite, example$$
 The following input
 $codep
 	@hilitecmd codep@@
-	@hiliteseq% 
+	@hiliteseq%
 		%codep% %%
 		%hiliteseq% %hilite%
 		%hilitecmd% %hilite
@@ -106,7 +106,7 @@ $codep
 	@codep
 		The hiliteseq and hilitecmd commands can be used
 		to highlight and cross reference text that is inside of a
-		codep command. 
+		codep command.
 	@@
 $$
 would create the following output
@@ -119,7 +119,7 @@ $hiliteseq%
 $codep
 	The hiliteseq and hilitecmd commands can be used
 	to highlight and cross reference text that is inside of a
-	codep command. 
+	codep command.
 $$
 
 $end

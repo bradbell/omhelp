@@ -19,10 +19,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // END SHORT COPYRIGHT
 /*
 $begin math$$
-$spell 
-	int 
-	preformatted 
-	ge 
+$spell
+	int
+	preformatted
+	ge
 	le
 	ntoken
 $$
@@ -111,7 +111,7 @@ void OutputMath(int ntoken, char *s, char escape, int italic)
 	// set fixed pitch font
 	OutputString("<code>");
 
-	// a standard compliant way to inhibit line breaks at 
+	// a standard compliant way to inhibit line breaks at
 	// '-' in MS Internet Explorer (should not be necessary)
 	OutputString("<span style='white-space: nowrap'>");
 
@@ -119,8 +119,8 @@ void OutputMath(int ntoken, char *s, char escape, int italic)
 	{
 		while( *s != '\0' )
 		{	char ch = *s++;
-	
-			// output this character	
+
+			// output this character
 			if( (ch == escape) & (s[0] != '\n') )
 			{
 				if( s[0] == escape )
@@ -141,7 +141,7 @@ void OutputMath(int ntoken, char *s, char escape, int italic)
 				}
 				else
 				{	if( ItalicMode )
-				    		OutputString("</i>");
+						OutputString("</i>");
 					ItalicMode = 0;
 					ch = *s++;
 					while( isalpha((int) ch) )
@@ -152,7 +152,7 @@ void OutputMath(int ntoken, char *s, char escape, int italic)
 				}
 			}
 			else	OutputMathch(ch);
-			
+
 		}
 		s++;
 	}

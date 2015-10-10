@@ -33,10 +33,10 @@ $fend 20$$
 
 $head Description$$
 This routine outputs creates the file
-$syntax//tag/.tmp/$$ and writes 
+$syntax//tag/.tmp/$$ and writes
 a pass one version of the table of
 the browser sectionto that file.
-The argument $italic browser$$ is the corresponding 
+The argument $italic browser$$ is the corresponding
 $xref/SectionInfo/$$ pointer corresponding to the browser section.
 The value $italic tag$$ in the file name
 is equal to $syntax//browser/->tag/$$.
@@ -175,7 +175,7 @@ static void NextSection(SectionInfo *F, int level)
 
 	char *number;
 	char *title;
-	
+
 	while( F != NULL )
 	{	SectionCount++;
 
@@ -186,12 +186,12 @@ static void NextSection(SectionInfo *F, int level)
 		FormatOutput("\n<br%s",
 			Internal2Out("SelfTerminateCmd")
 		);
-		for(i = 0; i < 4 * level; i++) 
+		for(i = 0; i < 4 * level; i++)
 			ConvertOutputCh(' ', 1);
 
 		title = NULL;
 		if( F->children == NULL )
-		{	// simple case of no children 
+		{	// simple case of no children
 			HrefOutputPass1(F->tag, "", "false", "", "true");
 
 			// use title as linking text
@@ -202,15 +202,15 @@ static void NextSection(SectionInfo *F, int level)
 		else
 		{	// folder selection opens view of this section
 			FormatOutput(
-				"<a onclick='Select(%s)'\n", 
+				"<a onclick='Select(%s)'\n",
 				number
 			);
 			FormatOutput(
-				"\tonmouseover='MouseOver(%s)'\n", 
+				"\tonmouseover='MouseOver(%s)'\n",
 				number
 			);
 			FormatOutput(
-				"\tonmouseout='MouseOut(%s)'\n>", 
+				"\tonmouseout='MouseOut(%s)'\n>",
 				number
 			);
 			FormatOutput(
@@ -219,7 +219,7 @@ static void NextSection(SectionInfo *F, int level)
 				number
 			);
 
-			// use title to describe this folder 
+			// use title to describe this folder
 			// and make it part of the selectable section
 			title = ConvertInternalString(F->title);
 			FormatOutput("<u>%s</u>", title);
@@ -229,7 +229,7 @@ static void NextSection(SectionInfo *F, int level)
 
 			// identifier for children of this section
 			FormatOutput(
-				"\n<span id='children%s'>", 
+				"\n<span id='children%s'>",
 				number
 			);
 
@@ -239,7 +239,7 @@ static void NextSection(SectionInfo *F, int level)
 			);
 
 			// link to this section is first option in view
-			for(i = 0; i < 4 * level; i++) 
+			for(i = 0; i < 4 * level; i++)
 				ConvertOutputCh(' ', 1);
 			HrefOutputPass1(F->tag, "", "false", "", "true");
 			OutputString(title);
@@ -247,14 +247,14 @@ static void NextSection(SectionInfo *F, int level)
 
 			// link to children follow (and are indented further)
 			NextSection(F->children, level + 1);
-			
+
 			OutputString("</span>\n");
 
 		}
 
 		FreeMem(title);
 		FreeMem(number);
-		
+
 		// next sibling of this section
 		F = F->next;
 	}
@@ -314,7 +314,7 @@ void BrowserPass1(SectionInfo *browser)
 	OutputString("<center><b><big><big>\n");
 	OutputString(browser->title);
 	OutputString("\n</big></big></b></center>\n");
-	
+
 	// Start with the root of the tree
 	SectionCount = 0;
 	NextSection(Root, 0);
@@ -352,7 +352,7 @@ void BrowserPass1(SectionInfo *browser)
 
 	FreeMem(number);
 	FreeMem(tmp);
-	
+
 	fclose(Fp);
 }
 

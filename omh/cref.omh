@@ -1,23 +1,23 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin cref$$
-$spell 
+$spell
 	cref
 	noframe
 	OMhelp
@@ -38,12 +38,12 @@ $section General Cross Reference Within a Web Site$$
 
 $head Syntax$$
 $syntax/@cref%/text/%@@
-/$$ 
+/$$
 $syntax/@cref%/text/%/tag/%@@
-/$$ 
+/$$
 $syntax/@cref%/text/%/tag/%/heading/%@@
-/$$ 
-$syntax/@cref%/text/%/tag/%/heading/%/subheading/%@@/$$ 
+/$$
+$syntax/@cref%/text/%/tag/%/heading/%/subheading/%@@/$$
 
 $head See Also$$
 $cref/start_cref/$$
@@ -58,7 +58,7 @@ $syntax/
 /$$
 is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 and $code %$$ can be any character that is not a letter.
-Leading and trailing white space in 
+Leading and trailing white space in
 $italic text$$,
 $italic tag$$,
 $italic heading$$,
@@ -85,14 +85,14 @@ The value of $italic heading$$ specifies the
 destination $cref/heading/head/$$ for the link
 (within the section specified by $italic tag$$).
 If this heading is not present,
-the link is to the corresponding entire 
+the link is to the corresponding entire
 $cref/section/glossary/Section/$$ specified by $italic tag$$.
 
 $head subheading$$
 The value of $italic subheading$$ specifies the
-destination $cref/subheading/head/$$ for the link 
+destination $cref/subheading/head/$$ for the link
 (within the section specified by $italic tag$$ and the heading
-specified by $italic heading$$). 
+specified by $italic heading$$).
 
 $head Example$$
 For the following input
@@ -105,7 +105,7 @@ $italic heading$$ is not present, and
 $italic subheading$$ is not present.
 The users sees the text $code head$$,
 this links to the section
-with cross reference tag equal to $code head$$, 
+with cross reference tag equal to $code head$$,
 and the link is to the beginning of the section
 (not a heading within the section).
 You can see the effect of this by following the link:

@@ -30,21 +30,21 @@ For other versions, it will not.
 $fend 30$$
 
 $head Second Frame$$
-The following link places a 
+The following link places a
 copy of the second frame in the first frame
-$xref/BackButton/Second Frame/copy second frame into first/$$. 
+$xref/BackButton/Second Frame/copy second frame into first/$$.
 
 $fend 30$$
 
 $head HTML$$
-Select this link 
+Select this link
 $href%
 	backbutton.htm
 %$$
 to display the HTML version of this frame set.
 
 $head MathML + XHTML$$
-Select this link 
+Select this link
 $href%
 	backbutton.xml
 %$$
@@ -53,13 +53,13 @@ to display the MathML + XHTML version of this frame set.
 
 
 $head Strict XML$$
-Select this link 
+Select this link
 $execute strict.xml$$
 to get the following version of this frame set:
 $nospell
 $codep
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html 
+<!DOCTYPE html
      PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -82,10 +82,10 @@ $$
 
 
 $head Transitional XML$$
-The following case uses the standard suggestion 
+The following case uses the standard suggestion
 $href%http://www.w3.org/MarkUp/2004/xhtml-faq#ie%$$.
 
-Select this link 
+Select this link
 $execute transitional.xml$$
 to get the following version of this frame set:
 $nospell

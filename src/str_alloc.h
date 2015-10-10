@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 /*
 $begin str_alloc$$
-$spell 
+$spell
 	Mem
 	str
 	alloc
@@ -51,13 +51,13 @@ character vector specified by $italic s$$.
 
 $head Memory$$
 The return value of $code str_alloc$$
-points to memory that 
+points to memory that
 should be freed using the routine $xref/AllocMem/FreeMem/FreeMem/$$
 when it is no longer needed.
 If this memory is not freed,
-a call to 
+a call to
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$
-will report the corresponding source code line and file where the 
+will report the corresponding source code line and file where the
 corresponding call to $code str_alloc$$ is located.
 
 $head Prototype$$

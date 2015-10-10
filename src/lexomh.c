@@ -41,7 +41,7 @@ $codei%
 %$$
 changes the current command key character to the
 one specified by $icode c$$ where
-$icode c$$ is not an alphabetic letter, a decimal digit, or 
+$icode c$$ is not an alphabetic letter, a decimal digit, or
 white space.
 
 $head GetCommandKeyCharacter$$
@@ -104,14 +104,14 @@ The result $italic string$$ has prototype
 $syntax%
 	char *%string%
 %$$
-It points to memory that 
+It points to memory that
 should be freed using the routine $xref/AllocMem/FreeMem/FreeMem/$$
 when it is no longer needed.
 If this memory is not freed,
-a call to 
+a call to
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$
 will report the corresponding source code line in the routine
-$code TokenCode2String$$. 
+$code TokenCode2String$$.
 
 $end
 */
@@ -166,7 +166,7 @@ static enum state {
 	CHANGE_state,
 	OMHELP_state,
 	LATEX_state
-} State;   
+} State;
 
 static int Initialize  = 1;
 
@@ -312,12 +312,12 @@ static void SetOmhLvalChar(int code, const char *token, char ch)
 	str[1] = '\0';
 
 	SetOmhLvalStr(code, token, str);
-} 
+}
 /***************************************************************************/
 
 
 int omhlex(void)
-{	
+{
 	int  code;
 	int  match;
 	int  escape;
@@ -372,7 +372,7 @@ int omhlex(void)
 					State = EOF_state;
 				if( Ch == CommandKeyChar )
 					State = KEY_state;
-				break; 
+				break;
 
 				case KEY_state:
 				if( Ch == eof )
@@ -393,7 +393,7 @@ int omhlex(void)
 						State = KEY_state;
 					else if( Ch == begin[match] )
 						match++;
-					else 	State = EMPTY_state;
+					else	State = EMPTY_state;
 
 					if( match == beginLen )
 						State = OMHELP_state;
@@ -411,7 +411,7 @@ int omhlex(void)
 						State = KEY_state;
 					else if( Ch == change[match] )
 						match++;
-					else 	State = EMPTY_state;
+					else	State = EMPTY_state;
 
 					Ch = InputGet();
 				}
@@ -452,11 +452,11 @@ int omhlex(void)
 				assert(0);
 			}
 			Ch = InputGet();
-		}	
+		}
 		assert( State == OMHELP_state );
 
 		if( Ch == eof )
-		{ 
+		{
 			SetOmhLvalChar(EOF_lex, "eof", CommandKeyChar);
 			return EOF_lex;
 		}
@@ -529,7 +529,7 @@ int omhlex(void)
 					    (code == SMALL_lex)  |
 					    (code == BIG_lex)    |
 					    (code == ITALIC_lex) |
-					    (code == BOLD_lex) 
+					    (code == BOLD_lex)
 					)
 					{	Ch = InputGet();
 					}
@@ -539,8 +539,8 @@ int omhlex(void)
 				return code;
 			}
 			else if( match > 1 ) fatalomh(
-				Buffer, 
-				" is an invalid keyword", 
+				Buffer,
+				" is an invalid keyword",
 				NULL
 			);
 
@@ -551,7 +551,7 @@ int omhlex(void)
 				Buffer[match++] = '\0';
 
 				// Ch must be character following command
-				Ch              = InputGet(); 
+				Ch              = InputGet();
 
 				SetOmhLvalStr(ACCENT_lex, Buffer, Buffer + 1);
 				return ACCENT_lex;
@@ -561,11 +561,11 @@ int omhlex(void)
 			// check for number following dollar -----------------
 			if( isdigit((int) Ch) | (Ch=='.') | (Ch=='+') | (Ch=='-' ) )
 			{
-				while( 
-					isdigit((int) Ch) | 
-					(Ch == '.')   | 
-					(Ch == '+')   | 
-					(Ch == '-') 
+				while(
+					isdigit((int) Ch) |
+					(Ch == '.')   |
+					(Ch == '+')   |
+					(Ch == '-')
 				)
 				{	Buffer[match++] = Ch;
 					Ch              = InputGet();

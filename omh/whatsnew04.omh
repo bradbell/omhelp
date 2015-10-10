@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -32,13 +32,13 @@ $mindex readme whats new change 2004$$
 $section Changes and Additions to OMhelp During 2004$$
 
 $head Description$$
-This section contains a list of changes to 
-OMhelp during 2004 (in reverse order by date). 
-Its purpose is to assist you in learning about 
+This section contains a list of changes to
+OMhelp during 2004 (in reverse order by date).
+Its purpose is to assist you in learning about
 changes between versions.
 
 $head 12-02$$
-Suppose that sections $italic First, Second, ... , Last$$ 
+Suppose that sections $italic First, Second, ... , Last$$
 were multiple sections in one file,
 the $code previous$$ link for a sibling that came after $italic Last$$
 pointed to the Section $italic First$$ instead of the $italic Last$$.
@@ -51,7 +51,7 @@ $head 11-17$$
 OMhelp used to put keyword meta commands
 only in the header for the frame that displays an entire section
 and not the other frames within a section.
-This was not optimal with respect to 
+This was not optimal with respect to
 internet search engines because they not only look at the
 $xref/Keyword/Keyword List/keyword list/$$,
 they also look for occurrences of the keywords in the text of the frame.
@@ -60,7 +60,7 @@ OMhelp now puts the keyword list in the header for all the frames
 In addition,
 because this will lead to search engines pointing to frames that
 display only part of a sections information,
-the link in the upper right hand corner 
+the link in the upper right hand corner
 to the corresponding entire section was made more visible
 by changing it from $code this$$ to $code This Section$$
 (except for the first frame in each section which already
@@ -68,7 +68,7 @@ contains a list of section links including one to $code this$$).
 
 
 $head 10-08$$
-The $xref/th/$$ command was changed to use 
+The $xref/th/$$ command was changed to use
 $xref/font//italic/$$ instead of $xref/math/$$ font
 and to have a dash between
 the index and the $code th$$.
@@ -77,31 +77,31 @@ $head 08-14$$
 If linking text is specified in the $xref/href/$$ command,
 the URL is not included in the visible output.
 This made it difficult to follow such links when reading printed output.
-These URLs are now included in the 
+These URLs are now included in the
 $xref/running/printable/printable/$$ case.
 $pre
 
 $$
 All the letters form A through Z were included as headings in the
-$xref/_index//keyword index/$$ and 
+$xref/_index//keyword index/$$ and
 $xref/_reference//function reference/$$.
 Now only the letters that actually have entries under them are
 included.
 $pre
 
 $$
-In some cases, there was an XML parsing error in the 
+In some cases, there was an XML parsing error in the
 $xref/_reference//function reference/$$ section.
 This has been fixed.
 
 $head 06-09$$
-The proper $italic marker$$ for a disk 
+The proper $italic marker$$ for a disk
 in the $xref/list/$$ command is $code disk$$.
 It was documented as $code disc$$ and this has been fixed.
 
 
 $head 05-10$$
-There was a bug in the handling of 
+There was a bug in the handling of
 a comment occurred at the last line of a $xref/latex/$$ command.
 For example
 $codep
@@ -109,11 +109,11 @@ $codep
 $$
 
 $head 03-11$$
-The unix version of files 
+The unix version of files
 $code omh/build$$ and $code omh/getstarted/RunAll$$
 did not have the executable flag set.
 This has been fixed.
-In addition, the file name 
+In addition, the file name
 $code omh/Browser.omh$$
 caused problems for the $code omh/build$$ command in Unix
 because it should have been
@@ -121,7 +121,7 @@ $code omh/browser.omh$$
 This has been fixed.
 
 $head 02-23$$
-The command 
+The command
 $syntax%
 	@OMhelpFileLocalCommandKeyCharacter=
 %$$

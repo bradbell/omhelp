@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -18,7 +18,7 @@
 #
 $begin why$$
 $escape #$$
-$spell 
+$spell
 	OMhelp
 	Microsoft
 $$
@@ -71,17 +71,17 @@ $href%http://www.omatrix.com/manual/%O-Matrix%$$ computer language.
 The OMhelp
 $href%http://www.seanet.com/~bradbell/omhelp%documentation%$$
 is a another demonstration of what OMhelp can do.
-Brad Bell's 
+Brad Bell's
 $href%http://www.seanet.com/~bradbell%home page%$$
 is also written in OMhelp.
 
 $head Same Time Documentation$$
-Make documentation changes and additions at the same time as the source 
+Make documentation changes and additions at the same time as the source
 code changes. This reduces the total amount of work because the changes
 and additions to the system are fresh in ones mind when the documentation
-is modified. 
+is modified.
 In addition, the other people on the project immediately have
-a specification 
+a specification
 (for the changes and additions)
 that is separate from the actual code.
 
@@ -92,7 +92,7 @@ changes to the documentation.
 control system.)
 This makes it easy and natural to make the documentation changes
 at the same time as the source code changes.
-In addition, 
+In addition,
 the developer edits OMhelp commands directly
 instead of through a visual editor that displays what the user will see.
 This reduces the source changes between versions and makes them
@@ -100,14 +100,14 @@ more meaningful to the developer.
 
 $head Language Independent and User Oriented$$
 OMhelp can extract documentation from source code comments of the system that
-is written in multiple languages. 
+is written in multiple languages.
 This makes it easier to accomplish the objectives listed above.
-In addition, 
+In addition,
 embedding the documentation in the source code
 (in a language independent way)
 requires the developer to think about the changes from the users
 point of view.
-The 
+The
 $href%http://java.sun.com/j2se/JavaDoc/%JavaDoc%$$
 system is similar with the following exceptions:
 
@@ -118,16 +118,16 @@ JavaDoc generates documentation from a developer (not user) point of view
 $lend
 
 When the users are developer and the only language being used
-is Java, JavaDoc has the advantage of 
+is Java, JavaDoc has the advantage of
 automatically providing language specific
 aids to the documentation.
 
 
 $head World Wide Web$$
-OMhelp can create both HTML and XML representations for 
+OMhelp can create both HTML and XML representations for
 display by browsers.
-This provides a means, with no extra work, 
-by which the complete documentation 
+This provides a means, with no extra work,
+by which the complete documentation
 can be searched for and viewed on the World Wide Web.
 For example, the complete documentation for OMhelp can be viewed at
 $pre
@@ -146,8 +146,8 @@ links included and numbered so they are fully functional.
 
 $head Searching$$
 OMhelp makes it easy to provide the
-user of the corresponding help system with the means of finding things quickly. 
-For example, entries in the keyword index are also used by the OMhelp 
+user of the corresponding help system with the means of finding things quickly.
+For example, entries in the keyword index are also used by the OMhelp
 search utility.
 In addition, all the keywords are posted in meta commands that
 aid Web search engines in finding the corresponding documentation.
@@ -159,13 +159,13 @@ This also provides a uniform look to the system.
 
 $head Cross Referencing Aids$$
 All of the internal cross references are checked when OMhelp is run.
-This informs one immediately when 
+This informs one immediately when
 the help system changes in a way that breaks a cross reference
 (thus changes that have this effect are easier to make).
 In addition, it is possible to list all of the external cross reference
 links and where they occur in the help system.
-This makes it easy to check links that depend on things outside of the 
-help system and that there usage within the help system is still correct. 
+This makes it easy to check links that depend on things outside of the
+help system and that there usage within the help system is still correct.
 
 $head Platform Independent$$
 OMhelp will run under Microsoft Windows or any Unix Operating system.

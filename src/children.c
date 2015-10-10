@@ -27,14 +27,14 @@ $section List Children of a Section$$
 $table
 $bold Syntax$$
 $cend $syntax/ListChildren(/S/, /printable/)/$$ $rend
-$cend $syntax/TableChildren(/S/, /printable/)/$$ 
+$cend $syntax/TableChildren(/S/, /printable/)/$$
 $tend
 
 $fend 25$$
 
 $head Description$$
 Output (to current output file)
-a list of HTML links to the sections that are children 
+a list of HTML links to the sections that are children
 of the specified section.
 $syntax/
 
@@ -64,12 +64,12 @@ $syntax/
 is an integer either equal to zero or one.
 If it is zero, no special action is taken.
 If it is one, we are outputting a printable version of the web site.
-In this case, the 
+In this case, the
 $xref/CrossReference/Printid/printid/$$
 corresponding to each child is included at the end of the
 linking text.
 In addition, the cross reference link is to the same file
-and the NAME field $italic printid$$ within that file. 
+and the NAME field $italic printid$$ within that file.
 
 $end
 */
@@ -117,7 +117,7 @@ void TableChildren(SectionInfo *S, int printable)
 				ext = Internal2Out("HtmlOnlyExtension");
 			else	ext = Internal2Out("OutputExtension");
 
-			FormatOutput2("<a href=\"%s%s\" target=\"_top\">", 
+			FormatOutput2("<a href=\"%s%s\" target=\"_top\">",
 				S->tagLower,
 				ext
 			);
@@ -130,7 +130,7 @@ void TableChildren(SectionInfo *S, int printable)
 			C = FindCrossReference(S->tag, "");
 			assert( C != NULL );
 
-			FormatOutput("<a href=\"#%s\" target=\"_top\">", 
+			FormatOutput("<a href=\"#%s\" target=\"_top\">",
 				C->printid);
 
 			OutputPre(S->tag);
@@ -166,7 +166,7 @@ void ListChildren(SectionInfo *S, int printable)
 				ext = Internal2Out("HtmlOnlyExtension");
 			else	ext = Internal2Out("OutputExtension");
 
-			FormatOutput2("<a href=\"%s%s\" target=\"_top\">", 
+			FormatOutput2("<a href=\"%s%s\" target=\"_top\">",
 				S->tagLower,
 				ext
 			);
@@ -179,7 +179,7 @@ void ListChildren(SectionInfo *S, int printable)
 			C = FindCrossReference(S->tag, "");
 			assert( C != NULL );
 
-			FormatOutput("<a href=\"#%s\" target=\"_top\">", 
+			FormatOutput("<a href=\"#%s\" target=\"_top\">",
 				C->printid);
 			OutputPre(C->printid);
 			OutputPre(": ");

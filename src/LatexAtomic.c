@@ -1024,12 +1024,12 @@ const char *LatexAtomic(const char *name, int *token)
 		}
 		Initialize = 0;
 	}
-			
+
 	i = BinarySearch(Name, N_Map, name);
 	if( i >= N_Map )
 		return NULL;
 
 
 	*token = Map[i].token;
-   	return Map[i].mathml;
+	return Map[i].mathml;
 }

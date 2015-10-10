@@ -22,7 +22,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // END SHORT COPYRIGHT
 
 extern void copyfile(
-	const char *destination, 
+	const char *destination,
 	const char *source
 );
 extern void copyfileFreeMemory(void);

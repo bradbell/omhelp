@@ -27,12 +27,12 @@ $tend
 
 $head -l$$
 The OMhelp command line argument $code -l$$ has been deprecated.
-It has been replaced by (and has the same effect as) the 
+It has been replaced by (and has the same effect as) the
 $cref%-image_link%running%image_link%$$ command line argument.
 
 $head -i$$
 The OMhelp command line argument $code -i$$ has been deprecated.
-It has been replaced by (and has the same effect as) the 
+It has been replaced by (and has the same effect as) the
 $cref%-image_file%running%image_file%$$ command line argument.
 
 

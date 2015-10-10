@@ -21,13 +21,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 /*
 ------------------------------------------------------------------------
-Copyright (C) Harmonic Software Inc. 1997-1998, All rights reserved. 
+Copyright (C) Harmonic Software Inc. 1997-1998, All rights reserved.
 -------------------------------------------------------------------------
 $begin strjoin$$
-$spell 
-	printf 
-	Mem 
-	strjoin 
+$spell
+	printf
+	Mem
+	strjoin
 	alloc
 $$
 
@@ -49,7 +49,7 @@ $fend 15$$
 
 $head Description$$
 returns a pointer to the concatenation of the strings
-$italic s1$$, and $italic s2$$, 
+$italic s1$$, and $italic s2$$,
 which are '\0' terminated character vectors.
 $pre
 

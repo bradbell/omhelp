@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -18,9 +18,9 @@
 #
 $begin href$$
 $escape #$$
-$spell 
+$spell
 	linkingtext
-	hypertext 
+	hypertext
 	href
 	Internet
 	http://www.w3.org/tr/rec-html32.html#charset
@@ -43,8 +43,8 @@ $cnext $syntax/@href%/uri/%@@/$$ $rnext
 $cnext $syntax/@href%/uri/%/linkingtext/%@@/$$ $rnext
 $cnext $syntax/@href%/uri/%/linkingtext/%/frame/%@@/$$ $rnext
 $bold See Also$$
-$cnext 
-$cref/image_link/running/image_link/$$, 
+$cnext
+$cref/image_link/running/image_link/$$,
 $xref/keyword/Keyword List/keyword list/$$,
 $mref/cref/$$
 $tend
@@ -62,13 +62,13 @@ where $code %$$ can be any character that is not a letter.
 $head uri$$
 The characters in $italic uri$$
 are the Universal Resource Identifier
-that specifies the internet address corresponding to the 
+that specifies the internet address corresponding to the
 $code href$$ command.
 Leading and trailing white space in $italic uri$$ is ignored.
 
 $head linkingtext$$
 If $italic linkingtext$$ is present in the
-delimiter sequence, it specifies the text that the 
+delimiter sequence, it specifies the text that the
 user will see for the link.
 If $italic linkingtext$$ is $bold not$$ present,
 the user will see $italic uri$$ for the link.
@@ -76,7 +76,7 @@ Leading and trailing white space in $italic link$$ is ignored.
 
 $head frame$$
 If $italic frame$$ is present,
-it is an integer that specifies the 
+it is an integer that specifies the
 $xref/fend//frame/$$
 with in the current browser window
 that the result of the link is displayed in.
@@ -93,7 +93,7 @@ The following input
 $codep
 	@href%http://www.w3.org/tr/rec-html32.html%@@
 $$
-links the text 
+links the text
 $code http://www.w3.org/tr/rec-html32.html$$
 to the corresponding internet file.
 The result is the following link
@@ -107,7 +107,7 @@ The following input
 $codep
 	@href%http://www.w3.org/tr/rec-html32.html%HTML 3.2%@@
 $$
-links the text $code HTML 3.2$$ to the 
+links the text $code HTML 3.2$$ to the
 file specified by
 $codep
 	http://www.w3.org/tr/rec-html32.html
@@ -129,7 +129,7 @@ $pre
 $href%http://www.w3.org/tr/rec-html32.html%HTML 3.2%1%$$
 $pre
 $$
-If the  
+If the
 $xref/fend/Frames/frame number/$$
 is not valid for the current section,
 the results are displayed in a separate window.
@@ -159,13 +159,13 @@ $href%http://www.w3.org/tr/MathML2/chapter1.html#intro_goals%$$
 $pre
 $$
 In general, the
-characters between the first and second delimiter specify an arbitrary 
+characters between the first and second delimiter specify an arbitrary
 URI on the internet. For example it can reference a $code mailto$$ command
 or a ZIP file.
 
 $head White Space$$
 Leading and trailing white space in $italic uri$$, $italic link$$
-and $italic frame$$ is ignored. 
+and $italic frame$$ is ignored.
 This is useful when these arguments are long.
 For example,
 $codep
@@ -184,11 +184,11 @@ $href%http://www.w3.org/tr/MathML2/chapter1.html#intro_goals
 
 
 $head Checking Links$$
-OMhelp does not check that the internet addresses 
+OMhelp does not check that the internet addresses
 specified by your $code href$$ commands are valid.
 If you use the
-$xref/running/debug/-debug/$$ option on the 
-$xref/running//command line/$$, 
+$xref/running/debug/-debug/$$ option on the
+$xref/running//command line/$$,
 OMhelp will generate a section to aid you in checking
 that the these addresses are valid.
 The $xref/glossary/Cross Reference Tag/cross reference tag/$$

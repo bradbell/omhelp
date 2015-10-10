@@ -52,7 +52,7 @@ $pre
 
 $$
 It is a programming error
-(not user error) if $code copyfileFreeMemory$$ was called prior 
+(not user error) if $code copyfileFreeMemory$$ was called prior
 to a call to $code copyfile$$.
 
 
@@ -62,9 +62,9 @@ value for $italic destination$$.
 It is also a user error if the source or destination file
 cannot be opened.
 The value of $xref/InputName/$$ and $xref/InputLine/$$
-are used to identify where the access to 
+are used to identify where the access to
 $italic source$$ and $italic destination$$ occurred.
-If a user error occurs, an error message is printed 
+If a user error occurs, an error message is printed
 and this routine does not return.
 
 $syntax/
@@ -72,7 +72,7 @@ $syntax/
 copyfileFreeMemory()
 /$$
 Uses $xref/AllocMem/FreeMem/FreeMem/$$ to free memory that was allocated using
-$xref/AllocMem/$$ (so that 
+$xref/AllocMem/$$ (so that
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$ can be used).
 This memory is used to track what line and file certain destination
 file names were used at.
@@ -127,8 +127,8 @@ static int       Done = 0;
 
 
 void copyfile(
-	const char *destination, 
-	const char *source 
+	const char *destination,
+	const char *source
 )
 {	int D;
 	int S;
@@ -179,7 +179,7 @@ void copyfile(
 			info->inputLine,
 			" of file ",
 			info->inputFile,
-			"\nThe current use of", 
+			"\nThe current use of",
 			Sname,
 			"\nwill overwrite the copy of ",
 			info->Sname,
@@ -219,7 +219,7 @@ void copyfile(
 		else	nwrite = 0;
 		if( nwrite != nread )
 		{	fatalerr(
-				"Error writing the file\n", 
+				"Error writing the file\n",
 				Dname,
 				NULL
 			);

@@ -38,7 +38,7 @@ $pre
 $$
 If $italic navigation$$ is zero and this section only has one frame,
 no automatic links are included.
-If $italic navigation$$ is zero and this section has more than one frame, 
+If $italic navigation$$ is zero and this section has more than one frame,
 links are only included for this section and this frame.
 $pre
 

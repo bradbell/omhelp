@@ -18,7 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 /*
 
 $begin SplitText$$
-$spell 
+$spell
 	int
 	substrings
 	cmd
@@ -30,8 +30,8 @@ $section Splitting Text At Each Delimiter$$
 
 $table
 $bold Syntax$$ $cend $syntax%int SplitText(
-	int   %line%, 
-	char *%cmd%, 
+	int   %line%,
+	char *%cmd%,
 	char *%text%
 )%$$
 $tend
@@ -47,7 +47,7 @@ $list number$$
 If the first character in $italic text$$ is a letter,
 an error message is printed and this routine does not return.
 $lnext
-If the first character in $italic text$$ is a 
+If the first character in $italic text$$ is a
 white space character, $code SplitText$$
 changes it to a '\0' character and
 returns the value one (for one token).
@@ -65,12 +65,12 @@ the return value of $code SplitText$$ is
 the number of tokens; i.e.,
 the number of delimiter characters minus one.
 Each occurrence of the delimiter character in $italic text$$
-is changed to a '\0' character. 
+is changed to a '\0' character.
 This splits $italic text$$ into tokens.
 $lend
 
 $head Errors$$
-All the routines documented above use 
+All the routines documented above use
 $xref/fatalerr//fatalomh/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.

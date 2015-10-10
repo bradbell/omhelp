@@ -33,10 +33,10 @@ $fend 20$$
 
 $head Description$$
 This routine outputs creates the file
-$syntax//tag/.tmp/$$ and writes 
+$syntax//tag/.tmp/$$ and writes
 a pass one version of the table of
 contents to that file.
-The argument $italic content$$ is the corresponding 
+The argument $italic content$$ is the corresponding
 $xref/SectionInfo/$$ pointer corresponding to the table of contents.
 The value $italic tag$$ in the file name
 is equal to $syntax//content/->tag/$$.
@@ -64,12 +64,12 @@ $end
 static void NextContent(SectionInfo *F, int level)
 {	int i, j;
 	char *title;
-	
+
 	while( F != NULL )
-	{	
+	{
 		// new line, indentation, and description
 		OutputString("\n");
-		for(i = 0; i < 4 * level; i++) 
+		for(i = 0; i < 4 * level; i++)
 			OutputString(" ");
 
 		// output section title (convert white space)
@@ -93,10 +93,10 @@ static void NextContent(SectionInfo *F, int level)
 		HrefOutputPass1(F->tag, "", "false", "", "true");
 		ConvertOutputString(F->tag, 0);
 		HrefEnd("");
-		
+
 		// table of contents for children
 		NextContent(F->children, level + 1);
-		
+
 		// table of contents for siblings
 		F = F->next;
 	}
@@ -127,7 +127,7 @@ void ContentPass1(SectionInfo *content)
 		Root = Root->parent;
 	assert( Root->next == NULL && Root->previous == NULL );
 
-	
+
 	// title for this section
 	OutputString("<center><b><big><big>\n");
 
@@ -139,11 +139,11 @@ void ContentPass1(SectionInfo *content)
 
 	OutputString(content->title);
 	OutputString("</big></big></b></center>\n");
-	
+
 	// The table of contents is preformatted text
 	OutputString("\n<pre>");
 	NextContent(Root, 0);
 	OutputString("\n</pre>");
-	
+
 	PopOutput();
 }

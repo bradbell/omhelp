@@ -35,14 +35,14 @@ $section Output Cross References During Pass1$$
 
 $table
 $bold Syntax$$
-$cend $codei%void HrefOutputPass1( 
-	const char *%tag%, 
-	const char *%head%, 
+$cend $codei%void HrefOutputPass1(
+	const char *%tag%,
+	const char *%head%,
 	const char *%external%,
 	const char *%displayframe%,
 	const char *%display_printid%
 )%$$ $rend
-$bold See Also$$ 
+$bold See Also$$
 $cend $mref/HrefOutputPass2/$$
 $tend
 
@@ -73,13 +73,13 @@ $section Output Cross References During Pass2$$
 
 $table
 $bold Syntax$$
-$cend $codei%void HrefOutputPass2( 
-	const char *%tag%, 
-	const char *%head%, 
+$cend $codei%void HrefOutputPass2(
+	const char *%tag%,
+	const char *%head%,
 	const char *%external%,
 	const char *%displayframe%
 )%$$ $rend
-$bold See Also$$ 
+$bold See Also$$
 $cend $mref/HrefOutputPass1/HrefPrintablePass2/$$
 $tend
 
@@ -99,7 +99,7 @@ $codei%
 %head%
 %$$
 This argument specifies the heading with in the referenced
-section that the link is to. 
+section that the link is to.
 If the link is to the entire section, head is equal to the empty string.
 $codei%
 
@@ -148,11 +148,11 @@ $section Printable Version of Cross References During Pass2$$
 
 $table
 $bold Syntax$$
-$cend $codei%void HrefPrintablePass2( 
+$cend $codei%void HrefPrintablePass2(
 	const char *%printid%,
 	const char *%display_printid%
 )%$$ $rend
-$bold See Also$$ 
+$bold See Also$$
 $cend $mref/HrefOutputPass1/HrefOutputPass2/$$
 $tend
 
@@ -165,7 +165,7 @@ $codei%
 
 %printid%
 %$$
-This is the unique id that specifies the cross reference 
+This is the unique id that specifies the cross reference
 within the output file.
 It is assumed that the destination point is defined by an
 anchor with NAME equal to this value
@@ -177,7 +177,7 @@ If $icode display_printid$$ is $code "true"$$,
 the identifier for the printable version of the cross reference
 is displayed directly before the linking text.
 Otherwise, $icode display_printid$$ must be $code "false"$$
-and the identifier it is not displayed. 
+and the identifier it is not displayed.
 
 $head Restrictions$$
 A call to the routine $mref/HrefEnd/$$ must follow any call
@@ -202,7 +202,7 @@ $bold Syntax$$
 $cend $codei%void HrefEnd(
 	const char *%s%
 )%$$ $rend
-$bold See Also$$ 
+$bold See Also$$
 $cend $mref/HrefOutputPass1/HrefOutputPass2/$$
 $tend
 
@@ -211,9 +211,9 @@ $fend 25$$
 $head Description$$
 The text output after a call to
 $mref/HrefOutputPass1/$$ or
-$mref/HrefOutputPass2/$$ is what the user sees for 
+$mref/HrefOutputPass2/$$ is what the user sees for
 a cross reference link.
-The routine $code HrefEnd$$ terminates this linking text. 
+The routine $code HrefEnd$$ terminates this linking text.
 In addition, it follows this termination by the text specified
 by $icode s$$ where $italic s$$ is a $code '\0'$$ terminated
 character vector.
@@ -236,7 +236,7 @@ is written to the output file.
 Any addition formatting initiated by the preceding call is also terminated.
 
 $head Restrictions$$
-A call to the routine $mref/HrefOutputPass1/$$ 
+A call to the routine $mref/HrefOutputPass1/$$
 or $mref/HrefOutputPass2/$$ must precede any call
 to $code HrefEnd$$ and no other of the routines
 listed in section $tref href$$ can be between these calls.
@@ -274,36 +274,36 @@ $fend 25$$
 
 $head Description$$
 A call to $code HrefAddList$$ adds a cross reference to
-the list that is output by a call to $mref/HrefOutputList/$$. 
+the list that is output by a call to $mref/HrefOutputList/$$.
 $codei%
 
 %TagFrom%
 %$$
-The $code '\0'$$ 
-terminated character vector $icode TagFrom$$ specifies 
+The $code '\0'$$
+terminated character vector $icode TagFrom$$ specifies
 the cross reference tag
 for the section where the cross reference command occurs.
 $codei%
 
 %HeadFrom%
 %$$
-The $code '\0'$$ 
-terminated character vector $icode TagFrom$$ specifies 
-the previous $xref/glossary/Cross Reference Heading/cross reference heading/$$ 
+The $code '\0'$$
+terminated character vector $icode TagFrom$$ specifies
+the previous $xref/glossary/Cross Reference Heading/cross reference heading/$$
 in the section where the cross reference command occurs.
 $codei%
 
 %UrlTo%
 %$$
-The $code '\0'$$ terminated character vector 
+The $code '\0'$$ terminated character vector
 $icode UrlTo$$ specifies the destination web resource for the
 cross reference address as a URL.
 $codei%
 
 %HeadTo%
 %$$
-The $code '\0'$$ terminated character vector 
-$icode HeadTo$$ specifies the heading (or data) for the web resource 
+The $code '\0'$$ terminated character vector
+$icode HeadTo$$ specifies the heading (or data) for the web resource
 being referenced by $icode UrlTo$$.
 $end
 =============================================================================
@@ -336,7 +336,7 @@ $head Description$$
 Creates a Pass1 HTML file that contains
 a list of all the references corresponding to calls to $mref/HrefAddList/$$.
 The argument $icode section$$ is a $xref/SectionInfo/$$ pointer
-that specifies the section corresponding to this automatically 
+that specifies the section corresponding to this automatically
 generated output.
 The output file has root name $syntax//section/->tag/$$
 and extension $code .tmp$$.
@@ -371,7 +371,7 @@ $head Description$$
 This routine frees all memory associated with
 other routines in the $mref/href/$$ section.
 It should be called after all the calls to those
-routines and before any call to 
+routines and before any call to
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$.
 None of the routines listed in $mref/href/$$ should be called
 after this routine is called.
@@ -399,7 +399,7 @@ $end
 # include "Internal2Out.h"
 
 # ifndef WIN32
-# define stricmp strcasecmp 
+# define stricmp strcasecmp
 # endif
 
 # define UNDEFINED  -1
@@ -413,8 +413,8 @@ static int PreviousItalic = UNDEFINED;
 static int PreviousPass    = UNDEFINED;
 
 void HrefOutputPass1(
-	const char *tag             , 
-	const char *head            , 
+	const char *tag             ,
+	const char *head            ,
 	const char *external        ,
 	const char *displayframe    ,
 	const char *display_printid )
@@ -436,8 +436,8 @@ void HrefOutputPass1(
 }
 
 void HrefOutputPass2(
-	const char *tag, 
-	const char *head, 
+	const char *tag,
+	const char *head,
 	const char *external,
 	const char *displayframe)
 {	char *url;
@@ -445,8 +445,8 @@ void HrefOutputPass2(
 
 	assert( *tag != '\0' );
 	assert( ! isspace((int) *tag) );
-	assert( strcmp(external, "true") == 0 || 
-	        strcmp(external, "false") == 0 
+	assert( strcmp(external, "true") == 0 ||
+	        strcmp(external, "false") == 0
 	);
 
 	// overide displayframe setting
@@ -474,7 +474,7 @@ void HrefOutputPass2(
 		OutputString("<i>");
 	}
 	PreviousPass = 2;
-	
+
 	FreeMem(target);
 	FreeMem(url);
 	return;
@@ -484,8 +484,8 @@ void HrefPrintablePass2(
 	const char *printid         ,
 	const char *display_printid )
 {
-	assert( strcmp(display_printid, "true") == 0 || 
-	        strcmp(display_printid, "false") == 0 
+	assert( strcmp(display_printid, "true") == 0 ||
+	        strcmp(display_printid, "false") == 0
 	);
 
 	FormatOutput("<a href=\"#%s\">", printid);
@@ -497,7 +497,7 @@ void HrefPrintablePass2(
 
 	PreviousPass   = 2;
 	PreviousItalic = NO;
-	
+
 	return;
 }
 void HrefEnd(const char *s)
@@ -523,7 +523,7 @@ void HrefEnd(const char *s)
 typedef struct hrefInfo {
 	char *TagFrom;    // tag where this href coming from
 	char *HeadFrom;   // cross reference heading where coming from
-	char *UrlTo;      // universal resource location where reference is to 
+	char *UrlTo;      // universal resource location where reference is to
 	char *HeadTo;     // heading where reference it to
 	struct hrefInfo *next;
 } HrefInfo;
@@ -531,9 +531,9 @@ typedef struct hrefInfo {
 static HrefInfo *Root = NULL;
 
 void HrefAddList(
-	const char *TagFrom, 
+	const char *TagFrom,
 	const char *HeadFrom,
-	const char *UrlTo, 
+	const char *UrlTo,
 	const char *HeadTo)
 {
 	HrefInfo *track;
@@ -548,15 +548,15 @@ void HrefAddList(
 	// search to find location of this entry in sorted list
 	track    = Root;
 	previous = NULL;
-	while( track != NULL 
+	while( track != NULL
 	       && stricmp(track->UrlTo, UrlTo) < 0
 	)
 	{
 		previous = track;
 		track    = track->next;
 	}
-	while( track != NULL 
-	       && stricmp(track->UrlTo, UrlTo) == 0 
+	while( track != NULL
+	       && stricmp(track->UrlTo, UrlTo) == 0
 	       && stricmp(track->HeadTo, UrlTo) < 0
 	)
 	{
@@ -577,13 +577,13 @@ void HrefAddList(
 		previous->next = track;
 	}
 }
-	
+
 void HrefOutputList(SectionInfo *section)
 {	HrefInfo *track;
 	char     *file;
 	char     *frame;
 
-	
+
 	// open output file
 	file = strjoin(section->tag, ".tmp");
 	PushOutput(file);
@@ -642,12 +642,12 @@ void HrefOutputList(SectionInfo *section)
 		}
 		HrefEnd("");
 		OutputString("</td></tr>\n");
-	
+
 		track    = track->next;
 	}
 	OutputString("</table>");
 
-	
+
 	PopOutput();
 }
 

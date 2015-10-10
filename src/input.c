@@ -32,13 +32,13 @@ $table
 $bold Syntax$$
 $cend $syntax%char InputGet()%$$ $rend
 $bold See Also$$
-$cend $mref/InputPush/$$ 
+$cend $mref/InputPush/$$
 $tend
 
 $fend 25$$
 
 $head Description$$
-Get the next character from the top of the input 
+Get the next character from the top of the input
 $xref/InputPush//stack/$$.
 If there are no more characters in the input file
 the value $code '\001'$$
@@ -70,7 +70,7 @@ $fend 25$$
 
 $head Description$$
 The $code '\0'$$ terminated character vector $italic directory$$
-specifies the local directory for all input file searching by 
+specifies the local directory for all input file searching by
 $xref/InputPush/$$ and $xref/InputAddPath/$$.
 The last character in $italic directory$$ must be either a forward
 or back slash; i.e., '/' or '\\'.
@@ -79,7 +79,7 @@ $head Assumptions$$
 $list number$$
 this routine is called only once.
 $lnext
-$italic directory$$ is a 
+$italic directory$$ is a
 $xref/glossary/Complete Path Specification/complete path specification/$$.
 $lnext
 $code InputInit$$
@@ -107,8 +107,8 @@ $section Open File and Put it on Top of Input Stack$$
 $table
 $bold Syntax$$
 $cend $syntax%void InputPush(
-	const char *%root%, 
-	const char *%ext%, 
+	const char *%root%,
+	const char *%ext%,
 	const int   %nspace%
 )%$$ $rend
 $bold See Also$$
@@ -119,13 +119,13 @@ $fend 25$$
 
 $head Description$$
 The $code '\0'$$ terminated character row vector $italic ext$$
-specifies the 
+specifies the
 $xref/glossary/File Extension/extension/$$
 of the file to be pushed on the input stack.
 The $code '\0'$$ terminated character row vector $italic root$$
-specifies the 
+specifies the
 $xref/glossary/Root File Name/root/$$ file name of the file.
-The routine 
+The routine
 $xref/InputSearch/$$ specifies how the input file is searched for.
 
 $head File Opened$$
@@ -140,13 +140,13 @@ It is considered a user error if
 the file cannot be opened for reading,
 or if the file name corresponding to $italic root$$ followed by $italic ext$$
 is equal to $code "NONE"$$.
-In either of these cases, 
-a fatal error message is reported 
+In either of these cases,
+a fatal error message is reported
 and this routine does not return.
 
 $head Errors$$
 If there is currently a file on the input stack,
-the routines documented above use 
+the routines documented above use
 $xref/fatalerr//fatalomh/$$ to report error messages.
 Otherwise they use $code fatalerr$$.
 
@@ -159,7 +159,7 @@ $cindex close file #and pop #from input stack$$
 $index InputPop$$
 $section Close File and Remove it from the Input Stack$$
 
-$table 
+$table
 $bold Syntax$$
 $cend $syntax%void InputPop()%$$ $rend
 $bold See Also$$
@@ -180,7 +180,7 @@ $spell
 	const
 $$
 
-$cindex name #of current input file$$ 
+$cindex name #of current input file$$
 $index InputName$$
 $section Name of Current Input File$$
 
@@ -230,7 +230,7 @@ $tend
 $fend 25$$
 
 $head Description$$
-Returns the line number corresponding to the next call to 
+Returns the line number corresponding to the next call to
 next character read from the current input file.
 If there is no current input file,
 the value zero is returned
@@ -251,7 +251,7 @@ $section Add to the Set of Input Search Paths$$
 $table
 $bold Syntax$$
 $cend $syntax%void InputAddPath(
-	const char *%path%, 
+	const char *%path%,
 	const char *%ext%
 )%$$ $rend
 $bold See Also$$
@@ -262,8 +262,8 @@ $fend 25$$
 
 $head Description$$
 Adds the search path specified by $italic path$$
-to the set of input search paths for the 
-$xref/glossary/File Extension/extension/$$ 
+to the set of input search paths for the
+$xref/glossary/File Extension/extension/$$
 specified by $italic ext$$.
 Both $italic path$$ and $italic ext$$ must be
 $code '\0'$$ terminated character row vectors.
@@ -286,7 +286,7 @@ $section Search Input Paths for a Specific Input File$$
 $table
 $bold Syntax$$
 $cend $syntax%const char *InputSearch(
-	const char *%root%, 
+	const char *%root%,
 	const char *%ext%
 )%$$ $rend
 $bold See Also$$
@@ -296,22 +296,22 @@ $tend
 $fend 25$$
 
 $head Description$$
-Searches the set of paths corresponding to the 
+Searches the set of paths corresponding to the
 $xref/glossary/File Extension/extension/$$ specified
-by $italic ext$$ for a file that has its 
+by $italic ext$$ for a file that has its
 $xref/glossary/Root File Name/root/$$ name equal to $italic root$$.
-The arguments $italic root$$ and $italic ext$$ are 
+The arguments $italic root$$ and $italic ext$$ are
 $code '\0'$$ terminated character row vectors.
 
 $head Searching For File$$
 If $italic root$$ has a
 $xref/glossary/Complete Path Specification/complete path specification/$$,
 no path are added to the $italic root$$ before searching for the file.
-Otherwise, the 
+Otherwise, the
 $xref/InputInit//local directory/$$ is placed in front of
 $italic root$$ and the file is searched for.
 If the file is not found relative to the local directory,
-each of the 
+each of the
 $xref/InputAddPath//search paths/$$ is placed in front of
 $italic root$$ and the file is searched for.
 For each search path, if it is not a complete path specification,
@@ -348,8 +348,8 @@ $section Determine Root and Extension Corresponding to an Input File$$
 $table
 $bold Syntax$$
 $cend $syntax%void InputSplitName(
-	char **%proot%, 
-	char **%pext%, 
+	char **%proot%,
+	char **%pext%,
 	const char *%filename%
 )%$$ $rend
 $bold See Also$$
@@ -359,38 +359,38 @@ $tend
 $fend 25$$
 
 $head Description$$
-Determine the 
+Determine the
 $xref/glossary/Root File Name/root/$$
-and 
+and
 $xref/glossary/File Extension/extension/$$
-corresponding to the file specified by 
+corresponding to the file specified by
 $italic filename$$.
-The argument $italic filename$$ is a 
+The argument $italic filename$$ is a
 $code '\0'$$ terminated
-character vector specifying the file name.  
+character vector specifying the file name.
 Leading and trailing white space in $italic filename$$ is ignored.
 $pre
 
 $$
 The character row vector $syntax%*%pext%$$
-is set to be $code '\0'$$ terminated and contains the 
+is set to be $code '\0'$$ terminated and contains the
 $xref/glossary/File Extension/extension/$$
 corresponding to $italic filename$$.
 The character row vector $syntax%*%proot%$$
-is set to be $code '\0'$$ terminated and contains the 
+is set to be $code '\0'$$ terminated and contains the
 $xref/glossary/Root File Name/root/$$
 corresponding to $italic filename$$.
 
 $head Memory Allocation$$
 The character vectors corresponding to
 both $syntax%*%proot%$$ and $syntax%*%pext%$$ is allocated using
-$mref/AllocMem/$$ and is not freed by any of the 
-$mref/input/$$ routines. 
+$mref/AllocMem/$$ and is not freed by any of the
+$mref/input/$$ routines.
 In particular, it is not freed by $mref/InputFree/$$.
 Hence the calling routine
 must ensure that the character vectors corresponding to
-both $syntax%*%proot%$$ and $syntax%*%pext%$$ 
-are freed using $xref/AllocMem/FreeMem/FreeMem/$$. 
+both $syntax%*%proot%$$ and $syntax%*%pext%$$
+are freed using $xref/AllocMem/FreeMem/FreeMem/$$.
 
 $end
 ============================================================================
@@ -398,7 +398,7 @@ $begin InputFree$$
 $escape #$$
 
 $cindex free input allocate memory$$
-$index InputFree$$ 
+$index InputFree$$
 $section Free Hidden Memory Allocated by Input Routines$$
 
 $table
@@ -413,7 +413,7 @@ $fend 25$$
 $head Description$$
 This routines listed in $mref/input/$$ allocate some memory
 that is hidden from the calling routines.
-This routine must be called before 
+This routine must be called before
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$
 or this memory will be reported as a leak.
 No other routines listed in $mref/input/$$
@@ -462,7 +462,7 @@ struct {
 	char command_key_character_at_push_input;
 } File[MAX_FILE];
 
-// index of the current file 
+// index of the current file
 static int Index = -1;
 
 // current search path
@@ -500,7 +500,7 @@ static const char *LocalName(const char *CompletePath)
 
 char InputGet()
 {	int ch;
-    	assert(Index >= 0 );
+	assert(Index >= 0 );
 
 	ch = getc(File[Index].fp);
 	if( ch == '\n' )
@@ -532,7 +532,7 @@ void InputPush(const char *root, const char *ext, const int nspace)
 	void (*error)(const char *s1, ...);
 	if( Index < 0 )
 		error = fatalerr;
-	else	error = fatalomh;	
+	else	error = fatalomh;
 
 	// path corresponding to this file
 	localname = strjoin(root, ext);
@@ -583,7 +583,7 @@ void InputPush(const char *root, const char *ext, const int nspace)
 
 	// save command key character at time of push
 	if( Index > 0 )
-		File[Index-1].command_key_character_at_push_input = 
+		File[Index-1].command_key_character_at_push_input =
 			GetCommandKeyCharacter();
 
 	// Initialize command key character for this file.
@@ -602,13 +602,13 @@ void InputPop()
 
 	if( Index >= 0 )
 	{	OmhLexSetInputLine( File[Index].line );
-		SetCommandKeyCharacter( 
-			File[Index].command_key_character_at_push_input 
+		SetCommandKeyCharacter(
+			File[Index].command_key_character_at_push_input
 		);
 		// This should be done for more than just the '\n' character.
 		// To be specific, it should be done whenever we have looked ahead
 		// one character before reconizing a token.
-		if( File[Index].ch == '\n' )  // this case needed for newlinech 
+		if( File[Index].ch == '\n' )  // this case needed for newlinech
 			ungetc(File[Index].ch, File[Index].fp);
 	}
 	else	SetCommandKeyCharacter('$');
@@ -619,7 +619,7 @@ const char *InputName()
 {	const char *name;
 
 	if( Index < 0 )
-    		name = "NONE";
+		name = "NONE";
 	else
 	{	assert( LocalDirectory != NULL );
 		name = LocalName( File[Index].name );
@@ -634,7 +634,7 @@ int InputLine()
 		return 0;
 
 	line = File[Index].line;
-    	if( File[Index].ch == '\n')
+	if( File[Index].ch == '\n')
 		line--;
 	return line;
 }
@@ -648,7 +648,7 @@ void InputAddPath(const char *path, const char *ext)
 	void (*error)(const char *s1, ...);
 	if( Index < 0 )
 		error = fatalerr;
-	else	error = fatalomh;	
+	else	error = fatalomh;
 
 	assert( LocalDirectory != NULL );
 
@@ -690,7 +690,7 @@ const char *InputSearch(const char *root, const char *ext)
 	void (*error)(const char *s1, ...);
 	if( Index < 0 )
 		error = fatalerr;
-	else	error = fatalomh;	
+	else	error = fatalomh;
 
 	name = strjoin(root, ext);
 	DirSep(name);
@@ -779,7 +779,7 @@ void InputSplitName(char **proot, char **pext, const char *filename)
 		filename++;
 
 	root = str_alloc(filename);
-	
+
 	// pointer to end of filename copy in root
 	ext  = root + strlen(root) - 1;
 
@@ -788,15 +788,15 @@ void InputSplitName(char **proot, char **pext, const char *filename)
 	{	*ext = '\0';
 		ext--;
 	}
-		
+
 
 	// pointer to last '.' in filename copy
-	while( ext > root && *ext != '.' && *ext != '\\' && *ext != '/' ) 
+	while( ext > root && *ext != '.' && *ext != '\\' && *ext != '/' )
 		ext--;
 
 	// if there case an extension filename, change '.' to a '\0'
 	// and then separately allocate the extension
-	if( ext > root && *ext == '.' ) 
+	if( ext > root && *ext == '.' )
 	{	*ext++ = '\0';
 		ext = strjoin(".", ext);
 	}

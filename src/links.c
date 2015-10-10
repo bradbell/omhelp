@@ -36,7 +36,7 @@ $section Managing Frame Containing the Links Relative To A Section$$
 
 $table
 $bold Syntax$$
-$cend 
+$cend
 $syntax/BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)/$$ $rend
 $cend $syntax/TitleLinks(/title/)/$$ $rend
 $cend $syntax/AddLink(/tag/, /head/, /text/)/$$  $rend
@@ -48,7 +48,7 @@ $fend 25$$
 $head Description$$
 The routines in this file manage
 the HTML file that contains the automatically generated
-cross reference links that are relative to a section. 
+cross reference links that are relative to a section.
 $pre
 
 $$
@@ -69,11 +69,11 @@ $syntax/
 
 BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)
 /$$
-The opens a new output file named $syntax//taglower/_links./ext/$$ 
+The opens a new output file named $syntax//taglower/_links./ext/$$
 where $italic taglower$$ is a lower case version of $italic tagfrom$$
-and $italic ext$$ is the output file extension specified by 
+and $italic ext$$ is the output file extension specified by
 $xref/Internal2Out/$$.
-This file will contain a set of links for navigating from 
+This file will contain a set of links for navigating from
 specified section.
 The argument $italic tagfrom$$ contains
 the a cross reference tag for the section where the links will appear.
@@ -84,18 +84,18 @@ as a row or column of the overall window.
 $pre
 
 $$
-The argument $italic image_link$$ specifies the web address that the 
+The argument $italic image_link$$ specifies the web address that the
 image file $italic image_file$$ is to be linked to.
 If $italic image_link$$ is $code NULL$$, the image does not appear
 and $italic image_file$$ is not used.
 Otherwise, $italic image_file$$ cannot be $code NULL$$.
-If $syntax//image_link/[0] == '\0'/$$, 
-the image is output, but it is not linked to any web address. 
+If $syntax//image_link/[0] == '\0'/$$,
+the image is output, but it is not linked to any web address.
 $pre
 
 $$
 The argument $italic stylecmd$$ is a $code '\0'$$ terminated character
-vector that specifies the exact form of the style commands 
+vector that specifies the exact form of the style commands
 to use at the beginning of this file.
 (This enables the inclusion of style information such as background color.)
 $pre
@@ -111,7 +111,7 @@ TitleLinks(/title/)
 It is assumed that we are between a call to $code BeginLinks$$
 and the corresponding call to $code EndLinks$$.
 This call to $code TitleLinks$$
-separates links from the previous title and 
+separates links from the previous title and
 writes a title for the set of links that follow.
 $syntax/
 
@@ -141,9 +141,9 @@ $pre
 
 $$
 Leading underbars in $italic text$$ are not included in the output.
-Leading spaces are output as non-breaking spaces and can 
+Leading spaces are output as non-breaking spaces and can
 be used to indent the linking text.
-If $syntax//crossheading/[0]/$$ == '\0', 
+If $syntax//crossheading/[0]/$$ == '\0',
 the link replaces the entire window.
 $syntax/
 
@@ -192,7 +192,7 @@ void TitleLinks(const char *title)
 
 void AddLink(
 	const char *text,
-	const char *tag, 
+	const char *tag,
 	const char *crossheading
 )
 {	int link;
@@ -265,7 +265,7 @@ void BeginLinks(
 	file = StrCat(
 		__FILE__,
 		__LINE__,
-		TagLower, 
+		TagLower,
 		"_links",
 		Internal2Out("OutputExtension"),
 		NULL
@@ -280,7 +280,7 @@ void BeginLinks(
 	OutputString("</head><body>\n");
 
 	if( image_link != NULL )
-	{	
+	{
 		if( image_link[0] != '\0' )
 		{
 			FormatOutput(
@@ -315,7 +315,7 @@ void EndLinks()
 	LinksOpen = 0;
 
 	OutputString("</body>\n</html>\n");
-	
+
 	PopOutput();
 	FreeMem(TagLower);
 	TagLower = NULL;

@@ -20,14 +20,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 
 extern void color_switch(
-	char       *text            , 
-	const char *first_color     , 
+	char       *text            ,
+	const char *first_color     ,
 	const char *second_color    ,
 	char        escape          ,
 	int         line            ,
 	const char *cmd             ,
 	int         check_spell     ,
-	const char *error_color                  
+	const char *error_color
 );
 
 # endif

@@ -38,7 +38,7 @@ echo_log_eval() {
 	if [ "$msg" != '' ]
 	then
 		echo "$msg"
-		echo 'Warning: see check_all.err' 
+		echo 'Warning: see check_all.err'
 		exit 1
 	fi
 	rm $top_srcdir/check_all.err
@@ -90,17 +90,17 @@ else
 	echo_log_eval wget \
 		$remote_tarball \
 		-o check_all.sh.$$ \
-		-O omhelp-$version.tar.gz 
+		-O omhelp-$version.tar.gz
 	echo_log_eval rm check_all.sh.$$
 	#
 	echo_log_eval tar -xzf omhelp-$version.tar.gz
 	echo_log_eval cd omhelp-$version
 fi
 # -----------------------------------------------------------------------------
-# CMake Command 
+# CMake Command
 echo_log_eval bin/run_cmake.sh
 # -----------------------------------------------------------------------------
-# Build Executable 
+# Build Executable
 echo_log_eval cd build
 echo_log_eval make
 echo_log_eval cd ..

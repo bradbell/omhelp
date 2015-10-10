@@ -28,7 +28,7 @@ extern const char *AutomaticTag(int i);
 
 extern void AutomaticAppendSection(
 	SectionInfo *parent,
-	const char *tag, 
+	const char *tag,
 	const char *title,
 	int letterheadings
 );

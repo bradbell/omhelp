@@ -82,8 +82,8 @@ $pre
 	$latex
 		\begin{array}{clcr}
 			a+b++c & uv    & x-y & 27     \\
-	        	a+b    & u+v   & z   & 134    \\
-	        	a      & 3u+vw & xyz & 2,978
+		a+b    & u+v   & z   & 134    \\
+		a      & 3u+vw & xyz & 2,978
 		\end{array}
 	$$
 

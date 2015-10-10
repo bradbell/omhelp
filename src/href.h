@@ -22,15 +22,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # include "section.h"
 
 extern void HrefOutputPass1(
-	const char *tag, 
-	const char *head, 
+	const char *tag,
+	const char *head,
 	const char *external,
 	const char *displayframe,
 	const char *display_printid
 );
 extern void HrefOutputPass2(
-	const char *tag, 
-	const char *head, 
+	const char *tag,
+	const char *head,
 	const char *external,
 	const char *displayframe
 );
@@ -42,9 +42,9 @@ extern void HrefEnd(
 	const char *s
 );
 extern void HrefAddList(
-	const char *tagfrom, 
+	const char *tagfrom,
 	const char *headfrom,
-	const char *urlto, 
+	const char *urlto,
 	const char *headto
 );
 extern void HrefOutputList(
@@ -65,11 +65,11 @@ $section Output Cross References During Both Pass1 and Pass2$$
 
 $head Description$$
 The functions listed below output and track cross references during both
-Pass1 and Pass2. During Pass1, these references may refer to a 
+Pass1 and Pass2. During Pass1, these references may refer to a
 cross reference tag and heading. During Pass2, they always refer to
 an HTML file.
 
-$comment 
+$comment
 Only include href.c because routines in that file refer
 back to here for the list of all routines in that file
 $$

@@ -77,17 +77,17 @@ $rnext
 	$cnext $latex |    | $$
 $rnext
 	$code \,$$
-    	$cnext thin space
+	$cnext thin space
 	$cnext $code @latex | \, | @@ $$
 	$cnext $latex | \, | $$
 $rnext
 	$code \:$$
-    	$cnext medium space
+	$cnext medium space
 	$cnext $code @latex | \: | @@ $$
 	$cnext $latex | \: | $$
 $rnext
 	$code \;$$
-    	$cnext thick space
+	$cnext thick space
 	$cnext $code @latex | \; | @@ $$
 	$cnext $latex | \; | $$
 

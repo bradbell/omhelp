@@ -130,7 +130,7 @@ extern FILE *yyin, *yyout;
  * int a single C statement (which needs a semi-colon terminator).  This
  * avoids problems with code like:
  *
- * 	if ( condition_holds )
+ *	if ( condition_holds )
  *		yyless( 5 );
  *	else
  *		do_something_else();
@@ -557,7 +557,7 @@ $section Set Input Characters Corresponding Latex Lexical Analyzer$$
 
 $table
 $bold Syntax$$
-$cend $syntax/LatexLexPut(/line/, /input/)/$$ 
+$cend $syntax/LatexLexPut(/line/, /input/)/$$
 $tend
 
 $fend 20$$
@@ -601,7 +601,7 @@ $syntax/
 
 int /number/
 /$$
-The value $italic number$$ specifies the 
+The value $italic number$$ specifies the
 maximum number of tokens to return.
 The value $italic ntoken$$ will be less than or
 equal $italic number$$.
@@ -609,7 +609,7 @@ $syntax/
 
 int /length/
 /$$
-The value $italic length$$ specifies the 
+The value $italic length$$ specifies the
 maximum number of character to return for each token.
 $syntax%
 
@@ -621,7 +621,7 @@ The input value of the elements of $italic line$$ does not matter.
 For $math% i=0,...,ntoken-1 %$$
 the value of $syntax//line/[/i/]/$$ is set to the line
 number where the token
-$syntax//token/[/i/]/$$ appeared in the 
+$syntax//token/[/i/]/$$ appeared in the
 file $xref/InputName//InputName()/$$.
 $syntax%
 
@@ -638,7 +638,7 @@ character vector containing a previous token.
 The tokens are returned
 in reverse order of how they appeared in the input.
 If a token is longer than $math% length-1 %$$ characters,
-only the first $math% length-1 %$$ characters are included. 
+only the first $math% length-1 %$$ characters are included.
 
 $end
 */
@@ -679,7 +679,7 @@ $end
 
 static void SetTexLval(const char *token, const char *str);
 
-// define the character input routine 
+// define the character input routine
 # undef YY_INPUT
 # define YY_INPUT(buf, result, max_size) \
 {	assert( max_size != 0 );         \
@@ -700,7 +700,7 @@ static struct cmdover {
 	char *name;
 	char *mathml;
 } Diacritical[] = {
-	// Latex       MathML       
+	// Latex       MathML
 	{ "acute",  "&#x000B4;" },      // DiacriticalAcute = x000B4
 	{ "bar",    "&#x000AF;" },      // OverBar          = x000AF
 	{ "breve",  "&#x002D8;" },      // Breve            = x002D8
@@ -712,7 +712,7 @@ static struct cmdover {
 	{ "tilde",  "&#x002DC;" },      // tilde            = x002DC
 	{ "vec",    "&#x021C0;" }       // RightVector      = x021C0
 };
-static size_t NDiacritical = 
+static size_t NDiacritical =
 	sizeof(Diacritical) / sizeof(Diacritical[0]);
 
 /***************************************************************************/
@@ -1002,7 +1002,7 @@ YY_RULE_SETUP
 {
 		assert( strlen(yytext) == 2 );
 
-		// double vertical line 
+		// double vertical line
 		SetTexLval(yytext, "&#x02016;"); // Vert = x02016
 
 		return SYM_ENCLOSE_lex;
@@ -1277,7 +1277,7 @@ case 32:
 YY_RULE_SETUP
 #line 400 "latex.l"
 {
-	// ignore 
+	// ignore
 }
 	YY_BREAK
 case 33:
@@ -1388,7 +1388,7 @@ case 43:
 YY_RULE_SETUP
 #line 467 "latex.l"
 {
-	// ignore 
+	// ignore
 }
 	YY_BREAK
 case 44:

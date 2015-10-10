@@ -25,7 +25,7 @@ extern char *ExecuteNextFile(
 	void
 );
 extern void  ExecuteSetFile(
-	const char *name, 
+	const char *name,
 	const char *tag
 );
 extern void  ExecuteWriteFile(
@@ -52,7 +52,7 @@ $head Memory Allocation$$
 When you are finished using the routines listed below,
 the routine $mref/ExecuteFree/$$ should be called.
 This will free hidden memory allocated for these routines
-and avoid a 
+and avoid a
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$ error.
 
 $comment

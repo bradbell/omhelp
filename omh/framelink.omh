@@ -9,9 +9,9 @@ $$
 $section Setting Relative Navigation Links For A Section$$
 
 $head Preliminary$$
-This is a preliminary version of this command that is being 
-used to obtain user feedback. 
-This command has only been implemented (so far) with the 
+This is a preliminary version of this command that is being
+used to obtain user feedback.
+This command has only been implemented (so far) with the
 $cref/-noframe/running/noframe/$$ option on the OMhelp command line.
 This command may change in future versions of OMhelp.
 
@@ -20,14 +20,14 @@ $head Syntax$$
 $syntax|@navigate%|default 1|%|label 1|%|...|%|default n|%|label n|%|$$
 
 $head Purpose$$
-OMhelp automatically creates navigation links, 
-relative to each section, 
+OMhelp automatically creates navigation links,
+relative to each section,
 with the following default labels:
 $center
 $table
 $bold Default$$  $cnext $bold Meaning$$                               $rnext
-$code Content$$  $cnext table of contents for entire document         $rnext 
-$code Prev$$     $cnext previous section in document order            $rnext 
+$code Content$$  $cnext table of contents for entire document         $rnext
+$code Prev$$     $cnext previous section in document order            $rnext
 $code Next$$     $cnext next section in document order                $rnext
 $code Up$$       $cnext sections above this one in document tree      $rnext
 $code Sibling$$  $cnext sections with same parent in tree             $rnext

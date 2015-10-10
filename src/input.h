@@ -20,7 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 
 extern void  InputAddPath(
-	const char *path, 
+	const char *path,
 	const char *ext
 );
 extern void  InputFree(
@@ -47,12 +47,12 @@ extern void  InputPop(
 	void
 );
 extern const char *InputSearch(
-	const char *root, 
+	const char *root,
 	const char *ext
 );
 extern void  InputSplitName(
-	char **proot, 
-	char **pext, 
+	char **proot,
+	char **pext,
 	const char *filename
 );
 
@@ -60,7 +60,7 @@ extern void  InputSplitName(
 $begin input$$
 $escape #$$
 
-$cindex set input path #and read file$$ 
+$cindex set input path #and read file$$
 
 $section Setting Input Paths and Reading Input Files$$
 
@@ -71,7 +71,7 @@ $head Memory Allocation$$
 When you are finished using the routines listed below,
 the routine $mref/InputFree/$$ should be called.
 This will free hidden memory allocated for these routines
-and avoid a 
+and avoid a
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$ error.
 
 $comment

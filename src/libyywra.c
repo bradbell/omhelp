@@ -19,10 +19,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // END SHORT COPYRIGHT
 /* libyywrap - flex run-time support library "yywrap" function */
 
-/* $Header: 
-	/home/daffy/u0/vern/flex/RCS/libyywrap.c,v 
-	1.1 93/10/02 15:23:09 vern Exp 
-$ 
+/* $Header:
+	/home/daffy/u0/vern/flex/RCS/libyywrap.c,v
+	1.1 93/10/02 15:23:09 vern Exp
+$
 */
 
 # if 0

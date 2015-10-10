@@ -52,7 +52,7 @@ $syntax%
 
 InitializeHeading()%
 %$$
-This initializes the set of headings a empty and should be 
+This initializes the set of headings a empty and should be
 done at the beginning of each section.
 This also has the effect of freeing all locally allocated
 memory that is used by the other routines documented below.
@@ -69,14 +69,14 @@ SetSubHeading(%subheading%)%
 %$$
 This sets the current subheading value.
 It is assumed that the current heading is not empty
-when this routine is called; i.e., 
+when this routine is called; i.e.,
 there is a call to $code SetHeading$$ after the
 previous $code InitializeHeading$$ and before this $code SetSubHeading$$.
 $pre
 
 $$
 If $code SetSubHeading$$ is called when the current heading is empty,
-a fatal error message is generated telling the user that 
+a fatal error message is generated telling the user that
 within each section, a $code subhead$$
 command must be preceded by a  $code head$$ commands.
 $syntax%
@@ -89,7 +89,7 @@ period ($code .$$) added between the two.
 If the current subheading is empty,
 only the current heading is returned and with no extra period.
 If the current heading is empty,
-the empty string is returned; i.e., the first element of 
+the empty string is returned; i.e., the first element of
 $code HeadingAndSubHeading$$ is '\0'.
 The return value is a $code const char*$$ and hence the memory
 it points to cannot be modified by the calling routine.
@@ -113,7 +113,7 @@ return value is '\0', otherwise it is '\.'; i.e. the period character.
 
 
 $head Errors$$
-All the routines documented above use 
+All the routines documented above use
 $xref/fatalerr//fatalomh/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.

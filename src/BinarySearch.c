@@ -29,7 +29,7 @@ $section Binary Search An Array of Names$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/BinarySearch(/array/, /len/, /name/)/$$ 
+$cnext $syntax/BinarySearch(/array/, /len/, /name/)/$$
 $tend
 
 $fend 20$$
@@ -49,7 +49,7 @@ $syntax%
 %$$
 is less than zero.
 The return value is a $code int$$
-index $italic i$$ such that 
+index $italic i$$ such that
 $syntax%
 	strcmp(%array%[%i%], %name%)
 %$$
@@ -88,7 +88,7 @@ int BinarySearch(const char *array[], int len, const char *name)
 	dk = strcmp(name, array[k]);
 	if( dk == 0 )
 		return k;
-	
+
 	if( dk > 0 )
 		return len;
 

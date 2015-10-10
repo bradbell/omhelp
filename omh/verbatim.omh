@@ -1,23 +1,23 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin verbatim$$
-$spell 
+$spell
 	hilite
 	hilitecmd
 	hiliteseq
@@ -39,10 +39,10 @@ $cindex source code example$$
 $cindex pre format$$
 $mindex display file$$
 
-$section Verbatim Display of All or Part of a File$$ 
+$section Verbatim Display of All or Part of a File$$
 
 $table
-$bold Syntax$$ 
+$bold Syntax$$
 $cnext $syntax/@verbatim%/filename/%@@/$$  $rnext
 $cnext $syntax/@verbatim%/filename/%/indent/%@@/$$  $rnext
 $cnext $syntax/@verbatim%/filename/%/indent/%/start/%@@/$$  $rnext
@@ -56,14 +56,14 @@ $tend
 $fend 25$$
 
 $head Description$$
-This command will cause the specified 
+This command will cause the specified
 $xref/glossary/Input File Searching/input file/$$
 to be displayed
 with out any formatting; i.e., verbatim.
 This provides a way in which a single source code file
 can be used both for input to OMhelp and input to another program
 with out having OMhelp commands in the file.
-(The 
+(The
 $xref/codep/Source Code Examples/source code example/$$
 option for the $mref/codep/$$ command
 provides another way of doing this that does
@@ -92,12 +92,12 @@ The file $code copyright.omh$$ contains the following text:
 
 $verbatim!copyright.omh!5!$$
 
-All of the $mref/font/$$ commands allow you to 
+All of the $mref/font/$$ commands allow you to
 have other commands nested inside of them.
 
 
 $head Filename$$
-The value of $italic filename$$ specifies the name 
+The value of $italic filename$$ specifies the name
 of the file that is displayed.
 Leading and trailing white space in $italic filename$$ is ignored.
 
@@ -131,7 +131,7 @@ $verbatim!copyright.omh!$$
 
 $head Indent$$
 If $italic indent$$ is present,
-it is a positive integer and specifies 
+it is a positive integer and specifies
 the number of spaces to indent the output.
 
 $subhead Example$$
@@ -150,7 +150,7 @@ $$
 
 $head Start$$
 $cindex start verbatim$$
-If $italic start$$ is present, 
+If $italic start$$ is present,
 it specifies a sequence of characters after which output should start.
 In this case none of the characters in the file before,
 and including,
@@ -169,7 +169,7 @@ $cindex stop verbatim$$
 If $italic stop$$ is present,
 it specifies
 a sequence of characters just before which output should stop.
-In this case none of the characters in the file following, 
+In this case none of the characters in the file following,
 and including,
 this stopping sequences are displayed.
 $pre
@@ -182,7 +182,7 @@ characters, represent the single character with ascii code equal
 to the decimal value of the three decimal digits.
 
 $subhead Example$$
-The following command sequence 
+The following command sequence
 replaces $code Bradley M. Bell$$ by
 $code http://www.seanet.com/~bradbell$$ in the file $code copyright.omh$$:
 $codep
@@ -202,7 +202,7 @@ $codep
      @@#
 $$
 A $code @code$$ command is started and
-a single $code #$$ is displayed starting on a new line, 
+a single $code #$$ is displayed starting on a new line,
 indented 5 spaces,
 $codep
 
@@ -253,7 +253,7 @@ $$
 
 $head Skip$$
 If $italic skip$$ is present,
-it is a positive integer that specifies the number of 
+it is a positive integer that specifies the number of
 $italic start$$ matches to skip.
 This is very useful when the $code verbatim$$ command and
 refers to the same file as the command is in.
@@ -266,7 +266,7 @@ the second paragraph in the copyright description.
 $codep
 	@code
 	@pre
-	     @@# This 
+	     @@# This
 	@verbatim!copyright.omh!5!# This ! details.!1!@@
 	details.
 	@@
@@ -275,7 +275,7 @@ creates the following output
 
 $code
 $pre
-     $$# This 
+     $$# This
 $verbatim!copyright.omh!5!# This ! details.!1!$$
 details.
 $$

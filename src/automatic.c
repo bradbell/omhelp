@@ -33,24 +33,24 @@ $head Description$$
 This call adds a section to the section tree.
 
 $head parent$$
-The argument $italic parent$$ 
+The argument $italic parent$$
 $xref/SectionInfo//SectionInfo/$$ pointer
-that specifies the parent of the section being added. 
+that specifies the parent of the section being added.
 This cannot be NULL, but $syntax//parent/->children/$$
 can be NULL.
 The style of the parent section is copied into the new section.
 
 $head tag$$
-The argument $italic tag$$ is a $code '\0'$$ 
-terminated character vector that specifies the cross reference 
+The argument $italic tag$$ is a $code '\0'$$
+terminated character vector that specifies the cross reference
 tag for the section that is appended.
 A $xref/CrossReference//cross reference/$$ is defined pointing to this section
 with tag equal to $italic tag$$ and
 heading equal to the empty string.
 
 $head title$$
-The argument $italic title$$ is a $code '\0'$$ 
-terminated character vector that specifies the 
+The argument $italic title$$ is a $code '\0'$$
+terminated character vector that specifies the
 $xref/SectionInfo//section title/$$
 for the section that is added to the tree.
 
@@ -80,12 +80,12 @@ $fend 20$$
 
 $head Description$$
 Returns one, if $italic section/$$ is one of the sections generated
-by a previous call to $xref/AutomaticAppendSection/$$, 
+by a previous call to $xref/AutomaticAppendSection/$$,
 and returns zero otherwise.
 
 
 $head section$$
-The argument $italic section$$ is a 
+The argument $italic section$$ is a
 $xref/SectionInfo//SectionInfo/$$ pointer.
 The value $italic section$$ or $syntax//section/->tag/$$ can be NULL,
 in which case zero is returned.
@@ -128,7 +128,7 @@ $end
 # define MAX_LENGTH    100
 
 static char Tag[MAX_AUTOMATIC][MAX_LENGTH];
-static int  Number = 0;   
+static int  Number = 0;
 
 int IsAutomaticSection(SectionInfo *section)
 {	int i;
@@ -150,14 +150,14 @@ const char *AutomaticTag(int i)
 
 void AutomaticAppendSection(
 	SectionInfo *parent,
-	const char *tag, 
+	const char *tag,
 	const char *title,
 	int letterHeadings)
 {
 	SectionInfo    *T;
 	SectionInfo    *S;
 	CrossReference *C;
-	char           *inputfile = NULL; 
+	char           *inputfile = NULL;
 	char           *sectionid;
 	char           *printid;
 
@@ -209,7 +209,7 @@ void AutomaticAppendSection(
 
 	// Add automatic headings for index and function reference
 	if( letterHeadings )
-	{	
+	{
 
 		char head[2];
 		char ch;

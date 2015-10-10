@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -63,16 +63,16 @@ $href%http://www.dessci.com/webmath/mathplayer%Design Science%$$,
 Below is a list of cases where the MS Internet Explorer 6,
 in this configuration,
 appears to have problems displaying MathML or XHTML commands.
-If you have any feed back for in this regard, 
+If you have any feed back for in this regard,
 please send e-mail to:
 $href%mailto:bradbell@seanet.com%bradbell@seanet.com%$$.
 
 $head Favicon$$
 If a $cref/-favicon/running/favicon/$$
-is specified on the $code omhelp$$ command line, 
-OMhelp follows the preferred method in the 
+is specified on the $code omhelp$$ command line,
+OMhelp follows the preferred method in the
 $href%http://www.w3.org/2005/10/howto-favicon%w3 recommendation%$$.
-This recommendation works with the Firefox, 
+This recommendation works with the Firefox,
 but it does not yet work with MS Internet Explorer.
 It currently appears that MS Internet Explorer requires that the
 favorite icon be placed at the root directory of the domain.
@@ -82,7 +82,7 @@ seems to have refresh problems when ones visits a new site.
 $head XHTML$$
 
 $subhead Line Wrapping$$
-It appears that IE explorer will wrap input lines at the 
+It appears that IE explorer will wrap input lines at the
 plain hyphen character $code -$$; i.e. ascii code 45.
 This is a violation of the HTML standard as specified in Section
 $href%http://www.w3.org/TR/html4/struct/text.html#h-9.3.3%9.3.3 Hyphenation%$$
@@ -104,18 +104,18 @@ $head MathML$$
 $subhead Operator Sizes$$
 $mindex operator size$$
 The specification of the minimum size attribute
-does not seem to work. 
+does not seem to work.
 For example
 $codep
-	<mo minsize="2em">(</mo> 
+	<mo minsize="2em">(</mo>
 	<mi maxsize="1em">x</mi>
-	<mo minsize="2em">)</mo> 
+	<mo minsize="2em">)</mo>
 $$
 generates the output
-$latex \[ \mathml{ 
-	<mo minsize="2em">(</mo> 
+$latex \[ \mathml{
+	<mo minsize="2em">(</mo>
 	<mi maxsize="1em">x</mi>
-	<mo minsize="2em">)</mo> 
+	<mo minsize="2em">)</mo>
 } \]$$
 
 
@@ -126,9 +126,9 @@ The following symbols do not seem to be displayed correctly
 (note that they are in alphabetical order):
 
 $nospell $table
-$bold Name$$ 
-	$cnext $bold Unicode Command$$ 
-	$cnext $bold W3 File$$ 
+$bold Name$$
+	$cnext $bold Unicode Command$$
+	$cnext $bold W3 File$$
 	$cnext $bold W3 Image$$
 	$cnext $bold Explorer$$
 	$rnext
@@ -198,7 +198,7 @@ $bold Name$$
 	$cnext $icon U02A04.png$$
 	$cnext $latex \mathml{<mo>&#x02A04;</mo>} $$
 	$rnext
-	
+
 $tend $$
 
 $end

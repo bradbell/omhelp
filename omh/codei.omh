@@ -1,23 +1,23 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin codei$$
-$spell 
+$spell
 	codei
 	icode
 	const
@@ -44,12 +44,12 @@ $head See Also$$
 $cref/syntax/$$, $cref/font/$$, $cref/color/$$
 
 $head Purpose$$
-Display text that alternates between 
-a pre-formatted code font and 
+Display text that alternates between
+a pre-formatted code font and
 a pre-formatted italic font.
 The code font is the same as for the $cref/@code/font/$$ command.
 Because it is pre-formatted,
-the italic font is different from the 
+the italic font is different from the
 $cref/@italic/font/$$ command.
 
 $head escape$$
@@ -72,7 +72,7 @@ $table
 $code @codei$$ $pre  $$
 	$cnext start with code, then italic, then code ...  $rnext
 $code @icode$$ $pre  $$
-	$cnext start with italic, then code, then italic ... 
+	$cnext start with italic, then code, then italic ...
 $tend
 
 $head text$$
@@ -81,7 +81,7 @@ $codei/%/text1/%/text2/%/.../%/textN/%/$$
 is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
 and $code %$$ can be any character that is not a letter.
 The characters in $icode text1$$, ..., $icode textN$$
-are using in a 
+are using in a
 $cref/pre-formatted font/glossary/Pre-formatted Font/$$.
 The characters in $icode text1$$ are in the first color,
 the characters in $icode text2$$ are in the second color,
@@ -102,7 +102,7 @@ $codep
 	@codei|
 	extern void f(
 		int         |i| ,
-		const char *|s| 
+		const char *|s|
 	);|@@
 $$
 produces the following output
@@ -148,6 +148,6 @@ $codep
 $$
 can be used to reference $icode i$$ in the prototypes above
 (remember that when the delimiter is a space, there is only one entry in
-the delimiter sequence and the other spaces are not delimiters). 
+the delimiter sequence and the other spaces are not delimiters).
 
 $end

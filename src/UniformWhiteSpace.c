@@ -24,7 +24,7 @@ $section Unify Different White Space Versions of Same Information$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void UniformWhiteSpace(char *%s%)%$$ 
+$cend $syntax%void UniformWhiteSpace(char *%s%)%$$
 $tend
 
 $fend 20$$
@@ -37,7 +37,7 @@ and trailing white space is deleted and so that
 each token in the string is separated by just one space ' ' character.
 
 $head s$$
-The input and output contents of $italic s$$ is a '\0' 
+The input and output contents of $italic s$$ is a '\0'
 terminated character string.
 If $italic s$$ is empty; i.e.,
 the first character in $italic s$$ is '\0',
@@ -65,9 +65,9 @@ void UniformWhiteSpace(char *s)
 
 	// convert multiple white space to one space
 	while( s[i] != '\0' )
-	{	assert( ! isspace((int) s[i]) ); 	
+	{	assert( ! isspace((int) s[i]) );
 
-		// copy this token from input to output 
+		// copy this token from input to output
 		while( (s[i] != '\0') & (! isspace((int) s[i]) ) )
 			s[j++] = s[i++];
 
@@ -80,7 +80,7 @@ void UniformWhiteSpace(char *s)
 		{	assert( i > k );
 			assert( ! isspace((int) s[i]) );
 
-			// another token follows so place a space between 
+			// another token follows so place a space between
 			assert( i > j );
 			s[j++] = ' ';
 		}

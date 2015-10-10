@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -46,14 +46,14 @@ $index cindex, get started$$
 $index aindex, get started$$
 
 $head Introduction$$
-The 
+The
 $xref/keyword//index/$$
 commands control the contents of the
 $xref/_index//index/$$, and
 $xref/_search//search/$$ pages.
-In addition, 
+In addition,
 they broadcast information about a particular web page
-to the internet search engines. 
+to the internet search engines.
 This makes it easy for people to find information
 in your web site that is relevant to a particular topic.
 
@@ -61,8 +61,8 @@ $head Execute The Following Steps$$
 
 $subhead index_example_1.omh$$
 Use an editor of your choice to
-create the file $code index_example_1.omh$$ 
-in the 
+create the file $code index_example_1.omh$$
+in the
 $xref/
 	start_simple/
 	Execute The Following Steps.Test Directory/
@@ -74,13 +74,13 @@ $pre
 $$
 Note that you can copy and paste the commands above
 to your editor window.
-You may just copy the file with the same name from the 
+You may just copy the file with the same name from the
 $xref/get_started/Getting Started Directory/getting started directory/$$.
 
 $subhead index_example_2.omh$$
 Use an editor of your choice to
-create the file $code  index_example_2.omh$$ 
-in the 
+create the file $code  index_example_2.omh$$
+in the
 $xref/
 	start_simple/
 	Execute The Following Steps.Test Directory/
@@ -94,13 +94,13 @@ $$
 $subhead Example In This Web Site Context$$
 You can view the
 result of making $code index_example_1.omh$$
-part of the OMhelp help web site 
-by selecting 
+part of the OMhelp help web site
+by selecting
 $xref/index_example_1/$$.
 
 $subhead Execute OMhelp$$
-In a command window and 
-in the 
+In a command window and
+in the
 $xref/
 	start_simple/
 	Execute The Following Steps.Htm Directory/

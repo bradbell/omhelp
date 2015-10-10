@@ -20,7 +20,7 @@ then
 	exit 1
 fi
 echo_eval() {
-     echo $* 
+     echo $*
      eval $*
 }
 # -----------------------------------------------------------------------------
@@ -54,7 +54,7 @@ if ! (echo $version | grep '[0-9]\{8\}') > /dev/null
 then
 	echo 'bin/version.sh: Cannot find verison number in CMakeLists.txt'
 	exit 1
-fi 
+fi
 if [ "$1" == 'get' ]
 then
 	echo "$version"
@@ -74,7 +74,7 @@ do
 		-e "s|/[0-9]\{8\}\.tar\.gz|/$version.tar.gz|" \
 		-e "s|omhelp_version=[0-9]\{8\}|omhelp_version=$version|" \
 		-i.old $file
-done 
+done
 for name in $list
 do
 	echo '-------------------------------------------------------------'

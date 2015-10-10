@@ -30,8 +30,8 @@ extern void TitleLinks(
 	const char *title
 );
 extern void AddLink(
-	const char *text, 
-	const char *tag, 
+	const char *text,
+	const char *tag,
 	const char *crossheading
 );
 void EndLinks();

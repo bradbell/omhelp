@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2005 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -41,11 +41,11 @@ $head Syntax$$
 $codei%@OMhelpKeyCharacter=%c%$$
 
 $head Purpose$$
-This is the only OMhelp command that does not occur between a 
+This is the only OMhelp command that does not occur between a
 $code @begin$$,
 $code @end$$ pair.
 It instructs OMhelp to use the single character specified by $codei c$$
-as the Command Key character 
+as the Command Key character
 (in place of the default character which is the dollar sign $code @$$.)
 $pre
 
@@ -55,7 +55,7 @@ a decimal digit, or white space.
 $pre
 
 $$
-The effect of this limited to sections that have there 
+The effect of this limited to sections that have there
 $code @begin$$ and $code @end$$ commands in the same file.
 
 $children/
@@ -63,12 +63,12 @@ $children/
 /$$
 
 $head keycharexample.omh$$
-The input file $code keycharexample.omh$$ contains the text 
+The input file $code keycharexample.omh$$ contains the text
 $code
 $pre
      $$@OMhelp$verbatim%keycharexample.omh%5%#036OMhelp%$$
 $$
-This input results 
+This input results
 in the following section: $xref/KeyCharExample/$$.
 
 $head keycharinclude.omh$$

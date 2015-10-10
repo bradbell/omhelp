@@ -24,7 +24,7 @@ $section Clip Leading and Trailing White Space$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void ClipWhiteSpace(char *%s%)%$$ 
+$cend $syntax%void ClipWhiteSpace(char *%s%)%$$
 $tend
 
 $fend 20$$

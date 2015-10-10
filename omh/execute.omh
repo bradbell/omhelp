@@ -1,28 +1,28 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin execute$$
-$spell 
+$spell
 	Wordpad
 	Microsoft
-	pre 
-	wri 
-	WordPad 
+	pre
+	wri
+	WordPad
 	codep
 $$
 $escape #$$
@@ -45,7 +45,7 @@ $fend 20$$
 $head Purpose$$
 This command creates the file specified by $italic filename$$
 together with a link to the file.
-Both leading and trailing 
+Both leading and trailing
 $xref/glossary/White Space/white space/$$
 in $italic filename$$
 is ignored and there cannot be any $code @$$ characters
@@ -70,7 +70,7 @@ $codep
 	@codep
 	Example contents for the file Example.wri
 	@@
-	
+
 $$
 displays as follows:
 $pre

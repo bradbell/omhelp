@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -64,12 +64,12 @@ $pre
 $pre
 $$
 a $italic number$$ is defined as
-" decimal integer or rational number 
-(a string of digits with one decimal point), 
+" decimal integer or rational number
+(a string of digits with one decimal point),
 optionally starting with '-' ".
 
 $head Examples of Incorrect Display$$
-A positive space display is demonstrated by 
+A positive space display is demonstrated by
 the following input
 $codep
 	<mi>x</mi><mi>y</mi><mspace width="1em"/><mi>z</mi>
@@ -81,7 +81,7 @@ $pre
 } $$
 $pre
 $$
-The negative spaces do not display correctly 
+The negative spaces do not display correctly
 as demonstrated by the following input
 $codep
 	<mi>x</mi><mi>y</mi><mspace width="-1em"/><mi>z</mi>

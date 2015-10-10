@@ -32,10 +32,10 @@ $section Map Link Representation to a URL$$
 
 $head Syntax$$
 $syntax%char *Url(
-	const char *%tag% , 
+	const char *%tag% ,
 	const char *%head%,
 	const char *%external%
-)%$$ 
+)%$$
 
 $head Purpose$$
 Maps the internal represent of a link to a web address
@@ -53,7 +53,7 @@ $italic tag$$ is the cross reference tag for the section
 corresponding to this link.
 
 $head head$$
-This argument specifies the heading 
+This argument specifies the heading
 (with in the file) corresponding to the link.
 If the link is to the entire section, head is equal to the empty string; i.e.
 $syntax%
@@ -109,12 +109,12 @@ char *Url(const char *tag, const char *head, const char *external)
 	// initialize to avoid compiler warning
 	// (will be reset before used)
 	CrossReference *C = NULL;
-	
+
 	assert( *tag != '\0' );
 	assert( ! isspace((int) *tag) );
 
-	assert( strcmp(external, "true") == 0 || 
-	        strcmp(external, "false") == 0 
+	assert( strcmp(external, "true") == 0 ||
+	        strcmp(external, "false") == 0
 	);
 
 	if( strcmp(external, "false") == 0 )
@@ -128,9 +128,9 @@ char *Url(const char *tag, const char *head, const char *external)
 	for(i = 0; taglower[i] != '\0'; i++)
 		taglower[i] = tolower((int) taglower[i]);
 
-	// check for case where only use htm for extension 
+	// check for case where only use htm for extension
 	HtmlOnly =  (strcmp(tag, SEARCH_TAG) == 0)
-	       	|| (strcmp(tag, CONTENTS_TAG) == 0);
+		|| (strcmp(tag, CONTENTS_TAG) == 0);
 	// HtmlOnly = HtmlOnly & ( NoFrame() | (head[0] != '\0') );
 	if( HtmlOnly )
 		ext = Internal2Out("HtmlOnlyExtension");
@@ -141,50 +141,50 @@ char *Url(const char *tag, const char *head, const char *external)
 	{	if( strcmp(external, "true") == 0 )
 			url = str_alloc(tag);
 		else	url = strjoin(
-				taglower, 
+				taglower,
 				ext
 		);
 	}
 	else
 	{	// XHTML cannot have certain character, such as <, here
 		// This is an unspecified kludge to fix this
-		converted = ConvertInternalString(head);	
+		converted = ConvertInternalString(head);
 
 		if( strcmp(external, "true") == 0 )
 			url = StrCat(
-				__FILE__, 
-				__LINE__, 
-				tag, 
-				"#", 
+				__FILE__,
+				__LINE__,
+				tag,
+				"#",
 				converted,
 				NULL
 		);
 		else if( NoFrame() )
 		{	url = StrCat(
-				__FILE__, 
-				__LINE__, 
-				taglower, 
+				__FILE__,
+				__LINE__,
+				taglower,
 				ext,
 				"#",
 				converted,
 				NULL
 			);
-		}	
+		}
 		else
 		{	assert( C != NULL );
 			sprintf(number, "%d", C->frame);
 			url = StrCat(
-				__FILE__, 
-				__LINE__, 
-				taglower, 
-				"_frame", 
-				number, 
+				__FILE__,
+				__LINE__,
+				taglower,
+				"_frame",
+				number,
 				ext,
 				"#",
 				converted,
 				NULL
 			);
-		}	
+		}
 
 		FreeMem(converted);
 	}

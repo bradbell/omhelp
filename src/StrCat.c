@@ -116,7 +116,7 @@ char *StrCat(const char *file, int line, ... )
 # else
 	r   = (char *) c_alloc(len + 1, sizeof(char));
 # endif
-	
+
 
 	// copy the strings into the return value
 	len = 0;
@@ -124,6 +124,6 @@ char *StrCat(const char *file, int line, ... )
 	{	strcpy(r + len, s[i]);
 		len = len + strlen(s[i]);
 	}
-	
+
 	return r;
 }

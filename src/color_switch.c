@@ -23,7 +23,7 @@ $section Switch Output Color at Each Delimiter$$
 $head Syntax$$
 $blueblack%void color_switch(
 	char       *%text%             ,
-	const char *%first_color%      , 
+	const char *%first_color%      ,
 	const char *%second_color%     ,
 	char        %escape%           ,
 	int         %line%             ,
@@ -32,7 +32,7 @@ $blueblack%void color_switch(
 
 $head Purpose$$
 This routine outputs the specified text using a code font
-(pre-formatted font) 
+(pre-formatted font)
 while switching colors every time a delimiter is encountered.
 In addition, if the color is black, the font is also italic.
 
@@ -40,10 +40,10 @@ $head text$$
 The is the original text. It starts and ends with a delimiter
 and the delimiter is not output. (The output value of this
 text is unspecified; i.e., it may be modified.)
- 
+
 $head first_color$$
 The is the color after the first delimiter, third delimiter,
-and so on. 
+and so on.
 
 $head second_color$$
 This is the color following the second delimiter, fourth delimiter,
@@ -82,8 +82,8 @@ $end
 # include <string.h>
 
 void color_switch(
-	char       *text            , 
-	const char *first_color     , 
+	char       *text            ,
+	const char *first_color     ,
 	const char *second_color    ,
 	char        escape          ,
 	int         line            ,
@@ -107,7 +107,7 @@ void color_switch(
 
 	// first token
 	token = text + 1;
-	
+
 	// initialize delimter count flag
 	count  = 1;
 

@@ -40,15 +40,15 @@ that are relative to the section $italic This$$.
 $head RelativeFrame$$
 This creates the file $syntax%%tag%_links.%ext%$$ containing the links.
 where $italic tag$$ is equal to $syntax%%This%->tagLower%$$ and
-$italic ext$$ is equal to $syntax%%Internal2Out("OutputExtension")%$$. 
+$italic ext$$ is equal to $syntax%%Internal2Out("OutputExtension")%$$.
 
 $head RelativeTable$$
 This creates a table, in the current output file, containing the links.
-It also creates the Javascript file 
+It also creates the Javascript file
 $syntax%
 	_%This->tagLower%_%ext%.js
-%$$ 
-and assumes that the $syntax%<head>%...%</head>%$$ for the current 
+%$$
+and assumes that the $syntax%<head>%...%</head>%$$ for the current
 output file contains the command
 $syntax%
 <script type='text/javascript' language='JavaScript' src='%tag%_%ext%.js'>
@@ -93,7 +93,7 @@ $end
 # include "convert.h"
 
 static void OutputOption(const char *name)
-{	// should option name be preformatted ?	
+{	// should option name be preformatted ?
 	int pre = 0;
 
 	OutputString("<option>");
@@ -139,7 +139,7 @@ void RelativeFrame(SectionInfo *This)
 	// preformat output labels ?
 	int              pre = 0;
 
-	assert( 1000 > nspace * MAX_DEPTH ); 
+	assert( 1000 > nspace * MAX_DEPTH );
 
 	stylecmd = StyleCommand(This);
 	BeginLinks(This->tag, "column", ImageLink(), ImageFile(), stylecmd);
@@ -148,8 +148,8 @@ void RelativeFrame(SectionInfo *This)
 	// =================================================================
 	titled = 0;
 	number = This->navigate.number;
-	for(index = 0; index < number; index++) 
-	{ 
+	for(index = 0; index < number; index++)
+	{
 		// simple case where using label explicitly
 		label    = This->navigate.item[index].label;
 
@@ -173,7 +173,7 @@ void RelativeFrame(SectionInfo *This)
 		nav_type = This->navigate.item[index].nav_type;
 		F        = This;
 
-		// check for case where links are relative to parent 
+		// check for case where links are relative to parent
 		switch( nav_type )
 		{	case DOWN_UP_0_nav:
 			i = 0;
@@ -310,7 +310,7 @@ void RelativeFrame(SectionInfo *This)
 			Up[depth] =  Up[depth-1]->parent;
 			depth++;
 		}
-	
+
 		i = depth;
 		while( i > 0 )
 		{	i--;
@@ -322,7 +322,7 @@ void RelativeFrame(SectionInfo *This)
 			text = strjoin(Space, S->tag);
 			AddLink(text, S->tag, "");
 			FreeMem(text);
-		}	
+		}
 		break;
 
 		// Siblings ------------------------------------------------
@@ -339,7 +339,7 @@ void RelativeFrame(SectionInfo *This)
 			{	if( ! IsAutomaticSection(S) )
 					AddLink(S->tag, S->tag, "");
 				S = S->next;
-			}	
+			}
 		}
 		break;
 
@@ -368,7 +368,7 @@ void RelativeFrame(SectionInfo *This)
 					else	AddLink(S->tag,     "", "");
 				}
 				S = S->next;
-			}	
+			}
 		}
 		break;
 
@@ -385,9 +385,9 @@ void RelativeFrame(SectionInfo *This)
 		{	assert( C->head != NULL );
 
 			i = 0;
-			while( (head[i] != '0') 
+			while( (head[i] != '0')
 			     & (C->head[i] != '0')
-			     & (head[i] == C->head[i]) 
+			     & (head[i] == C->head[i])
 			) i++;
 
 			if( C->head[i] == '.' )
@@ -467,7 +467,7 @@ void RelativeTable(SectionInfo *This)
 	// Begin table that contains the links in a single row
 	OutputString("<table><tr>\n");
 
-	// Icon --------------------------------------------------------- 
+	// Icon ---------------------------------------------------------
 	if( image_link != NULL )
 	{	OutputString("<td>\n");
 		if( image_link[0] != '\0' )
@@ -493,9 +493,9 @@ void RelativeTable(SectionInfo *This)
 	// =================================================================
 	number = This->navigate.number;
 	assert( number <= MAX_NAVIGATE );
-	for(index = 0; index < number; index++) 
+	for(index = 0; index < number; index++)
 	{	char digit[] = { '0', '\0' };
- 
+
 		// simple case where using label explicitly
 		label    = This->navigate.item[index].label;
 
@@ -519,7 +519,7 @@ void RelativeTable(SectionInfo *This)
 		nav_type = This->navigate.item[index].nav_type;
 		F        = This;
 
-		// check for case where links are relative to parent 
+		// check for case where links are relative to parent
 		switch( nav_type )
 		{	case DOWN_UP_0_nav:
 			i = 0;
@@ -641,7 +641,7 @@ void RelativeTable(SectionInfo *This)
 		FormatOutput(
 			"<select onchange='choose_%s(this)'>\n",
 			list_name[index]
-		); 
+		);
 		tmp = strjoin(label, "->");
 		OutputOption(tmp);
 		FreeMem(tmp);
@@ -657,8 +657,8 @@ void RelativeTable(SectionInfo *This)
 			if( i > 0 )
 				fprintf(javascript_fp, ",\n");
 			else	fprintf(javascript_fp, "\n];\n");
-		}	
-		OutputString("</select>\n</td>\n"); 
+		}
+		OutputString("</select>\n</td>\n");
 		break;
 
 		// Sibling ---------------------------------------------------
@@ -668,7 +668,7 @@ void RelativeTable(SectionInfo *This)
 		FormatOutput(
 			"<select onchange='choose_%s(this)'>\n",
 			list_name[index]
-		); 
+		);
 		tmp = strjoin(label, "->");
 		OutputOption(tmp);
 		FreeMem(tmp);
@@ -689,8 +689,8 @@ void RelativeTable(SectionInfo *This)
 			if( S != NULL )
 				fprintf(javascript_fp, ",\n");
 			else	fprintf(javascript_fp, "\n];\n");
-		}	
-		OutputString("</select>\n</td>\n"); 
+		}
+		OutputString("</select>\n</td>\n");
 		break;
 
 		// Down ------------------------------------------------------
@@ -717,11 +717,11 @@ void RelativeTable(SectionInfo *This)
 			FormatOutput(
 				"<select onchange='choose_%s(this)'>\n",
 				list_name[index]
-			); 
+			);
 			tmp = strjoin(label, "->");
 			OutputOption(tmp);
 			FreeMem(tmp);
-			fprintf(javascript_fp, 
+			fprintf(javascript_fp,
 				"var list_%s = [\n", list_name[index]
 			);
 			while(S->previous != NULL )
@@ -740,10 +740,10 @@ void RelativeTable(SectionInfo *This)
 					fprintf(javascript_fp, ",\n");
 				else	fprintf(javascript_fp, "\n];\n");
 			}
-			OutputString("</select>\n</td>\n"); 
-		}	
+			OutputString("</select>\n</td>\n");
+		}
 		break;
-	
+
 		// Across ----------------------------------------------------
 		case ACROSS_nav:
 		list_name[index] = strjoin("across", digit);
@@ -751,7 +751,7 @@ void RelativeTable(SectionInfo *This)
 		FormatOutput(
 			"<select onchange='choose_%s(this)'>\n",
 			list_name[index]
-		); 
+		);
 		tmp = strjoin(label, "->");
 		OutputOption(tmp);
 		FreeMem(tmp);
@@ -770,7 +770,7 @@ void RelativeTable(SectionInfo *This)
 				fprintf(javascript_fp, ",\n");
 			else	fprintf(javascript_fp, "\n];\n");
 		}
-		OutputString("</select>\n</td>\n"); 
+		OutputString("</select>\n</td>\n");
 		break;
 
 		// Current ---------------------------------------------------
@@ -791,11 +791,11 @@ void RelativeTable(SectionInfo *This)
 			FormatOutput(
 				"<select onchange='choose_%s(this)'>\n",
 				list_name[index]
-			); 
+			);
 			tmp = strjoin(label, "->");
 			OutputOption(tmp);
 			FreeMem(tmp);
-			fprintf(javascript_fp, 
+			fprintf(javascript_fp,
 				"var list_%s = [\n", list_name[index]
 			);
 
@@ -804,9 +804,9 @@ void RelativeTable(SectionInfo *This)
 
 				i = 0;
 				while(
-					(head[i] != '0') 
-			     		& (C->head[i] != '0')
-			     		& (head[i] == C->head[i]) 
+					(head[i] != '0')
+					& (C->head[i] != '0')
+					& (head[i] == C->head[i])
 				) i++;
 
 				if( C->head[i] == '.' )
@@ -826,7 +826,7 @@ void RelativeTable(SectionInfo *This)
 					fprintf(javascript_fp, ",\n");
 				else	fprintf(javascript_fp, "\n];\n");
 			}
-			OutputString("</select>\n</td>\n"); 
+			OutputString("</select>\n</td>\n");
 		}
 		break;
 
@@ -854,7 +854,7 @@ void RelativeTable(SectionInfo *This)
 	"}\n";
 	for(index = 0; index < number; index++)
 	{	if( list_name[index] != NULL )
-		{	fprintf(javascript_fp, 
+		{	fprintf(javascript_fp,
 				format, list_name[index], list_name[index]
 			);
 		}

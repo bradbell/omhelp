@@ -35,35 +35,35 @@ $tend
 $fend 20$$
 
 $head Description$$
-Uses $mref/AllocMem/$$ to allocate memory for a new 
+Uses $mref/AllocMem/$$ to allocate memory for a new
 $code CrossReference$$ record with the following fields and settings:
 
 $table
 $bold Field$$     $cend $bold Initial Value$$ $cend
-$bold  Description$$ 
+$bold  Description$$
 $rend
 
 $code defined$$   $cend       0  $cend
-has the destination for this cross reference been defined 
+has the destination for this cross reference been defined
 $rend
 
 $code frame$$     $cend       0  $cend
-if head[0]!='\0', frame that the 
+if head[0]!='\0', frame that the
 $xref/glossary/Cross Reference Heading/cross reference heading/$$
 refers to
 $rend
 
 $xref/CrossReference/Tag/tag/$$       $cend       $italic tag$$  $cend
-a separated allocated copy of section tag 
+a separated allocated copy of section tag
 $rend
 
 $xref/CrossReference/Head/head/$$      $cend       $italic head$$ $cend
-a separated allocated copy of a 
+a separated allocated copy of a
 $xref/glossary/Cross Reference Heading/cross reference heading/$$
 $rend
 
 $xref/CrossReference/File/file/$$      $cend       $italic file$$ $cend
-name of user input file corresponding to this cross reference 
+name of user input file corresponding to this cross reference
 $rend
 
 $xref/CrossReference/Printid/printid/$$    $cend       $code NULL$$ $cend
@@ -71,24 +71,24 @@ identification of cross reference in printed version of web site
 $rend
 
 $code line$$      $cend       $code InputLine()$$ $cend
-if file[0] != 0,  is input line corresponding to cross reference 
+if file[0] != 0,  is input line corresponding to cross reference
 $rend
 
 $code next_created$$      $cend       $code NULL$$ $cend
-next record in list of created cross references 
+next record in list of created cross references
 (only used by this file).
 $rend
 
 $code next_defined$$      $cend       $code NULL$$ $cend
-next record in list of defined cross references 
+next record in list of defined cross references
 (only used by this file).
 
 
 $tend
 
 $head Return Value$$
-A $code CrossReference$$ pointer to the 
-new cross reference is returned and it is programming error 
+A $code CrossReference$$ pointer to the
+new cross reference is returned and it is programming error
 to create a cross reference that already exists; i.e., for which
 $mref/FindCrossReference/$$ would not return $code NULL$$
 
@@ -102,16 +102,16 @@ $index FindCrossReference$$
 $section Find Record Corresponding to a Cross Reference$$
 
 $table
-$bold Syntax$$ 
+$bold Syntax$$
 $cend $syntax/FindCrossReference(/tag/, /head/)/$$
 $tend
 
 $head Description$$
 Search the cross reference list for a Cross Reference record that has the
-specified 
+specified
 $xref/CrossReference/Tag/tag/$$
-and 
-$xref/CrossReference/Head/heading/$$. 
+and
+$xref/CrossReference/Head/heading/$$.
 The return value is a $code CrossReference$$ pointer to the cross
 reference. If such a cross reference is found, a pointer to it is returned.
 Otherwise $code NULL$$ is returned.
@@ -137,39 +137,39 @@ $tend
 $fend 20$$
 
 $head Description$$
-The cross reference with the specified 
+The cross reference with the specified
 $xref/CrossReference/Tag/tag/$$
-and 
+and
 $xref/CrossReference/Head/head/$$
-is searched for. 
+is searched for.
 If no such cross reference is found, a new one is created.
 $pre
 
 $$
 If a cross reference destination with the same $italic tag$$
-and $italic head$$ has already been 
-$xref/CrossReference/Defined/defined/$$, 
+and $italic head$$ has already been
+$xref/CrossReference/Defined/defined/$$,
 a fatal error message is printed and the program stops.
 (Note that defined is different from created.)
 $pre
 
 $$
-The cross reference is marked as defined. In addition, the 
+The cross reference is marked as defined. In addition, the
 $xref/CrossReference/Frame/frame/$$
-and 
+and
 $xref/CrossReference/File/file/$$
-fields are set to the values specified by the call. 
+fields are set to the values specified by the call.
 $pre
 
 $$
 If $italic file$$
-is equal to $mref/InputName/$$, 
+is equal to $mref/InputName/$$,
 the line number is set to $mref/InputLine/$$.
 $pre
 
 $$
-The argument  $italic printid$$ 
-specifies the 
+The argument  $italic printid$$
+specifies the
 $xref/CrossReference/Printid/printid/$$
 for this cross reference.
 The argument $italic printid$$ can point to the empty string
@@ -188,7 +188,7 @@ $index cross reference, next$$
 $section Return Next Cross Reference In Definition Order$$
 
 $table
-$bold Syntax$$ 
+$bold Syntax$$
 $cend $syntax/NextCrossReference(/cross/)/$$
 $tend
 
@@ -197,9 +197,9 @@ Returns a $code CrossReference$$ pointer that has the same
 $xref/CrossReference/Tag/tag/$$ as $italic cross$$
 and is defined directly after the definition of $italic cross$$.
 The argument $italic cross$$ is a $code CrossReference$$ pointer.
-If no such a cross reference exists, 
+If no such a cross reference exists,
 $code NULL$$ is returned.
-This is useful for listing the 
+This is useful for listing the
 $xref/glossary/Cross Reference Heading/cross reference headings/$$
 and corresponding links for a particular section.
 
@@ -223,11 +223,11 @@ $tend
 
 $head Description$$
 Checks that all the cross references were defined and prints an error
-message for each one that was not. In addition Frees all the memory 
-associated with the cross reference list 
-(using $xref/AllocMem/FreeMem/FreeMem/$$) and leave the list 
-as empty. 
-This should be done before 
+message for each one that was not. In addition Frees all the memory
+associated with the cross reference list
+(using $xref/AllocMem/FreeMem/FreeMem/$$) and leave the list
+as empty.
+This should be done before
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$ is called.
 
 $end
@@ -248,16 +248,16 @@ $end
 # include "main.h"
 
 # ifndef WIN32
-# define stricmp strcasecmp 
+# define stricmp strcasecmp
 # endif
 
-static  CrossReference *CreatedList = NULL; 
+static  CrossReference *CreatedList = NULL;
 static  CrossReference *DefinedList = NULL;
 
 static char *IdentifyCrossReference(
-	const char *tag, 
+	const char *tag,
 	const char *head,
-	const char *file, 
+	const char *file,
 	const int line
 )
 {	char *ret;
@@ -305,8 +305,8 @@ static char *IdentifyCrossReference(
 }
 
 CrossReference *CreateCrossReference(
-	const char *tag, 
-	const char *head, 
+	const char *tag,
+	const char *head,
 	const char *file
 )
 {	CrossReference *C;
@@ -340,10 +340,10 @@ CrossReference *CreateCrossReference(
 }
 
 CrossReference *FindCrossReference(
-	const char *tag, 
-	const char *head 
+	const char *tag,
+	const char *head
 )
-{	
+{
 	CrossReference *C;
 
 	assert( *tag != '\0' );
@@ -353,15 +353,15 @@ CrossReference *FindCrossReference(
 	while( C != NULL )
 	{	if( stricmp(C->tag, tag) == 0 && strcmp(C->head, head) == 0 )
 			return C;
-		else	
+		else
 			C = C->next_created;
 	}
 	return NULL;
 }
 
 CrossReference *DefineCrossReference(
-	const char *tag, 
-	const char *head, 
+	const char *tag,
+	const char *head,
 	const char *file,
 	const int  frame,
 	const char *printid
@@ -396,7 +396,7 @@ CrossReference *DefineCrossReference(
 		msg1 = IdentifyCrossReference(
 			tag, head, file, line);
 		msg2 = IdentifyCrossReference(
-			C->tag, C->head, C->file, C->line); 
+			C->tag, C->head, C->file, C->line);
 		msg3 = "\nIf the file names and line number are the same,"
 		       "\nthe file has probably been included twice.";
 		fatalerr(
@@ -409,7 +409,7 @@ CrossReference *DefineCrossReference(
 			NULL
 		);
 	}
-	 
+
 
 	// mark as defined
 	C->defined = 1;
@@ -440,7 +440,7 @@ CrossReference *DefineCrossReference(
 
 		L->next_defined = C;
 	}
-		
+
 	return C;
 }
 

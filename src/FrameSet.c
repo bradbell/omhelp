@@ -54,16 +54,16 @@ This file is displayed in a tall frame to the left of the section information.
 Otherwise, there is no link frame in this frame set.
 
 $head User Frames$$
-The other frames are displayed one above the other 
+The other frames are displayed one above the other
 (in order) to the right of the link frame.
 For $italic j$$ equal one to $italic F->nFrame$$,
 the file containing the $th j$$ frames information is assumed to be named
 $syntax%
 	%F->tagLower%_frame%j%.%ext%
 %$$
-If $italic j$$ is one 
+If $italic j$$ is one
 $italic ext$$ is equal to $italic FrameOneExt$$.
-Otherwise, 
+Otherwise,
 $italic ext$$ is the return value from the function
 $code Internal2Out("OutputExtension")$$.
 The $th j$$ frame is given the following HTML $code name$$ and $code id$$
@@ -85,7 +85,7 @@ $end
 
 void OutputFrameSet(SectionInfo *F, const char *FrameOneExt, int link_frame)
 {	const char *ext;
-	char buffer[200]; 
+	char buffer[200];
 	int iFrame;
 
 	// name of the frameset file
@@ -102,14 +102,14 @@ void OutputFrameSet(SectionInfo *F, const char *FrameOneExt, int link_frame)
 	// split into left and right frames
 	if( link_frame )
 	{	OutputString("<frameset cols=\"15%,*\">\n");
-	
+
 		// left frame is navation links
 		ext = Internal2Out("OutputExtension");
 		FormatOutput2( "<frame src=\"%s_links%s\"", F->tagLower, ext);
 		OutputString(Internal2Out("SelfTerminateCmd"));
 		OutputString("\n");
 	}
-	
+
 	// users set of frames
 	OutputString("<frameset rows=\"");
 	for(iFrame = 1; iFrame <= F->nFrame; iFrame++)
@@ -128,27 +128,27 @@ void OutputFrameSet(SectionInfo *F, const char *FrameOneExt, int link_frame)
 
 
 		OutputString("<frame src=");
-		sprintf(buffer, 
-			"\"%s_frame%d%s\"", 
-			F->tagLower, 
+		sprintf(buffer,
+			"\"%s_frame%d%s\"",
+			F->tagLower,
 			iFrame,
 			ext
 		);
 		OutputString(buffer);
 		OutputString(" name=");
-		sprintf(buffer, 
-			"\"frame%d\"", 
+		sprintf(buffer,
+			"\"frame%d\"",
 			iFrame
 		);
 		OutputString(buffer);
 		OutputString(" id=");
-		sprintf(buffer, 
-			"\"frame%d\"", 
+		sprintf(buffer,
+			"\"frame%d\"",
 			iFrame
 		);
 		OutputString(buffer);
-		sprintf(buffer, 
-			"%s\n", 
+		sprintf(buffer,
+			"%s\n",
 			Internal2Out("SelfTerminateCmd")
 		);
 		OutputString(buffer);
@@ -159,7 +159,7 @@ void OutputFrameSet(SectionInfo *F, const char *FrameOneExt, int link_frame)
 	// end left / right
 	if( link_frame )
 		OutputString("</frameset>\n");
-	
+
 	// terminate this output file
 	OutputString("</html>\n");
 	PopOutput();

@@ -18,11 +18,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 /*
 
 $begin spell$$
-$spell 
-	non 
-	wrd 
-	Init 
-	dir 
+$spell
+	non
+	wrd
+	Init
+	dir
 	Ok
 	const
 $$
@@ -37,17 +37,17 @@ $index SpellingError$$
 $index FreeSpelling$$
 
 $table
-$bold Syntax$$ 
+$bold Syntax$$
 $cend $syntax%void InitSpelling(const char *%dir%)%$$        $rend
 $cend $syntax%void SpellingOkList(const char *%special%)%$$  $rend
 $cend $syntax%const char *SpellingError(const char *%text%, int *%nOut%)%$$ $rend
-$cend $syntax%void FreeSpelling(int %debug%)%$$ 
+$cend $syntax%void FreeSpelling(int %debug%)%$$
 $tend
 
 $fend 25$$
 
 $head Description$$
-Routines that do spell checking and manage the 
+Routines that do spell checking and manage the
 current list of special words.
 
 
@@ -92,8 +92,8 @@ followed by a sequence of lower case letters.
 If there is no spelling error in $italic text$$, the return value is
 $code NULL$$.
 Otherwise the return value is a pointer to the beginning of the first
-spelling error in $italic text$$. 
-The error extends from this pointer, 
+spelling error in $italic text$$.
+The error extends from this pointer,
 for $italic nOut$$ characters.
 The spelling error is added to the list of OK words for this
 section so that the error is only reported once.
@@ -104,7 +104,7 @@ FreeSpelling(debug)
 /$$
 Frees all memory that is connected to spell checking
 This memory is allocated using $mref/AllocMem/$$
-and should be freed before calling 
+and should be freed before calling
 $xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$.
 
 If debug is true, a list of all reported spelling errors is written
@@ -150,12 +150,12 @@ typedef struct spellError {
 } SpellError;
 static SpellError *ErrorList = NULL;
 
-	
+
 
 /*------------ static functions -----------------------------*/
 
 static int BinarySearch(char *w, int low, int up)
-{	
+{
 	int   mid;
 	int   diff;
 
@@ -174,7 +174,7 @@ static int BinarySearch(char *w, int low, int up)
 		return low;
 
 
-	// bianry search 
+	// bianry search
 	while( up > low + 1 )
 	{	mid = low + (up - low) / 2;
 
@@ -189,7 +189,7 @@ static int BinarySearch(char *w, int low, int up)
 }
 
 static int find(char *word)
-{	
+{
 	int up;
 	int low;
 	int index;
@@ -202,10 +202,10 @@ static int find(char *word)
 }
 
 static void getWord(
-	char word[MAX_WORD], 
-	FILE *fp, 
-	int *ch, 
-	int *line, 
+	char word[MAX_WORD],
+	FILE *fp,
+	int *ch,
+	int *line,
 	char *file
 )
 {	int i;
@@ -226,7 +226,7 @@ static void getWord(
 
 	// copy word into buffer
 	for(i = 0; ! isspace((int) *ch) && i < MAX_WORD - 1; i++)
-	{	if( *ch >= 127 ) 
+	{	if( *ch >= 127 )
 		{	char number[100];
 			sprintf(number, "%d", *line);
 			fatalerr(
@@ -237,7 +237,7 @@ static void getWord(
 			NULL
 			);
 		}
-		
+
 		word[i]  = (char) tolower((int) *ch);
 		*ch       = getc(fp);
 	}
@@ -278,7 +278,7 @@ void InitSpelling(const char *dir)
 	if( binaryDictionary )
 	{	// read the binary form of the dictionary
 		ok = 1;
-	    	ok = ok && fread(&Nword, sizeof(int), 1, fpDic) == 1;
+		ok = ok && fread(&Nword, sizeof(int), 1, fpDic) == 1;
 		ok = ok && fread(&Nmemory, sizeof(int), 1, fpDic) == 1;
 
 		Word  = AllocMem(Nword, sizeof(int));
@@ -303,8 +303,8 @@ void InitSpelling(const char *dir)
 		fclose(fpDic);
 		return;
 	}
-    	printf("%s does not exist, wait while it is created\n",
-    		fileDic);
+	printf("%s does not exist, wait while it is created\n",
+		fileDic);
 	FreeMem(fileDic);
 
 	// open ascii word list files
@@ -526,7 +526,7 @@ const char *SpellingError(const char *text, int *nOut)
 		// check for this word the same as the last word
 		// but ignore single letter words
 		if( strcmp(lowcase, lowlast) == 0 && len > 3 )
-		{	
+		{
 			assert( len + len - 1 < MAX_WORD );
 
 			// the double word starts here
@@ -562,14 +562,14 @@ const char *SpellingError(const char *text, int *nOut)
 			found = find(lowcase + 1) >= 0;
 		}
 		if( ! found )
-		{	
+		{
 			// determine alphabetical position in error list
 			previous = NULL;
 			next     = ErrorList;
-			while ( 
-				(next != NULL) &&  
+			while (
+				(next != NULL) &&
 				(strcmp(next->word, lowcase + 1) < 0)
-			){			
+			){
 				previous = next;
 				next     = next->next;
 			}
@@ -609,7 +609,7 @@ const char *SpellingError(const char *text, int *nOut)
 }
 
 void FreeSpelling(int debug)
-{	// initialize to avoid warning (set again before used)	
+{	// initialize to avoid warning (set again before used)
 	FILE *fp = NULL;
 
 	SpellError *current, *next;
@@ -620,10 +620,10 @@ void FreeSpelling(int debug)
 
 	if( debug)
 		fp = fopen("error.wrd", "w");
-	
+
 	current     = ErrorList;
 	while ( current != NULL )
-	{	
+	{
 		if( debug )
 			fprintf(fp, "%s\n", current->word);
 		next = current->next;
@@ -655,10 +655,10 @@ void SpellingOkList(const char *list)
 		return;
 	}
 
-	// length of list 
+	// length of list
 	len_list = strlen(list);
 
-	// length of special word 
+	// length of special word
 	if( Special == NULL )
 		len_special = 0;
 	else	len_special = strlen(Special);
@@ -672,7 +672,7 @@ void SpellingOkList(const char *list)
 	j = 0;
 	if( Special == NULL )
 		special[j++] = ' ';
-	else while( Special[j] != '\0' ) 
+	else while( Special[j] != '\0' )
 	{	special[j] = Special[j];
 		j++;
 	}

@@ -1,26 +1,26 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin xref$$
-$spell 
+$spell
 	noframe
-	hypertext 
-	omhelp 
+	hypertext
+	omhelp
 	xref
 	linkingtext
 	OMhelp
@@ -39,7 +39,7 @@ $cnext $syntax/@xref%/tag/%@@/$$ $rnext
 $cnext $syntax/@xref%/tag/%/heading/%@@/$$ $rnext
 $cnext $syntax/@xref%/tag/%/heading/%/linkingtext/%@@/$$ $rnext
 $cnext $syntax/@xref%/tag/%/heading/%/linkingtext/%/frame/%@@/$$ $rnext
-$cnext $syntax/@xref%/tag/%/heading/%/subheading/%/linkingtext/%/frame/%@@/$$ 
+$cnext $syntax/@xref%/tag/%/heading/%/subheading/%/linkingtext/%/frame/%@@/$$
 $rnext
 $bold See Also$$
 $mref/href/mref/tref/$$
@@ -48,7 +48,7 @@ $tend
 $fend 30$$
 
 $head Deprecated$$
-With the advent of the 
+With the advent of the
 $cref/-noframe/running/noframe/$$ command line argument,
 the use of frames is being discouraged.
 For this reason, the entire $code xref$$ command has been deprecated
@@ -63,7 +63,7 @@ $syntax/
 /$$
 is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
 and $code %$$ can be any character that is not a letter.
-Leading and trailing white space in 
+Leading and trailing white space in
 $italic tag$$,
 $italic heading$$,
 $italic subheading$$,
@@ -84,7 +84,7 @@ The value of $italic heading$$ specifies the
 destination $xref/head//heading/$$ for the link
 (within the section specified by $italic tag$$).
 If this heading is empty (or not present),
-the link is to the corresponding entire 
+the link is to the corresponding entire
 $xref/glossary/Section/section/$$ specified by $italic tag$$.
 
 $head Linkingtext$$
@@ -99,7 +99,7 @@ specifies the $xref/fend/Frames/frame/$$ number
 that is replaced by the corresponding to the link.
 $list number$$
 If $italic frame$$ is present,
-it must be 
+it must be
 a valid frame number for the current section.
 In this case, $italic heading$$ must not be empty
 and the linking text is displayed in italic font.
@@ -117,9 +117,9 @@ $lend
 
 $head Subheading$$
 The value of $italic subheading$$ specifies the
-destination $xref/head//subheading/$$ for the link 
+destination $xref/head//subheading/$$ for the link
 (within the section specified by $italic tag$$ and the heading
-specified by $italic heading$$). 
+specified by $italic heading$$).
 If $italic subheading$$ is present,
 $italic heading$$ must not be empty.
 
@@ -129,7 +129,7 @@ as part of the $italic heading$$ argument.
 If $italic subheading$$ is not present,
 this still works for backward compatibility.
 To use this option, the value $italic heading$$ in the $code xref$$ command
-must be the corresponding destination heading followed by a 
+must be the corresponding destination heading followed by a
 single period ('.') followed by the destination subheading.
 
 $head Example$$
@@ -142,7 +142,7 @@ $italic heading$$ is not present,
 $italic subheading$$ is not present,
 $italic linkingtext$$ is not present,
 and $italic frame$$ is not present.
-Thus the linking text is $code head$$ 
+Thus the linking text is $code head$$
 and the entire window is replaced by the link.
 You can see the effect by selecting the following link: $xref/head/$$.
 
@@ -188,9 +188,9 @@ $italic heading$$ is equal to $code Example Heading$$,
 $italic subheading$$ is not present,
 $italic linkingtext$$ is equal to $code example heading$$,
 and $italic frame$$ is equal to $code 2$$.
-Thus frame number 2 corresponds to the link 
+Thus frame number 2 corresponds to the link
 and the linking text is in italic.
-You can see the effect of the $code xref$$ command above by selecting 
+You can see the effect of the $code xref$$ command above by selecting
 the following link:
 $xref/head/Example Heading/example heading/2/$$
 $pre
@@ -215,10 +215,10 @@ $$
 $italic tag$$ is equal to $code head$$,
 $italic heading$$ is equal to $code Example Subheading$$
 $italic subheading$$ is equal to $code Topic$$,
-$italic linkingtext$$ is equal to 
+$italic linkingtext$$ is equal to
 $code the Topic example subheading$$,
 and $italic frame$$ is equal to one.
-You can see the effect of the $code xref$$ command above by selecting 
+You can see the effect of the $code xref$$ command above by selecting
 the following link:
 $xref/
 	head/

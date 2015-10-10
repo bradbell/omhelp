@@ -32,7 +32,7 @@ $head Syntax$$
 $syntax%%e% = near_equal_c(%x%, %y%, %r%, %a%)%$$
 
 $head Purpose$$
-Returns true, 
+Returns true,
 if $italic x$$ is nearly equal to $italic y$$ and false otherwise.
 
 $head x$$

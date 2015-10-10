@@ -50,16 +50,16 @@ $tend
 
 $fend 25$$
 
-$syntax/PushPending(/line/, /name/) 
+$syntax/PushPending(/line/, /name/)
 /$$
 This signals the beginning of the specified command
 where the integer $italic line$$ is the line number the command appears,
 $xref/InputName//InputName()/$$ is the file,
 and $italic name$$ is a '\0' terminate character vector
-of at most 
+of at most
 $codep */
 // maximum number of characters in a command name
-# define MAX_NAME 20 
+# define MAX_NAME 20
 /* $$
 minus one characters long.
 $syntax/
@@ -88,8 +88,8 @@ The argument '\0' terminated character vector
 $italic input$$ is the OMhelp (latex) input text before which
 the pending commands should have been terminated.
 The integer $italic line$$ is the line number where $italic input$$
-appears. 
-An error message is printed identifying the command 
+appears.
+An error message is printed identifying the command
 on top of the stack (most recently pushed command)
 that has not been terminated.
 Then execution is terminated; i.e., this routine does not return.
@@ -99,7 +99,7 @@ TexPendingError(/msg/)
 /$$
 The value returned by $code NumberPending$$ must be greater
 than zero or else it is a programming error to call this routine.
-An error message is printed beginning with $italic msg$$ 
+An error message is printed beginning with $italic msg$$
 followed by a new line.
 The lack of termination of the pending command on the top of the
 stack is reported as a possible cause of the error.

@@ -17,10 +17,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 /*
 $begin fatalerr$$
-$spell 
-	fatalerr 
-	fatalomh 
-	fataltex 
+$spell
+	fatalerr
+	fatalomh
+	fataltex
 	OMhelp
 	myfile
 $$
@@ -33,10 +33,10 @@ $index execution, terminating on error$$
 $index fatal, error$$
 
 $table
-$bold Syntax$$ 
+$bold Syntax$$
 $cend $syntax%fatalerr(char *%s1%, %...%)%$$ $rnext
 $cend $syntax%fatalomh(char *%s1%, %...%)%$$ $rnext
-$cend $syntax%fataltex(char *%s1%, %...%)%$$ 
+$cend $syntax%fataltex(char *%s1%, %...%)%$$
 $tend
 
 $fend 25$$
@@ -66,7 +66,7 @@ is printed on standard output followed by the $italic Message$$.
 Otherwise
 $syntax/
 	OMhelp Error: in file /File/:
-/$$ 
+/$$
 is printed on standard output followed by the $italic Message$$.
 
 $head fatalomh$$
@@ -76,7 +76,7 @@ be a current input file.
 The text
 $syntax/
 	OMhelp Error: in file /File/:
-/$$ 
+/$$
 is printed on standard output followed by the $italic Message$$.
 After $italic Message$$, and starting with a new line,
 a line number is reported.
@@ -96,7 +96,7 @@ be a current input file.
 The text
 $syntax/
 	OMhelp Error: Latex in file /File/:
-/$$ 
+/$$
 is printed on standard output followed by the $italic Message$$.
 Extra information is printed after $italic Message$$,
 and starting with a new line.
@@ -206,7 +206,7 @@ void fatalomh(const char *s1, ...)
 	// print input file identification
 	if( strcmp(InputName(), "NONE") != 0 ) printf(
 		"\nError occurred in or before line %d.\n",
-	    	InputLine()
+		InputLine()
 	);
 
 	trace_exit(1);
@@ -262,7 +262,7 @@ void fataltex(const char *s1, ...)
 		printf("\n\nPrevious Latex input tokens are\n");
 	else if( number == 1 )
 		printf("\nPrevious Latex input token is ");
-	else	printf("\nError occurred in next token after $latex command."); 
+	else	printf("\nError occurred in next token after $latex command.");
 	for(i = 1; i <= number; i++)
 	{	printf(" %s", token[number - i] );
 		FreeMem( token[number - i] );
@@ -272,11 +272,11 @@ void fataltex(const char *s1, ...)
 	if( strcmp(InputName(), "NONE") != 0 )
 	{	if( number > 1 ) printf(
 			"\nThe first token occurred in line %d.\n",
-	    		line[number - 1]
+			line[number - 1]
 		);
 		else if( number == 1 ) printf(
 			"\nThis token occurred in line %d.\n",
-	    		line[number - 1]
+			line[number - 1]
 		);
 		else	printf(
 			"\nThe $latex command is in or before line %d.\n",

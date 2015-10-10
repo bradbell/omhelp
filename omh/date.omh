@@ -1,17 +1,17 @@
 # BEGIN SHORT COPYRIGHT
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -19,7 +19,7 @@
 # END SHORT COPYRIGHT
 #
 $begin date$$
-$spell 
+$spell
 	OMhelp
 $$
 $escape #$$
@@ -42,26 +42,26 @@ corresponding to the current execution of OMhelp in the output.
 
 
 $head Example$$
-This command is useful for identifying the version of the 
+This command is useful for identifying the version of the
 web site corresponding to this execution of OMhelp.
 For example, the input
 $codep
 	The help system you are reading was compiled by OMhelp
-	on @date. 
-	Please use this date, 
+	on @date.
+	Please use this date,
 	and the date printed out when OMhelp executes,
 	to identify the version corresponding to
 	any bug reports or questions about OMhelp.
 
-	
+
 $$
 results in:
 $pre
 $$
 
 The help system you are reading was compiled by OMhelp
-on $date. 
-Please use this date, 
+on $date.
+Please use this date,
 and the date printed out when OMhelp executes,
 to identify the version corresponding to
 any bug reports or questions about OMhelp.

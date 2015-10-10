@@ -1,26 +1,26 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin path$$
-$spell 
-	path 
-	cpp 
-	src 
+$spell
+	path
+	cpp
+	src
 	omwin
 	OMhelp
 	childtable
@@ -36,7 +36,7 @@ $table
 $bold Syntax$$
 $cnext $syntax/@path%/directory/%/extension/%@@/$$ $rnext
 $bold See Also$$
-$cnext $xref/children//contents/$$, 
+$cnext $xref/children//contents/$$,
 	$cref/root section/running/root_file/$$
 $tend
 
@@ -44,9 +44,9 @@ $fend 20$$
 
 $head Description$$
 This command adds $italic directory$$ to the set of directories that OMhelp
-searches for files with 
+searches for files with
 $xref/glossary/File Extension/file extension/$$
-equal to $italic extension$$. 
+equal to $italic extension$$.
 $syntax/
 
 %/directory/%/extension/%
@@ -54,7 +54,7 @@ $syntax/
 is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
 
 $head Relative Paths$$
-If $italic directory$$ is not a 
+If $italic directory$$ is not a
 $xref/glossary/Complete Path Specification/complete path specification/$$,
 the path specification is relative to the
 directory where the file containing the
@@ -62,7 +62,7 @@ $cref/root section/running/root_file/$$
 is located.
 
 $head Ignored$$
-This command is ignored unless it appears in the 
+This command is ignored unless it appears in the
 $cref/root section/running/root_file/$$.
 This enables one to use one OMhelp web site as a sub-tree of
 a larger OMhelp web site.
@@ -78,13 +78,13 @@ $codep
 	@path/c:\src/.cpp/@@
 	@path/c:\omwin\function/.mat/@@
 $$
-adds the directory $code c:\src$$ 
+adds the directory $code c:\src$$
 to the search path for input files that have the extension $code .cpp$$,
-and the directory $code c:\omwin\function$$ 
+and the directory $code c:\omwin\function$$
 to the search path for input files that have the extension $code .mat$$.
 The directories are searched in the order that they are specified by
 the $code path$$ command.
-Note that input files are specified by the 
+Note that input files are specified by the
 $code contents$$, $code childtable$$, and $mref/children/$$ commands.
 
 $head Reference$$
@@ -94,7 +94,7 @@ for the OMhelp.
 $pre
 
 $$
-Both the forward slash $code /$$ 
+Both the forward slash $code /$$
 or the back slash $code \$$
 can be used as a directory separator character.
 For example, the path commands above are equivalent to

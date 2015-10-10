@@ -31,10 +31,10 @@ $$
 $section Extract Color Style From Delimiter Sequence$$
 
 $table
-$bold Syntax$$ 
+$bold Syntax$$
 $cend $syntax%char *Color(
-	char *%line%, 
-	char *%cmd%, 
+	char *%line%,
+	char *%cmd%,
 	char *%delseq%
 )%$$
 $tend
@@ -53,8 +53,8 @@ color names specified below.
 Otherwise,
 each token is a positive integer between 0 and 255
 that specifies the RGB value for the color.
-The return value 
-of $code Color$$ 
+The return value
+of $code Color$$
 is a '\0' terminate character vector containing a valid
 for a color style.
 It is allocated using $xref/AllocMem/$$ and should be freed
@@ -64,7 +64,7 @@ using $xref/AllocMem/FreeMem/FreeMem/$$ when it is no longer needed.
 $head Color Names$$
 The valid color names are case insensitive and are listed below:
 $table
-$pre     $$ 
+$pre     $$
 	$cnext Black    $cnext Green  $rnext
 	$cnext Silver   $cnext Lime   $rnext
 	$cnext Gray     $cnext Olive  $rnext
@@ -86,7 +86,7 @@ $italic line$$ as the line number in the input file
 and $italic cmd$$ as the command where the error occurred
 in a delimiter sequence.
 
-$end 
+$end
 -----------------------------------------------------------------------------
 */
 
@@ -102,7 +102,7 @@ $end
 # include <string.h>
 
 # ifndef WIN32
-# define stricmp strcasecmp 
+# define stricmp strcasecmp
 # endif
 
 static int IsUnsignedInteger(const char *text, int lower, int upper)
@@ -113,7 +113,7 @@ static int IsUnsignedInteger(const char *text, int lower, int upper)
 
 	value  = atoi(text);
 	flag  &= lower <= value && value <= upper;
-	
+
 	while( *text != '\0' )
 	{	flag &= ( '0' <= *text) & (*text <= '9');
 		++text;
@@ -157,7 +157,7 @@ char *Color(int line, const char *cmd, char *delseq)
 
 	assert( delseq != NULL );
 
-	
+
 	ntoken = SplitText(line, cmd, delseq);
 	str    = delseq + 1;
 
@@ -179,7 +179,7 @@ char *Color(int line, const char *cmd, char *delseq)
 			NULL
 		);
 	}
-	
+
 
 	if( ntoken != 3 ) fatalomh(
 		"At ",

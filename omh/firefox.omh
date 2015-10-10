@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -89,8 +89,8 @@ $$
 $href%firefox.htm%HTML version of this web page%$$.
 
 $head Purpose$$
-The 
-$href%http://www.mozilla.org%Firefox%$$ 
+The
+$href%http://www.mozilla.org%Firefox%$$
 browser can display both XHTML and MathML commands.
 Below is a list of cases where Firefox
 appears to have problems displaying MathML commands.
@@ -166,7 +166,7 @@ $$
 The file
 $execute FirefoxJavascript.xml$$
 which contains the XML commands below.
-Note that the word $code Test$$ should, 
+Note that the word $code Test$$ should,
 but does not, appear in the text area.
 $nospell
 $codep
@@ -230,23 +230,23 @@ $index operator, size firefox bug$$
 $index size, operator firefox bug$$
 In section 3.2.5.9 of
 $href%http://www.w3.org/TR/MathML2/chapter3.html#presm.mo%$$
-it states 
-"The $code largeop$$ attribute specifies whether the operator 
-should be drawn larger than normal if 
+it states
+"The $code largeop$$ attribute specifies whether the operator
+should be drawn larger than normal if
 $code displaystyle="true"$$ in the current rendering environment.
-This does not work properly for the 
+This does not work properly for the
 $code &coprod;$$ (code $code &#x02210;$$) or
 $code &bigvee;$$ (code $code &#x022C1;$$) or
 $code &bigwedge;$$ (code $code &#x022C0;$$) symbols.
 For example
 $codep
-	<mo displaystyle="false" largeop="true">&#x022C1;</mo> 
-	<mo displaystyle="true" largeop="true">&#x022C1;</mo> 
+	<mo displaystyle="false" largeop="true">&#x022C1;</mo>
+	<mo displaystyle="true" largeop="true">&#x022C1;</mo>
 $$
 generates the output
-$latex \[ \mathml{ 
-	<mo displaystyle="false" largeop="true">&#x022C1;</mo> 
-	<mo displaystyle="true" largeop="true">&#x022C1;</mo> 
+$latex \[ \mathml{
+	<mo displaystyle="false" largeop="true">&#x022C1;</mo>
+	<mo displaystyle="true" largeop="true">&#x022C1;</mo>
 } \]$$
 
 
@@ -257,9 +257,9 @@ $index symbol, firefox bug$$
 The following symbols do not seem to be displayed correctly:
 
 $nospell $table
-$bold Latex $$ 
-	$cnext $bold MathML$$ 
-	$cnext $bold W3 File$$ 
+$bold Latex $$
+	$cnext $bold MathML$$
+	$cnext $bold W3 File$$
 	$cnext $bold W3 Image$$
 	$cnext $bold Firefox$$
 	$rnext

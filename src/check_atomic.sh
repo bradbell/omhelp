@@ -2,7 +2,7 @@
 #  Check the entries in the file LatexAtomic.c
 #
 byalpha="http://www.w3.org/TR/MathML2/byalpha.html"
-if [ ! -e byalpha.html ] 
+if [ ! -e byalpha.html ]
 then
 	echo "wget byalpha.html"
 	wget $byalpha

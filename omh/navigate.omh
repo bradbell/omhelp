@@ -17,7 +17,7 @@ $head Syntax$$
 $syntax|@navigate%|type 1|%|label 1|% |...| %|type n|%|label n|%@@|$$
 
 $head Purpose$$
-OMhelp automatically creates navigation links, 
+OMhelp automatically creates navigation links,
 relative to each section (at the top of each section).
 The $code @navigate$$ command
 determines which navigation links are included,
@@ -28,29 +28,29 @@ $head Type$$
 The navigation links have the types listed in the table below.
 $center
 $table
-$bold Type$$  
+$bold Type$$
 	$cnext $bold Link to$$
 $rnext
-$code Content$$  
+$code Content$$
 	$cnext The table of contents section for entire document
-$rnext 
-$code Prev$$     
+$rnext
+$code Prev$$
 	$cnext The previous section in read order
-$rnext 
-$code Next$$     
+$rnext
+$code Next$$
 	$cnext The next section in read order
-$rnext 
-$code Top$$     
-	$cnext The section at the top of tree 
+$rnext
+$code Top$$
+	$cnext The section at the top of tree
 	(corresponds to $cref/root_file/running/root_file/$$)
 $rnext
-$code Up$$       
+$code Up$$
 	$cnext The group of section above this one in tree
 $rnext
-$code Sibling$$  
+$code Sibling$$
 	$cnext The group of sections with same parent as this one in tree
 $rnext
-$code Down$$     
+$code Down$$
 	$cnext The group of sections directly below this one in tree
 $rnext
 $syntax%Down_up_%i%$$
@@ -59,14 +59,14 @@ $syntax%Down_up_%i%$$
 $rnext
 	$cnext where $italic i$$ is a number between $code 0$$ and $code 9$$.
 $rnext
-$code Across$$   
+$code Across$$
 	$cnext The group of sections that cross reference entire document
 $rnext
-$code Current$$  
+$code Current$$
 	$cnext The group of headings and subheadings for this section
 $tend
 $$
-Note that the type $code Down_up_1$$ is the same as $code Sibling$$ 
+Note that the type $code Down_up_1$$ is the same as $code Sibling$$
 and $code Down_up_0$$ is the same as $code Down$$
 (but $code Down_up_2$$ is not the same as $code Up$$).
 
@@ -89,7 +89,7 @@ The section above               $cnext $pre B$$  $rnext
 The section two levels up       $cnext $pre A$$  $rnext
 The group above this one        $cnext $pre B$$, $pre A$$ $rnext
 The group of siblings           $cnext $pre C$$, $pre F$$ $rnext
-The group directly below        $cnext $pre G$$, $pre J$$ 
+The group directly below        $cnext $pre G$$, $pre J$$
 $tend
 
 $head label$$
@@ -97,7 +97,7 @@ The value $italic label 1$$ is the label that the user will see
 for the navigation links corresponding to $italic type 1$$.
 The value $italic label 2$$ is the label that the user will see
 for the navigation links corresponding to $italic type 2$$ and so on.
-The labels cannot begin with the special character $code _$$ 
+The labels cannot begin with the special character $code _$$
 with the following special exception:
 $syntax%
 
@@ -115,7 +115,7 @@ $index navigate, Prev$$
 $index Next, navigate$$
 $index navigate, Next$$
 Note that the size of the label corresponding to $syntax%_up_%i%$$
-will change from section to section. 
+will change from section to section.
 Hence the position of subsequent labels in the navigation command will change.
 Because the user will often repeatedly select $code Prev$$ or $code Next$$,
 it is desirable to have their positions the same for all sections.
@@ -181,8 +181,8 @@ $codep
 $$
 
 $head Root Section$$
-In the special case where a $code @navigate$$ command appears in the 
-$cref/root section/running/root_file/$$ section, 
+In the special case where a $code @navigate$$ command appears in the
+$cref/root section/running/root_file/$$ section,
 and does not appear in the current section,
 the value specified in the root section is used for the current section; i.e.,
 it replaces the $cref/default/navigate/Default/$$ command above.

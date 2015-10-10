@@ -1,24 +1,24 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin pre$$
-$spell 
-	pre 
+$spell
+	pre
 	codep
 	OMhelp
 $$
@@ -45,7 +45,7 @@ $tend
 $fend 20$$
 
 $head Description$$
-All of the characters in $italic text$$ are printed in a 
+All of the characters in $italic text$$ are printed in a
 $cref/pre-formatted font/glossary/Pre-formatted Font/$$.
 There can be no $code @$$ characters in $italic text$$.
 The $code pre$$ command uses a font that is close to the
@@ -72,18 +72,18 @@ $pre
 	end
 $$
 $head Reference$$
-All of the new lines, tabs, and spaces in $italic text$$ 
+All of the new lines, tabs, and spaces in $italic text$$
 are significant
 including the first and last one.
 Thus you can use this command to generate a line break.
 For example, the input
 $codep
-	Here is line one. 
+	Here is line one.
 	@pre
 	@@
 	Here is line two.
 $$
-would create the following output 
+would create the following output
 $pre
 	$$Here is line one.
 $pre

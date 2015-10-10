@@ -33,7 +33,7 @@ Set commands for highlighting and automatic cross reference done by the
 $code hilite_out$$ command.
 
 $head line$$
-Is the line number in the current OMhelp input file 
+Is the line number in the current OMhelp input file
 that is used for error reporting erros in the $code hilitecmd$$ command.
 A fatal error is reported if $icode n_command$$ is to large.
 A fatal error is also reported
@@ -48,7 +48,7 @@ If $icode n_command$$ is equal to zero, $icode commands$$ is not used.
 $head commands$$
 The first chatacter in $icode commands$$ is an $code '\0'$$.
 For $icode i$$ between zero and $icode%n_command%-1%$$,
-The $th i$$ command is the characters between the 
+The $th i$$ command is the characters between the
 $th i-1$$ and $th i$$ occurance of $code '\0'$$ in $icode commands$$.
 in $icode commands$$.
 Thus there are $icode%n_command%+1%$$ occurances of $code '\0'$$ in
@@ -63,7 +63,7 @@ $end
 --------------------------------------------------------------------------
 $begin hilite_pattern$$
 
-$section 
+$section
 Set Patterns and Tags for Automatic Highlighting and Cross Referencing$$
 
 $head Syntax$$
@@ -74,13 +74,13 @@ $codei%void hilite_seq(
 %$$
 
 $head Purpose$$
-Set patterns and tags for highlighting and automatic cross reference 
+Set patterns and tags for highlighting and automatic cross reference
 done by the $code hilite_out$$ command.
 
 $head line$$
 Is the line number in the current OMhelp input file that is used
 for error reporting erros in the $code hilitecmd$$ command.
-A fatal error is reported if $icode n_arg$$ is not 
+A fatal error is reported if $icode n_arg$$ is not
 a multiple of four.
 A fatal error is also reported if one of the patterns or tags is too large.
 
@@ -93,27 +93,27 @@ For $icode%j%=1,%...%n_arg%/4%$$:
 $pre
 
 $$
-$icode before_j$$ is the characters between 
-$codei%4*%j% - 3%$$ and the $codei%4*%j% - 2%$$ 
-terminating $code '\0'$$ in $icode args$$. 
+$icode before_j$$ is the characters between
+$codei%4*%j% - 3%$$ and the $codei%4*%j% - 2%$$
+terminating $code '\0'$$ in $icode args$$.
 $pre
 
 $$
-$icode seq_j$$ is the characters between 
-$codei%4*%j% - 2%$$ and the $codei%4*%j% - 1%$$ 
-terminating $code '\0'$$ in $icode args$$. 
+$icode seq_j$$ is the characters between
+$codei%4*%j% - 2%$$ and the $codei%4*%j% - 1%$$
+terminating $code '\0'$$ in $icode args$$.
 $pre
 
 $$
-$icode after_j$$ is the characters between 
-$codei%4*%j% - 1%$$ and the $codei%4*%j%$$ 
-terminating $code '\0'$$ in $icode args$$. 
+$icode after_j$$ is the characters between
+$codei%4*%j% - 1%$$ and the $codei%4*%j%$$
+terminating $code '\0'$$ in $icode args$$.
 $pre
 
 $$
-$icode tag_j$$ is the characters between 
-$codei%4*%j%$$ and the $codei%4*%j% + 1%$$ 
-terminating $code '\0'$$ in $icode args$$. 
+$icode tag_j$$ is the characters between
+$codei%4*%j%$$ and the $codei%4*%j% + 1%$$
+terminating $code '\0'$$ in $icode args$$.
 $pre
 
 $$
@@ -134,11 +134,11 @@ $codei%void hilite_out(
 	int         %spell_check%   ,
 	const char *%error_color%   ,
 	const char *%hilite_color%  ,
-	int         %pre%           , 
+	int         %pre%           ,
 	char       *%text%          )%$$
 
 $head Purpose$$
-Outputs $icode text$$ with automatic highlightling and 
+Outputs $icode text$$ with automatic highlightling and
 cross referencing as defined
 by the previous call to $code hilite_command$$ and $code hilite_token$$.
 
@@ -180,7 +180,7 @@ $head Syntax$$
 $icode hilite_set_default()$$
 
 $head Purpose$$
-The current settings by 
+The current settings by
 $cref hilite_command$$ and $cref hilite_seq$$
 are stored so that they can be recalled later.
 
@@ -194,8 +194,8 @@ $head Syntax$$
 $icode hilite_get_default()$$
 
 $head Purpose$$
-The values stored by the previous call to 
-$code hilite_set_default$$ are restored as the current settings corresponding 
+The values stored by the previous call to
+$code hilite_set_default$$ are restored as the current settings corresponding
 $cref hilite_command$$ and $cref hilite_seq$$.
 If there was no previous call to $cref hilite_set_default$$,
 the correspondign settings will not highlite or cross reference any commands.
@@ -227,10 +227,10 @@ $end
 # define MAX_NPATTERN 20
 
 // set by previous call to hilite_default
-static int  Ncommand_default = 0; 
+static int  Ncommand_default = 0;
 static char Command_default[MAX_NTOKEN][MAX_TOKEN];
 
-static int  Npattern_default = 0; 
+static int  Npattern_default = 0;
 static char Before_default [MAX_NTOKEN][MAX_TOKEN];
 static char Seq_default    [MAX_NTOKEN][MAX_TOKEN];
 static char After_default  [MAX_NTOKEN][MAX_TOKEN];
@@ -241,7 +241,7 @@ static int  Ncommand = 0;
 static char Command[MAX_NTOKEN][MAX_TOKEN];
 
 // set by previous call to hilite_seq
-static int  Npattern = 0; 
+static int  Npattern = 0;
 static char Before [MAX_NTOKEN][MAX_TOKEN];
 static char Seq    [MAX_NTOKEN][MAX_TOKEN];
 static char After  [MAX_NTOKEN][MAX_TOKEN];
@@ -371,7 +371,7 @@ void hilite_command(
 			command,
 			" is not valid in this context.",
 			NULL
-		);	
+		);
 		assert( strlen(command) < MAX_TOKEN );
 		strcpy(Command[i], command);
 		command = command + len + 1;
@@ -429,7 +429,7 @@ void hilite_seq(
 		);
 		strcpy(Seq[i], seq);
 		//
-		// After 
+		// After
 		ClipWhiteSpace(after);
 		if( strlen(after) > MAX_TOKEN - 1) fatalomh(
 			"Error in the hiliteseq command that begins in line ",
@@ -458,17 +458,17 @@ void hilite_seq(
 
 void hilite_out(
 	const char *command        ,
-	int         line           , 
-	int         check_spell    , 
-	const char *error_color    , 
+	int         line           ,
+	int         check_spell    ,
+	const char *error_color    ,
 	const char *hilite_color   ,
-	int         pre            , 
+	int         pre            ,
 	char       *text
 )
 {	int i, len, index, flag, done;
 	int  start = 0;
 	char skip  = '\0';
-	
+
 	flag = 0;
 	for(i = 0; i < Ncommand; i++)
 		flag |= strcmp(command, Command[i]) == 0;
@@ -526,9 +526,9 @@ void hilite_out(
 			}
 			save        = text[after];
 			text[after] = '\0';
-			output_text(line, text + seq, pre, skip, 
+			output_text(line, text + seq, pre, skip,
 				check_spell, error_color
-			); 
+			);
 			text[after] = save;
 
 			if( Tag[index][0] == '\0' )

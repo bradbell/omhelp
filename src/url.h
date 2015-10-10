@@ -30,10 +30,10 @@ $section Map Link Representation to a URL$$
 
 $head Syntax$$
 $cend $syntax%char *Url(
-	const char *%tag% , 
+	const char *%tag% ,
 	const char *%head%,
 	const char *%head%
-)%$$ 
+)%$$
 
 $head Purpose$$
 Maps the internal represent of a link to a web address
@@ -51,7 +51,7 @@ $italic tag$$ is the cross reference tag for the section
 corresponding to this link.
 
 $head head$$
-This argument specifies the heading 
+This argument specifies the heading
 (with in the file) corresponding to the link.
 If the link is to the entire section, head is equal to the empty string; i.e.
 $syntax%

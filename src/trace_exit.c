@@ -24,7 +24,7 @@ $end
 # include <stdlib.h>
 void trace_exit(int status)
 {
-	if( status != 0 ) fprintf(stdout, 
+	if( status != 0 ) fprintf(stdout,
 			"\nOMhelp exiting with status equal to %d.\n", status);
 	exit(status);
 }

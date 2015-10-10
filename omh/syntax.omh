@@ -1,25 +1,25 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
 $begin syntax$$
-$spell 
+$spell
 	OMhelp
-	syntax 
+	syntax
 	codep
 $$
 $escape #$$
@@ -48,7 +48,7 @@ $code code$$ and $code italic$$ $xref/font/$$.
 $syntax/
 
 %/code1/%/italic1/%/.../%/codeN/%/italicN/%
-/$$ 
+/$$
 is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
 and $code %$$ can be any character that is not a letter.
 The characters in $italic code1$$, ..., $italic codeN$$
@@ -59,7 +59,7 @@ $pre
 
 $$
 All $xref/glossary/White Space/white space/$$ characters
-are preserved in the $italic code$$ entries. Thus new lines 
+are preserved in the $italic code$$ entries. Thus new lines
 in $italic code1$$, ..., $italic codeN$$
 will correspond to new lines in the output.
 $pre
@@ -79,17 +79,17 @@ $syntax%
 %$$
 The input
 $codep
-	@syntax%f(%x%) = 
+	@syntax%f(%x%) =
 		g(%x%, %y%)%@@
 $$
 produces the following output
 $syntax%
-	f(%x%) = 
+	f(%x%) =
 		g(%x%, %y%)
 %$$
 The input
 $codep
-	@syntax%f(%x%) = % 
+	@syntax%f(%x%) = %
 		%g(%x%, %y%)%@@
 $$
 produces the following output

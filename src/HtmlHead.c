@@ -176,10 +176,10 @@ void OutputHtmlHead(SectionInfo *F)
 			NULL
 		);
 
-		FormatOutput( 
+		FormatOutput(
 			"<script type='text/javascript' "
 			"language='JavaScript' src='%s'>\n</script>\n",
-			name	
+			name
 		);
 		FreeMem(name);
 	}

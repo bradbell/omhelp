@@ -29,15 +29,15 @@ extern int ConvertPreviousNewline();
 extern void ConvertAddPrevious(
 	int n
 );
-extern void ConvertForcedNewline( 
+extern void ConvertForcedNewline(
 	const int n
 );
 extern void ConvertOutputCh(
-	const char ch, 
+	const char ch,
 	const int pre
 );
-extern void ConvertOutputString( 
-	const char *s, 
+extern void ConvertOutputString(
+	const char *s,
 	const int pre
 );
 extern int ConvertAddColumn(
@@ -56,17 +56,17 @@ extern char *ConvertInternalString(
 
 $begin convert$$
 $escape #$$
-$spell 
+$spell
 	const
-	int 
-	ch 
+	int
+	ch
 $$
 
 $section Convert Special Characters On Output$$
 
 $head Description$$
 The functions listed below output text in HTML format.
-In addition, they convert characters that require a special 
+In addition, they convert characters that require a special
 representation in that format.
 (The function $code ConvertInternalString$$ just converts
 special characters with out output.)

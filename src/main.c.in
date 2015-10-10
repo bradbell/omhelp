@@ -199,11 +199,11 @@ int main(int argc, const char *argv[])
 	error = error || iarg != argc;
 
 	// version information
-	printf("OMhelp: Version=%s, ndebug=%s, win32=%s\n", 
+	printf("OMhelp: Version=%s, ndebug=%s, win32=%s\n",
 		"@omhelp_version@", ndebug, win32
 	);
 	if( error )
-	{	
+	{
 		printf(
 			"omhelp  root_file "
 			"[-debug]  "
@@ -225,7 +225,7 @@ int main(int argc, const char *argv[])
 
 	if( omhdir == NULL )
 		omhdir = "@omhelp_prefix@/@omhelp_datadir@/omhelp_data";
-# if 0 
+# if 0
 	// old windows install (before cmake)
 	if( omhdir == NULL )
 		omhdir = getenv("omhelp_dir");
@@ -234,8 +234,8 @@ int main(int argc, const char *argv[])
 		// Look for omhelp_dir in windows system INI file
 		const char *appName =  "OMhelp";
 		const char *keyName =  "omhelp_dir";
-		const char *Default =  ""; 
-		char returnString[_MAX_PATH + 1]; 
+		const char *Default =  "";
+		char returnString[_MAX_PATH + 1];
 		size_t nSize = _MAX_PATH;
 		GetProfileString(
 			appName,
@@ -250,7 +250,7 @@ int main(int argc, const char *argv[])
 			FreeMem(stmp);
 			omhdir = getenv("omhelp_dir");
 		}
-		else 
+		else
 		{	size_t flag = GetWindowsDirectory(returnString, nSize);
 			printf("omhelp_dir environment variable not set and\n");
 			printf(" Cannot find: %s=value\n", keyName);
@@ -270,7 +270,7 @@ int main(int argc, const char *argv[])
 	if( ch == '/' || ch == '\\' )
 		omhDir = str_alloc(omhdir);
 	else	omhDir = strjoin(omhdir, "\\");
-	
+
 
 	// must initialize parser before calling error routines
 	// and copyfile may call error routines.
@@ -314,7 +314,7 @@ int main(int argc, const char *argv[])
 			FreeMem(root);
 			FreeMem(ext);
 		}
-	
+
 		// make a local copy of file
 		copyfile(imageFile, fullname);
 
@@ -361,7 +361,7 @@ int main(int argc, const char *argv[])
 	// No longer necessary as of 2012-02-12.
 	// copy the mathml style files to the current directory
 	if( GenerateXml )
-	{	
+	{
 		/*
 		pmathml.xsl
 		*/

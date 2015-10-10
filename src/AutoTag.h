@@ -1,7 +1,7 @@
 # ifndef AUTO_TAG_INCLUDED
 # define AUTO_TAG_INCLUDED
 
-# define SEARCH_TAG         "_search"     
+# define SEARCH_TAG         "_search"
 # define EXTERNAL_TAG       "_external"
 # define INDEX_TAG          "_index"
 # define CONTENTS_TAG       "_contents"

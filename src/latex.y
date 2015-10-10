@@ -87,7 +87,7 @@ static void FreeTexStype(TexStype *T)
 
 	T = T->next;
 	while( T != NULL )
-	{	
+	{
 		FreeMem( T->str );
 
 		// at point of removal, extra pointer must be NULL
@@ -200,7 +200,7 @@ static void IncFontLevel()
 	);
 	assert( FontLevel >= 0 );
 
-	// start with no font at this level 
+	// start with no font at this level
 	CurrentFont[FontLevel] = NULL;
 }
 
@@ -344,14 +344,14 @@ start
 	: start_inline list_or_empty CHAR_ENDINPUT_lex
 	{	assert( $1.str == NULL );
 		assert( $3.str == NULL );
-	
+
 		assert( $2.str != NULL || $2.line == 0 );
 		assert( $2.str != NULL || LengthStype(& $2) == 1 );
 
 		assert( LengthStype(& $1) == 1 );
 		assert( LengthStype(& $3) == 1 );
 
-		if( $2.str == NULL ) 
+		if( $2.str == NULL )
 			return BlockDisplay;
 
 		// close font command at this level
@@ -377,7 +377,7 @@ start
 	{	assert( $1.str == NULL );
 		assert( $3.str == NULL );
 		assert( $4.str == NULL );
-	
+
 		assert( $2.str != NULL || $2.line == 0 );
 		assert( $2.str != NULL || LengthStype(& $2) == 1 );
 
@@ -462,7 +462,7 @@ argument
 
 		CharPlusStype("<mrow>", & $2);
 		StypePlusChar(& $2, "</mrow>");
-		
+
 		$$      = $2;
 		$$.line = $1.line;
 	}
@@ -553,8 +553,8 @@ array_colalign
 
 
 array_col_next
-	: CHAR_AMPERSAND_lex 
-	{	
+	: CHAR_AMPERSAND_lex
+	{
 		assert( $1.str == NULL );
 		assert( LengthStype(& $1) == 1 );
 
@@ -577,7 +577,7 @@ array_cols
 	}
 	| array_cols array_col_next list_or_empty
 	{	char *str;
-	
+
 		int col;
 
 		assert( $1.str != NULL || $1.line == 0 );
@@ -700,7 +700,7 @@ array_rowalign
 		$$ = $1;
 	}
 	;
-	
+
 
 array_rows
 	: array_cols
@@ -804,7 +804,7 @@ dots
 		$$ = $1;
 	}
 	;
-		
+
 
 encloser
 	: SYM_ENCLOSE_lex
@@ -849,7 +849,7 @@ encloser_check
 	: CHAR_OPERATOR_lex
 	{	assert( $1.str != NULL );
 		assert( LengthStype(& $1) == 1 );
-	
+
 		$$ = $1;
 	}
 	| CHAR_LETTERS_lex
@@ -865,17 +865,17 @@ encloser_check
 			"an enclosing character",
 			NULL
 		);
-	
+
 	}
 	| CMD_CHAR_lex
 	{	assert( $1.str != NULL );
 		assert( LengthStype(& $1) == 1 );
-	
+
 		$$ = $1;
 	}
 	;
 
-element 
+element
 	: array
 	{	$$ = $1; }
 	| arrow
@@ -892,7 +892,7 @@ element
 	{	$$ = $1; }
 	| greek
 	{	$$ = $1; }
-	| group 
+	| group
 	{	$$ = $1; }
 	| left_right
 	{	$$ = $1; }
@@ -910,7 +910,7 @@ element
 	{	$$ = $1; }
 	| relation
 	{	$$ = $1; }
-	| space 
+	| space
 	{	$$ = $1; }
 	| special_char
 	{	$$ = $1; }
@@ -965,7 +965,7 @@ frac
 		assert( LengthStype(& $1) == 1 );
 
 		CharPlusStype("<mfrac>", & $2);
-		StypePlusStype(& $2, & $3);	
+		StypePlusStype(& $2, & $3);
 		StypePlusChar(& $2, "</mfrac>\n");
 
 		$$      = $2;
@@ -985,11 +985,11 @@ greek
 		{	s = StrCat(
 				__FILE__,
 				__LINE__,
-				"<mi mathvariant='", 
+				"<mi mathvariant='",
 				GetCurrentFont(),
 				"'>",
 				NULL
-			);  
+			);
 			CharPlusStype(s, & $1);
 			FreeMem(s);
 		}
@@ -1062,7 +1062,7 @@ left_right
 		assert( $3.str != NULL );
 		assert( $4.str == NULL );
 		assert( $5.str != NULL );
-		
+
 		assert( LengthStype( & $1 ) == 1 );
 		assert( LengthStype( & $2 ) == 1 );
 		assert( LengthStype( & $4 ) == 1 );
@@ -1076,7 +1076,7 @@ left_right
 		{	FreeMem($5.str);
 			$5.str = str_alloc(" "); // replace . by nothing
 		}
-	
+
 		CharPlusStype("<mrow><mo stretchy=\"true\">", & $2);
 		StypePlusChar(& $2, "</mo><mrow>");
 		StypePlusStype(& $2, & $3);
@@ -1104,11 +1104,11 @@ letter
 		{	s = StrCat(
 				__FILE__,
 				__LINE__,
-				"<mi mathvariant='", 
+				"<mi mathvariant='",
 				GetCurrentFont(),
 				"'>",
 				NULL
-			);  
+			);
 			CharPlusStype(s, & $1);
 			FreeMem(s);
 		}
@@ -1149,7 +1149,7 @@ list
 
 list_or_empty
 	:
-	{	
+	{
 		$$.line  = 0;
 		$$.data  = 0;
 		$$.str   = NULL;
@@ -1161,7 +1161,7 @@ list_or_empty
 	;
 
 mathml
-	: CMD_MATHML_lex 
+	: CMD_MATHML_lex
 	{	int i;
 		int j;
 		int escape;
@@ -1221,7 +1221,7 @@ number
 
 operator
 	: CHAR_OPERATOR_lex
-	{	// str is one character and equal to operator 
+	{	// str is one character and equal to operator
 		char *str = $1.str;
 
 		assert( str != NULL );
@@ -1234,7 +1234,7 @@ operator
 			FreeMem(str);
 			$1.str = str = str_alloc("&lt;"); // lt = x0003C
 			break;
-			
+
 			case '>':
 			FreeMem(str);
 			$1.str = str = str_alloc("&gt;"); // gt = x0003E
@@ -1287,7 +1287,7 @@ over_cases
 
 		$$ = $1;
 	}
-	| CMD_WIDEHAT_lex 
+	| CMD_WIDEHAT_lex
 	{	assert( $1.str == NULL );
 		assert( LengthStype(& $1) == 1 );
 
@@ -1298,7 +1298,7 @@ over_cases
 
 		$$ = $1;
 	}
-	| CMD_WIDETILDE_lex 
+	| CMD_WIDETILDE_lex
 	{	assert( $1.str == NULL );
 		assert( LengthStype(& $1) == 1 );
 
@@ -1354,7 +1354,7 @@ space
 
 		$$ = $1;
 	}
-	| CMD_HSPACE_lex 
+	| CMD_HSPACE_lex
 	{	assert( $1.str != NULL );
 		assert( LengthStype(& $1) == 1 );
 
@@ -1439,14 +1439,14 @@ subsup
 		munderover = ( $1.data == SUBSUP_2_UNDEROVER_DATA )
 		           && ( LengthStype(& $1) == SUBSUP_2_UNDEROVER_LENGTH )
 		;
-	
+
 		if( munderover )
 			CharPlusStype("<munderover>", & $1);
 		else	CharPlusStype("<msubsup>", & $1);
 
 		StypePlusStype(& $1, & $2);
 		StypePlusStype(& $1, E);
-	
+
 		if( munderover )
 			StypePlusChar(& $1, "</munderover>\n");
 		else	StypePlusChar(& $1, "</msubsup>\n");
@@ -1527,7 +1527,7 @@ sqrt
 		$$      = $3;
 		$$.line = $1.line;
 	}
-	; 
+	;
 
 stackrel
 	: CMD_STACKREL_lex group group
@@ -1545,7 +1545,7 @@ stackrel
 		$$ = $1;
 	}
 	;
-		
+
 
 stdfun
 	: STDFUN_lex
@@ -1575,7 +1575,7 @@ std_display
 		assert( LengthStype( & $1 ) == 3 );
 		$$ = $1;
 
-		// if BlockDisplay is true, use under/over inplace of sub/sup 
+		// if BlockDisplay is true, use under/over inplace of sub/sup
 		assert( LengthStype( & $$ ) == SUBSUP_2_UNDEROVER_LENGTH );
 		if( BlockDisplay )
 			$$.data = SUBSUP_2_UNDEROVER_DATA;
@@ -1599,7 +1599,7 @@ sym_display
 
 		$$ = $1;
 
-		// if BlockDisplay is true, use under/over inplace of sub/sup 
+		// if BlockDisplay is true, use under/over inplace of sub/sup
 		assert( LengthStype( & $$ ) == SUBSUP_2_UNDEROVER_LENGTH );
 		if( BlockDisplay )
 			$$.data = SUBSUP_2_UNDEROVER_DATA;
@@ -1644,7 +1644,7 @@ underbrace
 		StypePlusStype(& $1, & $2);
 
 		// UnderBrace = x0FE38
-		StypePlusChar(& $1, 
+		StypePlusChar(& $1,
 		"<mo stretchy=\"true\">&#x0FE38;</mo></munder>\n");
 
 		$$ = $1;
@@ -1663,7 +1663,7 @@ underline
 
 		// UnderBar (x00332) does not work in Mozilla
 		// so we use OverBar (x000AF) in its place
-		StypePlusChar(& $1, 
+		StypePlusChar(& $1,
 		"<mo stretchy=\"true\">&#x000AF;</mo></munder>\n");
 
 		$$ = $1;

@@ -1,28 +1,28 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 # ---------------------------------------------------------------------------
 #
-There are multiple sections in this file as an example. 
+There are multiple sections in this file as an example.
 
 ******************** Begin and End ************************************
 
 $begin begin$$
-$spell 
-	hypertext 
+$spell
+	hypertext
 	xref
 	OMhelp
 	underbar
@@ -52,23 +52,23 @@ $fend 30$$
 
 $head Purpose$$
 OMhelp ignores all input in a file except
-between a 
+between a
 $code begin$$ command and a matching $code end$$ command.
-The cross reference 
+The cross reference
 $xref/glossary/Cross Reference Tag/tag/$$
 for the corresponding section
 is specified by $italic tag$$.
-Leading and trailing 
+Leading and trailing
 $xref/glossary/White Space/white space/$$
 is ignored and there can be no $code @$$ characters in $italic tag$$.
 
 $head Example$$
-The following input file contains two sections. 
+The following input file contains two sections.
 The first is named "First Subject" and is
 cross referenced as "one".
 The second is named "Second Subject" and is
 cross referenced as "two".
-In addition, each of the sections 
+In addition, each of the sections
 has a cross references to the other.
 
 $syntax%
@@ -80,9 +80,9 @@ $syntax%
 	%...%
 	@end
 	*/
-	
+
 	%Other text%
-	
+
 	/*
 	@begin two@@
 	@section Second Subject@@
@@ -91,7 +91,7 @@ $syntax%
 	%...%
 	@end
 	*/
-	
+
 	%Other text%
 %$$
 
@@ -114,7 +114,7 @@ $end
 $begin section$$
 $dollar @$$
 $escape #$$
-$spell 
+$spell
 	none
 	aindex
 	mindex
@@ -127,7 +127,7 @@ $table
 $bold Syntax$$
 $cnext $syntax/@section /title/@@/$$ $rnext
 $bold See Also$$
-$cnext $xref/start_simple//getting started/$$ 
+$cnext $xref/start_simple//getting started/$$
 $tend
 
 $fend 20$$
@@ -160,7 +160,7 @@ $syntax/
 /$$
 In this case,
 occurrences of the $xref/escape/$$ character in $italic title$$
-has the special meaning defined for the $code mindex$$ command. 
+has the special meaning defined for the $code mindex$$ command.
 These characters do not appear in the displayed title.
 
 $head Example$$
@@ -195,7 +195,7 @@ $head Description$$
 The argument $italic tag$$ specifies the
 $xref/glossary/Cross Reference Tag/cross reference tag/$$ for
 the another section.
-The 
+The
 $xref/section//title/$$ of the section corresponding to $italic tag$$
 is placed in the text where this command appears.
 
@@ -203,11 +203,11 @@ is placed in the text where this command appears.
 $head Example$$
 The following input
 $codep
-	@title section@@: @mref/section/@@ 
+	@title section@@: @mref/section/@@
 $$
 produces the following output
 $pre
-	$$$title section$$: $mref/section/$$ 
+	$$$title section$$: $mref/section/$$
 $pre
 $$
 Note that $code section$$ is the $italic tag$$ in this example.

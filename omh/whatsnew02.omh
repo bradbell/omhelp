@@ -1,16 +1,16 @@
 # ---------------------------------------------------------------------------
 # OMhelp: Source Code -> Help Files: Copyright (C) 1998-2006 Bradley M. Bell
-# 
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
@@ -68,9 +68,9 @@ $section Changes and Additions to OMhelp During 2002$$
 
 
 $head Description$$
-This section contains a list of changes to OMhelp 
-during 2002 in reverse order by date. 
-Its purpose is to assist you in learning the about 
+This section contains a list of changes to OMhelp
+during 2002 in reverse order by date.
+Its purpose is to assist you in learning the about
 changes between versions of OMhelp.
 
 $head 12-21$$
@@ -85,7 +85,7 @@ If the $xref/verbatim/$$ command had automatic
 $xref/verbatim/New Lines/new lines/$$ added,
 and the last character in the corresponding file was a newline,
 an unnecessary newline was added to the output.
-A similar condition held if the previous output corresponded to 
+A similar condition held if the previous output corresponded to
 a heading.
 This has been fixed.
 
@@ -117,22 +117,22 @@ Some changes were made to avoid extra new lines where they were not necessary.
 This was done to conserve on screen space and make the output of the
 $xref/running/printable/_printable/$$ version smaller
 (conserve paper).
-These changes included backing out the 
+These changes included backing out the
 $xref/whatsNew02/09-23/02-09-23/$$
 work around of unwanted line breaks in pre-formatted text
-(when displayed by MS Internet Explorer). 
+(when displayed by MS Internet Explorer).
 This was finally understood and fixed properly on
 $xref/whatsnew03/05-08/03-05-08/$$.
 
 
 $head 12-09$$
-The $code template$$ section was replaced by the 
+The $code template$$ section was replaced by the
 $tref get_started$$.
 $pre
 
 $$
 Because of the directory name change from $code gif$$
-to $code image$$, 
+to $code image$$,
 the $code omh\build.bat$$ command file did not work.
 This has been fixed.
 
@@ -144,12 +144,12 @@ $pre
 $$
 Leading and trailing white space in the arguments to
 the $xref/xref/$$ and $xref/mref/$$ commands is ignored.
-This enables one to use new lines and other white space 
+This enables one to use new lines and other white space
 to separate the arguments
 when they are long.
 
 $head 12-05$$
-The Latex  
+The Latex
 $xref/diacritical//widehat/$$,
 and
 $code widetilde$$
@@ -170,7 +170,7 @@ were included.
 
 $head 11-27$$
 There was a bug in specifying an $code icon file$$
-on the command line 
+on the command line
 (later changed to $cref/image_file/running/image_file/$$)
 that had an extension different from $code .gif$$.
 This has been fixed.
@@ -188,8 +188,8 @@ so that the build command now works.
 
 
 $head 11-22$$
-The $xref/diacritical/$$ commands were included. 
-In addition, the section 
+The $xref/diacritical/$$ commands were included.
+In addition, the section
 Mozilla was started
 (this has been replaced by $xref/Firefox/$$).
 
@@ -197,16 +197,16 @@ $head 11-18$$
 The $xref/array/$$ command has been added. In addition,
 the error messages in $xref/latex/$$ mode has been improved
 so that line numbers are always reported.
-This improvement also included 
+This improvement also included
 separating the OMhelp and Latex error messages
 and identifying which type of error at the beginning of the message.
 
 $head 11-16$$
-The comma was added to the list of 
+The comma was added to the list of
 $xref/latexnormal//latex normal/$$ characters.
 
 $head 11-14$$
-Some of the characters listed in 
+Some of the characters listed in
 $xref/latexnormal/$$ were not displaying correctly in Latex mode.
 This has been fixed.
 
@@ -217,7 +217,7 @@ included and documented.
 $pre
 
 $$
-The decimal point was added to the format 
+The decimal point was added to the format
 specifications for a $xref/latexnumber//latex number/$$.
 $pre
 
@@ -225,27 +225,27 @@ $$
 The latex $xref/stdfun//standard functions/$$ were added.
 
 $head 11-09$$
-The $xref/latex/$$ command 
-was extended to include 
+The $xref/latex/$$ command
+was extended to include
 $tref ellipsis$$, and
 $tref latexspecial$$.
 
 $head 11-08$$
-The $xref/latex/$$ command 
-was extended to include 
+The $xref/latex/$$ command
+was extended to include
 $tref frac$$, and
 $tref sqrt$$.
 
 
 $head 11-06$$
-The $xref/latex/$$ command 
-was extended to include 
+The $xref/latex/$$ command
+was extended to include
 $tref subsup$$, and
 $tref DisplaySym$$.
 
 
 $head 11-03$$
-The $xref/latex/$$ command 
+The $xref/latex/$$ command
 was extended to include the
 $xref/BinaryOp//binary operators/$$,
 $xref/RelationSym//relation symbols/$$,
@@ -254,7 +254,7 @@ and $xref/MiscSym//miscellaneous symbols/$$.
 $pre
 
 $$
-Some speed improvements were made to OMhelp, 
+Some speed improvements were made to OMhelp,
 to be specific, binary search of the omhelp command set.
 In addition, a mistake in the initial state of the omhelp lexical
 analyzer was slowing the program.
@@ -262,9 +262,9 @@ analyzer was slowing the program.
 $head 10-30$$
 OMhelp did not detect when a $xref/font/$$, $xref/table/$$ or $xref/list/$$
 command did not terminate before the end of a frame.
-This was is now reported as an error because 
+This was is now reported as an error because
 the command does not carry over to the next frame.
-In addition, OMhelp did not detect when a font command 
+In addition, OMhelp did not detect when a font command
 and a table or list command were interlaced. For example
 $codep
 	&big
@@ -277,17 +277,17 @@ This is also detected and reported as an error now.
 $pre
 
 $$
-$xref/latex//Latex/$$ support has begun with the 
+$xref/latex//Latex/$$ support has begun with the
 $xref/greek/$$ letters.
 
 
 
 $head 10-27$$
-All of the error messages have been improved. 
-This was done by passing the line number information 
+All of the error messages have been improved.
+This was done by passing the line number information
 from the lexical analyzer to the parser and tracking
 it with the parser constructions.
-This improved tracking of errors is in preparation for having an 
+This improved tracking of errors is in preparation for having an
 OMhelp LaTex command.
 The argument to this command
 will be long and have a language of its own (LaTex).
@@ -315,7 +315,7 @@ This has been fixed.
 $head 10-26$$
 While improving the OMhelp error messages,
 it was discovered that if there was no $xref/section/$$ command
-in a section, OMhelp would crash. For example, the 
+in a section, OMhelp would crash. For example, the
 following input file would crash OMhelp:
 $codep
 	&begin example&&
@@ -326,9 +326,9 @@ This has been fixed.
 
 
 $head 10-22$$
-Added the command line option 
+Added the command line option
 $xref/running/xml/xml/$$ which
-generates XHTML (as apposed to HTML which is the 
+generates XHTML (as apposed to HTML which is the
 default output format).
 
 $head 10-21$$
@@ -346,7 +346,7 @@ This was due to a bug that was introduced when file addressing was
 converted to the starting file on
 $xref/whatsNew01/08-08/01-08-08/$$.
 This turned up when OMhelp was run twice in the same directory
-and the second time the 
+and the second time the
 $xref/running/printable/-printable/$$ option was used
 (see $xref/whatsNew02/06-19/02-05-19/$$).
 
@@ -354,7 +354,7 @@ $head 10-11$$
 All the HTML commands in the output files
 were converted to lower case.
 This should have no effect from the OMhelp users point of view.
-This is in preparation for conversion to XHTML 
+This is in preparation for conversion to XHTML
 and then the inclusion of MathML for displaying mathematics.
 
 $head 10-04$$
@@ -365,15 +365,15 @@ This has been fixed.
 $pre
 
 $$
-There was a mistake in how the 
-in the $xref/pre/$$ command modification made on 
+There was a mistake in how the
+in the $xref/pre/$$ command modification made on
 $xref/whatsNew02/09-23/02-09-23/$$.
 To be specific, the pre-formatted mode was not terminated correctly
 in some cases. This has been fixed.
 $pre
 
 $$
-The $code cend$$ ($code rend$$) command 
+The $code cend$$ ($code rend$$) command
 not only ends the current column (row) of a table,
 it also begins the next one.
 The command $xref/table//cnext/$$ ($code rnext$$) has
@@ -385,7 +385,7 @@ Microsoft Internet Explore was not
 displaying OMhelp pre-formatted text correctly.
 The $xref/pre/$$ command
 has been modified to avoid this bug where possible.
-(The $mref/codep/verbatim/math/$$ commands 
+(The $mref/codep/verbatim/math/$$ commands
 were modified on $xref/whatsNew02/09-09/02-09-09/$$.)
 This was finally understood and fixed properly on
 $xref/whatsnew03/05-08/03-05-08/$$.
@@ -398,7 +398,7 @@ This has been fixed and should improve the functioning
 of the unix port of OMhelp.
 
 $head 09-10$$
-It used to be possible for the $xref/image/$$ and $code icon$$ 
+It used to be possible for the $xref/image/$$ and $code icon$$
 commands to create two image files that had the same name
 in the web site directory.
 This error is now checked for and an error message is printed.
@@ -413,7 +413,7 @@ This was finally understood and fixed properly on
 $xref/whatsnew03/05-08/03-05-08/$$.
 
 $head 08-30$$
-If one of the words in an 
+If one of the words in an
 $xref/keyword//index/$$ commands was misspelled,
 all of the words were marked with red in the
 $xref/_index//index/$$.
@@ -446,16 +446,16 @@ and not directory where execution is taking place).
 $pre
 
 $$
-A bug was fixed in the Unix version whereby 
+A bug was fixed in the Unix version whereby
 icon and $xref/image/$$ files were not being copied properly; i.e.,
 the files names were not being converted to lower case.
 
 $head 08-18$$
-The name used on the command line 
+The name used on the command line
 for the $italic root_file$$ was changed to the
 $italic starting_file$$ (it has since been referred to as
 $cref/root section/running/root_file/$$).
-This was done because the term "root" is 
+This was done because the term "root" is
 used to refer to the root of a file name; i.e.,
 a file name with out its extension.
 
@@ -465,7 +465,7 @@ One of the users found a problem in the new indexing code that caused
 OMhelp to crash. This was fixed.
 In addition, the version message that prints when OMhelp starts
 now states if this is the debug or release version of the executable.
-(The debug version from does a lot of assert checking 
+(The debug version from does a lot of assert checking
 and can be useful for tracking down user problems.)
 
 $head 08-12$$
@@ -481,7 +481,7 @@ It now provides the information about the backward compatibility
 
 
 $head 08-08$$
-The 
+The
 $xref/_index//indexing/$$
 for the entire OMhelp manual was revised to better
 take advantage of new indexing commands.
@@ -505,12 +505,12 @@ $codep
 	&aindex head&&
 $$
 Then add the file that was specified after the $code -g$$ option
-as the last file in the 
+as the last file in the
 $xref/children//contents, childtable, or children/$$
 command contained in the $cref/root section/running/root_file/$$.
 
 $head 08-03$$
-The description and specifications for the $xref/keyword/Cindex/cindex/$$ 
+The description and specifications for the $xref/keyword/Cindex/cindex/$$
 were simplified.
 In addition the $xref/keyword/Mindex/mindex/$$ command has been added
 (which is an even simpler way to make multiple keyword index entries
@@ -518,7 +518,7 @@ at once.)
 
 $head 07-26$$
 The $xref/spell/$$ command has been changed so that it is cumulative
-for each section. 
+for each section.
 This enables one to use $code spell$$ commands with in an
 $xref/include/$$ file with out erasing the other spell commands
 for the current section.
@@ -529,18 +529,18 @@ $xref/glossary/Cross Reference Tag/Cross reference tags/$$
 are usually excluded from spell checking.
 In the case where the $xref/xref/$$ command has only one argument,
 the cross reference tag is also used as the linking text.
-Spell checking used to be done on this linking text 
+Spell checking used to be done on this linking text
 (which is also a cross reference tag).
-This has been fixed and spell checking is no longer done 
+This has been fixed and spell checking is no longer done
 in this case.
 
 $head 07-25$$
 Links to the $xref/head//headings/$$ and subheadings
 were added to the navigation frame on the left of every section.
-(This used to be true only for the 
-$xref/glossary/$$, 
-$xref/_index//index/$$, 
-and 
+(This used to be true only for the
+$xref/glossary/$$,
+$xref/_index//index/$$,
+and
 $xref/_reference//reference/$$ sections.)
 
 
@@ -554,7 +554,7 @@ $head 07-18$$
 Added the ability to link to $xref/xref/Example.Subheadings/subheadings/$$.
 
 $head 07-16$$
-Found a missing semi-colon in the Java script for the 
+Found a missing semi-colon in the Java script for the
 OMhelp interactive search utility.
 
 $head 07-11$$
@@ -572,16 +572,16 @@ $pre
 
 $$
 The restriction of not having new lines in the
-$xref/verbatim/$$ command 
+$xref/verbatim/$$ command
 $xref/verbatim/Start/start/$$
-and 
+and
 $xref/verbatim/Stop/stop/$$
 sequences was removed from the documentation.
 
 $head 06-25$$
 The glossary entry for
 $xref/glossary/Delimiter Sequence/delimiters/$$
-was changed. 
+was changed.
 In addition, the syntax for each of the commands
 was changed to use variables names that are more meaningful.
 $pre
@@ -596,7 +596,7 @@ separated the last two cross references.
 $head 06-21$$
 The default $code icon file$$ name was
 changed to $code _icon.gif$$.
-(later changed to 
+(later changed to
 $cref/image_file/running/image_file/$$ name $code _image.gif$$)
 The documentation for this option
 and the $code icon link/$$ option was improved
@@ -608,15 +608,15 @@ can not begin with the $code _$$ character
 $pre
 
 $$
-The automatically generated sections (For example the 
-$xref/_index//keyword index/$$) were listed twice in the links 
-when viewing the 
+The automatically generated sections (For example the
+$xref/_index//keyword index/$$) were listed twice in the links
+when viewing the
 $cref/root section/running/root_file/$$.
 This has been fixed.
 $pre
 
 $$
-There was a bug in the counting of sections for the 
+There was a bug in the counting of sections for the
 $xref/running/printable/printable/$$ option.
 This caused the table of contents to have the same section number
 as the section that followed it.
@@ -624,11 +624,11 @@ This has been fixed.
 
 $head 06-19$$
 All of the sections,
-including the automatically generated ones 
+including the automatically generated ones
 (for example the  $xref/_index//keyword index/$$)
-are now children of the 
+are now children of the
 $cref/root section/running/root_file/$$.
-In addition, now there can be only one section at the root 
+In addition, now there can be only one section at the root
 of the table of contents.
 This enables the root section to function like a cover page
 in the
@@ -637,7 +637,7 @@ $pre
 
 $$
 The printable version
-section numbers and links were not working for the 
+section numbers and links were not working for the
 $xref/_index//index/$$, $xref/_reference//function reference/$$,
 and $xref/_external//external reference/$$ sections.
 This has been fixed.
@@ -662,7 +662,7 @@ $xref/children/Contents/Contents/$$ heading was not working correctly
 because the anchor for the corresponding heading was missing.
 
 $head 05-17$$
-The cross reference 
+The cross reference
 $xref/glossary/Cross Reference Tag/tag/$$
 was added to each entry in the table of
 $xref/_contents//contents/$$.
@@ -704,12 +704,12 @@ can be used to separate directories in a path specification.
 
 $head 04-07$$
 After using the different window for $xref/href/$$ commands
-for a while, it became clear that sometimes that same window was 
+for a while, it became clear that sometimes that same window was
 better.
 The $xref/href/$$ and $xref/xref/$$ commands
-were extended so that they have the option to specify the frame 
+were extended so that they have the option to specify the frame
 that a link should be displayed in.
-It is possible to specify a 
+It is possible to specify a
 $xref/href/Display Frame/frame/$$ such that
 an $code href$$ command will display in a different window.
 (This is not possible for $code xref$$ commands.)
@@ -721,7 +721,7 @@ the $code back$$ button in the browser
 would no longer work because
 $code index.htm$$ automatically linked forward.
 This problem was fixed by changing
-$code index.htm$$ from a Javascript 
+$code index.htm$$ from a Javascript
 to a copy of the
 $xref/glossary/Section/section/$$
 at the beginning of the
@@ -758,18 +758,18 @@ $pre
 
 $$
 A separate window is now used for
-$mref/href/$$ links; i.e., links that are 
+$mref/href/$$ links; i.e., links that are
 not part of the OMhelp web site being built.
 
 $head 03-15$$
 The links in the left hand frame have been changed so that the position
 of the current section with in the help tree is documented and linked.
-In addition, the 
+In addition, the
 $mref/next/$$ and $mref/previous/$$ links
 are now in reading order as if the help tree was a book.
 
 $head 02-27$$
-The $mref/date/$$ command was added to OMhelp. 
+The $mref/date/$$ command was added to OMhelp.
 This is useful for automatically identifying the version
 of a web site built by OMhelp.
 
@@ -822,7 +822,7 @@ and stopping sequences to accomplish this.
 the discussion on 02-02-14).
 
 $head 01-22$$
-The bug in the 
+The bug in the
 $mref/verbatim/$$ command
 $xref/verbatim/Stop/stopping sequence/$$
 was only partially fixed.
@@ -833,20 +833,20 @@ They no longer need to be at the beginning of a line.
 $pre
 
 $$
-The addition of 
-$syntax//*/.jpg/$$ files on 
+The addition of
+$syntax//*/.jpg/$$ files on
 $xref/whatsNew01/06-23/01-06-23/$$
 broke the
-$xref/running/Example/example/$$ that rebuilds the help 
+$xref/running/Example/example/$$ that rebuilds the help
 for OMhelp.
 This was fixed by adding a
-$mref/path/$$ command for extensions of the form 
+$mref/path/$$ command for extensions of the form
 $code .jpg$$ to the file $code overview.omh$$.
 
 
 
 $head 01-05$$
-There was a bug in the 
+There was a bug in the
 $xref/verbatim/Stop/stopping sequence/$$
 where by partial
 matches only printed the first character of the partial match.
@@ -854,7 +854,7 @@ matches only printed the first character of the partial match.
 $head 01-04$$
 A starting and stopping
 option was added to the $mref/verbatim/$$ command.
-This enables one to only include part of a file 
+This enables one to only include part of a file
 as verbatim text with in a help page.
 Thus, if you have a long example,
 parts of the example can be explained in different sections
