@@ -20,9 +20,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ------------------------------------------------------------------------ */
 // END SHORT COPYRIGHT
-/*
-O-Matrix Copyright (C) Harmonic Software Inc. 1997, All rights reserved
-*/
 
 // NDEBUG is define by the compiler, do not edit the if of this clause
 #ifdef NDEBUG

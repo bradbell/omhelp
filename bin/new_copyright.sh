@@ -57,6 +57,61 @@ if diff junk1.$$ junk2.$$ > /dev/null
 then
 	sed -e '1,18d' -i $file_name
 fi
+# -----------------------------------------------------------------------------
+# check for fourth version of old copyright
+sed -n -e '1,20p' $file_name                         > junk2.$$
+sed \
+	-e 's|1998-[0-9]\{4\}|1998-2015|' \
+	-e '/^# ifndef/d' \
+	-e '/^# define/N' \
+	-e '/^# define [A-Z0-9_]* *\n *$/d' \
+	-e 's|^/\* -|-----|' \
+	-e 's|^\(-*\) \*/|\1---|' \
+	-e 's|^$|#|' \
+	-e 's|^[^#]|# &|' \
+	-i junk2.$$
+if diff junk1.$$ junk2.$$ > /dev/null
+then
+	sed -e '1,20d' -i $file_name
+fi
+# mv junk1.$$ junk1
+# mv junk2.$$ junk2
+# exit 0
+# -----------------------------------------------------------------------------
+# check for fifth version of old copyright
+sed -n -e '1,19p' $file_name                         > junk2.$$
+sed \
+	-e 's|1998-[0-9]\{4\}|1998-2015|' \
+	-e '/^\/\/ BEGIN SHORT COPYRIGHT/d' \
+	-e '/^\/\/ END SHORT COPYRIGHT/d' \
+	-e 's|^/\* -|-----|' \
+	-e 's|^\(-*\) \*/|\1---|' \
+	-e 's|^$|#|' \
+	-e 's|^[^#]|# &|' \
+	-i junk2.$$
+if diff junk1.$$ junk2.$$ > /dev/null
+then
+	sed -e '1,20d' -i $file_name
+fi
+# -----------------------------------------------------------------------------
+# check for sixth version of old copyright
+sed -n -e '1,22p' $file_name                         > junk2.$$
+sed \
+	-e 's|1998-[0-9]\{4\}|1998-2015|' \
+	-e '/^\/\/ BEGIN SHORT COPYRIGHT/d' \
+	-e '/^\/\/ END SHORT COPYRIGHT/d' \
+	-e '/^# ifndef/d' \
+	-e '/^# define/N' \
+	-e '/^# define [A-Z0-9_]* *\n *$/d' \
+	-e 's|^/\* -|-----|' \
+	-e 's|^\(-*\) \*/|\1---|' \
+	-e 's|^$|#|' \
+	-e 's|^[^#]|# &|' \
+	-i junk2.$$
+if diff junk1.$$ junk2.$$ > /dev/null
+then
+	sed -e '1,22d' -i $file_name
+fi
 # =============================================================================
 # write new version of copyright message to junk1.$$
 ext=`echo $file_name | sed -e 's/.*\.//'`
@@ -72,8 +127,25 @@ OMhelp is distributed under the terms of the
 EOF
 	;;
 
-	c | h)
+	c)
 	cat << EOF  > junk1.$$
+/* ----------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2015 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+---------------------------------------------------------------------------- */
+EOF
+	;;
+
+	h)
+	name=`echo $file_name | sed \
+		-e 's|.*/||' \
+		-e 's|\.h||' \
+		-e 's|\([a-z]\)\([A-Z]\)|\1_\2|' | tr [a-z] [A-Z]`
+	cat << EOF  > junk1.$$
+# ifndef ${name}_INCLUDED
+# define ${name}_INCLUDED
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
           Copyright (C) 1998-2015 Bradley M. Bell
