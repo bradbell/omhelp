@@ -13,11 +13,16 @@ fi
 cat << EOF > junk.sed
 /\$fend [0-9]*\\\$\\\$/N
 /\$fend [0-9]*\\\$\\\$ *\\n *\$/d
-s|$xref
+#
+/^\\t%fend [0-9][0-9]%%/N
+s|^\\t%fend [0-9][0-9]%% *\\n *||
+#
+/^\\t\$xref\/fend\/\\\$\\\$/d
 EOF
 list=`git ls-files | sed  \
-	-e '/^omh\/whatsnew\.omh$/d' \
+	-e '/^omh\/whatsnew[^.]*\.omh$/d' \
 	-e '/omh\/href\.omh$/d' \
+	-e '/omh\/deprecated\.omh$/d' \
 	-e '/^bin\/batch_edit\.sh$/d' `
 for file in $list
 do

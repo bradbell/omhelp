@@ -130,7 +130,8 @@ A section of an OMhelp web site is the information
 between a $mref/begin/$$ and the corresponding $code end$$
 command.
 Each section corresponds to one browser window
-and can be divided into frames using the $mref/fend/$$ command.
+and can be divided into
+$cref/headings and subheadings/head/$$.
 
 $head Siblings$$
 A siblings of the current section
