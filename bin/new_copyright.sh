@@ -250,6 +250,18 @@ then
 	exit 1
 fi
 # -----------------------------------------------------------------------------
+# remove old #! /bin/bash from top of bash scripts
+if [ "$ext" == 'sh' ]
+then
+	sed -e '/^#! \/bin\/bash/d' -i $file_name
+fi
+# -----------------------------------------------------------------------------
+# case where copyright came before ifndef
+if [ "$ext" == 'h' ]
+then
+	sed -e '/^# ifndef.*_INCLUDED/d' -e '/^# define.*_INCLUDED/d' -i $file_name
+fi
+# -----------------------------------------------------------------------------
 cat $file_name >> junk1.$$
 mv junk1.$$ $file_name
 # -----------------------------------------------------------------------------

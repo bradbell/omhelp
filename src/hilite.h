@@ -1,5 +1,5 @@
-# ifndef HILITE_INLUDED
-# define HILITE_INLUDED
+# ifndef HILITE_INCLUDED
+# define HILITE_INCLUDED
 
 
 void hilite_pattern(
