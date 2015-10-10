@@ -14,6 +14,7 @@ list=`git ls-files | sed \
 	-e '/^bin\/new_copyright\.sh/d' \
 	-e '/^omh\/children_cmd\.omh/d' \
 	-e '/^omh\/childtable_cmd\.omh/d' \
+	-e '/^omh\/keycharinclude\.omh/d' \
 	-e '/^omh\/copyright\.omh/d' \
 	-e '/^omh\/license\.omh/d' \
 	-e '/^src\/allocate.c/d' \

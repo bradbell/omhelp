@@ -534,7 +534,7 @@ void OpenSearchFile(const char *fileTag, const char *siteTitle)
 	// write copyright message
 	fprintf(Fp,
 		"// ------------------------------------------------------------ \n"
-		"// Copyright (C) Bradley M. Bell 199802015, All rights reserved \n"
+		"// Copyright (C) Bradley M. Bell 1998-2015, All rights reserved \n"
 		"// ------------------------------------------------------------ \n"
 	);
 	// the keyword data starts with /^\[$/ and it ends

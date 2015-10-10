@@ -61,7 +61,7 @@ then
 	sed -e '1,18d' -i $file_name
 fi
 # -----------------------------------------------------------------------------
-# check for fourth version of old copyright
+# check for 4th version of old copyright
 sed -n -e '1,20p' $file_name                         > junk2.$$
 sed \
 	-e 's|1998-[0-9]\{4\}|1998-2015|' \
@@ -87,6 +87,9 @@ sed \
 	-e 's|1998-[0-9]\{4\}|1998-2015|' \
 	-e '/^# *ifndef/d' \
 	-e '/^# *define/d' \
+	-e '/^\/\/ BEGIN SHORT COPYRIGHT/d' \
+	-e '/^\/\/ END SHORT COPYRIGHT/d' \
+	-e 's|^/\* -|-----|' \
 	-e 's|^/\* -|-----|' \
 	-e 's|^\(-*\) \*/|\1---|' \
 	-e 's|^$|#|' \
@@ -101,22 +104,6 @@ fi
 # exit 0
 # -----------------------------------------------------------------------------
 # check for 6th version of old copyright
-sed -n -e '1,19p' $file_name                         > junk2.$$
-sed \
-	-e 's|1998-[0-9]\{4\}|1998-2015|' \
-	-e '/^\/\/ BEGIN SHORT COPYRIGHT/d' \
-	-e '/^\/\/ END SHORT COPYRIGHT/d' \
-	-e 's|^/\* -|-----|' \
-	-e 's|^\(-*\) \*/|\1---|' \
-	-e 's|^$|#|' \
-	-e 's|^[^#]|# &|' \
-	-i junk2.$$
-if diff junk1.$$ junk2.$$ > /dev/null
-then
-	sed -e '1,20d' -i $file_name
-fi
-# -----------------------------------------------------------------------------
-# check for sixth version of old copyright
 sed -n -e '1,22p' $file_name                         > junk2.$$
 sed \
 	-e 's|1998-[0-9]\{4\}|1998-2015|' \
