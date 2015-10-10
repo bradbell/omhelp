@@ -10,26 +10,27 @@ then
 	echo "bin/batch_edit.sh: must be executed from its parent directory"
 	exit 1
 fi
-list=`git ls-files | sed \
-	-e '/^bin\/new_copyright\.sh/d' \
-	-e '/^omh\/children_cmd\.omh/d' \
-	-e '/^omh\/childtable_cmd\.omh/d' \
-	-e '/^omh\/keycharinclude\.omh/d' \
-	-e '/^omh\/copyright\.omh/d' \
-	-e '/^omh\/license\.omh/d' \
-	-e '/^src\/allocate.c/d' \
-	-e '/^src\/lextex.c/d' \
-	-e '/^src\/search.c/d' \
-	-e '/^bin\/batch_edit\.sh/d'`
+cat << EOF > junk.sed
+s|^\\twspace\$|\\tnewlinech|
+/^\\t\\twspace\$/d
+s|\\([%\$]mref[^\$]*\\)/wspace/|\\1/newlinech/|
+s|\$xref/wspace/\$\\\$, ||
+EOF
+list='
+omh/dollar.omh
+omh/cmark.omh
+omh/newlinech.omh
+omh/accent.omh
+omh/rmark.omh
+omh/getstarted/get_started.omh
+'
 for file in $list
 do
 	ext=`echo $file | sed -e 's|.*\.||'`
 	case $ext in
 		omh | c | h | sh | f | bat )
-		# add copyright
-		echo $file
 		git checkout $file
-		bin/new_copyright.sh $file
+		sed -f junk.sed -i $file
 		;;
 
 		*)

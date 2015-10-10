@@ -25,7 +25,7 @@ $table
 $bold Syntax$$
 $cnext $syntax/@'/v/$$ $rnext
 $bold See Also$$
-$cnext $mref/dollar/rmark/dollar/cmark/wspace/$$
+$cnext $mref/dollar/rmark/dollar/cmark/newlinech/$$
 $tend
 
 $fend 20$$

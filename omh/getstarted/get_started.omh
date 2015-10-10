@@ -55,7 +55,7 @@ $xref/font/$$                   $cnext $tref start_font$$      $rnext
 $xref/spell/$$                  $cnext $tref start_spell$$     $rnext
 $xref/latex/$$                  $cnext $tref start_latex$$     $rnext
 $xref/verbatim/$$               $cnext $tref start_verbatim$$  $rnext
-$mref/begin/syntax/codep/wspace/$$
+$mref/begin/syntax/codep/newlinech/$$
                                 $cnext $tref start_embed$$     $rnext
 $xref/children/$$               $cnext $tref start_multiple$$  $rnext
 $xref/cref/$$                   $cnext $tref start_cref$$      $rnext

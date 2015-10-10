@@ -22,7 +22,7 @@ $table
 $bold Syntax$$
 $cnext $syntax/@rmark /character/@@/$$ $rnext
 $bold See Also$$
-$cnext $mref/dollar/cmark/wspace/$$
+$cnext $mref/dollar/cmark/newlinech/$$
 $tend
 
 $fend 20$$

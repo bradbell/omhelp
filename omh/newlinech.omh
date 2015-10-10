@@ -29,7 +29,7 @@ $table
 $bold Syntax$$
 $cnext $syntax/@newlinech /character/@@/$$ $rnext
 $bold See Also$$
-$cnext $xref/wspace/$$, $xref/codep/Source Code Examples/codep/$$
+$cnext $xref/codep/Source Code Examples/codep/$$
 $tend
 
 $fend 20$$
