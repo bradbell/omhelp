@@ -119,6 +119,13 @@ $lnext
 Remove two old Harmonic Software copyright messages because the
 copyright was transferred to Bradley M. Bell; see
 $cref/2003-10-19/whatsNew03/10-19/$$.
+$lnext
+Add the deprecation date for
+$cref/wspace/wspace/Deprecated 2006-07-07/$$,
+$cref/xref/xref/Deprecated 2006-07-07/$$,
+$cref/fend/fend/Deprecated 2006-07-07/$$,
+$cref/-l/deprecated/-l, Deprecated 2006-09-12/$$, and
+$cref/-i/deprecated/-i, Deprecated 2006-09-12/$$.
 $lend
 
 $head 15-10-08$$
