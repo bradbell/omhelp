@@ -17,6 +17,7 @@ list=`git ls-files | sed \
 	-e '/^omh\/copyright\.omh/d' \
 	-e '/^omh\/license\.omh/d' \
 	-e '/^src\/allocate.c/d' \
+	-e '/^src\/lextex.c/d' \
 	-e '/^bin\/batch_edit\.sh/d'`
 for file in $list
 do
