@@ -1,4 +1,4 @@
-/*--------------------------------------------------------------------
+/* -----------------------------------------------------------------------
 OMhelp: Source Code -> Help Files: Copyright (C) 1998-2008 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or

@@ -46,6 +46,9 @@ if diff junk1.$$ junk2.$$ > /dev/null
 then
 	sed -e '1,17d' -i $file_name
 fi
+# mv junk1.$$ junk1
+# mv junk2.$$ junk2
+# exit 0
 # -----------------------------------------------------------------------------
 # check for third version of old copyright
 sed -n -e '1,18p' $file_name                         > junk2.$$
@@ -62,9 +65,9 @@ fi
 sed -n -e '1,20p' $file_name                         > junk2.$$
 sed \
 	-e 's|1998-[0-9]\{4\}|1998-2015|' \
-	-e '/^# ifndef/d' \
-	-e '/^# define/N' \
-	-e '/^# define [A-Z0-9_]* *\n *$/d' \
+	-e '/^# *ifndef/d' \
+	-e '/^# *define/N' \
+	-e '/^# *define [A-Z0-9_]* *\n *$/d' \
 	-e 's|^/\* -|-----|' \
 	-e 's|^\(-*\) \*/|\1---|' \
 	-e 's|^$|#|' \
@@ -100,9 +103,9 @@ sed \
 	-e 's|1998-[0-9]\{4\}|1998-2015|' \
 	-e '/^\/\/ BEGIN SHORT COPYRIGHT/d' \
 	-e '/^\/\/ END SHORT COPYRIGHT/d' \
-	-e '/^# ifndef/d' \
-	-e '/^# define/N' \
-	-e '/^# define [A-Z0-9_]* *\n *$/d' \
+	-e '/^# *ifndef/d' \
+	-e '/^# *define/N' \
+	-e '/^# *define [A-Z0-9_]* *\n *$/d' \
 	-e 's|^/\* -|-----|' \
 	-e 's|^\(-*\) \*/|\1---|' \
 	-e 's|^$|#|' \
