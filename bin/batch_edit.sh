@@ -13,5 +13,5 @@ fi
 list=`git ls-files`
 for file in $list
 do
-	sed -e 's|[ \t][ \t]*$||' -e 's| *\t|\t|g' -i $file
+	bin/new_copyright.sh $file
 done
