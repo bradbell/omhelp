@@ -699,7 +699,7 @@ The $xref/href/$$ and $xref/xref/$$ commands
 were extended so that they have the option to specify the frame
 that a link should be displayed in.
 It is possible to specify a
-$xref/href/Display Frame/frame/$$ such that
+$cref/frame/href/frame, Deprecated 2006-07-07/Display Frame/$$ such that
 an $code href$$ command will display in a different window.
 (This is not possible for $code xref$$ commands.)
 $pre

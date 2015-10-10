@@ -11,26 +11,29 @@ then
 	exit 1
 fi
 cat << EOF > junk.sed
-s|^\\twspace\$|\\tnewlinech|
-/^\\t\\twspace\$/d
-s|\\([%\$]mref[^\$]*\\)/wspace/|\\1/newlinech/|
-s|\$xref/wspace/\$\\\$, ||
+/\$fend [0-9]*\\\$\\\$/N
+/\$fend [0-9]*\\\$\\\$ *\\n *\$/d
+s|$xref
 EOF
-list='
-omh/dollar.omh
-omh/cmark.omh
-omh/newlinech.omh
-omh/accent.omh
-omh/rmark.omh
-omh/getstarted/get_started.omh
-'
+list=`git ls-files | sed  \
+	-e '/^omh\/whatsnew\.omh$/d' \
+	-e '/omh\/href\.omh$/d' \
+	-e '/^bin\/batch_edit\.sh$/d' `
 for file in $list
 do
 	ext=`echo $file | sed -e 's|.*\.||'`
 	case $ext in
-		omh | c | h | sh | f | bat )
-		git checkout $file
-		sed -f junk.sed -i $file
+		omh | c | h | l | sh | f | bat )
+		if grep 'fend' $file > /dev/null
+		then
+			git checkout $file
+			sed -f junk.sed -i $file
+			if grep '$fend' $file > /dev/null
+			then
+				echo "$file failed"
+				exit 1
+			fi
+		fi
 		;;
 
 		*)
