@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin whatsNew$$
 $dollar @$$
 $spell
+	Bradley
 	tabsize
 	wrd
 	cmake
@@ -107,6 +108,18 @@ $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
 $$
+
+$head 15-10-10$$
+$list number$$
+Remove invisible white space for all the source code files; e.g.,
+a space at the end of a line.
+$lnext
+Shorten the copyright message at the beginning of each source code file.
+$lnext
+Remove two old Harmonic Software copyright messages because the
+copyright was transferred to Bradley M. Bell; see
+$cref/2003-10-19/whatsNew03/10-19/$$.
+$lend
 
 $head 15-10-08$$
 $list number$$
