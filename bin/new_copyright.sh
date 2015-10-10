@@ -46,6 +46,17 @@ if diff junk1.$$ junk2.$$ > /dev/null
 then
 	sed -e '1,17d' -i $file_name
 fi
+# -----------------------------------------------------------------------------
+# check for third version of old copyright
+sed -n -e '1,18p' $file_name                         > junk2.$$
+sed \
+	-e 's|1998-[0-9]\{4\}|1998-2015|' \
+	-e '/^#! \/bin\/bash/d' \
+	-i junk2.$$
+if diff junk1.$$ junk2.$$ > /dev/null
+then
+	sed -e '1,18d' -i $file_name
+fi
 # =============================================================================
 # write new version of copyright message to junk1.$$
 ext=`echo $file_name | sed -e 's/.*\.//'`
@@ -82,8 +93,7 @@ EOF
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
 EOF
-	echo "chmod +x junk1.$$"
-	      chmod +x junk1.$$
+	chmod +x junk1.$$
 	;;
 
 	f)
@@ -113,6 +123,8 @@ EOF
 
 	*)
 	echo bin/"new_copyright.sh: extension $ext is not yet supported"
+	rm junk1.$$
+	rm junk2.$$
 	exit 1
 esac
 #
@@ -148,4 +160,4 @@ cat $file_name >> junk1.$$
 mv junk1.$$ $file_name
 # -----------------------------------------------------------------------------
 rm junk2.$$
-echo "new_copyright.sh: OK $file_name"
+echo "new_copyright.sh: OK"
