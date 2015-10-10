@@ -1,4 +1,10 @@
 #! /bin/bash -e
+# -----------------------------------------------------------------------------
+# OMhelp: Language Independent Embedded Documentation
+#           Copyright (C) 1998-2015 Bradley M. Bell
+# OMhelp is distributed under the terms of the
+#             GNU General Public License Version 2.
+# -----------------------------------------------------------------------------
 # -----------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {
