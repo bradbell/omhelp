@@ -18,6 +18,7 @@ list=`git ls-files | sed \
 	-e '/^omh\/license\.omh/d' \
 	-e '/^src\/allocate.c/d' \
 	-e '/^src\/lextex.c/d' \
+	-e '/^src\/search.c/d' \
 	-e '/^bin\/batch_edit\.sh/d'`
 for file in $list
 do
@@ -28,8 +29,6 @@ do
 		echo $file
 		git checkout $file
 		bin/new_copyright.sh $file
-		# for testing pruposes
-		git checkout $file
 		;;
 
 		*)
