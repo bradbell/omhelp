@@ -54,17 +54,17 @@ $cend $codei%void InputInit(
 $tend
 
 $head Description$$
-The $code '\0'$$ terminated character vector $italic directory$$
+The $code '\0'$$ terminated character vector $icode directory$$
 specifies the local directory for all input file searching by
 $cref InputPush$$ and $cref InputAddPath$$.
-The last character in $italic directory$$ must be either a forward
+The last character in $icode directory$$ must be either a forward
 or back slash; i.e., '/' or '\\'.
 
 $head Assumptions$$
 $list number$$
 this routine is called only once.
 $lnext
-$italic directory$$ is a
+$icode directory$$ is a
 $cref/complete path specification/glossary/Complete Path Specification/$$.
 $lnext
 $code InputInit$$
@@ -101,11 +101,11 @@ $cend $mref/InputSplitName/InputPop/$$
 $tend
 
 $head Description$$
-The $code '\0'$$ terminated character row vector $italic ext$$
+The $code '\0'$$ terminated character row vector $icode ext$$
 specifies the
 $cref/extension/glossary/File Extension/$$
 of the file to be pushed on the input stack.
-The $code '\0'$$ terminated character row vector $italic root$$
+The $code '\0'$$ terminated character row vector $icode root$$
 specifies the
 $cref/root/glossary/Root File Name/$$ file name of the file.
 The routine
@@ -114,14 +114,14 @@ $cref InputSearch$$ specifies how the input file is searched for.
 $head File Opened$$
 If the file is opened for reading, it is placed on top of the input stack.
 In addition, the new line character $code '\n'$$ is printed
-on standard output, followed by $italic nspace$$ spaces,
+on standard output, followed by $icode nspace$$ spaces,
 followed by the name of the file with the matching path
 and extension added on.
 
 $head File Not Opened$$
 It is considered a user error if
 the file cannot be opened for reading,
-or if the file name corresponding to $italic root$$ followed by $italic ext$$
+or if the file name corresponding to $icode root$$ followed by $icode ext$$
 is equal to $code "NONE"$$.
 In either of these cases,
 a fatal error message is reported
@@ -173,7 +173,7 @@ $cend $mref/InputLine/InputPush/$$
 $tend
 
 $head Description$$
-Returns the $italic root$$ plus $italic ext$$ corresponding
+Returns the $icode root$$ plus $icode ext$$ corresponding
 to the call to $mref/InputPush/$$ that placed the current input
 file on top of the input stack.
 $pre
@@ -236,11 +236,11 @@ $cend $mref/InputSearch/$$
 $tend
 
 $head Description$$
-Adds the search path specified by $italic path$$
+Adds the search path specified by $icode path$$
 to the set of input search paths for the
 $cref/extension/glossary/File Extension/$$
-specified by $italic ext$$.
-Both $italic path$$ and $italic ext$$ must be
+specified by $icode ext$$.
+Both $icode path$$ and $icode ext$$ must be
 $code '\0'$$ terminated character row vectors.
 
 
@@ -271,22 +271,22 @@ $tend
 $head Description$$
 Searches the set of paths corresponding to the
 $cref/extension/glossary/File Extension/$$ specified
-by $italic ext$$ for a file that has its
-$cref/root/glossary/Root File Name/$$ name equal to $italic root$$.
-The arguments $italic root$$ and $italic ext$$ are
+by $icode ext$$ for a file that has its
+$cref/root/glossary/Root File Name/$$ name equal to $icode root$$.
+The arguments $icode root$$ and $icode ext$$ are
 $code '\0'$$ terminated character row vectors.
 
 $head Searching For File$$
-If $italic root$$ has a
+If $icode root$$ has a
 $cref/complete path specification/glossary/Complete Path Specification/$$,
-no path are added to the $italic root$$ before searching for the file.
+no path are added to the $icode root$$ before searching for the file.
 Otherwise, the
 $cref/local directory/InputInit/$$ is placed in front of
-$italic root$$ and the file is searched for.
+$icode root$$ and the file is searched for.
 If the file is not found relative to the local directory,
 each of the
 $cref/search paths/InputAddPath/$$ is placed in front of
-$italic root$$ and the file is searched for.
+$icode root$$ and the file is searched for.
 For each search path, if it is not a complete path specification,
 the $cref/local directory/InputInit/$$ is placed
 in front of it to complete the path specification.
@@ -335,22 +335,22 @@ $cref/root/glossary/Root File Name/$$
 and
 $cref/extension/glossary/File Extension/$$
 corresponding to the file specified by
-$italic filename$$.
-The argument $italic filename$$ is a
+$icode filename$$.
+The argument $icode filename$$ is a
 $code '\0'$$ terminated
 character vector specifying the file name.
-Leading and trailing white space in $italic filename$$ is ignored.
+Leading and trailing white space in $icode filename$$ is ignored.
 $pre
 
 $$
 The character row vector $codei%*%pext%$$
 is set to be $code '\0'$$ terminated and contains the
 $cref/extension/glossary/File Extension/$$
-corresponding to $italic filename$$.
+corresponding to $icode filename$$.
 The character row vector $codei%*%proot%$$
 is set to be $code '\0'$$ terminated and contains the
 $cref/root/glossary/Root File Name/$$
-corresponding to $italic filename$$.
+corresponding to $icode filename$$.
 
 $head Memory Allocation$$
 The character vectors corresponding to

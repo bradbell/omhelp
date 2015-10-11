@@ -39,7 +39,7 @@ the use of frames is being discouraged.
 
 
 $head Description$$
-The argument $italic percent$$ is an integer that specifies the
+The argument $icode percent$$ is an integer that specifies the
 percentage of the entire window that the frame directly above
 is allocated.
 

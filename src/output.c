@@ -27,15 +27,15 @@ $tend
 
 $head Description$$
 Opens the file corresponding to the
-$cref/string/glossary/String/$$ $italic name$$
+$cref/string/glossary/String/$$ $icode name$$
 and places it on the top of the output stack.
-Upper case letters in $italic name$$
+Upper case letters in $icode name$$
 are interpreted as lower case.
 This is because Microsoft Windows is not really case
 sensitive when it comes to distinguishing file names.
 
 $head Current Output File$$
-The file specified by $italic name$$ becomes
+The file specified by $icode name$$ becomes
 the current output file.
 The $cref PopOutput$$ function removes the
 current output file from the top of the stack
@@ -64,26 +64,26 @@ $tend
 $head Description$$
 Write the
 $cref/string/glossary/String/$$
-specified by $italic s1$$
-(and $italic s2$$ if it is present)
-using the format specified by $italic fmt$$.
+specified by $icode s1$$
+(and $icode s2$$ if it is present)
+using the format specified by $icode fmt$$.
 The output is written to the
 $cref/current output file/PushOutput/Current Output File/$$.
 $codei/
 
 FormatOutput(/fmt/, /s1/)
 /$$
-there is must be only one formatting command in $italic fmt$$,
+there is must be only one formatting command in $icode fmt$$,
 it must be a $code %s$$ command,
-and it represents where $italic s1$$ goes in the output.
+and it represents where $icode s1$$ goes in the output.
 $codei/
 
 FormatOutput2(/fmt/, /s1/, /s2/)
 /$$
-there is must be two formatting command in $italic fmt$$,
+there is must be two formatting command in $icode fmt$$,
 they must be $code %s$$ commands,
-the first represents where $italic s1$$ goes in the output,
-the second represents where $italic s2$$ goes in the output.
+the first represents where $icode s1$$ goes in the output,
+the second represents where $icode s2$$ goes in the output.
 
 
 $end
@@ -106,7 +106,7 @@ $tend
 $head Description$$
 Write the
 $cref/string/glossary/String/$$
-specified by $italic s$$ to the
+specified by $icode s$$ to the
 $cref/current output file/PushOutput/Current Output File/$$.
 
 
@@ -130,7 +130,7 @@ $tend
 
 $head Description$$
 Write the
-character specified by $italic ch$$ to the
+character specified by $icode ch$$ to the
 $cref/current output file/PushOutput/Current Output File/$$.
 
 

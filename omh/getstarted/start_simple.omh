@@ -43,7 +43,7 @@ Then you can run any of the following examples:
 
 $subhead Test Directory$$
 Create an empty directory with a name of your choosing
-that we will refer to as $italic test$$ below.
+that we will refer to as $icode test$$ below.
 
 $subhead simple_example.omh$$
 Use the editor of your choice to

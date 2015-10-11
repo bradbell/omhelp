@@ -56,7 +56,7 @@ $cref/printid/CrossReference/Printid/$$
 corresponding to each child is included at the end of the
 linking text.
 In addition, the cross reference link is to the same file
-and the NAME field $italic printid$$ within that file.
+and the NAME field $icode printid$$ within that file.
 
 $end
 */

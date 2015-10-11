@@ -25,10 +25,10 @@ $cnext $mref/pre/math/table/$$
 $tend
 
 $head Description$$
-Centers the output specified by $italic text$$,
-where $italic text$$
+Centers the output specified by $icode text$$,
+where $icode text$$
 is any input sequence and may have embedded commands; i.e.,
-there may be occurrences of the $code @$$ character in $italic text$$.
+there may be occurrences of the $code @$$ character in $icode text$$.
 
 $head Example$$
 The following table contains an example for each of the fonts:

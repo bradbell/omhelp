@@ -38,7 +38,7 @@ and $code Number$$.
 Often, there are words in the text of a document that are not
 part of the standard or local
 $cref/dictionary/spell/Dictionary/$$.
-Any words that appear in $italic word list$$
+Any words that appear in $icode word_list$$
 will be considered correctly spelled even if they are not in
 either of the dictionaries.
 
@@ -50,7 +50,7 @@ a double word is two copies of the same word
 with only
 $cref/white space/glossary/White Space/$$
 between the two copies.
-If a double word appears in $italic word list$$,
+If a double word appears in $icode word_list$$,
 it will be considered correctly spelled.
 
 $head Effect Limits$$

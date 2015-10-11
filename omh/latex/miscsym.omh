@@ -30,8 +30,8 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the miscellaneous symbol specified by $italic Command$$ where
-$italic Command$$ is one of the
+the miscellaneous symbol specified by $icode Command$$ where
+$icode Command$$ is one of the
 Latex commands in the tables below.
 The following tables contain the miscellaneous symbols
 in Table 3.7 of
@@ -61,7 +61,7 @@ $nospell
 $table
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \aleph               $cnext $latex \aleph               $$ $rend
 \hbar                $cnext $latex \hbar                $$ $rend
 \imath               $cnext $latex \imath               $$ $rend
@@ -76,7 +76,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \prime               $cnext $latex \prime               $$ $rend
 \emptyset            $cnext $latex \emptyset            $$ $rend
 \nabla               $cnext $latex \nabla               $$ $rend
@@ -89,7 +89,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \forall              $cnext $latex \forall              $$ $rend
 \exists              $cnext $latex \exists              $$ $rend
 \neg                 $cnext $latex \neg                 $$ $rend
@@ -103,7 +103,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \infty               $cnext $latex \infty               $$ $rend
 \Box                 $cnext $latex \Box                 $$ $rend
 \Diamond             $cnext $latex \Diamond             $$ $rend

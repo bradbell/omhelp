@@ -31,7 +31,7 @@ $tend
 $head Description$$
 returns a pointer to a separately allocated
 copy of the $code '\0'$$ terminated
-character vector specified by $italic s$$.
+character vector specified by $icode s$$.
 
 $head Memory$$
 The return value of $code str_alloc$$
@@ -45,7 +45,7 @@ will report the corresponding source code line and file where the
 corresponding call to $code str_alloc$$ is located.
 
 $head Prototype$$
-The argument $italic s$$ is specified as a $code const char*$$
+The argument $icode s$$ is specified as a $code const char*$$
 and the return value is a $code char*$$.
 
 $end

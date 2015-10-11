@@ -81,7 +81,7 @@ $codei%
 	_%F->tagLower%_%ext%.js
 %$$
 to be the javascript file for this section
-where $italic ext$$ is $code Internal2Out("OutputExtension")$$
+where $icode ext$$ is $code Internal2Out("OutputExtension")$$
 with out the leading "." character.
 
 

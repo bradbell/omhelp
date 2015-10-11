@@ -21,10 +21,10 @@ or has a colon, $code :$$, as its second character.
 (Note that a disk specification must precede the colon.)
 
 $head Cross Reference Heading$$
-If $italic crossheading$$ is
+If $icode crossheading$$ is
 a cross reference heading it is a '\0' terminated character vector
 that refers to a certain location with in a section.
-If $italic crossheading$$ is empty
+If $icode crossheading$$ is empty
 ($icode%crossheading%[0]%$$ is equal to '\0')
 the location is the beginning of the section.
 $pre
@@ -40,10 +40,10 @@ $pre
 
 $$
 On the other hand,
-suppose that $italic crossheading$$
-is equal to the character string $italic heading$$,
+suppose that $icode crossheading$$
+is equal to the character string $icode heading$$,
 followed by a period ('.'),
-followed by the character string $italic subheading$$.
+followed by the character string $icode subheading$$.
 Further suppose that there is a command of the form
 $codei%
 	@head %heading%@@
@@ -53,7 +53,7 @@ there is a command of the form
 $codei%
 	@subhead %subheading%@@
 %$$
-In this case $italic crossheading$$ refers to the
+In this case $icode crossheading$$ refers to the
 location of the $code subhead$$ command.
 
 

@@ -48,9 +48,9 @@ $pre     $$ $cnext $code fixed$$  $cnext a fixed pitch font    $rnext
             $cnext $code big$$    $cnext a bigger font size    $rnext
             $cnext $code small$$  $cnext a smaller font size
 $tend
-Any sequence of commands may be present in $italic text$$; i.e.,
+Any sequence of commands may be present in $icode text$$; i.e.,
 there may be occurrences of the $code @$$ character.
-If a space is the first character in $italic text$$,
+If a space is the first character in $icode text$$,
 it is ignored.
 
 $head Example$$
@@ -63,7 +63,7 @@ $pre     $$ $cnext $bold Input$$          $cnext $bold Output$$ $rnext
             $cnext $code @code Text@@$$   $cnext $code Text$$ $rnext
             $cnext $code @big  Text@@$$   $cnext $big Text$$ $rnext
             $cnext $code @small Text@@$$  $cnext $small Text$$ $rnext
-            $cnext $code @italic Text@@$$ $cnext $italic Text$$ $rnext
+            $cnext $code @italic Text@@$$ $cnext $icode Text$$ $rnext
             $cnext $code @bold Text@@$$   $cnext $bold Text$$
 $tend
 

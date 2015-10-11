@@ -50,9 +50,9 @@ $codei%
 
 OpenSearchFile(%fileTag%, %siteTitle%)%
 %$$
-The '\0' terminated character vector $italic fileTag$$
+The '\0' terminated character vector $icode fileTag$$
 specifies the cross reference tag for the search utility.
-The '\0' terminated character string $italic siteTitle$$
+The '\0' terminated character string $icode siteTitle$$
 specifies the title for the automatically generated web page that
 is a search utility for this web site.
 This call opens a new file called
@@ -69,17 +69,17 @@ $codei%
 SearchBegin(%tag%)%
 %$$
 This begins a the search information for a new section.
-The '\0' terminated character vector $italic tag$$
+The '\0' terminated character vector $icode tag$$
 specifies the cross reference tag for the current section.
 (It is assumed that $icode%tag%[0]%$$ is not equal to '\0'.)
 The title and keywords that come between a call to $code SearchBegin$$
 and the following call to $code SearchEnd$$
 are linked by the search utility
 to the web page $icode%tag%.%ext%$$
-(where $italic ext$$ is the output file extension specified by
+(where $icode ext$$ is the output file extension specified by
 $cref Internal2Out$$).
 If multiple sequential white spaces characters
-occur in $italic tag$$, a fatal error message
+occur in $icode tag$$, a fatal error message
 is generated and the program is terminated.
 $pre
 
@@ -88,7 +88,7 @@ $codei%
 
 SearchTitle(%title%)%
 %$$
-The '\0' terminated character vector $italic title$$ specifies the title
+The '\0' terminated character vector $icode title$$ specifies the title
 for the current section.
 The current section is defined as the one specified by the
 previous call to $code SearchBegin$$.
@@ -101,9 +101,9 @@ $codei%
 
 SearchKeywords(%list%, %escape%, %ignore%)%
 %$$
-Adds the keywords in $italic list$$ to the
+Adds the keywords in $icode list$$ to the
 set of keywords for the current section
-where $italic list$$ is a '\0' terminated character vector.
+where $icode list$$ is a '\0' terminated character vector.
 $pre
 
 $$
@@ -114,12 +114,12 @@ has not yet occurred.
 $pre
 
 $$
-A keyword is any sequence of characters (in $italic list$$) not including
+A keyword is any sequence of characters (in $icode list$$) not including
 white space or commas.
-Keywords beginning with the character $italic escape$$
+Keywords beginning with the character $icode escape$$
 are not included.
 Commas are treated as white space
-except for those commas that are preceded by the $italic escape$$
+except for those commas that are preceded by the $icode escape$$
 character.
 Words that appear in $icode ignore$$, surrounded by spaces, are not included
 in the search keywords.
@@ -150,7 +150,7 @@ CloseSearchFile(%delete%)
 Closes the $icode%fileTag%.tmp%$$ file.
 Calls to the other routines documented above are invalid
 after this call.
-If $italic delete$$ is true,
+If $icode delete$$ is true,
 it is assumed that the search file
 $icode%fileTag%.tmp%$$
 is not used and so it is

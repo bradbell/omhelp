@@ -98,7 +98,7 @@ $pre	$$is very useful.
 
 $head Command Documentation$$
 Only the Latex
-commands documented below are allowed in $italic commands$$.
+commands documented below are allowed in $icode commands$$.
 
 
 $childtable%latex\symbol.omh

@@ -40,7 +40,7 @@ $codei/
 /$$
 is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
-The values $italic tag1$$, ..., $italic tagN$$
+The values $icode tag1$$, ..., $icode tagN$$
 specify the cross reference tags for the links.
 
 Leading and trailing

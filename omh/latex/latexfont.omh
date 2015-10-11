@@ -36,10 +36,10 @@ $tend
 
 $head Description$$
 Display in Latex using the specified font where
-$italic font$$ is one of the commands in the following table:
+$icode font$$ is one of the commands in the following table:
 
 $table
-$italic font$$ $pre  $$ $cnext $italic Meaning$$ $pre  $$ $cnext
+$icode font$$ $pre  $$ $cnext $icode Meaning$$ $pre  $$ $cnext
 	Example
 $rnext
                $cnext default           $cnext

@@ -30,21 +30,21 @@ $tend
 
 $head Description$$
 A new paragraph is started and it is given the heading
-specified by $italic heading$$ or $italic subheading$$.
+specified by $icode heading$$ or $icode subheading$$.
 There can be no $code @$$ or $code #$$ characters in either
-$italic heading$$ or $italic subheading$$.
+$icode heading$$ or $icode subheading$$.
 In addition,
 leading and trailing
 $cref/white space/glossary/White Space/$$
-in both $italic heading$$ and $italic subheading$$ is ignored.
+in both $icode heading$$ and $icode subheading$$ is ignored.
 
 $head Cross Reference Linking$$
 $mindex head subhead cross reference link$$
 
-You can specify a particular $italic heading$$,
+You can specify a particular $icode heading$$,
 using the $cref xref$$ command with
 the specified $cref/heading/xref/Example.Headings/$$.
-You can specify a particular $italic subheading$$,
+You can specify a particular $icode subheading$$,
 using the $cref xref$$ command with
 the previous heading and
 $cref/subheading/xref/Example.Subheadings/$$.
@@ -60,7 +60,7 @@ $codei/
 	@mindex /heading/@@
 /$$
 In this case,
-occurrences of the $cref escape$$ character in $italic heading$$
+occurrences of the $cref escape$$ character in $icode heading$$
 has the special meaning defined for the $code mindex$$ command.
 These characters do not appear in the displayed output
 nor is it part of the corresponding cross reference link text.

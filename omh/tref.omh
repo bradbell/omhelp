@@ -28,14 +28,14 @@ $cnext $mref/title/cref/$$
 $tend
 
 $head Description$$
-The argument $italic tag$$ specifies the
+The argument $icode tag$$ specifies the
 $cref/cross reference tag/glossary/Cross Reference Tag/$$ for
 the link.
 The
 $cref/title/section/$$
-of the section corresponding to $italic tag$$
+of the section corresponding to $icode tag$$
 is used to reference the link in the current section.
-Leading and trailing white space in $italic tag$$ is ignored.
+Leading and trailing white space in $icode tag$$ is ignored.
 
 
 $head Example$$
@@ -48,6 +48,6 @@ $pre
 	$$(see also: $tref cref$$)
 $pre
 $$
-Note that $code cref$$ is the $italic tag$$ in this example.
+Note that $code cref$$ is the $icode tag$$ in this example.
 
 $end

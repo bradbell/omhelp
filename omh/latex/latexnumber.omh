@@ -23,8 +23,8 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the numeric value specified by $italic Number$$ where
-$italic Number$$ is either a Latex integer or a
+the numeric value specified by $icode Number$$ where
+$icode Number$$ is either a Latex integer or a
 Latex real (as defined below).
 
 $subhead Latex Integer$$

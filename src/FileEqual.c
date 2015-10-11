@@ -23,8 +23,8 @@ $tend
 
 $head Description$$
 System dependent check if the file corresponding to
-$italic name1$$ is equal to the file correspond to $italic name2$$
-where $italic name1$$ and $italic name2$$ are $code '\0'$$ terminated
+$icode name1$$ is equal to the file correspond to $icode name2$$
+where $icode name1$$ and $icode name2$$ are $code '\0'$$ terminated
 character vectors.
 The backslash $code \$$ and forward slash $code /$$
 are considered equal in this comparison.

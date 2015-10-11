@@ -26,8 +26,8 @@ $tend
 
 $head Description$$
 All  of the character in
-$italic text$$ are ignored where
-$italic text$$ is any sequence of characters not including
+$icode text$$ are ignored where
+$icode text$$ is any sequence of characters not including
 a new line character or the double dollar $code @@$$.
 
 $head Example$$

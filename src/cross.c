@@ -40,16 +40,16 @@ $cref/cross reference heading/glossary/Cross Reference Heading/$$
 refers to
 $rend
 
-$cref/tag/CrossReference/Tag/$$       $cend       $italic tag$$  $cend
+$cref/tag/CrossReference/Tag/$$       $cend       $icode tag$$  $cend
 a separated allocated copy of section tag
 $rend
 
-$cref/head/CrossReference/Head/$$      $cend       $italic head$$ $cend
+$cref/head/CrossReference/Head/$$      $cend       $icode head$$ $cend
 a separated allocated copy of a
 $cref/cross reference heading/glossary/Cross Reference Heading/$$
 $rend
 
-$cref/file/CrossReference/File/$$      $cend       $italic file$$ $cend
+$cref/file/CrossReference/File/$$      $cend       $icode file$$ $cend
 name of user input file corresponding to this cross reference
 $rend
 
@@ -131,8 +131,8 @@ If no such cross reference is found, a new one is created.
 $pre
 
 $$
-If a cross reference destination with the same $italic tag$$
-and $italic head$$ has already been
+If a cross reference destination with the same $icode tag$$
+and $icode head$$ has already been
 $cref/defined/CrossReference/Defined/$$,
 a fatal error message is printed and the program stops.
 (Note that defined is different from created.)
@@ -147,17 +147,17 @@ fields are set to the values specified by the call.
 $pre
 
 $$
-If $italic file$$
+If $icode file$$
 is equal to $mref/InputName/$$,
 the line number is set to $mref/InputLine/$$.
 $pre
 
 $$
-The argument  $italic printid$$
+The argument  $icode printid$$
 specifies the
 $cref/printid/CrossReference/Printid/$$
 for this cross reference.
-The argument $italic printid$$ can point to the empty string
+The argument $icode printid$$ can point to the empty string
 in which case there is no print id for this cross reference.
 $pre
 
@@ -179,9 +179,9 @@ $tend
 
 $head Description$$
 Returns a $code CrossReference$$ pointer that has the same
-$cref/tag/CrossReference/Tag/$$ as $italic cross$$
-and is defined directly after the definition of $italic cross$$.
-The argument $italic cross$$ is a $code CrossReference$$ pointer.
+$cref/tag/CrossReference/Tag/$$ as $icode cross$$
+and is defined directly after the definition of $icode cross$$.
+The argument $icode cross$$ is a $code CrossReference$$ pointer.
 If no such a cross reference exists,
 $code NULL$$ is returned.
 This is useful for listing the

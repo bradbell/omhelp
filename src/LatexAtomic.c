@@ -26,7 +26,7 @@ and contains the command name
 The return value of $code LatexAtomic$$
 is a '\0' terminated $code const char*$$ containing
 the UNICODE characters corresponding to the command.
-If $italic name$$ is not in the specified group,
+If $icode name$$ is not in the specified group,
 $code NULL$$ is returned.
 $pre
 
@@ -38,7 +38,7 @@ If the return value of $code LatexAtomic$$ is not
 $code NULL$$,
 the output value of
 $codei%int *%token%$$
-specifies which type of token $italic name$$ represents.
+specifies which type of token $icode name$$ represents.
 It will be one of the following:
 
 

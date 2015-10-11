@@ -30,8 +30,8 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the relation symbol specified by $italic Command$$ where
-$italic Command$$ is one of the
+the relation symbol specified by $icode Command$$ where
+$icode Command$$ is one of the
 Latex commands in the tables below.
 The following tables contain the relation symbols
 in Table 3.5 of
@@ -57,7 +57,7 @@ $nospell
 $table
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \leq             $cnext $latex \leq             $$ $rend
 \prec            $cnext $latex \prec            $$ $rend
 \preceq          $cnext $latex \preceq          $$ $rend
@@ -73,7 +73,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \geq             $cnext $latex \geq             $$ $rend
 \succ            $cnext $latex \succ            $$ $rend
 \succeq          $cnext $latex \succeq          $$ $rend
@@ -89,7 +89,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \equiv           $cnext $latex \equiv           $$ $rend
 \sim             $cnext $latex \sim             $$ $rend
 \simeq           $cnext $latex \simeq           $$ $rend
@@ -104,7 +104,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \models          $cnext $latex \models          $$ $rend
 \perp            $cnext $latex \perp            $$ $rend
 \mid             $cnext $latex \mid             $$ $rend

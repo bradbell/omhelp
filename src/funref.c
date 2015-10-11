@@ -27,15 +27,15 @@ $codei%
 
 %tag%
 %$$
-The '\0' terminated character vector $italic tag$$ is the cross reference
+The '\0' terminated character vector $icode tag$$ is the cross reference
 tag for this function reference entry.
 This value will appear in alphabetic order in the function reference section.
 $codei%
 
 %title%
 %$$
-The '\0' terminated character vector $italic title$$ is
-text that will next to the corresponding value of $italic tag$$
+The '\0' terminated character vector $icode title$$ is
+text that will next to the corresponding value of $icode tag$$
 in the function reference section.
 $codei%
 
@@ -60,7 +60,7 @@ $icode/section/->tag/$$
 and extension $code .tmp$$.
 It is a Pass1 version because
 the cross references use the HrefOutputPass1 format.
-In addition, for the $italic letter$$
+In addition, for the $icode letter$$
 between $code A$$ and $code Z$$ that has function reference entries
 starting with that letter:
 there a heading for that letter together with a

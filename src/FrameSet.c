@@ -21,7 +21,7 @@ $codei%void OutputFrameSet(SectionInfo *%
 
 $head Purpose$$
 This routine outputs the frame set corresponding to the section
-$italic F$$ (provided that the command line argument $code -noframe$$
+$icode F$$ (provided that the command line argument $code -noframe$$
 is not present).
 
 $head Output File$$
@@ -31,13 +31,13 @@ $codei%
 %$$
 
 $head link_frame$$
-If $italic link_frame$$ is true,
+If $icode link_frame$$ is true,
 a file containing the relative links for this section is output with
 the name
 $codei%
 	%F->tagLower%.%ext%
 %$$
-where $italic ext$$ is the return value from the function
+where $icode ext$$ is the return value from the function
 $code Internal2Out("OutputExtension")$$.
 This file is displayed in a tall frame to the left of the section information.
 Otherwise, there is no link frame in this frame set.
@@ -45,15 +45,15 @@ Otherwise, there is no link frame in this frame set.
 $head User Frames$$
 The other frames are displayed one above the other
 (in order) to the right of the link frame.
-For $italic j$$ equal one to $italic F->nFrame$$,
+For $icode j$$ equal one to $icode F-nFrame$$,
 the file containing the $th j$$ frames information is assumed to be named
 $codei%
 	%F->tagLower%_frame%j%.%ext%
 %$$
-If $italic j$$ is one
-$italic ext$$ is equal to $italic FrameOneExt$$.
+If $icode j$$ is one
+$icode ext$$ is equal to $icode FrameOneExt$$.
 Otherwise,
-$italic ext$$ is the return value from the function
+$icode ext$$ is the return value from the function
 $code Internal2Out("OutputExtension")$$.
 The $th j$$ frame is given the following HTML $code name$$ and $code id$$
 values

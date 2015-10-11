@@ -27,7 +27,7 @@ $cend $codei%char *Color(
 $tend
 
 $head Description$$
-The argument $italic delseq$$ is
+The argument $icode delseq$$ is
 a '\0' terminated character vector.
 If it does not agree with the specifications below,
 an error message that identifies the
@@ -64,13 +64,13 @@ $tend
 
 
 $head Errors$$
-It $italic delseq$$ does not meet the specifications above,
+It $icode delseq$$ does not meet the specifications above,
 $cref/fatalomh/fatalerr/$$ is used to report error messages; i.e.,
 it is assumed that there is an open input file and
 that we are currently parsing OMhelp input.
 The error messages listed above identify
-$italic line$$ as the line number in the input file
-and $italic cmd$$ as the command where the error occurred
+$icode line$$ as the line number in the input file
+and $icode cmd$$ as the command where the error occurred
 in a delimiter sequence.
 
 $end

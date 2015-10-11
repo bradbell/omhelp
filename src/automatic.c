@@ -20,7 +20,7 @@ $head Description$$
 This call adds a section to the section tree.
 
 $head parent$$
-The argument $italic parent$$
+The argument $icode parent$$
 $cref/SectionInfo/SectionInfo/$$ pointer
 that specifies the parent of the section being added.
 This cannot be NULL, but $icode/parent/->children/$$
@@ -28,24 +28,24 @@ can be NULL.
 The style of the parent section is copied into the new section.
 
 $head tag$$
-The argument $italic tag$$ is a $code '\0'$$
+The argument $icode tag$$ is a $code '\0'$$
 terminated character vector that specifies the cross reference
 tag for the section that is appended.
 A $cref/cross reference/CrossReference/$$ is defined pointing to this section
-with tag equal to $italic tag$$ and
+with tag equal to $icode tag$$ and
 heading equal to the empty string.
 
 $head title$$
-The argument $italic title$$ is a $code '\0'$$
+The argument $icode title$$ is a $code '\0'$$
 terminated character vector that specifies the
 $cref/section title/SectionInfo/$$
 for the section that is added to the tree.
 
 $head letterHeadings$$
-The argument $italic letterHeadings$$ is either zero or one.
+The argument $icode letterHeadings$$ is either zero or one.
 If it is one, for each capital letter in the alphabet,
 a cross references
-is defined with tag equal to $italic tag$$,
+is defined with tag equal to $icode tag$$,
 heading equal to the letter,
 frame equal to 1,
 and file equal to the empty string.
@@ -64,15 +64,15 @@ $cnext $codei/IsAutomaticSection(/section/)/$$
 $tend
 
 $head Description$$
-Returns one, if $italic section/$$ is one of the sections generated
+Returns one, if $icode section$$ is one of the sections generated
 by a previous call to $cref AutomaticAppendSection$$,
 and returns zero otherwise.
 
 
 $head section$$
-The argument $italic section$$ is a
+The argument $icode section$$ is a
 $cref/SectionInfo/SectionInfo/$$ pointer.
-The value $italic section$$ or $icode/section/->tag/$$ can be NULL,
+The value $icode section$$ or $icode/section/->tag/$$ can be NULL,
 in which case zero is returned.
 
 $end
@@ -88,8 +88,8 @@ $tend
 
 $head Description$$
 Returns a $code '\0'$$ character vector pointing to
-the $italic tag$$ for the $math% i+1 %$$ call to $code AutomaticAppendSection$$.
-If $italic i$$ is greater than or equal to the number of calls to
+the $icode tag$$ for the $math% i+1 %$$ call to $code AutomaticAppendSection$$.
+If $icode i$$ is greater than or equal to the number of calls to
 $code AutomaticAppendSection$$, $code AutomaticTag$$ returns NULL.
 
 $end

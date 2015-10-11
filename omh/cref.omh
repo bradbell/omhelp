@@ -48,50 +48,50 @@ $codei/
 is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 and $code %$$ can be any character that is not a letter.
 Leading and trailing white space in
-$italic text$$,
-$italic tag$$,
-$italic heading$$,
+$icode text$$,
+$icode tag$$,
+$icode heading$$,
 and
-$italic subheading$$
+$icode subheading$$
 is ignored.
 Thus is useful when the argument list the $code cref$$ is long
 and is clearer when put on multiple input lines.
 
 $head text$$
-The value of $italic text$$ specifies the text
+The value of $icode text$$ specifies the text
 that the user selects for the link.
 
 $head tag$$
-The value of $italic tag$$
+The value of $icode tag$$
 specifies the destination
 $cref/cross reference tag/glossary/Cross Reference Tag/$$
 for the link.
-If $italic tag$$ is not present,
-the value of $italic text$$ is used for the cross reference tag.
+If $icode tag$$ is not present,
+the value of $icode text$$ is used for the cross reference tag.
 
 $head heading$$
-The value of $italic heading$$ specifies the
+The value of $icode heading$$ specifies the
 destination $cref/heading/head/$$ for the link
-(within the section specified by $italic tag$$).
+(within the section specified by $icode tag$$).
 If this heading is not present,
 the link is to the corresponding entire
-$cref/section/glossary/Section/$$ specified by $italic tag$$.
+$cref/section/glossary/Section/$$ specified by $icode tag$$.
 
 $head subheading$$
-The value of $italic subheading$$ specifies the
+The value of $icode subheading$$ specifies the
 destination $cref/subheading/head/$$ for the link
-(within the section specified by $italic tag$$ and the heading
-specified by $italic heading$$).
+(within the section specified by $icode tag$$ and the heading
+specified by $icode heading$$).
 
 $head Example$$
 For the following input
 $codep
 	@cref/head/@@
 $$
-$italic text$$ is equal to $code head$$,
-$italic tag$$ is not present,
-$italic heading$$ is not present, and
-$italic subheading$$ is not present.
+$icode text$$ is equal to $code head$$,
+$icode tag$$ is not present,
+$icode heading$$ is not present, and
+$icode subheading$$ is not present.
 The users sees the text $code head$$,
 this links to the section
 with cross reference tag equal to $code head$$,
@@ -105,10 +105,10 @@ For the following input
 $codep
 	@cref/OMhelp Headings/head/@@
 $$
-$italic text$$ is equal to $code OMhelp Headings$$,
-$italic tag$$ is equal to $code head$$,
-$italic heading$$ is not present, and
-$italic subheading$$ is not present.
+$icode text$$ is equal to $code OMhelp Headings$$,
+$icode tag$$ is equal to $code head$$,
+$icode heading$$ is not present, and
+$icode subheading$$ is not present.
 You can see the effect by selecting the following link:
 $cref/OMhelp Headings/head/$$.
 
@@ -117,10 +117,10 @@ For the following input
 $codep
 	@cref/example heading/head/Example Heading/@@
 $$
-$italic text$$ is equal to $code example heading$$,
-$italic tag$$ is equal to $code head$$,
-$italic heading$$ is equal to $code Example Heading$$, and
-$italic subheading$$ is not present.
+$icode text$$ is equal to $code example heading$$,
+$icode tag$$ is equal to $code head$$,
+$icode heading$$ is equal to $code Example Heading$$, and
+$icode subheading$$ is not present.
 You can see the effect by selecting the following link:
 $cref/example heading/head/Example Heading/$$.
 
@@ -137,10 +137,10 @@ $codep
 		Topic
 	/@@
 $$
-$italic text$$ is equal to $code the Topic example subheading$$,
-$italic tag$$ is equal to $code head$$,
-$italic heading$$ is equal to $code Example Subheading$$, and
-$italic subheading$$ is equal to $code Topic$$.
+$icode text$$ is equal to $code the Topic example subheading$$,
+$icode tag$$ is equal to $code head$$,
+$icode heading$$ is equal to $code Example Subheading$$, and
+$icode subheading$$ is equal to $code Topic$$.
 You can see the effect by selecting the following link:
 $cref/
 	the Topic example subheading/
@@ -161,7 +161,7 @@ $pre
 
 $$
 $cref/White space/Glossary/White Space/$$ characters in the
-$italic heading$$ and $italic subheading$$ are just delimiters between tokens
+$icode heading$$ and $icode subheading$$ are just delimiters between tokens
 when searching for the matching link.
 Thus you can split long headings and subheadings into multiple lines.
 

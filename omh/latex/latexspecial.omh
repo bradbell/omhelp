@@ -39,14 +39,14 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the character specified by $italic c$$
-where $italic c$$ is one of the following:
+the character specified by $icode c$$
+where $icode c$$ is one of the following:
 #, @, %, &, _, {, }.
 
 $head Example$$
 
 $table
-$italic Command$$ $cnext $italic Output$$ $rend
+$icode Command$$ $cnext $icode Output$$ $rend
 $code  \# $$  $cnext $latex \# $$ $rnext
 $code  \@ $$  $cnext $latex \$ $$ $rnext
 $code  \% $$  $cnext $latex \% $$ $rnext

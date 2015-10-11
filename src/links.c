@@ -40,48 +40,48 @@ $pre
 
 $$
 All of the arguments
-$italic tagfrom$$,
-$italic direction$$,
-$italic image_link$$,
-$italic image_file$$,
-$italic title$$,
-$italic tag$$,
-$italic crossheading$$,
+$icode tagfrom$$,
+$icode direction$$,
+$icode image_link$$,
+$icode image_file$$,
+$icode title$$,
+$icode tag$$,
+$icode crossheading$$,
 and
-$italic text$$,
+$icode text$$,
 are all '\0' terminated vectors of type $code const char*$$.
-One exception to this rule is that $italic image_link$$
-and $italic image_file$$ may be $code NULL$$.
+One exception to this rule is that $icode image_link$$
+and $icode image_file$$ may be $code NULL$$.
 $codei/
 
 BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)
 /$$
 The opens a new output file named $icode/taglower/_links./ext/$$
-where $italic taglower$$ is a lower case version of $italic tagfrom$$
-and $italic ext$$ is the output file extension specified by
+where $icode taglower$$ is a lower case version of $icode tagfrom$$
+and $icode ext$$ is the output file extension specified by
 $cref Internal2Out$$.
 This file will contain a set of links for navigating from
 specified section.
-The argument $italic tagfrom$$ contains
+The argument $icode tagfrom$$ contains
 the a cross reference tag for the section where the links will appear.
-The argument $italic direction$$
+The argument $icode direction$$
 is either $code "row"$$ or $code "column"$$ depending
 on if the links are to be in a frame displayed
 as a row or column of the overall window.
 $pre
 
 $$
-The argument $italic image_link$$ specifies the web address that the
-image file $italic image_file$$ is to be linked to.
-If $italic image_link$$ is $code NULL$$, the image does not appear
-and $italic image_file$$ is not used.
-Otherwise, $italic image_file$$ cannot be $code NULL$$.
+The argument $icode image_link$$ specifies the web address that the
+image file $icode image_file$$ is to be linked to.
+If $icode image_link$$ is $code NULL$$, the image does not appear
+and $icode image_file$$ is not used.
+Otherwise, $icode image_file$$ cannot be $code NULL$$.
 If $icode/image_link/[0] == '\0'/$$,
 the image is output, but it is not linked to any web address.
 $pre
 
 $$
-The argument $italic stylecmd$$ is a $code '\0'$$ terminated character
+The argument $icode stylecmd$$ is a $code '\0'$$ terminated character
 vector that specifies the exact form of the style commands
 to use at the beginning of this file.
 (This enables the inclusion of style information such as background color.)
@@ -112,22 +112,22 @@ $pre
 
 $$
 If $icode/tag/[0]/$$ is '\0',
-$italic text$$ is output as straight text without a link.
+$icode text$$ is output as straight text without a link.
 $pre
 
 $$
 If neither of the cases above hold,
-It is assumed that $italic tag$$ and $italic crossheading$$.
+It is assumed that $icode tag$$ and $icode crossheading$$.
 specify a valid $cref/cross reference/CrossReference/$$.
 In this case
-$italic text$$ is linked to the
+$icode text$$ is linked to the
 $cref/cross reference heading/glossary/Cross Reference Heading/$$
-specified by $italic crossheading$$
-with in the section specified by $italic tag$$.
+specified by $icode crossheading$$
+with in the section specified by $icode tag$$.
 $pre
 
 $$
-Leading underbars in $italic text$$ are not included in the output.
+Leading underbars in $icode text$$ are not included in the output.
 Leading spaces are output as non-breaking spaces and can
 be used to indent the linking text.
 If $icode/crossheading/[0]/$$ == '\0',

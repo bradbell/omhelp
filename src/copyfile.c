@@ -26,15 +26,15 @@ $codei/
 
 copyfile(/destination/, /source/)
 /$$
-copies the file specified by $italic source$$
-to the file specified by $italic destination$$
-where $italic source$$ and $italic destination$$
+copies the file specified by $icode source$$
+to the file specified by $icode destination$$
+where $icode source$$ and $icode destination$$
 are '\0' terminated character vectors.
-The case of the letters in $italic destination$$ is ignored
+The case of the letters in $icode destination$$ is ignored
 and all the letters in the resulting file are in lower case.
 Either the backslash '\\' or the forward slash '/' can be
-used to separate directories in both $italic source$$
-and  $italic destination$$.
+used to separate directories in both $icode source$$
+and  $icode destination$$.
 $pre
 
 $$
@@ -45,12 +45,12 @@ to a call to $code copyfile$$.
 
 $head User Errors$$
 It is a user error to call $code copyfile$$ twice with the same
-value for $italic destination$$.
+value for $icode destination$$.
 It is also a user error if the source or destination file
 cannot be opened.
 The value of $cref InputName$$ and $cref InputLine$$
 are used to identify where the access to
-$italic source$$ and $italic destination$$ occurred.
+$icode source$$ and $icode destination$$ occurred.
 If a user error occurs, an error message is printed
 and this routine does not return.
 

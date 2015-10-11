@@ -25,9 +25,9 @@ $tend
 
 $head Description$$
 converts the
-$code '\0'$$ terminated character vector specified by $italic s$$
+$code '\0'$$ terminated character vector specified by $icode s$$
 to lower case.
-The return value is equal to $italic s$$; i.e.,
+The return value is equal to $icode s$$; i.e.,
 the return value points to the beginning of the memory that has been changed.
 
 $end

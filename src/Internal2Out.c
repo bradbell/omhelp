@@ -28,8 +28,8 @@ $codei%void Internal2OutSet(const char *%out%)
 $codei%const char *Internal2Out(const char *%internal%)%$$
 
 $head Internal2OutSet$$
-sets the current output file type to $italic out$$ where
-$italic out$$ is equal to $code htm$$ or $code xml$$.
+sets the current output file type to $icode out$$ where
+$icode out$$ is equal to $code htm$$ or $code xml$$.
 
 $subhead html$$
 If $icode out$$ is $code htm$$ we can that the output files type is
@@ -40,7 +40,7 @@ If $icode out$$ is $code xml$$ we can that the output files type is
 $code xml$$.
 
 $head Internal2Out$$
-The argument $italic internal$$ must be one of the internal
+The argument $icode internal$$ must be one of the internal
 $cref/strings/glossary/String/$$
 listed in the table below.
 The return value it is one of the output strings listed in the
@@ -50,7 +50,7 @@ table below
 
 
 $head Table$$
-The table below lists the possible values for $italic internal$$
+The table below lists the possible values for $icode internal$$
 and corresponding return value for $code Internal2Out$$.
 Note that the output values depend on the output file type.
 

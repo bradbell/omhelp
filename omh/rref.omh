@@ -30,15 +30,15 @@ $cnext $mref/mref/tref/children/$$
 $tend
 
 $head Description$$
-The argument $italic tag$$ specifies the
+The argument $icode tag$$ specifies the
 $cref/cross reference tag/glossary/Cross Reference Tag/$$ for
 the row in the jump table.
 This command creates one row in a jump table.
-The $italic tag$$ is hypertext linked and forms the first
+The $icode tag$$ is hypertext linked and forms the first
 column in the row.
-The title of the section corresponding to $italic tag$$
+The title of the section corresponding to $icode tag$$
 is placed in the second column for the corresponding row.
-Leading and trailing white space in $italic tag$$ is ignored.
+Leading and trailing white space in $icode tag$$ is ignored.
 
 
 $head Example$$

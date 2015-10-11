@@ -31,8 +31,8 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the standard mathematical function specified by $italic Command$$ where
-$italic Command$$ is one of the
+the standard mathematical function specified by $icode Command$$ where
+$icode Command$$ is one of the
 commands listed in the table below.
 This table contains the Log-Like functions
 in Table 3.9 of
@@ -44,7 +44,7 @@ $comment ==================================================================$$
 $table
 
 $table
-$italic Command$$    $cnext $italic Display$$     $rend
+$icode Command$$    $cnext $icode Display$$     $rend
 \arccos              $cnext $latex \arccos              $$ $rend
 \arcsin              $cnext $latex \arcsin              $$ $rend
 \arctan              $cnext $latex \arctan              $$ $rend
@@ -54,7 +54,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$    $cnext $italic Display$$     $rend
+$icode Command$$    $cnext $icode Display$$     $rend
 \cos                 $cnext $latex \cos                 $$ $rend
 \cosh                $cnext $latex \cosh                $$ $rend
 \cot                 $cnext $latex \cot                 $$ $rend
@@ -64,7 +64,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$    $cnext $italic Display$$     $rend
+$icode Command$$    $cnext $icode Display$$     $rend
 \csc                 $cnext $latex \csc                 $$ $rend
 \deg                 $cnext $latex \deg                 $$ $rend
 \det                 $cnext $latex \det                 $$ $rend
@@ -74,7 +74,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$    $cnext $italic Display$$     $rend
+$icode Command$$    $cnext $icode Display$$     $rend
 \exp                 $cnext $latex \exp                 $$ $rend
 \gcd                 $cnext $latex \gcd                 $$ $rend
 \hom                 $cnext $latex \hom                 $$ $rend
@@ -86,7 +86,7 @@ $comment ==================================================================$$
 $table
 
 $table
-$italic Command$$    $cnext $italic Display$$     $rend
+$icode Command$$    $cnext $icode Display$$     $rend
 \ker                 $cnext $latex \ker                 $$ $rend
 \lg                  $cnext $latex \lg                  $$ $rend
 \lim                 $cnext $latex \lim                 $$ $rend
@@ -96,7 +96,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$    $cnext $italic Display$$     $rend
+$icode Command$$    $cnext $icode Display$$     $rend
 \limsup              $cnext $latex \limsup              $$ $rend
 \ln                  $cnext $latex \ln                  $$ $rend
 \log                 $cnext $latex \log                 $$ $rend
@@ -106,7 +106,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$    $cnext $italic Display$$     $rend
+$icode Command$$    $cnext $icode Display$$     $rend
 \min                 $cnext $latex \min                 $$ $rend
 \Pr                  $cnext $latex \Pr                  $$ $rend
 \sec                 $cnext $latex \sec                 $$ $rend
@@ -116,7 +116,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$    $cnext $italic Display$$     $rend
+$icode Command$$    $cnext $icode Display$$     $rend
 \sinh                $cnext $latex \sinh                $$ $rend
 \sup                 $cnext $latex \sup                 $$ $rend
 \tan                 $cnext $latex \tan                 $$ $rend

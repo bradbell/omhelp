@@ -210,7 +210,7 @@ $latex \[
 \] $$
 
 $head Restrictions$$
-If two macros are defined with the same value of $italic Name$$,
+If two macros are defined with the same value of $icode Name$$,
 an error message is printed and OMhelp stops.
 
 $head Nonstandard$$

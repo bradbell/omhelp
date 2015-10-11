@@ -35,13 +35,13 @@ are initialized as $code NULL$$ with the following exceptions:
 
 $subhead navigate$$
 This field is not a pointer so it is not initialized as $code NULL$$.
-If $italic navigateCopy$$ is equal to $code NULL$$,
+If $icode navigateCopy$$ is equal to $code NULL$$,
 $code navigate$$ is initialized using the default value for all its
 sub-fields with the exception of $code navigate.tag$$ which is
 initialized as $code NULL$$.
-If $italic navigateCopy$$ is not equal to $code NULL$$,
+If $icode navigateCopy$$ is not equal to $code NULL$$,
 $code navigate$$ is initialized to contain a deep copy of the
-$code navigate$$ field in $italic navigateCopy$$.
+$code navigate$$ field in $icode navigateCopy$$.
 
 $subhead style$$
 This file is not a pointer, so it is not $code NULL$$
@@ -54,7 +54,7 @@ $subhead Frame[0]$$
 This field is set equal to 100 (its default value).
 
 $subhead root and ext$$
-If $italic filename$$ is not $code NULL$$, it is a $code '\0'$$
+If $icode filename$$ is not $code NULL$$, it is a $code '\0'$$
 terminated character row vector
 that specifies the name of the input file corresponding to the section.
 In this case the $code SectionInfo$$
@@ -62,9 +62,9 @@ fields named $code root$$ and $code ext$$ are set to $code '\0'$$
 terminated character row vectors.
 To be specific, $code ext$$
 contains the
-$cref/extension/glossary/File Extension/$$ corresponding to $italic filename$$
+$cref/extension/glossary/File Extension/$$ corresponding to $icode filename$$
 and $code root$$
-contains the other characters in $italic filename$$.
+contains the other characters in $icode filename$$.
 Both $code root$$ and $code ext$$ are allocated memory using
 $mref/AllocMem/$$.
 The
@@ -86,7 +86,7 @@ $cend $codei%void SectionDefaultStyle(
 $tend
 
 $head Description$$
-Suppose that $italic field$$ is such that
+Suppose that $icode field$$ is such that
 $icode/To/->style/./field/$$
 is equal to $code NULL$$ and
 $icode/From/->style/./field/$$
@@ -124,7 +124,7 @@ $head Description$$
 Use $cref/FreeMem/AllocMem/FreeMem/$$ to free all of the
 $mref/SectionInfo/$$ records in the specified
 $cref/Section tree/glossary/Section Tree/$$.
-The argument $italic tree$$ is a $code SectionInfo$$ pointer to
+The argument $icode tree$$ is a $code SectionInfo$$ pointer to
 the root node of the tree.
 In addition, all of the field with type $code char *$$
 in the corresponding $code SectionInfo$$
@@ -134,8 +134,8 @@ records are also freed using $code FreeMem$$.
 $head Restrictions$$
 The $code previous$$ and $code parent$$ fields
 must be equal to $code NULL$$; i.e.,
-there cannot be any siblings before $italic tree$$
-and $italic tree$$ cannot have a parent.
+there cannot be any siblings before $icode tree$$
+and $icode tree$$ cannot have a parent.
 
 $end
 =============================================================================
@@ -169,18 +169,18 @@ $cref/Section tree/glossary/Section Tree/$$
 for the $mref/SectionInfo/$$ record that has the specified
 value for its $code tag$$ field.
 The argument
-$italic tree$$ points to the
+$icode tree$$ points to the
 Section tree that is being searched.
-The argument $italic tag$$ is a $code '\0'$$ terminated character vector.
+The argument $icode tag$$ is a $code '\0'$$ terminated character vector.
 The return value is a pointer to a $code SectionInfo$$ record
-with corresponding $code tag$$ field equal to $italic tag$$.
+with corresponding $code tag$$ field equal to $icode tag$$.
 If there is no such record in the tree, $code NULL$$ is returned.
 
 $head Restrictions$$
 The $code previous$$ and $code parent$$ fields
 must be equal to $code NULL$$; i.e.,
-there cannot be any siblings before $italic tree$$
-and $italic tree$$ cannot have a parent.
+there cannot be any siblings before $icode tree$$
+and $icode tree$$ cannot have a parent.
 $pre
 
 $$
@@ -212,9 +212,9 @@ $tend
 $head Description$$
 Sets the $code tag$$ field of the specified $mref/SectionInfo/$$
 record to point to a copy of the $code '\0'$$ terminated
-character row vector $italic tag$$.
+character row vector $icode tag$$.
 In addition, the $code tagLower$$ field
-points to a copy of $italic tag$$ in which upper case characters
+points to a copy of $icode tag$$ in which upper case characters
 are changed to lower case.
 The memory pointed to by $code tag$$ and $code tagLower$$
 is allocated by $mref/AllocMem/$$
@@ -287,7 +287,7 @@ $tend
 $head Description$$
 Searches the specified
 $cref/Section tree/glossary/Section Tree/$$
-starting at $italic root$$,
+starting at $icode root$$,
 for a $mref/SectionInfo/$$ record that does not have its
 $code tag$$ field defined.
 The return value is a pointer to a $code SectionInfo$$ record
@@ -295,8 +295,8 @@ in which the $code tag$$ field is $code NULL$$.
 $pre
 
 $$
-The siblings that come before $italic root$$,
-and the parents of $italic root$$,
+The siblings that come before $icode root$$,
+and the parents of $icode root$$,
 are not searched.
 $pre
 
@@ -350,9 +350,9 @@ $pre
 
 	           | 5 |
 $$
-If $italic section$$ is the first section in read order,
+If $icode section$$ is the first section in read order,
 $code SectionReadPrevious$$ returns NULL.
-If $italic section$$ is the last section in read order,
+If $icode section$$ is the last section in read order,
 $code SectionReadNext$$ returns NULL.
 
 $end
@@ -379,7 +379,7 @@ $codei%void SectionNavigate(
 
 $head Purpose$$
 This changes the navigation links for the section
-$italic S$$ the one specified by $italic italic ntoken$$ and $italic text$$.
+$icode S$$ the one specified by $icode ntoken$$ and $icode text$$.
 
 $head S$$
 Pointer the section information record that is being changed.
@@ -387,15 +387,15 @@ The subfield $codei%S->navigate%$$ is changed,
 and the rest of the section information is left as is.
 
 $head ntoken$$
-The argument $italic ntoken$$ must be an even number.
-It specifies the number of tokens pointed to by $italic text$$
+The argument $icode ntoken$$ must be an even number.
+It specifies the number of tokens pointed to by $icode text$$
 It must also be less than or equal 16 (there can be at most 8 token pairs)
 (or else an error is posted).
 
 $head text$$
-The argument $italic text$$ is contains $italic ntoken$$
+The argument $icode text$$ is contains $icode ntoken$$
 $code '\0'$$ terminated character strings called tokens.
-The value $italic text$$ points to the beginning
+The value $icode text$$ points to the beginning
 of the first token.
 The next token starts at the character directly following
 the terminating $code '\0'$$ for the current token.
@@ -418,7 +418,7 @@ $codei%
 	Sibling
 	Up
 %$$
-where $italic i$$ is a single decimal digit.
+where $icode i$$ is a single decimal digit.
 
 $subhead Labels$$
 None of the labels can begin with the character $pre "_"$$ except

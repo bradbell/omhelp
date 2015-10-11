@@ -29,15 +29,15 @@ $cnext $mref/dollar/rmark/dollar/cmark/newlinech/$$
 $tend
 
 $head Description$$
-Displays the character $italic v$$ with a accent over it
-where $italic v$$ is a vowel; i.e.,
+Displays the character $icode v$$ with a accent over it
+where $icode v$$ is a vowel; i.e.,
 $pre
 	$$
 $'A,  $'E,  $'I,  $'O,  $'U,  $'Y,  $'a,  $'e,  $'i,  $'o,  $'u,  $'y
 $pre
 $$
 There can be no space or other characters between the $code '$$ and the
-character $italic v$$.
+character $icode v$$.
 
 $head Example$$
 The input

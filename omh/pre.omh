@@ -32,9 +32,9 @@ $cnext
 $tend
 
 $head Description$$
-All of the characters in $italic text$$ are printed in a
+All of the characters in $icode text$$ are printed in a
 $cref/pre-formatted font/glossary/Pre-formatted Font/$$.
-There can be no $code @$$ characters in $italic text$$.
+There can be no $code @$$ characters in $icode text$$.
 The $code pre$$ command uses a font that is close to the
 normal font, but uniformly spaced.
 (The $mref/codep/$$ command uses the exact same font as
@@ -59,7 +59,7 @@ $pre
 	end
 $$
 $head Reference$$
-All of the new lines, tabs, and spaces in $italic text$$
+All of the new lines, tabs, and spaces in $icode text$$
 are significant
 including the first and last one.
 Thus you can use this command to generate a line break.

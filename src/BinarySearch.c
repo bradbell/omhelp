@@ -20,27 +20,27 @@ $cnext $codei/BinarySearch(/array/, /len/, /name/)/$$
 $tend
 
 $head Description$$
-The argument $italic array$$ is an array of $italic len$$
+The argument $icode array$$ is an array of $icode len$$
 and has prototype
 $codei%
 	const char *%array%[]
 %$$
 Each element $icode%array%[%i%]%$$
 is a '\0' terminated character vector.
-The argument $italic array$$ is sorted in $code strcmp$$ order; i.e.,
-if $italic i$$ is less than $italic j$$,
+The argument $icode array$$ is sorted in $code strcmp$$ order; i.e.,
+if $icode i$$ is less than $icode j$$,
 $codei%
 	strcmp(%array%[%i%], %array%[%j%])
 %$$
 is less than zero.
 The return value is a $code int$$
-index $italic i$$ such that
+index $icode i$$ such that
 $codei%
 	strcmp(%array%[%i%], %name%)
 %$$
 is equal to zero.
-If no such index exists, the value $italic len$$ is returned.
-(Note that the valid indices for $italic array$$ are
+If no such index exists, the value $icode len$$ is returned.
+(Note that the valid indices for $icode array$$ are
 $math%i=0, ... , len-1%$$.)
 $end
 */

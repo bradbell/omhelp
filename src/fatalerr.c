@@ -38,34 +38,34 @@ and all the other arguments are
 '\0' terminated character vectors.
 We refer to the string that consists
 of all the arguments in order,
-with not extra formatting between them, as the $italic Message$$.
+with not extra formatting between them, as the $icode Message$$.
 
 $head File$$
-We refer to the value of $code InputName()$$ as the $italic File$$.
+We refer to the value of $code InputName()$$ as the $icode File$$.
 
 $head fatalerr$$
 $index fatalerr$$
-If $italic File$$ is "NONE", the line of text
+If $icode File$$ is "NONE", the line of text
 $codep
 	OMhelp Error:
 $$
-is printed on standard output followed by the $italic Message$$.
+is printed on standard output followed by the $icode Message$$.
 Otherwise
 $codei/
 	OMhelp Error: in file /File/:
 /$$
-is printed on standard output followed by the $italic Message$$.
+is printed on standard output followed by the $icode Message$$.
 
 $head fatalomh$$
 $index fatalomh$$
-The $italic File$$ must not be "NONE"; i.e., there must
+The $icode File$$ must not be "NONE"; i.e., there must
 be a current input file.
 The text
 $codei/
 	OMhelp Error: in file /File/:
 /$$
-is printed on standard output followed by the $italic Message$$.
-After $italic Message$$, and starting with a new line,
+is printed on standard output followed by the $icode Message$$.
+After $icode Message$$, and starting with a new line,
 a line number is reported.
 This is where the next input token (after the error) would start; i.e.,
 the current value of $cref/InputLine()/InputLine/$$.
@@ -78,14 +78,14 @@ $cref/command key character/CommandKeyCharacter/$$ before being output.
 
 $head fataltex$$
 $index fataltex$$
-The $italic File$$ must not be "NONE"; i.e., there must
+The $icode File$$ must not be "NONE"; i.e., there must
 be a current input file.
 The text
 $codei/
 	OMhelp Error: Latex in file /File/:
 /$$
-is printed on standard output followed by the $italic Message$$.
-Extra information is printed after $italic Message$$,
+is printed on standard output followed by the $icode Message$$.
+Extra information is printed after $icode Message$$,
 and starting with a new line.
 This extra information includes the most recent input tokens
 to the Latex parser and the line number where they started.

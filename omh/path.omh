@@ -30,10 +30,10 @@ $cnext $cref/contents/children/$$,
 $tend
 
 $head Description$$
-This command adds $italic directory$$ to the set of directories that OMhelp
+This command adds $icode directory$$ to the set of directories that OMhelp
 searches for files with
 $cref/file extension/glossary/File Extension/$$
-equal to $italic extension$$.
+equal to $icode extension$$.
 $codei/
 
 %/directory/%/extension/%
@@ -41,7 +41,7 @@ $codei/
 is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 
 $head Relative Paths$$
-If $italic directory$$ is not a
+If $icode directory$$ is not a
 $cref/complete path specification/glossary/Complete Path Specification/$$,
 the path specification is relative to the
 directory where the file containing the

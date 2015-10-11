@@ -51,51 +51,51 @@ $codei/
 is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
 and $code %$$ can be any character that is not a letter.
 Leading and trailing white space in
-$italic tag$$,
-$italic heading$$,
-$italic subheading$$,
-$italic linkingtext$$,
+$icode tag$$,
+$icode heading$$,
+$icode subheading$$,
+$icode linkingtext$$,
 and
-$italic frame$$
+$icode frame$$
 is ignored.
 Thus is useful when the argument list the $code xref$$ is long.
 
 $head Tag$$
-The value of $italic tag$$
+The value of $icode tag$$
 specifies the destination
 $xref/glossary/Cross Reference Tag/cross reference tag/$$
 for the link.
 
 $head Heading$$
-The value of $italic heading$$ specifies the
+The value of $icode heading$$ specifies the
 destination $xref/head//heading/$$ for the link
-(within the section specified by $italic tag$$).
+(within the section specified by $icode tag$$).
 If this heading is empty (or not present),
 the link is to the corresponding entire
-$xref/glossary/Section/section/$$ specified by $italic tag$$.
+$xref/glossary/Section/section/$$ specified by $icode tag$$.
 
 $head Linkingtext$$
-The value of $italic linkingtext$$ specifies the text
+The value of $icode linkingtext$$ specifies the text
 that the user selects for the link.
-If $italic linkingtext$$ is empty (or not present),
-$italic tag$$ is used for the linking text.
+If $icode linkingtext$$ is empty (or not present),
+$icode tag$$ is used for the linking text.
 
 $head Frame$$
-The value of $italic frame$$
+The value of $icode frame$$
 specifies the $xref/fend/Frames/frame/$$ number
 that is replaced by the corresponding to the link.
 $list number$$
-If $italic frame$$ is present,
+If $icode frame$$ is present,
 it must be
 a valid frame number for the current section.
-In this case, $italic heading$$ must not be empty
+In this case, $icode heading$$ must not be empty
 and the linking text is displayed in italic font.
 $lnext
-If $italic frame$$ is not present
+If $icode frame$$ is not present
 and the heading is empty,
 the entire window is replaced by the link.
 $lnext
-If $italic frame$$ is not present
+If $icode frame$$ is not present
 and the heading is not empty,
 frame number 1 is replaced by the link.
 In this case, the linking text
@@ -103,19 +103,19 @@ is displayed in italic font.
 $lend
 
 $head Subheading$$
-The value of $italic subheading$$ specifies the
+The value of $icode subheading$$ specifies the
 destination $xref/head//subheading/$$ for the link
-(within the section specified by $italic tag$$ and the heading
-specified by $italic heading$$).
-If $italic subheading$$ is present,
-$italic heading$$ must not be empty.
+(within the section specified by $icode tag$$ and the heading
+specified by $icode heading$$).
+If $icode subheading$$ is present,
+$icode heading$$ must not be empty.
 
 $subhead Deprecated$$
 Previous versions of OMhelp specified subheadings
-as part of the $italic heading$$ argument.
-If $italic subheading$$ is not present,
+as part of the $icode heading$$ argument.
+If $icode subheading$$ is not present,
 this still works for backward compatibility.
-To use this option, the value $italic heading$$ in the $code xref$$ command
+To use this option, the value $icode heading$$ in the $code xref$$ command
 must be the corresponding destination heading followed by a
 single period ('.') followed by the destination subheading.
 
@@ -124,11 +124,11 @@ For the following input
 $codep
 	@xref/head/@@
 $$
-$italic tag$$ is equal to $code head$$,
-$italic heading$$ is not present,
-$italic subheading$$ is not present,
-$italic linkingtext$$ is not present,
-and $italic frame$$ is not present.
+$icode tag$$ is equal to $code head$$,
+$icode heading$$ is not present,
+$icode subheading$$ is not present,
+$icode linkingtext$$ is not present,
+and $icode frame$$ is not present.
 Thus the linking text is $code head$$
 and the entire window is replaced by the link.
 You can see the effect by selecting the following link: $xref/head/$$.
@@ -138,11 +138,11 @@ For the following input
 $codep
 	@xref/head//OMhelp headings/@@
 $$
-$italic tag$$ is equal to $code head$$,
-$italic heading$$ is empty,
-$italic subheading$$ is not present,
-$italic linkingtext$$ is equal to $code OMhelp headings$$,
-and $italic frame$$ is not present.
+$icode tag$$ is equal to $code head$$,
+$icode heading$$ is empty,
+$icode subheading$$ is not present,
+$icode linkingtext$$ is equal to $code OMhelp headings$$,
+and $icode frame$$ is not present.
 You can see the effect by selecting the following link:
 $xref/head//OMhelp headings/$$.
 
@@ -153,11 +153,11 @@ For the following input
 $codep
 	@xref/head/Example Heading/example heading/@@
 $$
-$italic tag$$ is equal to $code head$$,
-$italic heading$$ is equal to $code Example Heading$$,
-$italic subheading$$ is not present,
-$italic linkingtext$$ is equal to $code example heading$$,
-and $italic frame$$ is not present.
+$icode tag$$ is equal to $code head$$,
+$icode heading$$ is equal to $code Example Heading$$,
+$icode subheading$$ is not present,
+$icode linkingtext$$ is equal to $code example heading$$,
+and $icode frame$$ is not present.
 Thus frame number 1 is replaced by the link
 and the linking text is in italic.
 You can see the effect by selecting the following link:
@@ -170,11 +170,11 @@ For the following input
 $codep
 	@xref/head/Example Heading/example heading/2/@@
 $$
-$italic tag$$ is equal to $code head$$,
-$italic heading$$ is equal to $code Example Heading$$,
-$italic subheading$$ is not present,
-$italic linkingtext$$ is equal to $code example heading$$,
-and $italic frame$$ is equal to $code 2$$.
+$icode tag$$ is equal to $code head$$,
+$icode heading$$ is equal to $code Example Heading$$,
+$icode subheading$$ is not present,
+$icode linkingtext$$ is equal to $code example heading$$,
+and $icode frame$$ is equal to $code 2$$.
 Thus frame number 2 corresponds to the link
 and the linking text is in italic.
 You can see the effect of the $code xref$$ command above by selecting
@@ -199,12 +199,12 @@ $codep
 		1
 	/@@
 $$
-$italic tag$$ is equal to $code head$$,
-$italic heading$$ is equal to $code Example Subheading$$
-$italic subheading$$ is equal to $code Topic$$,
-$italic linkingtext$$ is equal to
+$icode tag$$ is equal to $code head$$,
+$icode heading$$ is equal to $code Example Subheading$$
+$icode subheading$$ is equal to $code Topic$$,
+$icode linkingtext$$ is equal to
 $code the Topic example subheading$$,
-and $italic frame$$ is equal to one.
+and $icode frame$$ is equal to one.
 You can see the effect of the $code xref$$ command above by selecting
 the following link:
 $xref/
@@ -226,7 +226,7 @@ $pre
 
 $$
 $xref/Glossary/White Space/White space/$$ characters in the
-$italic heading$$ and $italic subheading$$ are just delimiters between tokens
+$icode heading$$ and $icode subheading$$ are just delimiters between tokens
 when searching for the matching link.
 Thus you can split long headings and subheadings into multiple lines.
 $end

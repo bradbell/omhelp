@@ -17,16 +17,16 @@ $tend
 $head Description$$
 For some applications, one or more white space characters
 just represents a delimiter between different tokens in a string.
-This routine converts the string $italic s$$ so that leading
+This routine converts the string $icode s$$ so that leading
 and trailing white space is deleted and so that
 each token in the string is separated by just one space ' ' character.
 
 $head s$$
-The input and output contents of $italic s$$ is a '\0'
+The input and output contents of $icode s$$ is a '\0'
 terminated character string.
-If $italic s$$ is empty; i.e.,
-the first character in $italic s$$ is '\0',
-no write is attempted to the memory pointed to by $italic s$$.
+If $icode s$$ is empty; i.e.,
+the first character in $icode s$$ is '\0',
+no write is attempted to the memory pointed to by $icode s$$.
 
 
 $end

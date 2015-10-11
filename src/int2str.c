@@ -27,7 +27,7 @@ $tend
 $head Description$$
 returns a pointer to a
 $code '\0'$$ terminated character vector that
-contains the ascii representation of $italic i$$.
+contains the ascii representation of $icode i$$.
 
 $head Memory$$
 The return value of $code int2str$$
@@ -41,7 +41,7 @@ will report the corresponding source code line and file where the
 corresponding call to $code str_alloc$$ is located.
 
 $head Prototype$$
-The argument $italic i$$ is specified as an $code int$$
+The argument $icode i$$ is specified as an $code int$$
 and the return value is a $code char*$$.
 
 $end

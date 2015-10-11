@@ -59,8 +59,8 @@ $head Description$$
 Sets the name of the next execute file
 (as returned by $mref/ExecuteNextFile/$$) to a lower case version
 of the characters in the $code '\0'$$ terminated character
-vector $italic name$$.
-The $code '\0'$$ terminated character vector $italic tag$$ specifies the
+vector $icode name$$.
+The $code '\0'$$ terminated character vector $icode tag$$ specifies the
 cross reference tag for the section where the execute file was created.
 This is used for error reporting if the same file name is
 specified by another call to $code ExecuteSetFile$$.
@@ -104,7 +104,7 @@ $tend
 
 $head Description$$
 Writes the characters in the '\0' terminated character vector
-$italic text$$ to the file specified by
+$icode text$$ to the file specified by
 $cref/ExecuteNextFile()/ExecuteNextFile/$$.
 The value of $code ExecuteNextFile()$$ is then set to $code NULL$$.
 

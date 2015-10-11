@@ -48,16 +48,16 @@ the order of the links,
 and label for each of the links.
 
 $head default$$
-The value $italic default 1$$ is the default label
+The value $icode default 1$$ is the default label
 for the navigation links that will come first in the set
 of navigation links for the current section.
-The links corresponding to $italic default 2$$ come second and so on.
+The links corresponding to $icode default 2$$ come second and so on.
 
 $head label$$
-The value $italic label 1$$ is the label that the user will see
-for the navigation links corresponding to $italic default 1$$.
-The value $italic label 2$$ is the label that the user will see
-for the navigation links corresponding to $italic default 2$$ and so on.
+The value $icode label 1$$ is the label that the user will see
+for the navigation links corresponding to $icode default 1$$.
+The value $icode label 2$$ is the label that the user will see
+for the navigation links corresponding to $icode default 2$$ and so on.
 
 $head Example$$
 The navigation links for this section were specified with

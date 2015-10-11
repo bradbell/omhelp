@@ -38,9 +38,9 @@ $tend
 $codei/PushPending(/line/, /name/)
 /$$
 This signals the beginning of the specified command
-where the integer $italic line$$ is the line number the command appears,
+where the integer $icode line$$ is the line number the command appears,
 $cref/InputName()/InputName/$$ is the file,
-and $italic name$$ is a '\0' terminate character vector
+and $icode name$$ is a '\0' terminate character vector
 of at most
 $codep */
 // maximum number of characters in a command name
@@ -51,12 +51,12 @@ $codei/
 
 PopPending(/line/, /name/)
 /$$
-This signals the end of the command specified by $italic name$$
-(which occurred on line $italic line$$ of the file
+This signals the end of the command specified by $icode name$$
+(which occurred on line $icode line$$ of the file
 $cref/InputName()/InputName/$$) .
 It is assumed that commands will end on a last in first out basis.
 If this is not the case, an error message is displayed saying that
-command $italic name$$ terminated before the expected command.
+command $icode name$$ terminated before the expected command.
 $codei/
 
 NumberPending()
@@ -70,9 +70,9 @@ OmhPendingError(/line/, /input/)
 The value returned by $code NumberPending$$ must be greater
 than zero or else it is a programming error to call this routine.
 The argument '\0' terminated character vector
-$italic input$$ is the OMhelp (latex) input text before which
+$icode input$$ is the OMhelp (latex) input text before which
 the pending commands should have been terminated.
-The integer $italic line$$ is the line number where $italic input$$
+The integer $icode line$$ is the line number where $icode input$$
 appears.
 An error message is printed identifying the command
 on top of the stack (most recently pushed command)
@@ -84,7 +84,7 @@ TexPendingError(/msg/)
 /$$
 The value returned by $code NumberPending$$ must be greater
 than zero or else it is a programming error to call this routine.
-An error message is printed beginning with $italic msg$$
+An error message is printed beginning with $icode msg$$
 followed by a new line.
 The lack of termination of the pending command on the top of the
 stack is reported as a possible cause of the error.

@@ -196,7 +196,7 @@ $mref/HrefOutputPass2/$$ is what the user sees for
 a cross reference link.
 The routine $code HrefEnd$$ terminates this linking text.
 In addition, it follows this termination by the text specified
-by $icode s$$ where $italic s$$ is a $code '\0'$$ terminated
+by $icode s$$ where $icode s$$ is a $code '\0'$$ terminated
 character vector.
 
 $head Terminate a Pass1 Reference$$

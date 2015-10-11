@@ -80,14 +80,14 @@ This routine converts the integer code to the corresponding users input
 (including the @ character).
 
 $head code$$
-The argument $italic code$$ has prototype
+The argument $icode code$$ has prototype
 $codei%
 	int %code%
 %$$
 It is the integer code for the token to be converted.
 
 $head string$$
-The result $italic string$$ has prototype
+The result $icode string$$ has prototype
 $codei%
 	char *%string%
 %$$

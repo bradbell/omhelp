@@ -43,13 +43,13 @@ $head Description$$
 Display Latex spacing commands.
 
 $head Warning$$
-The case where $italic unit$$ is negative
+The case where $icode unit$$ is negative
 does not display properly in the Firefox browser.
 (This was fixed in version 3 of Firefox.)
 
 $head Space$$
 The following table demonstrates
-the result for the possible values of $italic space$$:
+the result for the possible values of $icode space$$:
 
 $table
 	$bold Space$$
@@ -79,10 +79,10 @@ $rnext
 $tend
 
 $head Hspace$$
-In the Latex $code hspace$$ command, $italic number$$
+In the Latex $code hspace$$ command, $icode number$$
 can be any valid
 $cref/Latex number/latexnumber/$$
-and $italic unit$$ must be one of the units listed below
+and $icode unit$$ must be one of the units listed below
 
 $table
 	$bold Unit$$

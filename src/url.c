@@ -35,10 +35,10 @@ All the arguments are all
 $code '\0'$$ terminated character vectors.
 
 $head tag$$
-If $italic external$$ is equal to $code true$$,
-$italic tag$$ is the web address corresponding this link.
+If $icode external$$ is equal to $code true$$,
+$icode tag$$ is the web address corresponding this link.
 Otherwise,
-$italic tag$$ is the cross reference tag for the section
+$icode tag$$ is the cross reference tag for the section
 corresponding to this link.
 
 $head head$$
@@ -51,12 +51,12 @@ $codei%
 
 $head external$$
 This argument should be equal to $code true$$ or $code false$$.
-See $italic tag$$ above for purpose of this argument.
+See $icode tag$$ above for purpose of this argument.
 
 $head Restrictions$$
 This function should only be called during the second pass,
 when all the cross references have been defined.
-The argument $italic tag$$ must satisfy the following conditions:
+The argument $icode tag$$ must satisfy the following conditions:
 $codei%
 	assert( %tag%[0] != '\0' );
 	assert( ! isspace((int) %tag%[0]) );

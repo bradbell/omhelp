@@ -25,8 +25,8 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the character specified by $italic Character$$
-where $italic Character$$ is any of the ascii characters included below:
+the character specified by $icode Character$$
+where $icode Character$$ is any of the ascii characters included below:
 
 $subhead Ascii Letters$$
 The ascii characters from
@@ -71,7 +71,7 @@ will display directly (with out being part of a command):
 $table
 
 $table
-$italic Character$$  $cnext $italic Output$$ $rnext
+$icode Character$$  $cnext $icode Output$$ $rnext
 $code [$$ $cnext $latex [ $$ $rnext
 $code !$$ $cnext $latex ! $$ $rnext
 $code "$$ $cnext $latex " $$ $rnext
@@ -82,7 +82,7 @@ $tend
 
 $cnext
 $table
-$italic Character$$  $cnext $italic Output$$ $rnext
+$icode Character$$  $cnext $icode Output$$ $rnext
 $code *$$ $cnext $latex * $$ $rnext
 $code +$$ $cnext $latex + $$ $rnext
 $code .$$ $cnext $latex . $$ $rnext
@@ -93,7 +93,7 @@ $tend
 
 $cnext
 $table
-$italic Character$$  $cnext $italic Output$$ $rnext
+$icode Character$$  $cnext $icode Output$$ $rnext
 $code ;$$ $cnext $latex ; $$ $rnext
 $code <$$ $cnext $latex < $$ $rnext
 $code =$$ $cnext $latex = $$ $rnext
@@ -103,7 +103,7 @@ $tend
 
 $cnext
 $table
-$italic Character$$  $cnext $italic Output$$ $rnext
+$icode Character$$  $cnext $icode Output$$ $rnext
 $code @$$ $cnext $latex @ $$ $rnext
 $code `$$ $cnext $latex ` $$ $rnext
 $code ]$$ $cnext $latex ] $$ $rnext

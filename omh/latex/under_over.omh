@@ -30,7 +30,7 @@ $section Latex Underline, Underbrace, Overline, and Overbrace$$
 $table
 $bold Syntax$$
 $cnext $codei%@latex \%name%{%commands%}@@%$$ $rnext
-$cnext where $italic name$$ is
+$cnext where $icode name$$ is
 $code underline$$,
 $code underbrace$$,
 $code overline$$,
@@ -45,7 +45,7 @@ Display in Latex mode
 the specified command list with the following additional
 output.
 $table
-$italic name$$ $cnext $italic Additional Output$$ $rnext
+$icode name$$ $cnext $italic Additional Output$$ $rnext
 $code underline$$  $cnext a line below stretched to match size $rnext
 $code underbrace$$ $cnext a brace below stretched to match size $rnext
 $code overline$$   $cnext a line  above stretched to match size $rnext
@@ -57,7 +57,7 @@ $head Example$$
 $table
 
 $table
-$italic name$$ $cnext $italic commands$$ $cnext $italic Output$$   $rnext
+$icode name$$ $cnext $icode commands$$ $cnext $icode Output$$   $rnext
 $code underline$$  $cnext $code x$$ $cnext $latex \underline{x}  $$ $rnext
 $code underbrace$$ $cnext $code x$$ $cnext $latex \underbrace{x} $$ $rnext
 $code overline$$   $cnext $code x$$ $cnext $latex \overline{x}   $$ $rnext
@@ -69,7 +69,7 @@ $pre   $$
 $cnext
 
 $table
-$italic name$$ $cnext $italic commands$$ $cnext $italic Output$$   $rnext
+$icode name$$ $cnext $icode commands$$ $cnext $icode Output$$   $rnext
 $code underline$$  $cnext $code x+y$$ $cnext $latex \underline{x+y}  $$ $rnext
 $code underbrace$$ $cnext $code x+y$$ $cnext $latex \underbrace{x+y} $$ $rnext
 $code overline$$   $cnext $code x+y$$ $cnext $latex \overline{x+y}   $$ $rnext

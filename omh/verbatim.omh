@@ -64,9 +64,9 @@ where $code %$$ can be any character that is not a letter.
 
 
 $head New Lines$$
-If $italic start$$ is $bold not$$ present,
+If $icode start$$ is $bold not$$ present,
 the verbatim output starts and ends with a new line.
-If $italic start$$ is present,
+If $icode start$$ is present,
 the verbatim output
 does not start on a new line.
 This enables you to include the starting text
@@ -84,9 +84,9 @@ have other commands nested inside of them.
 
 
 $head Filename$$
-The value of $italic filename$$ specifies the name
+The value of $icode filename$$ specifies the name
 of the file that is displayed.
-Leading and trailing white space in $italic filename$$ is ignored.
+Leading and trailing white space in $icode filename$$ is ignored.
 
 $subhead Example$$
 The following sequence displays the file $code copyright.omh$$
@@ -117,7 +117,7 @@ $hiliteseq%%Bradley M. Bell%%%$$
 $verbatim!copyright.omh!$$
 
 $head Indent$$
-If $italic indent$$ is present,
+If $icode indent$$ is present,
 it is a positive integer and specifies
 the number of spaces to indent the output.
 
@@ -137,7 +137,7 @@ $$
 
 $head Start$$
 $cindex start verbatim$$
-If $italic start$$ is present,
+If $icode start$$ is present,
 it specifies a sequence of characters after which output should start.
 In this case none of the characters in the file before,
 and including,
@@ -145,7 +145,7 @@ this starting sequence are displayed.
 $pre
 
 $$
-If the $mref/escape/$$ character is present in $italic start$$,
+If the $mref/escape/$$ character is present in $icode start$$,
 there must be three decimal digits following it.
 In this case the escape character together with the three following
 characters, represent the single character with ascii code equal
@@ -153,7 +153,7 @@ to the decimal value of the three decimal digits.
 
 $head Stop$$
 $cindex stop verbatim$$
-If $italic stop$$ is present,
+If $icode stop$$ is present,
 it specifies
 a sequence of characters just before which output should stop.
 In this case none of the characters in the file following,
@@ -227,7 +227,7 @@ $$
 Note that
 a $cref/new line/verbatim/New Lines/$$
 is not automatically included at the beginning and end
-of the verbatim text when the $italic start$$ text is present.
+of the verbatim text when the $icode start$$ text is present.
 Here is the result of the command sequence:
 $code
 $pre
@@ -239,9 +239,9 @@ $$
 
 
 $head Skip$$
-If $italic skip$$ is present,
+If $icode skip$$ is present,
 it is a positive integer that specifies the number of
-$italic start$$ matches to skip.
+$icode start$$ matches to skip.
 This is very useful when the $code verbatim$$ command and
 refers to the same file as the command is in.
 The skip option can be used to skip the match on the command

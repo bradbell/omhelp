@@ -78,11 +78,11 @@ $codei/
 is a
 $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 and $code %$$ can be any character that is not a letter.
-The characters in $italic file1$$ specify the
+The characters in $icode file1$$ specify the
 $cref/input file/glossary/Input File Searching/$$
 containing the omhelp commands for the
 first set of children for this section.
-The characters in $italic fileN$$ specify
+The characters in $icode fileN$$ specify
 the input file containing the omhelp commands for the
 last set of children for this section.
 $pre

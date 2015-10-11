@@ -31,8 +31,8 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the arrow symbol specified by $italic Command$$ where
-$italic Command$$ is one of the
+the arrow symbol specified by $icode Command$$ where
+$icode Command$$ is one of the
 Latex commands in the tables below.
 The following tables contain the arrow symbols
 in Table 3.6 of
@@ -56,7 +56,7 @@ $nospell
 $table
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \leftarrow           $cnext $latex \leftarrow           $$ $rend
 \Leftarrow           $cnext $latex \Leftarrow           $$ $rend
 \rightarrow          $cnext $latex \rightarrow          $$ $rend
@@ -73,7 +73,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \longleftarrow       $cnext $latex \longleftarrow       $$ $rend
 \Longleftarrow       $cnext $latex \Longleftarrow       $$ $rend
 \longrightarrow      $cnext $latex \longrightarrow      $$ $rend
@@ -90,7 +90,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \uparrow             $cnext $latex \uparrow             $$ $rend
 \Uparrow             $cnext $latex \Uparrow             $$ $rend
 \downarrow           $cnext $latex \downarrow           $$ $rend

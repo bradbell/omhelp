@@ -26,34 +26,34 @@ $bold Syntax$$ $cend $codei%int SplitText(
 $tend
 
 $head Description$$
-The '\0' terminated character vector $italic text$$ contains
+The '\0' terminated character vector $icode text$$ contains
 a delimiter sequence that is to be split into tokens
 by the actions specified below (in the specified order).
 
 $list number$$
-If the first character in $italic text$$ is a letter,
+If the first character in $icode text$$ is a letter,
 an error message is printed and this routine does not return.
 $lnext
-If the first character in $italic text$$ is a
+If the first character in $icode text$$ is a
 white space character, $code SplitText$$
 changes it to a '\0' character and
 returns the value one (for one token).
 $lnext
-If the length of $italic text$$ is less than two characters
+If the length of $icode text$$ is less than two characters
 (not counting '\0'), an error message is printed
 and this routine does not return.
 $lnext
-The first character in $italic text$$ is the delimiter character.
-If it is not equal to the last character in $italic text$$
+The first character in $icode text$$ is the delimiter character.
+If it is not equal to the last character in $icode text$$
 an error message is printed and this routine does not return.
 $lnext
-If the first and last characters of $italic text$$ are equal,
+If the first and last characters of $icode text$$ are equal,
 the return value of $code SplitText$$ is
 the number of tokens; i.e.,
 the number of delimiter characters minus one.
-Each occurrence of the delimiter character in $italic text$$
+Each occurrence of the delimiter character in $icode text$$
 is changed to a '\0' character.
-This splits $italic text$$ into tokens.
+This splits $icode text$$ into tokens.
 $lend
 
 $head Errors$$
@@ -62,8 +62,8 @@ $cref/fatalomh/fatalerr/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.
 The error messages listed above identify
-$italic line$$ as the line number in the input file
-and $italic cmd$$ as the command where the error occurred
+$icode line$$ as the line number in the input file
+and $icode cmd$$ as the command where the error occurred
 in a delimiter sequence.
 $end
 */

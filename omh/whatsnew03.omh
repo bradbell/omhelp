@@ -357,8 +357,8 @@ It may have other uses in the future.
 $pre
 
 $$
-The command name of the command line argument $italic starting_file$$
-has been changed to $italic root$$ to signify that it contains the
+The command name of the command line argument $icode starting_file$$
+has been changed to $icode root$$ to signify that it contains the
 $cref/root section/running/root_file/$$.
 
 

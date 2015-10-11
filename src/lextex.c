@@ -563,10 +563,10 @@ $tend
 $head Description$$
 The Latex lexical analyzer reads its data from memory.
 This call sets the input data to the $code const$$ '\0' terminated
-character vector specified by $italic input$$.
-The integer $italic line$$ specifies the line
+character vector specified by $icode input$$.
+The integer $icode line$$ specifies the line
 number in the file $cref/InputName()/InputName/$$
-where $italic input$$ started.
+where $icode input$$ started.
 
 $head Memory Allocation$$
 This call allocates memory using $cref AllocMem$$.
@@ -590,30 +590,30 @@ $tend
 
 $head Description$$
 The return value of $code LatexLexHistory$$ is a $code int$$
-which we refer to as $italic ntoken$$.
+which we refer to as $icode ntoken$$.
 It specifies the actual number of tokens returned
 by $code LatexLexHistory$$.
 $codei/
 
 int /number/
 /$$
-The value $italic number$$ specifies the
+The value $icode number$$ specifies the
 maximum number of tokens to return.
-The value $italic ntoken$$ will be less than or
-equal $italic number$$.
+The value $icode ntoken$$ will be less than or
+equal $icode number$$.
 $codei/
 
 int /length/
 /$$
-The value $italic length$$ specifies the
+The value $icode length$$ specifies the
 maximum number of character to return for each token.
 $codei%
 
 int *%line%
 %$$
-The array $italic line$$ must have at least $italic number$$
+The array $icode line$$ must have at least $icode number$$
 elements in it.
-The input value of the elements of $italic line$$ does not matter.
+The input value of the elements of $icode line$$ does not matter.
 For $math% i=0,...,ntoken-1 %$$
 the value of $icode/line/[/i/]/$$ is set to the line
 number where the token
@@ -623,11 +623,11 @@ $codei%
 
 char **%token%
 %$$
-The array $italic token$$ must have at least $italic number$$
+The array $icode token$$ must have at least $icode number$$
 elements in it.
-Each element of $italic token$$ is in turn an array of characters
-with at least $italic length$$ elements in it.
-The input value of the elements of $italic token$$ does not matter.
+Each element of $icode token$$ is in turn an array of characters
+with at least $icode length$$ elements in it.
+The input value of the elements of $icode token$$ does not matter.
 For $math% i=0,...,ntoken-1 %$$,
 the value of $icode/token/[/i/]/$$ is a '\0' terminated
 character vector containing a previous token.

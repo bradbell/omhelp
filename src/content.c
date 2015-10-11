@@ -23,9 +23,9 @@ This routine outputs creates the file
 $icode/tag/.tmp/$$ and writes
 a pass one version of the table of
 contents to that file.
-The argument $italic content$$ is the corresponding
+The argument $icode content$$ is the corresponding
 $cref SectionInfo$$ pointer corresponding to the table of contents.
-The value $italic tag$$ in the file name
+The value $icode tag$$ in the file name
 is equal to $icode/content/->tag/$$.
 
 

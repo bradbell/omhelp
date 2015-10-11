@@ -29,8 +29,8 @@ changes between versions.
 $head 12-02$$
 Suppose that sections $italic First, Second, ... , Last$$
 were multiple sections in one file,
-the $code previous$$ link for a sibling that came after $italic Last$$
-pointed to the Section $italic First$$ instead of the $italic Last$$.
+the $code previous$$ link for a sibling that came after $icode Last$$
+pointed to the Section $icode First$$ instead of the $icode Last$$.
 This also caused duplicate numbering in the
 $xref/running/printable/printable/$$ output.
 This problem has been fixed.
@@ -84,7 +84,7 @@ $xref/_reference//function reference/$$ section.
 This has been fixed.
 
 $head 06-09$$
-The proper $italic marker$$ for a disk
+The proper $icode marker$$ for a disk
 in the $xref/list/$$ command is $code disk$$.
 It was documented as $code disc$$ and this has been fixed.
 

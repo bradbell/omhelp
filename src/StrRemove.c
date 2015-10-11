@@ -19,8 +19,8 @@ $cend $codei%void StrRemove(char *%str%, char %ch%)%$$
 $tend
 
 $head Description$$
-All the characters in $italic str$$ that are equal to $italic ch$$
-are removed where $italic str$$ is a '\0' terminated
+All the characters in $icode str$$ that are equal to $icode ch$$
+are removed where $icode str$$ is a '\0' terminated
 character vector
 
 

@@ -23,8 +23,8 @@ $tend
 
 $head Description$$
 All  of the character in
-$italic text$$ are ignored where there
-are no $code @$$ characters in $italic text$$
+$icode text$$ are ignored where there
+are no $code @$$ characters in $icode text$$
 
 $head Example$$
 The following is an example comment

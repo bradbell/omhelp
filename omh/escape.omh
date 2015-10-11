@@ -28,7 +28,7 @@ $tend
 $head Description$$
 The backslash, $code \$$, is the default escape character.
 This command changes the escape character to the first character in
-$italic character$$ (not counting leading
+$icode character$$ (not counting leading
 $cref/white space/glossary/White Space/$$).
 
 $head Example$$

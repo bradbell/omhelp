@@ -42,8 +42,8 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the array $italic A$$ with
-$th j$$ column is aligned according to the value of $italic cj$$ where
+the array $icode A$$ with
+$th j$$ column is aligned according to the value of $icode cj$$ where
 $code l$$ means align to the left,
 $code c$$ means align each to the center,
 and $code r$$ means align to the right.
@@ -78,7 +78,7 @@ The first line in the syntax above can have the form
 $codei/
 	@latex \begin{array}[/r/]{/c1 ... cn/}
 /$$
-In this case the value of $italic r$$
+In this case the value of $icode r$$
 specifies how each row is aligned where
 $code t$$ means align the top,
 $code c$$ means align the center,

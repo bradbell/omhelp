@@ -25,7 +25,7 @@ $index width, negative in mspace$$
 $href%negativespace.xml%Link To XML Version Of This Page%$$
 
 $head Claim$$
-It appears to me that negative values for $italic number$$ are valid in the
+It appears to me that negative values for $icode number$$ are valid in the
 MathML command
 $codei%
 	<mspace width="%number%em"/>
@@ -43,14 +43,14 @@ $pre
 $pre
 $$
 the value of the attribute $code width$$ is specified as a
-$italic number$$ followed by an $italic h-unit$$.
+$icode number$$ followed by an $italic h-unit$$.
 In Section 2.4.4.1 of
 $pre
 	$$
 	$href%http://www.w3.org/TR/MathML2/chapter2.html#fund_attval%$$
 $pre
 $$
-a $italic number$$ is defined as
+a $icode number$$ is defined as
 " decimal integer or rational number
 (a string of digits with one decimal point),
 optionally starting with '-' ".

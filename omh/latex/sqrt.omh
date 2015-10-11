@@ -27,14 +27,14 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the square root of $italic base$$
-or the $th index$$ root of $italic base$$,
-where $italic base$$ and $italic index$$
+the square root of $icode base$$
+or the $th index$$ root of $icode base$$,
+where $icode base$$ and $icode index$$
 are any valid Latex commands.
 
 $head Example$$
 $table
-$italic Command$$ $cnext $italic Output$$ $rend
+$icode Command$$ $cnext $icode Output$$ $rend
 $code \sqrt{x+y} $$ $cnext
 	$latex \sqrt{x+y} $$ $rend
 $code \sqrt[x+y]{2} $$ $cnext

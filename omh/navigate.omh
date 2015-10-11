@@ -60,10 +60,10 @@ $code Down$$
 	$cnext The group of sections directly below this one in tree
 $rnext
 $codei%Down_up_%i%$$
-	$cnext The sections directly below the section $italic i$$ levels
+	$cnext The sections directly below the section $icode i$$ levels
 	up in the documentation tree.
 $rnext
-	$cnext where $italic i$$ is a number between $code 0$$ and $code 9$$.
+	$cnext where $icode i$$ is a number between $code 0$$ and $code 9$$.
 $rnext
 $code Across$$
 	$cnext The group of sections that cross reference entire document
@@ -99,20 +99,20 @@ The group directly below        $cnext $pre G$$, $pre J$$
 $tend
 
 $head label$$
-The value $italic label 1$$ is the label that the user will see
-for the navigation links corresponding to $italic type 1$$.
-The value $italic label 2$$ is the label that the user will see
-for the navigation links corresponding to $italic type 2$$ and so on.
+The value $icode label 1$$ is the label that the user will see
+for the navigation links corresponding to $icode type 1$$.
+The value $icode label 2$$ is the label that the user will see
+for the navigation links corresponding to $icode type 2$$ and so on.
 The labels cannot begin with the special character $code _$$
 with the following special exception:
 $codei%
 
 _up_%i%
 %$$
-where $italic i$$ is a number between $code 0$$ and $code 9$$.
+where $icode i$$ is a number between $code 0$$ and $code 9$$.
 In this special case,
 the $cref/cross reference tag/glossary/Cross Reference Tag/$$
-for the section $italic i$$ levels up from the current section
+for the section $icode i$$ levels up from the current section
 is used for the label.
 
 $head Prev and Next$$
@@ -131,10 +131,10 @@ size between sections.
 
 $head No Such Section$$
 If $codei%Down_up_%i%$$ is the specified type,
-and there is no section $italic i$$ levels up,
+and there is no section $icode i$$ levels up,
 neither the label nor its links will be present on the current section.
 If $codei%_up_%i%$$ is specified label,
-and there is not section $italic i$$ levels up,
+and there is not section $icode i$$ levels up,
 neither the label nor its links will be present on the current section.
 
 $head Default$$

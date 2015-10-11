@@ -32,7 +32,7 @@ $tend
 $head Description$$
 returns a pointer to a lower case
 copy of the $code '\0'$$ terminated
-character vector specified by $italic s$$.
+character vector specified by $icode s$$.
 
 $head Memory$$
 The return value of $code StrLowAlloc$$
@@ -46,7 +46,7 @@ will report the corresponding source code line and file where the
 corresponding call to $code StrLowAlloc$$ is located.
 
 $head Prototype$$
-The argument $italic s$$ is specified as a constant $code char*$$
+The argument $icode s$$ is specified as a constant $code char*$$
 but the compiler will not check that the argument matches the prototype.
 
 $end

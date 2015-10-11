@@ -10,33 +10,11 @@ then
 	echo "bin/batch_edit.sh: must be executed from its parent directory"
 	exit 1
 fi
-# Script for converting syntax commands to codei and icode commands
+# Script for converting italic commands that correspond to variables in syntax
 cat << EOF > junk.sed
-/@syntax/b got_syntax_cmd
-/\$syntax/! b skip
-#
-: loop
-/\\\$\\\$/! N
-/\\\$\\\$/! b loop
-#
-: got_syntax_cmd
-#
+s|\$italic \([a-zA-Z][a-zA-Z0-9_]*\)\\\$\\\$|\$icode \\1\$\$|g
+s|\$italic \([a-zA-Z][a-zA-Z]* [0-9]\)\\\$\\\$|\$icode \\1\$\$|g
 EOF
-E='\$\$'
-list='% | /'
-for D in $list
-do
-	P="\([^$D]*\)"
-cat << EOF >> junk.sed
-s#\$syntax$D$D#\$icode$D#g
-s#\$syntax$D#\$codei$D#g
-#
-s#@syntax$D$D#@icode$D#g
-s#@syntax$D#@codei$D#g
-#
-EOF
-done
-echo ': skip' >> junk.sed
 list=`git ls-files | sed  \
 	-e '/^omh\/syntax\.omh$/d' \
 	-e '/^bin\/batch_edit\.sh$/d'`
@@ -46,14 +24,9 @@ do
 	ext=`echo $file | sed -e 's|.*\.||'`
 	case $ext in
 		omh | c | h | l | sh | f | bat )
-		if grep 'syntax' $file > /dev/null
+		if grep 'italic' $file > /dev/null
 		then
 			sed -f junk.sed -i $file
-			if grep '$syntax' $file > /dev/null
-			then
-				echo "$file failed"
-				exit 1
-			fi
 		fi
 		;;
 
@@ -62,5 +35,10 @@ do
 		;;
 	esac
 done
-sed -e 's|^$spell$|&\n\tcodei\n\ticode|' -i omh/newlinech.omh
-sed -e 's|^$spell$|&\n\tcodei|'          -i omh/wspace.omh
+sed -e 's|$italic word list|$icode word_list|' -i omh/spell.omh
+sed -e 's|$italic pre-formattted|$icode pre_formatted|' -i omh/codep.omh
+sed -e 's|$italic linkingtext|$cref/href/linkingtext/|' -i omh/whatsnew.omh
+sed -e 's|$italic italic ntoken|$icode ntoken|' -i src/section.c
+sed -e 's|$italic F->nFrame|$icode F-nFrame|' -i src/FrameSet.c
+sed -e 's|$italic section/|$icode section|' -i src/automatic.c
+

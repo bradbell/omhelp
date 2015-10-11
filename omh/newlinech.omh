@@ -41,15 +41,15 @@ enables you to put OMhelp commands in the source code for
 these languages.
 
 $head character$$
-There must be zero or one character in $italic character$$ and it
+There must be zero or one character in $icode character$$ and it
 can not be the $code @$$ character.
 Leading and trailing
 $cref/white space/glossary/White Space/$$
-in $italic character$$ is ignored.
-All subsequent occurrences of $italic character$$
+in $icode character$$ is ignored.
+All subsequent occurrences of $icode character$$
 at the beginning of a line are ignored.
 In addition, if a space
-follows such an occurrence of $italic character$$,
+follows such an occurrence of $icode character$$,
 the space is also ignored.
 (Only one such space is ignored.)
 
@@ -92,21 +92,21 @@ c $newlinech c$$
 c $bold Syntax:$$ $icode/y/ = logdet(/n/, /x/)/$$
 c
 c $head y$$
-c The return value $italic y$$ has prototype
+c The return value $icode y$$ has prototype
 c $codei/
 c	real /y/
 c /$$
-c It value is set equal to the log of the determinant of $italic x$$.
+c It value is set equal to the log of the determinant of $icode x$$.
 c
 c $head n$$
-c The argument $italic n$$ has prototype
+c The argument $icode n$$ has prototype
 c $codei/
 c	integer /n/
 c /$$
-c it specifies the dimension of the matrix $italic x$$.
+c it specifies the dimension of the matrix $icode x$$.
 c
 c $head x$$
-c The argument $italic x$$ has prototype
+c The argument $icode x$$ has prototype
 c $codei/
 c	real /x/(/n/, /n/)
 c /$$

@@ -41,13 +41,13 @@ language that does not have multiple line comments.
 
 $head Description$$
 All subsequent occurrences of the first character in
-$italic character$$ are converted to
+$icode character$$ are converted to
 the space character.
-There can be no $code @$$ characters in $italic character$$.
+There can be no $code @$$ characters in $icode character$$.
 In addition,
 leading an trailing
 $cref/white space/glossary/White Space/$$
-in $italic character$$ is ignored.
+in $icode character$$ is ignored.
 
 
 $head Example$$

@@ -34,8 +34,8 @@ If there are only a few words, the
 $cref/spell/spell/$$ command can be used to avoid spelling errors.
 If there are many such words you may want to suspend spell
 checking for a while.
-This command suspends spell checking for all of $italic text$$
-where $italic text$$ may contain any number of commands.
+This command suspends spell checking for all of $icode text$$
+where $icode text$$ may contain any number of commands.
 
 $head Example$$
 The following input is an example where suspension of spell checking

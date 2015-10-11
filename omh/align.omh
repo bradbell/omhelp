@@ -28,7 +28,7 @@ $tend
 
 $head Description$$
 Set the alignment for all subsequent $cref table$$ commands
-where $italic location$$ is one of the following:
+where $icode location$$ is one of the following:
 $code left$$,
 $code center$$,
 $code right$$,
@@ -37,7 +37,7 @@ $code middle$$,
 $code bottom$$.
 
 $head Horizontal$$
-The $italic location$$ values
+The $icode location$$ values
 $code left$$,
 $code center$$, and
 $code right$$ set the horizontal alignment for the
@@ -46,7 +46,7 @@ The default value for the horizontal alignment is $code left$$.
 
 
 $head Vertical$$
-The $italic location$$ values
+The $icode location$$ values
 $code top$$,
 $code middle$$, and
 $code bottom$$ set the vertical alignment for the

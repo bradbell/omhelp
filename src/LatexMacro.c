@@ -22,10 +22,10 @@ $tend
 $head Description$$
 The Latex macro preprocessor reads its data from memory.
 This call sets the input data to the '\0' terminated
-character vector specified by $italic input$$.
-The integer $italic line$$ specifies the line
+character vector specified by $icode input$$.
+The integer $icode line$$ specifies the line
 number in the file $cref/InputName()/InputName/$$
-where $italic input$$ started.
+where $icode input$$ started.
 
 $head Memory Allocation$$
 This call allocates memory using $cref AllocMem$$

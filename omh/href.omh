@@ -47,19 +47,19 @@ is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
 
 $head uri$$
-The characters in $italic uri$$
+The characters in $icode uri$$
 are the Universal Resource Identifier
 that specifies the internet address corresponding to the
 $code href$$ command.
-Leading and trailing white space in $italic uri$$ is ignored.
+Leading and trailing white space in $icode uri$$ is ignored.
 
 $head linkingtext$$
-If $italic linkingtext$$ is present in the
+If $icode linkingtext$$ is present in the
 delimiter sequence, it specifies the text that the
 user will see for the link.
-If $italic linkingtext$$ is $bold not$$ present,
-the user will see $italic uri$$ for the link.
-Leading and trailing white space in $italic link$$ is ignored.
+If $icode linkingtext$$ is $bold not$$ present,
+the user will see $icode uri$$ for the link.
+Leading and trailing white space in $icode link$$ is ignored.
 
 $head File URI$$
 The following input
@@ -111,8 +111,8 @@ URI on the internet. For example it can reference a $code mailto$$ command
 or a ZIP file.
 
 $head White Space$$
-Leading and trailing white space in $italic uri$$, $italic link$$
-and $italic frame$$ is ignored.
+Leading and trailing white space in $icode uri$$, $icode link$$
+and $icode frame$$ is ignored.
 This is useful when these arguments are long.
 For example,
 $codep
@@ -144,7 +144,7 @@ by selecting the following $cref/link/_external/$$.
 
 
 $head frame, Deprecated 2006-07-07$$
-If $italic frame$$ is present,
+If $icode frame$$ is present,
 it is an integer that specifies the
 $cref/frame/fend/$$
 with in the current browser window
@@ -152,10 +152,10 @@ that the result of the link is displayed in.
 If no such frame exists,
 a separate browser window is used to display the result
 of the link.
-If $italic frame$$ is less than one or greater than the
+If $icode frame$$ is less than one or greater than the
 number of frames in the current browser window,
 a separate window is used to display the result of the link.
-Leading and trailing white space in $italic frame$$ is ignored.
+Leading and trailing white space in $icode frame$$ is ignored.
 
 $subhead Display Frame$$
 If the user selects a link corresponding to the following input

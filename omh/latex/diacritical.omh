@@ -54,7 +54,7 @@ $section Diacritical Marks Above Other Output$$
 $table
 $bold Syntax$$
 $cnext $codei/@latex \/name/{/commands/} @@/$$ $rend
-$cnext where $italic name$$ is
+$cnext where $icode name$$ is
 $code acute$$,
 $code bar$$,
 $code breve$$,
@@ -74,7 +74,7 @@ $head Description$$
 Display in Latex mode
 the specified commands
 with the diacritical mark specified by
-$italic name$$ above the output corresponding to $italic commands$$.
+$icode name$$ above the output corresponding to $icode commands$$.
 (As of version 1.2b, Mozilla seems to have a problem with the
 acute, breve, ddot, dot, grave, and vec
 cases.)
@@ -89,7 +89,7 @@ $pre
 	$$
 	$latex \hat{x} + \hat{y + z} $$
 The $code widehat$$ and $code widetilde$$ will stretch
-if the output corresponding to $italic commands$$ is more than
+if the output corresponding to $icode commands$$ is more than
 one character long.
 The input
 $codep
@@ -107,7 +107,7 @@ $nospell
 $table
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 
 $code \acute{x} $$     $cnext $latex \acute{x} $$  $rnext
 $code \bar{x} $$       $cnext $latex \bar{x} $$    $rnext
@@ -126,7 +126,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 
 $code \acute{x + y} $$     $cnext $latex \acute{x + y} $$  $rnext
 $code \bar{x + y} $$       $cnext $latex \bar{x + y} $$    $rnext

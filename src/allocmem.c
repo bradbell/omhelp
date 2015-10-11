@@ -34,12 +34,12 @@ $tend
 $head AllocMemory$$
 $index AllocMemory$$
 This routine returns a pointer to space that is sufficient
-for $italic num$$ elements each of size $italic size$$
-where $italic num$$ and $italic size$$ are positive integers.
+for $icode num$$ elements each of size $icode size$$
+where $icode num$$ and $icode size$$ are positive integers.
 The memory is allocated using $cref c_alloc$$.
 The
-$cref/string/glossary/String/$$ $italic file$$ is the
-file name and the integer $italic line$$ is the line number
+$cref/string/glossary/String/$$ $icode file$$ is the
+file name and the integer $icode line$$ is the line number
 where the call to $code AllocMemory$$ is made.
 The standard macros $code __FILE__$$ and $code __LINE__$$
 can be used to obtain these values.
@@ -56,16 +56,16 @@ $cref c_alloc$$ to allocate the requested memory.
 $head FreeMemory$$
 $index FreeMemory$$
 This routine frees memory that was allocated with $code AllocMemory$$.
-The value $italic ptr$$ must be either $code NULL$$
+The value $icode ptr$$ must be either $code NULL$$
 or a pointer that was allocated using
 $code AllocMemory$$.
 (If it is $code NULL$$, no action is taken).
-The $cref/string/glossary/String/$$ $italic file$$
-is the file name and the integer $italic line$$ is the line number
+The $cref/string/glossary/String/$$ $icode file$$
+is the file name and the integer $icode line$$ is the line number
 where the call to $code FreeMemory$$ is made.
 The standard macros $code __FILE__$$ and $code __LINE__$$
 can be used to obtain these values.
-If the value $italic ptr$$ was not allocated
+If the value $icode ptr$$ was not allocated
 using $code AllocMemory$$,
 a fatal error message is printed and execution is terminated.
 
@@ -76,7 +76,7 @@ this macro calls $code FreeMemory$$ with
 the file and line set by the macros
 $code __FILE__$$ and $code __LINE__$$ respectively.
 Otherwise, this macro uses $cref/c_free/c_alloc/$$ to directly
-the memory pointed to by $italic ptr$$.
+the memory pointed to by $icode ptr$$.
 
 
 $head CheckMemoryLeak$$
@@ -109,8 +109,8 @@ $tend
 $head c_alloc$$
 $index c_alloc$$
 This routine returns a pointer to space that is sufficient
-for $italic num$$ elements each of size $italic size$$
-where $italic num$$ and $italic size$$ are positive integers.
+for $icode num$$ elements each of size $icode size$$
+where $icode num$$ and $icode size$$ are positive integers.
 If the memory cannot be allocated,
 an error message is generated on standard output and
 the program is terminated.
@@ -118,7 +118,7 @@ the program is terminated.
 $head c_free$$
 $index c_free$$
 This routine frees memory that was allocated with $code c_alloc$$.
-The value $italic ptr$$ must be either $code NULL$$
+The value $icode ptr$$ must be either $code NULL$$
 or a pointer that was allocated using
 $code AllocMemory$$.
 (If it is $code NULL$$, no action is taken.)

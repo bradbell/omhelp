@@ -25,7 +25,7 @@ $cend $codei/void ConvertForcedNewline(const int /n/)/$$  $rend
 $tend
 
 $head Description$$
-Outputs $italic n$$ forced new lines; i.e., new lines
+Outputs $icode n$$ forced new lines; i.e., new lines
 that are not just white space
 but actually cause line breaks when the HTML is viewed.
 For example, in pre-formatted mode, every '\n' is converted to
@@ -58,17 +58,17 @@ $codei%void ConvertOutputString(const char *%s%, const int %preformatted%)%$$
 $tend
 
 $head ConvertOutputCh$$
-Output the character $italic ch$$
+Output the character $icode ch$$
 to the current output file.
 
 $head ConvertOutputString$$
 This just calls $code ConvertOutputCh$$ for each element
-of the $code '\0'$$ terminated character vector $italic s$$
-excluding the $code '\0'$$ (which is the last element of $italic s$$).
+of the $code '\0'$$ terminated character vector $icode s$$
+excluding the $code '\0'$$ (which is the last element of $icode s$$).
 
 
 $head Always Converted$$
-If $italic ch$$ (or a character in $italic s$$)
+If $icode ch$$ (or a character in $icode s$$)
 is one of the special characters,
 $code <$$,
 $code >$$,
@@ -81,7 +81,7 @@ The ascii character codes
 $code COPYRIGHT_CHARACTER$$ and
 $code REGISTERED_TRADE_MARK_CHARACTER$$,
 are defined in $code convert.h$$.
-If $italic ch$$ (or a character in $italic s$$)
+If $icode ch$$ (or a character in $icode s$$)
 is equal to one of these codes
 it is converted to the corresponding output in HTML format.
 
@@ -138,7 +138,7 @@ converting tab characters in pre-formatted mode.
 The routine $code ConvertAddColumn$$
 is used when the current output column changes because
 of output that does not use one of the $cref convert$$ routines.
-Calling $code ConvertAddColumn$$, adds the value $italic add$$ to
+Calling $code ConvertAddColumn$$, adds the value $icode add$$ to
 the current output column number and returns the resulting column.
 The call
 $codei/
@@ -206,10 +206,10 @@ $codei/
 
 ConvertAddPrevious(/n/)
 /$$
-The value $italic n$$ is added to the previous newline counter.
+The value $icode n$$ is added to the previous newline counter.
 If newlines are output by routines other than the
 $cref/convert routines/convert/Convert Routines/$$,
-a positive value of $italic n$$ will adjust for this.
+a positive value of $icode n$$ will adjust for this.
 $pre
 
 $$
@@ -222,7 +222,7 @@ will reset the previous newline counter to zero.
 $pre
 
 $$
-If $italic n$$ is greater than zero, the current
+If $icode n$$ is greater than zero, the current
 $cref/column counter/ConvertAddColumn/$$ is set to zero.
 
 
@@ -250,8 +250,8 @@ $cref ConvertOutput$$
 $tend
 
 $head Description$$
-The return value is a copy of $italic s$$ with certain characters converted.
-If a character in $italic s$$
+The return value is a copy of $icode s$$ with certain characters converted.
+If a character in $icode s$$
 is one of the special characters,
 $code <$$,
 $code >$$,

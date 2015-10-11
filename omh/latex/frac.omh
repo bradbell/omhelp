@@ -27,7 +27,7 @@ $tend
 $head Description$$
 Display in Latex mode
 the fraction specified by the $code \frac$$ command
-where $italic numerator$$ and $italic denominator$$
+where $icode numerator$$ and $icode denominator$$
 are any valid Latex commands.
 
 $head Example$$

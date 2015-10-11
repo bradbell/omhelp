@@ -44,10 +44,10 @@ $code begin$$ command and a matching $code end$$ command.
 The cross reference
 $cref/tag/glossary/Cross Reference Tag/$$
 for the corresponding section
-is specified by $italic tag$$.
+is specified by $icode tag$$.
 Leading and trailing
 $cref/white space/glossary/White Space/$$
-is ignored and there can be no $code @$$ characters in $italic tag$$.
+is ignored and there can be no $code @$$ characters in $icode tag$$.
 
 $head Example$$
 The following input file contains two sections.
@@ -118,20 +118,20 @@ $cnext $cref/getting started/start_simple/$$
 $tend
 
 $head Description$$
-This command specifies the $italic title$$
+This command specifies the $icode title$$
 for the current section.
 A section starts with a $cref/begin/begin/$$ command
 and ends with an $cref/end/begin/$$ command.
 There must be one and only one $code section$$ command
 in each section.
 Leading and trailing
-$cref/white space/glossary/White Space/$$ in $italic title$$
+$cref/white space/glossary/White Space/$$ in $icode title$$
 is ignored.
 In addition, other white space
-characters in $italic title$$ are interpreted as simple spaces.
+characters in $icode title$$ are interpreted as simple spaces.
 (The browser used to display the HTML will decide how to break the title
 into separate lines.)
-There cannot be any $code @$$ characters in $italic title$$.
+There cannot be any $code @$$ characters in $icode title$$.
 
 $head Aindex$$
 $index aindex$$
@@ -144,7 +144,7 @@ $codei/
 	@mindex /title/@@
 /$$
 In this case,
-occurrences of the $cref escape$$ character in $italic title$$
+occurrences of the $cref escape$$ character in $icode title$$
 has the special meaning defined for the $code mindex$$ command.
 These characters do not appear in the displayed title.
 
@@ -175,11 +175,11 @@ $bold See Also$$ $cnext $mref/tref/$$
 $tend
 
 $head Description$$
-The argument $italic tag$$ specifies the
+The argument $icode tag$$ specifies the
 $cref/cross reference tag/glossary/Cross Reference Tag/$$ for
 the another section.
 The
-$cref/title/section/$$ of the section corresponding to $italic tag$$
+$cref/title/section/$$ of the section corresponding to $icode tag$$
 is placed in the text where this command appears.
 
 
@@ -193,6 +193,6 @@ $pre
 	$$$title section$$: $mref/section/$$
 $pre
 $$
-Note that $code section$$ is the $italic tag$$ in this example.
+Note that $code section$$ is the $icode tag$$ in this example.
 
 $end

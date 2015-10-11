@@ -16,13 +16,13 @@ $tend
 
 $head Description$$
 Leading and trailing white space characters are removed from
-the '\0' terminated character vector $italic s$$.
+the '\0' terminated character vector $icode s$$.
 $pre
 
 $$
-If $italic s$$ is empty; i.e.,
-the first character in $italic s$$ is '\0',
-no write is attempted to the memory pointed to by $italic s$$.
+If $icode s$$ is empty; i.e.,
+the first character in $icode s$$ is '\0',
+no write is attempted to the memory pointed to by $icode s$$.
 
 
 $end

@@ -34,11 +34,11 @@ This command is used for displaying mathematical expressions
 in HTML format using only ascii characters.
 (The $cref latex$$ command can be used to display an extended
 set of mathematical symbols in MathML format.)
-The argument $italic text$$ must be a
+The argument $icode text$$ must be a
 $cref/delimiter sequence/glossary/Delimiter Sequence/$$.
 
 $head Pre-formatted$$
-The characters in $italic text$$ are output in a
+The characters in $icode text$$ are output in a
 $cref/pre-formatted font/glossary/Pre-formatted Font/$$.
 This enables you to line up one equation above another.
 
@@ -157,7 +157,7 @@ $tend
 $head Description$$
 This command makes it easy to display numbers in the same font as is used
 for $mref/math/$$ mode.
-The text in $italic number$$
+The text in $icode number$$
 can be any sequence of decimal digits, plus signs, minus signs,
 or periods.
 
@@ -190,11 +190,11 @@ $tend
 $head Description$$
 This command is used for displaying an index in math mode and in front
 of the letters $code th$$.
-The text $italic index$$ does not contain any $code @$$ characters
+The text $icode index$$ does not contain any $code @$$ characters
 and is displayed in $mref/math/$$ mode (without delimiters).
 In addition, leading and trailing
 $cref/white space/glossary/White Space/$$
-in $italic index$$ is ignored.
+in $icode index$$ is ignored.
 
 For example,
 $codep

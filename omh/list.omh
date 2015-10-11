@@ -37,7 +37,7 @@ Any combination of text other commands and text can be placed
 between these commands.
 
 $head Marker$$
-The $italic marker$$ argument in the $code list$$ command
+The $icode marker$$ argument in the $code list$$ command
 specifies the type of marker used to label each entry in the list.
 It must be one of the following values
 $table
@@ -65,7 +65,7 @@ $$
 results in the list
 
 $list number$$ One
-$lnext $italic Two$$
+$lnext $icode Two$$
 $lnext $code Three$$
 $lend
 
@@ -97,7 +97,7 @@ $list Roman$$ One
 		$lnext entries
 		$lend
 	$lend
-$lnext $italic Two$$
+$lnext $icode Two$$
 $lnext $code Three$$
 $lend
 

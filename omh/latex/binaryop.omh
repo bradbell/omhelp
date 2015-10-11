@@ -32,8 +32,8 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the binary operator specified by $italic Command$$ where
-$italic Command$$ is one of the
+the binary operator specified by $icode Command$$ where
+$icode Command$$ is one of the
 Latex commands in the tables below.
 
 
@@ -55,7 +55,7 @@ $nospell
 $table
 
 $table
-$italic Command$$ $cnext $italic Output$$         $rend
+$icode Command$$ $cnext $icode Output$$         $rend
 \pm              $cnext $latex \pm              $$ $rend
 \mp              $cnext $latex \mp              $$ $rend
 \times           $cnext $latex \times           $$ $rend
@@ -70,7 +70,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$         $rend
+$icode Command$$ $cnext $icode Output$$         $rend
 \cap             $cnext $latex \cap             $$ $rend
 \cup             $cnext $latex \cup             $$ $rend
 \uplus           $cnext $latex \uplus           $$ $rend
@@ -85,7 +85,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$         $rend
+$icode Command$$ $cnext $icode Output$$         $rend
 \diamond         $cnext $latex \diamond         $$ $rend
 \bigtriangleup   $cnext $latex \bigtriangleup   $$ $rend
 \bigtriangledown $cnext $latex \bigtriangledown $$ $rend
@@ -96,7 +96,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$         $rend
+$icode Command$$ $cnext $icode Output$$         $rend
 \oplus           $cnext $latex \oplus           $$ $rend
 \ominus          $cnext $latex \ominus          $$ $rend
 \otimes          $cnext $latex \otimes          $$ $rend

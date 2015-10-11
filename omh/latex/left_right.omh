@@ -33,7 +33,7 @@ the specified command list enclosed by the
 specified symbols.
 The enclosing symbols are stretched to be
 as large as the output corresponding to the command list.
-The values $italic s1$$ and $italic s2$$ must be one of the
+The values $icode s1$$ and $icode s2$$ must be one of the
 $cref/enclosing symbols/left_right/Enclosing Symbols/$$.
 $pre
 
@@ -99,7 +99,7 @@ $nospell
 $table
 
 $table
-$italic s1$$ or $italic s2$$   $cnext $italic Output$$ $rend
+$icode s1$$ or $icode s2$$   $cnext $icode Output$$ $rend
 $code  ($$                     $cnext $latex ( $$ $rend
 $code  [$$                     $cnext $latex [ $$ $rend
 $code \{$$                     $cnext $latex \{ $$ $rend
@@ -117,7 +117,7 @@ $tend
 $cnext
 
 $table
-$italic s1$$ or $italic s2$$   $cnext $italic Output$$ $rend
+$icode s1$$ or $icode s2$$   $cnext $icode Output$$ $rend
 $code  )$$                     $cnext $latex ) $$ $rend
 $code  ]$$                     $cnext $latex ] $$ $rend
 $code \}$$                     $cnext $latex \} $$ $rend

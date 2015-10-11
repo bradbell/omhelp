@@ -25,7 +25,7 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the output corresponding to $italic commands$$ with the
+the output corresponding to $icode commands$$ with the
 specified output above it.
 
 

@@ -23,35 +23,35 @@ is used for the cross reference routines:
 
 $head Tag$$
 $index tag, cross reference$$
-A variable or record field called $italic tag$$
+A variable or record field called $icode tag$$
 refers to the cross reference tag for an particular section and
 is a '\0' terminated character vector.
-Two different values for $italic tag$$ are called equal
+Two different values for $icode tag$$ are called equal
 if they are equal without regard to case.
-The value $italic tag$$ should never be empty nor
+The value $icode tag$$ should never be empty nor
 should it begin with white space;
 i.e. $icode%tag%[0] != '\0'%$$ and
 $codei%! isspace(%tag%[0])%$$.
 
 $head File$$
 $index file, cross reference$$
-A variable or record field called $italic file$$,
+A variable or record field called $icode file$$,
 is a '\0' terminated character vector.
-Two different values for $italic file$$ are called equal
+Two different values for $icode file$$ are called equal
 if they are equal without regard to case.
-If $italic file$$ is not empty,
+If $icode file$$ is not empty,
 it corresponds to the input file where the cross reference was created.
 
 $head Head$$
 $index head, cross reference$$
-A variable or record field called $italic head$$
+A variable or record field called $icode head$$
 is a $cref/cross reference heading/glossary/Cross Reference Heading/$$.
-Two different values for $italic head$$ are called equal
+Two different values for $icode head$$ are called equal
 if they are equal in a case sensitive sense.
 
 $head Printid$$
 $index printid, cross reference$$
-A variable or record field called $italic printid$$
+A variable or record field called $icode printid$$
 is a '\0' terminated character vector.
 It serves as a unique identifier for the cross reference
 and represents its position in the document tree.
@@ -61,7 +61,7 @@ in which case this cross reference is not identified in the printed version.
 
 $head Frame$$
 $index frame, cross reference$$
-An integer variable or record field called $italic frame$$
+An integer variable or record field called $icode frame$$
 specifies the destination frame
 corresponding to a cross reference.
 The value $math/frame = 0/$$
@@ -73,19 +73,19 @@ it must hold that $math/frame = 0/$$.
 
 $head Defined$$
 $index defined, cross reference$$
-The record field called $italic defined$$ is
+The record field called $icode defined$$ is
 either zero or one.
 If it is zero, the destination of the cross reference is not yet defined.
 If it is one, the destination is defined.
 
 $head Next Created$$
-The record field called $italic next_created$$
+The record field called $icode next_created$$
 points to the next cross reference in the list of existing
 cross references.
 (This is for use by cross.c only.)
 
 $head Next Defined$$
-The record field called $italic next_defined$$
+The record field called $icode next_defined$$
 points to the next cross reference int he list of
 cross references that have been defined
 (This is for use by cross.c only.)

@@ -19,17 +19,17 @@ $tend
 $head PatternMatchLen$$
 This function initializes the $code PatternMatchCh$$ function
 for matching the pattern defined by the '\0' terminated character
-row vector $italic p$$.
+row vector $icode p$$.
 The return value of $code PatternMatchLen$$ is the number of characters,
 not counting the '\0', in the pattern to be matched.
 If the length is to long, $code PatternMatchLen$$ returns minus one.
-If the character $italic escape$$ is not present in pattern,
+If the character $icode escape$$ is not present in pattern,
 the return value of $code PatternMatchLen$$
-will be the length of the string contained in $italic p$$.
+will be the length of the string contained in $icode p$$.
 $pre
 
 $$
-If the character $italic escape$$ is present in $italic p$$, it specifies
+If the character $icode escape$$ is present in $icode p$$, it specifies
 the beginning of an escape sequence. In this case the next three characters
 after the escape character specify the ascii code for a single
 character to be used in the pattern matching.
@@ -45,11 +45,11 @@ and zero others.
 If the input value of
 $codei%*%ch%$$
 completes a pattern match,
-then the previous $italic len$$ character were
+then the previous $icode len$$ character were
 $codei%
 	%p%[0], %p%[1], ..., %p%[%len%-1]
 %$$
-where $italic len$$
+where $icode len$$
 is the value returned by the previous call to $code PatternMatchLen$$
 and $icode%p%[%len%-1] corresponds to the input value of
 $codei%*%ch%$$
@@ -57,11 +57,11 @@ The output value of
 $codei%*%ch%$$
 is the input value of
 $codei%*%ch%$$
-$italic len$$ previous calls ago.
+$icode len$$ previous calls ago.
 This enables one to delay use of
 $codei%*%ch%$$
 until one is sure that it will not be included in the pattern match.
-(If there are not $italic len$$ calls since the previous call to
+(If there are not $icode len$$ calls since the previous call to
 $code PatternMatchLen$$,
 the output value of
 $codei%*%ch%$$

@@ -32,7 +32,7 @@ $tend
 
 $head Description$$
 returns a pointer to the concatenation of the strings
-$italic s1$$, and $italic s2$$,
+$icode s1$$, and $icode s2$$,
 which are '\0' terminated character vectors.
 $pre
 

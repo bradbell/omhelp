@@ -441,8 +441,8 @@ the files names were not being converted to lower case.
 
 $head 08-18$$
 The name used on the command line
-for the $italic root_file$$ was changed to the
-$italic starting_file$$ (it has since been referred to as
+for the $icode root_file$$ was changed to the
+$icode starting_file$$ (it has since been referred to as
 $cref/root section/running/root_file/$$).
 This was done because the term "root" is
 used to refer to the root of a file name; i.e.,

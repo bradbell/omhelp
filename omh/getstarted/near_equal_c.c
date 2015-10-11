@@ -22,22 +22,22 @@ $icode%e% = near_equal_c(%x%, %y%, %r%, %a%)%$$
 
 $head Purpose$$
 Returns true,
-if $italic x$$ is nearly equal to $italic y$$ and false otherwise.
+if $icode x$$ is nearly equal to $icode y$$ and false otherwise.
 
 $head x$$
-The argument $italic x$$ has prototype
+The argument $icode x$$ has prototype
 $codei%
 	double %x%
 %$$
 
 $head y$$
-The argument $italic y$$ has prototype
+The argument $icode y$$ has prototype
 $codei%
 	double %y%
 %$$
 
 $head r$$
-The relative error criteria $italic r$$ has prototype
+The relative error criteria $icode r$$ has prototype
 $codei%
 	double %r%
 %$$
@@ -49,7 +49,7 @@ $latex \[
 where $latex \leq$$ denotes less than or equal.
 
 $head a$$
-The absolute error criteria $italic a$$ has prototype
+The absolute error criteria $icode a$$ has prototype
 $codei%
 	double %a%
 %$$
@@ -60,7 +60,7 @@ $latex \[
 \] $$
 
 $head e$$
-The return value $italic e$$ has prototype
+The return value $icode e$$ has prototype
 $codei%
 	int %e%
 %$$

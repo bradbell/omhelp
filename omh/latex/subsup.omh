@@ -28,14 +28,14 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the subscripts and superscripts specified by $italic Command$$ where
-$italic Command$$ contains the underbar character $code _$$,
+the subscripts and superscripts specified by $icode Command$$ where
+$icode Command$$ contains the underbar character $code _$$,
 the caret character $code ^$$ or both.
 
 $head Example$$
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 $code x^{2y}$$    $cend  $latex x^{2y}$$    $rend
 $code x_{2y}$$    $cend  $latex x_{2y}$$    $rend
 $code x^{y^{2}}$$ $cend  $latex x^{y^{2}}$$ $rend

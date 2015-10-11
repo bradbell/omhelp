@@ -24,8 +24,8 @@ $tend
 
 $head Description$$
 Display in Latex mode
-the greek character specified by $italic Command$$ where
-$italic Command$$ is one of the
+the greek character specified by $icode Command$$ where
+$icode Command$$ is one of the
 Latex commands in the tables below.
 The following tables contain the Greek characters
 in Table 3.3 of
@@ -36,7 +36,7 @@ $nospell
 $table
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \alpha      $cnext $latex \alpha $$      $rend
 \beta       $cnext $latex \beta $$       $rend
 \gamma      $cnext $latex \gamma $$      $rend
@@ -50,7 +50,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \theta      $cnext $latex \theta $$      $rend
 \vartheta   $cnext $latex \vartheta $$   $rend
 \iota       $cnext $latex \iota $$       $rend
@@ -64,7 +64,7 @@ $tend
 $cnext
 
 $table
-$italic command$$ $cnext $italic Output$$   $rend
+$icode command$$ $cnext $icode Output$$   $rend
 \pi         $cnext $latex \pi $$         $rend
 \varpi      $cnext $latex \varpi $$      $rend
 \rho        $cnext $latex \rho $$        $rend
@@ -76,7 +76,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \tau        $cnext $latex \tau $$        $rend
 \upsilon    $cnext $latex \upsilon $$    $rend
 \phi        $cnext $latex \phi $$        $rend
@@ -95,7 +95,7 @@ $nospell
 $table
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \Gamma      $cnext $latex \Gamma $$         $rend
 \Delta      $cnext $latex \Delta  $$        $rend
 \Theta      $cnext $latex \Theta  $$
@@ -104,7 +104,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \Lambda     $cnext $latex \Lambda $$         $rend
 \Xi         $cnext $latex \Xi     $$         $rend
 \Pi         $cnext $latex \Pi     $$
@@ -113,7 +113,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \Sigma      $cnext $latex \Sigma   $$        $rend
 \Upsilon    $cnext $latex \Upsilon $$        $rend
 \Phi        $cnext $latex \Phi     $$
@@ -122,7 +122,7 @@ $tend
 $cnext
 
 $table
-$italic Command$$ $cnext $italic Output$$   $rend
+$icode Command$$ $cnext $icode Output$$   $rend
 \Psi        $cnext $latex \Psi     $$        $rend
 \Omega      $cnext $latex \Omega   $$
 $tend

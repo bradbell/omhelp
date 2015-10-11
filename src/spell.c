@@ -42,11 +42,11 @@ $codei/
 
 InitSpelling(/dir/)
 /$$
-The '\0' terminated character vector $italic dir$$ specifies the directory
+The '\0' terminated character vector $icode dir$$ specifies the directory
 where the spelling files are installed.
-The last character in $italic dir$$ must be a $code \$$ or $code /$$.
+The last character in $icode dir$$ must be a $code \$$ or $code /$$.
 If the file $code dictionary.bin$$ exists in the directory
-$italic dir$$, it is
+$icode dir$$, it is
 used for a fast initialization. Otherwise, the file $code english.wrd$$
 (and the optional file $code local.wrd$$) are
 used and a message ending in '\n' is printed on standard out
@@ -58,7 +58,7 @@ $codei/
 
 SpellingOkList(/list/)
 /$$
-The '\0' terminated character vector $italic list$$
+The '\0' terminated character vector $icode list$$
 contains a list of special words that are considered properly spelled even
 if they are not in the dictionary mentioned above.
 Each word in this context must be separated by a non alphabetic character
@@ -66,22 +66,22 @@ or the capital letter that begins the next word.
 Spell checking is not case sensitive.
 If $icode/list/[0]/$$ is '\0',
 the list of special words is initialized to empty.
-Otherwise, the words in $italic list$$ are added to the current
+Otherwise, the words in $icode list$$ are added to the current
 list of special words.
 $codei/
 
 SpellingError(/text/, /nOut/)
 /$$
-The '\0' terminated character vector $italic text$$ contains text that
+The '\0' terminated character vector $icode text$$ contains text that
 is checked for words that are not correctly spelled.
 A word in this context is an Upper or lower case letter
 followed by a sequence of lower case letters.
-If there is no spelling error in $italic text$$, the return value is
+If there is no spelling error in $icode text$$, the return value is
 $code NULL$$.
 Otherwise the return value is a pointer to the beginning of the first
-spelling error in $italic text$$.
+spelling error in $icode text$$.
 The error extends from this pointer,
-for $italic nOut$$ characters.
+for $icode nOut$$ characters.
 The spelling error is added to the list of OK words for this
 section so that the error is only reported once.
 $codei/

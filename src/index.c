@@ -35,56 +35,56 @@ $tend
 
 
 $head Key$$
-The '\0' terminated character vector $italic key$$
+The '\0' terminated character vector $icode key$$
 is the key for the index entry.
 It contains the text that will be in alphabetic order in the index.
 Key escape characters (see below) are used to convey special meaning
 to the routines in this section and will not appear in the
 index entries.
-Upper case alphabetic letters in $italic key$$ are assumed to be
+Upper case alphabetic letters in $icode key$$ are assumed to be
 part of a spelling error.
 They are converted to lower case and displayed in Red.
 
 $subhead Key Escape Character$$
-We define a key escape character in $italic key$$
+We define a key escape character in $icode key$$
 as any character
-that is equal to the $italic escape$$ character.
+that is equal to the $icode escape$$ character.
 
 $subhead Key Comma$$
-We define a key comma character in $italic key$$
+We define a key comma character in $icode key$$
 as a comma character
 that is not directly preceeded by an key escape character.
 
 $subhead Key Space Character$$
-We define a key space character in $italic key$$
+We define a key space character in $icode key$$
 as any white space character
 that is not directly preceeded by an key escape character.
 
 $subhead Key Word$$
-We define a key word in $italic key$$
+We define a key word in $icode key$$
 as starting with a non key space character
 and continuing to, but not including, the next key space character
-or the '\0' at the end of $italic key$$.
+or the '\0' at the end of $icode key$$.
 
 $subhead Key Comment$$
-We define a key comment in $italic key$$
+We define a key comment in $icode key$$
 as a key word that
 is directly preceeded by a key escape character.
 
 $head Tag$$
-The '\0' terminated character vector $italic tag$$ is the cross reference
+The '\0' terminated character vector $icode tag$$ is the cross reference
 tag for this index entry. It specifies the section that the index entry
 points to.
 
 $head Head$$
-The '\0' terminated character vector $italic head$$ is the
+The '\0' terminated character vector $icode head$$ is the
 $cref/cross reference heading/glossary/Cross Reference Heading/$$
 for this index entry.
 It specifies the location with in the section
 that the index entry points to.
-If $italic head$$ equals NULL or
+If $icode head$$ equals NULL or
 $icode/head/[0]/$$ equals '\0',
-the entry points to the entire section specified by $italic tag$$.
+the entry points to the entire section specified by $icode tag$$.
 
 $head Escape$$
 This is the current escape character
@@ -100,11 +100,11 @@ generated index page.
 $head InsertInIndex$$
 $index InsertInIndex$$
 this routine will insert one index entry corresponding to
-the text in $italic key$$.
-The characters in $italic key$$ before the first
+the text in $icode key$$.
+The characters in $icode key$$ before the first
 $cref/key comma/KeywordIndex/Key.Key Comma/$$
 specify the first level of the index entry.
-If there is a key comma in $italic key$$
+If there is a key comma in $icode key$$
 the text after the first key comma specifies
 the second level of the index entry.
 
@@ -125,11 +125,11 @@ $cref/key word/KeywordIndex/Key.Key Word/$$
 that is not a
 $cref/key comment/KeywordIndex/Key.Key Comment/$$.
 The first level of the index entry will be the key word.
-The second level will be the entire $italic key$$.
+The second level will be the entire $icode key$$.
 $pre
 
 $$
-If a comma character appears in $italic key$$ and it not
+If a comma character appears in $icode key$$ and it not
 is preceded by the
 $cref/key escape/KeywordIndex/Key.Key Escape Character/$$ character,
 an error message for the $code cindex$$ command is generated.
@@ -142,7 +142,7 @@ index page in the file with root name $icode/section/->tag/$$
 and extension $code .tmp$$.
 It is a Pass1 version because
 the cross references use the HrefOutputPass1 format.
-In addition, for the $italic letter$$
+In addition, for the $icode letter$$
 between $code A$$ and $code Z$$ that has index entries
 starting with that letter:
 there a heading for that letter together with a

@@ -22,9 +22,9 @@ $codei%OutputMath(int %ntoken%,  char *%text%, char %escape%, int %italic%)%$$
 $tend
 
 $head Description$$
-The character vector $italic text$$ contains $italic ntoken$$
+The character vector $icode text$$ contains $icode ntoken$$
 '\0' terminated character strings (that is there is a single
-'\0' between each of the strings and $italic ntoken$$ '\0' characters).
+'\0' between each of the strings and $icode ntoken$$ '\0' characters).
 These strings are written to the current output file in math mode.
 This is preformatted output with the extra feature that
 letters are in an italic font while other characters are in a
@@ -33,7 +33,7 @@ $pre
 
 $$
 Italic font can be suppressed by directly preceding a
-sequence of letters by the character $italic escape$$
+sequence of letters by the character $icode escape$$
 If the sequences of letters is "ge",
 it is converted to a greater than or equals sign.
 If the sequence of letters is "le",
@@ -41,9 +41,9 @@ it is converted to a less than or equals sign.
 $pre
 
 $$
-If the integer $italic italic$$ is zero,
+If the integer $icode italic$$ is zero,
 the font is not italic on input and output from $code OutputMath$$.
-If the integer $italic italic$$ is not zero,
+If the integer $icode italic$$ is not zero,
 the font is italic on input and output from $code OutputMath$$.
 
 $end

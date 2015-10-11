@@ -30,13 +30,13 @@ $cnext $mref/codep/verbatim/$$
 $tend
 
 $head Purpose$$
-This command creates the file specified by $italic filename$$
+This command creates the file specified by $icode filename$$
 together with a link to the file.
 Both leading and trailing
 $cref/white space/glossary/White Space/$$
-in $italic filename$$
+in $icode filename$$
 is ignored and there cannot be any $code @$$ characters
-in $italic filename$$.
+in $icode filename$$.
 The file name is displayed as the text for the link.
 The contents of the file is the text that is displayed by the
 next $mref/codep/$$ command.

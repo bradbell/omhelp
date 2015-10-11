@@ -23,17 +23,17 @@ $tend
 
 $head Description$$
 returns a pointer to the concatenation of the strings
-$italic s1$$, $italic s2$$, ...
+$icode s1$$, $icode s2$$, ...
 which are '\0' terminated character vectors except for the last
 string which is NULL.
 There can be at most 100 '\0' terminated strings in the argument list.
 $pre
 
 $$
-The argument $italic file$$ is a '\0' terminated
+The argument $icode file$$ is a '\0' terminated
 character vector that specifies
 the file for memory allocation reporting.
-The argument $italic line$$ is an integer specifying the line for
+The argument $icode line$$ is an integer specifying the line for
 memory allocate reporting.
 $pre
 

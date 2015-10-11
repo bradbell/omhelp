@@ -24,12 +24,12 @@ $codei%void RelativeTable(SectionInfo *%This%)
 $head Purpose$$
 Creates the automatically generated links
 (during the second pass), such as previous, next, up,
-that are relative to the section $italic This$$.
+that are relative to the section $icode This$$.
 
 $head RelativeFrame$$
 This creates the file $icode%tag%_links.%ext%$$ containing the links.
-where $italic tag$$ is equal to $icode%This%->tagLower%$$ and
-$italic ext$$ is equal to $icode%Internal2Out("OutputExtension")%$$.
+where $icode tag$$ is equal to $icode%This%->tagLower%$$ and
+$icode ext$$ is equal to $icode%Internal2Out("OutputExtension")%$$.
 
 $head RelativeTable$$
 This creates a table, in the current output file, containing the links.
@@ -42,8 +42,8 @@ output file contains the command
 $codei%
 <script type='text/javascript' language='JavaScript' src='%tag%_%ext%.js'>
 %$$
-where $italic tag$$ is $icode%This->tagLower%$$ and
-$italic ext$$ is $code Internal2Out("OutputExtension")$$
+where $icode tag$$ is $icode%This->tagLower%$$ and
+$icode ext$$ is $code Internal2Out("OutputExtension")$$
 with out the leading "." character.
 
 $contents%
