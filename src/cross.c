@@ -16,10 +16,9 @@ $index CreateCrossReference$$
 $section Create a New Cross Reference Record$$
 
 
-$table
-$bold Syntax$$
-$cend $codei%CreateCrossReference(%tag%, %head%, %file%)%$$ $rend
-$tend
+$head Syntax$$
+$codei%CreateCrossReference(%tag%, %head%, %file%)%$$
+
 
 $head Description$$
 Uses $mref/AllocMem/$$ to allocate memory for a new
@@ -88,10 +87,9 @@ $index FindCrossReference$$
 
 $section Find Record Corresponding to a Cross Reference$$
 
-$table
-$bold Syntax$$
-$cend $codei/FindCrossReference(/tag/, /head/)/$$
-$tend
+$head Syntax$$
+$codei/FindCrossReference(/tag/, /head/)/$$
+
 
 $head Description$$
 Search the cross reference list for a Cross Reference record that has the
@@ -116,10 +114,9 @@ $index target, cross reference$$
 
 $section Define a Cross Reference Destination Point$$
 
-$table
-$bold Syntax$$
-$cend $codei/DefineCrossReference(/tag/, /head/, /file/, /frame/, /printid/)/$$
-$tend
+$head Syntax$$
+$codei/DefineCrossReference(/tag/, /head/, /file/, /frame/, /printid/)/$$
+
 
 $head Description$$
 The cross reference with the specified
@@ -172,10 +169,9 @@ $index cross reference, next$$
 
 $section Return Next Cross Reference In Definition Order$$
 
-$table
-$bold Syntax$$
-$cend $codei/NextCrossReference(/cross/)/$$
-$tend
+$head Syntax$$
+$codei/NextCrossReference(/cross/)/$$
+
 
 $head Description$$
 Returns a $code CrossReference$$ pointer that has the same
@@ -201,10 +197,9 @@ $index check, cross reference$$
 
 $section Delete Cross Reference Table$$
 
-$table
-$bold Syntax$$
-$cend $codei/FreeCrossReference()/$$
-$tend
+$head Syntax$$
+$codei/FreeCrossReference()/$$
+
 
 $head Description$$
 Checks that all the cross references were defined and prints an error

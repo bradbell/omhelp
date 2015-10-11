@@ -12,11 +12,9 @@ $$
 
 $section Automatic Generation of Table of Contents$$
 
-$table
-$bold Syntax$$
-$cnext
+$head Syntax$$
 $codei%void ContentPass1(SectionInfo *%content%)%$$
-$tend
+
 
 $head Description$$
 This routine outputs creates the file

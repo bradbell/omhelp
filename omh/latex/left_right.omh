@@ -22,10 +22,9 @@ $index latex, enclose$$
 
 $section Latex Enclose With Left and Right Commands$$
 
-$table
-$bold Syntax$$
-$cnext $codei%@latex \left %s1 command_list% \right %s2% @@%$$
-$tend
+$head Syntax$$
+$codei%@latex \left %s1 command_list% \right %s2% @@%$$
+
 
 $head Description$$
 Display in Latex mode

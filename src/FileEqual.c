@@ -16,10 +16,9 @@ $index file, same name$$
 $index name, same file$$
 $index same, file name$$
 
-$table
-$bold Syntax$$
-$cnext $codei%int FileEqual(const char *%name1%, const char *%name2%)%$$
-$tend
+$head Syntax$$
+$codei%int FileEqual(const char *%name1%, const char *%name2%)%$$
+
 
 $head Description$$
 System dependent check if the file corresponding to

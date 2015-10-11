@@ -21,12 +21,13 @@ $index terminating, execution on error$$
 $index execution, terminating on error$$
 $index fatal, error$$
 
-$table
-$bold Syntax$$
-$cend $codei%fatalerr(char *%s1%, %...%)%$$ $rnext
-$cend $codei%fatalomh(char *%s1%, %...%)%$$ $rnext
-$cend $codei%fataltex(char *%s1%, %...%)%$$
-$tend
+$head Syntax$$
+$codei%fatalerr(char *%s1%, %...%)
+%$$
+$codei%fatalomh(char *%s1%, %...%)
+%$$
+$codei%fataltex(char *%s1%, %...%)%$$
+
 
 $head Message$$
 The arguments

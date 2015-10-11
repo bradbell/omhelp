@@ -19,11 +19,9 @@ $index escape$$
 
 $section Changing the Escape Character$$
 
-$table
-$bold Syntax$$
-$cnext
+$head Syntax$$
 $codei/@escape /character/@@/$$
-$tend
+
 
 $head Description$$
 The backslash, $code \$$, is the default escape character.

@@ -16,13 +16,13 @@ $index align, center$$
 
 $section Centering Text$$
 
-$table
-$bold Syntax$$
-$cnext
-$codei/@center /text/@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/pre/math/table/$$
-$tend
+$head Syntax$$
+$codei/@center /text/@@
+/$$
+
+$head See Also$$
+$mref/pre/math/table/$$
+
 
 $head Description$$
 Centers the output specified by $icode text$$,

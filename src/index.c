@@ -19,19 +19,17 @@ $$
 
 $section Keyword and Index Utilities$$
 
-$table
-$bold Syntax$$
-$cend
-$codei%InsertInIndex(%key%, %tag%, %head%, %escape%)%$$
-$rend $cend
-$codei%MultipleIntoIndex(%key%, %tag%, %head%, %escape%, %ignore%)%$$
-$rend $cend
-$codei%CycleIntoIndex(%key%, %tag%, %head%, %escape%)%$$
-$rend $cend
-$codei%IndexPass1(%section%)%$$
-$rnext $cnext
+$head Syntax$$
+$codei%InsertInIndex(%key%, %tag%, %head%, %escape%)
+%$$
+$codei%MultipleIntoIndex(%key%, %tag%, %head%, %escape%, %ignore%)
+%$$
+$codei%CycleIntoIndex(%key%, %tag%, %head%, %escape%)
+%$$
+$codei%IndexPass1(%section%)
+%$$
 $codei%IndexFreeMem()%$$
-$tend
+
 
 
 $head Key$$

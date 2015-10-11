@@ -15,10 +15,9 @@ $$
 
 $section Set Input Characters Corresponding Latex Lexical Analyzer$$
 
-$table
-$bold Syntax$$
-$cend $codei/LatexLexPut(/line/, /input/)/$$
-$tend
+$head Syntax$$
+$codei/LatexLexPut(/line/, /input/)/$$
+
 
 $head Description$$
 The Latex lexical analyzer reads its data from memory.
@@ -43,10 +42,9 @@ $$
 
 $section Recall Tokens Recently Returned To Parser$$
 
-$table
-$bold Syntax$$
-$cend $codei/LatexLexHistory(/number/, /length/, /line/, /token/)/$$
-$tend
+$head Syntax$$
+$codei/LatexLexHistory(/number/, /length/, /line/, /token/)/$$
+
 
 $head Description$$
 The return value of $code LatexLexHistory$$ is a $code int$$

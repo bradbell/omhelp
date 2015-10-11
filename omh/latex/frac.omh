@@ -19,10 +19,9 @@ $index frac$$
 $index latex, frac$$
 $section Latex Fraction Command$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex \frac{/numerator/}{/denominator/} @@/$$
-$tend
+$head Syntax$$
+$codei/@latex \frac{/numerator/}{/denominator/} @@/$$
+
 
 $head Description$$
 Display in Latex mode

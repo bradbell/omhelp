@@ -26,12 +26,13 @@ $index input, special character$$
 
 $section Processing a Special Input Character as White Space$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@wspace /character/@@/$$ $rnext
-$bold See Also$$
-$cnext $cref newlinech$$
-$tend
+$head Syntax$$
+$codei/@wspace /character/@@
+/$$
+
+$head See Also$$
+$cref newlinech$$
+
 
 $head Deprecated 2006-07-07$$
 This command has been deprecated and the $cref newlinech$$ command

@@ -23,12 +23,13 @@ $mindex link multiple cross reference tag$$
 
 $section Multiple Tag Based Cross References$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@mref%/tag1/%/tag2/%/.../%/tagN/%@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/cref/tref/rref/href/$$  $rnext
-$tend
+$head Syntax$$
+$codei/@mref%/tag1/%/tag2/%/.../%/tagN/%@@
+/$$
+
+$head See Also$$
+$mref/cref/tref/rref/href/$$
+
 
 $head Description$$
 Links multiple sections using the

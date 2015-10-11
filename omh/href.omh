@@ -26,17 +26,19 @@ $section Linking an Address Outside Current Web Site$$
 $index href$$
 $cindex external cross reference link$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@href%/uri/%@@/$$ $rnext
-$cnext $codei/@href%/uri/%/linkingtext/%@@/$$ $rnext
-$cnext $codei/@href%/uri/%/linkingtext/%/frame/%@@/$$ $rnext
-$bold See Also$$
-$cnext
+$head Syntax$$
+$codei/@href%/uri/%@@
+/$$
+$codei/@href%/uri/%/linkingtext/%@@
+/$$
+$codei/@href%/uri/%/linkingtext/%/frame/%@@
+/$$
+
+$head See Also$$
 $cref/image_link/running/image_link/$$,
 $cref/keyword list/keyword/Keyword List/$$,
 $mref/cref/$$
-$tend
+
 
 $head Description$$
 This command is used to specify a link to an address on the internet

@@ -18,10 +18,9 @@ $mindex stackrel above$$
 $index latex, stackrel$$
 $index latex, above$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex \stackrel{%above%}{%commands%}@@/$$
-$tend
+$head Syntax$$
+$codei/@latex \stackrel{%above%}{%commands%}@@/$$
+
 
 $head Description$$
 Display in Latex mode

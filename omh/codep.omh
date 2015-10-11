@@ -24,12 +24,13 @@ $index paragraph, #in pre-formatted code font$$
 $section Pre-formatted Code Text$$
 $mindex pre format text code font$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@codep /pre-formatted/@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/syntax/pre/math/verbatim/$$ $rnext
-$tend
+$head Syntax$$
+$codei/@codep /pre-formatted/@@
+/$$
+
+$head See Also$$
+$mref/syntax/pre/math/verbatim/$$
+
 
 $head Description$$
 All of the text in $italic pre-formatted$$ is printed

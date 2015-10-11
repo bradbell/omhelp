@@ -27,16 +27,16 @@ $index latex, underbrace$$
 
 $section Latex Underline, Underbrace, Overline, and Overbrace$$
 
-$table
-$bold Syntax$$
-$cnext $codei%@latex \%name%{%commands%}@@%$$ $rnext
-$cnext where $icode name$$ is
+$head Syntax$$
+$codei%@latex \%name%{%commands%}@@
+%$$
+where $icode name$$ is
 $code underline$$,
 $code underbrace$$,
 $code overline$$,
 or
 $code overbrace$$,
-$tend
+
 
 
 

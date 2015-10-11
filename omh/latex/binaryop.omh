@@ -25,10 +25,9 @@ $index latex, operator binary$$
 
 $section Binary Operators$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex /Command/ @@/$$
-$tend
+$head Syntax$$
+$codei/@latex /Command/ @@/$$
+
 
 $head Description$$
 Display in Latex mode

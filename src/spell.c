@@ -25,13 +25,12 @@ $index InitSpelling$$
 $index SpellingError$$
 $index FreeSpelling$$
 
-$table
-$bold Syntax$$
-$cend $codei%void InitSpelling(const char *%dir%)%$$        $rend
-$cend $codei%void SpellingOkList(const char *%special%)%$$  $rend
-$cend $codei%const char *SpellingError(const char *%text%, int *%nOut%)%$$ $rend
-$cend $codei%void FreeSpelling(int %debug%)%$$
-$tend
+$head Syntax$$
+$codei%void InitSpelling(const char *%dir%)%$$
+$codei%void SpellingOkList(const char *%special%)%$$
+$codei%const char *SpellingError(const char *%text%, int *%nOut%)%$$
+$codei%void FreeSpelling(int %debug%)%$$
+
 
 $head Description$$
 Routines that do spell checking and manage the

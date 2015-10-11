@@ -23,12 +23,12 @@ $index string, concatenation$$
 $index concatenation, of strings$$
 $index strjoin$$
 
-$table
-$bold Syntax$$ $cend
-$codei/strjoin(/s1/, /s2/)/$$
-$rend
-$bold See Also$$ $cend $mref/StrCat/str_alloc/$$
-$tend
+$head Syntax$$
+$codei/strjoin(/s1/, /s2/)
+/$$
+
+$head See Also$$ $mref/StrCat/str_alloc/$$
+
 
 $head Description$$
 returns a pointer to the concatenation of the strings

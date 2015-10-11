@@ -22,12 +22,13 @@ $mindex execute file link$$
 $section Creating a File and Linking to its Execution$$
 
 
-$table
-$bold Syntax$$
-$cnext $codei/@execute /filename/@/$$ $rnext
-$bold See Also$$
-$cnext $mref/codep/verbatim/$$
-$tend
+$head Syntax$$
+$codei/@execute /filename/@
+/$$
+
+$head See Also$$
+$mref/codep/verbatim/$$
+
 
 $head Purpose$$
 This command creates the file specified by $icode filename$$

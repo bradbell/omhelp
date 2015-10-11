@@ -16,11 +16,10 @@ $$
 $mindex copy file$$
 $section Creating A Copy of a File$$
 
-$table
-$bold Syntax$$
-$cend $codei/copyfile(/destination/, /source/)/$$ $rend
-$cend $codei/copyfileFreeMemory()/$$ $rend
-$tend
+$head Syntax$$
+$codei/copyfile(/destination/, /source/)/$$
+$codei/copyfileFreeMemory()/$$
+
 
 $codei/
 

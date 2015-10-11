@@ -16,10 +16,9 @@ $mindex version date$$
 
 $section Marking Output With Current Date$$
 
-$table
-$bold Syntax$$
-$cnext $code @date$$ $rnext
-$tend
+$head Syntax$$
+$code @date$$
+
 
 $head Description$$
 Displays the date

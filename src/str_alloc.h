@@ -21,12 +21,12 @@ $cindex string copy$$
 $cindex allocate memory$$
 $section Copy a String to Separately Allocated Memory$$
 
-$table
-$bold Syntax$$ $cend
-$codei%str_alloc(*%s%)%$$
-$rend
-$bold See Also$$ $cend $mref/StrCat/$$
-$tend
+$head Syntax$$
+$codei%str_alloc(*%s%)
+%$$
+
+$head See Also$$ $mref/StrCat/$$
+
 
 $head Description$$
 returns a pointer to a separately allocated

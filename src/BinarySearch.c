@@ -14,10 +14,9 @@ $$
 
 $section Binary Search An Array of Names$$
 
-$table
-$bold Syntax$$
-$cnext $codei/BinarySearch(/array/, /len/, /name/)/$$
-$tend
+$head Syntax$$
+$codei/BinarySearch(/array/, /len/, /name/)/$$
+
 
 $head Description$$
 The argument $icode array$$ is an array of $icode len$$

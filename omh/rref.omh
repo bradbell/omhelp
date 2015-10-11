@@ -22,12 +22,13 @@ $cindex cross reference link #in table$$
 
 $section Generate One Row of a Jump Table$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@rref /tag/@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/mref/tref/children/$$
-$tend
+$head Syntax$$
+$codei/@rref /tag/@@
+/$$
+
+$head See Also$$
+$mref/mref/tref/children/$$
+
 
 $head Description$$
 The argument $icode tag$$ specifies the

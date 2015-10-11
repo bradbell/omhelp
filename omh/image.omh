@@ -26,13 +26,15 @@ $mindex display picture graphic gif jpg$$
 
 $section Displaying Graphical Images$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@/cmd/%/file_in/%@@/$$ $rnext
-$cnext $codei/@/cmd/%/file_in/%/file_out/%@@/$$ $rnext
-$bold See Also$$
-$cnext $cref/getting started/start_image/$$, $cref verbatim$$
-$tend
+$head Syntax$$
+$codei/@/cmd/%/file_in/%@@
+/$$
+$codei/@/cmd/%/file_in/%/file_out/%@@
+/$$
+
+$head See Also$$
+$cref/getting started/start_image/$$, $cref verbatim$$
+
 
 $head Purpose$$
 These commands include the picture in the

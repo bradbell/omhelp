@@ -17,15 +17,15 @@ $mindex new section information record$$
 
 $section Create a New Section Information Record$$
 
-$table
-$bold Syntax$$
-$cend $codei%SectionInfo *SectionInfoNew(
+$head Syntax$$
+$codei%SectionInfo *SectionInfoNew(
 	const SectionInfo *navigateCopy,
 	const char *%filename%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/SectionInfoNew/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/SectionInfoNew/$$
+
 
 $head Purpose$$
 Uses $mref/AllocMem/$$ to allocate memory for a new
@@ -77,13 +77,12 @@ $begin SectionDefaultStyle$$
 $mindex default style$$
 $section Replace Undefined Style Values by Defaults$$
 
-$table
-$bold Syntax$$
-$cend $codei%void SectionDefaultStyle(
+$head Syntax$$
+$codei%void SectionDefaultStyle(
 	SectionInfo *%To,
 	SectionInfo *%From%
-)%$$ $rend
-$tend
+)%$$
+
 
 $head Description$$
 Suppose that $icode field$$ is such that
@@ -110,14 +109,14 @@ $$
 $mindex free SectionInfo tree$$
 $section Free All SectionInfo Records of Corresponding Section Tree$$
 
-$table
-$bold Syntax$$
-$cend $codei%void SectionFreeTree(
+$head Syntax$$
+$codei%void SectionFreeTree(
 	SectionInfo *%tree%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/SectionInfoNew/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/SectionInfoNew/$$
+
 
 
 $head Description$$
@@ -153,15 +152,15 @@ $index search, Section Info record #by tag$$
 $section Find the SectionInfo Record With a Specified Tag$$
 
 
-$table
-$bold Syntax$$
-$cend $codei%SectionInfo* SectionFind(
+$head Syntax$$
+$codei%SectionInfo* SectionFind(
 	SectionInfo *%tree%,
 	const char *%tag%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/SectionInfo/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/SectionInfo/$$
+
 
 $head Description$$
 Searches the specified
@@ -199,15 +198,15 @@ $$
 $mindex SectionInfo tag$$
 $section Set a SectionInfo Record Tag Field$$
 
-$table
-$bold Syntax$$
-$cend $codei%void SectionSetTag(
+$head Syntax$$
+$codei%void SectionSetTag(
 	SectionInfo *%section%,
 	const char *%tag%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/SectionInfo/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/SectionInfo/$$
+
 
 $head Description$$
 Sets the $code tag$$ field of the specified $mref/SectionInfo/$$
@@ -235,12 +234,11 @@ $$
 
 $section Numbers All Sections in Printable Order$$
 
-$table
-$bold Syntax$$
-$cend $codei%char *SectionNumber(
+$head Syntax$$
+$codei%char *SectionNumber(
 	SectionInfo *%section%
 )%$$
-$tend
+
 
 $head Description$$
 Returns an identifying $code number$$ corresponding to the specified section.
@@ -275,14 +273,14 @@ $mindex SectionInfo tag$$
 $section Search For a Section With Undefined Tag$$
 
 
-$table
-$bold Syntax$$
-$cend $codei%SectionInfo* SectionTagNotDefined(
+$head Syntax$$
+$codei%SectionInfo* SectionTagNotDefined(
 	SectionInfo *%root%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/SectionFind/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/SectionFind/$$
+
 
 $head Description$$
 Searches the specified
@@ -319,12 +317,11 @@ $mindex SectionInfo read next$$
 $section Return Next or Previous Section in Read Order$$
 
 
-$table
-$bold Syntax$$
-$cend $codei%SectionInfo* SectionReadNext( SectionInfo *%section%)%$$
-$rend
-$cend $codei%SectionInfo* SectionReadPrevious( SectionInfo *%section%)%$$
-$tend
+$head Syntax$$
+$codei%SectionInfo* SectionReadNext( SectionInfo *%section%)
+%$$
+$codei%SectionInfo* SectionReadPrevious( SectionInfo *%section%)%$$
+
 
 $head Description$$
 Read order is described by the numbers

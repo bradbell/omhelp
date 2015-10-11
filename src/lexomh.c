@@ -69,10 +69,9 @@ $$
 
 $section Converting Integer Token Code to User Input$$
 
-$table
-$bold Syntax$$
-$cnext $icode%string% = TokenCode2String(%code%)%$$
-$tend
+$head Syntax$$
+$icode%string% = TokenCode2String(%code%)%$$
+
 
 $head Purpose$$
 The lexical analyzer now passes back token integer codes for error reporting.

@@ -10,11 +10,9 @@ $begin AutomaticAppendSection$$
 $mindex add automatic section tree$$
 $section Add an Automatically Generated Section to Section Tree$$
 
-$table
-$bold Syntax$$
-$cnext
+$head Syntax$$
 $codei/AutomaticAppendSection(/parent/, /tag/, /title/, /letterHeadings/)/$$
-$tend
+
 
 $head Description$$
 This call adds a section to the section tree.
@@ -58,10 +56,9 @@ $begin IsAutomaticSection$$
 
 $section Determine if a Section is Automatically Generated$$
 
-$table
-$bold Syntax$$
-$cnext $codei/IsAutomaticSection(/section/)/$$
-$tend
+$head Syntax$$
+$codei/IsAutomaticSection(/section/)/$$
+
 
 $head Description$$
 Returns one, if $icode section$$ is one of the sections generated
@@ -81,10 +78,9 @@ $begin AutomaticTag$$
 
 $section Get List of Automatically Generated Sections$$
 
-$table
-$bold Syntax$$
-$cnext $codei/AutomaticTag(/i/)/$$
-$tend
+$head Syntax$$
+$codei/AutomaticTag(/i/)/$$
+
 
 $head Description$$
 Returns a $code '\0'$$ character vector pointing to

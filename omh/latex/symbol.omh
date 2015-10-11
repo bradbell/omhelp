@@ -22,10 +22,9 @@ $index atomic$$
 
 $section Latex Symbols And Other Atomic Entities$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex /symbol command/ @@/$$
-$tend
+$head Syntax$$
+$codei/@latex /symbol command/ @@/$$
+
 
 $head Description$$
 The following sections document special symbols

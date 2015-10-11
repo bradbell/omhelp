@@ -16,10 +16,9 @@ $index number$$
 $index latex, number$$
 $section Latex Numbers$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex /Number/ @@/$$
-$tend
+$head Syntax$$
+$codei/@latex /Number/ @@/$$
+
 
 $head Description$$
 Display in Latex mode

@@ -22,17 +22,21 @@ $cindex cross reference head subhead frame$$
 
 $section Specifying a General Cross Reference With in Web Site$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@xref%/tag/%@@/$$ $rnext
-$cnext $codei/@xref%/tag/%/heading/%@@/$$ $rnext
-$cnext $codei/@xref%/tag/%/heading/%/linkingtext/%@@/$$ $rnext
-$cnext $codei/@xref%/tag/%/heading/%/linkingtext/%/frame/%@@/$$ $rnext
-$cnext $codei/@xref%/tag/%/heading/%/subheading/%/linkingtext/%/frame/%@@/$$
-$rnext
-$bold See Also$$
+$head Syntax$$
+$codei/@xref%/tag/%@@
+/$$
+$codei/@xref%/tag/%/heading/%@@
+/$$
+$codei/@xref%/tag/%/heading/%/linkingtext/%@@
+/$$
+$codei/@xref%/tag/%/heading/%/linkingtext/%/frame/%@@
+/$$
+$codei/@xref%/tag/%/heading/%/subheading/%/linkingtext/%/frame/%@@
+/$$
+
+$head See Also$$
 $mref/href/mref/tref/$$
-$tend
+
 
 $head Deprecated 2006-07-07$$
 With the advent of the

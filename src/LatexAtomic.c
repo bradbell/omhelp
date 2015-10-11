@@ -13,10 +13,9 @@ $$
 
 $section Convert Latex Atomic Commands To Mathml Text$$
 
-$table
-$bold Syntax$$
-$cnext $codei/LatexAtomic(/name/, /token/)/$$
-$tend
+$head Syntax$$
+$codei/LatexAtomic(/name/, /token/)/$$
+
 
 $head Description$$
 The arguments $codei%const char *%name%$$

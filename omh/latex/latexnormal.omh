@@ -18,10 +18,9 @@ $index latex, character$$
 
 $section Latex Normal Characters$$
 
-$table
-$bold Syntax$$
-$cnext $codei/#latex /Character/ ##/$$
-$tend
+$head Syntax$$
+$codei/#latex /Character/ ##/$$
+
 
 $head Description$$
 Display in Latex mode

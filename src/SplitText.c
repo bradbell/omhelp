@@ -17,13 +17,12 @@ $$
 
 $section Splitting Text At Each Delimiter$$
 
-$table
-$bold Syntax$$ $cend $codei%int SplitText(
+$head Syntax$$ $codei%int SplitText(
 	int   %line%,
 	char *%cmd%,
 	char *%text%
 )%$$
-$tend
+
 
 $head Description$$
 The '\0' terminated character vector $icode text$$ contains

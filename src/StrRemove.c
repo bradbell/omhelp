@@ -13,10 +13,9 @@ $$
 
 $section Remove Copies of A Certain Character From A String$$
 
-$table
-$bold Syntax$$
-$cend $codei%void StrRemove(char *%str%, char %ch%)%$$
-$tend
+$head Syntax$$
+$codei%void StrRemove(char *%str%, char %ch%)%$$
+
 
 $head Description$$
 All the characters in $icode str$$ that are equal to $icode ch$$

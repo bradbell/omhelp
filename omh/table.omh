@@ -23,15 +23,19 @@ $index column, in table$$
 
 $section Specifying a Table and Its Rows and Columns$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@table/$$ $rnext
-$cnext $codei/@cnext/$$ $rnext
-$cnext $codei/@rnext/$$ $rnext
-$cnext $codei/@tend/$$  $rnext
-$bold See Also$$
-$cnext $mref/list/pre/center/array/$$
-$tend
+$head Syntax$$
+$codei/@table
+/$$
+$codei/@cnext
+/$$
+$codei/@rnext
+/$$
+$codei/@tend
+/$$
+
+$head See Also$$
+$mref/list/pre/center/array/$$
+
 
 $head Description$$
 These commands are used to create tables.

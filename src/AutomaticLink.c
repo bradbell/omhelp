@@ -10,12 +10,11 @@ $begin AutomaticLink$$
 $mindex automatic link section$$
 $section Output Pass2 Automatically Generated Links$$
 
-$table
-$bold Syntax$$
-$cnext $codei%void AutomaticLink(
+$head Syntax$$
+$codei%void AutomaticLink(
 	int          %navigation%  ,
 	SectionInfo *%section%     )%$$
-$tend
+
 
 $head Description$$
 Writes the automatically generated links corresponding to the

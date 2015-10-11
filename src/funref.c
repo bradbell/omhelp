@@ -15,11 +15,10 @@ $section Function Reference Utilities$$
 $index InsertFunRef$$
 $index FunRefPass1$$
 
-$table
-$bold Syntax$$
-$cend $codei%InsertInFunRef(%tag%, %title%)%$$ $rend
-$cend $codei%FunRefPass1(%section%)%$$
-$tend
+$head Syntax$$
+$codei%InsertInFunRef(%tag%, %title%)%$$
+$codei%FunRefPass1(%section%)%$$
+
 
 $head Description$$
 These routines manage the function reference table.

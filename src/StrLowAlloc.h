@@ -20,14 +20,14 @@ $index StrLowAlloc$$
 $cindex string lower case allocate$$
 $section Allocated Memory for a Lower Case Copy of a String$$
 
-$table
-$bold Syntax$$ $cend
+$head Syntax$$
 $codei%StrLowAlloc(
 	const char *%s%
-)%$$ $rend
-$rend
-$bold See Also$$ $cend $mref/str_alloc/$$
-$tend
+)
+%$$
+
+$head See Also$$ $mref/str_alloc/$$
+
 
 $head Description$$
 returns a pointer to a lower case

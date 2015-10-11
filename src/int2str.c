@@ -17,12 +17,12 @@ $mindex convert integer number string$$
 
 $section Convert and Integer to a String$$
 
-$table
-$bold Syntax$$ $cend
-$codei%int2str(%i%)%$$
-$rend
-$bold See Also$$ $cend $mref/str_alloc/$$
-$tend
+$head Syntax$$
+$codei%int2str(%i%)
+%$$
+
+$head See Also$$ $mref/str_alloc/$$
+
 
 $head Description$$
 returns a pointer to a

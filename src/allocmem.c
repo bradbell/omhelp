@@ -18,18 +18,17 @@ $$
 $section Routines That Track Allocation and Freeing of Memory$$
 $mindex memory allocate free$$
 
-$table
-$bold Syntax$$ $cnext
-$codei%void *AllocMemory(int %num%, int %size%, const char *%file%, int %line%)%$$
-$rnext $cnext
-$codei%void *AllocMem(int %num%, int %size%)%$$
-$rnext $cnext
-$codei%void FreeMemory(void *%ptr%, const char *%file%, int %line%)%$$
-$rnext $cnext
-$codei%void FreeMem(void *%ptr%)%$$
-$rnext $cnext
+$head Syntax$$
+$codei%void *AllocMemory(int %num%, int %size%, const char *%file%, int %line%)
+%$$
+$codei%void *AllocMem(int %num%, int %size%)
+%$$
+$codei%void FreeMemory(void *%ptr%, const char *%file%, int %line%)
+%$$
+$codei%void FreeMem(void *%ptr%)
+%$$
 $codei%void CheckMemoryLeak(void)%$$
-$tend
+
 
 $head AllocMemory$$
 $index AllocMemory$$
@@ -99,12 +98,11 @@ $$
 
 $section Check Memory Allocation and Free$$
 
-$table
-$bold Syntax$$ $cnext
-$codei%void *c_alloc(int %n%, int %size%)%$$
-$rnext $cnext
+$head Syntax$$
+$codei%void *c_alloc(int %n%, int %size%)
+%$$
 $codei%void c_free(void *%p%)%$$
-$tend
+
 
 $head c_alloc$$
 $index c_alloc$$

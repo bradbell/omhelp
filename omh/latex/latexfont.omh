@@ -29,10 +29,9 @@ $index latex, font$$
 
 $section Changing Latex Font$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex /font/ @@/$$ $rend
-$tend
+$head Syntax$$
+$codei/@latex /font/ @@/$$
+
 
 $head Description$$
 Display in Latex using the specified font where

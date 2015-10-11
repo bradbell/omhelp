@@ -9,10 +9,9 @@ $begin ClipWhiteSpace$$
 
 $section Clip Leading and Trailing White Space$$
 
-$table
-$bold Syntax$$
-$cend $codei%void ClipWhiteSpace(char *%s%)%$$
-$tend
+$head Syntax$$
+$codei%void ClipWhiteSpace(char *%s%)%$$
+
 
 $head Description$$
 Leading and trailing white space characters are removed from

@@ -33,11 +33,12 @@ $index latex, space$$
 
 $section Horizontal Spacing Of Output$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex /space/ @@/$$ $rnext
-$cnext $codei/@latex \hspace{/number/ /unit/} @@/$$ $rnext
-$tend
+$head Syntax$$
+$codei/@latex /space/ @@
+/$$
+$codei/@latex \hspace{/number/ /unit/} @@
+/$$
+
 
 $head Description$$
 Display Latex spacing commands.

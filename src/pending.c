@@ -26,14 +26,13 @@ $$
 
 $section Tracking Commands That Can Contain Other Commands Inside$$
 
-$table
-$bold Syntax$$ $cend
+$head Syntax$$
 $codei/PushPending(/line/, /name/)
 PopPending(/line/, /name/)
 NumberPending()
 OmhPendingError(/line/, /input/)
 TexPendingError(/msg/)/$$
-$tend
+
 
 $codei/PushPending(/line/, /name/)
 /$$

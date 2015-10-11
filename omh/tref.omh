@@ -20,12 +20,13 @@ $mindex cross reference section title display$$
 
 $section Cross Referencing By Displaying a Section's Title$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@tref /tag/@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/title/cref/$$
-$tend
+$head Syntax$$
+$codei/@tref /tag/@@
+/$$
+
+$head See Also$$
+$mref/title/cref/$$
+
 
 $head Description$$
 The argument $icode tag$$ specifies the

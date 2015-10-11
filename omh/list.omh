@@ -18,14 +18,15 @@ $mindex item$$
 
 $section Commands Used to Display Lists of Items$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@list /marker/@@
+$head Syntax$$
+$codei/@list /marker/@@
 @lnext
-@lend/$$ $rnext
-$bold See Also$$
-$cnext $mref/table/pre/$$
-$tend
+@lend
+/$$
+
+$head See Also$$
+$mref/table/pre/$$
+
 
 $head Description$$
 These commands are used to enumerate a list of items.

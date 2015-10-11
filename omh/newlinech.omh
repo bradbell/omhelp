@@ -27,12 +27,13 @@ $index character, program comment$$
 
 $section Setting Programming Source Code Comment Character$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@newlinech /character/@@/$$ $rnext
-$bold See Also$$
-$cnext $cref/codep/codep/Source Code Examples/$$
-$tend
+$head Syntax$$
+$codei/@newlinech /character/@@
+/$$
+
+$head See Also$$
+$cref/codep/codep/Source Code Examples/$$
+
 
 $head Purpose$$
 Some computer languages do not have a multi-line comment mode.

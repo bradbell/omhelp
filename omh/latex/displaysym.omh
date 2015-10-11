@@ -29,10 +29,9 @@ $index latex, inline $$
 
 $section Symbols That Change Between Inline and Displayed Formulas$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex /Symbol/ @@/$$
-$tend
+$head Syntax$$
+$codei/@latex /Symbol/ @@/$$
+
 
 
 $head Description$$

@@ -14,14 +14,14 @@ $index StrLowCase$$
 $cindex string lower case convert$$
 $section Convert a String to Lower Case$$
 
-$table
-$bold Syntax$$ $cend
+$head Syntax$$
 $codei%char *%%StrLowCase(
 	char *%s%
-)%$$ $rend
-$rend
-$bold See Also$$ $cend $mref/StrLowAlloc/$$
-$tend
+)
+%$$
+
+$head See Also$$ $mref/StrLowAlloc/$$
+
 
 $head Description$$
 converts the

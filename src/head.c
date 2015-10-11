@@ -22,14 +22,13 @@ $index SetSubHeading$$
 $index HeadingAndSubHeading$$
 $index HeadingAndSubPrintId$$
 
-$table
-$bold Syntax$$
-$cend $codei%InitializeHeading()%$$         $rend
-$cend $codei%SetHeading(%heading%)%$$       $rend
-$cend $codei%SetSubHeading(%subheading%)%$$ $rend
-$cend $codei%HeadingAndSubHeading()%$$      $rend
-$cend $codei%HeadingAndSubPrintId()%$$
-$tend
+$head Syntax$$
+$codei%InitializeHeading()%$$
+$codei%SetHeading(%heading%)%$$
+$codei%SetSubHeading(%subheading%)%$$
+$codei%HeadingAndSubHeading()%$$
+$codei%HeadingAndSubPrintId()%$$
+
 
 $head Description$$
 These routines manage headings and subheadings.

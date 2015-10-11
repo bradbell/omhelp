@@ -23,12 +23,13 @@ $index function, syntax$$
 
 $section Specifying Command or Function Syntax$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@syntax%/code1/%/italic1/%/.../%/codeN/%/italicN/%@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/codep/$$, $cref/italic/font/$$
-$tend
+$head Syntax$$
+$codei/@syntax%/code1/%/italic1/%/.../%/codeN/%/italicN/%@@
+/$$
+
+$head See Also$$
+$mref/codep/$$, $cref/italic/font/$$
+
 
 $head Deprecated 2015-10-11$$
 This command has been deprecated, use the $cref codei$$ and

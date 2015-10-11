@@ -21,10 +21,9 @@ $index latex, sub$$
 $index latex, sup$$
 $section Latex Subscripts and Superscripts$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex /Command/ @@/$$
-$tend
+$head Syntax$$
+$codei/@latex /Command/ @@/$$
+
 
 $head Description$$
 Display in Latex mode

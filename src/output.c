@@ -19,10 +19,9 @@ $index output file$$
 
 $section Place a New File on Top of Output Stack$$
 
-$table
-$bold Syntax$$
-$cnext $codei%void PushOutput(const char *%name%)%$$
-$tend
+$head Syntax$$
+$codei%void PushOutput(const char *%name%)%$$
+
 
 
 $head Description$$
@@ -54,12 +53,11 @@ $index format output string$$
 
 $section Write a String Plus Formating to Output File$$
 
-$table
-$bold Syntax$$
-$cend $codei%void FormatOutput(const char *%fmt%, const char *%s1%)%$$
-$rnext
-$cend $codei%void FormatOutput2(const char *%fmt%, const char *%s1%, const char *%s2%)%$$
-$tend
+$head Syntax$$
+$codei%void FormatOutput(const char *%fmt%, const char *%s1%)
+%$$
+$codei%void FormatOutput2(const char *%fmt%, const char *%s1%, const char *%s2%)%$$
+
 
 $head Description$$
 Write the
@@ -98,10 +96,9 @@ $index output string$$
 
 $section Write a String to Output File$$
 
-$table
-$bold Syntax$$
-$cend $codei%void OutputString(const char *%s%)%$$
-$tend
+$head Syntax$$
+$codei%void OutputString(const char *%s%)%$$
+
 
 $head Description$$
 Write the
@@ -123,10 +120,9 @@ $index output character$$
 
 $section Write a Character to Output File$$
 
-$table
-$bold Syntax$$
-$cend $codei%void OutputChar(const char %ch%)%$$
-$tend
+$head Syntax$$
+$codei%void OutputChar(const char %ch%)%$$
+
 
 $head Description$$
 Write the
@@ -143,10 +139,9 @@ $index output file$$
 
 $section Remove The File Currently on Top of Output Stack$$
 
-$table
-$bold Syntax$$
-$cnext $codei%void PopOutput()%$$
-$tend
+$head Syntax$$
+$codei%void PopOutput()%$$
+
 
 
 $head Description$$
@@ -170,10 +165,9 @@ $index output file, name$$
 
 $section Returns the name of the Current Output File$$
 
-$table
-$bold Syntax$$
-$cnext $codei%const char *OutputName()%$$
-$tend
+$head Syntax$$
+$codei%const char *OutputName()%$$
+
 
 
 $head Description$$

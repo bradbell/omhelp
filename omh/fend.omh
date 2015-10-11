@@ -27,10 +27,9 @@ $index frame$$
 
 $section Dividing A Section Into Frames$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@fend /percent/@@/$$
-$tend
+$head Syntax$$
+$codei/@fend /percent/@@/$$
+
 
 $head Deprecated 2006-07-07$$
 With the advent of the

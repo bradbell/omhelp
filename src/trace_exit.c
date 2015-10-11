@@ -12,9 +12,8 @@ $$
 
 $section Routine that Traces Exit Value on Standard Error$$
 
-$table
-$bold Syntax$$ $cnext $codei%void trace_exit(int %status%)%$$
-$tend
+$head Syntax$$ $codei%void trace_exit(int %status%)%$$
+
 
 $head Purpose$$
 At a global level (for the entire OMhelp program)

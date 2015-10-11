@@ -19,12 +19,13 @@ $mindex suspend spell check dictionary$$
 
 $section Suspending Spell Checking$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@nospell /text/@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/spell/$$
-$tend
+$head Syntax$$
+$codei/@nospell /text/@@
+/$$
+
+$head See Also$$
+$mref/spell/$$
+
 
 $head Description$$
 Sometimes there is a section of input in which

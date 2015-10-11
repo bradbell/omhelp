@@ -23,14 +23,12 @@ $index EndLinks$$
 
 $section Managing Frame Containing the Links Relative To A Section$$
 
-$table
-$bold Syntax$$
-$cend
-$codei/BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)/$$ $rend
-$cend $codei/TitleLinks(/title/)/$$ $rend
-$cend $codei/AddLink(/tag/, /head/, /text/)/$$  $rend
-$cend $codei/EndLinks()/$$
-$tend
+$head Syntax$$
+$codei/BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)/$$
+$codei/TitleLinks(/title/)/$$
+$codei/AddLink(/tag/, /head/, /text/)/$$
+$codei/EndLinks()/$$
+
 
 $head Description$$
 The routines in this file manage

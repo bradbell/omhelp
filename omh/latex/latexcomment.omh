@@ -19,10 +19,9 @@ $mindex latex comment command$$
 
 $section The Latex Comment Command$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex % /text/ @@/$$
-$tend
+$head Syntax$$
+$codei/@latex % /text/ @@/$$
+
 
 $head Description$$
 All  of the character in

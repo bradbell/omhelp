@@ -17,10 +17,9 @@ $index greek$$
 $index latex, greek$$
 $section Greek Letters$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex /Command/ @@/$$
-$tend
+$head Syntax$$
+$codei/@latex /Command/ @@/$$
+
 
 $head Description$$
 Display in Latex mode

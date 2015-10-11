@@ -22,12 +22,13 @@ $index math$$
 
 $section Math Mode$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@math /text/@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/latex/pre/syntax/$$ $rnext
-$tend
+$head Syntax$$
+$codei/@math /text/@@
+/$$
+
+$head See Also$$
+$mref/latex/pre/syntax/$$
+
 
 $head Description$$
 This command is used for displaying mathematical expressions
@@ -148,11 +149,9 @@ $section Displaying Simple Numbers In Math Mode$$
 $index number, math mode$$
 $index math, numbers$$
 
-$table
-$bold Syntax$$
-$cnext
+$head Syntax$$
 $codei/@/number/@@/$$
-$tend
+
 
 $head Description$$
 This command makes it easy to display numbers in the same font as is used
@@ -181,11 +180,9 @@ $section Indexing A Value$$
 $index th$$
 $index index, i-th$$
 
-$table
-$bold Syntax$$
-$cnext
+$head Syntax$$
 $codei/@th /index/@@/$$
-$tend
+
 
 $head Description$$
 This command is used for displaying an index in math mode and in front

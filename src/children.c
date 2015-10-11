@@ -13,11 +13,10 @@ $$
 
 $section List Children of a Section$$
 
-$table
-$bold Syntax$$
-$cend $codei/ListChildren(/S/, /printable/)/$$ $rend
-$cend $codei/TableChildren(/S/, /printable/)/$$
-$tend
+$head Syntax$$
+$codei/ListChildren(/S/, /printable/)/$$
+$codei/TableChildren(/S/, /printable/)/$$
+
 
 $head Description$$
 Output (to current output file)

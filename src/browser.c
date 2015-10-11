@@ -12,11 +12,9 @@ $$
 
 $section Automatic Generation of Browser$$
 
-$table
-$bold Syntax$$
-$cnext
+$head Syntax$$
 $codei%void BrowserPass1(SectionInfo *%browser%)%$$
-$tend
+
 
 $head Description$$
 This routine outputs creates the file

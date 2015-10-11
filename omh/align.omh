@@ -19,12 +19,13 @@ $index cell, align in table$$
 
 $section Setting Alignment of Cells in Tables$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@align /location/@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/table/array/$$
-$tend
+$head Syntax$$
+$codei/@align /location/@@
+/$$
+
+$head See Also$$
+$mref/table/array/$$
+
 
 $head Description$$
 Set the alignment for all subsequent $cref table$$ commands

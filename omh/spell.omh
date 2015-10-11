@@ -21,13 +21,13 @@ $index spell$$
 
 $section Excluding Words from Spell Checking$$
 
-$table
-$bold Syntax$$
-$cnext
-$codei/@spell /word list/@@/$$ $rnext
-$bold See Also$$
-$cnext $cref/getting started/start_spell/$$, $mref/nospell/$$
-$tend
+$head Syntax$$
+$codei/@spell /word list/@@
+/$$
+
+$head See Also$$
+$cref/getting started/start_spell/$$, $mref/nospell/$$
+
 
 $head Description$$
 A standard and local dictionary are used to check for misspelled words.

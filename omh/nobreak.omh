@@ -20,13 +20,13 @@ $cindex format text$$
 
 $section Do Not Break Text Into Separate Lines$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@nobreak /text/@@/$$ $rnext
-$bold See Also$$
-$cnext
+$head Syntax$$
+$codei/@nobreak /text/@@
+/$$
+
+$head See Also$$
 	$mref/pre/math/$$
-$tend
+
 
 $head Description$$
 All of the characters in $icode text$$ are displayed on the same line.

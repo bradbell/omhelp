@@ -29,16 +29,21 @@ $index matrix, latex$$
 
 $section The Latex Array Command$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex \begin{array}{/c1 ... cn/}/$$       $rnext
-$cnext $icode/A(1,1)/ & /.../ & /A(1,n)/ \\/$$          $rnext
-$cnext $icode/.../ & /.../ & /.../ \\/$$                $rnext
-$cnext $icode/A(m,1)/ & /.../ & /A(m,n)/$$              $rnext
-$cnext $codei/\end{array} @@/$$                          $rnext
-$bold See Also$$
-$cnext $cref table$$
-$tend
+$head Syntax$$
+$codei/@latex \begin{array}{/c1 ... cn/}
+/$$
+$icode/A(1,1)/ & /.../ & /A(1,n)/ \\
+/$$
+$icode/.../ & /.../ & /.../ \\
+/$$
+$icode/A(m,1)/ & /.../ & /A(m,n)
+/$$
+$codei/\end{array} @@
+/$$
+
+$head See Also$$
+$cref table$$
+
 
 $head Description$$
 Display in Latex mode

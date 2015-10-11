@@ -30,17 +30,22 @@ $mindex display file$$
 
 $section Verbatim Display of All or Part of a File$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@verbatim%/filename/%@@/$$  $rnext
-$cnext $codei/@verbatim%/filename/%/indent/%@@/$$  $rnext
-$cnext $codei/@verbatim%/filename/%/indent/%/start/%@@/$$  $rnext
-$cnext $codei/@verbatim%/filename/%/indent/%/start/%/stop/%@@/$$  $rnext
-$cnext $codei/@verbatim%/filename/%/indent/%/start/%/stop/%/skip/%@@/$$  $rnext
-$bold See Also$$
-$cnext	$cref/getting started/start_verbatim/$$,
+$head Syntax$$
+$codei/@verbatim%/filename/%@@
+/$$
+$codei/@verbatim%/filename/%/indent/%@@
+/$$
+$codei/@verbatim%/filename/%/indent/%/start/%@@
+/$$
+$codei/@verbatim%/filename/%/indent/%/start/%/stop/%@@
+/$$
+$codei/@verbatim%/filename/%/indent/%/start/%/stop/%/skip/%@@
+/$$
+
+$head See Also$$
+	$cref/getting started/start_verbatim/$$,
 	$mref/include/codep/execute/$$
-$tend
+
 
 $head Description$$
 This command will cause the specified

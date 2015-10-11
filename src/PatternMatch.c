@@ -9,12 +9,11 @@ $begin PatternMatch$$
 
 $section Routines for Finding a Pattern Match in A Text Sequence$$
 
-$table
-$bold Syntax$$ $cnext
-$codei%int PatternMatchLen(const char *%p%, char %escape%)%$$
-$rnext $cnext
+$head Syntax$$
+$codei%int PatternMatchLen(const char *%p%, char %escape%)
+%$$
 $codei%int PatternMatchCh(char *%ch%)%$$
-$tend
+
 
 $head PatternMatchLen$$
 This function initializes the $code PatternMatchCh$$ function

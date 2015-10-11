@@ -19,10 +19,9 @@ $cindex new line #in output file$$
 
 $section Outputs the New Line in HTML format$$
 
-$table
-$bold Syntax$$
-$cend $codei/void ConvertForcedNewline(const int /n/)/$$  $rend
-$tend
+$head Syntax$$
+$codei/void ConvertForcedNewline(const int /n/)/$$
+
 
 $head Description$$
 Outputs $icode n$$ forced new lines; i.e., new lines
@@ -49,13 +48,11 @@ $cindex convert special character #in output$$
 
 $section Convert Special Characters and Output Text in HTML Format$$
 
-$table
-$bold Syntax$$
-$cend
-$codei/void ConvertOutputCh(const char /ch/, const int /preformatted/)/$$
-$rend $cend
+$head Syntax$$
+$codei/void ConvertOutputCh(const char /ch/, const int /preformatted/)
+/$$
 $codei%void ConvertOutputString(const char *%s%, const int %preformatted%)%$$
-$tend
+
 
 $head ConvertOutputCh$$
 Output the character $icode ch$$
@@ -122,12 +119,12 @@ $cindex correct column #when bypassing ConvertOutputCh$$
 
 $section Correct Column Count When Bypassing ConvertOutputCh$$
 
-$table
-$bold Syntax$$
-$cend $codei/int ConvertAddColumn(const int /add/)/$$ $rend
-$bold See Also$$
-$cend $mref/ConvertSetTabSize/ConvertOutput/$$
-$tend
+$head Syntax$$
+$codei/int ConvertAddColumn(const int /add/)/$$
+
+$head See Also$$
+$mref/ConvertSetTabSize/ConvertOutput/$$
+
 
 
 $head Description$$
@@ -160,12 +157,12 @@ $cindex tab character column number$$
 
 $section Set the Number of Columns Corresponding to a Tab Character$$
 
-$table
-$bold Syntax$$
-$cend $codei/void ConvertSetTabSize(const int /size/)/$$ $rend
-$bold See Also$$
-$cend $mref/ConvertAddColumn/ConvertOutput/$$
-$tend
+$head Syntax$$
+$codei/void ConvertSetTabSize(const int /size/)/$$
+
+$head See Also$$
+$mref/ConvertAddColumn/ConvertOutput/$$
+
 
 $head Description$$
 The routines $code ConvertOutputCh$$ and $code ConvertOutputString$$
@@ -188,11 +185,11 @@ $index ConvertPreviousNewline$$
 
 $section Determine Number of Previous New Lines$$
 
-$table
-$bold Syntax$$
-$cnext $codei/int ConvertPreviousNewline()/$$ $rnext
-$cnext $codei/void ConvertAddPrevious(int /n/)/$$
-$tend
+$head Syntax$$
+$codei/int ConvertPreviousNewline()
+/$$
+$codei/void ConvertAddPrevious(int /n/)/$$
+
 
 $codei/
 
@@ -241,13 +238,13 @@ $mindex convert special character format$$
 
 $section Internal Conversion of Special Characters (no output)$$
 
-$table
-$bold Syntax$$
-$cend
-$codei%char *ConvertInternalString(const char *%s%)%$$ $rnext
-$bold See Also$$
+$head Syntax$$
+$codei%char *ConvertInternalString(const char *%s%)
+%$$
+
+$head See Also$$
 $cref ConvertOutput$$
-$tend
+
 
 $head Description$$
 The return value is a copy of $icode s$$ with certain characters converted.

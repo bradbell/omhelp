@@ -17,14 +17,13 @@ $$
 
 $section Extract Color Style From Delimiter Sequence$$
 
-$table
-$bold Syntax$$
-$cend $codei%char *Color(
+$head Syntax$$
+$codei%char *Color(
 	char *%line%,
 	char *%cmd%,
 	char *%delseq%
 )%$$
-$tend
+
 
 $head Description$$
 The argument $icode delseq$$ is

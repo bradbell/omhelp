@@ -22,6 +22,8 @@ N
 : end_syntax
 s|\\([%/]\\)\$\$ *\$rnext *|\n\\1\$\$|g
 s|\\([%/]\\)\$\$ *\\n\$rnext *|\n\\1\$\$|g
+s|\$\$ *\$rnext *|\$\$|g
+s|\$\$ *\$rend *|\$\$|g
 #
 s|\\([%/]\\)\$\$ *\$rend *|\n\\1\$\$|g
 s|\\([%/]\\)\$\$ *\\n\$rend *|\n\\1\$\$|g
@@ -32,8 +34,15 @@ s|\\([%/]\\)\$\$ *\\n\$rend *|\n\\1\$\$|g
 #
 s|\\([%/]\\)\$\$ *\$rnext *|\\1\$\$|g
 s|\\([%/]\\)\$\$ *\$rend *|\\1\$\$|g
+s|\$\$ *\$rnext *|\$\$|g
+s|\$\$ *\$rend *|\$\$|g
+#
 s|\\n *\$cnext *\\n|\\n|g
 s|\\n *\$cnext *|\\n|g
+s|\$cnext *||g
+s|\\n *\$cend *\\n|\\n|g
+s|\\n *\$cend *|\\n|g
+s|\$cend *||g
 s| *\$table *\\n||
 s| *\$tend *||
 s| *\$bold Syntax|\$head Syntax|

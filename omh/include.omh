@@ -27,12 +27,13 @@ $index include$$
 
 $section The Include Command$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@include /filename/@/$$  $rnext
-$bold See Also$$
-$cnext $mref/verbatim/path/$$
-$tend
+$head Syntax$$
+$codei/@include /filename/@
+/$$
+
+$head See Also$$
+$mref/verbatim/path/$$
+
 
 $head Description$$
 This command will cause the specified

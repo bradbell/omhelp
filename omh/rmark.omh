@@ -18,12 +18,13 @@ $mindex display register trade mark symbol character$$
 
 $section Displaying the Registered Trade Mark Symbol !$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@rmark /character/@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/dollar/cmark/newlinech/$$
-$tend
+$head Syntax$$
+$codei/@rmark /character/@@
+/$$
+
+$head See Also$$
+$mref/dollar/cmark/newlinech/$$
+
 
 $head Description$$
 All subsequent occurrences of the first character in

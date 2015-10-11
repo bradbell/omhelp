@@ -28,16 +28,15 @@ $mindex
 	CloseSearchFile
 $$
 
-$table
-$bold Syntax$$
-$cend $codei%OpenSearchFile(%fileTag%, %siteTitle%)%$$  $rend
-$cend $codei%SearchBegin(%tag%)%$$               $rend
-$cend $codei%SearchTitle(%title%)%$$             $rend
-$cend $codei%SearchKeywords(%list%, %escape%, %ignore%)%$$ $rend
-$cend $codei%SearchGetKeywords()%$$              $rend
-$cend $codei%SearchEnd()%$$                      $rend
-$cend $codei%CloseSearchFile(%delete%)%$$
-$tend
+$head Syntax$$
+$codei%OpenSearchFile(%fileTag%, %siteTitle%)%$$
+$codei%SearchBegin(%tag%)%$$
+$codei%SearchTitle(%title%)%$$
+$codei%SearchKeywords(%list%, %escape%, %ignore%)%$$
+$codei%SearchGetKeywords()%$$
+$codei%SearchEnd()%$$
+$codei%CloseSearchFile(%delete%)%$$
+
 
 $head Description$$
 These routines create a Pass One version of the

@@ -31,16 +31,18 @@ $index children$$
 
 $section Specifying Children in Contents Tree$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@contents%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
-$cnext $codei/@childtable%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
-$cnext $codei/@children%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
-$bold See Also$$
-$cnext
+$head Syntax$$
+$codei/@contents%/file1/%/file2/%/.../%/fileN/%@@
+/$$
+$codei/@childtable%/file1/%/file2/%/.../%/fileN/%@@
+/$$
+$codei/@children%/file1/%/file2/%/.../%/fileN/%@@
+/$$
+
+$head See Also$$
 	$cref/get started/start_multiple/$$,
 	$mref/include/verbatim/image/$$
-$tend
+
 
 $head Description$$
 These commands provide different ways to specify which sections are

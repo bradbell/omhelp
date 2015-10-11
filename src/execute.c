@@ -14,12 +14,12 @@ $cindex next execute file$$
 
 $section Determine Next Execute File Name$$
 
-$table
-$bold Syntax$$ $cend
-$codei%ExecuteNextFile()%$$ $rend
-$bold See Also$$
-$cend $mref/ExecuteSetFile/$$
-$tend
+$head Syntax$$
+$codei%ExecuteNextFile()%$$
+
+$head See Also$$
+$mref/ExecuteSetFile/$$
+
 
 $head Description$$
 An execute file is pending between a call to $mref/ExecuteSetFile/$$
@@ -45,15 +45,15 @@ $cindex set execute file name$$
 
 $section Set Name of Next Execution File$$
 
-$table
-$bold Syntax$$ $cend
+$head Syntax$$
 $codei%ExecuteSetFile(
 	const char *%name%,
 	const char *%tag%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/ExecuteWriteFile/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/ExecuteWriteFile/$$
+
 
 $head Description$$
 Sets the name of the next execute file
@@ -93,14 +93,14 @@ $index ExecuteWriteFile$$
 $index write execute file$$
 $section Write Next Execute File$$
 
-$table
-$bold Syntax$$ $cend
+$head Syntax$$
 $codei%ExecuteWriteFile(
 	const char *%text%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/ExecuteNextFile/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/ExecuteNextFile/$$
+
 
 $head Description$$
 Writes the characters in the '\0' terminated character vector
@@ -129,12 +129,12 @@ $cindex free execute allocate memory$$
 $index ExecuteFree$$
 $section Free Hidden Memory Allocated by Execute Routines$$
 
-$table
-$bold Syntax$$
-$cend $codei%void ExecuteFree()%$$ $rend
-$bold See Also$$
-$cend $mref/execute/$$
-$tend
+$head Syntax$$
+$codei%void ExecuteFree()%$$
+
+$head See Also$$
+$mref/execute/$$
+
 
 $head Description$$
 This routines listed in $mref/execute/$$ allocate some memory

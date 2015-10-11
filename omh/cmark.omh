@@ -21,12 +21,13 @@ $mindex display copyright character symbol$$
 
 $section Displaying the Copyright Symbol !$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@cmark /character/@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/dollar/rmark/newlinech/$$
-$tend
+$head Syntax$$
+$codei/@cmark /character/@@
+/$$
+
+$head See Also$$
+$mref/dollar/rmark/newlinech/$$
+
 
 $head Description$$
 All subsequent occurrences of the first character in

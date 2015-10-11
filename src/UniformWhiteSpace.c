@@ -9,10 +9,9 @@ $begin UniformWhiteSpace$$
 
 $section Unify Different White Space Versions of Same Information$$
 
-$table
-$bold Syntax$$
-$cend $codei%void UniformWhiteSpace(char *%s%)%$$
-$tend
+$head Syntax$$
+$codei%void UniformWhiteSpace(char *%s%)%$$
+
 
 $head Description$$
 For some applications, one or more white space characters

@@ -23,12 +23,13 @@ $mindex display dollar #sign character$$
 
 $section Displaying the @ Character$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@dollar /character/@@/$$ $rnext
-$bold See Also$$
-$cnext $mref/cmark/rmark/newlinech/$$
-$tend
+$head Syntax$$
+$codei/@dollar /character/@@
+/$$
+
+$head See Also$$
+$mref/cmark/rmark/newlinech/$$
+
 
 $head Description$$
 All subsequent occurrences of the first character in

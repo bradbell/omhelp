@@ -21,12 +21,13 @@ $index over, accent vowel$$
 
 $section Displaying an Accent Over a Vowel$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@'/v/$$ $rnext
-$bold See Also$$
-$cnext $mref/dollar/rmark/dollar/cmark/newlinech/$$
-$tend
+$head Syntax$$
+$codei/@'/v
+/$$
+
+$head See Also$$
+$mref/dollar/rmark/dollar/cmark/newlinech/$$
+
 
 $head Description$$
 Displays the character $icode v$$ with a accent over it

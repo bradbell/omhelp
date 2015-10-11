@@ -51,10 +51,9 @@ $index latex, widetilde$$
 
 $section Diacritical Marks Above Other Output$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex \/name/{/commands/} @@/$$ $rend
-$cnext where $icode name$$ is
+$head Syntax$$
+$codei/@latex \/name/{/commands/} @@/$$
+where $icode name$$ is
 $code acute$$,
 $code bar$$,
 $code breve$$,
@@ -68,7 +67,7 @@ $code vec$$,
 $code widehat$$,
 or
 $code widetilde$$
-$tend
+
 
 $head Description$$
 Display in Latex mode

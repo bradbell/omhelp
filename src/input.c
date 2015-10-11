@@ -17,12 +17,12 @@ $cindex get input character$$
 
 $section Get Next Character From Current Input File$$
 
-$table
-$bold Syntax$$
-$cend $codei%char InputGet()%$$ $rend
-$bold See Also$$
-$cend $mref/InputPush/$$
-$tend
+$head Syntax$$
+$codei%char InputGet()%$$
+
+$head See Also$$
+$mref/InputPush/$$
+
 
 $head Description$$
 Get the next character from the top of the input
@@ -46,12 +46,11 @@ $$
 
 $section Initialize Input By Setting The Local Name Directory$$
 
-$table
-$bold Syntax$$
-$cend $codei%void InputInit(
+$head Syntax$$
+$codei%void InputInit(
 	const char *%directory%
 )%$$
-$tend
+
 
 $head Description$$
 The $code '\0'$$ terminated character vector $icode directory$$
@@ -89,16 +88,16 @@ $cindex open file #and push #on input stack$$
 $index InputPush$$
 $section Open File and Put it on Top of Input Stack$$
 
-$table
-$bold Syntax$$
-$cend $codei%void InputPush(
+$head Syntax$$
+$codei%void InputPush(
 	const char *%root%,
 	const char *%ext%,
 	const int   %nspace%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/InputSplitName/InputPop/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/InputSplitName/InputPop/$$
+
 
 $head Description$$
 The $code '\0'$$ terminated character row vector $icode ext$$
@@ -142,12 +141,12 @@ $cindex close file #and pop #from input stack$$
 $index InputPop$$
 $section Close File and Remove it from the Input Stack$$
 
-$table
-$bold Syntax$$
-$cend $codei%void InputPop()%$$ $rend
-$bold See Also$$
-$cend $mref/InputPush/$$
-$tend
+$head Syntax$$
+$codei%void InputPop()%$$
+
+$head See Also$$
+$mref/InputPush/$$
+
 
 $head Description$$
 The file currently on the top of the input stack is closed
@@ -165,12 +164,12 @@ $cindex name #of current input file$$
 $index InputName$$
 $section Name of Current Input File$$
 
-$table
-$bold Syntax$$
-$cend $codei%const char *InputName()%$$ $rend
-$bold See Also$$
-$cend $mref/InputLine/InputPush/$$
-$tend
+$head Syntax$$
+$codei%const char *InputName()%$$
+
+$head See Also$$
+$mref/InputLine/InputPush/$$
+
 
 $head Description$$
 Returns the $icode root$$ plus $icode ext$$ corresponding
@@ -199,12 +198,12 @@ $cindex current input file line number$$
 $index InputLine$$
 $section Line Number Corresponding to Current Input File$$
 
-$table
-$bold Syntax$$
-$cend $codei%const int InputLine()%$$ $rend
-$bold See Also$$
-$cend $mref/InputName/$$
-$tend
+$head Syntax$$
+$codei%const int InputLine()%$$
+
+$head See Also$$
+$mref/InputName/$$
+
 
 $head Description$$
 Returns the line number corresponding to the next call to
@@ -225,15 +224,15 @@ $cindex add input search path$$
 $index InputAddPath$$
 $section Add to the Set of Input Search Paths$$
 
-$table
-$bold Syntax$$
-$cend $codei%void InputAddPath(
+$head Syntax$$
+$codei%void InputAddPath(
 	const char *%path%,
 	const char *%ext%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/InputSearch/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/InputSearch/$$
+
 
 $head Description$$
 Adds the search path specified by $icode path$$
@@ -258,15 +257,15 @@ $index open, search for input file$$
 
 $section Search Input Paths for a Specific Input File$$
 
-$table
-$bold Syntax$$
-$cend $codei%const char *InputSearch(
+$head Syntax$$
+$codei%const char *InputSearch(
 	const char *%root%,
 	const char *%ext%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/InputAddPath/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/InputAddPath/$$
+
 
 $head Description$$
 Searches the set of paths corresponding to the
@@ -318,16 +317,16 @@ $cindex input file root #and extension$$
 $index InputSplitName$$
 $section Determine Root and Extension Corresponding to an Input File$$
 
-$table
-$bold Syntax$$
-$cend $codei%void InputSplitName(
+$head Syntax$$
+$codei%void InputSplitName(
 	char **%proot%,
 	char **%pext%,
 	const char *%filename%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/InputPush/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/InputPush/$$
+
 
 $head Description$$
 Determine the
@@ -372,12 +371,12 @@ $cindex free input allocate memory$$
 $index InputFree$$
 $section Free Hidden Memory Allocated by Input Routines$$
 
-$table
-$bold Syntax$$
-$cend $codei%void InputFree()%$$ $rend
-$bold See Also$$
-$cend $mref/input/$$
-$tend
+$head Syntax$$
+$codei%void InputFree()%$$
+
+$head See Also$$
+$mref/input/$$
+
 
 $head Description$$
 This routines listed in $mref/input/$$ allocate some memory

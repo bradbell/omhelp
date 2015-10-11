@@ -22,14 +22,14 @@ $cindex line break$$
 
 $section Pre-formatted Text With a Uniformly Spaced Font$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@pre /text/@@/$$ $rnext
-$bold See Also$$
-$cnext
+$head Syntax$$
+$codei/@pre /text/@@
+/$$
+
+$head See Also$$
 	$cref/getting started/start_pre/$$,
 	$mref/codep/math/$$
-$tend
+
 
 $head Description$$
 All of the characters in $icode text$$ are printed in a

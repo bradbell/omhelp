@@ -16,10 +16,9 @@ $$
 
 $section Outputting Text in Math Mode$$
 
-$table
-$bold Syntax$$ $cend
+$head Syntax$$
 $codei%OutputMath(int %ntoken%,  char *%text%, char %escape%, int %italic%)%$$
-$tend
+
 
 $head Description$$
 The character vector $icode text$$ contains $icode ntoken$$

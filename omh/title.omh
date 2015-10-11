@@ -27,15 +27,15 @@ $index section$$
 
 $section Begin and End A Section$$
 
-$table
-$bold Syntax$$
-$cnext
+$head Syntax$$
 $codei/@begin /tag/@@
 /. . ./
-@end/$$ $rnext
-$bold See Also$$
-$cnext $cref/getting started/start_simple/$$
-$tend
+@end
+/$$
+
+$head See Also$$
+$cref/getting started/start_simple/$$
+
 
 $head Purpose$$
 OMhelp ignores all input in a file except
@@ -110,12 +110,13 @@ $$
 $section Specify The Title For A Section$$
 $mindex section title$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@section /title/@@/$$ $rnext
-$bold See Also$$
-$cnext $cref/getting started/start_simple/$$
-$tend
+$head Syntax$$
+$codei/@section /title/@@
+/$$
+
+$head See Also$$
+$cref/getting started/start_simple/$$
+
 
 $head Description$$
 This command specifies the $icode title$$
@@ -167,12 +168,12 @@ $dollar @$$
 $mindex section title$$
 $section Using the Title of Another Section$$
 
-$table
-$bold Syntax$$
-$cnext
-$codei/@title /tag/@@/$$ $rnext
-$bold See Also$$ $cnext $mref/tref/$$
-$tend
+$head Syntax$$
+$codei/@title /tag/@@
+/$$
+
+$head See Also$$ $mref/tref/$$
+
 
 $head Description$$
 The argument $icode tag$$ specifies the

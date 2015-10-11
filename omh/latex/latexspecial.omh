@@ -32,10 +32,9 @@ $index }$$
 
 $section Latex Special Characters$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex \/c/ @@/$$
-$tend
+$head Syntax$$
+$codei/@latex \/c/ @@/$$
+
 
 $head Description$$
 Display in Latex mode

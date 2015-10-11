@@ -16,10 +16,9 @@ $mindex comment OMhelp command$$
 
 $section The OMhelp Comment Command$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@comment /text/@@/$$
-$tend
+$head Syntax$$
+$codei/@comment /text/@@/$$
+
 
 $head Description$$
 All  of the character in

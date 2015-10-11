@@ -15,11 +15,11 @@ $index string, concatenation$$
 $index concatenation of strings$$
 $index StrCat$$
 
-$table
-$bold Syntax$$ $cend $codei/StrCat(/file/, /line/, /s1/, /s2/, /.../, NULL)/$$
-$rend
-$bold See Also$$ $cend $mref/strjoin/str_alloc/$$
-$tend
+$head Syntax$$ $codei/StrCat(/file/, /line/, /s1/, /s2/, /.../, NULL)
+/$$
+
+$head See Also$$ $mref/strjoin/str_alloc/$$
+
 
 $head Description$$
 returns a pointer to the concatenation of the strings

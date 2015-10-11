@@ -19,11 +19,10 @@ $index latex, sqrt$$
 $index latex, root$$
 $section Latex Root Command$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@latex \sqrt{/base/}@@/$$ $rend
-$cnext $codei/@latex \sqrt[/index/]{/base/}@@/$$ $rend
-$tend
+$head Syntax$$
+$codei/@latex \sqrt{/base/}@@/$$
+$codei/@latex \sqrt[/index/]{/base/}@@/$$
+
 
 $head Description$$
 Display in Latex mode

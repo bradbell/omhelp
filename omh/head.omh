@@ -19,14 +19,15 @@ $mindex head subhead paragraph$$
 
 $section Paragraph Headings and Subheadings$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@head /heading/@@/$$    $rnext
-$cnext $codei/@subhead /subheading/@@/$$ $rnext
-$bold See Also$$
-$cnext
+$head Syntax$$
+$codei/@head /heading/@@
+/$$
+$codei/@subhead /subheading/@@
+/$$
+
+$head See Also$$
 	$cref/getting started/start_head/$$,
-$tend
+
 
 $head Description$$
 A new paragraph is started and it is given the heading

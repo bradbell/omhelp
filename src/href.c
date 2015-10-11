@@ -22,18 +22,18 @@ $cindex output pass1 cross reference$$
 
 $section Output Cross References During Pass1$$
 
-$table
-$bold Syntax$$
-$cend $codei%void HrefOutputPass1(
+$head Syntax$$
+$codei%void HrefOutputPass1(
 	const char *%tag%,
 	const char *%head%,
 	const char *%external%,
 	const char *%displayframe%,
 	const char *%display_printid%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/HrefOutputPass2/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/HrefOutputPass2/$$
+
 
 $head Description$$
 The arguments are all
@@ -58,17 +58,17 @@ $cindex output pass2 cross reference$$
 
 $section Output Cross References During Pass2$$
 
-$table
-$bold Syntax$$
-$cend $codei%void HrefOutputPass2(
+$head Syntax$$
+$codei%void HrefOutputPass2(
 	const char *%tag%,
 	const char *%head%,
 	const char *%external%,
 	const char *%displayframe%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/HrefOutputPass1/HrefPrintablePass2/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/HrefOutputPass1/HrefPrintablePass2/$$
+
 
 $head Description$$
 The arguments are all
@@ -131,15 +131,15 @@ $cindex printable pass2 cross reference$$
 
 $section Printable Version of Cross References During Pass2$$
 
-$table
-$bold Syntax$$
-$cend $codei%void HrefPrintablePass2(
+$head Syntax$$
+$codei%void HrefPrintablePass2(
 	const char *%printid%,
 	const char *%display_printid%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/HrefOutputPass1/HrefOutputPass2/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/HrefOutputPass1/HrefOutputPass2/$$
+
 
 $head Description$$
 The argument $icode printid$$ is a
@@ -180,14 +180,14 @@ $cindex terminate pass1 @or pass2 cross reference$$
 
 $section Terminate a Pass1 or Pass2 Cross References$$
 
-$table
-$bold Syntax$$
-$cend $codei%void HrefEnd(
+$head Syntax$$
+$codei%void HrefEnd(
 	const char *%s%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/HrefOutputPass1/HrefOutputPass2/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/HrefOutputPass1/HrefOutputPass2/$$
+
 
 $head Description$$
 The text output after a call to
@@ -239,17 +239,17 @@ $cindex add @to cross reference track list$$
 
 $section Add an Entry to The Cross Reference Tracking List$$
 
-$table
-$bold Syntax$$
-$cend $codei%void HrefAddList(
+$head Syntax$$
+$codei%void HrefAddList(
 	const char *%TagFrom%,
 	const char *%HeadFrom%,
 	const char *%UrlTo%,
 	const char *%HeadTo%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/HrefOutputList/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/HrefOutputList/$$
+
 
 $head Description$$
 A call to $code HrefAddList$$ adds a cross reference to
@@ -299,14 +299,14 @@ $cindex output cross reference track list$$
 
 $section Output Cross References Tracking List as an HTML File$$
 
-$table
-$bold Syntax$$
-$cend $codei%void HrefOutputList(
+$head Syntax$$
+$codei%void HrefOutputList(
 	SectionInfo *%section%
-)%$$ $rend
-$bold See Also$$
-$cend $mref/HrefAddList/$$
-$tend
+)%$$
+
+$head See Also$$
+$mref/HrefAddList/$$
+
 
 
 $head Description$$
@@ -334,12 +334,12 @@ $index HrefFreeMemory$$
 $cindex free href allocate memory$$
 $section Free All Memory Allocated by Href Routines$$
 
-$table
-$bold Syntax$$
-$cend $codei/void HrefFreeMemory()/$$  $rend
-$bold See Also$$
-$cend $mref/href/$$
-$tend
+$head Syntax$$
+$codei/void HrefFreeMemory()/$$
+
+$head See Also$$
+$mref/href/$$
+
 
 
 $head Description$$

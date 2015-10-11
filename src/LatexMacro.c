@@ -14,10 +14,9 @@ $$
 
 $section Set Input Characters For Latex Macro Preprocessor$$
 
-$table
-$bold Syntax$$
-$cend $codei%void LatexMacroUserInput(int %line%, const char *%input%)%$$
-$tend
+$head Syntax$$
+$codei%void LatexMacroUserInput(int %line%, const char *%input%)%$$
+
 
 $head Description$$
 The Latex macro preprocessor reads its data from memory.
@@ -38,10 +37,9 @@ $spell
 	Ch
 $$
 
-$table
-$bold Syntax$$
-$cend $codei%void LatexMacroFree()%$$
-$tend
+$head Syntax$$
+$codei%void LatexMacroFree()%$$
+
 
 $section Free Memory Allocated By Latex Macro Preprocessor$$
 
@@ -80,10 +78,9 @@ $$
 
 $section Get the Next Input Character With Latex Macro Expansion$$
 
-$table
-$bold Syntax$$
-$cnext $codei%char LatexMacroGetCh()%$$
-$tend
+$head Syntax$$
+$codei%char LatexMacroGetCh()%$$
+
 
 $head Description$$
 Gets the next character after the input specified by
@@ -101,10 +98,9 @@ $begin LatexMacroInputLine$$
 
 $section Determine the Current User Input Line Number$$
 
-$table
-$bold Syntax$$
-$cnext $codei%int LatexMacroInputLine()%$$
-$tend
+$head Syntax$$
+$codei%int LatexMacroInputLine()%$$
+
 
 $head Description$$
 Returns the line number corresponding to the next
@@ -125,10 +121,9 @@ $$
 
 $section Determine the Current User Input File$$
 
-$table
-$bold Syntax$$
-$cnext $codei%const char *LatexMacroInputFile()%$$
-$tend
+$head Syntax$$
+$codei%const char *LatexMacroInputFile()%$$
+
 
 $head Description$$
 Returns the file name corresponding to the previous call to
@@ -175,10 +170,9 @@ $begin LatexMacroExpandLine$$
 
 $section Line Where the Currently Expanded Latex Macro is Defined$$
 
-$table
-$bold Syntax$$
-$cnext $codei%int LatexMacroExpandLine()%$$
-$tend
+$head Syntax$$
+$codei%int LatexMacroExpandLine()%$$
+
 
 $head Description$$
 Returns the line number where the currently expanded macro is defined.
@@ -197,10 +191,9 @@ $$
 
 $section File Where the Currently Expanded Latex Macro is Defined$$
 
-$table
-$bold Syntax$$
-$cnext $codei%const char *LatexMacroExpandFile()%$$
-$tend
+$head Syntax$$
+$codei%const char *LatexMacroExpandFile()%$$
+
 
 $head Description$$
 Returns the file where the currently expanded macro is defined.
@@ -220,10 +213,9 @@ $$
 
 $section Name of the Currently Expanded Latex Macro$$
 
-$table
-$bold Syntax$$
-$cnext $codei%const char *LatexMacroExpandName()%$$
-$tend
+$head Syntax$$
+$codei%const char *LatexMacroExpandName()%$$
+
 
 $head Description$$
 Returns the name of the currently expanded macro.
@@ -241,10 +233,9 @@ $begin LatexMacroKeep$$
 $mindex keep macro$$
 $section Keep The Currently Defined Latex Macros$$
 
-$table
-$bold Syntax$$
-$cnext $codei%void LatexMacroKeep()%$$
-$tend
+$head Syntax$$
+$codei%void LatexMacroKeep()%$$
+
 
 $head Description$$
 Macros are defined in order as they appear in the input stream.

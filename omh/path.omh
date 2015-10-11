@@ -21,13 +21,14 @@ $mindex read input file search path$$
 
 $section Setting Input File Search Paths$$
 
-$table
-$bold Syntax$$
-$cnext $codei/@path%/directory/%/extension/%@@/$$ $rnext
-$bold See Also$$
-$cnext $cref/contents/children/$$,
+$head Syntax$$
+$codei/@path%/directory/%/extension/%@@
+/$$
+
+$head See Also$$
+$cref/contents/children/$$,
 	$cref/root section/running/root_file/$$
-$tend
+
 
 $head Description$$
 This command adds $icode directory$$ to the set of directories that OMhelp
