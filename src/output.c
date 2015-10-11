@@ -69,16 +69,16 @@ specified by $italic s1$$
 using the format specified by $italic fmt$$.
 The output is written to the
 $cref/current output file/PushOutput/Current Output File/$$.
-$syntax
+$syntax/
 
-/FormatOutput(/fmt/, /s1/)
+FormatOutput(/fmt/, /s1/)
 /$$
 there is must be only one formatting command in $italic fmt$$,
 it must be a $code %s$$ command,
 and it represents where $italic s1$$ goes in the output.
-$syntax
+$syntax/
 
-/FormatOutput2(/fmt/, /s1/, /s2/)
+FormatOutput2(/fmt/, /s1/, /s2/)
 /$$
 there is must be two formatting command in $italic fmt$$,
 they must be $code %s$$ commands,
