@@ -21,7 +21,7 @@ $section Place a New File on Top of Output Stack$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%void PushOutput(const char *%name%)%$$
+$cnext $codei%void PushOutput(const char *%name%)%$$
 $tend
 
 
@@ -43,7 +43,11 @@ and makes the previous output file the current one.
 
 $end
 ============================================================================
-$beign FormatOutput$$
+$begin FormatOutput$$
+$spell
+	const
+	fmt
+$$
 
 $index FormatOutput$$
 $index format output string$$
@@ -52,9 +56,9 @@ $section Write a String Plus Formating to Output File$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void FormatOutput(const char *%fmt%, const char *%s1%)%$$
+$cend $codei%void FormatOutput(const char *%fmt%, const char *%s1%)%$$
 $rnext
-$cend $syntax%void FormatOutput2(const char *%fmt%, const char *%s1%, const char *%s2%)%$$
+$cend $codei%void FormatOutput2(const char *%fmt%, const char *%s1%, const char *%s2%)%$$
 $tend
 
 $head Description$$
@@ -84,7 +88,10 @@ the second represents where $italic s2$$ goes in the output.
 
 $end
 ============================================================================
-$beign OutputString$$
+$begin OutputString$$
+$spell
+	const
+$$
 
 $index OutputString$$
 $index output string$$
@@ -93,7 +100,7 @@ $section Write a String to Output File$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void OutputString(const char *%s%)%$$
+$cend $codei%void OutputString(const char *%s%)%$$
 $tend
 
 $head Description$$
@@ -105,7 +112,11 @@ $cref/current output file/PushOutput/Current Output File/$$.
 
 $end
 ============================================================================
-$beign OutputChar$$
+$begin OutputChar$$
+$spell
+	const
+	ch
+$$
 
 $index OutputChar$$
 $index output character$$
@@ -114,7 +125,7 @@ $section Write a Character to Output File$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void OutputChar(const char %ch%)%$$
+$cend $codei%void OutputChar(const char %ch%)%$$
 $tend
 
 $head Description$$
@@ -134,7 +145,7 @@ $section Remove The File Currently on Top of Output Stack$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%void PopOutput()%$$
+$cnext $codei%void PopOutput()%$$
 $tend
 
 
@@ -161,7 +172,7 @@ $section Returns the name of the Current Output File$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%const char *OutputName()%$$
+$cnext $codei%const char *OutputName()%$$
 $tend
 
 

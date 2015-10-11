@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$beign PatternMatch$$
+$begin PatternMatch$$
 
 $section Routines for Finding a Pattern Match in A Text Sequence$$
 

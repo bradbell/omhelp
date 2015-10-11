@@ -10,48 +10,21 @@ then
 	echo "bin/batch_edit.sh: must be executed from its parent directory"
 	exit 1
 fi
-# Script for converting xref command to cref command
-P='\([^/]*\)'
+# Script for converting syntax commands to codei and icode commands
+# Also: correct $beign -> $begin
+if [ -e junk.sed ]
+then
+	rm junk.sed
+fi
 E='\$\$'
-cat << EOF > junk.sed
-s/^\\txref\$/\\tcref/
-#
-s|\$xref *$P$E|\$cref \\1\$\$|g
-s|\$xref/$P/$E|\$cref \\1\$\$|g
-s|\$xref/$P/$P/$E|\$cref/\\1/\\1/\\2/\$\$|g
-s|\$xref/$P/$P/$P/$E|\$cref/\\3/\\1/\\2/\$\$|g
-s|\$xref/$P/$P/$P/$P/$E|\$cref/\\3/\\1/\\2/\$\$|g
-s|\$xref/$P/$P/$P/$P/$P/$E|\$cref/\\4/\\1/\\2/\\3/\$\$|g
-s|//\\\$\\\$|/\$\$|g
-#
-s|@xref *$P@@|@cref \\1@@|g
-s|@xref/$P/@@|@cref \\1@@|g
-s|@xref/$P/$P/@@|@cref/\\1/\\1/\\2/@@|g
-s|@xref/$P/$P/$P/@@|@cref/\\3/\\1/\\2/@@|g
-s|@xref/$P/$P/$P/$P/@@|@cref/\\3/\\1/\\2/@@|g
-s|@xref/$P/$P/$P/$P/$P/@@|@cref/\\4/\\1/\\2/\\3/@@|g
-s|//@@|/@@|g
-#
-/\$xref\/\$/! b skip_forward_slash
-N
-N
-N
-s|\$xref/\\n\\t$P/\\n\\t$P/\\n\\t$P/$E|\$cref/\\3\\n\\t/\\1\\n\\t/\\2\\n/\$\$|
-: skip_forward_slash
-EOF
-P='\([^|]*\)'
-cat << EOF >> junk.sed
-/\$xref|why|/! b skip_why
-N
-N
-s/\$xref|why|\\n\\t$P|\\n\\t$P|$E/\$cref|\\2\\n\\t|why\\n\\t|\\1\\n|\$\$/
-: skip_why
-EOF
+list='% | /'
+for D in $list
+do
+	P="\([^$D]*\)"
+	echo "s@\$syntax$D$D@\$icode$D@g" >> junk.sed
+	echo "s@\$syntax$D@\$codei$D@g"   >> junk.sed
+done
 list=`git ls-files | sed  \
-	-e '/^omh\/hilite\.omh$/d' \
-	-e '/^omh\/fend\.omh$/d' \
-	-e '/^omh\/xref\.omh$/d' \
-	-e '/^omh\/whatsnew.*\.omh$/d' \
 	-e '/^bin\/batch_edit\.sh$/d'`
 for file in $list
 do
@@ -59,10 +32,10 @@ do
 	ext=`echo $file | sed -e 's|.*\.||'`
 	case $ext in
 		omh | c | h | l | sh | f | bat )
-		if grep 'xref' $file > /dev/null
+		if grep 'syntax' $file > /dev/null
 		then
 			sed -f junk.sed -i $file
-			if grep '$xref' $file > /dev/null
+			if grep '$syntax' $file > /dev/null
 			then
 				echo "$file failed"
 				exit 1
@@ -75,9 +48,3 @@ do
 		;;
 	esac
 done
-sed -e 's|$cref/cross references/xref/|$cref/cross references/cref/|' \
-	-i omh/running.omh
-sed \
-	-e 's|$cref/xref/xref/|$cref cref|' \
-	-e 's|that section using the|the section; e.g., using the|' \
-	-i omh/glossary.omh

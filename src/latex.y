@@ -42,7 +42,7 @@ extern int PreviousOmhelpOutputWasHeading(void);
 
 /*
 ----------------------------------------------------------------------------
-$beign TexInitialNumberPending$$
+$begin TexInitialNumberPending$$
 $dollar @$$
 
 $section Number of Commands Pending When @latex Command Started$$
