@@ -9,7 +9,7 @@ $begin other$$
 
 $section Other Miscellaneous Commands$$
 
-$contents/
+$childtable/
 	comment.omh/
 	date.omh/
 	deprecated.omh

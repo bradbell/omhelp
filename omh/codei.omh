@@ -26,11 +26,13 @@ $index pre-formatted$$
 $section Switch Between Code and Italic Pre-formatted Font$$
 
 $head Syntax$$
-$codei/@/cmd/%/text1/%/text2/%/.../%/textN/%@@/$$
+$codei/@/codei/%/text1/%/text2/%/.../%/textN/%@@
+/$$
+$codei/@/icode/%/text1/%/text2/%/.../%/textN/%@@/$$
 
 
 $head See Also$$
-$cref/syntax/$$, $cref/font/$$, $cref/color/$$
+$cref/font/$$, $cref/color/$$
 
 $head Purpose$$
 Display text that alternates between
@@ -48,21 +50,14 @@ This is helpful when aligning rows that have a different number
 of delimiters in them.
 
 
-$head cmd$$
-The value of $icode cmd$$ specifies which font starts first.
+$head codei$$
+In this case, $icode text1$$ is in $codei code$$ font,
+$icode text2$$ is in $icode italic$$ font, ...
 
-$align bottom$$
+$head icode$$
+In this case, $icode text1$$ is in $icode italic$$ font,
+$icode text2$$ is in $codei code$$ font, ...
 
-$codei%
-@%cmd
-%$$
-This command is one of the following:
-$table
-$code @codei$$ $pre  $$
-	$cnext start with code, then italic, then code ...  $rnext
-$code @icode$$ $pre  $$
-	$cnext start with italic, then code, then italic ...
-$tend
 
 $head text$$
 The text
@@ -72,8 +67,9 @@ and $code %$$ can be any character that is not a letter.
 The characters in $icode text1$$, ..., $icode textN$$
 are using in a
 $cref/pre-formatted font/glossary/Pre-formatted Font/$$.
-The characters in $icode text1$$ are in the first color,
-the characters in $icode text2$$ are in the second color,
+The characters in $icode text1$$ are in the first font
+(and corresponding color),
+the characters in $icode text2$$ are in the second font,
 and so on.
 
 $head Example$$
@@ -108,15 +104,17 @@ the delimiter character does not appear in the output
 (the default value for this character is $code \$$).
 For example, the input
 $codep
+	@escape #@@
 	@codei%
 	%x%   = 1 + %a% + %b%
-	%y%   = 2 + \ \   %b%
+	%y%   = 2 + # #   %b%
 	%@@
 $$
 produces the following output
+$escape #$$
 $codei%
 	%x%   = 1 + %a% + %b%
-	%y%   = 2 + \ \   %b%
+	%y%   = 2 + # #   %b%
 %$$
 
 $head Remark$$
@@ -131,7 +129,7 @@ Both fonts are pre-formatted.
 $lend
 
 The advantage of beginning with either color is that it makes for
-shorter commands. For example, the input
+easier to read commands. For example, the input
 $codep
 	@icode i@@
 $$

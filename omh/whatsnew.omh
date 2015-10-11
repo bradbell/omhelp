@@ -109,6 +109,13 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 15-10-11$$
+The $code @syntax$$ command has been
+$cref/deprecated/syntax/Deprecated 2015-10-11/$$
+and most of it's use in the OMhelp documentation
+has been removed.
+
+
 $head 15-10-10$$
 $list number$$
 Remove invisible white space for all the source code files; e.g.,
@@ -126,6 +133,9 @@ $cref/xref/xref/Deprecated 2006-07-07/$$,
 $cref/fend/fend/Deprecated 2006-07-07/$$,
 $cref/-l/deprecated/-l, Deprecated 2006-09-12/$$, and
 $cref/-i/deprecated/-i, Deprecated 2006-09-12/$$.
+$lnext
+Remove many of the uses of the deprecated commands from
+the OMhelp documentation (so it serves as a better example of how to document).
 $lend
 
 $head 15-10-08$$

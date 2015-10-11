@@ -19,16 +19,17 @@ from use.
 They are included below mainly so that one can understand the
 intention of old OMhelp input files that use theses commands
 
-$children%
-	wspace.omh%
-	xref.omh%
-	fend.omh
+$children%wspace.omh
+	%xref.omh
+	%fend.omh
+	%syntax.omh
 %$$
 
 $table
 $rref wspace$$ $rnext
 $rref xref$$   $rnext
-$rref fend$$
+$rref fend$$   $rnext
+$rref syntax$$
 $tend
 
 $head -l, Deprecated 2006-09-12$$

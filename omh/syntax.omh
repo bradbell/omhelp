@@ -7,6 +7,7 @@ OMhelp is distributed under the terms of the
 #
 $begin syntax$$
 $spell
+	icode
 	OMhelp
 	syntax
 	codep
@@ -24,10 +25,14 @@ $section Specifying Command or Function Syntax$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@syntax%/code1/%/italic1/%/.../%/codeN/%/italicN/%@@/$$ $rnext
+$cnext $codei/@syntax%/code1/%/italic1/%/.../%/codeN/%/italicN/%@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/codep/$$, $cref/italic/font/$$
 $tend
+
+$head Deprecated 2015-10-11$$
+This command has been deprecated, use the $cref codei$$ and
+$code icode$$ commands in its place.
 
 $head Description$$
 Display text that alternates between

@@ -18,7 +18,6 @@ $children/
 	codei.omh/
 	color.omh/
 	math.omh/
-	syntax.omh/
 	hilite.omh/
 	center.omh/
 	table.omh/
@@ -36,7 +35,6 @@ $rref codep$$
 $rref codei$$
 $rref color$$
 $rref math$$
-$rref syntax$$
 $rref hilite$$
 $tend
 
