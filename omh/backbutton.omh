@@ -36,7 +36,7 @@ For other versions, it will not.
 $head Second Frame$$
 The following link places a
 copy of the second frame in the first frame
-$xref/BackButton/Second Frame/copy second frame into first/$$.
+$cref/copy second frame into first/BackButton/Second Frame/$$.
 
 $head HTML$$
 Select this link

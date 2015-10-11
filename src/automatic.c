@@ -21,7 +21,7 @@ This call adds a section to the section tree.
 
 $head parent$$
 The argument $italic parent$$
-$xref/SectionInfo//SectionInfo/$$ pointer
+$cref/SectionInfo/SectionInfo/$$ pointer
 that specifies the parent of the section being added.
 This cannot be NULL, but $syntax//parent/->children/$$
 can be NULL.
@@ -31,14 +31,14 @@ $head tag$$
 The argument $italic tag$$ is a $code '\0'$$
 terminated character vector that specifies the cross reference
 tag for the section that is appended.
-A $xref/CrossReference//cross reference/$$ is defined pointing to this section
+A $cref/cross reference/CrossReference/$$ is defined pointing to this section
 with tag equal to $italic tag$$ and
 heading equal to the empty string.
 
 $head title$$
 The argument $italic title$$ is a $code '\0'$$
 terminated character vector that specifies the
-$xref/SectionInfo//section title/$$
+$cref/section title/SectionInfo/$$
 for the section that is added to the tree.
 
 $head letterHeadings$$
@@ -65,13 +65,13 @@ $tend
 
 $head Description$$
 Returns one, if $italic section/$$ is one of the sections generated
-by a previous call to $xref/AutomaticAppendSection/$$,
+by a previous call to $cref AutomaticAppendSection$$,
 and returns zero otherwise.
 
 
 $head section$$
 The argument $italic section$$ is a
-$xref/SectionInfo//SectionInfo/$$ pointer.
+$cref/SectionInfo/SectionInfo/$$ pointer.
 The value $italic section$$ or $syntax//section/->tag/$$ can be NULL,
 in which case zero is returned.
 

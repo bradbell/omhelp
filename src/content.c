@@ -24,7 +24,7 @@ $syntax//tag/.tmp/$$ and writes
 a pass one version of the table of
 contents to that file.
 The argument $italic content$$ is the corresponding
-$xref/SectionInfo/$$ pointer corresponding to the table of contents.
+$cref SectionInfo$$ pointer corresponding to the table of contents.
 The value $italic tag$$ in the file name
 is equal to $syntax//content/->tag/$$.
 

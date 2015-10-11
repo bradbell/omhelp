@@ -29,11 +29,11 @@ $table
 $bold Syntax$$
 $cnext $syntax/@wspace /character/@@/$$ $rnext
 $bold See Also$$
-$cnext $xref/newlinech/$$
+$cnext $cref newlinech$$
 $tend
 
 $head Deprecated 2006-07-07$$
-This command has been deprecated and the $xref/newlinech/$$ command
+This command has been deprecated and the $cref newlinech$$ command
 is the preferred way to encode OMhelp commands in source code for a
 language that does not have multiple line comments.
 
@@ -45,7 +45,7 @@ the space character.
 There can be no $code @$$ characters in $italic character$$.
 In addition,
 leading an trailing
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 in $italic character$$ is ignored.
 
 

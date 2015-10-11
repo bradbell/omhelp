@@ -48,7 +48,7 @@ It is a user error to call $code copyfile$$ twice with the same
 value for $italic destination$$.
 It is also a user error if the source or destination file
 cannot be opened.
-The value of $xref/InputName/$$ and $xref/InputLine/$$
+The value of $cref InputName$$ and $cref InputLine$$
 are used to identify where the access to
 $italic source$$ and $italic destination$$ occurred.
 If a user error occurs, an error message is printed
@@ -58,9 +58,9 @@ $syntax/
 
 copyfileFreeMemory()
 /$$
-Uses $xref/AllocMem/FreeMem/FreeMem/$$ to free memory that was allocated using
-$xref/AllocMem/$$ (so that
-$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$ can be used).
+Uses $cref/FreeMem/AllocMem/FreeMem/$$ to free memory that was allocated using
+$cref AllocMem$$ (so that
+$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$ can be used).
 This memory is used to track what line and file certain destination
 file names were used at.
 

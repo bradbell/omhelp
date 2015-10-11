@@ -39,7 +39,7 @@ $pre
 
 $$
 The return value is memory that was allocated with $mref/AllocMem/$$
-and should be freed using the routine $xref/AllocMem/FreeMem/FreeMem/$$.
+and should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$.
 
 $head Example$$
 The macros $code __FILE__$$ and $code __LINE__$$

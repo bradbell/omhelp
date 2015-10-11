@@ -34,14 +34,14 @@ specified symbols.
 The enclosing symbols are stretched to be
 as large as the output corresponding to the command list.
 The values $italic s1$$ and $italic s2$$ must be one of the
-$xref/left_right/Enclosing Symbols/enclosing symbols/$$.
+$cref/enclosing symbols/left_right/Enclosing Symbols/$$.
 $pre
 
 $$
 The enclosing symbols are called delimiters in LaTex
 but we avoid that reference because of the special meaning
 of a
-$xref/glossary/Delimiter Sequence/delimiter sequence/$$
+$cref/delimiter sequence/glossary/Delimiter Sequence/$$
 in OMhelp.
 
 $head Example$$

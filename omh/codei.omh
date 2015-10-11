@@ -67,7 +67,7 @@ $tend
 $head text$$
 The text
 $codei/%/text1/%/text2/%/.../%/textN/%/$$
-is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
+is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 and $code %$$ can be any character that is not a letter.
 The characters in $icode text1$$, ..., $icode textN$$
 are using in a

@@ -13,10 +13,10 @@ $head Introduction$$
 The commands in the
 sections below create a new section
 with a specified
-$xref/section//title/$$,
-$xref/glossary/Cross Reference Tag/tag/$$,
+$cref/title/section/$$,
+$cref/tag/glossary/Cross Reference Tag/$$,
 or separate the section into
-$xref/head//headings and subheadings/$$.
+$cref/headings and subheadings/head/$$.
 
 $childtable/
 	title.omh/

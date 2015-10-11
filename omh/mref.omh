@@ -32,13 +32,13 @@ $tend
 
 $head Description$$
 Links multiple sections using the
-$xref/glossary/Cross Reference Tag/cross reference tag/$$
+$cref/cross reference tag/glossary/Cross Reference Tag/$$
 for each section as the text displayed for the link.
 $syntax/
 
 %/tag1/%/tag2/%/.../%/tagN/%
 /$$
-is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
+is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
 The values $italic tag1$$, ..., $italic tagN$$
 specify the cross reference tags for the links.

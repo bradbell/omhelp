@@ -12,7 +12,7 @@ There are multiple sections in this file as an example.
 $begin begin$$
 $spell
 	hypertext
-	xref
+	cref
 	OMhelp
 	underbar
 $$
@@ -34,7 +34,7 @@ $syntax/@begin /tag/@@
 /. . ./
 @end/$$ $rnext
 $bold See Also$$
-$cnext $xref/start_simple//getting started/$$
+$cnext $cref/getting started/start_simple/$$
 $tend
 
 $head Purpose$$
@@ -42,11 +42,11 @@ OMhelp ignores all input in a file except
 between a
 $code begin$$ command and a matching $code end$$ command.
 The cross reference
-$xref/glossary/Cross Reference Tag/tag/$$
+$cref/tag/glossary/Cross Reference Tag/$$
 for the corresponding section
 is specified by $italic tag$$.
 Leading and trailing
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 is ignored and there can be no $code @$$ characters in $italic tag$$.
 
 $head Example$$
@@ -63,7 +63,7 @@ $syntax%
 	@begin one@@
 	@section First Subject@@
 	This section is similar to
-	@xref/two//the second section/@@.
+	@cref/the second section/two/@@.
 	%...%
 	@end
 	*/
@@ -74,7 +74,7 @@ $syntax%
 	@begin two@@
 	@section Second Subject@@
 	This section is similar to
-	@xref/one//the first section/@@.
+	@cref/the first section/one/@@.
 	%...%
 	@end
 	*/
@@ -84,7 +84,7 @@ $syntax%
 
 $head Restrictions$$
 No two sections can have the same cross reference
-$xref/glossary/Cross Reference Tag/tag/$$.
+$cref/tag/glossary/Cross Reference Tag/$$.
 (Note that upper and lower case letters are considered equal
 when comparing cross reference tags).
 $pre
@@ -114,18 +114,18 @@ $table
 $bold Syntax$$
 $cnext $syntax/@section /title/@@/$$ $rnext
 $bold See Also$$
-$cnext $xref/start_simple//getting started/$$
+$cnext $cref/getting started/start_simple/$$
 $tend
 
 $head Description$$
 This command specifies the $italic title$$
 for the current section.
-A section starts with a $xref/begin//begin/$$ command
-and ends with an $xref/begin//end/$$ command.
+A section starts with a $cref/begin/begin/$$ command
+and ends with an $cref/end/begin/$$ command.
 There must be one and only one $code section$$ command
 in each section.
 Leading and trailing
-$xref/glossary/White Space/white space/$$ in $italic title$$
+$cref/white space/glossary/White Space/$$ in $italic title$$
 is ignored.
 In addition, other white space
 characters in $italic title$$ are interpreted as simple spaces.
@@ -135,8 +135,8 @@ There cannot be any $code @$$ characters in $italic title$$.
 
 $head Aindex$$
 $index aindex$$
-The $xref/keyword/Aindex/aindex/$$ command can connect
-the $code section$$ command to the $xref/keyword/Mindex/mindex/$$ command.
+The $cref/aindex/keyword/Aindex/$$ command can connect
+the $code section$$ command to the $cref/mindex/keyword/Mindex/$$ command.
 (To make this connection, it must appear before the $code section$$ command.)
 If this is the case,
 the $code section$$ command automatically generates a request of the form
@@ -144,7 +144,7 @@ $syntax/
 	@mindex /title/@@
 /$$
 In this case,
-occurrences of the $xref/escape/$$ character in $italic title$$
+occurrences of the $cref escape$$ character in $italic title$$
 has the special meaning defined for the $code mindex$$ command.
 These characters do not appear in the displayed title.
 
@@ -176,10 +176,10 @@ $tend
 
 $head Description$$
 The argument $italic tag$$ specifies the
-$xref/glossary/Cross Reference Tag/cross reference tag/$$ for
+$cref/cross reference tag/glossary/Cross Reference Tag/$$ for
 the another section.
 The
-$xref/section//title/$$ of the section corresponding to $italic tag$$
+$cref/title/section/$$ of the section corresponding to $italic tag$$
 is placed in the text where this command appears.
 
 

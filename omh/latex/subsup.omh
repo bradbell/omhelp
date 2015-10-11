@@ -64,10 +64,10 @@ $latex \[
 
 $head Warning$$
 OMhelp's Latex groups sequences of
-$xref/latexnormal/Description/Ascii Letters/letters/1/$$
+$cref/letters/latexnormal/Description/Ascii Letters/$$
 as a single input token.
 In addition,
-$xref/latexnumber//Latex numbers/$$
+$cref/Latex numbers/latexnumber/$$
 are multiple characters and grouped as a single token.
 For this reason,
 the input
@@ -79,7 +79,7 @@ $latex \[
 	x_ab x_12 x_ab12
 \] $$
 Standard Latex, as per Lamport's
-$xref/latex/Reference/reference/$$,
+$cref/reference/latex/Reference/$$,
 would output
 $latex \[
 	x_a b x_1 2 x_a b12

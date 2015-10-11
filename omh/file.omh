@@ -18,7 +18,7 @@ $section Reading Input Files$$
 $head Introduction$$
 The
 $cref/root section/running/root_file/$$
-is specified on the OMhelp $xref/running//command/$$ line.
+is specified on the OMhelp $cref/command/running/$$ line.
 This section can contain commands that
 cause files to be read and processed.
 The $mref/execute/$$ command is an exception because it
@@ -38,14 +38,14 @@ $head Contents$$
 $table
 $rref path$$
 
-$xref/children//contents/$$ $cnext $title children$$ $rnext
-$xref/children//childtable/$$ $cnext "" $rnext
-$xref/children//children/$$ $cnext   ""  $rnext
+$cref/contents/children/$$ $cnext $title children$$ $rnext
+$cref/childtable/children/$$ $cnext "" $rnext
+$cref/children/children/$$ $cnext   ""  $rnext
 
 $rref include$$
 
-$xref/image//image/$$ $cnext $title image$$ $rnext
-$xref/image//icon/$$ $cnext "" $rnext
+$cref/image/image/$$ $cnext $title image$$ $rnext
+$cref/icon/image/$$ $cnext "" $rnext
 
 $rref verbatim$$
 $rref execute$$

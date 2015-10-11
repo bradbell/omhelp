@@ -32,7 +32,7 @@ $italic character$$ are converted to the
 There can be no $code @$$ characters in $italic character$$.
 In addition,
 leading an trailing
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 in $italic character$$ is ignored.
 
 $head Example$$
@@ -56,7 +56,7 @@ $codep
 $$
 $rmark !$$
 is an
-$xref/keyword//index/$$ command
+$cref/index/keyword/$$ command
 corresponding to the ! symbol.
 $pre
 

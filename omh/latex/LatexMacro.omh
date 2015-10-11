@@ -42,8 +42,8 @@ $codei%\%Name%{%A1%}% ... %{%AM%}%$$
 
 $head Definition$$
 When running OMhelp with the
-$xref/running/xml/-xml/$$ command line option,
-Latex macros can be defined and used in $xref/latex/$$ mode.
+$cref/-xml/running/xml/$$ command line option,
+Latex macros can be defined and used in $cref latex$$ mode.
 
 $subhead Global Scope$$
 Macros defined using a $code \newcommand$$ in the
@@ -54,9 +54,9 @@ reprocess all the macros for each section
 (which could be time consuming for large numbers of macros).
 It is suggested that you put all these macros in one file
 using an
-$xref/latex/Inline Formulas/inline/$$ latex command.
+$cref/inline/latex/Inline Formulas/$$ latex command.
 (You cannot use a
-$xref/latex/Displayed Formulas/displayed/$$ latex command
+$cref/displayed/latex/Displayed Formulas/$$ latex command
 when you are just defining macros and there is no output to be displayed.)
 
 $subhead Section Scope$$
@@ -186,9 +186,9 @@ $latex \four{4}$$.
 
 $subhead Mathml$$
 Macros combined with
-the $xref mathml$$ command can be used to define symbols
+the $cref mathml$$ command can be used to define symbols
 not available in
-$xref/latex/Reference/Standard Latex's/$$
+$cref/Standard Latex's/latex/Reference/$$
 math mode.
 For example, the
 $href%http://www.w3.org/TR/MathML2/byalpha.html%MathML symbol%$$ Ropf
@@ -216,7 +216,7 @@ an error message is printed and OMhelp stops.
 $head Nonstandard$$
 Latex macros in OMhelp are different from those in standard
 Section 3.4.1 of
-$xref/latex/Reference/Lamport's book/$$.
+$cref/Lamport's book/latex/Reference/$$.
 The following is a list of these differences:
 
 $list number$$

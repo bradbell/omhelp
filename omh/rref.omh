@@ -31,7 +31,7 @@ $tend
 
 $head Description$$
 The argument $italic tag$$ specifies the
-$xref/glossary/Cross Reference Tag/cross reference tag/$$ for
+$cref/cross reference tag/glossary/Cross Reference Tag/$$ for
 the row in the jump table.
 This command creates one row in a jump table.
 The $italic tag$$ is hypertext linked and forms the first

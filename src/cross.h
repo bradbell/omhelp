@@ -45,7 +45,7 @@ it corresponds to the input file where the cross reference was created.
 $head Head$$
 $index head, cross reference$$
 A variable or record field called $italic head$$
-is a $xref/glossary/Cross Reference Heading/cross reference heading/$$.
+is a $cref/cross reference heading/glossary/Cross Reference Heading/$$.
 Two different values for $italic head$$ are called equal
 if they are equal in a case sensitive sense.
 
@@ -68,7 +68,7 @@ The value $math/frame = 0/$$
 should be used for the overall section,
 $math/frame = 1/$$ corresponds
 to the first user defined frame, and so on.
-If $xref/CrossReference/Head/head/$$ is empty,
+If $cref/head/CrossReference/Head/$$ is empty,
 it must hold that $math/frame = 0/$$.
 
 $head Defined$$

@@ -32,11 +32,11 @@ contains the ascii representation of $italic i$$.
 $head Memory$$
 The return value of $code int2str$$
 points to memory that
-should be freed using the routine $xref/AllocMem/FreeMem/FreeMem/$$
+should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$
 when it is no longer needed.
 If this memory is not freed,
 a call to
-$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$
+$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$
 will report the corresponding source code line and file where the
 corresponding call to $code str_alloc$$ is located.
 

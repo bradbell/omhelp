@@ -36,18 +36,18 @@ $italic Command$$ is one of the
 Latex commands in the tables below.
 The following tables contain the arrow symbols
 in Table 3.6 of
-$xref/latex/Reference/Lamport/$$.
+$cref/Lamport/latex/Reference/$$.
 $pre
 
 $$
 Note that all the symbols that begin with long
 (from \longleftarrow though \longmapsto)
 and \leadsto are in the list of
-$xref/Explorer/MathML/Symbols/symbols/1/$$
+$cref/symbols/Explorer/MathML/Symbols/$$
 that MS Internet Explorer does not display properly.
 Also note that
 \longmapsto is in the list of
-$xref/Firefox/Symbols/symbols/$$
+$cref/symbols/Firefox/Symbols/$$
 that Firefox does not display properly.
 
 $subhead Arrow Symbols$$

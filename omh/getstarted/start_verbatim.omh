@@ -27,7 +27,7 @@ $index text, include$$
 $index file, include$$
 
 $head Introduction$$
-The $xref/verbatim/$$ command
+The $cref verbatim$$ command
 enables one to include all of part of a text file.
 This avoids having to maintain a separate copy of
 the corresponding information in the documentation.
@@ -39,10 +39,10 @@ $subhead verbatim_example.omh$$
 Use an editor of your choice to
 create the file $code  verbatim_example.omh$$
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Test Directory/
-	test directory/$$
+$cref/test directory
+	/start_simple
+	/Execute The Following Steps.Test Directory
+/$$
 with the following contents:
 $code
 $pre
@@ -51,22 +51,22 @@ $$
 Note that you can copy and paste the commands above
 to your editor window.
 You may just copy the file with the same name from the
-$xref/get_started/Getting Started Directory/getting started directory/$$.
+$cref/getting started directory/get_started/Getting Started Directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
 result of making $code verbatim_example.omh$$
 part of the OMhelp help web site
 by selecting
-$xref/verbatim_example/$$.
+$cref verbatim_example$$.
 
 $subhead Execute OMhelp$$
 In a command window and
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Htm Directory/
-	htm directory/$$
+$cref/htm directory
+	/start_simple
+	/Execute The Following Steps.Htm Directory
+/$$
 execute the following command
 $codep
 	omhelp ../verbatim_example.omh -noframe

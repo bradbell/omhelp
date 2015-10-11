@@ -41,7 +41,7 @@ $code xml$$.
 
 $head Internal2Out$$
 The argument $italic internal$$ must be one of the internal
-$xref/glossary/String/strings/$$
+$cref/strings/glossary/String/$$
 listed in the table below.
 The return value it is one of the output strings listed in the
 table below

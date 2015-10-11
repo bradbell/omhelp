@@ -92,11 +92,11 @@ $syntax%
 	char *%string%
 %$$
 It points to memory that
-should be freed using the routine $xref/AllocMem/FreeMem/FreeMem/$$
+should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$
 when it is no longer needed.
 If this memory is not freed,
 a call to
-$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$
+$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$
 will report the corresponding source code line in the routine
 $code TokenCode2String$$.
 

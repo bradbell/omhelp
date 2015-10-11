@@ -268,7 +268,7 @@ $codei%
 %$$
 The $code '\0'$$
 terminated character vector $icode TagFrom$$ specifies
-the previous $xref/glossary/Cross Reference Heading/cross reference heading/$$
+the previous $cref/cross reference heading/glossary/Cross Reference Heading/$$
 in the section where the cross reference command occurs.
 $codei%
 
@@ -312,13 +312,13 @@ $tend
 $head Description$$
 Creates a Pass1 HTML file that contains
 a list of all the references corresponding to calls to $mref/HrefAddList/$$.
-The argument $icode section$$ is a $xref/SectionInfo/$$ pointer
+The argument $icode section$$ is a $cref SectionInfo$$ pointer
 that specifies the section corresponding to this automatically
 generated output.
 The output file has root name $syntax//section/->tag/$$
 and extension $code .tmp$$.
 It is a Pass1 output file because the cross references
-use the $xref/HrefOutputPass1/$$ format.
+use the $cref HrefOutputPass1$$ format.
 The resulting section contains a table of cross reference links
 where each destination link is matched to all there places where
 it is referenced.
@@ -347,7 +347,7 @@ This routine frees all memory associated with
 other routines in the $mref/href/$$ section.
 It should be called after all the calls to those
 routines and before any call to
-$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$.
+$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$.
 None of the routines listed in $mref/href/$$ should be called
 after this routine is called.
 $end

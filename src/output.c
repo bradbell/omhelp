@@ -27,7 +27,7 @@ $tend
 
 $head Description$$
 Opens the file corresponding to the
-$xref/glossary/String/string/$$ $italic name$$
+$cref/string/glossary/String/$$ $italic name$$
 and places it on the top of the output stack.
 Upper case letters in $italic name$$
 are interpreted as lower case.
@@ -37,7 +37,7 @@ sensitive when it comes to distinguishing file names.
 $head Current Output File$$
 The file specified by $italic name$$ becomes
 the current output file.
-The $xref/PopOutput/$$ function removes the
+The $cref PopOutput$$ function removes the
 current output file from the top of the stack
 and makes the previous output file the current one.
 
@@ -59,12 +59,12 @@ $tend
 
 $head Description$$
 Write the
-$xref/glossary/String/string/$$
+$cref/string/glossary/String/$$
 specified by $italic s1$$
 (and $italic s2$$ if it is present)
 using the format specified by $italic fmt$$.
 The output is written to the
-$xref/PushOutput/Current Output File/current output file/$$.
+$cref/current output file/PushOutput/Current Output File/$$.
 $syntax
 
 /FormatOutput(/fmt/, /s1/)
@@ -98,9 +98,9 @@ $tend
 
 $head Description$$
 Write the
-$xref/glossary/String/string/$$
+$cref/string/glossary/String/$$
 specified by $italic s$$ to the
-$xref/PushOutput/Current Output File/current output file/$$.
+$cref/current output file/PushOutput/Current Output File/$$.
 
 
 $end
@@ -120,7 +120,7 @@ $tend
 $head Description$$
 Write the
 character specified by $italic ch$$ to the
-$xref/PushOutput/Current Output File/current output file/$$.
+$cref/current output file/PushOutput/Current Output File/$$.
 
 
 $end
@@ -140,7 +140,7 @@ $tend
 
 $head Description$$
 Closes the
-$xref/PushOutput/Current Output File/current output file/$$
+$cref/current output file/PushOutput/Current Output File/$$
 and removes it from the top of the output stack.
 This makes the previous output file the current one.
 If no file is currently on the output stack,
@@ -167,8 +167,8 @@ $tend
 
 $head Description$$
 Returns the name of the output file currently on top
-of the stack as specified by previous calls to $xref/PushOutput/$$
-and $xref/PopOutput/$$.
+of the stack as specified by previous calls to $cref PushOutput$$
+and $cref PopOutput$$.
 If no file is currently on the output stack,
 the NULL pointer is returned.
 

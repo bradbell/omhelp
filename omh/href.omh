@@ -34,7 +34,7 @@ $cnext $syntax/@href%/uri/%/linkingtext/%/frame/%@@/$$ $rnext
 $bold See Also$$
 $cnext
 $cref/image_link/running/image_link/$$,
-$xref/keyword/Keyword List/keyword list/$$,
+$cref/keyword list/keyword/Keyword List/$$,
 $mref/cref/$$
 $tend
 
@@ -43,7 +43,7 @@ This command is used to specify a link to an address on the internet
 that is external to the current web site.
 (It may however be in the same directory.)
 The text after the $code @href$$ and before the $code @@$$
-is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
+is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
 
 $head uri$$
@@ -132,21 +132,21 @@ $head Checking Links$$
 OMhelp does not check that the internet addresses
 specified by your $code href$$ commands are valid.
 If you use the
-$xref/running/debug/-debug/$$ option on the
-$xref/running//command line/$$,
+$cref/-debug/running/debug/$$ option on the
+$cref/command line/running/$$,
 OMhelp will generate a section to aid you in checking
 that the these addresses are valid.
-The $xref/glossary/Cross Reference Tag/cross reference tag/$$
+The $cref/cross reference tag/glossary/Cross Reference Tag/$$
 for this automatically generated
 section is $code _external$$.
 You can see the corresponding section for this web site
-by selecting the following $xref/_external//link/$$.
+by selecting the following $cref/link/_external/$$.
 
 
 $head frame, Deprecated 2006-07-07$$
 If $italic frame$$ is present,
 it is an integer that specifies the
-$xref/fend//frame/$$
+$cref/frame/fend/$$
 with in the current browser window
 that the result of the link is displayed in.
 If no such frame exists,
@@ -170,7 +170,7 @@ $href%http://www.w3.org/tr/rec-html32.html%HTML 3.2%1%$$
 $pre
 $$
 If the
-$xref/fend/Frames/frame number/$$
+$cref/frame number/fend/Frames/$$
 is not valid for the current section,
 the results are displayed in a separate window.
 For example,

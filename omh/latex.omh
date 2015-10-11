@@ -37,13 +37,13 @@ is a widely used language for expressing mathematics in terms of text input.
 OMhelp will display math formulas expressed using the
 Latex math language.
 The Latex math language is defined in Section 3.3 of
-$xref/latex/Reference/Lamport's book/$$.
+$cref/Lamport's book/latex/Reference/$$.
 These commands are documented in the
-$xref/latex/Command Documentation/latex command documentation/$$
+$cref/latex command documentation/latex/Command Documentation/$$
 sections of this web site.
 
 $head MathML (xml)$$
-If the $xref/running/xml/-xml/$$
+If the $cref/-xml/running/xml/$$
 command line option is specified,
 the Latex commands are converted to MathML
 and the corresponding output files have the $code .xml$$ extension.
@@ -52,7 +52,7 @@ version of this section by selecting
 $href%latex.xml%$$.
 (If your browser does not display MathML,
 refer to the
-$xref/Install/MathML/MathML/$$ section of the installation guide.)
+$cref/MathML/Install/MathML/$$ section of the installation guide.)
 
 $head MathJax (htm)$$
 If the $code -xml$$ option is $bold not$$ specified,
@@ -79,7 +79,7 @@ $pre
 $$
 It is ok to have an empty inline formula
 and this is useful for defining
-$xref/LatexMacro//Latex macros/$$.
+$cref/Latex macros/LatexMacro/$$.
 
 $head Displayed Formulas$$
 

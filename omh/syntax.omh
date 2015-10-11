@@ -26,17 +26,17 @@ $table
 $bold Syntax$$
 $cnext $syntax/@syntax%/code1/%/italic1/%/.../%/codeN/%/italicN/%@@/$$ $rnext
 $bold See Also$$
-$cnext $mref/codep/$$, $xref/font//italic/$$
+$cnext $mref/codep/$$, $cref/italic/font/$$
 $tend
 
 $head Description$$
 Display text that alternates between
-$code code$$ and $code italic$$ $xref/font/$$.
+$code code$$ and $code italic$$ $cref font$$.
 $syntax/
 
 %/code1/%/italic1/%/.../%/codeN/%/italicN/%
 /$$
-is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
+is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 and $code %$$ can be any character that is not a letter.
 The characters in $italic code1$$, ..., $italic codeN$$
 are output in $code code$$ font.
@@ -45,7 +45,7 @@ are output in $code italic$$ font.
 $pre
 
 $$
-All $xref/glossary/White Space/white space/$$ characters
+All $cref/white space/glossary/White Space/$$ characters
 are preserved in the $italic code$$ entries. Thus new lines
 in $italic code1$$, ..., $italic codeN$$
 will correspond to new lines in the output.

@@ -18,39 +18,50 @@ $section The Purpose and Motivation for OMhelp$$
 
 
 $list number$$
-$xref|why|
-	Introduction|
-	Introduction|$$ $lnext
-$xref|why|
-	Same Time Documentation|
-	Same Time Documentation|$$ $lnext
-$xref|why|
-	Source Code Control|
-	Source Code Control|$$ $lnext
-$xref|why|
-	Language Independent and User Oriented|
-	Language Independent and User Oriented|$$ $lnext
-$xref|why|
-	World Wide Web|
-	World Wide Web|$$ $lnext
-$xref|why|
-	Single Source|
-	Single Source|$$ $lnext
-$xref|why|
-	Searching|
-	Searching|$$ $lnext
-$xref|why|
-	Navigation Frame|
-	Navigation Frame|$$ $lnext
-$xref|why|
-	Cross Referencing Aids|
-	Cross Referencing Aids|$$ $lnext
-$xref|why|
-	Platform Independent|
-	Platform Independent|$$ $lnext
-$xref|why|
-	Latex Support of Mathematics|
-	Latex Support of Mathematics|$$
+$cref|Introduction
+	|why
+	|Introduction
+|$$ $lnext
+$cref|Same Time Documentation
+	|why
+	|Same Time Documentation
+|$$ $lnext
+$cref|Source Code Control
+	|why
+	|Source Code Control
+|$$ $lnext
+$cref|Language Independent and User Oriented
+	|why
+	|Language Independent and User Oriented
+|$$ $lnext
+$cref|World Wide Web
+	|why
+	|World Wide Web
+|$$ $lnext
+$cref|Single Source
+	|why
+	|Single Source
+|$$ $lnext
+$cref|Searching
+	|why
+	|Searching
+|$$ $lnext
+$cref|Navigation Frame
+	|why
+	|Navigation Frame
+|$$ $lnext
+$cref|Cross Referencing Aids
+	|why
+	|Cross Referencing Aids
+|$$ $lnext
+$cref|Platform Independent
+	|why
+	|Platform Independent
+|$$ $lnext
+$cref|Latex Support of Mathematics
+	|why
+	|Latex Support of Mathematics
+|$$
 $lend
 
 $head Introduction$$
@@ -129,7 +140,7 @@ It is easy to create examples that are both source code and documentation.
 There is provision for jump tables such that if the destination text changes
 the source text changes automatically.
 A
-$xref/running/printable/printable/$$
+$cref/printable/running/printable/$$
 version of the web site can be generated with all the cross reference
 links included and numbered so they are fully functional.
 

@@ -41,7 +41,7 @@ $syntax%
 
 %section%
 %$$
-The is a pointer to the $xref/SectionInfo/$$ record that
+The is a pointer to the $cref SectionInfo$$ record that
 corresponds to the function reference section.
 $syntax%
 
@@ -74,7 +74,7 @@ $syntax%
 FunRefFree()
 %$$
 The $code InsertInFunRef$$ routine uses
-$xref/AllocMem/$$ to store information that is used by
+$cref AllocMem$$ to store information that is used by
 $code FunRefPass1$$.
 The routine $code FunRefFree$$ frees all this temporary memory.
 

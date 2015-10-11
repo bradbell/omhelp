@@ -44,8 +44,8 @@ The return value
 of $code Color$$
 is a '\0' terminate character vector containing a valid
 for a color style.
-It is allocated using $xref/AllocMem/$$ and should be freed
-using $xref/AllocMem/FreeMem/FreeMem/$$ when it is no longer needed.
+It is allocated using $cref AllocMem$$ and should be freed
+using $cref/FreeMem/AllocMem/FreeMem/$$ when it is no longer needed.
 
 
 $head Color Names$$
@@ -65,7 +65,7 @@ $tend
 
 $head Errors$$
 It $italic delseq$$ does not meet the specifications above,
-$xref/fatalerr//fatalomh/$$ is used to report error messages; i.e.,
+$cref/fatalomh/fatalerr/$$ is used to report error messages; i.e.,
 it is assumed that there is an open input file and
 that we are currently parsing OMhelp input.
 The error messages listed above identify

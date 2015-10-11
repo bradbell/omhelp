@@ -48,31 +48,31 @@ $subhead near_equal_c.c$$
 Use an editor of your choice to
 create the file $code near_equal_c.c$$
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Test Directory/
-	test directory/$$
+$cref/test directory
+	/start_simple
+	/Execute The Following Steps.Test Directory
+/$$
 the contents of which can be seen by selecting
 $cref/view_near_equal_c/$$.
 Note that you can copy and paste the contents of
 $code near_equal_c.c$$ to your editor window.
 You may just copy the file $code near_equal_c.c$$ from the
-$xref/get_started/Getting Started Directory/getting started directory/$$.
+$cref/getting started directory/get_started/Getting Started Directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
 result of making $code near_equal_c.c$$
 part of the OMhelp help web site
 by selecting
-$xref/near_equal_c/$$.
+$cref near_equal_c$$.
 
 $subhead Execute OMhelp$$
 In a command window and
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Htm Directory/
-	htm directory/$$
+$cref/htm directory
+	/start_simple
+	/Execute The Following Steps.Htm Directory
+/$$
 execute the following command
 $codep
 	omhelp ../near_equal_c.c -noframe
@@ -97,31 +97,31 @@ $subhead near_equal_f.f$$
 Use an editor of your choice to
 create the file $code near_equal_f.f$$
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Test Directory/
-	test directory/$$
+$cref/test directory
+	/start_simple
+	/Execute The Following Steps.Test Directory
+/$$
 the contents of which can be seen by selecting
 $cref/view_near_equal_f/$$.
 Note that you can copy and paste the contents of
 $code near_equal_f.f$$ to your editor window.
 You may just copy the file $code near_equal_f.f$$ from the
-$xref/get_started/Getting Started Directory/getting started directory/$$.
+$cref/getting started directory/get_started/Getting Started Directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
 result of making $code near_equal_f.f$$
 part of the OMhelp help web site
 by selecting
-$xref/near_equal_f/$$.
+$cref near_equal_f$$.
 
 $subhead Execute OMhelp$$
 In a command window and
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Htm Directory/
-	htm directory/$$
+$cref/htm directory
+	/start_simple
+	/Execute The Following Steps.Htm Directory
+/$$
 execute the following command
 $codep
 	omhelp ../near_equal_f.f -noframe

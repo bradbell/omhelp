@@ -31,9 +31,9 @@ $tend
 
 $rnext
 $bold See Also$$
-$cnext	$xref/start_font//getting started/$$,
-	$xref/special/$$,
-	$xref/format/$$
+$cnext	$cref/getting started/start_font/$$,
+	$cref special$$,
+	$cref format$$
 $tend
 
 $head Description$$

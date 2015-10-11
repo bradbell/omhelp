@@ -72,7 +72,7 @@ $syntax%
 %$$
 
 $head Style$$
-The $xref/style//StyleCommand/$$ function is used to determine
+The $cref/StyleCommand/style/$$ function is used to determine
 a style record that is also output as part of the header.
 
 $head Script$$

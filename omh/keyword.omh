@@ -40,14 +40,14 @@ $cnext $syntax/@cindex /multiple_entries/@@/$$  $rnext
 $cnext $syntax/@aindex /automatic_mindex/@@/$$ $rnext
 $bold See Also$$
 $cnext
-	$xref/start_index//getting started/$$,
-	$xref/_index//index/$$,
-	$xref/_contents//contents/$$
+	$cref/getting started/start_index/$$,
+	$cref/index/_index/$$,
+	$cref/contents/_contents/$$
 $tend
 
 $head Description$$
 These commands add entries to the
-$xref/_index//Keyword index/$$
+$cref/Keyword index/_index/$$
 for the current section.
 $pre
 
@@ -56,7 +56,7 @@ There can be no $code @$$ characters in
 $italic one_entry$$,
 $italic multiple_entries$$, or $italic automatic_mindex$$.
 In addition, leading and trailing
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 in these arguments are ignored.
 
 $head The Keyword Index$$
@@ -67,9 +67,9 @@ The major key corresponds to the overall ordering.
 The minor key corresponds to the ordering with in each
 value for the major key.
 You can link to the
-$xref/_index//Keyword index/$$ using the
+$cref/Keyword index/_index/$$ using the
 $code _index$$ cross reference
-$xref/glossary/Cross Reference Tag/tag/$$.
+$cref/tag/glossary/Cross Reference Tag/$$.
 
 
 $head Keyword List$$
@@ -88,7 +88,7 @@ and by search engines on the internet
 $head Escape Character$$
 $cindex escape character$$
 The current
-$xref/escape/$$ character is used to convey
+$cref escape$$ character is used to convey
 special meaning to the $code index$$, $code cindex$$, and $code mindex$$
 commands.
 These
@@ -122,11 +122,11 @@ Keyword index are:
 $pre
 	$$Keyword $pre
 		$$index
-$xref/Keyword//Keyword Index/$$
+$cref/Keyword Index/Keyword/$$
 $pre
 	$$index $pre
 		$$Keyword
-$xref/Keyword//Keyword Index/$$
+$cref/Keyword Index/Keyword/$$
 $pre
 $$
 Note that the entries above link to the entire Keyword section.
@@ -137,7 +137,7 @@ link to the specific subheadings with in this section.
 $head Index$$
 $cindex index command$$
 The $code index$$ command specifies a single
-$xref/_index//Keyword index/$$
+$cref/Keyword index/_index/$$
 entry that points to the current section.
 If there is a comma in $italic one_entry$$
 the portion of $italic one_entry$$ to the left of the
@@ -156,10 +156,10 @@ $codep
 	@index major key@@
 $$
 The corresponding entry in the
-$xref/_index//Keyword index/$$ is:
+$cref/Keyword index/_index/$$ is:
 $pre
 	$$major key
-$xref/Keyword/Index.Example/Keyword Index: Index.Example/$$
+$cref/Keyword Index: Index.Example/Keyword/Index.Example/$$
 $pre
 
 $$
@@ -173,13 +173,13 @@ Keyword index is:
 $pre
 	$$major key $pre
 		$$minor key
-$xref/Keyword/Index.Example/Keyword Index: Index.Example/$$
+$cref/Keyword Index: Index.Example/Keyword/Index.Example/$$
 $pre
 
 $$
 If you want the comma character to appear in an index entry,
 you must escape it.
-The $xref/escape/$$ character for this section is $code #$$.
+The $cref escape$$ character for this section is $code #$$.
 The following command appears directly after the subheading above:
 $codep
 	@index index example for f(x#, y)@@
@@ -187,7 +187,7 @@ $$
 The corresponding entry in the Keyword index is:
 $pre
 	$$index example for f(x, y)
-$xref/Keyword/Index.Example/Keyword Index: Index.Example/$$
+$cref/Keyword Index: Index.Example/Keyword/Index.Example/$$
 
 $head Mindex$$
 $cindex mindex command$$
@@ -199,9 +199,9 @@ $pre
 
 $$
 A key word is terminated by a
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 character that is not directly preceded by an
-$xref/escape/$$ character.
+$cref escape$$ character.
 If a key word  begins with an
 escape character, it is not included in the index entries.
 
@@ -220,22 +220,22 @@ $codep
 	@@
 $$
 The corresponding entries in the
-$xref/_index//Keyword index/$$ are:
+$cref/Keyword index/_index/$$ are:
 $pre
 	$$multiple
-$xref/Keyword/Mindex.Example/Keyword Index: Mindex.Example/$$
+$cref/Keyword Index: Mindex.Example/Keyword/Mindex.Example/$$
 $pre
 	$$major
-$xref/Keyword/Mindex.Example/Keyword Index: Mindex.Example/$$
+$cref/Keyword Index: Mindex.Example/Keyword/Mindex.Example/$$
 $pre
 	$$key word
-$xref/Keyword/Mindex.Example/Keyword Index: Mindex.Example/$$
+$cref/Keyword Index: Mindex.Example/Keyword/Mindex.Example/$$
 
 $head Aindex$$
 There are three commands that can be automatically connected
-to the $xref/Keyword/Mindex/mindex/$$ command; namely the
-$xref/section/Aindex/section/$$,
-$xref/head/Aindex/head and subhead/$$ commands.
+to the $cref/mindex/Keyword/Mindex/$$ command; namely the
+$cref/section/section/Aindex/$$,
+$cref/head and subhead/head/Aindex/$$ commands.
 If $italic automatic_mindex$$ contains the word
 "section", "head", or "subhead",
 the corresponding commands are connected until
@@ -263,12 +263,12 @@ $codep
 	@aindex head@@
 $$
 The
-$xref/_index//Keyword index/$$ entry corresponding the heading
+$cref/Keyword index/_index/$$ entry corresponding the heading
 $bold Aindex$$ is:
 $pre
 	$$aindex
 $italic
-$xref/Keyword/Aindex/Keyword Index: Aindex/$$
+$cref/Keyword Index: Aindex/Keyword/Aindex/$$
 $$
 $pre
 $$
@@ -290,7 +290,7 @@ $pre
 
 $$
 A key word is terminated by a
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 character that is not directly preceded by an escape character.
 Any key word may begin with an $mref/escape/$$ character
 in which case the index entry with it in front is not included.
@@ -308,11 +308,11 @@ Keyword index are:
 $pre
 	$$cindex $pre
 		$$cindex example
-$xref/Keyword/Cindex.Example/Keyword Index: Cindex.Example/$$
+$cref/Keyword Index: Cindex.Example/Keyword/Cindex.Example/$$
 $pre
 	$$example $pre
 		$$cindex example
-$xref/Keyword/Cindex.Example/Keyword Index: Cindex.Example/$$
+$cref/Keyword Index: Cindex.Example/Keyword/Cindex.Example/$$
 $pre
 
 $$

@@ -57,10 +57,10 @@ $code  \} $$  $cnext $latex \} $$
 $tend
 
 Note that inside of a
-$xref/latex/$$ command,
+$cref latex$$ command,
 if a the dollar sign is preceded by a back slash,
 it need not be replaced
-(as discussed in the $xref/dollar/$$ command section).
+(as discussed in the $cref dollar$$ command section).
 
 
 $end

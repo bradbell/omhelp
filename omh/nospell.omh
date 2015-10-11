@@ -8,7 +8,7 @@ OMhelp is distributed under the terms of the
 $begin nospell$$
 $dollar @$$
 $spell
-	xref
+	cref
 	OMhelp
 	nospell
 	codep
@@ -29,9 +29,9 @@ $tend
 $head Description$$
 Sometimes there is a section of input in which
 there are words that are not in the
-$xref/spell/Dictionary/dictionary/$$.
+$cref/dictionary/spell/Dictionary/$$.
 If there are only a few words, the
-$xref/spell//spell/$$ command can be used to avoid spelling errors.
+$cref/spell/spell/$$ command can be used to avoid spelling errors.
 If there are many such words you may want to suspend spell
 checking for a while.
 This command suspends spell checking for all of $italic text$$

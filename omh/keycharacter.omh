@@ -56,7 +56,7 @@ $pre
      $$@OMhelp$verbatim%keycharexample.omh%5%#036OMhelp%$$
 $$
 This input results
-in the following section: $xref/KeyCharExample/$$.
+in the following section: $cref KeyCharExample$$.
 
 $head keycharinclude.omh$$
 The input above $cref/includes/include/$$ the file

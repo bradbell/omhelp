@@ -39,7 +39,7 @@ $syntax/PushPending(/line/, /name/)
 /$$
 This signals the beginning of the specified command
 where the integer $italic line$$ is the line number the command appears,
-$xref/InputName//InputName()/$$ is the file,
+$cref/InputName()/InputName/$$ is the file,
 and $italic name$$ is a '\0' terminate character vector
 of at most
 $codep */
@@ -53,7 +53,7 @@ PopPending(/line/, /name/)
 /$$
 This signals the end of the command specified by $italic name$$
 (which occurred on line $italic line$$ of the file
-$xref/InputName//InputName()/$$) .
+$cref/InputName()/InputName/$$) .
 It is assumed that commands will end on a last in first out basis.
 If this is not the case, an error message is displayed saying that
 command $italic name$$ terminated before the expected command.

@@ -25,24 +25,24 @@ $table
 $bold Syntax$$
 $cnext $syntax/@path%/directory/%/extension/%@@/$$ $rnext
 $bold See Also$$
-$cnext $xref/children//contents/$$,
+$cnext $cref/contents/children/$$,
 	$cref/root section/running/root_file/$$
 $tend
 
 $head Description$$
 This command adds $italic directory$$ to the set of directories that OMhelp
 searches for files with
-$xref/glossary/File Extension/file extension/$$
+$cref/file extension/glossary/File Extension/$$
 equal to $italic extension$$.
 $syntax/
 
 %/directory/%/extension/%
 /$$
-is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
+is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 
 $head Relative Paths$$
 If $italic directory$$ is not a
-$xref/glossary/Complete Path Specification/complete path specification/$$,
+$cref/complete path specification/glossary/Complete Path Specification/$$,
 the path specification is relative to the
 directory where the file containing the
 $cref/root section/running/root_file/$$
@@ -53,7 +53,7 @@ This command is ignored unless it appears in the
 $cref/root section/running/root_file/$$.
 This enables one to use one OMhelp web site as a sub-tree of
 a larger OMhelp web site.
-(All of the $xref/get_started//getting started/$$ examples are
+(All of the $cref/getting started/get_started/$$ examples are
 used twice in this way.)
 Each of these web sites may have its starting file in a different directory
 and therefore require different $code path$$ commands.

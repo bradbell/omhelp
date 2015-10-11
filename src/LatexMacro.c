@@ -24,12 +24,12 @@ The Latex macro preprocessor reads its data from memory.
 This call sets the input data to the '\0' terminated
 character vector specified by $italic input$$.
 The integer $italic line$$ specifies the line
-number in the file $xref/InputName//InputName()/$$
+number in the file $cref/InputName()/InputName/$$
 where $italic input$$ started.
 
 $head Memory Allocation$$
-This call allocates memory using $xref/AllocMem/$$
-and this memory is freed by $xref/LatexMacroFree/$$.
+This call allocates memory using $cref AllocMem$$
+and this memory is freed by $cref LatexMacroFree$$.
 
 $end
 -----------------------------------------------------------------------------
@@ -48,9 +48,9 @@ $section Free Memory Allocated By Latex Macro Preprocessor$$
 $head Description$$
 This routine deletes all of the macros defined
 since the previous call to
-$xref LatexMacroKeep$$.
+$cref LatexMacroKeep$$.
 It also erases the information passed to the macro preprocessor
-by the previous call to $xref LatexMacroUserInput$$.
+by the previous call to $cref LatexMacroUserInput$$.
 $pre
 
 $$
@@ -61,14 +61,14 @@ $syntax%
 %$$
 which should be called after you are done using the preprocessor;
 i.e., any of the routines in the following list:
-$xref LatexMacroUserInput$$,
-$xref LatexMacroGetCh$$,
-$xref LatexMacroInputLine$$,
-$xref LatexMacroInputFile$$,
-$xref LatexMacroExpandInput$$,
-$xref LatexMacroExpandLine$$,
+$cref LatexMacroUserInput$$,
+$cref LatexMacroGetCh$$,
+$cref LatexMacroInputLine$$,
+$cref LatexMacroInputFile$$,
+$cref LatexMacroExpandInput$$,
+$cref LatexMacroExpandLine$$,
 and
-$xref LatexMacroExpandFile$$.
+$cref LatexMacroExpandFile$$.
 
 
 $end
@@ -87,7 +87,7 @@ $tend
 
 $head Description$$
 Gets the next character after the input specified by
-$xref LatexMacroUserInput$$
+$cref LatexMacroUserInput$$
 has been run through the Latex macro preprocessor.
 
 If there is no more input or
@@ -108,10 +108,10 @@ $tend
 
 $head Description$$
 Returns the line number corresponding to the next
-character returned by $xref LatexMacroGetCh$$
+character returned by $cref LatexMacroGetCh$$
 (not counting macro expansion).
 This line number corresponds to the file specified
-by the previous call to $xref LatexMacroUserInput$$.
+by the previous call to $cref LatexMacroUserInput$$.
 
 If no call has been made to $code LatexMacroUserInput$$,
 the value zero is returned.
@@ -132,7 +132,7 @@ $tend
 
 $head Description$$
 Returns the file name corresponding to the previous call to
-$xref LatexMacroUserInput$$.
+$cref LatexMacroUserInput$$.
 
 If no call has been made to $code LatexMacroUserInput$$,
 the value "NONE" is returned.
@@ -186,7 +186,7 @@ This is useful for error reporting.
 
 $head Restrictions$$
 It a programming  error to call this routine if the return value of
-$xref LatexMacroExpandInput$$ is $code NULL$$.
+$cref LatexMacroExpandInput$$ is $code NULL$$.
 
 $end
 -----------------------------------------------------------------------------
@@ -208,7 +208,7 @@ This is useful for error reporting.
 
 $head Restrictions$$
 It a programming  error to call this routine if the return value of
-$xref LatexMacroExpandInput$$ is $code NULL$$.
+$cref LatexMacroExpandInput$$ is $code NULL$$.
 
 $end
 
@@ -231,7 +231,7 @@ This is useful for error reporting.
 
 $head Restrictions$$
 It a programming  error to call this routine if the return value of
-$xref LatexMacroExpandInput$$ is $code NULL$$.
+$cref LatexMacroExpandInput$$ is $code NULL$$.
 
 $end
 
@@ -253,7 +253,7 @@ one to remove
 the macro definitions that are local to a particular part
 section.
 This can be done by calling $code LatexMacroKeep$$ before
-processing a section and $xref LatexMacroFree$$ after.
+processing a section and $cref LatexMacroFree$$ after.
 
 $end
 ------------------------------------------------------------------------\

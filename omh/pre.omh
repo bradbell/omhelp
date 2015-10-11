@@ -27,7 +27,7 @@ $bold Syntax$$
 $cnext $syntax/@pre /text/@@/$$ $rnext
 $bold See Also$$
 $cnext
-	$xref/start_pre//getting started/$$,
+	$cref/getting started/start_pre/$$,
 	$mref/codep/math/$$
 $tend
 
@@ -38,7 +38,7 @@ There can be no $code @$$ characters in $italic text$$.
 The $code pre$$ command uses a font that is close to the
 normal font, but uniformly spaced.
 (The $mref/codep/$$ command uses the exact same font as
-the $xref/font//code/$$ command to signify that the text is
+the $cref/code/font/$$ command to signify that the text is
 compute input or output.)
 
 $head Example$$

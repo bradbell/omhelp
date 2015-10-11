@@ -58,7 +58,7 @@ $lend
 
 $head Errors$$
 All the routines documented above use
-$xref/fatalerr//fatalomh/$$ to report error messages; i.e.,
+$cref/fatalomh/fatalerr/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.
 The error messages listed above identify

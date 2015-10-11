@@ -77,7 +77,7 @@ and the following call to $code SearchEnd$$
 are linked by the search utility
 to the web page $syntax%%tag%.%ext%$$
 (where $italic ext$$ is the output file extension specified by
-$xref/Internal2Out/$$).
+$cref Internal2Out$$).
 If multiple sequential white spaces characters
 occur in $italic tag$$, a fatal error message
 is generated and the program is terminated.
@@ -133,7 +133,7 @@ The words have been converted to lower case,
 duplicate keywords have been removed,
 an each keyword is surrounded by a space.
 The memory for the return value is allocated with
-$xref/AllocMem/$$ and should be freed with $xref/AllocMem/FreeMem/FreeMem/$$
+$cref AllocMem$$ and should be freed with $cref/FreeMem/AllocMem/FreeMem/$$
 when it is no longer needed.
 $syntax%
 
@@ -160,7 +160,7 @@ is freed when $code CloseSearchFile$$ is called.)
 
 $head Errors$$
 All the routines documented above use
-$xref/fatalerr//fatalomh/$$ to report error messages; i.e.,
+$cref/fatalomh/fatalerr/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.
 

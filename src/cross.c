@@ -36,24 +36,24 @@ $rend
 
 $code frame$$     $cend       0  $cend
 if head[0]!='\0', frame that the
-$xref/glossary/Cross Reference Heading/cross reference heading/$$
+$cref/cross reference heading/glossary/Cross Reference Heading/$$
 refers to
 $rend
 
-$xref/CrossReference/Tag/tag/$$       $cend       $italic tag$$  $cend
+$cref/tag/CrossReference/Tag/$$       $cend       $italic tag$$  $cend
 a separated allocated copy of section tag
 $rend
 
-$xref/CrossReference/Head/head/$$      $cend       $italic head$$ $cend
+$cref/head/CrossReference/Head/$$      $cend       $italic head$$ $cend
 a separated allocated copy of a
-$xref/glossary/Cross Reference Heading/cross reference heading/$$
+$cref/cross reference heading/glossary/Cross Reference Heading/$$
 $rend
 
-$xref/CrossReference/File/file/$$      $cend       $italic file$$ $cend
+$cref/file/CrossReference/File/$$      $cend       $italic file$$ $cend
 name of user input file corresponding to this cross reference
 $rend
 
-$xref/CrossReference/Printid/printid/$$    $cend       $code NULL$$ $cend
+$cref/printid/CrossReference/Printid/$$    $cend       $code NULL$$ $cend
 identification of cross reference in printed version of web site
 $rend
 
@@ -96,9 +96,9 @@ $tend
 $head Description$$
 Search the cross reference list for a Cross Reference record that has the
 specified
-$xref/CrossReference/Tag/tag/$$
+$cref/tag/CrossReference/Tag/$$
 and
-$xref/CrossReference/Head/heading/$$.
+$cref/heading/CrossReference/Head/$$.
 The return value is a $code CrossReference$$ pointer to the cross
 reference. If such a cross reference is found, a pointer to it is returned.
 Otherwise $code NULL$$ is returned.
@@ -123,9 +123,9 @@ $tend
 
 $head Description$$
 The cross reference with the specified
-$xref/CrossReference/Tag/tag/$$
+$cref/tag/CrossReference/Tag/$$
 and
-$xref/CrossReference/Head/head/$$
+$cref/head/CrossReference/Head/$$
 is searched for.
 If no such cross reference is found, a new one is created.
 $pre
@@ -133,16 +133,16 @@ $pre
 $$
 If a cross reference destination with the same $italic tag$$
 and $italic head$$ has already been
-$xref/CrossReference/Defined/defined/$$,
+$cref/defined/CrossReference/Defined/$$,
 a fatal error message is printed and the program stops.
 (Note that defined is different from created.)
 $pre
 
 $$
 The cross reference is marked as defined. In addition, the
-$xref/CrossReference/Frame/frame/$$
+$cref/frame/CrossReference/Frame/$$
 and
-$xref/CrossReference/File/file/$$
+$cref/file/CrossReference/File/$$
 fields are set to the values specified by the call.
 $pre
 
@@ -155,7 +155,7 @@ $pre
 $$
 The argument  $italic printid$$
 specifies the
-$xref/CrossReference/Printid/printid/$$
+$cref/printid/CrossReference/Printid/$$
 for this cross reference.
 The argument $italic printid$$ can point to the empty string
 in which case there is no print id for this cross reference.
@@ -179,13 +179,13 @@ $tend
 
 $head Description$$
 Returns a $code CrossReference$$ pointer that has the same
-$xref/CrossReference/Tag/tag/$$ as $italic cross$$
+$cref/tag/CrossReference/Tag/$$ as $italic cross$$
 and is defined directly after the definition of $italic cross$$.
 The argument $italic cross$$ is a $code CrossReference$$ pointer.
 If no such a cross reference exists,
 $code NULL$$ is returned.
 This is useful for listing the
-$xref/glossary/Cross Reference Heading/cross reference headings/$$
+$cref/cross reference headings/glossary/Cross Reference Heading/$$
 and corresponding links for a particular section.
 
 $end
@@ -210,10 +210,10 @@ $head Description$$
 Checks that all the cross references were defined and prints an error
 message for each one that was not. In addition Frees all the memory
 associated with the cross reference list
-(using $xref/AllocMem/FreeMem/FreeMem/$$) and leave the list
+(using $cref/FreeMem/AllocMem/FreeMem/$$) and leave the list
 as empty.
 This should be done before
-$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$ is called.
+$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$ is called.
 
 $end
 */

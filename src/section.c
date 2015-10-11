@@ -62,7 +62,7 @@ fields named $code root$$ and $code ext$$ are set to $code '\0'$$
 terminated character row vectors.
 To be specific, $code ext$$
 contains the
-$xref/glossary/File Extension/extension/$$ corresponding to $italic filename$$
+$cref/extension/glossary/File Extension/$$ corresponding to $italic filename$$
 and $code root$$
 contains the other characters in $italic filename$$.
 Both $code root$$ and $code ext$$ are allocated memory using
@@ -121,9 +121,9 @@ $tend
 
 
 $head Description$$
-Use $xref/AllocMem/FreeMem/FreeMem/$$ to free all of the
+Use $cref/FreeMem/AllocMem/FreeMem/$$ to free all of the
 $mref/SectionInfo/$$ records in the specified
-$xref/glossary/Section Tree/Section tree/$$.
+$cref/Section tree/glossary/Section Tree/$$.
 The argument $italic tree$$ is a $code SectionInfo$$ pointer to
 the root node of the tree.
 In addition, all of the field with type $code char *$$
@@ -165,7 +165,7 @@ $tend
 
 $head Description$$
 Searches the specified
-$xref/glossary/Section Tree/Section tree/$$
+$cref/Section tree/glossary/Section Tree/$$
 for the $mref/SectionInfo/$$ record that has the specified
 value for its $code tag$$ field.
 The argument
@@ -218,7 +218,7 @@ points to a copy of $italic tag$$ in which upper case characters
 are changed to lower case.
 The memory pointed to by $code tag$$ and $code tagLower$$
 is allocated by $mref/AllocMem/$$
-and must be freed using $xref/AllocMem/FreeMem/FreeMem/$$.
+and must be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
 
 $head Restrictions$$
 The value of the $code tag$$ and $code tagLower$$ fields
@@ -251,7 +251,7 @@ of the tree. The identifying number corresponding to that section
 is the empty string.
 The memory pointed to by the return value
 is allocated by $mref/AllocMem/$$
-and must be freed using $xref/AllocMem/FreeMem/FreeMem/$$.
+and must be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
 
 $head Assumptions$$
 The numbering scheme identifies a section relative to the sections
@@ -286,7 +286,7 @@ $tend
 
 $head Description$$
 Searches the specified
-$xref/glossary/Section Tree/Section tree/$$
+$cref/Section tree/glossary/Section Tree/$$
 starting at $italic root$$,
 for a $mref/SectionInfo/$$ record that does not have its
 $code tag$$ field defined.

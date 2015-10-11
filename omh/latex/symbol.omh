@@ -29,7 +29,7 @@ $tend
 
 $head Description$$
 The following sections document special symbols
-that are available using the $xref/latex/$$ command:
+that are available using the $cref latex$$ command:
 
 
 $contents/

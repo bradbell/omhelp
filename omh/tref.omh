@@ -29,10 +29,10 @@ $tend
 
 $head Description$$
 The argument $italic tag$$ specifies the
-$xref/glossary/Cross Reference Tag/cross reference tag/$$ for
+$cref/cross reference tag/glossary/Cross Reference Tag/$$ for
 the link.
 The
-$xref/section//title/$$
+$cref/title/section/$$
 of the section corresponding to $italic tag$$
 is used to reference the link in the current section.
 Leading and trailing white space in $italic tag$$ is ignored.

@@ -29,7 +29,7 @@ $head Description$$
 The backslash, $code \$$, is the default escape character.
 This command changes the escape character to the first character in
 $italic character$$ (not counting leading
-$xref/glossary/White Space/white space/$$).
+$cref/white space/glossary/White Space/$$).
 
 $head Example$$
 If you want to display a backslash in $mref/math/$$ mode, it is useful

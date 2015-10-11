@@ -26,7 +26,7 @@ $tend
 
 $head Description$$
 Get the next character from the top of the input
-$xref/InputPush//stack/$$.
+$cref/stack/InputPush/$$.
 If there are no more characters in the input file
 the value $code '\001'$$
 is returned to signal end of file.
@@ -56,7 +56,7 @@ $tend
 $head Description$$
 The $code '\0'$$ terminated character vector $italic directory$$
 specifies the local directory for all input file searching by
-$xref/InputPush/$$ and $xref/InputAddPath/$$.
+$cref InputPush$$ and $cref InputAddPath$$.
 The last character in $italic directory$$ must be either a forward
 or back slash; i.e., '/' or '\\'.
 
@@ -65,11 +65,11 @@ $list number$$
 this routine is called only once.
 $lnext
 $italic directory$$ is a
-$xref/glossary/Complete Path Specification/complete path specification/$$.
+$cref/complete path specification/glossary/Complete Path Specification/$$.
 $lnext
 $code InputInit$$
-is called before any of the other routines in $xref/input/$$
-(except for $xref/InputName/$$ which will return "NONE" if called before
+is called before any of the other routines in $cref input$$
+(except for $cref InputName$$ which will return "NONE" if called before
 $code InputInit$$).
 $lend
 
@@ -103,13 +103,13 @@ $tend
 $head Description$$
 The $code '\0'$$ terminated character row vector $italic ext$$
 specifies the
-$xref/glossary/File Extension/extension/$$
+$cref/extension/glossary/File Extension/$$
 of the file to be pushed on the input stack.
 The $code '\0'$$ terminated character row vector $italic root$$
 specifies the
-$xref/glossary/Root File Name/root/$$ file name of the file.
+$cref/root/glossary/Root File Name/$$ file name of the file.
 The routine
-$xref/InputSearch/$$ specifies how the input file is searched for.
+$cref InputSearch$$ specifies how the input file is searched for.
 
 $head File Opened$$
 If the file is opened for reading, it is placed on top of the input stack.
@@ -130,7 +130,7 @@ and this routine does not return.
 $head Errors$$
 If there is currently a file on the input stack,
 the routines documented above use
-$xref/fatalerr//fatalomh/$$ to report error messages.
+$cref/fatalomh/fatalerr/$$ to report error messages.
 Otherwise they use $code fatalerr$$.
 
 $end
@@ -184,7 +184,7 @@ the value $code "NONE"$$ is returned.
 $pre
 
 $$
-The $xref/InputInit//local directory/$$ is not included
+The $cref/local directory/InputInit/$$ is not included
 at the beginning of the file name.
 
 $end
@@ -238,7 +238,7 @@ $tend
 $head Description$$
 Adds the search path specified by $italic path$$
 to the set of input search paths for the
-$xref/glossary/File Extension/extension/$$
+$cref/extension/glossary/File Extension/$$
 specified by $italic ext$$.
 Both $italic path$$ and $italic ext$$ must be
 $code '\0'$$ terminated character row vectors.
@@ -270,25 +270,25 @@ $tend
 
 $head Description$$
 Searches the set of paths corresponding to the
-$xref/glossary/File Extension/extension/$$ specified
+$cref/extension/glossary/File Extension/$$ specified
 by $italic ext$$ for a file that has its
-$xref/glossary/Root File Name/root/$$ name equal to $italic root$$.
+$cref/root/glossary/Root File Name/$$ name equal to $italic root$$.
 The arguments $italic root$$ and $italic ext$$ are
 $code '\0'$$ terminated character row vectors.
 
 $head Searching For File$$
 If $italic root$$ has a
-$xref/glossary/Complete Path Specification/complete path specification/$$,
+$cref/complete path specification/glossary/Complete Path Specification/$$,
 no path are added to the $italic root$$ before searching for the file.
 Otherwise, the
-$xref/InputInit//local directory/$$ is placed in front of
+$cref/local directory/InputInit/$$ is placed in front of
 $italic root$$ and the file is searched for.
 If the file is not found relative to the local directory,
 each of the
-$xref/InputAddPath//search paths/$$ is placed in front of
+$cref/search paths/InputAddPath/$$ is placed in front of
 $italic root$$ and the file is searched for.
 For each search path, if it is not a complete path specification,
-the $xref/InputInit//local directory/$$ is placed
+the $cref/local directory/InputInit/$$ is placed
 in front of it to complete the path specification.
 $pre
 
@@ -331,9 +331,9 @@ $tend
 
 $head Description$$
 Determine the
-$xref/glossary/Root File Name/root/$$
+$cref/root/glossary/Root File Name/$$
 and
-$xref/glossary/File Extension/extension/$$
+$cref/extension/glossary/File Extension/$$
 corresponding to the file specified by
 $italic filename$$.
 The argument $italic filename$$ is a
@@ -345,11 +345,11 @@ $pre
 $$
 The character row vector $syntax%*%pext%$$
 is set to be $code '\0'$$ terminated and contains the
-$xref/glossary/File Extension/extension/$$
+$cref/extension/glossary/File Extension/$$
 corresponding to $italic filename$$.
 The character row vector $syntax%*%proot%$$
 is set to be $code '\0'$$ terminated and contains the
-$xref/glossary/Root File Name/root/$$
+$cref/root/glossary/Root File Name/$$
 corresponding to $italic filename$$.
 
 $head Memory Allocation$$
@@ -361,7 +361,7 @@ In particular, it is not freed by $mref/InputFree/$$.
 Hence the calling routine
 must ensure that the character vectors corresponding to
 both $syntax%*%proot%$$ and $syntax%*%pext%$$
-are freed using $xref/AllocMem/FreeMem/FreeMem/$$.
+are freed using $cref/FreeMem/AllocMem/FreeMem/$$.
 
 $end
 ============================================================================
@@ -383,7 +383,7 @@ $head Description$$
 This routines listed in $mref/input/$$ allocate some memory
 that is hidden from the calling routines.
 This routine must be called before
-$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$
+$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$
 or this memory will be reported as a leak.
 No other routines listed in $mref/input/$$
 should be called after a call to this routine.

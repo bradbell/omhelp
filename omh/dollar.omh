@@ -32,12 +32,12 @@ $tend
 $head Description$$
 All subsequent occurrences of the first character in
 $italic character$$ are converted to the
-$xref/glossary/The Dollar Sign Character/dollar sign/$$ character; i.e.,
+$cref/dollar sign/glossary/The Dollar Sign Character/$$ character; i.e.,
 $code @$$.
 There can be no $code @$$ characters in $italic character$$.
 In addition,
 leading trailing
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 in $italic character$$ is ignored.
 
 $head Example$$
@@ -75,7 +75,7 @@ $codep
 	%index @%%
 $$
 in the example above, is an
-$xref/keyword//index/$$ command
+$cref/index/keyword/$$ command
 corresponding to the % character.
 $pre
 

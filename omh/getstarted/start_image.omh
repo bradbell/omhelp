@@ -26,7 +26,7 @@ $index image, get started$$
 $index picture, get started$$
 
 $head Introduction$$
-The $xref/image//image and icon/$$ commands are used to display images.
+The $cref/image and icon/image/$$ commands are used to display images.
 
 $head Execute The Following Steps$$
 
@@ -34,10 +34,10 @@ $subhead pre_example.omh$$
 Use an editor of your choice to
 create the file $code  image_example.omh$$
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Test Directory/
-	test directory/$$
+$cref/test directory
+	/start_simple
+	/Execute The Following Steps.Test Directory
+/$$
 with the following contents:
 $code
 $pre
@@ -46,7 +46,7 @@ $$
 Note that you can copy and paste the commands above
 to your editor window.
 You may just copy the file with the same name from the
-$xref/get_started/Getting Started Directory/getting started directory/$$.
+$cref/getting started directory/get_started/Getting Started Directory/$$.
 
 $subhead W3c_home.gif$$
 Copy the file
@@ -54,27 +54,27 @@ $center
 $href%http://www.w3.org/TR/1998/REC-html40-19980424/images/w3c_home.gif%$$
 $$
 to the file $code w3c_home.gif$$ in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Test Directory/
-	test directory/$$
+$cref/test directory
+	/start_simple
+	/Execute The Following Steps.Test Directory
+/$$
 You may just copy the file with the same name from the
-$xref/get_started/Getting Started Directory/getting started directory/$$.
+$cref/getting started directory/get_started/Getting Started Directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
 result of making $code image_example.omh$$
 part of the OMhelp help web site
 by selecting
-$xref/image_example/$$.
+$cref image_example$$.
 
 $subhead Execute OMhelp$$
 In a command window and
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Htm Directory/
-	htm directory/$$
+$cref/htm directory
+	/start_simple
+	/Execute The Following Steps.Htm Directory
+/$$
 execute the following command
 $codep
 	omhelp ../image_example.omh -noframe

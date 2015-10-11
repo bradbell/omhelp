@@ -33,7 +33,7 @@ $head Purpose$$
 This command creates the file specified by $italic filename$$
 together with a link to the file.
 Both leading and trailing
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 in $italic filename$$
 is ignored and there cannot be any $code @$$ characters
 in $italic filename$$.

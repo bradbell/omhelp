@@ -12,7 +12,7 @@ $spell
 	rref
 	stdout
 	omhelp
-	xref
+	cref
 	omh
 	pre
 	childtable
@@ -38,22 +38,22 @@ $cnext $syntax/@childtable%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
 $cnext $syntax/@children%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
 $bold See Also$$
 $cnext
-	$xref/start_multiple//get started/$$,
+	$cref/get started/start_multiple/$$,
 	$mref/include/verbatim/image/$$
 $tend
 
 $head Description$$
 These commands provide different ways to specify which sections are
-$xref/glossary/Children/children/$$
+$cref/children/glossary/Children/$$
 of the current section in the
-$xref/_contents//table of contents/$$.
+$cref/table of contents/_contents/$$.
 (You can link to the overall table of contents using the
 $code _contents$$ cross reference
-$xref/glossary/Cross Reference Tag/tag/$$ .)
+$cref/tag/glossary/Cross Reference Tag/$$ .)
 These commands also specify which files are processed
 by $code omhelp$$.
 The name of each file referenced in this way is printed on
-$xref/stdout//standard output/$$.
+$cref/standard output/stdout/$$.
 $pre
 
 $$
@@ -76,10 +76,10 @@ $syntax/
 %/file1/%/file2/%/.../%/fileN/%
 /$$
 is a
-$xref/glossary/Delimiter Sequence/delimiter sequence/$$
+$cref/delimiter sequence/glossary/Delimiter Sequence/$$
 and $code %$$ can be any character that is not a letter.
 The characters in $italic file1$$ specify the
-$xref/glossary/Input File Searching/input file/$$
+$cref/input file/glossary/Input File Searching/$$
 containing the omhelp commands for the
 first set of children for this section.
 The characters in $italic fileN$$ specify
@@ -89,7 +89,7 @@ $pre
 
 $$
 Leading
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 in the file names is ignored and can be used
 to help separate them.
 $pre
@@ -97,7 +97,7 @@ $pre
 $$
 Both the forward and back slash can be used
 for a
-$xref/glossary/Directory Separator Character/directory separator character/$$
+$cref/directory separator character/glossary/Directory Separator Character/$$
 in the file names.
 
 $head Contents Command$$
@@ -124,7 +124,7 @@ $$
 
 $head Childtable Command$$
 The table of
-$xref/cross/Contents/Contents/$$
+$cref/Contents/cross/Contents/$$
 in the $tref cross$$ section is generated
 with the following $code childtable$$ command:
 $pre
@@ -153,7 +153,7 @@ $$
 
 Note that the order of the files specified by the $code children$$
 command determines order of the corresponding sections in
-the $xref/_contents//contents tree/$$.
+the $cref/contents tree/_contents/$$.
 This does not need to be the same as the order of the sections
 in the corresponding jump tables.
 

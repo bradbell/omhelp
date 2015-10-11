@@ -37,7 +37,7 @@ $cnext $syntax//.../ & /.../ & /.../ \\/$$                $rnext
 $cnext $syntax//A(m,1)/ & /.../ & /A(m,n)/$$              $rnext
 $cnext $syntax/\end{array} @@/$$                          $rnext
 $bold See Also$$
-$cnext $xref/table/$$
+$cnext $cref table$$
 $tend
 
 $head Description$$

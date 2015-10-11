@@ -38,20 +38,20 @@ $cnext $syntax/@verbatim%/filename/%/indent/%/start/%@@/$$  $rnext
 $cnext $syntax/@verbatim%/filename/%/indent/%/start/%/stop/%@@/$$  $rnext
 $cnext $syntax/@verbatim%/filename/%/indent/%/start/%/stop/%/skip/%@@/$$  $rnext
 $bold See Also$$
-$cnext	$xref/start_verbatim//getting started/$$,
+$cnext	$cref/getting started/start_verbatim/$$,
 	$mref/include/codep/execute/$$
 $tend
 
 $head Description$$
 This command will cause the specified
-$xref/glossary/Input File Searching/input file/$$
+$cref/input file/glossary/Input File Searching/$$
 to be displayed
 with out any formatting; i.e., verbatim.
 This provides a way in which a single source code file
 can be used both for input to OMhelp and input to another program
 with out having OMhelp commands in the file.
 (The
-$xref/codep/Source Code Examples/source code example/$$
+$cref/source code example/codep/Source Code Examples/$$
 option for the $mref/codep/$$ command
 provides another way of doing this that does
 have OMhelp commands in the file.)
@@ -59,7 +59,7 @@ $syntax/
 
 %/filename/%/indent/%/start/%/stop/%/skip/%
 /$$
-is a $xref/glossary/Delimiter Sequence/delimiter sequence/$$
+is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
 
 
@@ -225,7 +225,7 @@ $pre
 
 $$
 Note that
-a $xref/verbatim/New Lines/new line/$$
+a $cref/new line/verbatim/New Lines/$$
 is not automatically included at the beginning and end
 of the verbatim text when the $italic start$$ text is present.
 Here is the result of the command sequence:

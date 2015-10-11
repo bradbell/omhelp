@@ -31,7 +31,7 @@ $tend
 $head Description$$
 All of the characters in $italic text$$ are displayed on the same line.
 There can be no $code @$$ characters in $italic text$$.
-(Note that the $xref/pre/$$ command can be used
+(Note that the $cref pre$$ command can be used
 to ensure that text appears on the same line but the $code pre$$
 command changes to a
 $cref/pre-formatted font/glossary/Pre-formatted Font/$$.)

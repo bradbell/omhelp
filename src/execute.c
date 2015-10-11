@@ -71,13 +71,13 @@ the same name was used for a previous execute file.
 It is also a user error if the file name contains the \ or the " character.
 In either of these cases,
 a fatal error message identifying the problem is reported using
-$xref/fatalerr//fatalomh/$$; i.e.,
+$cref/fatalomh/fatalerr/$$; i.e.,
 it is assumed that there is an open input file and
 that we are currently parsing OMhelp input.
 
 $head Restriction$$
 It is considered a program error if
-$xref/ExecuteNextFile//ExecuteNextFile()/$$
+$cref/ExecuteNextFile()/ExecuteNextFile/$$
 is not equal to $code NULL$$ when $code ExecuteSetFile$$ is called.
 $end
 ==============================================================================
@@ -105,20 +105,20 @@ $tend
 $head Description$$
 Writes the characters in the '\0' terminated character vector
 $italic text$$ to the file specified by
-$xref/ExecuteNextFile//ExecuteNextFile()/$$.
+$cref/ExecuteNextFile()/ExecuteNextFile/$$.
 The value of $code ExecuteNextFile()$$ is then set to $code NULL$$.
 
 $head Error$$
 If the next execute file cannot be written,
 a fatal error message identifying the problem is reported using
-$xref/fatalerr//fatalomh/$$; i.e.,
+$cref/fatalomh/fatalerr/$$; i.e.,
 it is assumed that there is an open input file and
 that we are currently parsing OMhelp input.
 
 
 $head Restriction$$
 It is considered a program error if
-$xref/ExecuteNextFile//ExecuteNextFile()/$$
+$cref/ExecuteNextFile()/ExecuteNextFile/$$
 is equal to $code NULL$$ when $code ExecuteWriteFile$$ is called.
 $end
 ============================================================================
@@ -140,7 +140,7 @@ $head Description$$
 This routines listed in $mref/execute/$$ allocate some memory
 that is hidden from the calling routines.
 This routine must be called before
-$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$
+$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$
 or this memory will be reported as a leak.
 No other routines listed in $mref/execute/$$
 should be called after a call to this routine.

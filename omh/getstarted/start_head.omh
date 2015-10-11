@@ -25,10 +25,10 @@ $index head, get started$$
 $index subhead, get started$$
 
 $head Introduction$$
-The $xref/head/$$ and $code subhead$$ commands
+The $cref head$$ and $code subhead$$ commands
 start new paragraphs with a specified title.
 Each section has an tree structure in which the
-$xref/section//section title/$$
+$cref/section title/section/$$
 corresponds to the root,
 the headings titles correspond to the next level,
 and the subheadings titles correspond to
@@ -41,10 +41,10 @@ $subhead head_example.omh$$
 Use an editor of your choice to
 create the file $code  head_example.omh$$
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Test Directory/
-	test directory/$$
+$cref/test directory
+	/start_simple
+	/Execute The Following Steps.Test Directory
+/$$
 with the following contents:
 $code
 $pre
@@ -53,22 +53,22 @@ $$
 Note that you can copy and paste the commands above
 to your editor window.
 You may just copy the file with the same name from the
-$xref/get_started/Getting Started Directory/getting started directory/$$.
+$cref/getting started directory/get_started/Getting Started Directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
 result of making $code head_example.omh$$
 part of the OMhelp help web site
 by selecting
-$xref/head_example/$$.
+$cref head_example$$.
 
 $subhead Execute OMhelp$$
 In a command window and
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Htm Directory/
-	htm directory/$$
+$cref/htm directory
+	/start_simple
+	/Execute The Following Steps.Htm Directory
+/$$
 execute the following command
 $codep
 	omhelp ../head_example.omh -noframe

@@ -60,7 +60,7 @@ $syntax%
 %$$
 
 $head Memory$$
-The return value is allocated using $xref/AllocMem/$$
+The return value is allocated using $cref AllocMem$$
 and should be freed using $code FreeMem$$
 
 $end

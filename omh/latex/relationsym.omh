@@ -35,7 +35,7 @@ $italic Command$$ is one of the
 Latex commands in the tables below.
 The following tables contain the relation symbols
 in Table 3.5 of
-$xref/latex/Reference/Lamport/$$
+$cref/Lamport/latex/Reference/$$
 (except that \Join is not included and generates an error message).
 $pre
 
@@ -43,11 +43,11 @@ $$
 Note that
 \preceq, \models, and \bowtie
 are in the list of
-$xref/Explorer/MathML/Symbols/symbols/1/$$
+$cref/symbols/Explorer/MathML/Symbols/$$
 that MS Internet Explorer does not display properly.
 Also note that
 \preceq is in the list of
-$xref/Firefox/Symbols/symbols/$$
+$cref/symbols/Firefox/Symbols/$$
 that Firefox does not display properly.
 
 

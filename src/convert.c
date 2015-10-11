@@ -131,13 +131,13 @@ $tend
 
 
 $head Description$$
-The routines listed in $xref/convert/$$
+The routines listed in $cref convert$$
 keep track of the current output column number.
 This is used for
 converting tab characters in pre-formatted mode.
 The routine $code ConvertAddColumn$$
 is used when the current output column changes because
-of output that does not use one of the $xref/convert/$$ routines.
+of output that does not use one of the $cref convert$$ routines.
 Calling $code ConvertAddColumn$$, adds the value $italic add$$ to
 the current output column number and returns the resulting column.
 The call
@@ -200,7 +200,7 @@ ConvertPreviousNewline()
 /$$
 Returns the number of newlines, since the previous non white space character,
 that were output by any of the
-$xref/convert/Convert Routines/convert routines/$$.
+$cref/convert routines/convert/Convert Routines/$$.
 
 $syntax/
 
@@ -208,7 +208,7 @@ ConvertAddPrevious(/n/)
 /$$
 The value $italic n$$ is added to the previous newline counter.
 If newlines are output by routines other than the
-$xref/convert/Convert Routines/convert routines/$$,
+$cref/convert routines/convert/Convert Routines/$$,
 a positive value of $italic n$$ will adjust for this.
 $pre
 
@@ -223,7 +223,7 @@ $pre
 
 $$
 If $italic n$$ is greater than zero, the current
-$xref/ConvertAddColumn//column counter/$$ is set to zero.
+$cref/column counter/ConvertAddColumn/$$ is set to zero.
 
 
 $end
@@ -246,7 +246,7 @@ $bold Syntax$$
 $cend
 $syntax%char *ConvertInternalString(const char *%s%)%$$ $rnext
 $bold See Also$$
-$xref/ConvertOutput/$$
+$cref ConvertOutput$$
 $tend
 
 $head Description$$
@@ -266,8 +266,8 @@ $code REGISTERED_TRADE_MARK_CHARACTER$$,
 are defined in $code convert.h$$.
 
 $head Memory$$
-The return value is allocated with $xref/AllocMem/$$ and should be freed
-with $xref/AllocMem/FreeMem/FreeMem/$$ when it is no longer needed.
+The return value is allocated with $cref AllocMem$$ and should be freed
+with $cref/FreeMem/AllocMem/FreeMem/$$ when it is no longer needed.
 
 
 $end

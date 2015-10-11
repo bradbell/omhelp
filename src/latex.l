@@ -25,11 +25,11 @@ The Latex lexical analyzer reads its data from memory.
 This call sets the input data to the $code const$$ '\0' terminated
 character vector specified by $italic input$$.
 The integer $italic line$$ specifies the line
-number in the file $xref/InputName//InputName()/$$
+number in the file $cref/InputName()/InputName/$$
 where $italic input$$ started.
 
 $head Memory Allocation$$
-This call allocates memory using $xref/AllocMem/$$.
+This call allocates memory using $cref AllocMem$$.
 This memory is freed when the Latex lexical analyzer returns
 $code CHAR_ENDINPUT_lex$$.
 
@@ -78,7 +78,7 @@ For $math% i=0,...,ntoken-1 %$$
 the value of $syntax//line/[/i/]/$$ is set to the line
 number where the token
 $syntax//token/[/i/]/$$ appeared in the
-file $xref/InputName//InputName()/$$.
+file $cref/InputName()/InputName/$$.
 $syntax%
 
 char **%token%

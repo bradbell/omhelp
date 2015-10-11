@@ -39,7 +39,7 @@ When you are finished using the routines listed below,
 the routine $mref/ExecuteFree/$$ should be called.
 This will free hidden memory allocated for these routines
 and avoid a
-$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$ error.
+$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$ error.
 
 $comment
 Only include execute.c because routines in that file refer

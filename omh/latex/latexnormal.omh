@@ -51,7 +51,7 @@ $latex \[
 A sequence of letters with out any space between
 is treated as a single identifier. Thus,
 unlike
-$xref/latex/Reference/standard Latex/$$,
+$cref/standard Latex/latex/Reference/$$,
 white space placed between
 letters may make a difference in spacing depending on your browser.
 For example,

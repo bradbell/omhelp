@@ -36,7 +36,7 @@ $tend
 
 $head Description$$
 This command will cause the specified
-$xref/glossary/Input File Searching/input file/$$
+$cref/input file/glossary/Input File Searching/$$
 to be included
 as input for the current section.
 This is useful for commands that are repeated in many files.

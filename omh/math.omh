@@ -32,10 +32,10 @@ $tend
 $head Description$$
 This command is used for displaying mathematical expressions
 in HTML format using only ascii characters.
-(The $xref/latex/$$ command can be used to display an extended
+(The $cref latex$$ command can be used to display an extended
 set of mathematical symbols in MathML format.)
 The argument $italic text$$ must be a
-$xref/glossary/Delimiter Sequence/delimiter sequence/$$.
+$cref/delimiter sequence/glossary/Delimiter Sequence/$$.
 
 $head Pre-formatted$$
 The characters in $italic text$$ are output in a
@@ -193,7 +193,7 @@ of the letters $code th$$.
 The text $italic index$$ does not contain any $code @$$ characters
 and is displayed in $mref/math/$$ mode (without delimiters).
 In addition, leading and trailing
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 in $italic index$$ is ignored.
 
 For example,

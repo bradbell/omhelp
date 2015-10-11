@@ -27,7 +27,7 @@ $cnext $mref/table/array/$$
 $tend
 
 $head Description$$
-Set the alignment for all subsequent $xref/table/$$ commands
+Set the alignment for all subsequent $cref table$$ commands
 where $italic location$$ is one of the following:
 $code left$$,
 $code center$$,
@@ -98,7 +98,7 @@ $tend
 $head Reference$$
 If an alignment command appears inside a cell of a table,
 it only affects subsequent cells; i.e.,
-it only takes affect at the next $xref/table/$$, $code rnext$$
+it only takes affect at the next $cref table$$, $code rnext$$
 or $code cnext$$ command.
 A horizontal or vertical alignment has effect until it is changed
 or until the end of the current section (which ever comes first).

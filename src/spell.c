@@ -92,7 +92,7 @@ FreeSpelling(debug)
 Frees all memory that is connected to spell checking
 This memory is allocated using $mref/AllocMem/$$
 and should be freed before calling
-$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$.
+$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$.
 
 If debug is true, a list of all reported spelling errors is written
 in alphabetical order and lower case to a file called error.wrd.

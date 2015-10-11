@@ -29,7 +29,7 @@ $table
 $bold Syntax$$
 $cnext $syntax/@newlinech /character/@@/$$ $rnext
 $bold See Also$$
-$cnext $xref/codep/Source Code Examples/codep/$$
+$cnext $cref/codep/codep/Source Code Examples/$$
 $tend
 
 $head Purpose$$
@@ -42,7 +42,7 @@ $head character$$
 There must be zero or one character in $italic character$$ and it
 can not be the $code @$$ character.
 Leading and trailing
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 in $italic character$$ is ignored.
 All subsequent occurrences of $italic character$$
 at the beginning of a line are ignored.

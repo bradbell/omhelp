@@ -59,7 +59,7 @@ BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)
 The opens a new output file named $syntax//taglower/_links./ext/$$
 where $italic taglower$$ is a lower case version of $italic tagfrom$$
 and $italic ext$$ is the output file extension specified by
-$xref/Internal2Out/$$.
+$cref Internal2Out$$.
 This file will contain a set of links for navigating from
 specified section.
 The argument $italic tagfrom$$ contains
@@ -118,10 +118,10 @@ $pre
 $$
 If neither of the cases above hold,
 It is assumed that $italic tag$$ and $italic crossheading$$.
-specify a valid $xref/CrossReference//cross reference/$$.
+specify a valid $cref/cross reference/CrossReference/$$.
 In this case
 $italic text$$ is linked to the
-$xref/glossary/Cross Reference Heading/cross reference heading/$$
+$cref/cross reference heading/glossary/Cross Reference Heading/$$
 specified by $italic crossheading$$
 with in the section specified by $italic tag$$.
 $pre

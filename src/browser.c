@@ -24,7 +24,7 @@ $syntax//tag/.tmp/$$ and writes
 a pass one version of the table of
 the browser sectionto that file.
 The argument $italic browser$$ is the corresponding
-$xref/SectionInfo/$$ pointer corresponding to the browser section.
+$cref SectionInfo$$ pointer corresponding to the browser section.
 The value $italic tag$$ in the file name
 is equal to $syntax//browser/->tag/$$.
 

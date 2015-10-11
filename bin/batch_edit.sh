@@ -14,7 +14,7 @@ fi
 P='\([^/]*\)'
 E='\$\$'
 cat << EOF > junk.sed
-/^\txref\$/d
+s/^\\txref\$/\\tcref/
 #
 s|\$xref *$P$E|\$cref \\1\$\$|g
 s|\$xref/$P/$E|\$cref \\1\$\$|g
@@ -36,7 +36,7 @@ s|//@@|/@@|g
 N
 N
 N
-s|\$xref/\\n\\t$P/\\n\\t$P/\\n\\t$P/$E|\$cref/\\3\\n\\t/\\1\\n\\t/\\2/\$\$|
+s|\$xref/\\n\\t$P/\\n\\t$P/\\n\\t$P/$E|\$cref/\\3\\n\\t/\\1\\n\\t/\\2\\n/\$\$|
 : skip_forward_slash
 EOF
 P='\([^|]*\)'
@@ -48,6 +48,8 @@ s/\$xref|why|\\n\\t$P|\\n\\t$P|$E/\$cref|\\2\\n\\t|why\\n\\t|\\1\\n|\$\$/
 : skip_why
 EOF
 list=`git ls-files | sed  \
+	-e '/^omh\/hilite\.omh$/d' \
+	-e '/^omh\/fend\.omh$/d' \
 	-e '/^omh\/xref\.omh$/d' \
 	-e '/^omh\/whatsnew.*\.omh$/d' \
 	-e '/^bin\/batch_edit\.sh$/d'`

@@ -10,7 +10,7 @@ $escape !$$
 $dollar @$$
 $aindex head$$
 $spell
-	xref
+	cref
 	html
 	omhelp
 	htm
@@ -26,10 +26,10 @@ $section Glossary$$
 $head Children$$
 The children of the current section
 are the sections directly following in the
-$xref/_contents//contents tree/$$
+$cref/contents tree/_contents/$$
 that are indented more than the current section.
 The children of the current section are specified by
-the $xref/children//contents/$$, $code childtable$$, or
+the $cref/contents/children/$$, $code childtable$$, or
 $code children$$ command for the current section.
 
 $head Complete Path Specification$$
@@ -42,8 +42,8 @@ or has a colon, $code :$$, as its second character.
 $head Cross Reference Tag$$
 Each section has a cross reference tag that is specified in its
 $mref/begin/$$ command.
-This tag is used to link to that section using the
-$xref/xref//xref/$$ command.
+This tag is used to link to the section; e.g., using the
+$cref cref$$ command.
 It should be an abbreviated version of the title
 for the corresponding section
 (similar to a variable name being short hand for a concept
@@ -59,7 +59,7 @@ In addition, there can be no occurrences of the character $code @$$
 in any delimiter sequence; i.e.,
 there can not be any commands embedded in a delimiter sequence.
 If the first character in the sequence is a
-$xref/glossary/White Space/white space/$$ character,
+$cref/white space/glossary/White Space/$$ character,
 there is only one argument and it is the entire sequence except
 for the first character.
 If the first character in the sequence is not a white space character,
@@ -95,7 +95,7 @@ The extension for the HTML files written by $code omhelp$$ is $code .htm$$.
 
 $head Input File Searching$$
 If an input file name is not a
-$xref/glossary/Complete Path Specification/complete path specification/$$,
+$cref/complete path specification/glossary/Complete Path Specification/$$,
 it is relative to the directory where the file containing the
 $cref/root section/running/root_file/$$ is located.
 If it cannot be found there,
@@ -106,18 +106,18 @@ is used to determine which directories to search
 $head Parent$$
 The parent of the current section
 is the previous section in the
-$xref/_contents//contents tree/$$
+$cref/contents tree/_contents/$$
 that is indented less than the current section.
 The parent of the current section specified the input
 file for the current section in a
-$xref/children//contents/$$, $code childtable$$, or
+$cref/contents/children/$$, $code childtable$$, or
 $code children$$ command.
 
 $head Pre-formatted Font$$
 A Pre-formatted font displays text with a
 $cref/uniformly spaced font/glossary/Uniformly Spaced Font/$$.
 In addition,
-$xref/glossary/White Space/white space/$$
+$cref/white space/glossary/White Space/$$
 characters in the input are preserved in the output.
 This enables you to line up text between different lines.
 If you use an editor that displays the input text in a uniformly
@@ -136,13 +136,13 @@ $cref/headings and subheadings/head/$$.
 $head Siblings$$
 A siblings of the current section
 is a section indented the same amount
-in the $xref/_contents//contents tree/$$
-and that has the same $xref/glossary/Parent/parent/$$.
+in the $cref/contents tree/_contents/$$
+and that has the same $cref/parent/glossary/Parent/$$.
 If siblings are in the same input file,
 they have the same order as in the input file.
 If siblings are in different input files,
 they have the order of their input files in the corresponding
-$xref/children//contents/$$, $code childtable$$, or
+$cref/contents/children/$$, $code childtable$$, or
 $code children$$ command.
 
 $head Uniformly Spaced Font$$

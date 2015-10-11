@@ -26,19 +26,19 @@ $children/
 	simple_example.omh/$$
 
 $head Introduction$$
-The $xref/begin/$$ command starts a new section
+The $cref begin$$ command starts a new section
 and the $code @end$$ command ends the current section.
 An OMhelp section is defined
 as the content between a $code @begin$$ and $code @end$$ command.
 The argument to a
-$xref/section/$$ command specifies the title
+$cref section$$ command specifies the title
 for the current section.
 
 $head Execute The Following Steps$$
 
 $subhead Install$$
 The first step is to
-$xref/install/$$ OMhelp on your system.
+$cref install$$ OMhelp on your system.
 Then you can run any of the following examples:
 
 $subhead Test Directory$$
@@ -56,14 +56,14 @@ $$
 Note that you can copy and paste the commands above
 into your editor window.
 You may just copy the file with the same name from the
-$xref/get_started/Getting Started Directory/getting started directory/$$.
+$cref/getting started directory/get_started/Getting Started Directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
 result of making $code simple_example.omh$$
 part of the OMhelp help web site
 by selecting
-$xref/simple_example/$$.
+$cref simple_example$$.
 
 $subhead Htm Directory$$
 Create the directory $syntax%%test%/htm%$$.

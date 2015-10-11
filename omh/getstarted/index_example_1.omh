@@ -12,7 +12,7 @@ $index index, example$$
 
 $head Viewing Index$$
 Select the following link to view the index for this web site:
-$xref/_index//Keyword Index/$$
+$cref/Keyword Index/_index/$$
 
 $contents/
 	index_example_2.omh/$$

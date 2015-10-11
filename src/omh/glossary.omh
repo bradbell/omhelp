@@ -64,13 +64,13 @@ in the file name.
 
 $head Root File Name$$
 The term root file name refers a file name without
-its  $xref/glossary/File Extension/extension/$$.
+its  $cref/extension/glossary/File Extension/$$.
 It may include a
-$xref/glossary/Complete Path Specification/complete path specification/$$,
+$cref/complete path specification/glossary/Complete Path Specification/$$,
 it may be relative to one of the
-input search $xref/InputAddPath//paths/$$,
+input search $cref/paths/InputAddPath/$$,
 or it may be relative to the
-$xref/InputInit//input local directory/$$.
+$cref/input local directory/InputInit/$$.
 
 $head Section Tree$$
 A Section tree is specified by a $mref/SectionInfo/$$

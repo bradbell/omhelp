@@ -81,7 +81,7 @@ $tend
 $head Hspace$$
 In the Latex $code hspace$$ command, $italic number$$
 can be any valid
-$xref/latexnumber//Latex number/$$
+$cref/Latex number/latexnumber/$$
 and $italic unit$$ must be one of the units listed below
 
 $table

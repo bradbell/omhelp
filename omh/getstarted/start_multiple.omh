@@ -29,7 +29,7 @@ $index file, multiple$$
 $index section, multiple$$
 
 $head Introduction$$
-The $xref/children//contents, childtable, and children/$$
+The $cref/contents, childtable, and children/children/$$
 commands can be used to specify input files.
 All of the sections in these files are children
 of the current section and are siblings of each other
@@ -42,10 +42,10 @@ $subhead multiple_example_1.omh$$
 Use an editor of your choice to
 create the file $code  multiple_example_1.omh$$
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Test Directory/
-	test directory/$$
+$cref/test directory
+	/start_simple
+	/Execute The Following Steps.Test Directory
+/$$
 with the following contents:
 $code
 $pre
@@ -54,16 +54,16 @@ $$
 Note that you can copy and paste the commands above
 to your editor window.
 You may just copy the file with the same name from the
-$xref/get_started/Getting Started Directory/getting started directory/$$.
+$cref/getting started directory/get_started/Getting Started Directory/$$.
 
 $subhead multiple_example_2.omh$$
 Use an editor of your choice to
 create the file $code  multiple_example_2.omh$$
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Test Directory/
-	test directory/$$
+$cref/test directory
+	/start_simple
+	/Execute The Following Steps.Test Directory
+/$$
 with the following contents:
 $code
 $pre
@@ -74,10 +74,10 @@ $subhead multiple_example_3.omh$$
 Use an editor of your choice to
 create the file $code  multiple_example_3.omh$$
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Test Directory/
-	test directory/$$
+$cref/test directory
+	/start_simple
+	/Execute The Following Steps.Test Directory
+/$$
 with the following contents:
 $code
 $pre
@@ -90,15 +90,15 @@ You can view the
 result of making $code multiple_example_1.omh$$
 part of the OMhelp help web site
 by selecting
-$xref/multiple_example_1/$$.
+$cref multiple_example_1$$.
 
 $subhead Execute OMhelp$$
 In a command window and
 in the
-$xref/
-	start_simple/
-	Execute The Following Steps.Htm Directory/
-	htm directory/$$
+$cref/htm directory
+	/start_simple
+	/Execute The Following Steps.Htm Directory
+/$$
 execute the following command
 $codep
 	omhelp ../multiple_example_1.omh -noframe
@@ -116,15 +116,15 @@ for this example.
 There is more than one section in the
 corresponding web site because the root section
 contains a
-$xref/children//contents/$$ command.
+$cref/contents/children/$$ command.
 For this reason,
 a navigation links are included in the web page
 and the following navigation sections are automatically generated:
-$xref/_contents/$$,
-$xref/_reference/$$,
-$xref/_index/$$,
-$xref/_search/$$,
-$xref/_external/$$.
+$cref _contents$$,
+$cref _reference$$,
+$cref _index$$,
+$cref _search$$,
+$cref _external$$.
 
 
 $end

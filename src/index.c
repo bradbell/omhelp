@@ -78,7 +78,7 @@ points to.
 
 $head Head$$
 The '\0' terminated character vector $italic head$$ is the
-$xref/glossary/Cross Reference Heading/cross reference heading/$$
+$cref/cross reference heading/glossary/Cross Reference Heading/$$
 for this index entry.
 It specifies the location with in the section
 that the index entry points to.
@@ -93,7 +93,7 @@ The escape character is used for special processing of index entries
 and does not appear in the index entries.
 
 $head Section$$
-This is a $xref/SectionInfo/$$ pointer
+This is a $cref SectionInfo$$ pointer
 that specifies the section corresponding to the automatically
 generated index page.
 
@@ -102,7 +102,7 @@ $index InsertInIndex$$
 this routine will insert one index entry corresponding to
 the text in $italic key$$.
 The characters in $italic key$$ before the first
-$xref/KeywordIndex/Key.Key Comma/key comma/$$
+$cref/key comma/KeywordIndex/Key.Key Comma/$$
 specify the first level of the index entry.
 If there is a key comma in $italic key$$
 the text after the first key comma specifies
@@ -111,9 +111,9 @@ the second level of the index entry.
 $head MultipleIntoIndex$$
 $index MultipleIntoIndex$$
 This routine will insert a one level index entry for each
-$xref/KeywordIndex/Key.Key Word/key word/$$
+$cref/key word/KeywordIndex/Key.Key Word/$$
 that is not a
-$xref/KeywordIndex/Key.Key Comment/key comment/$$.
+$cref/key comment/KeywordIndex/Key.Key Comment/$$.
 (For this function,
 the comma does not have the special meaning it has in $code InsertInIndex$$.)
 Words that appear in $icode ignore$$ will not be included in the index.
@@ -121,9 +121,9 @@ Words that appear in $icode ignore$$ will not be included in the index.
 $head CycleIntoIndex$$
 $index CycleIntoIndex$$
 This routine will insert a two level index entry for each
-$xref/KeywordIndex/Key.Key Word/key word/$$
+$cref/key word/KeywordIndex/Key.Key Word/$$
 that is not a
-$xref/KeywordIndex/Key.Key Comment/key comment/$$.
+$cref/key comment/KeywordIndex/Key.Key Comment/$$.
 The first level of the index entry will be the key word.
 The second level will be the entire $italic key$$.
 $pre
@@ -131,7 +131,7 @@ $pre
 $$
 If a comma character appears in $italic key$$ and it not
 is preceded by the
-$xref/KeywordIndex/Key.Key Escape Character/key escape/$$ character,
+$cref/key escape/KeywordIndex/Key.Key Escape Character/$$ character,
 an error message for the $code cindex$$ command is generated.
 
 
@@ -153,16 +153,16 @@ reference that points to the position of that letter in the index.
 In addition, it is added to the list of cross references to this section.
 
 $head IndexFreeMem$$
-The routines listed above allocate memory using $xref/AllocMem/$$.
+The routines listed above allocate memory using $cref AllocMem$$.
 The routine $code IndexFreeMem$$ must be called
 after the last call to any of the routines above,
 and before calling
-$xref/AllocMem/CheckMemoryLeak/CheckMemoryLeak/$$.
+$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$.
 
 
 $head Errors$$
 All the routines documented above use
-$xref/fatalerr//fatalomh/$$ to report error messages; i.e.,
+$cref/fatalomh/fatalerr/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.
 

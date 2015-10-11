@@ -21,7 +21,7 @@ $section Link to Next Section$$
 $head Description$$
 There is a $code next$$ link in the OMhelp navigation frame.
 This links to the next section as determined by the
-$xref/_contents//table of contents/$$.
+$cref/table of contents/_contents/$$.
 
 
 $end

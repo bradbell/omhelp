@@ -26,7 +26,7 @@ $section Getting Started Using OMhelp$$
 
 $head Introduction$$
 The first step is to
-$xref/install/$$ OMhelp on your system.
+$cref install$$ OMhelp on your system.
 Then you can run any of the
 getting started examples listed below.
 
@@ -48,18 +48,18 @@ $children/
 $table
 $bold Commands$$                $cnext $bold Getting Started$$ $rnext
 $mref/begin/section/$$          $cnext $tref start_simple$$    $rnext
-$xref/head/$$                   $cnext $tref start_head$$      $rnext
-$xref/image/$$                  $cnext $tref start_image$$     $rnext
-$xref/pre/$$                    $cnext $tref start_pre$$       $rnext
-$xref/font/$$                   $cnext $tref start_font$$      $rnext
-$xref/spell/$$                  $cnext $tref start_spell$$     $rnext
-$xref/latex/$$                  $cnext $tref start_latex$$     $rnext
-$xref/verbatim/$$               $cnext $tref start_verbatim$$  $rnext
+$cref head$$                   $cnext $tref start_head$$      $rnext
+$cref image$$                  $cnext $tref start_image$$     $rnext
+$cref pre$$                    $cnext $tref start_pre$$       $rnext
+$cref font$$                   $cnext $tref start_font$$      $rnext
+$cref spell$$                  $cnext $tref start_spell$$     $rnext
+$cref latex$$                  $cnext $tref start_latex$$     $rnext
+$cref verbatim$$               $cnext $tref start_verbatim$$  $rnext
 $mref/begin/syntax/codep/newlinech/$$
                                 $cnext $tref start_embed$$     $rnext
-$xref/children/$$               $cnext $tref start_multiple$$  $rnext
-$xref/cref/$$                   $cnext $tref start_cref$$      $rnext
-$xref/keyword//index/$$         $cnext $tref start_index$$
+$cref children$$               $cnext $tref start_multiple$$  $rnext
+$cref cref$$                   $cnext $tref start_cref$$      $rnext
+$cref/index/keyword/$$         $cnext $tref start_index$$
 $tend
 
 $head Getting Started Directory$$
@@ -73,7 +73,7 @@ relative to the distribution directory
 $syntax%
 	omhelp_%yy%-%mm%-%dd%
 %$$
-created during the $xref/Install//installation of OMhelp/$$.
+created during the $cref/installation of OMhelp/Install/$$.
 If you have the bash shell on your system,
 there is a script file that can be run with the command
 $codep

@@ -53,6 +53,6 @@ $pre
 $head Reference$$
 The spell checker does not currently recognize this command.
 For example, in the example above the word $code sil$$ must be added
-to the spelling exceptions using the $xref/spell/$$ command.
+to the spelling exceptions using the $cref spell$$ command.
 
 $end

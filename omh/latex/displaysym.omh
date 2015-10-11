@@ -41,14 +41,14 @@ the symbol specified by $italic Symbol$$ where
 $italic Symbol$$ is one of the
 Latex symbols in the tables below.
 These symbols are larger in
-$xref/latex/Displayed Formulas/displayed formulas/$$
+$cref/displayed formulas/latex/Displayed Formulas/$$
 than in inline formulas.
 In addition,
 subscripts and superscripts attached directly to these symbols
 are placed above and below in displayed formulas
 (instead of after the symbol).
 These symbols appear in Table 3.8 of
-$xref/latex/Reference/Lamport/$$.
+$cref/Lamport/latex/Reference/$$.
 
 $head Inline Formulas$$
 The following tables lists the symbols
@@ -94,9 +94,9 @@ $head Display Formulas$$
 The following is an example
 of these symbols in displayed formulas.
 Note the operator size problem with both the
-$xref/Firefox/Operator Sizes/Firefox/$$
+$cref/Firefox/Firefox/Operator Sizes/$$
 and
-$xref/Explorer/MathML/Operator Sizes/Explorer/1/$$
+$cref/Explorer/Explorer/MathML/Operator Sizes/$$
 browsers.
 $latex \[
 \sum

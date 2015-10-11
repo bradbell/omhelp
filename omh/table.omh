@@ -109,7 +109,7 @@ $head Alignment$$
 You can use the $mref/center/$$ command to center the table.
 The default horizontal and vertical alignment for data in each cell
 is $code left$$ and $code top$$.
-You can use the $xref/align/$$ command to change this alignment.
+You can use the $cref align$$ command to change this alignment.
 
 
 $head Cend and Rend$$

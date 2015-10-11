@@ -47,7 +47,7 @@ $index cross, reference tag$$
 $index tag, cross reference$$
 $index reference, tag$$
 The
-$xref/glossary/Cross Reference Tag/cross reference tag/$$
+$cref/cross reference tag/glossary/Cross Reference Tag/$$
 for each of the sections that are defined in the file
 are printed following the file name and on the same line.
 
@@ -57,7 +57,7 @@ $index message, error$$
 OMhelp error messages begin on a separate line with the text
 $code OMhelp Error:$$.
 These errors cause OMhelp to terminate with a non-zero
-$xref/running/Exit Status/exit status/$$.
+$cref/exit status/running/Exit Status/$$.
 
 $head Warning Message$$
 $index warning, message$$

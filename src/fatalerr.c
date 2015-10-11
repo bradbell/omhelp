@@ -68,13 +68,13 @@ is printed on standard output followed by the $italic Message$$.
 After $italic Message$$, and starting with a new line,
 a line number is reported.
 This is where the next input token (after the error) would start; i.e.,
-the current value of $xref/InputLine//InputLine()/$$.
+the current value of $cref/InputLine()/InputLine/$$.
 $pre
 
 $$
 All occurrences of the character $code @$$ in the error message
 are converted to the current
-$xref/CommandKeyCharacter//command key character/$$ before being output.
+$cref/command key character/CommandKeyCharacter/$$ before being output.
 
 $head fataltex$$
 $index fataltex$$

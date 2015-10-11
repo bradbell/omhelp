@@ -63,7 +63,7 @@ $tend
 
 Note that these font commands affect all output text
 and this is different from the description in Section 3.3.8 of
-$xref/latex/Reference/Lamport's book/$$.
+$cref/Lamport's book/latex/Reference/$$.
 Also note that, in Firefox, the $code \cal$$ commands does not display properly
 do to a bug in it's $cref/mathvariant/Firefox/mathvariant/$$ display.
 

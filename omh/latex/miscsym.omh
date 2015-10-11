@@ -35,7 +35,7 @@ $italic Command$$ is one of the
 Latex commands in the tables below.
 The following tables contain the miscellaneous symbols
 in Table 3.7 of
-$xref/latex/Reference/Lamport/$$
+$cref/Lamport/latex/Reference/$$
 $pre
 
 $$
@@ -43,7 +43,7 @@ The
 $href%http://www.w3.org/TR/MathML2/025.html/%MathML standard%$$
 displays a diamondsuit as black
 while
-$xref/latex/Reference/Lamport's book/$$
+$cref/Lamport's book/latex/Reference/$$
 displays it as white.
 
 $pre
@@ -52,7 +52,7 @@ $$
 Note that
 \Box and \triangle
 are in the list of
-$xref/Explorer/MathML/Symbols/symbols/1/$$
+$cref/symbols/Explorer/MathML/Symbols/$$
 that MS Internet Explorer does not display properly.
 
 $subhead Arrow Symbols$$
