@@ -250,7 +250,7 @@ $xref/keyword/Headings/headings/$$ within a section.
 
 $head 06-23$$
 Extended  the $mref/image/$$ command so that it
-works with other file extensions besides $syntax//name/.gif/$$.
+works with other file extensions besides $icode/name/.gif/$$.
 For example, the input $code @icon icon.jpg@@$$
 results in the following output: $icon icon.jpg$$
 

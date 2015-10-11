@@ -16,7 +16,7 @@ $$
 $section Output Frame Set for a Section$$
 
 $head Syntax$$
-$syntax%void OutputFrameSet(SectionInfo *%
+$codei%void OutputFrameSet(SectionInfo *%
 	F%, const char *%FrameOneExt%, int %link_frame%)%$$
 
 $head Purpose$$
@@ -26,7 +26,7 @@ is not present).
 
 $head Output File$$
 The frame set file for this section is named
-$syntax%
+$codei%
 	%F->tagLower%.%FrameOneExt%
 %$$
 
@@ -34,7 +34,7 @@ $head link_frame$$
 If $italic link_frame$$ is true,
 a file containing the relative links for this section is output with
 the name
-$syntax%
+$codei%
 	%F->tagLower%.%ext%
 %$$
 where $italic ext$$ is the return value from the function
@@ -47,7 +47,7 @@ The other frames are displayed one above the other
 (in order) to the right of the link frame.
 For $italic j$$ equal one to $italic F->nFrame$$,
 the file containing the $th j$$ frames information is assumed to be named
-$syntax%
+$codei%
 	%F->tagLower%_frame%j%.%ext%
 %$$
 If $italic j$$ is one
@@ -57,7 +57,7 @@ $italic ext$$ is the return value from the function
 $code Internal2Out("OutputExtension")$$.
 The $th j$$ frame is given the following HTML $code name$$ and $code id$$
 values
-$syntax%
+$codei%
 	name="frame%j%" id="frame%j%"
 %$$
 

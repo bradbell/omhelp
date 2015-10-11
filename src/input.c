@@ -19,7 +19,7 @@ $section Get Next Character From Current Input File$$
 
 $table
 $bold Syntax$$
-$cend $syntax%char InputGet()%$$ $rend
+$cend $codei%char InputGet()%$$ $rend
 $bold See Also$$
 $cend $mref/InputPush/$$
 $tend
@@ -48,7 +48,7 @@ $section Initialize Input By Setting The Local Name Directory$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void InputInit(
+$cend $codei%void InputInit(
 	const char *%directory%
 )%$$
 $tend
@@ -91,7 +91,7 @@ $section Open File and Put it on Top of Input Stack$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void InputPush(
+$cend $codei%void InputPush(
 	const char *%root%,
 	const char *%ext%,
 	const int   %nspace%
@@ -144,7 +144,7 @@ $section Close File and Remove it from the Input Stack$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void InputPop()%$$ $rend
+$cend $codei%void InputPop()%$$ $rend
 $bold See Also$$
 $cend $mref/InputPush/$$
 $tend
@@ -167,7 +167,7 @@ $section Name of Current Input File$$
 
 $table
 $bold Syntax$$
-$cend $syntax%const char *InputName()%$$ $rend
+$cend $codei%const char *InputName()%$$ $rend
 $bold See Also$$
 $cend $mref/InputLine/InputPush/$$
 $tend
@@ -201,7 +201,7 @@ $section Line Number Corresponding to Current Input File$$
 
 $table
 $bold Syntax$$
-$cend $syntax%const int InputLine()%$$ $rend
+$cend $codei%const int InputLine()%$$ $rend
 $bold See Also$$
 $cend $mref/InputName/$$
 $tend
@@ -227,7 +227,7 @@ $section Add to the Set of Input Search Paths$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void InputAddPath(
+$cend $codei%void InputAddPath(
 	const char *%path%,
 	const char *%ext%
 )%$$ $rend
@@ -260,7 +260,7 @@ $section Search Input Paths for a Specific Input File$$
 
 $table
 $bold Syntax$$
-$cend $syntax%const char *InputSearch(
+$cend $codei%const char *InputSearch(
 	const char *%root%,
 	const char *%ext%
 )%$$ $rend
@@ -320,7 +320,7 @@ $section Determine Root and Extension Corresponding to an Input File$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void InputSplitName(
+$cend $codei%void InputSplitName(
 	char **%proot%,
 	char **%pext%,
 	const char *%filename%
@@ -343,24 +343,24 @@ Leading and trailing white space in $italic filename$$ is ignored.
 $pre
 
 $$
-The character row vector $syntax%*%pext%$$
+The character row vector $codei%*%pext%$$
 is set to be $code '\0'$$ terminated and contains the
 $cref/extension/glossary/File Extension/$$
 corresponding to $italic filename$$.
-The character row vector $syntax%*%proot%$$
+The character row vector $codei%*%proot%$$
 is set to be $code '\0'$$ terminated and contains the
 $cref/root/glossary/Root File Name/$$
 corresponding to $italic filename$$.
 
 $head Memory Allocation$$
 The character vectors corresponding to
-both $syntax%*%proot%$$ and $syntax%*%pext%$$ is allocated using
+both $codei%*%proot%$$ and $codei%*%pext%$$ is allocated using
 $mref/AllocMem/$$ and is not freed by any of the
 $mref/input/$$ routines.
 In particular, it is not freed by $mref/InputFree/$$.
 Hence the calling routine
 must ensure that the character vectors corresponding to
-both $syntax%*%proot%$$ and $syntax%*%pext%$$
+both $codei%*%proot%$$ and $codei%*%pext%$$
 are freed using $cref/FreeMem/AllocMem/FreeMem/$$.
 
 $end
@@ -374,7 +374,7 @@ $section Free Hidden Memory Allocated by Input Routines$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void InputFree()%$$ $rend
+$cend $codei%void InputFree()%$$ $rend
 $bold See Also$$
 $cend $mref/input/$$
 $tend

@@ -19,7 +19,7 @@ $section Create a New Section Information Record$$
 
 $table
 $bold Syntax$$
-$cend $syntax%SectionInfo *SectionInfoNew(
+$cend $codei%SectionInfo *SectionInfoNew(
 	const SectionInfo *navigateCopy,
 	const char *%filename%
 )%$$ $rend
@@ -79,7 +79,7 @@ $section Replace Undefined Style Values by Defaults$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void SectionDefaultStyle(
+$cend $codei%void SectionDefaultStyle(
 	SectionInfo *%To,
 	SectionInfo *%From%
 )%$$ $rend
@@ -87,15 +87,15 @@ $tend
 
 $head Description$$
 Suppose that $italic field$$ is such that
-$syntax//To/->style/./field/$$
+$icode/To/->style/./field/$$
 is equal to $code NULL$$ and
-$syntax//From/->style/./field/$$
+$icode/From/->style/./field/$$
 is not equal to $code NULL$$.
 In this case,
-$syntax//To/->style/./field/$$
+$icode/To/->style/./field/$$
 is set equal to
 a separate copy of
-$syntax//From/->style/./field/$$
+$icode/From/->style/./field/$$
 
 
 $end
@@ -112,7 +112,7 @@ $section Free All SectionInfo Records of Corresponding Section Tree$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void SectionFreeTree(
+$cend $codei%void SectionFreeTree(
 	SectionInfo *%tree%
 )%$$ $rend
 $bold See Also$$
@@ -155,7 +155,7 @@ $section Find the SectionInfo Record With a Specified Tag$$
 
 $table
 $bold Syntax$$
-$cend $syntax%SectionInfo* SectionFind(
+$cend $codei%SectionInfo* SectionFind(
 	SectionInfo *%tree%,
 	const char *%tag%
 )%$$ $rend
@@ -201,7 +201,7 @@ $section Set a SectionInfo Record Tag Field$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void SectionSetTag(
+$cend $codei%void SectionSetTag(
 	SectionInfo *%section%,
 	const char *%tag%
 )%$$ $rend
@@ -237,7 +237,7 @@ $section Numbers All Sections in Printable Order$$
 
 $table
 $bold Syntax$$
-$cend $syntax%char *SectionNumber(
+$cend $codei%char *SectionNumber(
 	SectionInfo *%section%
 )%$$
 $tend
@@ -277,7 +277,7 @@ $section Search For a Section With Undefined Tag$$
 
 $table
 $bold Syntax$$
-$cend $syntax%SectionInfo* SectionTagNotDefined(
+$cend $codei%SectionInfo* SectionTagNotDefined(
 	SectionInfo *%root%
 )%$$ $rend
 $bold See Also$$
@@ -321,9 +321,9 @@ $section Return Next or Previous Section in Read Order$$
 
 $table
 $bold Syntax$$
-$cend $syntax%SectionInfo* SectionReadNext( SectionInfo *%section%)%$$
+$cend $codei%SectionInfo* SectionReadNext( SectionInfo *%section%)%$$
 $rend
-$cend $syntax%SectionInfo* SectionReadPrevious( SectionInfo *%section%)%$$
+$cend $codei%SectionInfo* SectionReadPrevious( SectionInfo *%section%)%$$
 $tend
 
 $head Description$$
@@ -369,7 +369,7 @@ $$
 $section Changing Relative Navigation Links for a Section$$
 
 $head Syntax$$
-$syntax%void SectionNavigate(
+$codei%void SectionNavigate(
 	SectionInfo *%S%      ,
 	int          %ntoken% ,
 	const char  *%text%   ,
@@ -383,7 +383,7 @@ $italic S$$ the one specified by $italic italic ntoken$$ and $italic text$$.
 
 $head S$$
 Pointer the section information record that is being changed.
-The subfield $syntax%S->navigate%$$ is changed,
+The subfield $codei%S->navigate%$$ is changed,
 and the rest of the section information is left as is.
 
 $head ntoken$$
@@ -406,7 +406,7 @@ Leading and trailing white space in each token is ignored.
 
 $subhead Navigation Types$$
 The valid navigation types values are
-$syntax%
+$codei%
 	Across
 	Down
 	Down_up_%i%
@@ -423,7 +423,7 @@ where $italic i$$ is a single decimal digit.
 $subhead Labels$$
 None of the labels can begin with the character $pre "_"$$ except
 for the following special case:
-$syntax%_up_%i%$$.
+$codei%_up_%i%$$.
 
 $head line$$
 If one of the requested navigation types is not valid, the invalid type

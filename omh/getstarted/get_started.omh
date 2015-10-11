@@ -70,7 +70,7 @@ $codep
 	omh/getstarted
 $$
 relative to the distribution directory
-$syntax%
+$codei%
 	omhelp_%yy%-%mm%-%dd%
 %$$
 created during the $cref/installation of OMhelp/Install/$$.

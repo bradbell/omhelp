@@ -71,7 +71,7 @@ $section Converting Integer Token Code to User Input$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%%string% = TokenCode2String(%code%)%$$
+$cnext $icode%string% = TokenCode2String(%code%)%$$
 $tend
 
 $head Purpose$$
@@ -81,14 +81,14 @@ This routine converts the integer code to the corresponding users input
 
 $head code$$
 The argument $italic code$$ has prototype
-$syntax%
+$codei%
 	int %code%
 %$$
 It is the integer code for the token to be converted.
 
 $head string$$
 The result $italic string$$ has prototype
-$syntax%
+$codei%
 	char *%string%
 %$$
 It points to memory that

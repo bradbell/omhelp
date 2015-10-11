@@ -23,7 +23,7 @@ This command may change in future versions of OMhelp.
 
 
 $head Syntax$$
-$syntax|@navigate%|default 1|%|label 1|%|...|%|default n|%|label n|%|$$
+$codei|@navigate%|default 1|%|label 1|%|...|%|default n|%|label n|%|$$
 
 $head Purpose$$
 OMhelp automatically creates navigation links,

@@ -29,7 +29,7 @@ $section Latex Underline, Underbrace, Overline, and Overbrace$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%@latex \%name%{%commands%}@@%$$ $rnext
+$cnext $codei%@latex \%name%{%commands%}@@%$$ $rnext
 $cnext where $italic name$$ is
 $code underline$$,
 $code underbrace$$,

@@ -107,7 +107,7 @@ $$
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/multiple_example_1.htm%$$.
+$icode%test%/htm/multiple_example_1.htm%$$.
 
 $head Discussion$$
 The file $code multiple_example_1.omh$$ contains the

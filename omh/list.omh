@@ -20,7 +20,7 @@ $section Commands Used to Display Lists of Items$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@list /marker/@@
+$cnext $codei/@list /marker/@@
 @lnext
 @lend/$$ $rnext
 $bold See Also$$

@@ -23,7 +23,7 @@ $section Displaying an Accent Over a Vowel$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@'/v/$$ $rnext
+$cnext $codei/@'/v/$$ $rnext
 $bold See Also$$
 $cnext $mref/dollar/rmark/dollar/cmark/newlinech/$$
 $tend

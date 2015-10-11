@@ -27,7 +27,7 @@ $href%negativespace.xml%Link To XML Version Of This Page%$$
 $head Claim$$
 It appears to me that negative values for $italic number$$ are valid in the
 MathML command
-$syntax%
+$codei%
 	<mspace width="%number%em"/>
 %$$ commands.
 In addition,

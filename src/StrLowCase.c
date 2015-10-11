@@ -16,7 +16,7 @@ $section Convert a String to Lower Case$$
 
 $table
 $bold Syntax$$ $cend
-$syntax%char *%%StrLowCase(
+$codei%char *%%StrLowCase(
 	char *%s%
 )%$$ $rend
 $rend

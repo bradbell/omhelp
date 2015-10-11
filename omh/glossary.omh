@@ -75,11 +75,11 @@ Both file names and directory names can use either the forward slash character,
 $code /$$, or the back slash character, $code \$$, to separate
 directories.
 For example,
-$syntax%
+$codei%
 	@include %directory%/%file%
 %$$
 has the same meaning as
-$syntax%
+$codei%
 	@include %directory%\%file%
 %$$
 

@@ -24,7 +24,7 @@ $section Latex Enclose With Left and Right Commands$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%@latex \left %s1 command_list% \right %s2% @@%$$
+$cnext $codei%@latex \left %s1 command_list% \right %s2% @@%$$
 $tend
 
 $head Description$$

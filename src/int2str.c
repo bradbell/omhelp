@@ -19,7 +19,7 @@ $section Convert and Integer to a String$$
 
 $table
 $bold Syntax$$ $cend
-$syntax%int2str(%i%)%$$
+$codei%int2str(%i%)%$$
 $rend
 $bold See Also$$ $cend $mref/str_alloc/$$
 $tend

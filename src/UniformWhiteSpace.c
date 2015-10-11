@@ -11,7 +11,7 @@ $section Unify Different White Space Versions of Same Information$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void UniformWhiteSpace(char *%s%)%$$
+$cend $codei%void UniformWhiteSpace(char *%s%)%$$
 $tend
 
 $head Description$$

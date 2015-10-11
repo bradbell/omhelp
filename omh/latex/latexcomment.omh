@@ -21,7 +21,7 @@ $section The Latex Comment Command$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex % /text/ @@/$$
+$cnext $codei/@latex % /text/ @@/$$
 $tend
 
 $head Description$$

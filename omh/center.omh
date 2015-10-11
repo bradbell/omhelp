@@ -19,7 +19,7 @@ $section Centering Text$$
 $table
 $bold Syntax$$
 $cnext
-$syntax/@center /text/@@/$$ $rnext
+$codei/@center /text/@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/pre/math/table/$$
 $tend

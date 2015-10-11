@@ -17,7 +17,7 @@ $index href, Url$$
 $section Map Link Representation to a URL$$
 
 $head Syntax$$
-$cend $syntax%char *Url(
+$cend $codei%char *Url(
 	const char *%tag% ,
 	const char *%head%,
 	const char *%head%
@@ -42,7 +42,7 @@ $head head$$
 This argument specifies the heading
 (with in the file) corresponding to the link.
 If the link is to the entire section, head is equal to the empty string; i.e.
-$syntax%
+$codei%
 	%head%[0] == '\0'
 %$$
 
@@ -54,7 +54,7 @@ $head Restrictions$$
 This function should only be called during the second pass,
 when all the cross references have been defined.
 The argument $italic tag$$ must satisfy the following conditions:
-$syntax%
+$codei%
 	assert( %tag%[0] != '\0' );
 	assert( ! isspace(%tag%[0]) );
 %$$

@@ -22,7 +22,7 @@ $section Allocated Memory for a Lower Case Copy of a String$$
 
 $table
 $bold Syntax$$ $cend
-$syntax%StrLowAlloc(
+$codei%StrLowAlloc(
 	const char *%s%
 )%$$ $rend
 $rend

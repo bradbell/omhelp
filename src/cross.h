@@ -30,8 +30,8 @@ Two different values for $italic tag$$ are called equal
 if they are equal without regard to case.
 The value $italic tag$$ should never be empty nor
 should it begin with white space;
-i.e. $syntax%%tag%[0] != '\0'%$$ and
-$syntax%! isspace(%tag%[0])%$$.
+i.e. $icode%tag%[0] != '\0'%$$ and
+$codei%! isspace(%tag%[0])%$$.
 
 $head File$$
 $index file, cross reference$$

@@ -30,13 +30,13 @@ $$
 
 $table
 $bold Syntax$$
-$cend $syntax%OpenSearchFile(%fileTag%, %siteTitle%)%$$  $rend
-$cend $syntax%SearchBegin(%tag%)%$$               $rend
-$cend $syntax%SearchTitle(%title%)%$$             $rend
-$cend $syntax%SearchKeywords(%list%, %escape%, %ignore%)%$$ $rend
-$cend $syntax%SearchGetKeywords()%$$              $rend
-$cend $syntax%SearchEnd()%$$                      $rend
-$cend $syntax%CloseSearchFile(%delete%)%$$
+$cend $codei%OpenSearchFile(%fileTag%, %siteTitle%)%$$  $rend
+$cend $codei%SearchBegin(%tag%)%$$               $rend
+$cend $codei%SearchTitle(%title%)%$$             $rend
+$cend $codei%SearchKeywords(%list%, %escape%, %ignore%)%$$ $rend
+$cend $codei%SearchGetKeywords()%$$              $rend
+$cend $codei%SearchEnd()%$$                      $rend
+$cend $codei%CloseSearchFile(%delete%)%$$
 $tend
 
 $head Description$$
@@ -46,7 +46,7 @@ It is a Pass One version because it is written
 to a file with extension $code .tmp%$$ and does not have any
 Pass One escape sequences; i.e., no matches for
 $code MatchText$$ in $code omhelp.y$$.
-$syntax%
+$codei%
 
 OpenSearchFile(%fileTag%, %siteTitle%)%
 %$$
@@ -56,7 +56,7 @@ The '\0' terminated character string $italic siteTitle$$
 specifies the title for the automatically generated web page that
 is a search utility for this web site.
 This call opens a new file called
-$syntax%%fileTag%.tmp%$$
+$icode%fileTag%.tmp%$$
 in which the search information is written.
 This will be a  Pass One version of the web page that
 can be used to search the web site being created.
@@ -64,18 +64,18 @@ It needs to be linked up as the proper frame of a page in the system
 during Pass Two.
 The $code OpenSearchFile$$ routine must be called
 before any of the other routines documented below.
-$syntax%
+$codei%
 
 SearchBegin(%tag%)%
 %$$
 This begins a the search information for a new section.
 The '\0' terminated character vector $italic tag$$
 specifies the cross reference tag for the current section.
-(It is assumed that $syntax%%tag%[0]%$$ is not equal to '\0'.)
+(It is assumed that $icode%tag%[0]%$$ is not equal to '\0'.)
 The title and keywords that come between a call to $code SearchBegin$$
 and the following call to $code SearchEnd$$
 are linked by the search utility
-to the web page $syntax%%tag%.%ext%$$
+to the web page $icode%tag%.%ext%$$
 (where $italic ext$$ is the output file extension specified by
 $cref Internal2Out$$).
 If multiple sequential white spaces characters
@@ -84,7 +84,7 @@ is generated and the program is terminated.
 $pre
 
 $$
-$syntax%
+$codei%
 
 SearchTitle(%title%)%
 %$$
@@ -97,7 +97,7 @@ has not yet occurred.
 It is also assumed that there is one and only one call to
 $code SearchTitle$$ between each call to $code SectionBegin$$
 and the next call to $code SectionEnd$$.
-$syntax%
+$codei%
 
 SearchKeywords(%list%, %escape%, %ignore%)%
 %$$
@@ -123,7 +123,7 @@ except for those commas that are preceded by the $italic escape$$
 character.
 Words that appear in $icode ignore$$, surrounded by spaces, are not included
 in the search keywords.
-$syntax%
+$codei%
 
 SearchGetKeywords()
 %$$
@@ -135,7 +135,7 @@ an each keyword is surrounded by a space.
 The memory for the return value is allocated with
 $cref AllocMem$$ and should be freed with $cref/FreeMem/AllocMem/FreeMem/$$
 when it is no longer needed.
-$syntax%
+$codei%
 
 SearchEnd()
 %$$
@@ -143,16 +143,16 @@ This completes the current section specified by
 the previous call to $code SearchBegin$$.
 (Temporary memory that is allocated for this section by $code SearchTitle$$
 and $code SearchKeywords$$ is freed by this call.)
-$syntax%
+$codei%
 
 CloseSearchFile(%delete%)
 %$$
-Closes the $syntax%%fileTag%.tmp%$$ file.
+Closes the $icode%fileTag%.tmp%$$ file.
 Calls to the other routines documented above are invalid
 after this call.
 If $italic delete$$ is true,
 it is assumed that the search file
-$syntax%%fileTag%.tmp%$$
+$icode%fileTag%.tmp%$$
 is not used and so it is
 deleted from the directory (as well as a supporting Javascript file).
 (Temporary memory that is allocated for these file names

@@ -111,7 +111,7 @@ This has been fixed.
 
 $head 02-23$$
 The command
-$syntax%
+$codei%
 	@OMhelpFileLocalCommandKeyCharacter=
 %$$
 was changed to

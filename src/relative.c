@@ -16,9 +16,9 @@ $$
 $section Automatic Generated Links Relative to Current Section$$
 
 $head Syntax$$
-$syntax%void RelativeFrame(SectionInfo *%This%)
+$codei%void RelativeFrame(SectionInfo *%This%)
 %$$
-$syntax%void RelativeTable(SectionInfo *%This%)
+$codei%void RelativeTable(SectionInfo *%This%)
 %$$
 
 $head Purpose$$
@@ -27,22 +27,22 @@ Creates the automatically generated links
 that are relative to the section $italic This$$.
 
 $head RelativeFrame$$
-This creates the file $syntax%%tag%_links.%ext%$$ containing the links.
-where $italic tag$$ is equal to $syntax%%This%->tagLower%$$ and
-$italic ext$$ is equal to $syntax%%Internal2Out("OutputExtension")%$$.
+This creates the file $icode%tag%_links.%ext%$$ containing the links.
+where $italic tag$$ is equal to $icode%This%->tagLower%$$ and
+$italic ext$$ is equal to $icode%Internal2Out("OutputExtension")%$$.
 
 $head RelativeTable$$
 This creates a table, in the current output file, containing the links.
 It also creates the Javascript file
-$syntax%
+$codei%
 	_%This->tagLower%_%ext%.js
 %$$
-and assumes that the $syntax%<head>%...%</head>%$$ for the current
+and assumes that the $codei%<head>%...%</head>%$$ for the current
 output file contains the command
-$syntax%
+$codei%
 <script type='text/javascript' language='JavaScript' src='%tag%_%ext%.js'>
 %$$
-where $italic tag$$ is $syntax%%This->tagLower%$$ and
+where $italic tag$$ is $icode%This->tagLower%$$ and
 $italic ext$$ is $code Internal2Out("OutputExtension")$$
 with out the leading "." character.
 

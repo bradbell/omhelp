@@ -16,7 +16,7 @@ $index concatenation of strings$$
 $index StrCat$$
 
 $table
-$bold Syntax$$ $cend $syntax/StrCat(/file/, /line/, /s1/, /s2/, /.../, NULL)/$$
+$bold Syntax$$ $cend $codei/StrCat(/file/, /line/, /s1/, /s2/, /.../, NULL)/$$
 $rend
 $bold See Also$$ $cend $mref/strjoin/str_alloc/$$
 $tend

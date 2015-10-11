@@ -22,7 +22,7 @@ $section Cross Referencing By Displaying a Section's Title$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@tref /tag/@@/$$ $rnext
+$cnext $codei/@tref /tag/@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/title/cref/$$
 $tend

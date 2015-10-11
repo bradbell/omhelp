@@ -34,10 +34,10 @@ $mindex mindex cindex aindex$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@index /one_entry/@@/$$   $rnext
-$cnext $syntax/@mindex /multiple_entries/@@/$$  $rnext
-$cnext $syntax/@cindex /multiple_entries/@@/$$  $rnext
-$cnext $syntax/@aindex /automatic_mindex/@@/$$ $rnext
+$cnext $codei/@index /one_entry/@@/$$   $rnext
+$cnext $codei/@mindex /multiple_entries/@@/$$  $rnext
+$cnext $codei/@cindex /multiple_entries/@@/$$  $rnext
+$cnext $codei/@aindex /automatic_mindex/@@/$$ $rnext
 $bold See Also$$
 $cnext
 	$cref/getting started/start_index/$$,

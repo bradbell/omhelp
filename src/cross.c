@@ -18,7 +18,7 @@ $section Create a New Cross Reference Record$$
 
 $table
 $bold Syntax$$
-$cend $syntax%CreateCrossReference(%tag%, %head%, %file%)%$$ $rend
+$cend $codei%CreateCrossReference(%tag%, %head%, %file%)%$$ $rend
 $tend
 
 $head Description$$
@@ -90,7 +90,7 @@ $section Find Record Corresponding to a Cross Reference$$
 
 $table
 $bold Syntax$$
-$cend $syntax/FindCrossReference(/tag/, /head/)/$$
+$cend $codei/FindCrossReference(/tag/, /head/)/$$
 $tend
 
 $head Description$$
@@ -118,7 +118,7 @@ $section Define a Cross Reference Destination Point$$
 
 $table
 $bold Syntax$$
-$cend $syntax/DefineCrossReference(/tag/, /head/, /file/, /frame/, /printid/)/$$
+$cend $codei/DefineCrossReference(/tag/, /head/, /file/, /frame/, /printid/)/$$
 $tend
 
 $head Description$$
@@ -174,7 +174,7 @@ $section Return Next Cross Reference In Definition Order$$
 
 $table
 $bold Syntax$$
-$cend $syntax/NextCrossReference(/cross/)/$$
+$cend $codei/NextCrossReference(/cross/)/$$
 $tend
 
 $head Description$$
@@ -203,7 +203,7 @@ $section Delete Cross Reference Table$$
 
 $table
 $bold Syntax$$
-$cend $syntax/FreeCrossReference()/$$
+$cend $codei/FreeCrossReference()/$$
 $tend
 
 $head Description$$

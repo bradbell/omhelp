@@ -18,7 +18,7 @@ $$
 $section Splitting Text At Each Delimiter$$
 
 $table
-$bold Syntax$$ $cend $syntax%int SplitText(
+$bold Syntax$$ $cend $codei%int SplitText(
 	int   %line%,
 	char *%cmd%,
 	char *%text%

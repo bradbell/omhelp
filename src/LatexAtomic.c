@@ -15,11 +15,11 @@ $section Convert Latex Atomic Commands To Mathml Text$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/LatexAtomic(/name/, /token/)/$$
+$cnext $codei/LatexAtomic(/name/, /token/)/$$
 $tend
 
 $head Description$$
-The arguments $syntax%const char *%name%$$
+The arguments $codei%const char *%name%$$
 is '\0' terminated
 and contains the command name
 (with out the $code \$$ in front).
@@ -32,12 +32,12 @@ $pre
 
 $$
 The input value of
-$syntax%int *%token%$$
+$codei%int *%token%$$
 does not matter.
 If the return value of $code LatexAtomic$$ is not
 $code NULL$$,
 the output value of
-$syntax%int *%token%$$
+$codei%int *%token%$$
 specifies which type of token $italic name$$ represents.
 It will be one of the following:
 

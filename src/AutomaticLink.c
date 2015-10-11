@@ -12,7 +12,7 @@ $section Output Pass2 Automatically Generated Links$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%void AutomaticLink(
+$cnext $codei%void AutomaticLink(
 	int          %navigation%  ,
 	SectionInfo *%section%     )%$$
 $tend

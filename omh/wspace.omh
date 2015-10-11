@@ -7,6 +7,7 @@ OMhelp is distributed under the terms of the
 #
 $begin wspace$$
 $spell
+	codei
 	wspace
 	logdet
 	det
@@ -27,7 +28,7 @@ $section Processing a Special Input Character as White Space$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@wspace /character/@@/$$ $rnext
+$cnext $codei/@wspace /character/@@/$$ $rnext
 $bold See Also$$
 $cnext $cref newlinech$$
 $tend
@@ -57,14 +58,14 @@ these languages.
 The input
 $codep
 	% @wspace %@@
-	% @bold Syntax:@@ @syntax/[/y/] = logdet(/x/)/@@
+	% @bold Syntax:@@ @codei/[/y/] = logdet(/x/)/@@
 	% @wspace @@
 $$
 results in
 $pre
 	$$
 	% $wspace %$$
-	% $bold Syntax:$$ $syntax/[/y/] = logdet(/x/)/$$
+	% $bold Syntax:$$ $codei/[/y/] = logdet(/x/)/$$
 	% $wspace $$
 $pre
 $$

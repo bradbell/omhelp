@@ -20,15 +20,15 @@ $mindex memory allocate free$$
 
 $table
 $bold Syntax$$ $cnext
-$syntax%void *AllocMemory(int %num%, int %size%, const char *%file%, int %line%)%$$
+$codei%void *AllocMemory(int %num%, int %size%, const char *%file%, int %line%)%$$
 $rnext $cnext
-$syntax%void *AllocMem(int %num%, int %size%)%$$
+$codei%void *AllocMem(int %num%, int %size%)%$$
 $rnext $cnext
-$syntax%void FreeMemory(void *%ptr%, const char *%file%, int %line%)%$$
+$codei%void FreeMemory(void *%ptr%, const char *%file%, int %line%)%$$
 $rnext $cnext
-$syntax%void FreeMem(void *%ptr%)%$$
+$codei%void FreeMem(void *%ptr%)%$$
 $rnext $cnext
-$syntax%void CheckMemoryLeak(void)%$$
+$codei%void CheckMemoryLeak(void)%$$
 $tend
 
 $head AllocMemory$$
@@ -101,9 +101,9 @@ $section Check Memory Allocation and Free$$
 
 $table
 $bold Syntax$$ $cnext
-$syntax%void *c_alloc(int %n%, int %size%)%$$
+$codei%void *c_alloc(int %n%, int %size%)%$$
 $rnext $cnext
-$syntax%void c_free(void *%p%)%$$
+$codei%void c_free(void *%p%)%$$
 $tend
 
 $head c_alloc$$

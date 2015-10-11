@@ -18,7 +18,7 @@ $section Latex Numbers$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex /Number/ @@/$$
+$cnext $codei/@latex /Number/ @@/$$
 $tend
 
 $head Description$$

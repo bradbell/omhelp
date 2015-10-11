@@ -15,18 +15,18 @@ $section Automatic Generation of Table of Contents$$
 $table
 $bold Syntax$$
 $cnext
-$syntax%void ContentPass1(SectionInfo *%content%)%$$
+$codei%void ContentPass1(SectionInfo *%content%)%$$
 $tend
 
 $head Description$$
 This routine outputs creates the file
-$syntax//tag/.tmp/$$ and writes
+$icode/tag/.tmp/$$ and writes
 a pass one version of the table of
 contents to that file.
 The argument $italic content$$ is the corresponding
 $cref SectionInfo$$ pointer corresponding to the table of contents.
 The value $italic tag$$ in the file name
-is equal to $syntax//content/->tag/$$.
+is equal to $icode/content/->tag/$$.
 
 
 $end

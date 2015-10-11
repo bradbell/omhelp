@@ -17,46 +17,46 @@ $index FunRefPass1$$
 
 $table
 $bold Syntax$$
-$cend $syntax%InsertInFunRef(%tag%, %title%)%$$ $rend
-$cend $syntax%FunRefPass1(%section%)%$$
+$cend $codei%InsertInFunRef(%tag%, %title%)%$$ $rend
+$cend $codei%FunRefPass1(%section%)%$$
 $tend
 
 $head Description$$
 These routines manage the function reference table.
-$syntax%
+$codei%
 
 %tag%
 %$$
 The '\0' terminated character vector $italic tag$$ is the cross reference
 tag for this function reference entry.
 This value will appear in alphabetic order in the function reference section.
-$syntax%
+$codei%
 
 %title%
 %$$
 The '\0' terminated character vector $italic title$$ is
 text that will next to the corresponding value of $italic tag$$
 in the function reference section.
-$syntax%
+$codei%
 
 %section%
 %$$
 The is a pointer to the $cref SectionInfo$$ record that
 corresponds to the function reference section.
-$syntax%
+$codei%
 
 InsertInFunRef(%tag%, %title%)
 %$$
 This call inserts an entry in the function reference table.
 These entries are accumulated until a call is made to
 $code FunRefPass1$$.
-$syntax%
+$codei%
 
 FunRefPass1(%section%)
 %$$
 This call creates the pass one version of the
 function reference section in the file with root name
-$syntax//section/->tag/$$
+$icode/section/->tag/$$
 and extension $code .tmp$$.
 It is a Pass1 version because
 the cross references use the HrefOutputPass1 format.
@@ -64,12 +64,12 @@ In addition, for the $italic letter$$
 between $code A$$ and $code Z$$ that has function reference entries
 starting with that letter:
 there a heading for that letter together with a
-$syntax%
+$codei%
 	<a name="%letter%"></a>
 %$$
 reference that points to the position of that letter in the function reference.
 In addition, it is added to the list of cross references to this section.
-$syntax%
+$codei%
 
 FunRefFree()
 %$$

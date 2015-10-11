@@ -23,14 +23,14 @@ $index fatal, error$$
 
 $table
 $bold Syntax$$
-$cend $syntax%fatalerr(char *%s1%, %...%)%$$ $rnext
-$cend $syntax%fatalomh(char *%s1%, %...%)%$$ $rnext
-$cend $syntax%fataltex(char *%s1%, %...%)%$$
+$cend $codei%fatalerr(char *%s1%, %...%)%$$ $rnext
+$cend $codei%fatalomh(char *%s1%, %...%)%$$ $rnext
+$cend $codei%fataltex(char *%s1%, %...%)%$$
 $tend
 
 $head Message$$
 The arguments
-$syntax%
+$codei%
 	%s1%, %...%
 %$$
 The last argument is a $code NULL$$
@@ -51,7 +51,7 @@ $codep
 $$
 is printed on standard output followed by the $italic Message$$.
 Otherwise
-$syntax/
+$codei/
 	OMhelp Error: in file /File/:
 /$$
 is printed on standard output followed by the $italic Message$$.
@@ -61,7 +61,7 @@ $index fatalomh$$
 The $italic File$$ must not be "NONE"; i.e., there must
 be a current input file.
 The text
-$syntax/
+$codei/
 	OMhelp Error: in file /File/:
 /$$
 is printed on standard output followed by the $italic Message$$.
@@ -81,7 +81,7 @@ $index fataltex$$
 The $italic File$$ must not be "NONE"; i.e., there must
 be a current input file.
 The text
-$syntax/
+$codei/
 	OMhelp Error: Latex in file /File/:
 /$$
 is printed on standard output followed by the $italic Message$$.

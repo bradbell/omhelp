@@ -32,11 +32,11 @@ $section Verbatim Display of All or Part of a File$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@verbatim%/filename/%@@/$$  $rnext
-$cnext $syntax/@verbatim%/filename/%/indent/%@@/$$  $rnext
-$cnext $syntax/@verbatim%/filename/%/indent/%/start/%@@/$$  $rnext
-$cnext $syntax/@verbatim%/filename/%/indent/%/start/%/stop/%@@/$$  $rnext
-$cnext $syntax/@verbatim%/filename/%/indent/%/start/%/stop/%/skip/%@@/$$  $rnext
+$cnext $codei/@verbatim%/filename/%@@/$$  $rnext
+$cnext $codei/@verbatim%/filename/%/indent/%@@/$$  $rnext
+$cnext $codei/@verbatim%/filename/%/indent/%/start/%@@/$$  $rnext
+$cnext $codei/@verbatim%/filename/%/indent/%/start/%/stop/%@@/$$  $rnext
+$cnext $codei/@verbatim%/filename/%/indent/%/start/%/stop/%/skip/%@@/$$  $rnext
 $bold See Also$$
 $cnext	$cref/getting started/start_verbatim/$$,
 	$mref/include/codep/execute/$$
@@ -55,7 +55,7 @@ $cref/source code example/codep/Source Code Examples/$$
 option for the $mref/codep/$$ command
 provides another way of doing this that does
 have OMhelp commands in the file.)
-$syntax/
+$codei/
 
 %/filename/%/indent/%/start/%/stop/%/skip/%
 /$$

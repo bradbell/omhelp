@@ -315,7 +315,7 @@ a list of all the references corresponding to calls to $mref/HrefAddList/$$.
 The argument $icode section$$ is a $cref SectionInfo$$ pointer
 that specifies the section corresponding to this automatically
 generated output.
-The output file has root name $syntax//section/->tag/$$
+The output file has root name $icode/section/->tag/$$
 and extension $code .tmp$$.
 It is a Pass1 output file because the cross references
 use the $cref HrefOutputPass1$$ format.
@@ -336,7 +336,7 @@ $section Free All Memory Allocated by Href Routines$$
 
 $table
 $bold Syntax$$
-$cend $syntax/void HrefFreeMemory()/$$  $rend
+$cend $codei/void HrefFreeMemory()/$$  $rend
 $bold See Also$$
 $cend $mref/href/$$
 $tend

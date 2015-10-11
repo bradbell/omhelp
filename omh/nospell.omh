@@ -21,7 +21,7 @@ $section Suspending Spell Checking$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@nospell /text/@@/$$ $rnext
+$cnext $codei/@nospell /text/@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/spell/$$
 $tend

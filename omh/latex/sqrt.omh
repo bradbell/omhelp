@@ -21,8 +21,8 @@ $section Latex Root Command$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex \sqrt{/base/}@@/$$ $rend
-$cnext $syntax/@latex \sqrt[/index/]{/base/}@@/$$ $rend
+$cnext $codei/@latex \sqrt{/base/}@@/$$ $rend
+$cnext $codei/@latex \sqrt[/index/]{/base/}@@/$$ $rend
 $tend
 
 $head Description$$

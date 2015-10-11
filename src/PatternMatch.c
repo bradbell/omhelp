@@ -11,9 +11,9 @@ $section Routines for Finding a Pattern Match in A Text Sequence$$
 
 $table
 $bold Syntax$$ $cnext
-$syntax%int PatternMatchLen(const char *%p%, char %escape%)%$$
+$codei%int PatternMatchLen(const char *%p%, char %escape%)%$$
 $rnext $cnext
-$syntax%int PatternMatchCh(char *%ch%)%$$
+$codei%int PatternMatchCh(char *%ch%)%$$
 $tend
 
 $head PatternMatchLen$$
@@ -39,32 +39,32 @@ $code PatternMatchLen$$ returns with the value minus two.)
 
 $head PatternMatchCh$$
 Returns one if the input value of
-$syntax%*%ch%$$
+$codei%*%ch%$$
 completes a pattern match,
 and zero others.
 If the input value of
-$syntax%*%ch%$$
+$codei%*%ch%$$
 completes a pattern match,
 then the previous $italic len$$ character were
-$syntax%
+$codei%
 	%p%[0], %p%[1], ..., %p%[%len%-1]
 %$$
 where $italic len$$
 is the value returned by the previous call to $code PatternMatchLen$$
-and $syntax%%p%[%len%-1] corresponds to the input value of
-$syntax%*%ch%$$
+and $icode%p%[%len%-1] corresponds to the input value of
+$codei%*%ch%$$
 The output value of
-$syntax%*%ch%$$
+$codei%*%ch%$$
 is the input value of
-$syntax%*%ch%$$
+$codei%*%ch%$$
 $italic len$$ previous calls ago.
 This enables one to delay use of
-$syntax%*%ch%$$
+$codei%*%ch%$$
 until one is sure that it will not be included in the pattern match.
 (If there are not $italic len$$ calls since the previous call to
 $code PatternMatchLen$$,
 the output value of
-$syntax%*%ch%$$
+$codei%*%ch%$$
 is '\0'.)
 
 $end

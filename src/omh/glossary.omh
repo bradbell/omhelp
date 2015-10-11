@@ -25,13 +25,13 @@ If $italic crossheading$$ is
 a cross reference heading it is a '\0' terminated character vector
 that refers to a certain location with in a section.
 If $italic crossheading$$ is empty
-($syntax%%crossheading%[0]%$$ is equal to '\0')
+($icode%crossheading%[0]%$$ is equal to '\0')
 the location is the beginning of the section.
 $pre
 
 $$
 If there is a command of the form
-$syntax%
+$codei%
 	@head %crossheading%@@
 %$$
 The cross reference heading refers to the location of the command
@@ -45,12 +45,12 @@ is equal to the character string $italic heading$$,
 followed by a period ('.'),
 followed by the character string $italic subheading$$.
 Further suppose that there is a command of the form
-$syntax%
+$codei%
 	@head %heading%@@
 %$$
 and with in the scope of that heading (before the next $code head$$ command)
 there is a command of the form
-$syntax%
+$codei%
 	@subhead %subheading%@@
 %$$
 In this case $italic crossheading$$ refers to the

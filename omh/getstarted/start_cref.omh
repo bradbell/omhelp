@@ -88,6 +88,6 @@ $$
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/cref_example_1.htm%$$.
+$icode%test%/htm/cref_example_1.htm%$$.
 
 $end

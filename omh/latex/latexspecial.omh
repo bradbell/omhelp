@@ -34,7 +34,7 @@ $section Latex Special Characters$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex \/c/ @@/$$
+$cnext $codei/@latex \/c/ @@/$$
 $tend
 
 $head Description$$

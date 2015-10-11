@@ -81,7 +81,7 @@ $$
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/near_equal_c.htm%$$.
+$icode%test%/htm/near_equal_c.htm%$$.
 
 
 $head A Language with only One Line Comments$$
@@ -130,6 +130,6 @@ $$
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/near_equal_f.htm%$$.
+$icode%test%/htm/near_equal_f.htm%$$.
 
 $end

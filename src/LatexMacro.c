@@ -16,7 +16,7 @@ $section Set Input Characters For Latex Macro Preprocessor$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void LatexMacroUserInput(int %line%, const char *%input%)%$$
+$cend $codei%void LatexMacroUserInput(int %line%, const char *%input%)%$$
 $tend
 
 $head Description$$
@@ -40,7 +40,7 @@ $$
 
 $table
 $bold Syntax$$
-$cend $syntax%void LatexMacroFree()%$$
+$cend $codei%void LatexMacroFree()%$$
 $tend
 
 $section Free Memory Allocated By Latex Macro Preprocessor$$
@@ -55,7 +55,7 @@ $pre
 
 $$
 You can free all the macro memory using the sequence of calls
-$syntax%
+$codei%
 	LatexMacroFree();
 	LatexMacroFree();
 %$$
@@ -82,7 +82,7 @@ $section Get the Next Input Character With Latex Macro Expansion$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%char LatexMacroGetCh()%$$
+$cnext $codei%char LatexMacroGetCh()%$$
 $tend
 
 $head Description$$
@@ -103,7 +103,7 @@ $section Determine the Current User Input Line Number$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%int LatexMacroInputLine()%$$
+$cnext $codei%int LatexMacroInputLine()%$$
 $tend
 
 $head Description$$
@@ -127,7 +127,7 @@ $section Determine the Current User Input File$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%const char *LatexMacroInputFile()%$$
+$cnext $codei%const char *LatexMacroInputFile()%$$
 $tend
 
 $head Description$$
@@ -177,7 +177,7 @@ $section Line Where the Currently Expanded Latex Macro is Defined$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%int LatexMacroExpandLine()%$$
+$cnext $codei%int LatexMacroExpandLine()%$$
 $tend
 
 $head Description$$
@@ -199,7 +199,7 @@ $section File Where the Currently Expanded Latex Macro is Defined$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%const char *LatexMacroExpandFile()%$$
+$cnext $codei%const char *LatexMacroExpandFile()%$$
 $tend
 
 $head Description$$
@@ -222,7 +222,7 @@ $section Name of the Currently Expanded Latex Macro$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%const char *LatexMacroExpandName()%$$
+$cnext $codei%const char *LatexMacroExpandName()%$$
 $tend
 
 $head Description$$
@@ -243,7 +243,7 @@ $section Keep The Currently Defined Latex Macros$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%void LatexMacroKeep()%$$
+$cnext $codei%void LatexMacroKeep()%$$
 $tend
 
 $head Description$$

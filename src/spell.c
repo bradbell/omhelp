@@ -27,10 +27,10 @@ $index FreeSpelling$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void InitSpelling(const char *%dir%)%$$        $rend
-$cend $syntax%void SpellingOkList(const char *%special%)%$$  $rend
-$cend $syntax%const char *SpellingError(const char *%text%, int *%nOut%)%$$ $rend
-$cend $syntax%void FreeSpelling(int %debug%)%$$
+$cend $codei%void InitSpelling(const char *%dir%)%$$        $rend
+$cend $codei%void SpellingOkList(const char *%special%)%$$  $rend
+$cend $codei%const char *SpellingError(const char *%text%, int *%nOut%)%$$ $rend
+$cend $codei%void FreeSpelling(int %debug%)%$$
 $tend
 
 $head Description$$
@@ -38,7 +38,7 @@ Routines that do spell checking and manage the
 current list of special words.
 
 
-$syntax/
+$codei/
 
 InitSpelling(/dir/)
 /$$
@@ -54,7 +54,7 @@ telling the user that initialization will take longer.
 The list of special word (see $code SpellingOkList$$ below) is initialized
 as empty.
 
-$syntax/
+$codei/
 
 SpellingOkList(/list/)
 /$$
@@ -64,11 +64,11 @@ if they are not in the dictionary mentioned above.
 Each word in this context must be separated by a non alphabetic character
 or the capital letter that begins the next word.
 Spell checking is not case sensitive.
-If $syntax//list/[0]/$$ is '\0',
+If $icode/list/[0]/$$ is '\0',
 the list of special words is initialized to empty.
 Otherwise, the words in $italic list$$ are added to the current
 list of special words.
-$syntax/
+$codei/
 
 SpellingError(/text/, /nOut/)
 /$$
@@ -84,7 +84,7 @@ The error extends from this pointer,
 for $italic nOut$$ characters.
 The spelling error is added to the list of OK words for this
 section so that the error is only reported once.
-$syntax/
+$codei/
 
 
 FreeSpelling(debug)

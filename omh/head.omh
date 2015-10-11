@@ -21,8 +21,8 @@ $section Paragraph Headings and Subheadings$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@head /heading/@@/$$    $rnext
-$cnext $syntax/@subhead /subheading/@@/$$ $rnext
+$cnext $codei/@head /heading/@@/$$    $rnext
+$cnext $codei/@subhead /subheading/@@/$$ $rnext
 $bold See Also$$
 $cnext
 	$cref/getting started/start_head/$$,
@@ -56,7 +56,7 @@ the $code head$$ command to the $cref/mindex/keyword/Mindex/$$ command.
 (To make this connection, it must appear before the $code head$$ command.)
 If this is the case,
 each $code head$$ command automatically generates a request of the form
-$syntax/
+$codei/
 	@mindex /heading/@@
 /$$
 In this case,

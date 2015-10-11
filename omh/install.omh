@@ -27,7 +27,7 @@ $head MathML$$
 $index MathML$$
 If you are going to use the $cref latex$$ command for displaying
 mathematics, you will need a browser that support XHTML+MathML so
-that you can view the $syntax%%*%.xml%$$ files that OMhelp can generate.
+that you can view the $icode%*%.xml%$$ files that OMhelp can generate.
 You can download and install the
 $href%http://www.mozilla.org%Firefox%$$ browser for this purpose.
 Another option is to use

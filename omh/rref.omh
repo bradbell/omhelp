@@ -24,7 +24,7 @@ $section Generate One Row of a Jump Table$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@rref /tag/@@/$$ $rnext
+$cnext $codei/@rref /tag/@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/mref/tref/children/$$
 $tend

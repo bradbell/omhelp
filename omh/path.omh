@@ -23,7 +23,7 @@ $section Setting Input File Search Paths$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@path%/directory/%/extension/%@@/$$ $rnext
+$cnext $codei/@path%/directory/%/extension/%@@/$$ $rnext
 $bold See Also$$
 $cnext $cref/contents/children/$$,
 	$cref/root section/running/root_file/$$
@@ -34,7 +34,7 @@ This command adds $italic directory$$ to the set of directories that OMhelp
 searches for files with
 $cref/file extension/glossary/File Extension/$$
 equal to $italic extension$$.
-$syntax/
+$codei/
 
 %/directory/%/extension/%
 /$$

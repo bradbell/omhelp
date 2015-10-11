@@ -53,7 +53,7 @@ $section Diacritical Marks Above Other Output$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex \/name/{/commands/} @@/$$ $rend
+$cnext $codei/@latex \/name/{/commands/} @@/$$ $rend
 $cnext where $italic name$$ is
 $code acute$$,
 $code bar$$,

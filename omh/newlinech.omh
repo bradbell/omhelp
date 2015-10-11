@@ -7,6 +7,8 @@ OMhelp is distributed under the terms of the
 #
 $begin newlinech$$
 $spell
+	codei
+	icode
 	newlinech
 	logdet
 	det
@@ -27,7 +29,7 @@ $section Setting Programming Source Code Comment Character$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@newlinech /character/@@/$$ $rnext
+$cnext $codei/@newlinech /character/@@/$$ $rnext
 $bold See Also$$
 $cnext $cref/codep/codep/Source Code Examples/$$
 $tend
@@ -57,25 +59,25 @@ $$
 The input:
 $codep
 c @newlinech c@@
-c @bold Syntax:@@ @syntax//y/ = logdet(/n/, /x/)/@@
+c @bold Syntax:@@ @icode/y/ = logdet(/n/, /x/)/@@
 c
 c @head y@@
 c The return value @italic y@@ has prototype
-c @syntax/
+c @codei/
 c	real /y/
 c /@@
 c It value is set equal to the log of the determinant of @italic x@@.
 c
 c @head n@@
 c The argument @italic n@@ has prototype
-c @syntax/
+c @codei/
 c	integer /n/
 c /@@
 c it specifies the dimension of the matrix @italic x@@.
 c
 c @head x@@
 c The argument @italic x@@ has prototype
-c @syntax/
+c @codei/
 c	real /x/(/n/, /n/)
 c /@@
 c it must be a square positive semi-definite matrix.
@@ -87,25 +89,25 @@ $pre
 
 $$
 c $newlinech c$$
-c $bold Syntax:$$ $syntax//y/ = logdet(/n/, /x/)/$$
+c $bold Syntax:$$ $icode/y/ = logdet(/n/, /x/)/$$
 c
 c $head y$$
 c The return value $italic y$$ has prototype
-c $syntax/
+c $codei/
 c	real /y/
 c /$$
 c It value is set equal to the log of the determinant of $italic x$$.
 c
 c $head n$$
 c The argument $italic n$$ has prototype
-c $syntax/
+c $codei/
 c	integer /n/
 c /$$
 c it specifies the dimension of the matrix $italic x$$.
 c
 c $head x$$
 c The argument $italic x$$ has prototype
-c $syntax/
+c $codei/
 c	real /x/(/n/, /n/)
 c /$$
 c it must be a square positive semi-definite matrix.
@@ -123,11 +125,11 @@ $code begin$$ command for the section.
 For example, the input
 $codep
 c @begin logdet@@ @newlinech c@@
-c @bold Syntax:@@ @syntax//y/ = logdet(/n/, /x/)/@@
+c @bold Syntax:@@ @icode/y/ = logdet(/n/, /x/)/@@
 c
 c @head y@@
 c The return value @italic y@@ has prototype
-c @syntax/
+c @codei/
 c	real /y/
 c /@@
 $$

@@ -24,7 +24,7 @@ $section Math Mode$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@math /text/@@/$$ $rnext
+$cnext $codei/@math /text/@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/latex/pre/syntax/$$ $rnext
 $tend
@@ -151,7 +151,7 @@ $index math, numbers$$
 $table
 $bold Syntax$$
 $cnext
-$syntax/@/number/@@/$$
+$codei/@/number/@@/$$
 $tend
 
 $head Description$$
@@ -184,7 +184,7 @@ $index index, i-th$$
 $table
 $bold Syntax$$
 $cnext
-$syntax/@th /index/@@/$$
+$codei/@th /index/@@/$$
 $tend
 
 $head Description$$

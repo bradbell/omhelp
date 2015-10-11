@@ -31,7 +31,7 @@ $section Symbols That Change Between Inline and Displayed Formulas$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex /Symbol/ @@/$$
+$cnext $codei/@latex /Symbol/ @@/$$
 $tend
 
 

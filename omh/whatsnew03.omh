@@ -196,7 +196,7 @@ $xref/running/xml/xml/$$
 $xref/running/printable/printable/$$ version
 was not displaying properly in Internet Explorer.
 This was fixed by including a
-$syntax%<head>% ... %</head>%$$ command in the output file.
+$codei%<head>% ... %</head>%$$ command in the output file.
 
 $head 07-17$$
 In the navigation frame on the left,
@@ -759,7 +759,7 @@ This has been fixed.
 $head 01-29$$
 The local copy of the OMhelp documentation is no longer included
 in the Windows download file.
-This is because all the $syntax/*/.htm/$$ and $syntax/*/.xml/$$
+This is because all the $codei/*/.htm/$$ and $codei/*/.xml/$$
 files make the download file significantly larger
 and they are regenerated during the
 $code generate user documentation$$

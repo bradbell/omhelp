@@ -24,14 +24,14 @@ $$
 $section Output The HTML Header for a Section$$
 
 $head Syntax$$
-$syntax%void OutputHtmlHead(SectionInfo *%F%)%$$
+$codei%void OutputHtmlHead(SectionInfo *%F%)%$$
 
 $head Purpose$$
 Outputs the HTML $code <head>$$ record for an OMhelp section.
 
 $head Title$$
 A $code <title>$$ record is output with the following value
-$syntax%
+$codei%
 	%F->title%
 %$$.
 
@@ -45,7 +45,7 @@ $codei%
 
 $head Description$$
 A $code <meta>$$ record is output with the following values
-$syntax%
+$codei%
 	name="description"
 	id="description"
 	content="%F->title%"
@@ -65,7 +65,7 @@ Otherwise, no such link record is output.
 
 $head Keywords$$
 A $code <meta>$$ record is output with the following values
-$syntax%
+$codei%
 	name="keywords"
 	id="keywords"
 	content="%F->keywords%"
@@ -77,7 +77,7 @@ a style record that is also output as part of the header.
 
 $head Script$$
 If $code NoFrame()$$ is true, declare
-$syntax%
+$codei%
 	_%F->tagLower%_%ext%.js
 %$$
 to be the javascript file for this section

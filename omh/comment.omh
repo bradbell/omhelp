@@ -18,7 +18,7 @@ $section The OMhelp Comment Command$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@comment /text/@@/$$
+$cnext $codei/@comment /text/@@/$$
 $tend
 
 $head Description$$

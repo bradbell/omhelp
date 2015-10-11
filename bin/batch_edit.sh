@@ -62,3 +62,5 @@ do
 		;;
 	esac
 done
+sed -e 's|^$spell$|&\n\tcodei\n\ticode|' -i omh/newlinech.omh
+sed -e 's|^$spell$|&\n\tcodei|'          -i omh/wspace.omh

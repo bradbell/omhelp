@@ -35,8 +35,8 @@ $section Horizontal Spacing Of Output$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex /space/ @@/$$ $rnext
-$cnext $syntax/@latex \hspace{/number/ /unit/} @@/$$ $rnext
+$cnext $codei/@latex /space/ @@/$$ $rnext
+$cnext $codei/@latex \hspace{/number/ /unit/} @@/$$ $rnext
 $tend
 
 $head Description$$

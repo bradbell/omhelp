@@ -29,7 +29,7 @@ $section The Include Command$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@include /filename/@/$$  $rnext
+$cnext $codei/@include /filename/@/$$  $rnext
 $bold See Also$$
 $cnext $mref/verbatim/path/$$
 $tend

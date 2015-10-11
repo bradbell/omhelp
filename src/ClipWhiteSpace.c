@@ -11,7 +11,7 @@ $section Clip Leading and Trailing White Space$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void ClipWhiteSpace(char *%s%)%$$
+$cend $codei%void ClipWhiteSpace(char *%s%)%$$
 $tend
 
 $head Description$$

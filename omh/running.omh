@@ -85,7 +85,7 @@ $index name, web file$$
 $index index.htm$$
 OMhelp outputs files in the current directory.
 The file name
-$syntax%
+$codei%
 	%tag%.%ext%
 %$$
 corresponds to the section which has
@@ -95,7 +95,7 @@ Here $italic ext$$ is $code htm$$,
 unless the $code xml$$ command line option is specified
 in which case it is $code xml$$.
 The file
-$syntax%
+$codei%
 	index.htm
 %$$
 is special to browsers because
@@ -247,7 +247,7 @@ is present, the argument $italic image_link$$ must follow it.
 In this case, the image
 is placed at the
 top of the links for each section
-($syntax% -image_file %image_file%$$ can be used to specify your own image,
+($codei% -image_file %image_file%$$ can be used to specify your own image,
 which should be about the same size as the default image).
 If $italic image_link$$ is equal to the empty string ($code ""$$),
 the image does not link to anything.

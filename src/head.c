@@ -24,16 +24,16 @@ $index HeadingAndSubPrintId$$
 
 $table
 $bold Syntax$$
-$cend $syntax%InitializeHeading()%$$         $rend
-$cend $syntax%SetHeading(%heading%)%$$       $rend
-$cend $syntax%SetSubHeading(%subheading%)%$$ $rend
-$cend $syntax%HeadingAndSubHeading()%$$      $rend
-$cend $syntax%HeadingAndSubPrintId()%$$
+$cend $codei%InitializeHeading()%$$         $rend
+$cend $codei%SetHeading(%heading%)%$$       $rend
+$cend $codei%SetSubHeading(%subheading%)%$$ $rend
+$cend $codei%HeadingAndSubHeading()%$$      $rend
+$cend $codei%HeadingAndSubPrintId()%$$
 $tend
 
 $head Description$$
 These routines manage headings and subheadings.
-$syntax%
+$codei%
 
 InitializeHeading()%
 %$$
@@ -43,12 +43,12 @@ This also has the effect of freeing all locally allocated
 memory that is used by the other routines documented below.
 Hence it should be called after those routines
 and before checking for memory leaks.
-$syntax%
+$codei%
 
 SetHeading(%heading%)%
 %$$
 This sets the current heading value.
-$syntax%
+$codei%
 
 SetSubHeading(%subheading%)%
 %$$
@@ -64,7 +64,7 @@ If $code SetSubHeading$$ is called when the current heading is empty,
 a fatal error message is generated telling the user that
 within each section, a $code subhead$$
 command must be preceded by a  $code head$$ commands.
-$syntax%
+$codei%
 
 HeadingAndSubHeading()%
 %$$
@@ -78,7 +78,7 @@ the empty string is returned; i.e., the first element of
 $code HeadingAndSubHeading$$ is '\0'.
 The return value is a $code const char*$$ and hence the memory
 it points to cannot be modified by the calling routine.
-$syntax%
+$codei%
 
 HeadingAndSubPrintId()%
 %$$

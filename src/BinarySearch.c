@@ -16,26 +16,26 @@ $section Binary Search An Array of Names$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/BinarySearch(/array/, /len/, /name/)/$$
+$cnext $codei/BinarySearch(/array/, /len/, /name/)/$$
 $tend
 
 $head Description$$
 The argument $italic array$$ is an array of $italic len$$
 and has prototype
-$syntax%
+$codei%
 	const char *%array%[]
 %$$
-Each element $syntax%%array%[%i%]%$$
+Each element $icode%array%[%i%]%$$
 is a '\0' terminated character vector.
 The argument $italic array$$ is sorted in $code strcmp$$ order; i.e.,
 if $italic i$$ is less than $italic j$$,
-$syntax%
+$codei%
 	strcmp(%array%[%i%], %array%[%j%])
 %$$
 is less than zero.
 The return value is a $code int$$
 index $italic i$$ such that
-$syntax%
+$codei%
 	strcmp(%array%[%i%], %name%)
 %$$
 is equal to zero.

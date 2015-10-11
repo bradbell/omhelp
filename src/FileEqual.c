@@ -18,7 +18,7 @@ $index same, file name$$
 
 $table
 $bold Syntax$$
-$cnext $syntax%int FileEqual(const char *%name1%, const char *%name2%)%$$
+$cnext $codei%int FileEqual(const char *%name1%, const char *%name2%)%$$
 $tend
 
 $head Description$$

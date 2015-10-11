@@ -20,7 +20,7 @@ $index relative, link$$
 $index link, relative$$
 
 $head Syntax$$
-$syntax|@navigate%|type 1|%|label 1|% |...| %|type n|%|label n|%@@|$$
+$codei|@navigate%|type 1|%|label 1|% |...| %|type n|%|label n|%@@|$$
 
 $head Purpose$$
 OMhelp automatically creates navigation links,
@@ -59,7 +59,7 @@ $rnext
 $code Down$$
 	$cnext The group of sections directly below this one in tree
 $rnext
-$syntax%Down_up_%i%$$
+$codei%Down_up_%i%$$
 	$cnext The sections directly below the section $italic i$$ levels
 	up in the documentation tree.
 $rnext
@@ -105,7 +105,7 @@ The value $italic label 2$$ is the label that the user will see
 for the navigation links corresponding to $italic type 2$$ and so on.
 The labels cannot begin with the special character $code _$$
 with the following special exception:
-$syntax%
+$codei%
 
 _up_%i%
 %$$
@@ -120,7 +120,7 @@ $index Prev, navigate$$
 $index navigate, Prev$$
 $index Next, navigate$$
 $index navigate, Next$$
-Note that the size of the label corresponding to $syntax%_up_%i%$$
+Note that the size of the label corresponding to $codei%_up_%i%$$
 will change from section to section.
 Hence the position of subsequent labels in the navigation command will change.
 Because the user will often repeatedly select $code Prev$$ or $code Next$$,
@@ -130,10 +130,10 @@ size between sections.
 
 
 $head No Such Section$$
-If $syntax%Down_up_%i%$$ is the specified type,
+If $codei%Down_up_%i%$$ is the specified type,
 and there is no section $italic i$$ levels up,
 neither the label nor its links will be present on the current section.
-If $syntax%_up_%i%$$ is specified label,
+If $codei%_up_%i%$$ is specified label,
 and there is not section $italic i$$ levels up,
 neither the label nor its links will be present on the current section.
 

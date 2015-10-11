@@ -22,7 +22,7 @@ $section Do Not Break Text Into Separate Lines$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@nobreak /text/@@/$$ $rnext
+$cnext $codei/@nobreak /text/@@/$$ $rnext
 $bold See Also$$
 $cnext
 	$mref/pre/math/$$

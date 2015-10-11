@@ -15,18 +15,18 @@ $section Automatic Generation of Browser$$
 $table
 $bold Syntax$$
 $cnext
-$syntax%void BrowserPass1(SectionInfo *%browser%)%$$
+$codei%void BrowserPass1(SectionInfo *%browser%)%$$
 $tend
 
 $head Description$$
 This routine outputs creates the file
-$syntax//tag/.tmp/$$ and writes
+$icode/tag/.tmp/$$ and writes
 a pass one version of the table of
 the browser sectionto that file.
 The argument $italic browser$$ is the corresponding
 $cref SectionInfo$$ pointer corresponding to the browser section.
 The value $italic tag$$ in the file name
-is equal to $syntax//browser/->tag/$$.
+is equal to $icode/browser/->tag/$$.
 
 $end
 

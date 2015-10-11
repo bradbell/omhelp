@@ -140,11 +140,11 @@ $code navigate.number$$
 $cnext $code int$$
 $cnext number of navigation items for this section
 $rnext
-$syntax%navigate.item[%j%].nav_type%$$
+$codei%navigate.item[%j%].nav_type%$$
 $cnext $code enum navigateType$$
 $cnext type for the $th j$$ navigation item for this section
 $rnext
-$syntax%navigate.item[%j%].label%$$
+$codei%navigate.item[%j%].label%$$
 $cnext $code char*$$
 $cnext label for the $th j$$ navigation links for this section
 $rend

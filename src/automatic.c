@@ -13,7 +13,7 @@ $section Add an Automatically Generated Section to Section Tree$$
 $table
 $bold Syntax$$
 $cnext
-$syntax/AutomaticAppendSection(/parent/, /tag/, /title/, /letterHeadings/)/$$
+$codei/AutomaticAppendSection(/parent/, /tag/, /title/, /letterHeadings/)/$$
 $tend
 
 $head Description$$
@@ -23,7 +23,7 @@ $head parent$$
 The argument $italic parent$$
 $cref/SectionInfo/SectionInfo/$$ pointer
 that specifies the parent of the section being added.
-This cannot be NULL, but $syntax//parent/->children/$$
+This cannot be NULL, but $icode/parent/->children/$$
 can be NULL.
 The style of the parent section is copied into the new section.
 
@@ -60,7 +60,7 @@ $section Determine if a Section is Automatically Generated$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/IsAutomaticSection(/section/)/$$
+$cnext $codei/IsAutomaticSection(/section/)/$$
 $tend
 
 $head Description$$
@@ -72,7 +72,7 @@ and returns zero otherwise.
 $head section$$
 The argument $italic section$$ is a
 $cref/SectionInfo/SectionInfo/$$ pointer.
-The value $italic section$$ or $syntax//section/->tag/$$ can be NULL,
+The value $italic section$$ or $icode/section/->tag/$$ can be NULL,
 in which case zero is returned.
 
 $end
@@ -83,7 +83,7 @@ $section Get List of Automatically Generated Sections$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/AutomaticTag(/i/)/$$
+$cnext $codei/AutomaticTag(/i/)/$$
 $tend
 
 $head Description$$

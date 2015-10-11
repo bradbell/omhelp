@@ -28,14 +28,14 @@ $section Tracking Commands That Can Contain Other Commands Inside$$
 
 $table
 $bold Syntax$$ $cend
-$syntax/PushPending(/line/, /name/)
+$codei/PushPending(/line/, /name/)
 PopPending(/line/, /name/)
 NumberPending()
 OmhPendingError(/line/, /input/)
 TexPendingError(/msg/)/$$
 $tend
 
-$syntax/PushPending(/line/, /name/)
+$codei/PushPending(/line/, /name/)
 /$$
 This signals the beginning of the specified command
 where the integer $italic line$$ is the line number the command appears,
@@ -47,7 +47,7 @@ $codep */
 # define MAX_NAME 20
 /* $$
 minus one characters long.
-$syntax/
+$codei/
 
 PopPending(/line/, /name/)
 /$$
@@ -57,13 +57,13 @@ $cref/InputName()/InputName/$$) .
 It is assumed that commands will end on a last in first out basis.
 If this is not the case, an error message is displayed saying that
 command $italic name$$ terminated before the expected command.
-$syntax/
+$codei/
 
 NumberPending()
 /$$
 Returns the number of commands that have been pushed by
 $code PushPending$$ but not popped by $code PopPending$$.
-$syntax/
+$codei/
 
 OmhPendingError(/line/, /input/)
 /$$
@@ -78,7 +78,7 @@ An error message is printed identifying the command
 on top of the stack (most recently pushed command)
 that has not been terminated.
 Then execution is terminated; i.e., this routine does not return.
-$syntax/
+$codei/
 
 TexPendingError(/msg/)
 /$$

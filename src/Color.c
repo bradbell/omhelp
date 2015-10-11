@@ -19,7 +19,7 @@ $section Extract Color Style From Delimiter Sequence$$
 
 $table
 $bold Syntax$$
-$cend $syntax%char *Color(
+$cend $codei%char *Color(
 	char *%line%,
 	char *%cmd%,
 	char *%delseq%

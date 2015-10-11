@@ -26,7 +26,7 @@ $mindex pre format text code font$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@codep /pre-formatted/@@/$$ $rnext
+$cnext $codei/@codep /pre-formatted/@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/syntax/pre/math/verbatim/$$ $rnext
 $tend

@@ -17,25 +17,25 @@ $$
 $section Output Style Command for Current Section$$
 
 $head Syntax$$
-$syntax%char *StyleCommand(SectionInfo *%S%)%$$
+$codei%char *StyleCommand(SectionInfo *%S%)%$$
 
 $head Purpose$$
 Return a style command for the current section to the current output file.
 
 $head Background Color$$
-The value $syntax%%S%->style.bgcolor%$$ is used
+The value $icode%S%->style.bgcolor%$$ is used
 for the background color in the style command.
 
 $head Text Color$$
-The value $syntax%%S%->style.textcolor%$$ is used
+The value $icode%S%->style.textcolor%$$ is used
 for the text color in the style command.
 
 $head Link Color$$
-The value $syntax%%S%->style.linkcolor%$$ is used
+The value $icode%S%->style.linkcolor%$$ is used
 for the link color in the style command.
 
 $head Visited Color$$
-The value $syntax%%S%->style.visitcolor%$$ is used
+The value $icode%S%->style.visitcolor%$$ is used
 for the visited link color in the style command.
 
 $head Memory$$

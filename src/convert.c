@@ -21,7 +21,7 @@ $section Outputs the New Line in HTML format$$
 
 $table
 $bold Syntax$$
-$cend $syntax/void ConvertForcedNewline(const int /n/)/$$  $rend
+$cend $codei/void ConvertForcedNewline(const int /n/)/$$  $rend
 $tend
 
 $head Description$$
@@ -52,9 +52,9 @@ $section Convert Special Characters and Output Text in HTML Format$$
 $table
 $bold Syntax$$
 $cend
-$syntax/void ConvertOutputCh(const char /ch/, const int /preformatted/)/$$
+$codei/void ConvertOutputCh(const char /ch/, const int /preformatted/)/$$
 $rend $cend
-$syntax%void ConvertOutputString(const char *%s%, const int %preformatted%)%$$
+$codei%void ConvertOutputString(const char *%s%, const int %preformatted%)%$$
 $tend
 
 $head ConvertOutputCh$$
@@ -124,7 +124,7 @@ $section Correct Column Count When Bypassing ConvertOutputCh$$
 
 $table
 $bold Syntax$$
-$cend $syntax/int ConvertAddColumn(const int /add/)/$$ $rend
+$cend $codei/int ConvertAddColumn(const int /add/)/$$ $rend
 $bold See Also$$
 $cend $mref/ConvertSetTabSize/ConvertOutput/$$
 $tend
@@ -141,7 +141,7 @@ of output that does not use one of the $cref convert$$ routines.
 Calling $code ConvertAddColumn$$, adds the value $italic add$$ to
 the current output column number and returns the resulting column.
 The call
-$syntax/
+$codei/
 	ConvertAddColumn(-ConvertAddColumn(0))
 /$$
 can be used to set the current column to zero.
@@ -162,7 +162,7 @@ $section Set the Number of Columns Corresponding to a Tab Character$$
 
 $table
 $bold Syntax$$
-$cend $syntax/void ConvertSetTabSize(const int /size/)/$$ $rend
+$cend $codei/void ConvertSetTabSize(const int /size/)/$$ $rend
 $bold See Also$$
 $cend $mref/ConvertAddColumn/ConvertOutput/$$
 $tend
@@ -190,11 +190,11 @@ $section Determine Number of Previous New Lines$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/int ConvertPreviousNewline()/$$ $rnext
-$cnext $syntax/void ConvertAddPrevious(int /n/)/$$
+$cnext $codei/int ConvertPreviousNewline()/$$ $rnext
+$cnext $codei/void ConvertAddPrevious(int /n/)/$$
 $tend
 
-$syntax/
+$codei/
 
 ConvertPreviousNewline()
 /$$
@@ -202,7 +202,7 @@ Returns the number of newlines, since the previous non white space character,
 that were output by any of the
 $cref/convert routines/convert/Convert Routines/$$.
 
-$syntax/
+$codei/
 
 ConvertAddPrevious(/n/)
 /$$
@@ -244,7 +244,7 @@ $section Internal Conversion of Special Characters (no output)$$
 $table
 $bold Syntax$$
 $cend
-$syntax%char *ConvertInternalString(const char *%s%)%$$ $rnext
+$codei%char *ConvertInternalString(const char *%s%)%$$ $rnext
 $bold See Also$$
 $cref ConvertOutput$$
 $tend

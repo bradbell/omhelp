@@ -24,7 +24,7 @@ $section Excluding Words from Spell Checking$$
 $table
 $bold Syntax$$
 $cnext
-$syntax/@spell /word list/@@/$$ $rnext
+$codei/@spell /word list/@@/$$ $rnext
 $bold See Also$$
 $cnext $cref/getting started/start_spell/$$, $mref/nospell/$$
 $tend
@@ -150,7 +150,7 @@ $code dictionary.bin$$
 $subhead English.wrd$$
 $index english.wrd$$
 The $code english.wrd$$ file distributed with OMhelp
-is a combination of the files $syntax/words/*/.lst/$$
+is a combination of the files $codei/words/*/.lst/$$
 from the web site:
 $pre
 	$$

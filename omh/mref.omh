@@ -25,7 +25,7 @@ $section Multiple Tag Based Cross References$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@mref%/tag1/%/tag2/%/.../%/tagN/%@@/$$ $rnext
+$cnext $codei/@mref%/tag1/%/tag2/%/.../%/tagN/%@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/cref/tref/rref/href/$$  $rnext
 $tend
@@ -34,7 +34,7 @@ $head Description$$
 Links multiple sections using the
 $cref/cross reference tag/glossary/Cross Reference Tag/$$
 for each section as the text displayed for the link.
-$syntax/
+$codei/
 
 %/tag1/%/tag2/%/.../%/tagN/%
 /$$

@@ -26,10 +26,10 @@ $section Managing Frame Containing the Links Relative To A Section$$
 $table
 $bold Syntax$$
 $cend
-$syntax/BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)/$$ $rend
-$cend $syntax/TitleLinks(/title/)/$$ $rend
-$cend $syntax/AddLink(/tag/, /head/, /text/)/$$  $rend
-$cend $syntax/EndLinks()/$$
+$codei/BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)/$$ $rend
+$cend $codei/TitleLinks(/title/)/$$ $rend
+$cend $codei/AddLink(/tag/, /head/, /text/)/$$  $rend
+$cend $codei/EndLinks()/$$
 $tend
 
 $head Description$$
@@ -52,11 +52,11 @@ $italic text$$,
 are all '\0' terminated vectors of type $code const char*$$.
 One exception to this rule is that $italic image_link$$
 and $italic image_file$$ may be $code NULL$$.
-$syntax/
+$codei/
 
 BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)
 /$$
-The opens a new output file named $syntax//taglower/_links./ext/$$
+The opens a new output file named $icode/taglower/_links./ext/$$
 where $italic taglower$$ is a lower case version of $italic tagfrom$$
 and $italic ext$$ is the output file extension specified by
 $cref Internal2Out$$.
@@ -76,7 +76,7 @@ image file $italic image_file$$ is to be linked to.
 If $italic image_link$$ is $code NULL$$, the image does not appear
 and $italic image_file$$ is not used.
 Otherwise, $italic image_file$$ cannot be $code NULL$$.
-If $syntax//image_link/[0] == '\0'/$$,
+If $icode/image_link/[0] == '\0'/$$,
 the image is output, but it is not linked to any web address.
 $pre
 
@@ -91,7 +91,7 @@ $$
 It is assumed that the routine $code EndLinks$$
 will be called some time after $code BeginLinks$$ and before
 another call to $code BeginLinks$$.
-$syntax/
+$codei/
 
 TitleLinks(/title/)
 /$$
@@ -100,18 +100,18 @@ and the corresponding call to $code EndLinks$$.
 This call to $code TitleLinks$$
 separates links from the previous title and
 writes a title for the set of links that follow.
-$syntax/
+$codei/
 
 AddLink(/text/, /tag/, /crossheading/, /frame/)
 /$$
 It is assumed that we are between a call to $code BeginLinks$$
 and the corresponding call to $code EndLinks$$.
-If $syntax//crossheading/[0]/$$ is not '\0',
-it is assumed that $syntax//tag/[0]/$$ is not '\0'.
+If $icode/crossheading/[0]/$$ is not '\0',
+it is assumed that $icode/tag/[0]/$$ is not '\0'.
 $pre
 
 $$
-If $syntax//tag/[0]/$$ is '\0',
+If $icode/tag/[0]/$$ is '\0',
 $italic text$$ is output as straight text without a link.
 $pre
 
@@ -130,9 +130,9 @@ $$
 Leading underbars in $italic text$$ are not included in the output.
 Leading spaces are output as non-breaking spaces and can
 be used to indent the linking text.
-If $syntax//crossheading/[0]/$$ == '\0',
+If $icode/crossheading/[0]/$$ == '\0',
 the link replaces the entire window.
-$syntax/
+$codei/
 
 EndLinks()
 /$$

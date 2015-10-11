@@ -20,7 +20,7 @@ $index latex, above$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex \stackrel{%above%}{%commands%}@@/$$
+$cnext $codei/@latex \stackrel{%above%}{%commands%}@@/$$
 $tend
 
 $head Description$$

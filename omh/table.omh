@@ -25,10 +25,10 @@ $section Specifying a Table and Its Rows and Columns$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@table/$$ $rnext
-$cnext $syntax/@cnext/$$ $rnext
-$cnext $syntax/@rnext/$$ $rnext
-$cnext $syntax/@tend/$$  $rnext
+$cnext $codei/@table/$$ $rnext
+$cnext $codei/@cnext/$$ $rnext
+$cnext $codei/@rnext/$$ $rnext
+$cnext $codei/@tend/$$  $rnext
 $bold See Also$$
 $cnext $mref/list/pre/center/array/$$
 $tend

@@ -28,9 +28,9 @@ $cindex external cross reference link$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@href%/uri/%@@/$$ $rnext
-$cnext $syntax/@href%/uri/%/linkingtext/%@@/$$ $rnext
-$cnext $syntax/@href%/uri/%/linkingtext/%/frame/%@@/$$ $rnext
+$cnext $codei/@href%/uri/%@@/$$ $rnext
+$cnext $codei/@href%/uri/%/linkingtext/%@@/$$ $rnext
+$cnext $codei/@href%/uri/%/linkingtext/%/frame/%@@/$$ $rnext
 $bold See Also$$
 $cnext
 $cref/image_link/running/image_link/$$,

@@ -26,7 +26,7 @@ $section Latex Standard Mathematics Functions$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex /Command/ @@/$$
+$cnext $codei/@latex /Command/ @@/$$
 $tend
 
 $head Description$$

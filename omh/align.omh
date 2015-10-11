@@ -21,7 +21,7 @@ $section Setting Alignment of Cells in Tables$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@align /location/@@/$$ $rnext
+$cnext $codei/@align /location/@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/table/array/$$
 $tend

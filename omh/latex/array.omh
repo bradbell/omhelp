@@ -31,11 +31,11 @@ $section The Latex Array Command$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex \begin{array}{/c1 ... cn/}/$$       $rnext
-$cnext $syntax//A(1,1)/ & /.../ & /A(1,n)/ \\/$$          $rnext
-$cnext $syntax//.../ & /.../ & /.../ \\/$$                $rnext
-$cnext $syntax//A(m,1)/ & /.../ & /A(m,n)/$$              $rnext
-$cnext $syntax/\end{array} @@/$$                          $rnext
+$cnext $codei/@latex \begin{array}{/c1 ... cn/}/$$       $rnext
+$cnext $icode/A(1,1)/ & /.../ & /A(1,n)/ \\/$$          $rnext
+$cnext $icode/.../ & /.../ & /.../ \\/$$                $rnext
+$cnext $icode/A(m,1)/ & /.../ & /A(m,n)/$$              $rnext
+$cnext $codei/\end{array} @@/$$                          $rnext
 $bold See Also$$
 $cnext $cref table$$
 $tend
@@ -75,7 +75,7 @@ $pre
 
 $head Row Alignment$$
 The first line in the syntax above can have the form
-$syntax/
+$codei/
 	@latex \begin{array}[/r/]{/c1 ... cn/}
 /$$
 In this case the value of $italic r$$

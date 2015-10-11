@@ -31,7 +31,7 @@ $section Changing Latex Font$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex /font/ @@/$$ $rend
+$cnext $codei/@latex /font/ @@/$$ $rend
 $tend
 
 $head Description$$

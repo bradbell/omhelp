@@ -87,10 +87,10 @@ and the viewer will see the mathematics.
 
 $subhead Example by Itself$$
 Use any browser to view the file
-$syntax%%test%/htm/latex_example.htm%$$.
+$icode%test%/htm/latex_example.htm%$$.
 Use the
 $href%http://www.mozilla.org%Mozilla%$$
 web browser to view the file
-$syntax%%test%/htm/latex_example.xml%$$.
+$icode%test%/htm/latex_example.xml%$$.
 
 $end

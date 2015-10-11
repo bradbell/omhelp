@@ -76,6 +76,6 @@ $$
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/head_example.htm%$$.
+$icode%test%/htm/head_example.htm%$$.
 
 $end

@@ -15,20 +15,20 @@ $section List Children of a Section$$
 
 $table
 $bold Syntax$$
-$cend $syntax/ListChildren(/S/, /printable/)/$$ $rend
-$cend $syntax/TableChildren(/S/, /printable/)/$$
+$cend $codei/ListChildren(/S/, /printable/)/$$ $rend
+$cend $codei/TableChildren(/S/, /printable/)/$$
 $tend
 
 $head Description$$
 Output (to current output file)
 a list of HTML links to the sections that are children
 of the specified section.
-$syntax/
+$codei/
 
 ListChildren
 /$$
 Use the title for each child as the linking text.
-$syntax/
+$codei/
 
 TableChildren
 /$$
@@ -36,7 +36,7 @@ Use the
 $cref/cross reference tag/CrossReference/Tag/$$ for each child
 as the linking text.
 Output the corresponding title next to the linking text.
-$syntax/
+$codei/
 
 /S/
 /$$
@@ -44,7 +44,7 @@ is an pointer to a
 $cref/SectionInfo/SectionInfo/$$ record
 that specifies which section children
 are being listed for cross reference linking.
-$syntax/
+$codei/
 
 /printable/
 /$$

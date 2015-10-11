@@ -30,7 +30,7 @@ $section Begin and End A Section$$
 $table
 $bold Syntax$$
 $cnext
-$syntax/@begin /tag/@@
+$codei/@begin /tag/@@
 /. . ./
 @end/$$ $rnext
 $bold See Also$$
@@ -58,7 +58,7 @@ cross referenced as "two".
 In addition, each of the sections
 has a cross references to the other.
 
-$syntax%
+$codei%
 	/*
 	@begin one@@
 	@section First Subject@@
@@ -112,7 +112,7 @@ $mindex section title$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@section /title/@@/$$ $rnext
+$cnext $codei/@section /title/@@/$$ $rnext
 $bold See Also$$
 $cnext $cref/getting started/start_simple/$$
 $tend
@@ -140,7 +140,7 @@ the $code section$$ command to the $cref/mindex/keyword/Mindex/$$ command.
 (To make this connection, it must appear before the $code section$$ command.)
 If this is the case,
 the $code section$$ command automatically generates a request of the form
-$syntax/
+$codei/
 	@mindex /title/@@
 /$$
 In this case,
@@ -170,7 +170,7 @@ $section Using the Title of Another Section$$
 $table
 $bold Syntax$$
 $cnext
-$syntax/@title /tag/@@/$$ $rnext
+$codei/@title /tag/@@/$$ $rnext
 $bold See Also$$ $cnext $mref/tref/$$
 $tend
 

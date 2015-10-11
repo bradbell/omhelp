@@ -20,7 +20,7 @@ $section Displaying the Registered Trade Mark Symbol !$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@rmark /character/@@/$$ $rnext
+$cnext $codei/@rmark /character/@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/dollar/cmark/newlinech/$$
 $tend

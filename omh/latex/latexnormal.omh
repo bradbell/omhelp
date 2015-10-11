@@ -20,7 +20,7 @@ $section Latex Normal Characters$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/#latex /Character/ ##/$$
+$cnext $codei/#latex /Character/ ##/$$
 $tend
 
 $head Description$$

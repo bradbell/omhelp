@@ -15,7 +15,7 @@ $section Remove Copies of A Certain Character From A String$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void StrRemove(char *%str%, char %ch%)%$$
+$cend $codei%void StrRemove(char *%str%, char %ch%)%$$
 $tend
 
 $head Description$$

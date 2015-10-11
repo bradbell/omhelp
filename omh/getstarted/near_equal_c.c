@@ -18,7 +18,7 @@ $$
 $section Determine if Two Values Are Nearly Equal$$
 
 $head Syntax$$
-$syntax%%e% = near_equal_c(%x%, %y%, %r%, %a%)%$$
+$icode%e% = near_equal_c(%x%, %y%, %r%, %a%)%$$
 
 $head Purpose$$
 Returns true,
@@ -26,19 +26,19 @@ if $italic x$$ is nearly equal to $italic y$$ and false otherwise.
 
 $head x$$
 The argument $italic x$$ has prototype
-$syntax%
+$codei%
 	double %x%
 %$$
 
 $head y$$
 The argument $italic y$$ has prototype
-$syntax%
+$codei%
 	double %y%
 %$$
 
 $head r$$
 The relative error criteria $italic r$$ has prototype
-$syntax%
+$codei%
 	double %r%
 %$$
 It must be greater than or equal zero.
@@ -50,7 +50,7 @@ where $latex \leq$$ denotes less than or equal.
 
 $head a$$
 The absolute error criteria $italic a$$ has prototype
-$syntax%
+$codei%
 	double %a%
 %$$
 It must be greater than or equal zero.
@@ -61,7 +61,7 @@ $latex \[
 
 $head e$$
 The return value $italic e$$ has prototype
-$syntax%
+$codei%
 	int %e%
 %$$
 If either the relative or absolute error condition is satisfied,

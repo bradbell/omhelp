@@ -18,11 +18,11 @@ $section Creating A Copy of a File$$
 
 $table
 $bold Syntax$$
-$cend $syntax/copyfile(/destination/, /source/)/$$ $rend
-$cend $syntax/copyfileFreeMemory()/$$ $rend
+$cend $codei/copyfile(/destination/, /source/)/$$ $rend
+$cend $codei/copyfileFreeMemory()/$$ $rend
 $tend
 
-$syntax/
+$codei/
 
 copyfile(/destination/, /source/)
 /$$
@@ -54,7 +54,7 @@ $italic source$$ and $italic destination$$ occurred.
 If a user error occurs, an error message is printed
 and this routine does not return.
 
-$syntax/
+$codei/
 
 copyfileFreeMemory()
 /$$

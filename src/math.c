@@ -18,7 +18,7 @@ $section Outputting Text in Math Mode$$
 
 $table
 $bold Syntax$$ $cend
-$syntax%OutputMath(int %ntoken%,  char *%text%, char %escape%, int %italic%)%$$
+$codei%OutputMath(int %ntoken%,  char *%text%, char %escape%, int %italic%)%$$
 $tend
 
 $head Description$$

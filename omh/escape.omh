@@ -22,7 +22,7 @@ $section Changing the Escape Character$$
 $table
 $bold Syntax$$
 $cnext
-$syntax/@escape /character/@@/$$
+$codei/@escape /character/@@/$$
 $tend
 
 $head Description$$

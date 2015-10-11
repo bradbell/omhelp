@@ -24,7 +24,7 @@ $section Latex Symbols And Other Atomic Entities$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex /symbol command/ @@/$$
+$cnext $codei/@latex /symbol command/ @@/$$
 $tend
 
 $head Description$$

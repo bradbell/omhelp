@@ -478,7 +478,7 @@ This fixed $code \bigcap$$ and $code \bigcup$$ in displayed formulas.
 
 $head 08-03-21$$
 Some of the Latex $cref/symbols/symbol/$$ were using character codes
-of the form $syntax/&#x0F5/hh/$$ (where $italic hh$$ is two hex digits).
+of the form $codei/&#x0F5/hh/$$ (where $italic hh$$ is two hex digits).
 Such codes are not in the current MathML standard; e.g., see
 $pre
 	$$ $href%http://www.w3.org/TR/MathML2/byalpha.html%$$
@@ -762,8 +762,8 @@ This has been fixed.
 
 $head 06-09-27$$
 The $cref/navigate/$$ command was improved by making
-splitting $syntax%_up%i%$$ into a the type
-$syntax%Down_Up_%i%$$ and the label $syntax%_up_%i%$$.
+splitting $codei%_up%i%$$ into a the type
+$codei%Down_Up_%i%$$ and the label $codei%_up_%i%$$.
 This enables one to changes the labels corresponding to
 this type of link.
 
@@ -811,7 +811,7 @@ line argument has been added.
 $head 06-08-30$$
 Change the $cref/navigate/$$ special labels
 $code _parent$$ and $code _this$$ option to the more
-general (and more functional) $syntax%_up%#%$$ label.
+general (and more functional) $codei%_up%#%$$ label.
 
 $head 06-08-29$$
 The current section was included in the Up $cref/navigation/navigate/$$ links,
@@ -946,7 +946,7 @@ The $xref/Firefox/Javascript/Firefox Javascript/$$
 entry has been modified to use
 $code FirefoxJavascript.htm$$ instead of
 $code FirefoxJavascript.html$$
-(because only $syntax%%*%.html%$$ files are not being
+(because only $icode%*%.html%$$ files are not being
 copied to the web version).
 $pre
 
@@ -1069,7 +1069,7 @@ had been added and the $code wspace$$ command has been deprecated.
 
 $head 05-09-24$$
 In the $xref/InstallUnix//Unix install/$$ case, the file
-$syntax%
+$codei%
 	%prefix%/share/OMhelp/dictionary.bin
 %$$
 was created the first time OMhelp was run.
@@ -1178,7 +1178,7 @@ were moved to $code RunOMhelp$$ and $code RunOMhelp.bat$$
 $head 05-02-15$$
 The download files and $xref/install//installation/$$ instructions
 were changed.
-All the download files now use $syntax//*/.tar.gz/$$ format which
+All the download files now use $icode/*/.tar.gz/$$ format which
 gives better compression and is understood by most decompression programs.
 
 

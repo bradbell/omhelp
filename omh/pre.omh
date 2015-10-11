@@ -24,7 +24,7 @@ $section Pre-formatted Text With a Uniformly Spaced Font$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@pre /text/@@/$$ $rnext
+$cnext $codei/@pre /text/@@/$$ $rnext
 $bold See Also$$
 $cnext
 	$cref/getting started/start_pre/$$,

@@ -24,7 +24,7 @@ $section Creating a File and Linking to its Execution$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@execute /filename/@/$$ $rnext
+$cnext $codei/@execute /filename/@/$$ $rnext
 $bold See Also$$
 $cnext $mref/codep/verbatim/$$
 $tend

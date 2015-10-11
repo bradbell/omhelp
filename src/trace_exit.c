@@ -13,7 +13,7 @@ $$
 $section Routine that Traces Exit Value on Standard Error$$
 
 $table
-$bold Syntax$$ $cnext $syntax%void trace_exit(int %status%)%$$
+$bold Syntax$$ $cnext $codei%void trace_exit(int %status%)%$$
 $tend
 
 $head Purpose$$

@@ -17,7 +17,7 @@ $section Set Input Characters Corresponding Latex Lexical Analyzer$$
 
 $table
 $bold Syntax$$
-$cend $syntax/LatexLexPut(/line/, /input/)/$$
+$cend $codei/LatexLexPut(/line/, /input/)/$$
 $tend
 
 $head Description$$
@@ -45,7 +45,7 @@ $section Recall Tokens Recently Returned To Parser$$
 
 $table
 $bold Syntax$$
-$cend $syntax/LatexLexHistory(/number/, /length/, /line/, /token/)/$$
+$cend $codei/LatexLexHistory(/number/, /length/, /line/, /token/)/$$
 $tend
 
 $head Description$$
@@ -53,7 +53,7 @@ The return value of $code LatexLexHistory$$ is a $code int$$
 which we refer to as $italic ntoken$$.
 It specifies the actual number of tokens returned
 by $code LatexLexHistory$$.
-$syntax/
+$codei/
 
 int /number/
 /$$
@@ -61,13 +61,13 @@ The value $italic number$$ specifies the
 maximum number of tokens to return.
 The value $italic ntoken$$ will be less than or
 equal $italic number$$.
-$syntax/
+$codei/
 
 int /length/
 /$$
 The value $italic length$$ specifies the
 maximum number of character to return for each token.
-$syntax%
+$codei%
 
 int *%line%
 %$$
@@ -75,11 +75,11 @@ The array $italic line$$ must have at least $italic number$$
 elements in it.
 The input value of the elements of $italic line$$ does not matter.
 For $math% i=0,...,ntoken-1 %$$
-the value of $syntax//line/[/i/]/$$ is set to the line
+the value of $icode/line/[/i/]/$$ is set to the line
 number where the token
-$syntax//token/[/i/]/$$ appeared in the
+$icode/token/[/i/]/$$ appeared in the
 file $cref/InputName()/InputName/$$.
-$syntax%
+$codei%
 
 char **%token%
 %$$
@@ -89,7 +89,7 @@ Each element of $italic token$$ is in turn an array of characters
 with at least $italic length$$ elements in it.
 The input value of the elements of $italic token$$ does not matter.
 For $math% i=0,...,ntoken-1 %$$,
-the value of $syntax//token/[/i/]/$$ is a '\0' terminated
+the value of $icode/token/[/i/]/$$ is a '\0' terminated
 character vector containing a previous token.
 The tokens are returned
 in reverse order of how they appeared in the input.

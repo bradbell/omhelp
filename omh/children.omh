@@ -33,9 +33,9 @@ $section Specifying Children in Contents Tree$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@contents%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
-$cnext $syntax/@childtable%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
-$cnext $syntax/@children%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
+$cnext $codei/@contents%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
+$cnext $codei/@childtable%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
+$cnext $codei/@children%/file1/%/file2/%/.../%/fileN/%@@/$$  $rnext
 $bold See Also$$
 $cnext
 	$cref/get started/start_multiple/$$,
@@ -71,7 +71,7 @@ section as determined by the table of contents
 (which in turn is determined by the
 $code contents$$, $code childtable$$ and $code children$$ commands).
 
-$syntax/
+$codei/
 
 %/file1/%/file2/%/.../%/fileN/%
 /$$

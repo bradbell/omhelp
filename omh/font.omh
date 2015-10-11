@@ -24,9 +24,9 @@ $bold Syntax$$
 $cnext
 
 $table
-$syntax/@fixed /text/@@/$$  $cnext $syntax/@code /text/@@/$$ $rnext
-$syntax/@italic /text/@@/$$ $cnext $syntax/@bold /text/@@/$$ $rnext
-$syntax/@big /text/@@/$$    $cnext $syntax/@small /text/@@/$$
+$codei/@fixed /text/@@/$$  $cnext $codei/@code /text/@@/$$ $rnext
+$codei/@italic /text/@@/$$ $cnext $codei/@bold /text/@@/$$ $rnext
+$codei/@big /text/@@/$$    $cnext $codei/@small /text/@@/$$
 $tend
 
 $rnext

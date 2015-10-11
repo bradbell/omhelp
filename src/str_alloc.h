@@ -23,7 +23,7 @@ $section Copy a String to Separately Allocated Memory$$
 
 $table
 $bold Syntax$$ $cend
-$syntax%str_alloc(*%s%)%$$
+$codei%str_alloc(*%s%)%$$
 $rend
 $bold See Also$$ $cend $mref/StrCat/$$
 $tend

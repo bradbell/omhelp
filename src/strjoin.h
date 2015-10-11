@@ -25,7 +25,7 @@ $index strjoin$$
 
 $table
 $bold Syntax$$ $cend
-$syntax/strjoin(/s1/, /s2/)/$$
+$codei/strjoin(/s1/, /s2/)/$$
 $rend
 $bold See Also$$ $cend $mref/StrCat/str_alloc/$$
 $tend

@@ -23,7 +23,7 @@ $section Displaying the Copyright Symbol !$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@cmark /character/@@/$$ $rnext
+$cnext $codei/@cmark /character/@@/$$ $rnext
 $bold See Also$$
 $cnext $mref/dollar/rmark/newlinech/$$
 $tend

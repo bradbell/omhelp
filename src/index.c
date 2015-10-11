@@ -22,15 +22,15 @@ $section Keyword and Index Utilities$$
 $table
 $bold Syntax$$
 $cend
-$syntax%InsertInIndex(%key%, %tag%, %head%, %escape%)%$$
+$codei%InsertInIndex(%key%, %tag%, %head%, %escape%)%$$
 $rend $cend
-$syntax%MultipleIntoIndex(%key%, %tag%, %head%, %escape%, %ignore%)%$$
+$codei%MultipleIntoIndex(%key%, %tag%, %head%, %escape%, %ignore%)%$$
 $rend $cend
-$syntax%CycleIntoIndex(%key%, %tag%, %head%, %escape%)%$$
+$codei%CycleIntoIndex(%key%, %tag%, %head%, %escape%)%$$
 $rend $cend
-$syntax%IndexPass1(%section%)%$$
+$codei%IndexPass1(%section%)%$$
 $rnext $cnext
-$syntax%IndexFreeMem()%$$
+$codei%IndexFreeMem()%$$
 $tend
 
 
@@ -83,7 +83,7 @@ for this index entry.
 It specifies the location with in the section
 that the index entry points to.
 If $italic head$$ equals NULL or
-$syntax//head/[0]/$$ equals '\0',
+$icode/head/[0]/$$ equals '\0',
 the entry points to the entire section specified by $italic tag$$.
 
 $head Escape$$
@@ -138,7 +138,7 @@ an error message for the $code cindex$$ command is generated.
 $head IndexPass1$$
 $index IndexPass1$$
 this routine creates the pass one version of the
-index page in the file with root name $syntax//section/->tag/$$
+index page in the file with root name $icode/section/->tag/$$
 and extension $code .tmp$$.
 It is a Pass1 version because
 the cross references use the HrefOutputPass1 format.
@@ -146,7 +146,7 @@ In addition, for the $italic letter$$
 between $code A$$ and $code Z$$ that has index entries
 starting with that letter:
 there a heading for that letter together with a
-$syntax%
+$codei%
 	<a name="%letter%"></a>
 %$$
 reference that points to the position of that letter in the index.

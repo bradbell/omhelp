@@ -25,7 +25,7 @@ $section Miscellaneous Symbols$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex /Command/ @@/$$
+$cnext $codei/@latex /Command/ @@/$$
 $tend
 
 $head Description$$

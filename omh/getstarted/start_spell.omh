@@ -84,6 +84,6 @@ $$
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$syntax%%test%/htm/spell_example.htm%$$.
+$icode%test%/htm/spell_example.htm%$$.
 
 $end

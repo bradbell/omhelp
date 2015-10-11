@@ -16,7 +16,7 @@ $section Determine Next Execute File Name$$
 
 $table
 $bold Syntax$$ $cend
-$syntax%ExecuteNextFile()%$$ $rend
+$codei%ExecuteNextFile()%$$ $rend
 $bold See Also$$
 $cend $mref/ExecuteSetFile/$$
 $tend
@@ -47,7 +47,7 @@ $section Set Name of Next Execution File$$
 
 $table
 $bold Syntax$$ $cend
-$syntax%ExecuteSetFile(
+$codei%ExecuteSetFile(
 	const char *%name%,
 	const char *%tag%
 )%$$ $rend
@@ -95,7 +95,7 @@ $section Write Next Execute File$$
 
 $table
 $bold Syntax$$ $cend
-$syntax%ExecuteWriteFile(
+$codei%ExecuteWriteFile(
 	const char *%text%
 )%$$ $rend
 $bold See Also$$
@@ -131,7 +131,7 @@ $section Free Hidden Memory Allocated by Execute Routines$$
 
 $table
 $bold Syntax$$
-$cend $syntax%void ExecuteFree()%$$ $rend
+$cend $codei%void ExecuteFree()%$$ $rend
 $bold See Also$$
 $cend $mref/execute/$$
 $tend

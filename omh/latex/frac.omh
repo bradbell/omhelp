@@ -21,7 +21,7 @@ $section Latex Fraction Command$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@latex \frac{/numerator/}{/denominator/} @@/$$
+$cnext $codei/@latex \frac{/numerator/}{/denominator/} @@/$$
 $tend
 
 $head Description$$
