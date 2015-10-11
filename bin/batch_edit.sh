@@ -11,20 +11,28 @@ then
 	exit 1
 fi
 # Script for converting syntax commands to codei and icode commands
-# Also: correct $beign -> $begin
-if [ -e junk.sed ]
-then
-	rm junk.sed
-fi
+cat << EOF > junk.sed
+/\$syntax/! b skip
+#
+: loop
+/\\\$\\\$/! N
+/\\\$\\\$/! b loop
+#
+EOF
 E='\$\$'
 list='% | /'
 for D in $list
 do
 	P="\([^$D]*\)"
-	echo "s@\$syntax$D$D@\$icode$D@g" >> junk.sed
-	echo "s@\$syntax$D@\$codei$D@g"   >> junk.sed
+cat << EOF >> junk.sed
+s@\$syntax$D$D@\$icode$D@g
+s@\$syntax$D@\$codei$D@g
+#
+EOF
 done
+echo ': skip' >> junk.sed
 list=`git ls-files | sed  \
+	-e '/^omh\/syntax\.omh$/d' \
 	-e '/^bin\/batch_edit\.sh$/d'`
 for file in $list
 do
