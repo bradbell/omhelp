@@ -10,13 +10,38 @@ then
 	echo "bin/batch_edit.sh: must be executed from its parent directory"
 	exit 1
 fi
-# Script for converting italic commands that correspond to variables in syntax
+# Script for converting syntax to a separate paragraph
 cat << EOF > junk.sed
-s|\$italic \([a-zA-Z][a-zA-Z0-9_]*\)\\\$\\\$|\$icode \\1\$\$|g
-s|\$italic \([a-zA-Z][a-zA-Z]* [0-9]\)\\\$\\\$|\$icode \\1\$\$|g
+/\$table/N
+/\$table\\n*\$bold Syntax/! b skip_syntax
+#
+: loop_syntax
+N
+/\$bold See Also/b end_syntax
+/\$tend/! b loop_syntax
+: end_syntax
+s|\\([%/]\\)\$\$ *\$rnext *|\n\\1\$\$|g
+s|\\([%/]\\)\$\$ *\\n\$rnext *|\n\\1\$\$|g
+#
+s|\\([%/]\\)\$\$ *\$rend *|\n\\1\$\$|g
+s|\\([%/]\\)\$\$ *\\n\$rend *|\n\\1\$\$|g
+#
+: loop_also
+/\$tend/! N
+/\$tend/! b loop_also
+#
+s|\\([%/]\\)\$\$ *\$rnext *|\\1\$\$|g
+s|\\([%/]\\)\$\$ *\$rend *|\\1\$\$|g
+s|\\n *\$cnext *\\n|\\n|g
+s|\\n *\$cnext *|\\n|g
+s| *\$table *\\n||
+s| *\$tend *||
+s| *\$bold Syntax|\$head Syntax|
+s| *\$bold See Also|\\n\$head See Also|
+#
+:skip_syntax
 EOF
 list=`git ls-files | sed  \
-	-e '/^omh\/syntax\.omh$/d' \
 	-e '/^bin\/batch_edit\.sh$/d'`
 for file in $list
 do
@@ -24,10 +49,7 @@ do
 	ext=`echo $file | sed -e 's|.*\.||'`
 	case $ext in
 		omh | c | h | l | sh | f | bat )
-		if grep 'italic' $file > /dev/null
-		then
-			sed -f junk.sed -i $file
-		fi
+		sed -f junk.sed -i $file
 		;;
 
 		*)
@@ -35,10 +57,3 @@ do
 		;;
 	esac
 done
-sed -e 's|$italic word list|$icode word_list|' -i omh/spell.omh
-sed -e 's|$italic pre-formattted|$icode pre_formatted|' -i omh/codep.omh
-sed -e 's|$italic linkingtext|$cref/href/linkingtext/|' -i omh/whatsnew.omh
-sed -e 's|$italic italic ntoken|$icode ntoken|' -i src/section.c
-sed -e 's|$italic F->nFrame|$icode F-nFrame|' -i src/FrameSet.c
-sed -e 's|$italic section/|$icode section|' -i src/automatic.c
-

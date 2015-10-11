@@ -18,35 +18,27 @@ $mindex fixed code italic bold big small$$
 
 $section Specifying Fonts$$
 
+$head Syntax$$
+$codei/@/font/ /text/
+/$$
+where $icode font$$ is
+$code fixed$$, $code code$$, $code italic$$, $code big$$, or $code small$$.
+
+$head See Also$$
+$cref/getting started/start_font/$$,
+$cref special$$,
+$cref format$$
+
+$head font$$
+The following describes the meaning of each of the possible fonts:
 $table
-
-$bold Syntax$$
-$cnext
-
-$table
-$codei/@fixed /text/@@/$$  $cnext $codei/@code /text/@@/$$ $rnext
-$codei/@italic /text/@@/$$ $cnext $codei/@bold /text/@@/$$ $rnext
-$codei/@big /text/@@/$$    $cnext $codei/@small /text/@@/$$
-$tend
-
-$rnext
-$bold See Also$$
-$cnext	$cref/getting started/start_font/$$,
-	$cref special$$,
-	$cref format$$
-$tend
-
-$head Description$$
-The following table describes the meaning of each of the fonts:
-$pre
-$$
-$table
-$pre     $$ $cnext $code fixed$$  $cnext a fixed pitch font    $rnext
-            $cnext $code code$$   $cnext a computer code font  $rnext
-            $cnext $code italic$$ $cnext an italic font        $rnext
-            $cnext $code bold$$   $cnext a bold font           $rnext
-            $cnext $code big$$    $cnext a bigger font size    $rnext
-            $cnext $code small$$  $cnext a smaller font size
+$icode font$$  $cnext Description           $rnext
+$code fixed$$  $cnext a fixed pitch font    $rnext
+$code code$$   $cnext a computer code font  $rnext
+$code italic$$ $cnext an italic font        $rnext
+$code bold$$   $cnext a bold font           $rnext
+$code big$$    $cnext a bigger font size    $rnext
+$code small$$  $cnext a smaller font size
 $tend
 Any sequence of commands may be present in $icode text$$; i.e.,
 there may be occurrences of the $code @$$ character.
