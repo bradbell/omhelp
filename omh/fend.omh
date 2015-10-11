@@ -13,6 +13,7 @@ $spell
 	mref
 	xref
 	OMhelp
+	codei
 $$
 $dollar @$$
 
@@ -28,7 +29,7 @@ $section Dividing A Section Into Frames$$
 
 $table
 $bold Syntax$$
-$cnext $syntax/@fend /percent/@@/$$
+$cnext $codei/@fend /percent/@@/$$
 $tend
 
 $head Deprecated 2006-07-07$$
@@ -81,7 +82,7 @@ $codep
 
 	%table
 	%bold Syntax%%
-	%cend %syntax/@fend /percent/@@/%% %rend
+	%cend %codei/@fend /percent/@@/%% %rend
 	%bold See Also%%
 	%cend %mref/head/%%
 	%tend

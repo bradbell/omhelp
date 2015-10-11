@@ -12,11 +12,14 @@ then
 fi
 # Script for converting syntax commands to codei and icode commands
 cat << EOF > junk.sed
+/@syntax/b got_syntax_cmd
 /\$syntax/! b skip
 #
 : loop
 /\\\$\\\$/! N
 /\\\$\\\$/! b loop
+#
+: got_syntax_cmd
 #
 EOF
 E='\$\$'
@@ -25,8 +28,11 @@ for D in $list
 do
 	P="\([^$D]*\)"
 cat << EOF >> junk.sed
-s@\$syntax$D$D@\$icode$D@g
-s@\$syntax$D@\$codei$D@g
+s#\$syntax$D$D#\$icode$D#g
+s#\$syntax$D#\$codei$D#g
+#
+s#@syntax$D$D#@icode$D#g
+s#@syntax$D#@codei$D#g
 #
 EOF
 done
