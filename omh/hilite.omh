@@ -45,7 +45,7 @@ specify the commands (with out the $code @$$ character)
 for which this automatic highlighting and cross referencing is to be done.
 Currently, the only valid commands for
 automatic highlighting and cross referencing
-are the $cref/codep/$$, and $cref/verbatim/$$ commands.
+are the $cref codep$$, and $cref verbatim$$ commands.
 
 $head hiliteseq$$
 

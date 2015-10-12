@@ -32,7 +32,7 @@ $codei/@/icode/%/text1/%/text2/%/.../%/textN/%@@/$$
 
 
 $head See Also$$
-$cref/font/$$, $cref/color/$$
+$cref font$$, $cref color$$
 
 $head Purpose$$
 Display text that alternates between
@@ -44,7 +44,7 @@ the italic font is different from the
 $cref/@italic/font/$$ command.
 
 $head escape$$
-Any occurrences of the $cref/escape/$$ character appears in the text,
+Any occurrences of the $cref escape$$ character appears in the text,
 are not put in the output.
 This is helpful when aligning rows that have a different number
 of delimiters in them.
@@ -119,7 +119,7 @@ $codei%
 
 $head Remark$$
 The $code @codei$$ and $code @icode$$ commands
-provide similar functionality to the $cref/syntax/$$ command.
+provide similar functionality to the $cref syntax$$ command.
 The differences are
 
 $list number$$

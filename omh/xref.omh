@@ -43,7 +43,7 @@ With the advent of the
 $cref/-noframe/running/noframe/$$ command line argument,
 the use of frames is being discouraged.
 For this reason, the entire $code xref$$ command has been deprecated
-and it is suggested that you use the $cref/cref/$$ command instead.
+and it is suggested that you use the $cref cref$$ command instead.
 
 
 $head Description$$

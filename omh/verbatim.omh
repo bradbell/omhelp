@@ -109,7 +109,7 @@ $$
 
 $head Highlighting$$
 $index hilite, example$$
-The $cref/hilite/$$ command can be used to highlight text in the output
+The $cref hilite$$ command can be used to highlight text in the output
 created by the $code verbatim$$ command.  For example,
 $codep
 	@hilitecmd%verbatim%@@

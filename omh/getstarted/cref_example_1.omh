@@ -21,12 +21,12 @@ Each section starts with a begin command
 that contains its cross reference tag as an argument.
 The cross reference tag for this section is cref_example_1.
 The cross reference tags for the children of this section are
-$cref/_contents/$$,
-$cref/cref_example_2/$$,
-$cref/Cref3Example/$$,
-$cref/_reference/$$,
-$cref/_index/$$, or
-$cref/_search/$$.
+$cref _contents$$,
+$cref cref_example_2$$,
+$cref Cref3Example$$,
+$cref _reference$$,
+$cref _index$$, or
+$cref _search$$.
 Note that the sections corresponding to
 _contents,
 _reference,

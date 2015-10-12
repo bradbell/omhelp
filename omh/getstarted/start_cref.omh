@@ -27,10 +27,10 @@ $index cross reference, get started$$
 
 $head Purpose$$
 The cross reference command
-$cref/cref/$$
+$cref cref$$
 is used to link to another destination in the same web site.
 If the requested destination does not exist,
-a warning is printed on $cref/stdout/$$.
+a warning is printed on $cref stdout$$.
 
 $head Execute The Following Steps$$
 

@@ -23,10 +23,10 @@ del_list='
 '
 for cmd in $cmd_list
 do
-	for del in del_list
+	for del in $del_list
 	do
 cat << EOF > junk.sed
-s#\$$cmd$del\\([^$del]*\\)\\$del\\\$\\\$#\$\$cmd \\1\$\$#
+s#\$$cmd$del\\([^$del]*\\)\\$del\\\$\\\$#\$$cmd \\1\$\$#g
 EOF
 	done
 done

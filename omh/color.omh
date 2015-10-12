@@ -54,12 +54,12 @@ $icode command$$
 	$cnext Style
 $rnext
 $code codecolor$$
-	$cnext inside $cref/code/font/$$ and $cref/codep/$$ commands
+	$cnext inside $cref/code/font/$$ and $cref codep$$ commands
 	$cnext blue
 	$cnext no
 $rnext
 $code hilitecolor$$
-	$cnext color used for $cref/hilite/$$ text
+	$cnext color used for $cref hilite$$ text
 	$cnext purple
 	$cnext no
 $rnext

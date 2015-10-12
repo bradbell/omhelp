@@ -35,7 +35,7 @@ $codei/@cref%/text/%/tag/%/heading/%@@
 $codei/@cref%/text/%/tag/%/heading/%/subheading/%@@/$$
 
 $head See Also$$
-$cref/start_cref/$$
+$cref start_cref$$
 
 
 $head Purpose$$
@@ -98,7 +98,7 @@ with cross reference tag equal to $code head$$,
 and the link is to the beginning of the section
 (not a heading within the section).
 You can see the effect of this by following the link:
-$cref/head/$$.
+$cref head$$.
 
 $subhead tag$$
 For the following input
@@ -153,7 +153,7 @@ $cref/
 $head Reference$$
 It is possible that there is no section with the specified
 cross reference tag and heading.
-A list of such cross reference tags is printed on $cref/stdout/$$
+A list of such cross reference tags is printed on $cref stdout$$
 when $code omhelp$$ is run.
 In this case, no linkage is attempted and the linking text is
 displayed in red.

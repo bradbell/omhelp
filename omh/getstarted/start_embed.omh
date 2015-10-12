@@ -53,7 +53,7 @@ $cref/test directory
 	/Execute The Following Steps.Test Directory
 /$$
 the contents of which can be seen by selecting
-$cref/view_near_equal_c/$$.
+$cref view_near_equal_c$$.
 Note that you can copy and paste the contents of
 $code near_equal_c.c$$ to your editor window.
 You may just copy the file $code near_equal_c.c$$ from the
@@ -88,7 +88,7 @@ $head A Language with only One Line Comments$$
 This example covers languages that only have one line comments; e.g.,
 Matlab, Fortran, R.
 (The R language uses the @ character, this it may be necessary to change
-the OMhelp $cref/KeyCharacter/$$.)
+the OMhelp $cref KeyCharacter$$.)
 $index Matlab, omhelp example$$
 $index Fortran, omhelp example$$
 $index R, omhelp example$$
@@ -102,7 +102,7 @@ $cref/test directory
 	/Execute The Following Steps.Test Directory
 /$$
 the contents of which can be seen by selecting
-$cref/view_near_equal_f/$$.
+$cref view_near_equal_f$$.
 Note that you can copy and paste the contents of
 $code near_equal_f.f$$ to your editor window.
 You may just copy the file $code near_equal_f.f$$ from the
