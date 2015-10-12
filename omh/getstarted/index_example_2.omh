@@ -12,7 +12,7 @@ $spell
 $$
 
 $section An Example Using The Mindex Command$$
-$mindex mindex child example$$
+$mindex child$$
 
 $end
 ----------------------------------------------------------------------
