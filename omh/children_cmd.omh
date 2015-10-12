@@ -17,8 +17,8 @@ $children/
 	codep.omh/
 	codei.omh/
 	color.omh/
-	math.omh/
 	hilite.omh/
+	th.omh/
 	center.omh/
 	table.omh/
 	list.omh/
@@ -34,8 +34,8 @@ $rref pre$$
 $rref codep$$
 $rref codei$$
 $rref color$$
-$rref math$$
 $rref hilite$$
+$rref th$$
 $tend
 
 $head Not Command Limited$$

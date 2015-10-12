@@ -6,16 +6,12 @@ OMhelp is distributed under the terms of the
 -------------------------------------------------------------------------------
 #
 $begin escape$$
-$escape ^$$
-
 $spell
 	backslash
+	codei
+	icode
 $$
 $dollar @$$
-
-$index \$$
-$index backslash$$
-$index escape$$
 
 $section Changing the Escape Character$$
 
@@ -24,32 +20,18 @@ $codei/@escape /character/@@/$$
 
 
 $head Description$$
-The backslash, $code \$$, is the default escape character.
+The default escape character is the backslash, $code \$$.
 This command changes the escape character to the first character in
 $icode character$$ (not counting leading
 $cref/white space/glossary/White Space/$$).
+The $code escape$$ command has effect till the next such command
+is executed or the end of the current section (which ever comes first).
 
-$head Example$$
-If you want to display a backslash in $mref/math/$$ mode, it is useful
-to change the current escape character from its default value (backslash).
-For example, the input
-$codep
-	@escape #@@
-	@math%
-		#Test #of #escape:
-		    / 1  0  0 \
-		I = | 0  1  0 |
-		    \ 0  0  1 /
-	%@@
-$$
-would result in the following output
-$escape #$$
-$math%
-	#Test #of #escape:
-	    / 1  0  0 \
-	I = | 0  1  0 |
-	    \ 0  0  1 /
-%$$
+$head Root Section$$
+In the special case where an $code @escape$$ command appears in the
+$cref/root section/running/root_file/$$ section,
+the last value specified in the root section
+replaces the backslash $code \$$ as the default for other sections.
 
 $head No Escape Character$$
 There is no escape character if the command
@@ -57,16 +39,28 @@ $codep
 	@escape @@
 $$
 appears in the current section.
+It is suggested that you use this as the default, by making
+it the last escape command in the root section.
 
-$head Root Section$$
-In the special case where an $code @escape$$ command appears in the
-$cref/root section/running/root_file/$$ section,
-and does not appear in the current section,
-the value specified in the root section is used for the current section; i.e.,
-it replaces the backslash $code \$$ as the default escape character.
+$head Example$$
+The $cref/delimiter/glossary/Delimiter Sequence/$$ in a
+$cref codei$$ command does not appear in its output.
+The escape character is useful for lining up output rows in a
+$code @codei$$ or $code @icode$$ command.
+For example, the input
+$codep
+	@escape #@@
+	@codei%
+	%x%   = 1 + %a% + %b%
+	%y%   = 2 + # #   %b%
+	%@@
+$$
+produces the following output
+$escape #$$
+$codei%
+	%x%   = 1 + %a% + %b%
+	%y%   = 2 + # #   %b%
+%$$
 
-$head Reference$$
-The $code escape$$ command has effect till the next such command
-is executed or the end of the current section (which ever comes first).
 
 $end

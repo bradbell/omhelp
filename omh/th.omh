@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2015 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+$begin th$$
+$spell
+	th
+$$
+$dollar @$$
+$section Indexing A Value$$
+
+$head Syntax$$
+$codei/@th /index/@@/$$
+
+$head Description$$
+This command is used for displaying an index in front
+of the letters $code th$$.
+The text $icode index$$ does not contain any $code @$$ characters.
+In addition, leading and trailing
+$cref/white space/glossary/White Space/$$
+in $icode index$$ is ignored.
+
+$head Example$$
+For example,
+$codep
+	Element @th (i,j)@@ of @latex X@@ is denoted by @latex X_{i,j}@@
+$$
+results in the following output
+$pre
+	$$Element $th (i,j)$$ of $latex X$$ is denoted by $latex X_{i,j}$$
+
+$end

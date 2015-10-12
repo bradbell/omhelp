@@ -23,13 +23,16 @@ $children%wspace.omh
 	%xref.omh
 	%fend.omh
 	%syntax.omh
+	%math.omh
 %$$
 
 $table
 $rref wspace$$ $rnext
 $rref xref$$   $rnext
 $rref fend$$   $rnext
-$rref syntax$$
+$rref syntax$$ $rnext
+$rref math$$   $rnext
+$rref number$$
 $tend
 
 $head -l, Deprecated 2006-09-12$$

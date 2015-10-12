@@ -117,6 +117,14 @@ $cref/deprecated/syntax/Deprecated 2015-10-11/$$
 and most of it's use in the OMhelp documentation
 has been removed.
 $lnext
+The $code @math$$ command has been
+$cref/deprecated/math/Deprecated 2015-10-11/$$
+and most of it's use in the OMhelp documentation
+has been removed.
+$lnext
+The $code @number$$ command has been
+$cref/deprecated/number/Deprecated 2015-10-11/$$.
+$lnext
 The OMhelp documentation was changed to use headings instead of tables
 for documentation command syntax; e.g., see the $code @cref$$
 $cref/syntax/cref/Syntax/$$.

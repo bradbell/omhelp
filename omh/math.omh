@@ -4,7 +4,6 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
 $begin math$$
 $comment leave escape character as default until example that changes it$$
 $spell
@@ -29,6 +28,8 @@ $codei/@math /text/@@
 $head See Also$$
 $mref/latex/pre/syntax/$$
 
+$head Deprecated 2015-10-11$$
+This command has been deprecated, use the $cref latex$$ command in its place.
 
 $head Description$$
 This command is used for displaying mathematical expressions
@@ -152,6 +153,9 @@ $index math, numbers$$
 $head Syntax$$
 $codei/@/number/@@/$$
 
+$head Deprecated 2015-10-11$$
+This command has been deprecated as part of the deprecation of the
+$cref math$$ command.
 
 $head Description$$
 This command makes it easy to display numbers in the same font as is used
@@ -168,37 +172,5 @@ $$
 would result in:
 $pre
 	$$ $math%x(k)%$$ for $math%k%$$ equal to $1$$, $2$$ or $3$$
-
-$end
-
-$begin th$$
-$spell th$$
-
-$dollar @$$
-$section Indexing A Value$$
-
-$index th$$
-$index index, i-th$$
-
-$head Syntax$$
-$codei/@th /index/@@/$$
-
-
-$head Description$$
-This command is used for displaying an index in math mode and in front
-of the letters $code th$$.
-The text $icode index$$ does not contain any $code @$$ characters
-and is displayed in $mref/math/$$ mode (without delimiters).
-In addition, leading and trailing
-$cref/white space/glossary/White Space/$$
-in $icode index$$ is ignored.
-
-For example,
-$codep
-	The @th i@@ element of @math%x%@@
-$$
-results in the following output
-$pre
-	$$The $th i$$ element of $math%x%$$
 
 $end
