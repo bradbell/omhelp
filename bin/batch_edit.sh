@@ -10,46 +10,26 @@ then
 	echo "bin/batch_edit.sh: must be executed from its parent directory"
 	exit 1
 fi
-# Script for converting syntax to a separate paragraph
+# Converting one argument delimiter sequence to use space for delimiter.
+cmd_list='
+	icode
+	codei
+	cref
+'
+del_list='
+	%
+	|
+	/
+'
+for cmd in $cmd_list
+do
+	for del in del_list
+	do
 cat << EOF > junk.sed
-/\$table/N
-/\$table\\n*\$bold Syntax/! b skip_syntax
-#
-: loop_syntax
-N
-/\$bold See Also/b end_syntax
-/\$tend/! b loop_syntax
-: end_syntax
-s|\\([%/]\\)\$\$ *\$rnext *|\n\\1\$\$|g
-s|\\([%/]\\)\$\$ *\\n\$rnext *|\n\\1\$\$|g
-s|\$\$ *\$rnext *|\$\$|g
-s|\$\$ *\$rend *|\$\$|g
-#
-s|\\([%/]\\)\$\$ *\$rend *|\n\\1\$\$|g
-s|\\([%/]\\)\$\$ *\\n\$rend *|\n\\1\$\$|g
-#
-: loop_also
-/\$tend/! N
-/\$tend/! b loop_also
-#
-s|\\([%/]\\)\$\$ *\$rnext *|\\1\$\$|g
-s|\\([%/]\\)\$\$ *\$rend *|\\1\$\$|g
-s|\$\$ *\$rnext *|\$\$|g
-s|\$\$ *\$rend *|\$\$|g
-#
-s|\\n *\$cnext *\\n|\\n|g
-s|\\n *\$cnext *|\\n|g
-s|\$cnext *||g
-s|\\n *\$cend *\\n|\\n|g
-s|\\n *\$cend *|\\n|g
-s|\$cend *||g
-s| *\$table *\\n||
-s| *\$tend *||
-s| *\$bold Syntax|\$head Syntax|
-s| *\$bold See Also|\\n\$head See Also|
-#
-:skip_syntax
+s#\$$cmd$del\\([^$del]*\\)\\$del\\\$\\\$#\$\$cmd \\1\$\$#
 EOF
+	done
+done
 list=`git ls-files | sed  \
 	-e '/^bin\/batch_edit\.sh$/d'`
 for file in $list

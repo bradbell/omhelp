@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin whatsNew$$
 $dollar @$$
 $spell
+	cref
 	Bradley
 	tabsize
 	wrd
@@ -110,10 +111,16 @@ $tend
 $$
 
 $head 15-10-11$$
+$list number$$
 The $code @syntax$$ command has been
 $cref/deprecated/syntax/Deprecated 2015-10-11/$$
 and most of it's use in the OMhelp documentation
 has been removed.
+$lnext
+The OMhelp documentation was changed to use headings instead of tables
+for documentation command syntax; e.g., see the $code @cref$$
+$cref/syntax/cref/Syntax/$$.
+$lend
 
 
 $head 15-10-10$$
