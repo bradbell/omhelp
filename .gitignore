@@ -5,6 +5,7 @@ dev
 doc
 git_commit.sh
 new
+omh/getstarted/htm
 omhelp_data/dictionary.bin
 xam
 *.log

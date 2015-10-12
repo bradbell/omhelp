@@ -113,5 +113,9 @@ echo_log_eval bin/run_omhelp.sh xam
 # Check multiple language example
 echo_log_eval build/omh/getstarted/run_all
 # ----------------------------------------------------------------------------
+# Build each get_started example separately
+echo_log_eval cd omh/getstarted
+echo_log_eval ./run_all.sh batch
+# ----------------------------------------------------------------------------
 echo "check_all.sh: OK"
 exit 0

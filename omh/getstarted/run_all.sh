@@ -5,7 +5,12 @@
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
-#
+# bash function that echos and executes a command
+echo_eval() {
+	echo $*
+	eval $*
+}
+# -----------------------------------------------------------------------------
 if [ "$1" != "" ] && [ "$1" != "batch" ]
 then
 	echo "usage: run_all.sh [batch]"
@@ -14,22 +19,11 @@ then
 fi
 if [ -e htm ]
 then
-	echo "rm -r htm"
-	if ! rm -r htm
-	then
-		echo "cannot remove old getstarted/htm directory"
-		exit 1
-	fi
+	echo_eval rm -r htm
 fi
-echo "mkdir htm"
-mkdir htm
-echo "cd htm"
-if ! cd htm
-then
-	echo "cannot cd to getstarted/htm directory"
-	exit 1
-fi
-input_list="
+echo_eval mkdir htm
+echo_eval cd htm
+input_list='
 	simple_example.omh
 	head_example.omh
 	image_example.omh
@@ -43,14 +37,16 @@ input_list="
 	cref_example_1.omh
 	index_example_1.omh
 	latex_example.omh
-"
+'
+top_srcdir=`pwd | sed -e 's|/omh/getstarted/htm$||'`
+omhelp="$top_srcdir/build/src/omhelp"
+omhelp_dir="$top_srcdir/omhelp_data"
 for input in $input_list
 do
 	output=`echo $input | \
 		tr '[A-Z]' '[a-z]' |\
 		sed -e s/\.omh/.htm/ -e 's|\.[cf]|.htm|'`
-	cmd="../../../src/omhelp
-		../$input -debug -noframe -omhelp_dir ../../../OMhelp"
+	cmd="$omhelp ../$input -debug -noframe -omhelp_dir $omhelp_dir"
 	echo $cmd
 	if ! $cmd
 	then
@@ -77,8 +73,7 @@ do
 done
 input=latex_example.omh
 output=`echo $input | tr '[A-Z]' '[a-z]' | sed -e 's/\.omh/.xml/'`
-cmd="../../../src/omhelp
-	../$input -xml -debug -noframe -omhelp_dir ../../../OMhelp"
+cmd="$omhelp ../$input -xml -debug -noframe -omhelp_dir $omhelp_dir"
 echo $cmd
 if ! $cmd
 then

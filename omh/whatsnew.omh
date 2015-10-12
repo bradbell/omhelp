@@ -111,10 +111,15 @@ $tend
 $$
 
 $head 15-10-12$$
+$list number$$
 Remove a lot of duplicate index entries from the documentation
 (note that the $cref/aindex/Keyword/Aindex/$$ command is used to
 automatically index words in
 $cref/headings and subheadings/head/$$.
+$lnext
+Improve $cref get_started$$ section and headings/indexing to
+its subsections.
+$lend
 
 $head 15-10-11$$
 $list number$$
