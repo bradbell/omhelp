@@ -14,6 +14,8 @@ $spell
 	OMhelp
 	childtable
 	backslash
+	omh
+	getstarted
 $$
 $dollar @$$
 
@@ -26,19 +28,31 @@ $codei/@path%/directory/%/extension/%@@
 
 $head See Also$$
 $cref/contents/children/$$,
-	$cref/root section/running/root_file/$$
+$cref/root section/running/root_file/$$
+
+$head Warning$$
+The OMhelp documentation uses the $code path$$ command so that
+file names in the $code omh/getstarted$$ directory can be both relative to
+both the $code omh$$ directory and the $code getstarted$$ directory.
+This is an advanced usage.
+In general, it is suggested one use file names relative to the
+$cref/root section/running/root_file/$$
+instead of using the $code path$$ command.
 
 
-$head Description$$
+
+$head directory, extension$$
+The text
+$codei/
+	%/directory/%/extension/%
+/$$
+is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
+
+$head Purpose$$
 This command adds $icode directory$$ to the set of directories that OMhelp
 searches for files with
 $cref/file extension/glossary/File Extension/$$
 equal to $icode extension$$.
-$codei/
-
-%/directory/%/extension/%
-/$$
-is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 
 $head Relative Paths$$
 If $icode directory$$ is not a
