@@ -14,13 +14,8 @@ $spell
 	OMhelp
 $$
 
-$mindex enclose left right$$
-$index latex, left$$
-$index latex, right$$
-$index latex, delimiter$$
-$index latex, enclose$$
-
 $section Latex Enclose With Left and Right Commands$$
+$mindex left right$$
 
 $head Syntax$$
 $codei%@latex \left %s1 command_list% \right %s2% @@%$$

@@ -13,9 +13,7 @@ $spell
 	Lamport
 $$
 
-$index greek$$
-$index latex, greek$$
-$section Greek Letters$$
+$section Latex Greek Letters$$
 
 $head Syntax$$
 $codei/@latex /Command/ @@/$$

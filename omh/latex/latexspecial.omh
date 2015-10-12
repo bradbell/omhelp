@@ -11,25 +11,16 @@ $dollar @$$
 $spell
 $$
 
-$mindex special character$$
-$index latex, special$$
-$index latex, character$$
-$index latex, #$$
-$index latex, @$$
-$index latex, %$$
-$index latex, &$$
-$index latex, _$$
-$index latex, {$$
-$index latex, }$$
 
-$index #$$
-$index @$$
-$index %$$
-$index &$$
-$index _$$
-$index {$$
-$index }$$
-
+$mindex
+	#
+	@
+	%
+	&
+	_
+	{
+	}
+$$
 $section Latex Special Characters$$
 
 $head Syntax$$

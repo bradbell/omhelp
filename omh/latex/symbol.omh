@@ -15,12 +15,8 @@ $spell
 	Leslie
 $$
 
-$mindex latex symbol character$$
-$index latex, symbol$$
-$index latex, character$$
-$index atomic$$
-
 $section Latex Symbols And Other Atomic Entities$$
+$index character$$
 
 $head Syntax$$
 $codei/@latex /symbol command/ @@/$$

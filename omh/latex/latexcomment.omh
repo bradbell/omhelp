@@ -15,9 +15,7 @@ $spell
 $$
 $dollar @$$
 
-$mindex latex comment command$$
-
-$section The Latex Comment Command$$
+$section Latex Comment Command$$
 
 $head Syntax$$
 $codei/@latex % /text/ @@/$$

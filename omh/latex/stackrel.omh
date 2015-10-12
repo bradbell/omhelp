@@ -12,11 +12,7 @@ $spell
 	rightarrow
 $$
 
-$section Stacking One Thing Above Another$$
-
-$mindex stackrel above$$
-$index latex, stackrel$$
-$index latex, above$$
+$section Latex Stacking One Thing Above Another$$
 
 $head Syntax$$
 $codei/@latex \stackrel{%above%}{%commands%}@@/$$

@@ -19,11 +19,7 @@ $spell
 	triangleright
 $$
 
-$mindex binary operator$$
-$index latex, binary operator$$
-$index latex, operator binary$$
-
-$section Binary Operators$$
+$section Latex Binary Operators$$
 
 $head Syntax$$
 $codei/@latex /Command/ @@/$$

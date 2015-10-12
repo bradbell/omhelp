@@ -22,12 +22,9 @@ $spell
 	xyz
 $$
 
-$index array, latex$$
-$index latex, array$$
-$index latex, matrix$$
-$index matrix, latex$$
 
-$section The Latex Array Command$$
+$section Latex Array Command$$
+$index matrix, latex$$
 
 $head Syntax$$
 $codei/@latex \begin{array}{/c1 ... cn/}

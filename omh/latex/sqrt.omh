@@ -14,10 +14,7 @@ $spell
 	sqrt
 $$
 
-$mindex root sqrt$$
-$index latex, sqrt$$
-$index latex, root$$
-$section Latex Root Command$$
+$section Latex Square Root Command$$
 
 $head Syntax$$
 $codei/@latex \sqrt{/base/}@@/$$

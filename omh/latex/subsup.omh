@@ -15,11 +15,8 @@ $spell
 	Lamport
 $$
 
-$index sub$$
-$index sup$$
-$index latex, sub$$
-$index latex, sup$$
 $section Latex Subscripts and Superscripts$$
+$mindex sub sup$$
 
 $head Syntax$$
 $codei/@latex /Command/ @@/$$

@@ -18,11 +18,7 @@ $spell
 	longleftarrow
 $$
 
-$mindex arrow symbol$$
-$index latex, arrow symbol$$
-$index latex, symbol arrow$$
-
-$section Arrow Symbols$$
+$section Latex Arrow Symbols$$
 
 $head Syntax$$
 $codei/@latex /Command/ @@/$$

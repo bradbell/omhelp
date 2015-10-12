@@ -17,11 +17,7 @@ $spell
 	bowtie
 $$
 
-$mindex relation symbol$$
-$index latex, relation symbol$$
-$index latex, symbol relation$$
-
-$section Relation Symbols$$
+$section Latex Relation Symbols$$
 
 $head Syntax$$
 $codei/@latex /Command/ @@/$$

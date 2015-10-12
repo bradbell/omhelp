@@ -19,12 +19,6 @@ $spell
 	Mozilla
 $$
 
-$mindex under over line brace$$
-$index latex, overline$$
-$index latex, overbrace$$
-$index latex, underline$$
-$index latex, underbrace$$
-
 $section Latex Underline, Underbrace, Overline, and Overbrace$$
 
 $head Syntax$$

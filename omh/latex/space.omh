@@ -28,10 +28,7 @@ $spell
 	Mozilla
 $$
 
-$mindex space$$
-$index latex, space$$
-
-$section Horizontal Spacing Of Output$$
+$section Latex Horizontal Spacing Of Output$$
 
 $head Syntax$$
 $codei/@latex /space/ @@

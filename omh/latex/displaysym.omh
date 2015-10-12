@@ -20,14 +20,8 @@ $spell
 	di
 $$
 
-$mindex display inline sub sup size symbol$$
-$index latex, sub $$
-$index latex, sup $$
-$index latex, size $$
-$index latex, display $$
-$index latex, inline $$
-
-$section Symbols That Change Between Inline and Displayed Formulas$$
+$section Latex Symbols That Change Between Inline and Displayed Formulas$$
+$mindex sub sup size symbol$$
 
 $head Syntax$$
 $codei/@latex /Symbol/ @@/$$

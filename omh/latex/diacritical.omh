@@ -18,10 +18,6 @@ $spell
 	widetilde
 $$
 
-$mindex diacritical mark above$$
-$index latex, above$$
-$index latex, diacritical$$
-$index latex, mark$$
 $mindex
 	acute
 	bar
@@ -36,20 +32,7 @@ $mindex
 	widehat
 	widetilde
 $$
-$index latex, acute$$
-$index latex, bar$$
-$index latex, breve$$
-$index latex, check$$
-$index latex, ddot$$
-$index latex, dot$$
-$index latex, hat$$
-$index latex, grave$$
-$index latex, tilde$$
-$index latex, vec$$
-$index latex, widehat$$
-$index latex, widetilde$$
-
-$section Diacritical Marks Above Other Output$$
+$section Latex Diacritical Marks Above Other Output$$
 
 $head Syntax$$
 $codei/@latex \/name/{/commands/} @@/$$

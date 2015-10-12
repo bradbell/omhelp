@@ -17,11 +17,7 @@ $spell
 	Mozilla
 $$
 
-$mindex miscellaneous symbol$$
-$index latex, miscellaneous symbol$$
-$index latex, symbol miscellaneous$$
-
-$section Miscellaneous Symbols$$
+$section Miscellaneous Latex Symbols$$
 
 $head Syntax$$
 $codei/@latex /Command/ @@/$$

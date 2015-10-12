@@ -149,7 +149,7 @@ $codei/@/number/@@/$$
 
 $head Deprecated 2015-10-11$$
 This command has been deprecated as part of the deprecation of the
-$cref math$$ command.
+$cref math$$ command; use $cref latexnumber$$ in its place.
 
 $head Description$$
 This command makes it easy to display numbers in the same font as is used
