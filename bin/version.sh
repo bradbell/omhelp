@@ -72,6 +72,7 @@ do
 	sed \
 		-e "s/omhelp-[0-9]\{8\}/omhelp-$version/" \
 		-e "s|/[0-9]\{8\}\.tar\.gz|/$version.tar.gz|" \
+		-e "s|/[0-9]\{8\}\.zip|/$version.zip|" \
 		-e "s|omhelp_version=[0-9]\{8\}|omhelp_version=$version|" \
 		-i.old $file
 done
