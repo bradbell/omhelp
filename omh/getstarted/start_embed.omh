@@ -24,14 +24,12 @@ $children%
 	getstarted/near_equal_f.f%$$
 
 $section Embedding OMhelp Commands in Source Code$$
-$index source code, embed in$$
-$index embed in, source code$$
 
-$head Introduction$$
+$head begin, end$$
 OMhelp is designed to be embedded in computer source code.
 In fact, it is language independent and can be can combine source
 code files in multiple languages to form one documentation system.
-Only the text between a $code @begin$$ and a $code @end$$ is processed
+Only the text between a $cref begin$$ and a $code @end$$ is processed
 by OMhelp.
 It is intended that these commands be comments in the language.
 

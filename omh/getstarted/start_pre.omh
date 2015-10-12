@@ -15,16 +15,15 @@ $spell
 	OMhelp
 	htm
 	pre_example
+	preformatted
 $$
 
 $children/
 	pre_example.omh/$$
 
-$section Pre-Formatted Text Example$$
-$index pre, get started$$
-$index format, pre$$
+$section Preformatted Text Example$$
 
-$head Introduction$$
+$head pre$$
 The $cref pre$$ command can be used to specify
 pre-formatted text.
 This uses a

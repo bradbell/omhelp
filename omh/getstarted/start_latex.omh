@@ -27,7 +27,7 @@ $section An Example Using Latex Math Formula Commands$$
 $index latex, get started$$
 $index math, get started$$
 
-$head Introduction$$
+$head latex$$
 The $cref latex$$ command is used to
 display mathematics that is specified using
 the Latex math formula commands

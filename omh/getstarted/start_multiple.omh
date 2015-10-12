@@ -28,8 +28,8 @@ $index multiple, get started$$
 $index file, multiple$$
 $index section, multiple$$
 
-$head Introduction$$
-The $cref/contents, childtable, and children/children/$$
+$head contents, childtable, children$$
+The $code @contents$$, $code @childtable$$, and $cref children$$
 commands can be used to specify input files.
 All of the sections in these files are children
 of the current section and are siblings of each other

@@ -30,7 +30,7 @@ Then you can run any of the
 getting started examples listed below.
 
 
-$children/
+$childtable/
 	start_simple.omh/
 	start_head.omh/
 	start_image.omh/
@@ -43,23 +43,6 @@ $children/
 	start_multiple.omh/
 	start_cref.omh/
 	start_index.omh/$$
-
-$table
-$bold Commands$$                $cnext $bold Getting Started$$ $rnext
-$mref/begin/section/$$          $cnext $tref start_simple$$    $rnext
-$cref head$$                   $cnext $tref start_head$$      $rnext
-$cref image$$                  $cnext $tref start_image$$     $rnext
-$cref pre$$                    $cnext $tref start_pre$$       $rnext
-$cref font$$                   $cnext $tref start_font$$      $rnext
-$cref spell$$                  $cnext $tref start_spell$$     $rnext
-$cref latex$$                  $cnext $tref start_latex$$     $rnext
-$cref verbatim$$               $cnext $tref start_verbatim$$  $rnext
-$mref/begin/syntax/codep/newlinech/$$
-                                $cnext $tref start_embed$$     $rnext
-$cref children$$               $cnext $tref start_multiple$$  $rnext
-$cref cref$$                   $cnext $tref start_cref$$      $rnext
-$cref/index/keyword/$$         $cnext $tref start_index$$
-$tend
 
 $head Getting Started Directory$$
 Each of the examples above request that you create one or

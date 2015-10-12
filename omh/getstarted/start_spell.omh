@@ -24,14 +24,13 @@ $section Spelling Command Example$$
 $index spell, get started$$
 $index error, spell$$
 
-$head Introduction$$
+$head word$$
 In OMhelp, a word starts either with an upper case letter or a lower
 case letter that is preceded by a non-letter.
 The words continues to, but does not include,
 the next upper case letter or non-letter.
-$pre
 
-$$
+$head spell$$
 The $cref spell$$ command is used to specify
 special words that are not spelling errors and are not in the
 $cref/dictionary/spell/Dictionary/$$.

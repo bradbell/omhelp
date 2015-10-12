@@ -21,10 +21,8 @@ $children/
 	head_example.omh/$$
 
 $section Headings and Subheadings Example$$
-$index head, get started$$
-$index subhead, get started$$
 
-$head Introduction$$
+$head head, subhead$$
 The $cref head$$ and $code subhead$$ commands
 start new paragraphs with a specified title.
 Each section has an tree structure in which the

@@ -18,14 +18,11 @@ $spell
 $$
 
 $section Getting Started With A Simple Section$$
-$index begin, get started$$
-$index section, get started$$
-$index end, get started$$
 
 $children/
 	simple_example.omh/$$
 
-$head Introduction$$
+$head begin, section, end$$
 The $cref begin$$ command starts a new section
 and the $code @end$$ command ends the current section.
 An OMhelp section is defined

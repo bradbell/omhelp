@@ -21,9 +21,8 @@ $children/
 	font_example.omh/$$
 
 $section Example Using Font Commands$$
-$index font, get started$$
 
-$head Introduction$$
+$head fixed, code, italic, bold, big, small$$
 The $cref font$$ commands
 $code fixed$$,
 $code code$$,

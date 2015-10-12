@@ -22,10 +22,9 @@ $children/
 	image_example.omh/$$
 
 $section An Example Using Images$$
-$index image, get started$$
-$index picture, get started$$
+$index picture$$
 
-$head Introduction$$
+$head image, icon$$
 The $cref/image and icon/image/$$ commands are used to display images.
 
 $head Execute The Following Steps$$

@@ -25,7 +25,7 @@ $index cref, get started$$
 $index link, get started$$
 $index cross reference, get started$$
 
-$head Purpose$$
+$head cref$$
 The cross reference command
 $cref cref$$
 is used to link to another destination in the same web site.
