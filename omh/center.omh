@@ -11,10 +11,9 @@ $spell
 	cend
 $$
 
-$index center$$
-$index align, center$$
 
 $section Centering Text$$
+$index align, center$$
 
 $head Syntax$$
 $codei/@center /text/@@

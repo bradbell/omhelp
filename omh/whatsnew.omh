@@ -110,6 +110,12 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 15-10-12$$
+Remove a lot of duplicate index entries from the documentation
+(note that the $cref/aindex/Keyword/Aindex/$$ command is used to
+automatically index words in
+$cref/headings and subheadings/head/$$.
+
 $head 15-10-11$$
 $list number$$
 The $code @syntax$$ command has been
@@ -128,6 +134,7 @@ $lnext
 The OMhelp documentation was changed to use headings instead of tables
 for documentation command syntax; e.g., see the $code @cref$$
 $cref/syntax/cref/Syntax/$$.
+$lnext
 $lend
 
 

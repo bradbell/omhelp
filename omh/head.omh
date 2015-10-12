@@ -14,9 +14,6 @@ $spell
 	mindex
 $$
 
-$mindex head subhead paragraph$$
-
-
 $section Paragraph Headings and Subheadings$$
 
 $head Syntax$$
@@ -40,7 +37,6 @@ $cref/white space/glossary/White Space/$$
 in both $icode heading$$ and $icode subheading$$ is ignored.
 
 $head Cross Reference Linking$$
-$mindex head subhead cross reference link$$
 
 You can specify a particular $icode heading$$,
 using the $cref xref$$ command with
@@ -51,7 +47,6 @@ the previous heading and
 $cref/subheading/xref/Example.Subheadings/$$.
 
 $head Aindex$$
-$index aindex$$
 The $cref/aindex/keyword/Aindex/$$ command can connect
 the $code head$$ command to the $cref/mindex/keyword/Mindex/$$ command.
 (To make this connection, it must appear before the $code head$$ command.)

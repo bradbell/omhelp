@@ -15,14 +15,8 @@ $spell
 $$
 
 $section Changing the Command Key Character @ $$
-
-
 $index OMhelpKeyCharacter$$
-$index key character$$
 $index special, key character$$
-$index character, key$$
-$index input, key character$$
-$index command, key character$$
 
 $head Syntax$$
 $codei%@OMhelpKeyCharacter=%c%$$

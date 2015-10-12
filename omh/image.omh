@@ -21,10 +21,8 @@ $$
 $dollar @$$
 
 
-$mindex image icon$$
-$mindex display picture graphic gif jpg$$
-
 $section Displaying Graphical Images$$
+$mindex picture icon gif jpg$$
 
 $head Syntax$$
 $codei/@/cmd/%/file_in/%@@

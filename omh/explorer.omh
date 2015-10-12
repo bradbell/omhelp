@@ -36,7 +36,7 @@ $$
 
 
 $section Problems Using MS Internet Explorer 6 To Display OMhelp Output$$
-$mindex bug MS explorer browser display error$$
+$mindex bug explorer browser error$$
 
 $head Format$$
 $href%explorer.xml%XHTML + MATHML version of this web page%$$.
@@ -91,7 +91,6 @@ $$
 $head MathML$$
 
 $subhead Operator Sizes$$
-$mindex operator size$$
 The specification of the minimum size attribute
 does not seem to work.
 For example
@@ -110,7 +109,6 @@ $latex \[ \mathml{
 
 
 $subhead Symbols$$
-$mindex symbol$$
 The following symbols do not seem to be displayed correctly
 (note that they are in alphabetical order):
 

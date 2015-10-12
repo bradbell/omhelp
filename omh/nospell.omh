@@ -14,9 +14,6 @@ $spell
 	codep
 $$
 
-$index nospell$$
-$mindex suspend spell check dictionary$$
-
 $section Suspending Spell Checking$$
 
 $head Syntax$$

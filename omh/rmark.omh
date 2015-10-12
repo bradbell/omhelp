@@ -11,11 +11,6 @@ $spell rmark$$
 $dollar @$$
 $rmark  !$$
 
-$index !$$
-$index rmark$$
-
-$mindex display register trade mark symbol character$$
-
 $section Displaying the Registered Trade Mark Symbol !$$
 
 $head Syntax$$

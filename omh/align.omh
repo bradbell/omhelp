@@ -13,10 +13,6 @@ $$
 
 $dollar @$$
 
-$index align, table cells$$
-$index table, align cells$$
-$index cell, align in table$$
-
 $section Setting Alignment of Cells in Tables$$
 
 $head Syntax$$

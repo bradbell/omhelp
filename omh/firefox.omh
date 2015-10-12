@@ -60,11 +60,7 @@ $$
 
 
 $section Problems Using Firefox To Display OMhelp Output$$
-
-$index bug, firefox$$
-$index firefox, bug$$
-$index browser, firefox$$
-$index error, firefox$$
+$mindex bug browser$$
 
 $comment no longer a problem, but referened by whatsnew$$
 $children%
@@ -99,9 +95,6 @@ the same as its default font.
 
 $head Copy and Paste$$
 $index bug, firefox copy and paste$$
-$index firefox, copy and paste bug$$
-$index copy, and paste firefox bug$$
-$index paste, firefox bug$$
 The link
 $execute firefox_copy_paste.xml$$
 is to the XHTML commands below.
@@ -129,8 +122,6 @@ $$
 
 $head Javascript$$
 $index bug, firefox Javascript$$
-$index firefox, Javascript bug$$
-$index Javascript, firefox bug$$
 The file
 $execute FirefoxJavascript.htm$$
 contains the HTML commands below.
@@ -179,8 +170,6 @@ $$
 
 $head Background Color$$
 $index bug, firefox background-color$$
-$index firefox, background-color bug$$
-$index background-color, firefox bug$$
 The file
 $execute FirefoxBackground.htm$$
 contains the HTML commands below.
@@ -214,9 +203,6 @@ $$
 
 $head Operator Sizes$$
 $index bug, firefox operator size$$
-$index firefox, operator size bug$$
-$index operator, size firefox bug$$
-$index size, operator firefox bug$$
 In section 3.2.5.9 of
 $href%http://www.w3.org/TR/MathML2/chapter3.html#presm.mo%$$
 it states
@@ -241,8 +227,6 @@ $latex \[ \mathml{
 
 $head Symbols$$
 $index bug, firefox symbol$$
-$index firefox, symbol bug$$
-$index symbol, firefox bug$$
 The following symbols do not seem to be displayed correctly:
 
 $nospell $table

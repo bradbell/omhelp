@@ -22,10 +22,9 @@ $spell
 $$
 $dollar @$$
 
-$cindex read command input file$$
-$index include$$
 
 $section The Include Command$$
+$mindex read command input file$$
 
 $head Syntax$$
 $codei/@include /filename/@

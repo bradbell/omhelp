@@ -14,18 +14,16 @@ $spell
 	hilite
 	codep
 	pre
+	preformatted
 $$
 
 
-$index codep$$
-$index example, text$$
-$index paragraph, #in pre-formatted code font$$
 
-$section Pre-formatted Code Text$$
-$mindex pre format text code font$$
+$section Preformatted Code Text$$
+$mindex font example paragraph$$
 
 $head Syntax$$
-$codei/@codep /pre-formatted/@@
+$codei/@codep /preformatted/@@
 /$$
 
 $head See Also$$
@@ -33,9 +31,9 @@ $mref/syntax/pre/math/verbatim/$$
 
 
 $head Description$$
-All of the text in $italic pre-formatted$$ is printed
+All of the text in $codei preformatted$$ is printed
 in with a $cref/pre-formatted font/glossary/Pre-formatted Font/$$.
-There can be no $code @$$ characters in $italic pre-formatted$$.
+There can be no $code @$$ characters in $codei preformatted$$.
 The $code codep$$ command uses the exact same font as
 the $cref/code/font/$$ command to signify that the text is
 compute input or output.
@@ -82,7 +80,6 @@ $code @@$$ to be commented out so that it is not included in the
 compilation.
 
 $head Highlighting Example$$
-$index hilite, example$$
 The following input
 $codep
 	@hilitecmd codep@@

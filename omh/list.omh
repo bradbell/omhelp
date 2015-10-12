@@ -13,10 +13,8 @@ $spell
 $$
 $dollar @$$
 
-$mindex list lnext lend$$
-$mindex item$$
-
 $section Commands Used to Display Lists of Items$$
+$mindex lnext lend$$
 
 $head Syntax$$
 $codei/@list /marker/@@

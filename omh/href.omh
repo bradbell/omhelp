@@ -21,10 +21,8 @@ $spell
 $$
 $dollar @$$
 
-$section Linking an Address Outside Current Web Site$$
-
-$index href$$
-$cindex external cross reference link$$
+$section External Linking, Address Outside Current Web Site$$
+$mindex cross reference link$$
 
 $head Syntax$$
 $codei/@href%/uri/%@@

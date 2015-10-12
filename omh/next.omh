@@ -14,8 +14,6 @@ $escape #$$
 $dollar @$$
 
 
-$mindex link next$$
-
 $section Link to Next Section$$
 
 $head Description$$

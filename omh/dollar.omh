@@ -18,10 +18,8 @@ $spell
 $$
 $dollar @$$
 
-$index @$$
-$mindex display dollar #sign character$$
-
 $section Displaying the @ Character$$
+$index @$$
 
 $head Syntax$$
 $codei/@dollar /character/@@

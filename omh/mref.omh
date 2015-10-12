@@ -18,10 +18,8 @@ $spell
 $$
 
 
-$index mref$$
-$mindex link multiple cross reference tag$$
-
 $section Multiple Tag Based Cross References$$
+$mindex link$$
 
 $head Syntax$$
 $codei/@mref%/tag1/%/tag2/%/.../%/tagN/%@@

@@ -17,9 +17,8 @@ $spell
 $$
 $dollar @$$
 
-$mindex read input file search path$$
-
 $section Setting Input File Search Paths$$
+$mindex read$$
 
 $head Syntax$$
 $codei/@path%/directory/%/extension/%@@

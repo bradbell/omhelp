@@ -40,11 +40,9 @@ $comment put this aindex command here so is the default for all sections$$
 $aindex section head subhead$$
 
 
-$index overview$$
 $section omhelp-20151009: Language Independent Embedded Documentation$$
 
 $head User Support For OMhelp$$
-$index support$$
 E-mail your questions or suggestions to
 $href%mailto:bradbell@seanet.com%bradbell@seanet.com%$$
 

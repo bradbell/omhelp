@@ -14,16 +14,8 @@ $spell
 $$
 $dollar @$$
 
-$index cref$$
-
-$index cross, reference$$
-$index reference, cross$$
-$index link, general$$
-$index section, link$$
-$index heading, link$$
-$index subheading, link$$
-
 $section General Cross Reference Within a Web Site$$
+$index link$$
 
 $head Syntax$$
 $codei/@cref%/text/%@@
@@ -70,6 +62,7 @@ If $icode tag$$ is not present,
 the value of $icode text$$ is used for the cross reference tag.
 
 $head heading$$
+$index link$$
 The value of $icode heading$$ specifies the
 destination $cref/heading/head/$$ for the link
 (within the section specified by $icode tag$$).
@@ -78,6 +71,7 @@ the link is to the corresponding entire
 $cref/section/glossary/Section/$$ specified by $icode tag$$.
 
 $head subheading$$
+$index link$$
 The value of $icode subheading$$ specifies the
 destination $cref/subheading/head/$$ for the link
 (within the section specified by $icode tag$$ and the heading

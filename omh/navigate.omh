@@ -14,9 +14,6 @@ $spell
 $$
 
 $section Setting Relative Navigation Links For A Section$$
-
-$index navigate$$
-$index relative, link$$
 $index link, relative$$
 
 $head Syntax$$
@@ -116,10 +113,6 @@ for the section $icode i$$ levels up from the current section
 is used for the label.
 
 $head Prev and Next$$
-$index Prev, navigate$$
-$index navigate, Prev$$
-$index Next, navigate$$
-$index navigate, Next$$
 Note that the size of the label corresponding to $codei%_up_%i%$$
 will change from section to section.
 Hence the position of subsequent labels in the navigation command will change.

@@ -22,14 +22,9 @@ $$
 $dollar @$$
 
 
-$cindex document structure$$
-$mindex children subsection contents tree$$
-$cindex read command input file$$
-
-$index childtable$$
-$index children$$
-
 $section Specifying Children in Contents Tree$$
+$mindex childtable read input file subsection$$
+$cindex document structure$$
 
 $head Syntax$$
 $codei/@contents%/file1/%/file2/%/.../%/fileN/%@@

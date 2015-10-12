@@ -11,19 +11,16 @@ $spell
 	icode
 	const
 	cmd
+	preformatted
 $$
 $dollar @$$
 
 
-$index codei$$
-$index icode$$
-$index syntax$$
-$index prototype$$
+
+$section Switch Between Code and Italic Preformatted Font$$
+$mindex icode syntax prototype$$
 $index command, display$$
 $index display, command$$
-$index pre-formatted$$
-
-$section Switch Between Code and Italic Pre-formatted Font$$
 
 $head Syntax$$
 $codei/@/codei/%/text1/%/text2/%/.../%/textN/%@@

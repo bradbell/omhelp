@@ -13,10 +13,9 @@ $spell
 $$
 
 
-$mindex font type size$$
-$mindex fixed code italic bold big small$$
 
-$section Specifying Fonts$$
+$section Specifying Fonts Type and Size$$
+$mindex fixed code italic bold big small$$
 
 $head Syntax$$
 $codei/@/font/ /text/
@@ -59,8 +58,7 @@ $pre     $$ $cnext $bold Input$$          $cnext $bold Output$$ $rnext
             $cnext $code @bold Text@@$$   $cnext $bold Text$$
 $tend
 
-$head Reference$$
-$cindex head font$$
+$head Heading$$
 You can change the font in a heading
 For example,
 $codep

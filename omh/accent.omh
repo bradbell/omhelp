@@ -14,12 +14,8 @@ $$
 
 $dollar @$$
 
-$index accent, over vowel$$
-$index vowel, accent over$$
-$index character, accent over$$
-$index over, accent vowel$$
-
 $section Displaying an Accent Over a Vowel$$
+$index character, accent over$$
 
 $head Syntax$$
 $codei/@'/v

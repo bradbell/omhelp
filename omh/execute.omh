@@ -17,9 +17,9 @@ $$
 $escape #$$
 $dollar @$$
 
-$mindex execute file link$$
 
 $section Creating a File and Linking to its Execution$$
+$mindex file link$$
 
 
 $head Syntax$$

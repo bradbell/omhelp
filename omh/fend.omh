@@ -18,14 +18,9 @@ $$
 $dollar @$$
 
 
-$index fend$$
-
-$index split, section frame$$
-
-$index section, frame$$
-$index frame$$
 
 $section Dividing A Section Into Frames$$
+$mindex split$$
 
 $head Syntax$$
 $codei/@fend /percent/@@/$$

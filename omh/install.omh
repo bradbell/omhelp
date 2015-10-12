@@ -13,9 +13,6 @@ $spell
 	OMhelp
 $$
 
-$index install$$
-$index test$$
-
 $section Installing and Testing OMhelp$$
 
 $contents%
@@ -24,7 +21,6 @@ $contents%
 %$$
 
 $head MathML$$
-$index MathML$$
 If you are going to use the $cref latex$$ command for displaying
 mathematics, you will need a browser that support XHTML+MathML so
 that you can view the $icode%*%.xml%$$ files that OMhelp can generate.

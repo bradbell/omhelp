@@ -27,9 +27,6 @@ $spell
 	hiliteseq
 $$
 
-$index color, setting$$
-$index setting, color$$
-
 $section Setting Colors$$
 
 $head Syntax$$
@@ -107,8 +104,7 @@ These values are case in-sensitive, and
 leading and trailing $cref/white space/glossary/White Space/$$ is ignored.
 
 $head RGB Values$$
-$index RGB, color$$
-$index color, RGB$$
+$index color$$
 In addition to the color names above,
 you can use the $icode red$$, $icode blue$$, $icode green$$ syntax
 to describe a color (RGB value).
@@ -121,8 +117,7 @@ in an RGB value is ignored.
 
 
 $head Style$$
-$index style, color$$
-$index color, style$$
+$index color$$
 Some of the colors are specified as styles
 in the $cref/colorname/color/colorname/$$ table above.
 If $icode command$$ is specified by a style,
@@ -138,8 +133,7 @@ $cref/colorname/color/colorname/$$ table above.
 $head Non-Style Examples$$
 
 $subhead codecolor$$
-$index codecolor$$
-$index color, code$$
+$index code, color$$
 The following text
 $codep
 	@codecolor green@@
@@ -164,7 +158,6 @@ $$
 
 
 $subhead errorcolor$$
-$index errorcolor$$
 $index color, error$$
 The following text
 $codep
@@ -190,7 +183,6 @@ Note that if a spelling error occurred in the $code codep$$ command,
 the corresponding word would have been in blue instead of red.
 
 $subhead hilitecolor$$
-$index hilite, example$$
 $index color, highlight$$
 The commands
 $codep
@@ -212,7 +204,6 @@ $$
 $head Style Examples$$
 
 $subhead bgcolor$$
-$index bgcolor$$
 $index background, color$$
 $index color, background$$
 
@@ -225,7 +216,6 @@ That is why the background color for this section
 is light gray.
 
 $subhead textcolor$$
-$index textcolor$$
 $index color, text$$
 The command
 $codep
@@ -235,7 +225,6 @@ appears at the beginning of this section.
 That is why the normal text color for this section is dark gray.
 
 $subhead linkcolor$$
-$index linkcolor$$
 $index color, link$$
 The command
 $codep

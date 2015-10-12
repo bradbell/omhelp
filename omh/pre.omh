@@ -10,17 +10,15 @@ $spell
 	pre
 	codep
 	OMhelp
+	preformatted
 $$
 $escape #$$
 $dollar @$$
 
-$mindex pre format text uniform space font$$
 
-$cindex white space$$
-$cindex paragraph format$$
+$section Preformatted Text With a Uniformly Spaced Font$$
+$mindex white space$$
 $cindex line break$$
-
-$section Pre-formatted Text With a Uniformly Spaced Font$$
 
 $head Syntax$$
 $codei/@pre /text/@@

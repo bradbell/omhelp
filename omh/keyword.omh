@@ -22,14 +22,13 @@ $spell
 	cindex cindex
 $$
 
+$comment automatic indexing for head comamnds only (example purposes)$$
+$aindex head$$
 
 
-$section Keyword Index$$
-
-
+$section Keyword Index and Searching$$
 $cindex Keyword index$$
 $cindex cross reference$$
-
 $mindex mindex cindex aindex$$
 
 $head Syntax$$
@@ -43,14 +42,15 @@ $codei/@aindex /automatic_mindex/@@
 /$$
 
 $head See Also$$
-	$cref/getting started/start_index/$$,
-	$cref/index/_index/$$,
-	$cref/contents/_contents/$$
+$cref/getting started/start_index/$$,
+$cref/index/_index/$$,
+$cref/contents/_contents/$$
 
 
 $head Description$$
 These commands add entries to the
-$cref/Keyword index/_index/$$
+$cref/Keyword Index/_index/$$ and
+$cref/Search Index/_search/$$
 for the current section.
 $pre
 
@@ -124,12 +124,12 @@ The corresponding entries in the
 Keyword index are:
 $pre
 	$$Keyword $pre
-		$$index
-$cref/Keyword Index/Keyword/$$
+		$$Keyword index
+$cref/Keyword Index and Searching/Keyword/$$
 $pre
 	$$index $pre
-		$$Keyword
-$cref/Keyword Index/Keyword/$$
+		$$Keyword index
+$cref/Keyword Index and Searching/Keyword/$$
 $pre
 $$
 Note that the entries above link to the entire Keyword section.
@@ -162,7 +162,7 @@ The corresponding entry in the
 $cref/Keyword index/_index/$$ is:
 $pre
 	$$major key
-$cref/Keyword Index: Index.Example/Keyword/Index.Example/$$
+$cref/Keyword Index and Searching: Index.Example/Keyword/Index/Example/$$
 $pre
 
 $$
@@ -176,7 +176,7 @@ Keyword index is:
 $pre
 	$$major key $pre
 		$$minor key
-$cref/Keyword Index: Index.Example/Keyword/Index.Example/$$
+$cref/Keyword Index and Searching: Index.Example/Keyword/Index/Example/$$
 $pre
 
 $$
@@ -190,7 +190,7 @@ $$
 The corresponding entry in the Keyword index is:
 $pre
 	$$index example for f(x, y)
-$cref/Keyword Index: Index.Example/Keyword/Index.Example/$$
+$cref/Keyword Index and Searching: Index.Example/Keyword/Index/Example/$$
 
 $head Mindex$$
 $cindex mindex command$$
@@ -226,13 +226,13 @@ The corresponding entries in the
 $cref/Keyword index/_index/$$ are:
 $pre
 	$$multiple
-$cref/Keyword Index: Mindex.Example/Keyword/Mindex.Example/$$
+$cref/Keyword Index and Searching: Mindex.Example/Keyword/Mindex/Example/$$
 $pre
 	$$major
-$cref/Keyword Index: Mindex.Example/Keyword/Mindex.Example/$$
+$cref/Keyword Index and Searching: Mindex.Example/Keyword/Mindex/Example/$$
 $pre
 	$$key word
-$cref/Keyword Index: Mindex.Example/Keyword/Mindex.Example/$$
+$cref/Keyword Index and Searching: Mindex.Example/Keyword/Mindex/Example/$$
 
 $head Aindex$$
 There are three commands that can be automatically connected
@@ -271,7 +271,7 @@ $bold Aindex$$ is:
 $pre
 	$$aindex
 $italic
-$cref/Keyword Index: Aindex/Keyword/Aindex/$$
+$cref/Keyword Index and Searching: Aindex/Keyword/Aindex/$$
 $$
 $pre
 $$
@@ -311,11 +311,11 @@ Keyword index are:
 $pre
 	$$cindex $pre
 		$$cindex example
-$cref/Keyword Index: Cindex.Example/Keyword/Cindex.Example/$$
+$cref/Keyword Index and Searching: Cindex.Example/Keyword/Cindex/Example/$$
 $pre
 	$$example $pre
 		$$cindex example
-$cref/Keyword Index: Cindex.Example/Keyword/Cindex.Example/$$
+$cref/Keyword Index and Searching: Cindex.Example/Keyword/Cindex/Example/$$
 $pre
 
 $$

@@ -16,9 +16,6 @@ $spell
 $$
 $dollar @$$
 
-$cindex equation display \mode$$
-$index math$$
-
 $section Math Mode$$
 
 $head Syntax$$
@@ -146,9 +143,6 @@ $begin number$$
 $spell none$$
 $dollar @$$
 $section Displaying Simple Numbers In Math Mode$$
-
-$index number, math mode$$
-$index math, numbers$$
 
 $head Syntax$$
 $codei/@/number/@@/$$

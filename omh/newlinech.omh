@@ -20,12 +20,8 @@ $$
 $dollar @$$
 
 
-$index newlinech$$
-$index comment, program character$$
-$index program, comment character$$
-$index character, program comment$$
-
 $section Setting Programming Source Code Comment Character$$
+$index program, comment character$$
 
 $head Syntax$$
 $codei/@newlinech /character/@@

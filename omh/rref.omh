@@ -17,10 +17,9 @@ $$
 $escape #$$
 $dollar @$$
 
-$index rref$$
-$cindex cross reference link #in table$$
 
 $section Generate One Row of a Jump Table$$
+$cindex cross reference link #in table$$
 
 $head Syntax$$
 $codei/@rref /tag/@@

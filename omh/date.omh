@@ -12,9 +12,9 @@ $$
 $escape #$$
 $dollar @$$
 
-$mindex version date$$
 
 $section Marking Output With Current Date$$
+$mindex version$$
 
 $head Syntax$$
 $code @date$$

@@ -14,9 +14,6 @@ $$
 $escape #$$
 $dollar @$$
 
-$index nobreak$$
-$cindex line break$$
-$cindex format text$$
 
 $section Do Not Break Text Into Separate Lines$$
 
