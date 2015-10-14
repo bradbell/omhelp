@@ -110,6 +110,12 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 15-10-14$$
+Make the $code flex$$ and $code bison$$ programs optional for both the
+$cref/unix/InstallUnix/Requirements/Optional/$$ and
+$cref/windows/InstallWindows/Requirements/Optional/$$ install process.
+
+
 $head 15-10-12$$
 $list number$$
 Remove a lot of duplicate index entries from the documentation

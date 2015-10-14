@@ -43,9 +43,8 @@ $$
 
 
 $section Running The OMhelp program$$
-$index start, OMhelp$$
-$index command, line$$
-$index argument, command line$$
+$index start$$
+$index command line$$
 $index option, command line$$
 
 $head Syntax$$
@@ -77,10 +76,6 @@ OMhelp will create a large number of output files
 that correspond to the web site.
 
 $head Output File Names$$
-$index web, file name$$
-$index file, web name$$
-$index name, web file$$
-$index index.htm$$
 OMhelp outputs files in the current directory.
 The file name
 $codei%
@@ -92,9 +87,11 @@ $cref/cross reference tag/glossary/Cross Reference Tag/$$.
 Here $icode ext$$ is $code htm$$,
 unless the $code xml$$ command line option is specified
 in which case it is $code xml$$.
+
+$subhead index.html$$
 The file
 $codei%
-	index.htm
+	index.html
 %$$
 is special to browsers because
 it is loaded when the corresponding directory,
@@ -103,18 +100,14 @@ OMhelp automatically generates a file with this name that loads the
 section corresponding to the argument $icode root_file$$.
 
 $head Exit Status$$
-$index exit, status$$
-$index error, status$$
-$index return, status$$
-$index status$$
+$mindex error return$$
+$index return$$
 If OMhelp executes with out detecting any errors,
 it exit status is zero.
 Otherwise, its exit status is non-zero.
 
 $head root_file$$
-$index root, file$$
-$index file, root$$
-$index input, root_file$$
+$mindex file input$$
 The command line argument $icode root_file$$ specifies the
 file that contains the root section for the web site; i.e.,
 the section at the root of the table of contents.
@@ -137,14 +130,10 @@ extra output that aids in the debugging OMhelp input files is generated.
 This includes the following:
 
 $subhead Input Files$$
-$index debug, input$$
-$index input, debug$$
 The name of the OMhelp input file corresponding to each section
 is included at the bottom of each section.
 
 $subhead External Links$$
-$index external, link list$$
-$index link, external list$$
 A list of all the external internet references; i.e.,
 references created using the $mref/href/$$ command,
 is output as a separate section; for example,
@@ -152,10 +141,7 @@ see $cref/external references for this manual/_external/$$.
 This aids in checking the validity of external references.
 
 $subhead Spelling Errors$$
-$index debug, spelling$$
-$index spelling, debug$$
-$index error.wrd$$
-$index dictionary$$
+$mindex error.wrd dictionary$$
 A file called $cref/error.wrd/spell/Spelling Error Output/$$
 containing an alphabetic list of all the misspelled words is generated.
 In some cases, you may decide that some or all of there words
@@ -167,7 +153,6 @@ $cref/Windows/InstallWindows/Spelling List/$$.
 
 
 $head xml$$
-$index xml$$
 $index html$$
 If the command line argument
 $code -xml$$ is present,
@@ -192,7 +177,6 @@ which is freely available from
 $href%http://www.dessci.com/webmath/mathplayer%Design Science%$$.
 
 $head printable$$
-$index printable$$
 If the command line argument $code -printable$$ is present,
 a printable version of the web site is output as just one file
 The name of the file is $code _printable.htm$$
@@ -225,8 +209,7 @@ The $code -printable$$ command overrides the normal behavior of the
 $cref fend$$ command.
 
 $head noframe$$
-$index noframe$$
-$index frame, no$$
+$index frame$$
 By default, OMhelp puts the automatically generated navigation links
 in a frame to the left of the user generated information.
 In addition, the user can divide the right side into separate frames.
@@ -245,8 +228,7 @@ You can suppress the display of these warning messages
 using the $code -nowarn$$ command line option.
 
 $head image_link$$
-$index image, link$$
-$index link, image$$
+$index link$$
 If the command line argument $code -image_link$$
 is present, the argument $icode image_link$$ must follow it.
 In this case, the image
@@ -262,8 +244,7 @@ image is selected.
 
 
 $head image_file$$
-$index image, file$$
-$index file, image$$
+$index file$$
 A default image file ($code _image.gif$$) is distributed with OMhelp.
 If the command line argument $code -image_file$$ is present,
 the argument $icode image_file$$ must follow.
@@ -279,8 +260,7 @@ are not searched for the file specified by $icode image_file$$.
 
 
 $head favicon$$
-$index icon, favicon$$
-$index favicon$$
+$index icon$$
 If the command line argument $code -favicon$$ is present,
 the argument $icode favicon$$ must follow.
 In this case, $icode favicon$$ should be a 16 by 16 pixel icon
@@ -308,9 +288,8 @@ $cref/Internet Explorer/Explorer/Favicon/$$.
 
 
 $head site$$
-$index web site, name$$
-$index site, web name$$
-$index name, web site$$
+$index web, name$$
+$index name, web$$
 If the command line argument $code -site$$ is present,
 the argument $icode name$$ must follow.
 In this case $icode name$$ specifies the name of the
@@ -329,7 +308,6 @@ This is intended for testing during $cref/installation/Install/$$
 and should not be necessary during normal use.
 
 $head Example$$
-$index example$$
 See the Getting Started example in the
 $cref/Unix/InstallUnix/Getting Started/$$ or
 $cref/Windows/InstallWindows/Getting Started/$$
