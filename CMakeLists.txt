@@ -41,6 +41,7 @@ SET(topbindir ${CMAKE_CURRENT_BINARY_DIR})
 command_line_arg(omhelp_prefix /usr PATH
 	"prefix for omhelp install"
 )
+# ---------------------------------------------------------------------------
 # omhelp_datadir
 command_line_arg(omhelp_datadir share STRING
 	"directory below prefix where cmake will install omhelp data files"
@@ -53,6 +54,11 @@ command_line_arg(omhelp_c_flags NOTFOUND STRING
 IF( omhelp_c_flags )
 	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${omhelp_c_flags}")
 ENDIF( omhelp_c_flags )
+# ---------------------------------------------------------------------------
+# have_flex_and_bison
+command_line_arg(have_flex_and_bison NOTFOUND BOOL
+	"are the flex and bison programs available on the this system"
+)
 # ---------------------------------------------------------------------------
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(omh/getstarted)

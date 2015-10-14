@@ -20,16 +20,4 @@ $contents%
 	installwindows.omh
 %$$
 
-$head MathML$$
-If you are going to use the $cref latex$$ command for displaying
-mathematics, you will need a browser that support XHTML+MathML so
-that you can view the $icode%*%.xml%$$ files that OMhelp can generate.
-You can download and install the
-$href%http://www.mozilla.org%Firefox%$$ browser for this purpose.
-Another option is to use
-MS Internet Explorer with the
-Mathplayer plug in
-which is freely available from
-$href%http://www.dessci.com/webmath/mathplayer%Design Science%$$.
-
 $end

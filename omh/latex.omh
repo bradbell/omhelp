@@ -51,7 +51,7 @@ version of this section by selecting
 $href%latex.xml%$$.
 (If your browser does not display MathML,
 refer to the
-$cref/MathML/Install/MathML/$$ section of the installation guide.)
+$cref/displaying MathML/running/xml/Displaying MathML/$$.)
 
 $head MathJax (htm)$$
 If the $code -xml$$ option is $bold not$$ specified,

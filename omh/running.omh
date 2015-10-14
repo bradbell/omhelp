@@ -175,14 +175,21 @@ an XHTML version of the web site is built
 (otherwise an HTML version is built).
 In this case the output files have the $code .xml$$ extension
 (otherwise they have the $code .htm$$ extension).
-This enables the support of
-$cref latex$$ commands
-in OMhelp input files using XHTML and MathML
+This generates $icode%*%.xml%$$ files that display the $cref latex$$ using
+XHTML and MathML
 (see
 $href%http://www.w3.org/TR/MathML2/chapter7.html%Chapter 7%$$
 of
 $href%http://www.w3.org/TR/MathML2%MathML%$$
 ).
+
+$subhead Displaying MathML$$
+The $href%http://www.mozilla.org%Firefox%$$ browser can display these files.
+Another option is to use
+MS Internet Explorer with the
+MathPlayer plug in
+which is freely available from
+$href%http://www.dessci.com/webmath/mathplayer%Design Science%$$.
 
 $head printable$$
 $index printable$$

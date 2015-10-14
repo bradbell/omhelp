@@ -26,5 +26,6 @@ echo_eval cmake \
 	-D omhelp_prefix=$HOME/prefix/omhelp \
 	-D omhelp_datadir=share \
 	-D omhelp_c_flags='-Wall' \
+	-D have_flex_and_bison=YES \
 	..
 echo 'run_cmake.sh: OK'

@@ -23,27 +23,31 @@ INCLUDE_DIRECTORIES(${srcdir} ${bindir})
 
 # create main.c
 CONFIGURE_FILE(main.c.in main.c)
-
-# crete omhelp.h , omhelp.c
-ADD_CUSTOM_COMMAND(OUTPUT omhelp.h omhelp.c
-	COMMAND bison ${srcdir}/omhelp.y --defines -p omh -o omhelp.c
-	DEPENDS omhelp.y
-)
-# create latex.h , latex.c
-ADD_CUSTOM_COMMAND(OUTPUT latex.h latex.c
-	COMMAND bison ${srcdir}/latex.y --defines -p tex -o latex.c
-)
-# create lex.tex.c
-ADD_CUSTOM_COMMAND(OUTPUT lex.tex.c
-	COMMAND flex -Ptex ${srcdir}/latex.l
-)
+IF( have_flex_and_bison )
+	# crete omhelp.h , omhelp.c
+	ADD_CUSTOM_COMMAND(OUTPUT ${srcdir}/omhelp.c
+		COMMAND bison --defines -p omh -o ${srcdir}/omhelp.c ${srcdir}/omhelp.y
+		DEPENDS omhelp.y
+	)
+	# create latex.h , latex.c
+	ADD_CUSTOM_COMMAND(OUTPUT ${srcdir}/latex.c
+		COMMAND bison --defines -p tex -o ${srcdir}/latex.c ${srcdir}/latex.y
+		DEPENDS latex.y
+	)
+	# create lex.tex.c
+	# -Ptex maps lex.yy.c -> lex.tex.c
+	ADD_CUSTOM_COMMAND(OUTPUT ${srcdir}/lex.tex.c
+		COMMAND flex -Ptex -o ${srcdir}/lex.tex.c ${srcdir}/latex.l
+		DEPENDS latex.l
+	)
+ENDIF( have_flex_and_bison )
 
 
 ADD_EXECUTABLE(omhelp
 	${bindir}/main.c
-	${bindir}/omhelp.c
-	${bindir}/latex.c
-	${bindir}/lex.tex.c
+	${srcdir}/omhelp.c
+	${srcdir}/latex.c
+	${srcdir}/lex.tex.c
 	AutomaticLink.c
 	BinarySearch.c
 	ClipWhiteSpace.c

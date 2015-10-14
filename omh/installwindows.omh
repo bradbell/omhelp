@@ -50,87 +50,43 @@ $head Requirements$$
 The following programs are required to install OMhelp under windows:
 
 $subhead 7z$$
-$href%http://www.7-zip.org/%7-zip%$$,
-a program for unpacking zip files
-(a different archiving program could be used).
+The program $href%http://www.7-zip.org/%7-zip%$$,
+for unpacking zip files, must be in your execution path.
+For example, on many systems can be done using
+$codep
+	set PATH=C:\Program Files\7-Zip;%PATH%
+$$
+A different archiving program could be used so long as it understands
+files with the $code .zip$$ extension.
 
 $subhead cmake$$
-$href%http://www.cmake.org/%cmake%$$,
-a program that installs other programs.
-
-$subhead GnuWin$$
-The following files should all be installed with a prefix
-that does not include spaces:
-
-$list number$$
-$href%http://gnuwin32.sourceforge.net/packages/bison.htm%bison%$$,
-a parser generator.
-$lnext
-$href%http://gnuwin32.sourceforge.net/packages/flex.htm%flex%$$,
-a lexical analyzer.
-$lend
+The program $href%http://www.cmake.org/%cmake%$$,
+for installing other programs from source code,
+must be in your execution path.
+For example, on some systems can be done using
+$codep
+	set PATH=C:\Program Files (x86)\CMake\bin;%PATH%
+$$
 
 $subhead Visual Studio$$
 $href%http://www.visualstudio.com/downloads/download-visual-studio-vs
 	%Visual Studio Express
 %$$,
-which contains a C compiler
-(other C compilers could be used).
-
-$head Environment Variables$$
-We assume that the following variables below have been defined.
-
-$subhead zip_prefix$$
-The value of $code%zip_prefix%$$ is the prefix for the install of
-$code 7z$$; e.g., the following file must exist:
+which contains a C compiler (other C compilers could be used).
+If you are using Visual Studio you will have to set some
+variables using its $code vcvarsall.bat$$ file.
+For example, on some systems can be done using
 $codep
-	%zip_prefix%\bin\7z
-$$
-For example
-$codep
-	SET zip_prefix=C:\Program Files\7-Zip
+	set VCDIR=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC
+	call "%VCDIR%\vcvarsall.bat" x86
 $$
 
-$subhead cmake_prefix$$
-The value of $code%cmake_prefix%$$ is the prefix for the install of
-$code cmake$$; e.g., the following file must exist:
-$codep
-	%cmake_prefix%\bin\cmake
-$$
-For example
-$codep
-	SET cmake_prefix=C:\Program Files (x86)\CMake
-$$
+$subhead Optional$$
+If you are changing the $code src/omhelp.y$$, $code latex.y$$, or
+$code latex.l$$ file you will also need
+$href%http://flex.sourceforge.net/%flex%$$ and
+$href%http://bison.sourceforge.net/%bison%$$ in your execution path.
 
-$subhead gnu_prefix$$
-The value of $code%gnu_prefix%$$ is the prefix for the install of
-$code flex$$ and $code bison$$; e.g., the following file must exist:
-$codep
-	%gnu_prefix%\bin\flex
-	%gnu_prefix%\bin\bison
-$$
-For example
-$codep
-	SET gnu_prefix=C:\GnuWin32
-$$
-
-$subhead studio_prefix$$
-The value of $code%studio_prefix%$$ is the prefix for the install of
-Visual Studio install; e.g., the following file must exist:
-$codep
-	%studio_prefix%\vcvarsall.bat
-$$
-For example
-$codep
-	SET studio_prefix=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC
-$$
-
-$subhead Setup Environment$$
-Execute the following commands:
-$codep
-	CALL "%studio_prefix%\vcvarsall.bat" x86
-	SET PATH=%gnu_prefix%/bin;%PATH%
-$$
 
 $head Download OMhelp$$
 Use the following link to download the current version of OMhelp:
@@ -158,6 +114,7 @@ $codei|
 		-D omhelp_prefix=|omhelp_prefix|  ^
 		-D omhelp_datadir=|omhelp_datadir|  ^
 		-D omhelp_c_flags=|omhelp_c_flags|  ^
+		-D have_flex_and_bison=|have_flex_and_bison| ^
 		..
 |$$
 Only the program $code%cmake_prefix%cmake$$,
@@ -190,6 +147,12 @@ $subhead omhelp_c_flags$$
 These are extra flags, besides the debug and release flags,
 that are used during compilation.
 The default value for $icode omhelp_c_flags$$ is none.
+
+$subhead have_flex_and_bison$$
+If you have these
+$cref/optional tools/InstallWindows/Requirements/Optional/$$,
+you should specify this value as $code YES$$.
+Otherwise, you should use $code NO$$ (the default).
 
 $head Build Executable$$
 In the directory $code omhelp-20151012\build$$ execute the following command
