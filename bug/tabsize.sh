@@ -5,7 +5,6 @@
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
-# -----------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {
 	echo $*
