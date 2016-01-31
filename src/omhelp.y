@@ -4463,9 +4463,24 @@ source
 		data = highlight(data, input_lang, output_lang);
 		FreeMem(tmp);
 
-		// output the data
-		for(tmp = data; *tmp != '\0'; tmp++)
-			OutputChar((char) *tmp);
+		// skip comment header at beginning
+		assert( strncmp(data, "<!--", 4) == 0 );
+		tmp = data;
+		while( *tmp != '>' && *tmp != '\0')
+			tmp++;
+		assert( strncmp(tmp-2, "-->", 3) == 0 );
+
+		// skip newline at beginning of preformatted text
+		while( *tmp != '<' && *tmp != '\0')
+			tmp++;
+		assert( strncmp(tmp, "<pre><tt>\n", 10) == 0 );
+		while( *tmp != '\n' )
+			OutputChar((char) *tmp++);
+		tmp++;
+
+		// output rest of data
+		while( *tmp != '\0' )
+			OutputChar((char) *tmp++);
 
 		// done with this input file
 		InputPop();
