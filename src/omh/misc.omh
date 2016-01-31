@@ -11,23 +11,24 @@ $escape #$$
 $section A List of Miscellaneous Routines that Need Better Grouping$$
 
 $childtable/
+	allocmem.c/
+	BinarySearch.c/
+	children.c/
+	Color.c/
+	copyfile.c/
 	fatalerr.c/
+	funref.c/
+	head.c/
+	highlight.cpp/
+	Internal2Out.c/
+	LatexAtomic.c/
+	latex.l/
+	LatexMacro.h/
+	lexomh.c/
 	math.c/
 	pending.c/
-	children.c/
-	head.c/
-	funref.c/
-	copyfile.c/
 	spell.c/
 	style.c/
-	Internal2Out.c/
-	latex.l/
-	LatexAtomic.c/
-	BinarySearch.c/
-	Color.c/
-	LatexMacro.h/
-	allocmem.c/
-	lexomh.c/
 	trace_exit.c/$$
 
 $end

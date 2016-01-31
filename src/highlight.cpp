@@ -4,6 +4,17 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
+/*
+$begin highlight.cpp$$
+
+$section Highlighting Source Code$$
+
+$head Prototype$$
+$source%highlight.h%// BEGIN PROTOTYPE%// END PROTOTYPE%$$
+
+
+$end
+*/
 
 # include <sstream>
 # include "srchilite/sourcehighlight.h"
@@ -39,7 +50,9 @@ extern "C" char* highlight(
 	hiliter.highlight(input_sstream, output_sstream, input_lang);
 
 	// return value
-	char* ret = StrCat(__FILE__, __LINE__,  output_sstream.str().c_str() );
+	char* ret = StrCat(
+		__FILE__, __LINE__,  output_sstream.str().c_str(), NULL
+	);
 
 	return ret;
 }
@@ -51,7 +64,7 @@ extern "C" char* file2lang(const char* file_name_cstr)
 	std::string lang = lang_map.getMappedFileNameFromFileName(file_name);
 
 	// return value
-	char* ret = StrCat(__FILE__, __LINE__,  lang.c_str() );
+	char* ret = StrCat(__FILE__, __LINE__,  lang.c_str(), NULL);
 
 	return ret;
 }

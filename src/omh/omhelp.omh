@@ -12,6 +12,7 @@ $$
 
 $path/..\/.h/$$
 $path/..\/.c/$$
+$path/..\/.cpp/$$
 $path/..\/.l/$$
 
 $comment default automatic indexing command for all CppAD documentaiton$$

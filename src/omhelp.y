@@ -4467,6 +4467,10 @@ source
 		for(tmp = data; *tmp != '\0'; tmp++)
 			OutputChar((char) *tmp);
 
+		// done with this input file
+		InputPop();
+
+		FreeMem(input_lang);
 		FreeMem(data);
 		FreeMem(root);
 		FreeMem(ext);
