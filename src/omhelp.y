@@ -1060,8 +1060,8 @@ void InitParser(const char *StartingInputFile)
 %token SECTION_lex
 %token SKIPNL_lex
 %token SMALL_lex
-%token SOURCE_lex
 %token SPELL_lex
+%token SRC_lex
 %token SUBHEAD_lex
 %token SYNTAX_lex
 %token TABLE_lex
@@ -1152,8 +1152,8 @@ element
 	| section
 	| skipnl
 	| small
-	| source
 	| spell
+	| src
 	| subhead
 	| syntax
 	| table
@@ -4224,11 +4224,30 @@ small
 	}
 	;
 
-source
-	: SOURCE_lex text not_2_dollar_or_text
+spell
+	: SPELL_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
 	}
-	| SOURCE_lex text DOUBLE_DOLLAR_lex
+	| SPELL_lex text DOUBLE_DOLLAR_lex
+	{
+		assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		if( $2.str[0] != '\0' )
+			SpellingOkList($2.str);
+
+		FreeMem($2.str);
+
+		$$ = $1;
+	}
+	;
+
+src
+	: SRC_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| SRC_lex text DOUBLE_DOLLAR_lex
 	{	// command parameters
 		char *filename;
 		char *start;
@@ -4243,6 +4262,7 @@ source
 		char *root;
 		char *ext;
 		char ch;
+		char delimiter;
 		char previous;
 		int  ntoken;
 		int  match;
@@ -4259,19 +4279,21 @@ source
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
 
-		ntoken = SplitText($1.line, "$source", $2.str);
+		delimiter = $2.str[0];
+		ntoken = SplitText($1.line, "$src", $2.str);
 		if( ntoken < 1 ) fatalomh(
-			"At $source command in line ",
+			"At $src command in line ",
 			int2str($1.line),
-			"\nExpected at least 2 delimiters in $source command",
+			"\nExpected at least 2 delimiters in $src command",
 			NULL
 		);
 		if( ntoken > 6 ) fatalomh(
-			"At $source command in line ",
+			"At $src command in line ",
 			int2str($1.line),
-			"\nExpected at most 6 delimiters in $source command",
+			"\nExpected at most 6 delimiters in $src command",
 			NULL
 		);
+		assert( delimiter != '\0' );
 
 		// filename
 		filename = $2.str + 1;
@@ -4311,7 +4333,7 @@ source
 		input_lang = file2lang(filename);
 		if( input_lang[0] == '\0' )
 		{	fatalomh(
-				"At $source command in line ",
+				"At $src command in line ",
 				int2str($1.line),
 				"\nCannot determine language for the file\n",
 				filename,
@@ -4331,7 +4353,7 @@ source
 		if( len == -1 )
 		{	InputPop();
 			fatalomh(
-				"At $source command in line ",
+				"At $src command in line ",
 				int2str($1.line),
 				"\nToo many characters in start pattern",
 				NULL
@@ -4340,7 +4362,7 @@ source
 		if( len == -2 )
 		{	InputPop();
 			fatalomh(
-				"At $source command in line ",
+				"At $src command in line ",
 				int2str($1.line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the start pattern",
@@ -4365,7 +4387,7 @@ source
 			if( ch == '\001' )
 			{	InputPop();
 				fatalomh(
-					"At $source command in line ",
+					"At $src command in line ",
 					int2str($1.line),
 					"\nCould not find the start pattern \"",
 					start,
@@ -4381,7 +4403,7 @@ source
 		if( len == -1 )
 		{	InputPop();
 			fatalomh(
-				"At $source command in line ",
+				"At $src command in line ",
 				int2str($1.line),
 				"\nToo many characters in stop pattern",
 				NULL
@@ -4390,7 +4412,7 @@ source
 		if( len == -2 )
 		{	InputPop();
 			fatalomh(
-				"At $source command in line ",
+				"At $src command in line ",
 				int2str($1.line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the stop pattern",
@@ -4422,7 +4444,7 @@ source
 				{	line_buffer[column_index-1] = '\n';
 					line_buffer[column_index]   = '\0';
 					fatalomh(
-						"At $source command in line ",
+						"At $src command in line ",
 						int2str($1.line),
 						"\nIn the file ",
 						filename,
@@ -4434,7 +4456,7 @@ source
 				}
 				line_buffer[column_index++] = ch;
 			}
-			if( (ch == '\001') | (ch == '\n') )
+			if( (ch == '\001') | (ch == '\n') | match )
 			{	line_buffer[column_index] = '\0';
 				if( data == NULL )
 					data = str_alloc( line_buffer );
@@ -4451,6 +4473,34 @@ source
 			if( ch != '\001' )
 				ch = InputGet();
 		}
+
+		// done with this input file
+		InputPop();
+
+		// check for no data
+		tmp = data;
+		while( isspace(*tmp) || *tmp == delimiter )
+			tmp++;
+		if( *tmp == '\0' ) fatalomh(
+			"At $src command in line ",
+			int2str($1.line),
+			" of file ",
+			filename,
+			"\nNo text between start and stop patterns.",
+			"\nPerhaps need to skip start pattern in $src command.",
+			NULL
+		);
+
+		// check for no match
+		if( len > 0 && ! match ) fatalomh(
+			"At $src command in line ",
+			int2str($1.line),
+			"\nCould not find the stop pattern \"",
+			stop,
+			"\"\nin the file ",
+			filename,
+			NULL
+		);
 
 		// determine what language the output file is in
 		if( strcmp( Internal2Out("OutputExtension"), ".htm") == 0 )
@@ -4473,41 +4523,18 @@ source
 		// skip newline at beginning of preformatted text
 		while( *tmp != '<' && *tmp != '\0')
 			tmp++;
-		assert( strncmp(tmp, "<pre><tt>\n", 10) == 0 );
-		while( *tmp != '\n' )
-			OutputChar((char) *tmp++);
-		tmp++;
+		assert( strncmp(tmp, "<pre>", 5) == 0 );
+		OutputString("<pre style='display:inline'>");
+		tmp += 5;
 
 		// output rest of data
 		while( *tmp != '\0' )
 			OutputChar((char) *tmp++);
 
-		// done with this input file
-		InputPop();
-
 		FreeMem(input_lang);
 		FreeMem(data);
 		FreeMem(root);
 		FreeMem(ext);
-		FreeMem($2.str);
-
-		$$ = $1;
-	}
-	;
-
-spell
-	: SPELL_lex text not_2_dollar_or_text
-	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
-	}
-	| SPELL_lex text DOUBLE_DOLLAR_lex
-	{
-		assert( $1.str == NULL );
-		assert( $2.str != NULL );
-		assert( $3.str == NULL );
-
-		if( $2.str[0] != '\0' )
-			SpellingOkList($2.str);
-
 		FreeMem($2.str);
 
 		$$ = $1;

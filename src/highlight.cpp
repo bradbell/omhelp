@@ -5,13 +5,39 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin highlight.cpp$$
+$begin highlight$$
+$spell
+	cstr
+	lang
+	outlang
+	xhtml
+	cpp
+	html
+	Mem
+$$
 
 $section Highlighting Source Code$$
 
 $head Prototype$$
-$source%highlight.h%// BEGIN PROTOTYPE%// END PROTOTYPE%$$
+$src%highlight.cpp%// BEGIN PROTOTYPE%// END PROTOTYPE%1%$$
 
+$head input_text_cstr$$
+This is the source code that we are highlighting.
+
+$head input_lang_cstr$$
+This is the language corresponding to the source code; e.g.,
+$code "cpp.lang"$$; see
+$href%http://www.gnu.org/software/src-highlite/source-highlight.html#Supported-languages%supported languages%$$.
+
+$head output_lang_cstr$$
+This is the output language and must be either
+$code "html.outlang"$$ or $code "xhtml.outlang"$$.
+
+$head Return Value$$
+The return value is a highlighted version of the input source code in
+either HTML or XHTML depending on the output language.
+The return value memory is allocated using $mref/AllocMem/$$
+and should be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
 
 $end
 */
@@ -25,10 +51,12 @@ $end
 // used by omhelp to allocate and concatencate strings
 extern "C" char* StrCat( const char *file, int line, ... );
 
+// BEGIN PROTOTYPE
 extern "C" char* highlight(
 	const char* input_text_cstr  ,
 	const char* input_lang_cstr  ,
-	const char* output_lang_cstr )
+	const char* output_lang_cstr
+) // END PROTOTYPE
 {	using std::string;
 
 	// input string stream
