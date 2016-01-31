@@ -32,15 +32,17 @@ cat << EOF > hilite.cpp
 # define DATADIR "/home/bradbell/prefix/highlight/share/source-highlight"
 
 extern "C" char* highlight(
-	const char* input_text  ,
-	const char* input_lang  ,
-	const char* output_lang )
+	const char* input_text_cstr  ,
+	const char* input_lang_cstr  ,
+	const char* output_lang_cstr )
 {	using std::string;
 
 	// input string stream
+	string input_text( input_text_cstr );
 	std::stringstream input_sstream( input_text );
 
 	// ctor
+	string output_lang( output_lang_cstr );
 	srchilite::SourceHighlight hiliter( output_lang );
 
 	// source-highlight data directory
@@ -50,7 +52,8 @@ extern "C" char* highlight(
 	std::stringstream output_sstream;
 
 	// convert from the input to output string stream
-	hiliter.highlight(input_sstream, output_sstream, string(input_lang) );
+	string input_lang( input_lang_cstr );
+	hiliter.highlight(input_sstream, output_sstream, input_lang);
 
 	// return value
 	size_t len = output_sstream.str().size();
@@ -62,9 +65,10 @@ extern "C" char* highlight(
 	return ret;
 }
 
-extern "C" char* file2lang(const char* file_name)
+extern "C" char* file2lang(const char* file_name_cstr)
 {
 	srchilite::LangMap lang_map(DATADIR, "lang.map");
+	std::string file_name( file_name_cstr);
 	std::string lang = lang_map.getMappedFileNameFromFileName(file_name);
 
 	// return value
@@ -85,17 +89,23 @@ int main(int argc, char *argv[])
 	{	std::cerr << "usage: hilite input_file output_file" << std::endl;
 		return 1;
 	}
-	const char* input_file  = argv[1];
-	const char* output_file = argv[2];
+	const char* input_file_cstr  = argv[1];
+	const char* output_file_cstr = argv[2];
 
 	// language corresponding to input file
-	char* input_lang = file2lang(input_file);
+	char* input_lang_ptr = file2lang(input_file_cstr);
+	if( input_lang_ptr[0] == '\0' )
+	{	std::free(input_lang_ptr);
+		std::cerr << "cannot deter language for input_file =" << std::endl;
+		std::cerr << input_file_cstr << std::endl;
+		return 1;
+	}
 
 	// output file language
-	string output_lang = "html.outlang";
+	const char* output_lang_cstr = "html.outlang";
 
 	// input stream
-	std::fstream input_stream(input_file, std::fstream::in);
+	std::fstream input_stream(input_file_cstr, std::fstream::in);
 
 	// read file into a string
 	string input_string;
@@ -104,27 +114,22 @@ int main(int argc, char *argv[])
 		input_string += ch;
 
 	// output stream
-	std::fstream output_stream(output_file, std::fstream::out);
+	std::fstream output_stream(output_file_cstr, std::fstream::out);
 
-	if( string(input_lang) != "" )
-	{	char* output_text = highlight(
-			input_string.c_str(),
-			input_lang,
-			output_lang.c_str()
-		);
+	char* output_text_ptr = highlight(
+		input_string.c_str(),
+		input_lang_ptr,
+		output_lang_cstr
+	);
 
-		// output highlighted test
-		output_stream << output_text;
+	// output highlighted test
+	output_stream << output_text_ptr;
 
-		// free memory allocated by highlight
-		std::free(output_text);
-	}
-	else
-	{	// output text as input
-		output_stream << input_string.c_str();
-	}
+	// free memory allocated by highlight
+	std::free(output_text_ptr);
+
 	// free memory allocated by file2lang
-	std::free(input_lang);
+	std::free(input_lang_ptr);
 
 	return 0;
 }
