@@ -1059,6 +1059,7 @@ void InitParser(const char *StartingInputFile)
 %token SECTION_lex
 %token SKIPNL_lex
 %token SMALL_lex
+%token SOURCE_lex
 %token SPELL_lex
 %token SUBHEAD_lex
 %token SYNTAX_lex
@@ -1150,6 +1151,7 @@ element
 	| section
 	| skipnl
 	| small
+	| source
 	| spell
 	| subhead
 	| syntax
@@ -4216,6 +4218,228 @@ small
 
 		OutputString("</small>");
 		PopPending($3.line, "$small");
+
+		$$ = $1;
+	}
+	;
+
+source
+	: SOURCE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| SOURCE_lex text DOUBLE_DOLLAR_lex
+	{	// command parameters
+		char *filename;
+		char *start;
+		char *stop;
+		char *token;
+		int  skip;
+		int  nspace;
+
+		// local variables
+		char *root;
+		char *ext;
+		char ch;
+		char previous;
+		int  ntoken;
+		int  match;
+		int  len;
+		int  i;
+		char line_buffer[300];
+		int  column_max = 299;
+		int  column_index;
+		//
+		char *data;
+		char *tmp;
+
+		assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		ntoken = SplitText($1.line, "$source", $2.str);
+		if( ntoken < 1 ) fatalomh(
+			"At $source command in line ",
+			int2str($1.line),
+			"\nExpected at least 2 delimiters in $source command",
+			NULL
+		);
+		if( ntoken > 6 ) fatalomh(
+			"At $source command in line ",
+			int2str($1.line),
+			"\nExpected at most 6 delimiters in $source command",
+			NULL
+		);
+
+		// filename
+		filename = $2.str + 1;
+
+		// start
+		if( ntoken < 2 )
+			start = "";
+		else
+			start = filename + strlen(filename) + 1;
+
+		// stop
+		if( ntoken < 3 )
+			stop = "";
+		else
+			stop = start + strlen(start) + 1;
+
+		// skip
+		if( ntoken < 4 )
+			skip = 0;
+		else
+		{	token = stop + strlen(stop) + 1;
+			skip = atoi(token);
+		}
+
+		// nspace
+		if( ntoken < 4 )
+			nspace = 0;
+		else
+		{	token  = token + strlen(token) + 1;
+			nspace = atoi(token);
+		}
+
+		// start reading file
+		ClipWhiteSpace(filename);
+		InputSplitName(&root, &ext, filename);
+		InputPush(root, ext, -1);
+
+		// initialize with input first character
+		ch       = InputGet();
+
+		// set start pattern
+		len = PatternMatchLen(start, Escape);
+		if( len == -1 )
+		{	InputPop();
+			fatalomh(
+				"At $source command in line ",
+				int2str($1.line),
+				"\nToo many characters in start pattern",
+				NULL
+			);
+		}
+		if( len == -2 )
+		{	InputPop();
+			fatalomh(
+				"At $source command in line ",
+				int2str($1.line),
+				"\nThree decimal digits must follow the ",
+				"escape character in the start pattern",
+				NULL
+			);
+		}
+		assert( len >= 0 );
+
+		// skip to the starting pattern
+		if( len > 0 )
+		{
+			match = 0;
+			while( (! match)  & (ch != '\001') )
+			{	match = PatternMatchCh(&ch);
+				if( match && skip > 0 )
+				{	--skip;
+					match = 0;
+				}
+				ch = InputGet();
+			}
+
+			if( ch == '\001' )
+			{	InputPop();
+				fatalomh(
+					"At $source command in line ",
+					int2str($1.line),
+					"\nCould not find the start pattern \"",
+					start,
+					"\"\nin the file ",
+					filename,
+					NULL
+				);
+			}
+		}
+
+		// set stopping pattern
+		len     = PatternMatchLen(stop, Escape);
+		if( len == -1 )
+		{	InputPop();
+			fatalomh(
+				"At $source command in line ",
+				int2str($1.line),
+				"\nToo many characters in stop pattern",
+				NULL
+			);
+		}
+		if( len == -2 )
+		{	InputPop();
+			fatalomh(
+				"At $source command in line ",
+				int2str($1.line),
+				"\nThree decimal digits must follow the ",
+				"escape character in the stop pattern",
+				NULL
+			);
+		}
+
+		// get the text
+		previous     = '\0';
+		match        = 0;
+		column_index = 0;
+		data         = NULL;
+		while(ch != '\001' )
+		{
+			if( len > 0 )
+				match = PatternMatchCh(&ch);
+
+			// indent when previous character is a newline
+			if( (previous == '\n') & (ch != '\001' ) )
+			{	column_index = 0;
+				for(i = 0; i < nspace; i++)
+					line_buffer[column_index++] = ' ';
+			}
+			previous = ch;
+
+			// add this character to the output line buffer
+			if( (ch != '\001') & (ch != '\0') )
+			{	if( column_index >= column_max )
+				{	line_buffer[column_index-1] = '\n';
+					line_buffer[column_index]   = '\0';
+					fatalomh(
+						"At $source command in line ",
+						int2str($1.line),
+						"\nIn the file ",
+						filename,
+						"\nThe following input line ",
+						"is too long",
+						line_buffer,
+						NULL
+					);
+				}
+				line_buffer[column_index++] = ch;
+			}
+			if( (ch == '\001') | (ch == '\n') )
+			{	line_buffer[column_index] = '\0';
+				if( data == NULL )
+					data = str_alloc( line_buffer );
+				else
+				{	tmp   = data;
+					data  = strjoin(data, line_buffer);
+					FreeMem(tmp);
+				}
+			}
+			// check for stopping at ch
+			if( match )
+				ch = '\001';
+			//
+			if( ch != '\001' )
+				ch = InputGet();
+		}
+
+
+		FreeMem(data);
+		FreeMem(root);
+		FreeMem(ext);
+		FreeMem($2.str);
 
 		$$ = $1;
 	}

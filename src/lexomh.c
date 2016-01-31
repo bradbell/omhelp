@@ -227,6 +227,7 @@ keyword_table[] =
 	{ "section",    SECTION_lex     },
 	{ "skipnl",     SKIPNL_lex      },
 	{ "small",      SMALL_lex       },
+	{ "source",     SOURCE_lex      },
 	{ "spell",      SPELL_lex       },
 	{ "subhead",    SUBHEAD_lex     },
 	{ "syntax",     SYNTAX_lex      },
