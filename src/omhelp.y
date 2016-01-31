@@ -4463,6 +4463,9 @@ source
 		data = highlight(data, input_lang, output_lang);
 		FreeMem(tmp);
 
+		// output the data
+		for(tmp = data; *tmp != '\0'; tmp++)
+			OutputChar((char) *tmp);
 
 		FreeMem(data);
 		FreeMem(root);
