@@ -52,6 +52,7 @@ cross reference tag, NULL is returned.
 # include "section.h"
 # include "children.h"
 # include "search.h"
+# include "highlight.h"
 # include "hilite.h"
 # include "href.h"
 # include "index.h"
@@ -4237,6 +4238,8 @@ source
 		int  nspace;
 
 		// local variables
+		char *input_lang;
+		char *output_lang;
 		char *root;
 		char *ext;
 		char ch;
@@ -4301,8 +4304,22 @@ source
 			nspace = atoi(token);
 		}
 
-		// start reading file
+		// clean up input file name
 		ClipWhiteSpace(filename);
+
+		// determine what language this file is in
+		input_lang = file2lang(filename);
+		if( input_lang[0] == '\0' )
+		{	fatalomh(
+				"At $source command in line ",
+				int2str($1.line),
+				"\nCannot determine language for the file\n",
+				filename,
+				NULL
+			);
+		}
+
+		// start reading file
 		InputSplitName(&root, &ext, filename);
 		InputPush(root, ext, -1);
 
@@ -4381,7 +4398,7 @@ source
 			);
 		}
 
-		// get the text
+		// get the data
 		previous     = '\0';
 		match        = 0;
 		column_index = 0;
@@ -4434,6 +4451,17 @@ source
 			if( ch != '\001' )
 				ch = InputGet();
 		}
+
+		// determine what language the output file is in
+		if( strcmp( Internal2Out("OutputExtension"), ".htm") == 0 )
+			output_lang = "html.outlang";
+        else
+            output_lang = "xhtml.outlang";
+
+		// convert data to the output language with highlighting
+		tmp = data;
+		data = highlight(data, input_lang, output_lang);
+		FreeMem(tmp);
 
 
 		FreeMem(data);
