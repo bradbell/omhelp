@@ -78,6 +78,7 @@ ADD_EXECUTABLE(omhelp
 	FrameSet.c
 	funref.c
 	head.c
+	highlight.cpp
 	hilite.c
 	href.c
 	HtmlHead.c
@@ -102,3 +103,5 @@ ADD_EXECUTABLE(omhelp
 	url.c
 	warning.c
 )
+
+TARGET_LINK_LIBRARIES( omhelp source-highlight boost_regex )
