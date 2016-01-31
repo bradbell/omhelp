@@ -84,6 +84,14 @@ extern "C" char* file2lang(const char* file_name_cstr)
 int main(int argc, char *argv[])
 {	using std::string;
 
+	const char* begin_xml_cstr =
+		"<?xml version='1.0' encoding='UTF-8'?>\n"
+		"<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1//EN'\n"
+		"    'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd'>\n"
+		"<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' >\n"
+	;
+	const char* end_xml_cstr = "\n</html>";
+
 	// get input and output file names
 	if( argc != 3 )
 	{	std::cerr << "usage: hilite input_file output_file" << std::endl;
@@ -101,8 +109,28 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	// output file language
-	const char* output_lang_cstr = "html.outlang";
+	// find beginning of extension in file name
+	size_t dot = 0;
+	for(size_t i = 0; output_file_cstr[i] != '\0'; i++)
+	{	if( output_file_cstr[i] == '.' )
+			dot = i;
+	}
+
+	// language corresponding to output file
+	string output_lang = "";
+	if( output_file_cstr[dot] == '.' )
+	{	string ext( output_file_cstr + dot  );
+		if( ext == ".html" )
+			output_lang = "html.outlang";
+		if( ext == ".xml" )
+			output_lang = "xhtml.outlang";
+	}
+	else
+	{	std::free(input_lang_ptr);
+		std::cerr << "extension for output file is not '.html' or '.xml'";
+		std::cerr << std::endl;
+		return 1;
+	}
 
 	// input stream
 	std::fstream input_stream(input_file_cstr, std::fstream::in);
@@ -119,11 +147,15 @@ int main(int argc, char *argv[])
 	char* output_text_ptr = highlight(
 		input_string.c_str(),
 		input_lang_ptr,
-		output_lang_cstr
+		output_lang.c_str()
 	);
 
 	// output highlighted test
+	if( output_lang == "xhtml.outlang" )
+		output_stream << begin_xml_cstr;
 	output_stream << output_text_ptr;
+	if( output_lang == "xhtml.outlang" )
+		output_stream << end_xml_cstr;
 
 	// free memory allocated by highlight
 	std::free(output_text_ptr);
@@ -143,3 +175,4 @@ echo_eval \
 	-L$prefix/lib -lsource-highlight
 # ----------------------------------------------------------------------------
 echo_eval ./hilite hilite.cpp hilite.html
+echo_eval ./hilite hilite.cpp hilite.xml
