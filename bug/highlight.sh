@@ -62,6 +62,21 @@ extern "C" char* highlight(
 	return ret;
 }
 
+extern "C" char* file2lang(const char* file_name)
+{
+	srchilite::LangMap lang_map(DATADIR, "lang.map");
+	std::string lang = lang_map.getMappedFileNameFromFileName(file_name);
+
+	// return value
+	size_t len = lang.size();
+	char* ret = static_cast<char*>( std::malloc( (len + 1) * sizeof(char) ) );
+	for(size_t i = 0; i < len; i++)
+		ret[i] = lang[i];
+	ret[len] = '\0';
+
+	return ret;
+}
+
 int main(int argc, char *argv[])
 {	using std::string;
 
@@ -73,9 +88,8 @@ int main(int argc, char *argv[])
 	const char* input_file  = argv[1];
 	const char* output_file = argv[2];
 
-	// input file language
-	srchilite::LangMap lang_map(DATADIR, "lang.map");
-	string input_lang = lang_map.getMappedFileNameFromFileName(input_file);
+	// language corresponding to input file
+	char* input_lang = file2lang(input_file);
 
 	// output file language
 	string output_lang = "html.outlang";
@@ -92,10 +106,10 @@ int main(int argc, char *argv[])
 	// output stream
 	std::fstream output_stream(output_file, std::fstream::out);
 
-	if( input_lang != "" )
+	if( string(input_lang) != "" )
 	{	char* output_text = highlight(
 			input_string.c_str(),
-			input_lang.c_str(),
+			input_lang,
 			output_lang.c_str()
 		);
 
@@ -109,7 +123,8 @@ int main(int argc, char *argv[])
 	{	// output text as input
 		output_stream << input_string.c_str();
 	}
-
+	// free memory allocated by file2lang
+	std::free(input_lang);
 
 	return 0;
 }
