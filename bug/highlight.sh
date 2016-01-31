@@ -29,7 +29,7 @@ cat << EOF > hilite.cpp
 # include "srchilite/sourcehighlight.h"
 # include "srchilite/langmap.h"
 
-# define DATADIR "/home/bradbell/prefix/highlight/share/source-highlight"
+# define DATADIR "/usr/share/source-highlight"
 
 extern "C" char* highlight(
 	const char* input_text_cstr  ,
@@ -167,12 +167,9 @@ int main(int argc, char *argv[])
 }
 EOF
 # ----------------------------------------------------------------------------
-prefix="$HOME/prefix/highlight"
-echo_eval \
-	g++ hilite.cpp -o hilite \
-	-g -O0 \
-	-I$prefix/include \
-	-L$prefix/lib -lsource-highlight
+cflags=`pkg-config --cflags source-highlight`
+libs=`pkg-config --libs source-highlight`
+echo_eval g++ hilite.cpp -o hilite -g -O0 $cflags $libs
 # ----------------------------------------------------------------------------
 echo_eval ./hilite hilite.cpp hilite.html
 echo_eval ./hilite hilite.cpp hilite.xml
