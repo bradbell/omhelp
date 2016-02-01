@@ -4250,11 +4250,11 @@ src
 	| SRC_lex text DOUBLE_DOLLAR_lex
 	{	// command parameters
 		char *filename;
+		int  nspace;
 		char *start;
 		char *stop;
 		char *token;
 		int  skip;
-		int  nspace;
 
 		// local variables
 		char *input_lang;
@@ -4263,7 +4263,6 @@ src
 		char *ext;
 		char ch;
 		char delimiter;
-		char previous;
 		int  ntoken;
 		int  match;
 		int  len;
@@ -4287,6 +4286,12 @@ src
 			"\nExpected at least 2 delimiters in $src command",
 			NULL
 		);
+		if( ntoken == 3 ) fatalomh(
+			"At $src command in line ",
+			int2str($1.line),
+			"\nMust also specify stop when start is present",
+			NULL
+		);
 		if( ntoken > 6 ) fatalomh(
 			"At $src command in line ",
 			int2str($1.line),
@@ -4298,32 +4303,32 @@ src
 		// filename
 		filename = $2.str + 1;
 
-		// start
+		// nspace
 		if( ntoken < 2 )
+			nspace = 0;
+		else
+		{	token  = filename + strlen(filename) + 1;
+			nspace = atoi(token);
+		}
+
+		// start
+		if( ntoken < 3 )
 			start = "";
 		else
-			start = filename + strlen(filename) + 1;
+			start = token + strlen(token) + 1;
 
 		// stop
-		if( ntoken < 3 )
+		if( ntoken < 4 )
 			stop = "";
 		else
 			stop = start + strlen(start) + 1;
 
 		// skip
-		if( ntoken < 4 )
+		if( ntoken < 5 )
 			skip = 0;
 		else
 		{	token = stop + strlen(stop) + 1;
 			skip = atoi(token);
-		}
-
-		// nspace
-		if( ntoken < 4 )
-			nspace = 0;
-		else
-		{	token  = token + strlen(token) + 1;
-			nspace = atoi(token);
 		}
 
 		// clean up input file name
@@ -4421,7 +4426,6 @@ src
 		}
 
 		// get the data
-		previous     = '\0';
 		match        = 0;
 		column_index = 0;
 		data         = NULL;
@@ -4431,12 +4435,10 @@ src
 				match = PatternMatchCh(&ch);
 
 			// indent when previous character is a newline
-			if( (previous == '\n') & (ch != '\001' ) )
-			{	column_index = 0;
-				for(i = 0; i < nspace; i++)
+			if( column_index == 0 )
+			{	for(i = 0; i < nspace; i++)
 					line_buffer[column_index++] = ' ';
 			}
-			previous = ch;
 
 			// add this character to the output line buffer
 			if( (ch != '\001') & (ch != '\0') )
@@ -4469,6 +4471,9 @@ src
 			// check for stopping at ch
 			if( match )
 				ch = '\001';
+			// check for starting a newline
+			if( ch == '\n' )
+				column_index = 0;
 			//
 			if( ch != '\001' )
 				ch = InputGet();

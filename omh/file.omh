@@ -29,6 +29,7 @@ $children/
 	include.omh/
 	image.omh/
 	verbatim.omh/
+	src.omh/
 	execute.omh/
 	keycharacter.omh/$$
 

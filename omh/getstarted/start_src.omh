@@ -1,0 +1,74 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2015 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+#
+$begin start_src$$
+$dollar @$$
+$escape !$$
+$spell
+	src
+	omh
+	OMhelp
+	htm
+	omhelp
+	noframe
+$$
+
+$children/src_example.omh/$$
+
+$section Example Including Source Code$$
+
+$head src$$
+The $cref src$$ command
+enables one to include all of part of a source code file.
+This is useful for including examples in the documentation
+with source code highlighting.
+
+$head Execute The Following Steps$$
+
+$subhead src_example.omh$$
+Use an editor of your choice to
+create the file $code  src_example.omh$$
+in the
+$cref/test directory
+	/start_simple
+	/Execute The Following Steps.Test Directory
+/$$
+with the following contents:
+$code
+$pre
+     $$@begin $verbatim%src_example.omh%5%!036begin %$$
+$$
+Note that you can copy and paste the commands above
+to your editor window.
+You may just copy the file with the same name from the
+$cref/getting started directory/get_started/Getting Started Directory/$$.
+
+$subhead Example In This Web Site Context$$
+You can view the
+result of making $code src_example.omh$$
+part of the OMhelp help web site
+by selecting
+$cref src_example$$.
+
+$subhead Execute OMhelp$$
+In a command window and
+in the
+$cref/htm directory
+	/start_simple
+	/Execute The Following Steps.Htm Directory
+/$$
+execute the following command
+$codep
+	omhelp ../src_example.omh -noframe
+$$
+
+
+$subhead Example by Itself$$
+Use a web browser of your choosing to view the file
+$icode%test%/htm/src_example.htm%$$.
+
+$end

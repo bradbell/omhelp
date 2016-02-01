@@ -19,7 +19,7 @@ $$
 $section Highlighting Source Code$$
 
 $head Prototype$$
-$src%highlight.cpp%// BEGIN PROTOTYPE%// END PROTOTYPE%1%$$
+$src%highlight.cpp%0%// BEGIN PROTOTYPE%// END PROTOTYPE%1%$$
 
 $head input_text_cstr$$
 This is the source code that we are highlighting.

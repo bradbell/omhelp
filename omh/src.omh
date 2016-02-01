@@ -1,0 +1,122 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2015 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+#
+$begin src$$
+$spell
+	src
+$$
+$escape $$
+$dollar @$$
+
+$section Displaying Source Code$$
+
+$head Syntax$$
+$codei/@src%/filename/%@@
+/$$
+$codei/@src%/filename/%/indent/%/@@
+/$$
+$codei/@src%/filename/%/indent/%/start/%/stop/%@@
+/$$
+$codei/@src%/filename/%/indent/%/start/%/stop/%/skip/@@
+/$$
+
+$head See Also$$
+$cref/getting started/start_src/$$,
+$mref/codep/verbatim/$$
+
+$head Purpose$$
+This command will cause the specified
+$cref/input file/glossary/Input File Searching/$$
+to be displayed as program source code with highlighting.
+
+$head Delimiter Sequence$$
+The $cref codep$$ and $cref verbatim$$ provide others ways
+that source code can be displayed.
+$codei/
+
+%/filename/%/indent/%/start/%/stop/%/skip/@@
+/$$
+is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
+where $code %$$ can be any character that is not a letter.
+
+$head filename$$
+The value of $icode filename$$ specifies the name
+of the file that is displayed.
+Leading and trailing white space in $icode filename$$ is ignored.
+
+$head indent$$
+If $icode indent$$ is present,
+it is a positive integer and specifies
+the number of spaces to indent the output.
+
+$subhead Example$$
+The following command
+$codep
+	@pre
+	@@
+	@src%../src/highlight.h%4%@@
+$$
+displays the entire file $code highlight.h$$,
+with a four space indentation as follows:
+$pre
+$$
+$src%../src/highlight.h%4%$$
+
+$head start$$
+If $icode start$$ is present,
+it specifies a sequence of characters after which output should start.
+In this case none of the characters in the file before,
+and including,
+this starting sequence are displayed.
+
+$subhead escape$$
+If the $cref escape$$ character is present in $icode start$$,
+there must be three decimal digits following it.
+In this case the escape character together with the three following
+characters, represent the single character with ascii code equal
+to the decimal value of the three decimal digits.
+
+$head stop$$
+If $icode start$$ is present, $icode stop$$ must also be present.
+It specifies
+a sequence of characters just before which output should stop.
+In this case none of the characters in the file following,
+and including,
+this stopping sequences are displayed.
+
+$subhead escape$$
+If the $cref escape$$ character is present in $icode stop$$,
+there must be three decimal digits following it.
+In this case the escape character together with the three following
+characters, represent the single character with ascii code equal
+to the decimal value of the three decimal digits.
+
+$subhead Example$$
+The following command sequence
+$codep
+	@pre
+	@@
+	@src%../src/highlight.h%4%// BEGIN PROTOTYPE%// END PROTOTYPE%@@
+$$
+displays the following output:
+$src%../src/highlight.h%4%// BEGIN PROTOTYPE%// END PROTOTYPE%$$
+
+$head skip$$
+If $icode skip$$ is present,
+it is a positive integer that specifies the number of
+$icode start$$ matches to skip.
+This is very useful when the $code @src$$ command
+refers to the same file as the command is in.
+The skip option can be used to skip the match on the command
+and go forward to the location that you wish to display.
+
+$head Tab Stops$$
+The $cref tabsize$$ command
+enables you to match the indentation of the $code src$$ command
+with one of the tabbing columns.
+
+$end
