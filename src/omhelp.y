@@ -4506,6 +4506,18 @@ src
 			filename,
 			NULL
 		);
+		// if start is not present, add a newline for beginning of file
+		if( ntoken < 3 )
+		{	if( ConvertPreviousNewline() < 1 )
+			{	ConvertForcedNewline(1);
+				PreviousOutputWasHeading = 0;
+			}
+		}
+		// if previous output was a heading, add a newline at beginning
+		if( PreviousOutputWasHeading )
+		{	ConvertForcedNewline(1);
+			PreviousOutputWasHeading = 0;
+		}
 
 		// determine what language the output file is in
 		if( strcmp( Internal2Out("OutputExtension"), ".htm") == 0 )
@@ -5112,6 +5124,7 @@ verbatim
 		InputSplitName(&root, &ext, filename);
 		InputPush(root, ext, -1);
 
+		// if start is not present, add a newline for beginning of file
 		if( ntoken < 3 )
 		{
 			if( ConvertPreviousNewline() < 1 )
@@ -5123,6 +5136,7 @@ verbatim
 		}
 		else	previous = '\0';
 
+		// if previous output was a heading, add a newline at beginning
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
 			PreviousOutputWasHeading = 0;

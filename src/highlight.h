@@ -6,7 +6,6 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
-
 // BEGIN PROTOTYPE
 extern char* highlight(
 	const char* input_text_cstr  ,
@@ -15,6 +14,4 @@ extern char* highlight(
 );
 extern char* file2lang(const char* file_name_cstr);
 // END PROTOTYPE
-
 # endif
-
