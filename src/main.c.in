@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2010 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2016 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -86,6 +86,10 @@ int FaviconSpecified()
 static char *omhDir = NULL;
 const char *OmhDir()
 {	return omhDir;
+}
+
+const char *source_highlight_prefix()
+{	return "@source_highlight_prefix@";
 }
 
 extern void InitLex(void);

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2016 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -8,6 +8,9 @@ OMhelp is distributed under the terms of the
 $begin InstallWindows$$
 $dollar @$$
 $spell
+	libboost
+	libsource
+	regex
 	xam
 	OMhelp
 	Cygwin
@@ -81,6 +84,19 @@ $codep
 	call "%VCDIR%\vcvarsall.bat" x86
 $$
 
+$subhead source-highlight$$
+$href%http://www.gnu.org/software/src-highlite/
+	%source-highlight
+%$$,
+a C++ library that performs
+source code highlighting for the $cref src$$ command.
+
+$subhead boost regex$$
+$href%http://www.boost.org/doc/libs/1_60_0/libs/regex/doc/html/index.html
+	%boost_regex
+%$$
+a C++ library used by the $code source-highlight$$ library.
+
 $subhead Optional$$
 If you are changing the $code src/omhelp.y$$, $code latex.y$$, or
 $code latex.l$$ file you will also need
@@ -109,8 +125,10 @@ $codei|
 	cd omhelp-20151014
 	mkdir build
 	cd build
-	"%cmake_prefix%\bin\cmake" ^
-		-G "NMake Makefiles" ^
+	"%cmake_prefix%\bin\cmake"  ^
+		-G "NMake Makefiles"  ^
+		-D boost_regex_prefix=|boost_regex_prefix|  ^
+		-D source_highlight_prefix=|source_highlight_prefix|  ^
 		-D omhelp_prefix=|omhelp_prefix|  ^
 		-D omhelp_datadir=|omhelp_datadir|  ^
 		-D omhelp_c_flags=|omhelp_c_flags|  ^
@@ -122,6 +140,26 @@ the type of make files $code -G "NMake Makefiles"$$,
 and the distribution directory reference $code ..$$,
 are required.
 The other entries use default values if they are not specified.
+
+$subhead boost_regex_prefix$$
+The default value for $icode boost_regex_prefix$$ is $code /usr$$.
+This prefix assumes the boost $code regex$$ library is installed
+as one of the following:
+$codei%
+	/usr/lib/libboost_regex.*
+	/usr/lib64/libboost_regex.*
+%$$
+2DO: THis has not yet been tested.
+
+$subhead source_highlight_prefix$$
+The default value for $icode source_highlight_prefix$$ is $code /usr$$.
+This prefix assumes the boost $code source-highlight$$ library is installed
+as one of the following:
+$codei%
+	/usr/lib/libsource-highlight.*
+	/usr/lib64/libsource-highlight.*
+%$$
+2DO: THis has not yet been tested.
 
 $subhead omhelp_prefix$$
 The default value for $icode omhelp_prefix$$ is $code \usr$$; i.e.,

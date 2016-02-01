@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2016 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -46,10 +46,11 @@ $end
 # include "srchilite/sourcehighlight.h"
 # include "srchilite/langmap.h"
 
-# define DATADIR "/usr/share/source-highlight"
-
 // used by omhelp to allocate and concatencate strings
 extern "C" char* StrCat( const char *file, int line, ... );
+
+// defined by main.c.in
+extern "C" const char* source_highlight_prefix(void);
 
 // BEGIN PROTOTYPE
 extern "C" char* highlight(
@@ -58,6 +59,10 @@ extern "C" char* highlight(
 	const char* output_lang_cstr
 ) // END PROTOTYPE
 {	using std::string;
+
+	// source-highlight data directory
+	string data_dir = source_highlight_prefix();
+	data_dir       += "/share/source-highlight";
 
 	// input string stream
 	string input_text( input_text_cstr );
@@ -68,7 +73,7 @@ extern "C" char* highlight(
 	srchilite::SourceHighlight hiliter( output_lang );
 
 	// source-highlight data directory
-	hiliter.setDataDir(DATADIR);
+	hiliter.setDataDir(data_dir);
 
 	// output stream
 	std::stringstream output_sstream;
@@ -86,10 +91,15 @@ extern "C" char* highlight(
 }
 
 extern "C" char* file2lang(const char* file_name_cstr)
-{
-	srchilite::LangMap lang_map(DATADIR, "lang.map");
-	std::string file_name( file_name_cstr);
-	std::string lang = lang_map.getMappedFileNameFromFileName(file_name);
+{	using std::string;
+
+	// source-highlight data directory
+	string data_dir = source_highlight_prefix();
+	data_dir       += "/share/source-highlight";
+
+	srchilite::LangMap lang_map(data_dir, "lang.map");
+	string file_name( file_name_cstr);
+	string lang = lang_map.getMappedFileNameFromFileName(file_name);
 
 	// return value
 	char* ret = StrCat(__FILE__, __LINE__,  lang.c_str(), NULL);

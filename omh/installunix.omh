@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2016 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -34,15 +34,26 @@ $spell
 	mkdir
 	datadir
 	usr
+	regex
+	libboost
+	libsource
 $$
 
 
 $section Unix Installation and Testing$$
 
 $head Requirements$$
-Building OMhelp requires that a C compiler and
+Building OMhelp requires that a C, C++ compiler and
 $href%http://www.cmake.org%cmake%$$ version 2.8 or greater
 are in your execution path.
+In addition, it requires the C++
+$href%http://www.gnu.org/software/src-highlite/%source-highlight%$$
+library which in turn requires the
+$href%http://www.boost.org/doc/libs/1_60_0/libs/regex/doc/html/index.html
+	%boost_regex
+%$$
+library.
+
 
 $subhead Optional$$
 If you are changing the $code src/omhelp.y$$, $code latex.y$$, or
@@ -76,6 +87,8 @@ $codei%
 	mkdir build
 	cd build
 	cmake \
+		-D boost_regex_prefix=%boost_regex_prefix%  \
+		-D source_highlight_prefix=%source_highlight_prefix%  \
 		-D omhelp_prefix=%omhelp_prefix%  \
 		-D omhelp_datadir=%omhelp_datadir%  \
 		-D omhelp_c_flags=%omhelp_c_flags%  \
@@ -86,6 +99,25 @@ Only the program name $code cmake$$,
 and the distribution directory reference $code ..$$,
 are required.
 The other entries use default values if they are not specified.
+
+$subhead boost_regex_prefix$$
+The default value for $icode boost_regex_prefix$$ is $code /usr$$.
+This prefix assumes the boost $code regex$$ library is installed
+as one of the following:
+$codei%
+	/usr/lib/libboost_regex.*
+	/usr/lib64/libboost_regex.*
+%$$
+
+$subhead source_highlight_prefix$$
+The default value for $icode source_highlight_prefix$$ is $code /usr$$.
+This prefix assumes the boost $code source-highlight$$ library is installed
+as one of the following:
+$codei%
+	/usr/lib/libsource-highlight.*
+	/usr/lib64/libsource-highlight.*
+%$$
+
 
 $subhead omhelp_prefix$$
 The default value for $icode omhelp_prefix$$ is $code /usr$$; i.e.,

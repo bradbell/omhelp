@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2015 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2016 Bradley M. Bell
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@ SET(CMAKE_BUILD_TYPE DEBUG)
 
 SET(srcdir ${CMAKE_CURRENT_SOURCE_DIR})
 SET(bindir ${CMAKE_CURRENT_BINARY_DIR})
-INCLUDE_DIRECTORIES(${srcdir} ${bindir})
+INCLUDE_DIRECTORIES(${srcdir} ${bindir} ${source_highlight_prefix}/include )
 
 # create main.c
 CONFIGURE_FILE(main.c.in main.c)
@@ -42,6 +42,9 @@ IF( have_flex_and_bison )
 	)
 ENDIF( have_flex_and_bison )
 
+
+# Must specify link directories before creating target
+LINK_DIRECTORIES( ${source_highlight_LIBRARY_DIR} ${boost_regex_LIBRARY_DIR} )
 
 ADD_EXECUTABLE(omhelp
 	${bindir}/main.c
@@ -103,5 +106,4 @@ ADD_EXECUTABLE(omhelp
 	url.c
 	warning.c
 )
-
 TARGET_LINK_LIBRARIES( omhelp source-highlight boost_regex )
