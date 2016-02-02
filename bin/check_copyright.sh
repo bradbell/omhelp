@@ -17,12 +17,11 @@ then
 	exit 0
 fi
 list=`git status | sed -n \
-        -e '/^[#\t ]*deleted:/p' \
         -e '/^[#\t ]*modified:/p' \
         -e '/^[#\t ]*both modified:/p' \
         -e '/^[#\t ]*renamed:/p' \
         -e '/^[#\t ]*new file:/p' | \
-            sed -e 's/^.*: *//' -e 's/ -> /\n/' | \
+            sed -e 's/^.*: *//' -e 's/.* -> *//' | \
 			sed -e '/makefile.in$/d' -e '/^src\/omhelp.c$/d' | \
                 sort -u`
 cat << EOF > check_copyright.1.$$
