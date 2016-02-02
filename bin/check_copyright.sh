@@ -16,14 +16,18 @@ then
 	echo 'check_copyright.sh: skipped'
 	exit 0
 fi
-list=`git status | sed -n \
+list=`git status |\
+	 sed -n \
         -e '/^[#\t ]*modified:/p' \
         -e '/^[#\t ]*both modified:/p' \
         -e '/^[#\t ]*renamed:/p' \
         -e '/^[#\t ]*new file:/p' | \
-            sed -e 's/^.*: *//' -e 's/.* -> *//' | \
-			sed -e '/makefile.in$/d' -e '/^src\/omhelp.c$/d' | \
-                sort -u`
+	sed -e 's/^.*: *//' -e 's/.* -> *//' | \
+	sed \
+		-e '/makefile.in$/d' \
+		-e '/^src\/omhelp.c$/d' \
+		-e '/^.gitignore$/d' | \
+	sort -u`
 cat << EOF > check_copyright.1.$$
 # Change copyright second year to current year
 s/Copyright (C) \\([0-9]\\{4\\}\\)-[0-9]* Bradley M. Bell/Copyright (C) \\1-2016 Bradley M. Bell/
