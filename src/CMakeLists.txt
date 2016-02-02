@@ -19,7 +19,22 @@ SET(CMAKE_BUILD_TYPE DEBUG)
 
 SET(srcdir ${CMAKE_CURRENT_SOURCE_DIR})
 SET(bindir ${CMAKE_CURRENT_BINARY_DIR})
-INCLUDE_DIRECTORIES(${srcdir} ${bindir} ${source_highlight_prefix}/include )
+
+IF( source_highlight_01 )
+	SET(extra_inc_dirs
+		${source_highlight_prefix}/include ${boost_regex_prefix}/include
+	)
+	SET(extra_lib_dirs ${source_highlight_dir} ${boost_regex_dir})
+	SET(extra_libs     "source-highlight" "boost_regex" )
+	LINK_DIRECTORIES( ${extra_lib_dirs} )
+ELSE( source_highlight_01 )
+	SET(extra_inc_dirs "")
+	SET(extra_lib_dirs "")
+	SET(extra_libs     "")
+ENDIF( source_highlight_01 )
+#
+INCLUDE_DIRECTORIES(${srcdir} ${bindir} ${extra_inc_dirs} )
+ADD_DEFINITIONS( -DSOURCE_HIGHLIGHT_01=${source_highlight_01} )
 
 # create main.c
 CONFIGURE_FILE(main.c.in main.c)
@@ -41,10 +56,6 @@ IF( have_flex_and_bison )
 		DEPENDS latex.l
 	)
 ENDIF( have_flex_and_bison )
-
-
-# Must specify link directories before creating target
-LINK_DIRECTORIES( ${source_highlight_LIBRARY_DIR} ${boost_regex_LIBRARY_DIR} )
 
 ADD_EXECUTABLE(omhelp
 	${bindir}/main.c
@@ -106,4 +117,4 @@ ADD_EXECUTABLE(omhelp
 	url.c
 	warning.c
 )
-TARGET_LINK_LIBRARIES( omhelp source-highlight boost_regex )
+TARGET_LINK_LIBRARIES(omhelp ${extra_libs} )

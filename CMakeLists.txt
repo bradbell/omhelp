@@ -21,6 +21,13 @@ SET(omhelp_version      "20151014" )
 SET(omhelp_description  "Language independent embedded code documentation")
 SET(omhelp_url          "http://www.seanet.com/~bradbell/omhelp")
 PROJECT(omhelp)
+# -----------------------------------------------------------------------------
+# CHECK_CXX_SOURCE_COMPILES(source variable)
+# Checks whether the code given in source will compile, link and run and
+# return zero status. You can set
+# CMAKE_REQUIRED_LIBRARIES, CMAKE_REQUIRED_FLAGS and CMAKE_REQUIRED_INCLUDES
+# accordingly if additional libraries or compiler flags are required.
+INCLUDE(CheckCXXSourceRuns)
 # ---------------------------------------------------------------------------
 MACRO(command_line_arg variable_out default_in type_in description_in)
 	IF( NOT ( ${type_in} STREQUAL "STRING" ) )
@@ -37,36 +44,44 @@ ENDMACRO( command_line_arg )
 SET(topsrcdir ${CMAKE_CURRENT_SOURCE_DIR})
 SET(topbindir ${CMAKE_CURRENT_BINARY_DIR})
 # ---------------------------------------------------------------------------
-MACRO(set_library_dir variable library prefix)
-	SET(${variable} NOTFOUND)
-	FOREACH(dir "lib" "lib64")
-		MESSAGE(STATUS "Checking for ${library} in ${prefix}/${dir}")
-		FILE(GLOB temp "${prefix}/${dir}/lib${library}.*" )
-		IF( temp )
-			SET(${variable} ${prefix}/${dir} )
-		ENDIF( temp )
-	ENDFOREACH(dir)
-	IF( ${variable} )
-		MESSAGE(STATUS "${variable} = ${${variable}}")
-	ELSE( ${variable} )
+MACRO(set_library_info dir_out file_out library prefix)
+	SET(${dir_out} NOTFOUND)
+	SET(${file_out} NOTFOUND)
+	FOREACH(extension "so" "a")
+		FOREACH(dir "lib" "lib64")
+			SET(value "${prefix}/${dir}/lib${library}.${extension}" )
+			IF(EXISTS "${value}" )
+				IF( NOT ${dir_out} )
+					SET(${dir_out} "${prefix}/${dir}")
+					SET(${file_out} "lib${library}.${extension}")
+				ENDIF( NOT ${dir_out} )
+			ENDIF(EXISTS "${value}" )
+		ENDFOREACH(dir)
+	ENDFOREACH(extension)
+	IF( ${dir_out} )
+		MESSAGE(STATUS "${library} dir  = ${${dir_out}}" )
+		MESSAGE(STATUS "${library} file = ${${file_out}}" )
+	ELSE( ${dir_out} )
 		MESSAGE(FATAL_ERROR "Cannot find ${library} library files")
-	ENDIF( ${variable} )
-ENDMACRO( set_library_dir )
+	ENDIF( ${dir_out} )
+ENDMACRO( set_library_info )
 # ---------------------------------------------------------------------------
 # boost_regex_prefix
 command_line_arg(boost_regex_prefix /usr PATH
 	"prefix were the boost regex library was install"
 )
-set_library_dir(
-	boost_regex_LIBRARY_DIR "boost_regex" ${boost_regex_prefix}
+set_library_info(
+	boost_regex_dir boost_regex_file
+	"boost_regex" ${boost_regex_prefix}
 )
 # ---------------------------------------------------------------------------
 # source_highlight_prefix
 command_line_arg(source_highlight_prefix /usr PATH
 	"prefix where source-highlight was install"
 )
-set_library_dir(
-	source_highlight_LIBRARY_DIR "source-highlight" ${source_highlight_prefix}
+set_library_info(
+	source_highlight_dir source_highlight_file
+	 "source-highlight" ${source_highlight_prefix}
 )
 # ---------------------------------------------------------------------------
 # omhelp_prefix
@@ -91,6 +106,43 @@ ENDIF( omhelp_c_flags )
 command_line_arg(have_flex_and_bison NOTFOUND BOOL
 	"are the flex and bison programs available on the this system"
 )
+# ---------------------------------------------------------------------------
+# source_highlight_01
+#
+LINK_DIRECTORIES( ${source_highlight_LIBRARY_DIR} )
+IF( source_highlight_dir AND boost_regex_dir )
+	SET(CMAKE_REQUIRED_INCLUDES "${source_highlight_prefix}/include")
+	SET(CMAKE_REQUIRED_LIBRARIES
+		"${source_highlight_dir}/${source_highlight_file}"
+		"${boost_regex_dir}/${boost_regex_file}"
+	)
+ELSEIF( source_highlight_dir AND boost_regex_dir )
+	SET(CMAKE_REQUIRED_INCLUDES "")
+	SET(CMAKD_REQUIRED_LIBRARIES "")
+ENDIF( source_highlight_dir AND boost_regex_dir )
+SET(CMAKE_REQUIRED_DEFINITIONS "")
+SET(source_before "
+# include \"srchilite/sourcehighlight.h\"
+# include \"srchilite/langmap.h\"
+int main(void)
+{	std::string filename = \"src/highlight.cpp\";
+	srchilite::LangMap lang_map(\"DATADIR\", \"lang.map\");
+	std::string lang = lang_map.getMappedFileNameFromFileName(filename);
+	if( lang != \"cpp.lang\" )
+		return 1;
+	return 0;
+}"
+)
+STRING(
+	REPLACE "DATADIR" "${source_highlight_prefix}/share/source-highlight"
+	source_after "${source_before}"
+)
+CHECK_CXX_SOURCE_RUNS("${source_after}" source_highlight_result)
+IF( source_highlight_result )
+	SET(source_highlight_01 1)
+ELSE( source_highlight_result )
+	SET(source_highlight_01 0)
+ENDIF( source_highlight_result )
 # ---------------------------------------------------------------------------
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(omh/getstarted)

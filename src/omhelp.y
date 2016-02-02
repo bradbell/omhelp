@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2016 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -4345,6 +4345,13 @@ src
 				NULL
 			);
 		}
+		if( input_lang == NULL ) fatalomh(
+			"At $src command in line ",
+			int2str($1.line),
+			"\nCannot use the $src command becasue the",
+			"\nsource-highlight or boost_regex library is not avaiable.",
+			NULL
+		);
 
 		// start reading file
 		InputSplitName(&root, &ext, filename);
@@ -4529,6 +4536,7 @@ src
 		tmp = data;
 		data = highlight(data, input_lang, output_lang);
 		FreeMem(tmp);
+		assert( data != NULL );
 
 		// skip comment header at beginning
 		assert( strncmp(data, "<!--", 4) == 0 );

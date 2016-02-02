@@ -19,7 +19,13 @@ $$
 $section Highlighting Source Code$$
 
 $head Prototype$$
-$src%highlight.cpp%0%// BEGIN PROTOTYPE%// END PROTOTYPE%1%$$
+$src%highlight.cpp%0
+	%// BEGIN HIGHLIGHT_PROTOTYPE%// END HIGHLIGHT_PROTOTYPE%1%$$
+
+$head SOURCE_HIGHLIGHT_01$$
+If $code SOURCE_HIGHLIGHT_01$$ is $code 0$$,
+this routine returns $code NULL$$.
+Otherwise it returns a highlighted version of source code.
 
 $head input_text_cstr$$
 This is the source code that we are highlighting.
@@ -52,12 +58,16 @@ extern "C" char* StrCat( const char *file, int line, ... );
 // defined by main.c.in
 extern "C" const char* source_highlight_prefix(void);
 
-// BEGIN PROTOTYPE
+# if ! SOURCE_HIGHLIGHT_01
+extern "C" char* highlight(const char*, const char*, const char*)
+{	return NULL; }
+# else
+// BEGIN HIGHLIGHT_PROTOTYPE
 extern "C" char* highlight(
 	const char* input_text_cstr  ,
 	const char* input_lang_cstr  ,
 	const char* output_lang_cstr
-) // END PROTOTYPE
+) // END HIGHLIGHT_PROTOTYPE
 {	using std::string;
 
 	// source-highlight data directory
@@ -89,8 +99,46 @@ extern "C" char* highlight(
 
 	return ret;
 }
+# endif
+/*
+----------------------------------------------------------------------------
+$begin file2lang$$
+$spell
+	cstr
+	Mem
+$$
 
+$section Determine Language Corresponding to a Source Code File$$
+
+$head Prototype$$
+$src%highlight.cpp%0
+	%// BEGIN FILE2LANG_PROTOTYPE%// END FILE2LANG_PROTOTYPE%1%$$
+
+$head SOURCE_HIGHLIGHT_01$$
+If $code SOURCE_HIGHLIGHT_01$$ is $code 0$$,
+this routine returns $code NULL$$.
+Otherwise it returns the compute language corresponding to the
+specified file.
+
+$head file_name_cstr$$
+This is the name of the file containing the compute language
+source code.
+
+$head Return Value$$
+The return value is a $code source-highlight$$ input language.
+It is allocated using $mref/AllocMem/$$
+and should be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
+
+$end
+*/
+
+# if ! SOURCE_HIGHLIGHT_01
+extern "C" char* file2lang(const char*)
+{	return NULL; }
+# else
+// BEGIN FILE2LANG_PROTOTYPE
 extern "C" char* file2lang(const char* file_name_cstr)
+// END FILE2LANG_PROTOTYPE
 {	using std::string;
 
 	// source-highlight data directory
@@ -106,3 +154,4 @@ extern "C" char* file2lang(const char* file_name_cstr)
 
 	return ret;
 }
+# endif
