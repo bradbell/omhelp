@@ -1,48 +1,52 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#           Copyright (C) 1998-2015 Bradley M. Bell
+#           Copyright (C) 1998-2016 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
+# -----------------------------------------------------------------------------
+move_sed='s|list_files.sh|ls_files.sh|'
+move_list='
+'
+cat << EOF > junk.sed
+EOF
 # -----------------------------------------------------------------------------
 if [ $0 != "bin/batch_edit.sh" ]
 then
 	echo "bin/batch_edit.sh: must be executed from its parent directory"
 	exit 1
 fi
-# Converting one argument delimiter sequence to use space for delimiter.
-cmd_list='
-	icode
-	codei
-	cref
-'
-del_list='
-	%
-	|
-	/
-'
-for cmd in $cmd_list
+# -----------------------------------------------------------------------------
+# bash function that echos and executes a command
+echo_eval() {
+	echo $*
+	eval $*
+}
+# -----------------------------------------------------------------------------
+cp bin/batch_edit.sh $HOME/trash/batch_edit.sh
+git reset --hard
+cp $HOME/trash/batch_edit.sh bin/batch_edit.sh
+# ---------------------------------------------------------------------------
+list_all=`bin/ls_files.sh`
+for file in $list_all
 do
-	for del in $del_list
-	do
-cat << EOF > junk.sed
-s#\$$cmd$del\\([^$del]*\\)\\$del\\\$\\\$#\$$cmd \\1\$\$#g
-EOF
-	done
+	if [ "$file" != 'bin/batch_edit.sh' ]
+	then
+		echo_eval sed -f junk.sed -i $file
+	fi
 done
-list=`git ls-files | sed  \
-	-e '/^bin\/batch_edit\.sh$/d'`
-for file in $list
+# ----------------------------------------------------------------------------
+for old in $move_list
 do
-	git checkout $file
-	ext=`echo $file | sed -e 's|.*\.||'`
-	case $ext in
-		omh | c | h | l | sh | f | bat )
-		sed -f junk.sed -i $file
-		;;
-
-		*)
-		# skip
-		;;
-	esac
+	new=`echo $old | sed -e "$move_sed"`
+	echo_eval git mv $old $new
 done
+# ----------------------------------------------------------------------------
+# files that were hand edited and cached using 'git_new.sh to'
+if [ -e new ]
+then
+	echo_eval git_new.sh from
+fi
+# ----------------------------------------------------------------------------
+echo "$0: OK"
+exit 0
