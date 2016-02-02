@@ -4270,6 +4270,7 @@ src
 		char line_buffer[300];
 		int  column_max = 299;
 		int  column_index;
+		int  start_with_newline;
 		//
 		char *data;
 		char *tmp;
@@ -4336,6 +4337,13 @@ src
 
 		// determine what language this file is in
 		input_lang = file2lang(filename);
+		if( input_lang == NULL ) fatalomh(
+			"At $src command in line ",
+			int2str($1.line),
+			"\nCannot use the $src command becasue the",
+			"\nsource-highlight or boost_regex library is not avaiable.",
+			NULL
+		);
 		if( input_lang[0] == '\0' )
 		{	fatalomh(
 				"At $src command in line ",
@@ -4345,13 +4353,6 @@ src
 				NULL
 			);
 		}
-		if( input_lang == NULL ) fatalomh(
-			"At $src command in line ",
-			int2str($1.line),
-			"\nCannot use the $src command becasue the",
-			"\nsource-highlight or boost_regex library is not avaiable.",
-			NULL
-		);
 
 		// start reading file
 		InputSplitName(&root, &ext, filename);
@@ -4513,18 +4514,14 @@ src
 			filename,
 			NULL
 		);
-		// if start is not present, add a newline for beginning of file
-		if( ntoken < 3 )
-		{	if( ConvertPreviousNewline() < 1 )
-			{	ConvertForcedNewline(1);
-				PreviousOutputWasHeading = 0;
-			}
-		}
-		// if previous output was a heading, add a newline at beginning
-		if( PreviousOutputWasHeading )
-		{	ConvertForcedNewline(1);
-			PreviousOutputWasHeading = 0;
-		}
+		// if start is not present, start with a newline for beginning of file
+		start_with_newline = ntoken < 3 && ConvertPreviousNewline() < 1;
+
+		// if previous output was a heading, start with a newline
+		start_with_newline = start_with_newline || PreviousOutputWasHeading;
+
+		// no longer need flag for previous heading
+		PreviousOutputWasHeading = 0;
 
 		// determine what language the output file is in
 		if( strcmp( Internal2Out("OutputExtension"), ".htm") == 0 )
@@ -4548,13 +4545,22 @@ src
 		// skip newline at beginning of preformatted text
 		while( *tmp != '<' && *tmp != '\0')
 			tmp++;
-		assert( strncmp(tmp, "<pre>", 5) == 0 );
-		OutputString("<pre style='display:inline'>");
-		tmp += 5;
+		assert( strncmp(tmp, "<pre><tt>", 9) == 0 );
+		OutputString("<pre style='display:inline'><tt>");
+		tmp += 9;
+
+		// check if we need to add a newline at beginning
+		if( start_with_newline )
+		{	i = 0;
+			while(tmp[i] == ' ' || tmp[i] == '\t')
+				i++;
+			if( tmp[i] != '\n' )
+				OutputChar('\n');
+		}
 
 		// output rest of data
 		while( *tmp != '\0' )
-			OutputChar((char) *tmp++);
+			OutputChar( *tmp++ );
 
 		FreeMem(input_lang);
 		FreeMem(data);

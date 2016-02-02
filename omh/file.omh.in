@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2016 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -23,33 +23,14 @@ cause files to be read and processed.
 The $mref/execute/$$ command is an exception because it
 writes, instead of reads, a specific file.
 
-$children/
+$childtable/
 	path.omh/
 	children.omh/
 	include.omh/
 	image.omh/
 	verbatim.omh/
-	src.omh/
+	@src_omh@
 	execute.omh/
 	keycharacter.omh/$$
-
-$head Contents$$
-
-$table
-$rref path$$
-
-$cref/contents/children/$$ $cnext $title children$$ $rnext
-$cref/childtable/children/$$ $cnext "" $rnext
-$cref/children/children/$$ $cnext   ""  $rnext
-
-$rref include$$
-
-$cref/image/image/$$ $cnext $title image$$ $rnext
-$cref/icon/image/$$ $cnext "" $rnext
-
-$rref verbatim$$
-$rref execute$$
-$rref KeyCharacter$$
-$tend
 
 $end

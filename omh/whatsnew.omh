@@ -78,6 +78,7 @@ $spell
 	dir dir
 	hh
 	Jax
+	regex
 $$
 
 $index readme, whats new$$
@@ -112,7 +113,10 @@ $$
 
 $head 16-02-01$$
 The $cref src$$, which automatically highlights source code, was added.
-This is much easier to use than the $cref hilite$$ command.
+This is much easier to use than the $cref hilite$$ command,
+but it requires linking in $code source-highlight$$ and
+$code boost_regex$$ libraries and has only been tested with the
+$cref/unix install/installunix/$$ procedure.
 
 $head 15-10-14$$
 Make the $code flex$$ and $code bison$$ programs optional for both the

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2016 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -33,14 +33,12 @@ $path/getstarted/.py/$$
 $path/getstarted/.c/$$
 $path/getstarted/.f/$$
 
-$comment The following absolute paths are for running from the debugger
-path/d:\omhelp\omh/.omh/
-path/d:\omhelp\omh\getstarted/.omh/
-path/d:\omhelp\omh\getstarted/.gif/
-path/d:\omhelp\omh\image/.gif/
-path/d:\omhelp\omh\image/.jpg/
-path/d:\omhelp\omh\image/.png/
+$comment ../build/omh is the build directory corresponding to this directory
+(where this file is stored). This path command is for files created by
+the CONFIGURE_FILE command in the file ../CMakeLists.txt.
 $$
+$path%../build/omh%.omh%$$
+$path%../build/omh/getstarted%.omh%$$
 
 $comment put this aindex command here so is the default for all sections$$
 $aindex section head subhead$$

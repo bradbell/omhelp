@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2016 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ $childtable/
 	start_spell.omh/
 	start_latex.omh/
 	start_verbatim.omh/
-	start_src.omh/
+	@start_src_omh@
 	start_embed.omh/
 	start_multiple.omh/
 	start_cref.omh/

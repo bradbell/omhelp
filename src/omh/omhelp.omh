@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2016 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -10,10 +10,17 @@ $spell
 	OMhelp
 $$
 
+$comment .. is the OMhelp source code directory$$
 $path/..\/.h/$$
 $path/..\/.c/$$
 $path/..\/.cpp/$$
 $path/..\/.l/$$
+
+$comment ../../build/src/omh is the build directory corresponding to this
+directory (where this file is stored). This path command is for files created
+by the CONFIGURE_FILE command in the file ../../CMakeLists.txt.
+$$
+$path%../../build/src/omh%.omh%$$
 
 $comment default automatic indexing command for all CppAD documentaiton$$
 $aindex section head subhead$$

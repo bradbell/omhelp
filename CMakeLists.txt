@@ -21,6 +21,8 @@ SET(omhelp_version      "20151014" )
 SET(omhelp_description  "Language independent embedded code documentation")
 SET(omhelp_url          "http://www.seanet.com/~bradbell/omhelp")
 PROJECT(omhelp)
+SET(topsrcdir ${CMAKE_CURRENT_SOURCE_DIR})
+SET(topbindir ${CMAKE_CURRENT_BINARY_DIR})
 # -----------------------------------------------------------------------------
 # CHECK_CXX_SOURCE_COMPILES(source variable)
 # Checks whether the code given in source will compile, link and run and
@@ -41,7 +43,6 @@ MACRO(command_line_arg variable_out default_in type_in description_in)
 	SET(${variable_out} "${default_in}" CACHE ${type_in} "${description_in}")
 	MESSAGE(STATUS "${variable_out} = \"${${variable_out}}\"")
 ENDMACRO( command_line_arg )
-SET(topsrcdir ${CMAKE_CURRENT_SOURCE_DIR})
 SET(topbindir ${CMAKE_CURRENT_BINARY_DIR})
 # ---------------------------------------------------------------------------
 MACRO(set_library_info dir_out file_out library prefix)
@@ -62,7 +63,7 @@ MACRO(set_library_info dir_out file_out library prefix)
 		MESSAGE(STATUS "${library} dir  = ${${dir_out}}" )
 		MESSAGE(STATUS "${library} file = ${${file_out}}" )
 	ELSE( ${dir_out} )
-		MESSAGE(FATAL_ERROR "Cannot find ${library} library files")
+		MESSAGE(STATUS "WARNING: Cannot find ${library} library files")
 	ENDIF( ${dir_out} )
 ENDMACRO( set_library_info )
 # ---------------------------------------------------------------------------
@@ -142,6 +143,7 @@ IF( source_highlight_result )
 	SET(source_highlight_01 1)
 ELSE( source_highlight_result )
 	SET(source_highlight_01 0)
+	MESSAGE(STATUS "WARNING: \$src command NOT available with this omhelp")
 ENDIF( source_highlight_result )
 # ---------------------------------------------------------------------------
 ADD_SUBDIRECTORY(src)
@@ -155,3 +157,25 @@ INSTALL(
 	DIRECTORY   omhelp_data
 	DESTINATION ${omhelp_prefix}/${omhelp_datadir}
 )
+# ---------------------------------------------------------------------------
+# Use CONFIGURE_FILE to modify inclusion of files
+# that should only be included when $src command is available:
+IF( source_highlight_01 )
+	SET(highlight_cpp  "highlight.cpp/" )
+	SET(src_omh        "src.omh/"       )
+	SET(start_src_omh  "start_src.omh/" )
+ELSE( source_highlight_01 )
+	SET(src_omh        "no_src.omh/"    )
+	SET(highlight_cpp  ""               )
+	SET(start_src_omh  ""               )
+ENDIF( source_highlight_01 )
+CONFIGURE_FILE(
+	src/omh/misc.omh.in               src/omh/misc.omh
+)
+CONFIGURE_FILE(
+	omh/file.omh.in                   omh/file.omh
+)
+CONFIGURE_FILE(
+	omh/getstarted/get_started.omh.in omh/getstarted/get_started.omh
+)
+# ---------------------------------------------------------------------------

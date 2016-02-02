@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2016 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+#
+$begin src$$
+$spell
+	OMhelp
+	src
+$$
+$escape $$
+$dollar @$$
+
+$section Displaying Source Code$$
+
+$head Syntax$$
+$codei/@src%/filename/%@@
+/$$
+$codei/@src%/filename/%/indent/%/@@
+/$$
+$codei/@src%/filename/%/indent/%/start/%/stop/%@@
+/$$
+$codei/@src%/filename/%/indent/%/start/%/stop/%/skip/@@
+/$$
+
+$head Not Available$$
+This command is not available with this version of OMhelp because the
+one of the following optional libraries did not link correctly:
+$href%http://www.gnu.org/software/src-highlite/%source-highlight%$$,
+$href%http://www.boost.org/doc/libs/1_60_0/libs/regex/doc/html/index.html
+	%boost_regex
+%$$.
+
+$end

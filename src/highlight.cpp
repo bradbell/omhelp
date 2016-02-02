@@ -4,7 +4,26 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
+
+# if ! SOURCE_HIGHLIGHT_01
+# include <cstddef>
+extern "C" char* highlight(const char*, const char*, const char*)
+{	return NULL; }
+extern "C" char* file2lang(const char*)
+{	return NULL; }
+# else
+
+# include <sstream>
+# include "srchilite/sourcehighlight.h"
+# include "srchilite/langmap.h"
+
+// used by omhelp to allocate and concatencate strings
+extern "C" char* StrCat( const char *file, int line, ... );
+
+// defined by main.c.in
+extern "C" const char* source_highlight_prefix(void);
 /*
+-----------------------------------------------------------------------------
 $begin highlight$$
 $spell
 	cstr
@@ -47,21 +66,6 @@ and should be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
 
 $end
 */
-
-# include <sstream>
-# include "srchilite/sourcehighlight.h"
-# include "srchilite/langmap.h"
-
-// used by omhelp to allocate and concatencate strings
-extern "C" char* StrCat( const char *file, int line, ... );
-
-// defined by main.c.in
-extern "C" const char* source_highlight_prefix(void);
-
-# if ! SOURCE_HIGHLIGHT_01
-extern "C" char* highlight(const char*, const char*, const char*)
-{	return NULL; }
-# else
 // BEGIN HIGHLIGHT_PROTOTYPE
 extern "C" char* highlight(
 	const char* input_text_cstr  ,
@@ -99,7 +103,6 @@ extern "C" char* highlight(
 
 	return ret;
 }
-# endif
 /*
 ----------------------------------------------------------------------------
 $begin file2lang$$
@@ -132,10 +135,6 @@ and should be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
 $end
 */
 
-# if ! SOURCE_HIGHLIGHT_01
-extern "C" char* file2lang(const char*)
-{	return NULL; }
-# else
 // BEGIN FILE2LANG_PROTOTYPE
 extern "C" char* file2lang(const char* file_name_cstr)
 // END FILE2LANG_PROTOTYPE
