@@ -4542,7 +4542,7 @@ src
 			tmp++;
 		assert( strncmp(tmp-2, "-->", 3) == 0 );
 
-		// skip newline at beginning of preformatted text
+		// change preformatted text to be inline
 		while( *tmp != '<' && *tmp != '\0')
 			tmp++;
 		assert( strncmp(tmp, "<pre><tt>", 9) == 0 );

@@ -123,14 +123,33 @@ ELSEIF( source_highlight_dir AND boost_regex_dir )
 ENDIF( source_highlight_dir AND boost_regex_dir )
 SET(CMAKE_REQUIRED_DEFINITIONS "")
 SET(source_before "
+# include <cassert>
+# include <cstring>
+# include <sstream>
 # include \"srchilite/sourcehighlight.h\"
 # include \"srchilite/langmap.h\"
 int main(void)
-{	std::string filename = \"src/highlight.cpp\";
-	srchilite::LangMap lang_map(\"DATADIR\", \"lang.map\");
-	std::string lang = lang_map.getMappedFileNameFromFileName(filename);
-	if( lang != \"cpp.lang\" )
-		return 1;
+{
+	std::string input_string( \"extern highlight(const char* text);\" );
+	std::stringstream input_sstream( input_string );
+	std::stringstream output_sstream;
+	//
+	std::string input_lang(\"cpp.lang\");
+	std::string output_lang(\"html.outlang\");
+	//
+	srchilite::SourceHighlight hiliter( output_lang );
+	hiliter.highlight(input_sstream, output_sstream, input_lang);
+	//
+	// check some asserts that appear in omhelp.y
+	char null_char  = static_cast<char>(0);
+	const char* tmp = output_sstream.str().c_str();
+	assert( strncmp(tmp, \"<!--\", 4) == 0 );
+	while( *tmp != '>' && *tmp != null_char )
+		tmp++;
+	while( *tmp != '<' && *tmp != null_char )
+		tmp++;
+	assert( strncmp(tmp, \"<pre><tt>\", 9) == 0 );
+	//
 	return 0;
 }"
 )
