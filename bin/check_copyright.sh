@@ -23,7 +23,7 @@ list=`git status | sed -n \
         -e '/^[#\t ]*renamed:/p' \
         -e '/^[#\t ]*new file:/p' | \
             sed -e 's/^.*: *//' -e 's/ -> /\n/' | \
-			sed -e '/makefile.in$/d' |
+			sed -e '/makefile.in$/d' -e '/^src\/omhelp.c$/d' | \
                 sort -u`
 cat << EOF > check_copyright.1.$$
 # Change copyright second year to current year
@@ -37,6 +37,7 @@ do
 	then
 		echo 'bin/check_copyright.sh: cannot find copyrigh in'
 		echo "$file"
+		rm check_copyright.*.$$
 		exit 1
 	fi
 	if [ -e $file ]
