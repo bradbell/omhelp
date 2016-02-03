@@ -18,7 +18,7 @@ $spell
 	noframe
 $$
 
-$children/srcfile_example.omh/$$
+$children/src_example.omh/$$
 
 $section Example Including Source Code$$
 
@@ -30,9 +30,9 @@ with source code highlighting.
 
 $head Execute The Following Steps$$
 
-$subhead srcfile_example.omh$$
+$subhead src_example.omh$$
 Use an editor of your choice to
-create the file $code  srcfile_example.omh$$
+create the file $code  src_example.omh$$
 in the
 $cref/test directory
 	/start_simple
@@ -41,7 +41,7 @@ $cref/test directory
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%srcfile_example.omh%5%!036begin %$$
+     $$@begin $verbatim%src_example.omh%5%!036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
@@ -50,10 +50,10 @@ $cref/getting started directory/get_started/Getting Started Directory/$$.
 
 $subhead Example In This Web Site Context$$
 You can view the
-result of making $code srcfile_example.omh$$
+result of making $code src_example.omh$$
 part of the OMhelp help web site
 by selecting
-$cref srcfile_example$$.
+$cref src_example$$.
 
 $subhead Execute OMhelp$$
 In a command window and
@@ -64,12 +64,12 @@ $cref/htm directory
 /$$
 execute the following command
 $codep
-	omhelp ../srcfile_example.omh -noframe
+	omhelp ../src_example.omh -noframe
 $$
 
 
 $subhead Example by Itself$$
 Use a web browser of your choosing to view the file
-$icode%test%/htm/srcfile_example.htm%$$.
+$icode%test%/htm/src_example.htm%$$.
 
 $end

@@ -181,14 +181,14 @@ INSTALL(
 # that should only be included when $srcfile command is available:
 IF( source_highlight_01 )
 	SET(highlight_cpp      "highlight.cpp/"     )
-	SET(srcfile_omh        "srcfile.omh/"       )
+	SET(src_omh        "srcfile.omh/"       )
 	SET(srccode_omh        "srccode.omh/"       )
-	SET(start_srcfile_omh  "start_srcfile.omh/" )
+	SET(start_src_omh  "start_src.omh/" )
 ELSE( source_highlight_01 )
-	SET(srcfile_omh        "no_srcfile.omh/"    )
+	SET(src_omh        "no_srcfile.omh/"    )
 	SET(srccode_omh        "no_srccode.omh/"    )
 	SET(highlight_cpp      ""                   )
-	SET(start_srcfile_omh  ""                   )
+	SET(start_src_omh  ""                   )
 ENDIF( source_highlight_01 )
 CONFIGURE_FILE(
 	src/omh/misc.omh.in               src/omh/misc.omh

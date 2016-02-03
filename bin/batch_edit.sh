@@ -6,13 +6,18 @@
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
 move_list='
+	omh/getstarted/srcfile_example.omh
+	omh/getstarted/srcfile_example.py
+	omh/getstarted/start_srcfile.omh
 '
-move_sed='s|src|srcfile|'
+move_sed='s|srcfile|src|'
 #
 no_change_list='
 '
 cat << EOF > junk.sed
-s|src_example|srcfile_example|g
+s|srcfile_example|src_example|g
+s|srcfile_omh|src_omh|g
+s|start_srcfile|start_src|g
 EOF
 # -----------------------------------------------------------------------------
 if [ $0 != "bin/batch_edit.sh" ]
@@ -41,6 +46,12 @@ done
 # ----------------------------------------------------------------------------
 for old in $move_list
 do
+	if [ ! -e $old ]
+	then
+		echo "Cannot move file $old (does not exist)"
+		cp bin/batch_edit.sh $HOME/trash/batch_edit.sh
+		exit 1
+	fi
 	new=`echo $old | sed -e "$move_sed"`
 	echo_eval git mv $old $new
 done

@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 import sys
 # BEGIN USAGE
-usage = 'srcfile_example.py value'
+usage = 'src_example.py value'
 # END USAGE
 if len(sys.argv) != 2 :
 	sys.exit(usage)
