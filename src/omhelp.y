@@ -4531,32 +4531,10 @@ srcfile
 
 		// convert data to the output language with highlighting
 		tmp = data;
-		data = highlight(data, input_lang, output_lang);
+		data = highlight(data, input_lang, output_lang, start_with_newline);
 		FreeMem(tmp);
 		assert( data != NULL );
-
-		// skip comment header at beginning
-		assert( strncmp(data, "<!--", 4) == 0 );
 		tmp = data;
-		while( *tmp != '>' && *tmp != '\0')
-			tmp++;
-		assert( strncmp(tmp-2, "-->", 3) == 0 );
-
-		// change preformatted text to be inline
-		while( *tmp != '<' && *tmp != '\0')
-			tmp++;
-		assert( strncmp(tmp, "<pre><tt>", 9) == 0 );
-		OutputString("<pre style='display:inline'><tt>");
-		tmp += 9;
-
-		// check if we need to add a newline at beginning
-		if( start_with_newline )
-		{	i = 0;
-			while(tmp[i] == ' ' || tmp[i] == '\t')
-				i++;
-			if( tmp[i] != '\n' )
-				OutputChar('\n');
-		}
 
 		// output rest of data
 		while( *tmp != '\0' )

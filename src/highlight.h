@@ -8,9 +8,10 @@ OMhelp is distributed under the terms of the
 ---------------------------------------------------------------------------- */
 // BEGIN PROTOTYPE
 extern char* highlight(
-	const char* input_text_cstr  ,
-	const char* input_lang_cstr  ,
-	const char* output_lang_cstr
+	const char* input_text_cstr     ,
+	const char* input_lang_cstr     ,
+	const char* output_lang_cstr    ,
+	int         start_with_newline
 );
 extern char* file2lang(const char* file_name_cstr);
 // END PROTOTYPE
