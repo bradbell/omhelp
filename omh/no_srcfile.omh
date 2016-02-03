@@ -5,10 +5,11 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
-$begin src$$
+$begin srcfile$$
 $spell
 	OMhelp
 	src
+	srcfile
 $$
 $escape $$
 $dollar @$$
@@ -16,13 +17,13 @@ $dollar @$$
 $section Displaying Source Code$$
 
 $head Syntax$$
-$codei/@src%/filename/%@@
+$codei/@srcfile%/filename/%@@
 /$$
-$codei/@src%/filename/%/indent/%/@@
+$codei/@srcfile%/filename/%/indent/%/@@
 /$$
-$codei/@src%/filename/%/indent/%/start/%/stop/%@@
+$codei/@srcfile%/filename/%/indent/%/start/%/stop/%@@
 /$$
-$codei/@src%/filename/%/indent/%/start/%/stop/%/skip/@@
+$codei/@srcfile%/filename/%/indent/%/start/%/stop/%/skip/@@
 /$$
 
 $head Not Available$$

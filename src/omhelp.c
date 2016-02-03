@@ -1162,7 +1162,7 @@ extern int omhdebug;
     SKIPNL_lex = 320,
     SMALL_lex = 321,
     SPELL_lex = 322,
-    SRC_lex = 323,
+    SRCFILE_lex = 323,
     SUBHEAD_lex = 324,
     SYNTAX_lex = 325,
     TABLE_lex = 326,
@@ -1555,7 +1555,7 @@ static const char *const yytname[] =
   "NAVIGATE_lex", "NEWLINECH_lex", "NOBREAK_lex", "NOSPELL_lex",
   "NUMBER_lex", "PATH_lex", "PRE_lex", "REND_lex", "RMARK_lex",
   "RNEXT_lex", "RREF_lex", "SECTION_lex", "SKIPNL_lex", "SMALL_lex",
-  "SPELL_lex", "SRC_lex", "SUBHEAD_lex", "SYNTAX_lex", "TABLE_lex",
+  "SPELL_lex", "SRCFILE_lex", "SUBHEAD_lex", "SYNTAX_lex", "TABLE_lex",
   "TABSIZE_lex", "TEND_lex", "TEXT_lex", "TEXTCOLOR_lex", "TH_lex",
   "TITLE_lex", "TRACE_lex", "TREF_lex", "VERBATIM_lex", "VISITCOLOR_lex",
   "WSPACE_lex", "XREF_lex", "$accept", "start", "init", "element",
@@ -1571,7 +1571,7 @@ static const char *const yytname[] =
   "navigate", "newlinech", "nobreak", "nospell_begin", "nospell",
   "not_2_dollar_or_text", "number", "path", "pre", "rnext", "rnext_cases",
   "rmark", "rref", "section", "skipnl", "small_begin", "small", "spell",
-  "src", "subhead", "syntax", "table", "tabsize", "tend", "text",
+  "srcfile", "subhead", "syntax", "table", "tabsize", "tend", "text",
   "text_raw", "textcolor", "th", "trace", "title", "tref", "verbatim",
   "visitcolor", "wspace", "xref", YY_NULLPTR
 };
@@ -6493,23 +6493,23 @@ yyreduce:
 		assert( (yyvsp[0]).str == NULL );
 
 		delimiter = (yyvsp[-1]).str[0];
-		ntoken = SplitText((yyvsp[-2]).line, "$src", (yyvsp[-1]).str);
+		ntoken = SplitText((yyvsp[-2]).line, "$srcfile", (yyvsp[-1]).str);
 		if( ntoken < 1 ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str((yyvsp[-2]).line),
-			"\nExpected at least 2 delimiters in $src command",
+			"\nExpected at least 2 delimiters in $srcfile command",
 			NULL
 		);
 		if( ntoken == 3 ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str((yyvsp[-2]).line),
 			"\nMust also specify stop when start is present",
 			NULL
 		);
 		if( ntoken > 6 ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str((yyvsp[-2]).line),
-			"\nExpected at most 6 delimiters in $src command",
+			"\nExpected at most 6 delimiters in $srcfile command",
 			NULL
 		);
 		assert( delimiter != '\0' );
@@ -6551,15 +6551,15 @@ yyreduce:
 		// determine what language this file is in
 		input_lang = file2lang(filename);
 		if( input_lang == NULL ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str((yyvsp[-2]).line),
-			"\nCannot use the $src command becasue the",
+			"\nCannot use the $srcfile command becasue the",
 			"\nsource-highlight or boost_regex library is not avaiable.",
 			NULL
 		);
 		if( input_lang[0] == '\0' )
 		{	fatalomh(
-				"At $src command in line ",
+				"At $srcfile command in line ",
 				int2str((yyvsp[-2]).line),
 				"\nCannot determine language for the file\n",
 				filename,
@@ -6579,7 +6579,7 @@ yyreduce:
 		if( len == -1 )
 		{	InputPop();
 			fatalomh(
-				"At $src command in line ",
+				"At $srcfile command in line ",
 				int2str((yyvsp[-2]).line),
 				"\nToo many characters in start pattern",
 				NULL
@@ -6588,7 +6588,7 @@ yyreduce:
 		if( len == -2 )
 		{	InputPop();
 			fatalomh(
-				"At $src command in line ",
+				"At $srcfile command in line ",
 				int2str((yyvsp[-2]).line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the start pattern",
@@ -6613,7 +6613,7 @@ yyreduce:
 			if( ch == '\001' )
 			{	InputPop();
 				fatalomh(
-					"At $src command in line ",
+					"At $srcfile command in line ",
 					int2str((yyvsp[-2]).line),
 					"\nCould not find the start pattern \"",
 					start,
@@ -6629,7 +6629,7 @@ yyreduce:
 		if( len == -1 )
 		{	InputPop();
 			fatalomh(
-				"At $src command in line ",
+				"At $srcfile command in line ",
 				int2str((yyvsp[-2]).line),
 				"\nToo many characters in stop pattern",
 				NULL
@@ -6638,7 +6638,7 @@ yyreduce:
 		if( len == -2 )
 		{	InputPop();
 			fatalomh(
-				"At $src command in line ",
+				"At $srcfile command in line ",
 				int2str((yyvsp[-2]).line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the stop pattern",
@@ -6667,7 +6667,7 @@ yyreduce:
 				{	line_buffer[column_index-1] = '\n';
 					line_buffer[column_index]   = '\0';
 					fatalomh(
-						"At $src command in line ",
+						"At $srcfile command in line ",
 						int2str((yyvsp[-2]).line),
 						"\nIn the file ",
 						filename,
@@ -6708,18 +6708,18 @@ yyreduce:
 		while( isspace(*tmp) || *tmp == delimiter )
 			tmp++;
 		if( *tmp == '\0' ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str((yyvsp[-2]).line),
 			" of file ",
 			filename,
 			"\nNo text between start and stop patterns.",
-			"\nPerhaps need to skip start pattern in $src command.",
+			"\nPerhaps need to skip start pattern in $srcfile command.",
 			NULL
 		);
 
 		// check for no match
 		if( len > 0 && ! match ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str((yyvsp[-2]).line),
 			"\nCould not find the stop pattern \"",
 			stop,

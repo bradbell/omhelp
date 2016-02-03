@@ -6,15 +6,15 @@ OMhelp is distributed under the terms of the
 -------------------------------------------------------------------------------
 $begin src_example$$
 $spell
-	src py newline
+	srcfile py newline
 $$
 
 $section Example Inclusion of Source Code$$
 
-$head Contents of src_example.py$$
+$head Contents of srcfile_example.py$$
 Note that a newline is automatically added at the beginning
 of a file:
-$src%src_example.py%5%$$
+$srcfile%srcfile_example.py%5%$$
 
 $head Escape Character$$
 Change the escape character from $code #$$ to $code !$$
@@ -26,6 +26,6 @@ $escape !$$
 $head Just Usage Message$$
 Note that the newline following
 $code # BEGIN USAGE$$ is included:
-$src%src_example.py%5%# BEGIN USAGE%# END USAGE%$$
+$srcfile%srcfile_example.py%5%# BEGIN USAGE%# END USAGE%$$
 
 $end

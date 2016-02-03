@@ -38,7 +38,7 @@ $$
 $section Highlighting Source Code$$
 
 $head Prototype$$
-$src%highlight.cpp%0
+$srcfile%highlight.cpp%0
 	%// BEGIN HIGHLIGHT_PROTOTYPE%// END HIGHLIGHT_PROTOTYPE%1%$$
 
 $head SOURCE_HIGHLIGHT_01$$
@@ -114,7 +114,7 @@ $$
 $section Determine Language Corresponding to a Source Code File$$
 
 $head Prototype$$
-$src%highlight.cpp%0
+$srcfile%highlight.cpp%0
 	%// BEGIN FILE2LANG_PROTOTYPE%// END FILE2LANG_PROTOTYPE%1%$$
 
 $head SOURCE_HIGHLIGHT_01$$

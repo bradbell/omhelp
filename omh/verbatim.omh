@@ -44,7 +44,7 @@ $codei/@verbatim%/filename/%/indent/%/start/%/stop/%/skip/%@@
 
 $head See Also$$
 $cref/getting started/start_verbatim/$$,
-$mref/src/include/codep/execute/$$
+$mref/srcfile/include/codep/execute/$$
 
 
 $head Description$$

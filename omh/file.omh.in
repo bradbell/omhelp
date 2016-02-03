@@ -29,7 +29,7 @@ $childtable/
 	include.omh/
 	image.omh/
 	verbatim.omh/
-	@src_omh@
+	@srcfile_omh@
 	execute.omh/
 	keycharacter.omh/$$
 

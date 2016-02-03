@@ -57,6 +57,7 @@ $spell
 	Diaplay
 	Firefox
 	src
+	srcfile
 	stdlib
 	malloc
 	allocmem
@@ -112,7 +113,7 @@ $tend
 $$
 
 $head 16-02-01$$
-The $cref src$$, which automatically highlights source code, was added.
+The $cref srcfile$$, which automatically highlights source code, was added.
 This is much easier to use than the $cref hilite$$ command,
 but it requires linking in $code source-highlight$$ and
 $code boost_regex$$ libraries and has only been tested with the

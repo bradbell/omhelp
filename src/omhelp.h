@@ -110,7 +110,7 @@ extern int omhdebug;
     SKIPNL_lex = 320,
     SMALL_lex = 321,
     SPELL_lex = 322,
-    SRC_lex = 323,
+    SRCFILE_lex = 323,
     SUBHEAD_lex = 324,
     SYNTAX_lex = 325,
     TABLE_lex = 326,

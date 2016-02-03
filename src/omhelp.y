@@ -1061,7 +1061,7 @@ void InitParser(const char *StartingInputFile)
 %token SKIPNL_lex
 %token SMALL_lex
 %token SPELL_lex
-%token SRC_lex
+%token SRCFILE_lex
 %token SUBHEAD_lex
 %token SYNTAX_lex
 %token TABLE_lex
@@ -1153,7 +1153,7 @@ element
 	| skipnl
 	| small
 	| spell
-	| src
+	| srcfile
 	| subhead
 	| syntax
 	| table
@@ -4243,11 +4243,11 @@ spell
 	}
 	;
 
-src
-	: SRC_lex text not_2_dollar_or_text
+srcfile
+	: SRCFILE_lex text not_2_dollar_or_text
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
 	}
-	| SRC_lex text DOUBLE_DOLLAR_lex
+	| SRCFILE_lex text DOUBLE_DOLLAR_lex
 	{	// command parameters
 		char *filename;
 		int  nspace;
@@ -4280,23 +4280,23 @@ src
 		assert( $3.str == NULL );
 
 		delimiter = $2.str[0];
-		ntoken = SplitText($1.line, "$src", $2.str);
+		ntoken = SplitText($1.line, "$srcfile", $2.str);
 		if( ntoken < 1 ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str($1.line),
-			"\nExpected at least 2 delimiters in $src command",
+			"\nExpected at least 2 delimiters in $srcfile command",
 			NULL
 		);
 		if( ntoken == 3 ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str($1.line),
 			"\nMust also specify stop when start is present",
 			NULL
 		);
 		if( ntoken > 6 ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str($1.line),
-			"\nExpected at most 6 delimiters in $src command",
+			"\nExpected at most 6 delimiters in $srcfile command",
 			NULL
 		);
 		assert( delimiter != '\0' );
@@ -4338,15 +4338,15 @@ src
 		// determine what language this file is in
 		input_lang = file2lang(filename);
 		if( input_lang == NULL ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str($1.line),
-			"\nCannot use the $src command becasue the",
+			"\nCannot use the $srcfile command becasue the",
 			"\nsource-highlight or boost_regex library is not avaiable.",
 			NULL
 		);
 		if( input_lang[0] == '\0' )
 		{	fatalomh(
-				"At $src command in line ",
+				"At $srcfile command in line ",
 				int2str($1.line),
 				"\nCannot determine language for the file\n",
 				filename,
@@ -4366,7 +4366,7 @@ src
 		if( len == -1 )
 		{	InputPop();
 			fatalomh(
-				"At $src command in line ",
+				"At $srcfile command in line ",
 				int2str($1.line),
 				"\nToo many characters in start pattern",
 				NULL
@@ -4375,7 +4375,7 @@ src
 		if( len == -2 )
 		{	InputPop();
 			fatalomh(
-				"At $src command in line ",
+				"At $srcfile command in line ",
 				int2str($1.line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the start pattern",
@@ -4400,7 +4400,7 @@ src
 			if( ch == '\001' )
 			{	InputPop();
 				fatalomh(
-					"At $src command in line ",
+					"At $srcfile command in line ",
 					int2str($1.line),
 					"\nCould not find the start pattern \"",
 					start,
@@ -4416,7 +4416,7 @@ src
 		if( len == -1 )
 		{	InputPop();
 			fatalomh(
-				"At $src command in line ",
+				"At $srcfile command in line ",
 				int2str($1.line),
 				"\nToo many characters in stop pattern",
 				NULL
@@ -4425,7 +4425,7 @@ src
 		if( len == -2 )
 		{	InputPop();
 			fatalomh(
-				"At $src command in line ",
+				"At $srcfile command in line ",
 				int2str($1.line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the stop pattern",
@@ -4454,7 +4454,7 @@ src
 				{	line_buffer[column_index-1] = '\n';
 					line_buffer[column_index]   = '\0';
 					fatalomh(
-						"At $src command in line ",
+						"At $srcfile command in line ",
 						int2str($1.line),
 						"\nIn the file ",
 						filename,
@@ -4495,18 +4495,18 @@ src
 		while( isspace(*tmp) || *tmp == delimiter )
 			tmp++;
 		if( *tmp == '\0' ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str($1.line),
 			" of file ",
 			filename,
 			"\nNo text between start and stop patterns.",
-			"\nPerhaps need to skip start pattern in $src command.",
+			"\nPerhaps need to skip start pattern in $srcfile command.",
 			NULL
 		);
 
 		// check for no match
 		if( len > 0 && ! match ) fatalomh(
-			"At $src command in line ",
+			"At $srcfile command in line ",
 			int2str($1.line),
 			"\nCould not find the stop pattern \"",
 			stop,

@@ -49,7 +49,7 @@ are in your execution path.
 
 $subhead Optional$$
 $list number$$
-If you are using the $cref src$$ command, you will need the
+If you are using the $cref srcfile$$ command, you will need the
 $href%http://www.gnu.org/software/src-highlite/%source-highlight%$$
 library which in turn requires the
 $href%http://www.boost.org/doc/libs/1_60_0/libs/regex/doc/html/index.html

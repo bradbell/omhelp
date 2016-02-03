@@ -39,7 +39,7 @@ $childtable/
 	start_spell.omh/
 	start_latex.omh/
 	start_verbatim.omh/
-	@start_src_omh@
+	@start_srcfile_omh@
 	start_embed.omh/
 	start_multiple.omh/
 	start_cref.omh/

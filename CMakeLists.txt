@@ -162,7 +162,7 @@ IF( source_highlight_result )
 	SET(source_highlight_01 1)
 ELSE( source_highlight_result )
 	SET(source_highlight_01 0)
-	MESSAGE(STATUS "WARNING: \$src command NOT available with this omhelp")
+	MESSAGE(STATUS "WARNING: \$srcfile command NOT available with this omhelp")
 ENDIF( source_highlight_result )
 # ---------------------------------------------------------------------------
 ADD_SUBDIRECTORY(src)
@@ -178,15 +178,15 @@ INSTALL(
 )
 # ---------------------------------------------------------------------------
 # Use CONFIGURE_FILE to modify inclusion of files
-# that should only be included when $src command is available:
+# that should only be included when $srcfile command is available:
 IF( source_highlight_01 )
 	SET(highlight_cpp  "highlight.cpp/" )
-	SET(src_omh        "src.omh/"       )
-	SET(start_src_omh  "start_src.omh/" )
+	SET(srcfile_omh        "srcfile.omh/"       )
+	SET(start_srcfile_omh  "start_srcfile.omh/" )
 ELSE( source_highlight_01 )
-	SET(src_omh        "no_src.omh/"    )
+	SET(srcfile_omh        "no_srcfile.omh/"    )
 	SET(highlight_cpp  ""               )
-	SET(start_src_omh  ""               )
+	SET(start_srcfile_omh  ""               )
 ENDIF( source_highlight_01 )
 CONFIGURE_FILE(
 	src/omh/misc.omh.in               src/omh/misc.omh

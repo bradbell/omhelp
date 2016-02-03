@@ -198,7 +198,7 @@
 :syntax match omh_subhead         /\$subhead/
 :highlight link omh_subhead       Keyword
 
-:syntax match omh_src            /\$src/
+:syntax match omh_src            /\$srcfile/
 :highlight link omh_src           Keyword
 
 :syntax match omh_syntax          /\$syntax/
