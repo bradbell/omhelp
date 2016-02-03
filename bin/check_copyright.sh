@@ -27,6 +27,7 @@ list=`git status |\
 		-e '/makefile.in$/d' \
 		-e '/^src\/omhelp.c$/d' \
 		-e '/^.gitignore$/d' | \
+		-e '/\/omhelp\.vim$/d' | \
 	sort -u`
 cat << EOF > check_copyright.1.$$
 # Change copyright second year to current year
