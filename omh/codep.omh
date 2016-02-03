@@ -15,6 +15,7 @@ $spell
 	codep
 	pre
 	preformatted
+	newlines
 $$
 
 
@@ -23,7 +24,7 @@ $section Preformatted Code Text$$
 $mindex font example paragraph$$
 
 $head Syntax$$
-$codei/@codep /preformatted/@@
+$codei/@codep /text/@@
 /$$
 
 $head See Also$$
@@ -31,9 +32,9 @@ $mref/syntax/pre/math/verbatim/$$
 
 
 $head Description$$
-All of the text in $codei preformatted$$ is printed
+All of the text in $icode text$$ is printed
 in with a $cref/pre-formatted font/glossary/Pre-formatted Font/$$.
-There can be no $code @$$ characters in $codei preformatted$$.
+There can be no $code @$$ characters in $codei text$$.
 The $code codep$$ command uses the exact same font as
 the $cref/code/font/$$ command to signify that the text is
 compute input or output.
@@ -59,6 +60,7 @@ $head Source Code Examples$$
 All the characters, except the end of line character,
 in the first and last line of the $code codep$$ command
 are ignored.
+(There must be at least two newlines in $icode text$$.)
 This enables the inclusion of source code that is actually
 compiled.
 For example, the input
