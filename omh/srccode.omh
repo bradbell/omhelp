@@ -1,0 +1,56 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2015 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+#
+$begin srccode$$
+$dollar @$$
+$spell
+	py
+	def
+	srccode
+$$
+
+$section Displaying In Line Source Code$$
+
+$head Syntax$$
+$codei/@srccode%/file_ext/%/source/%@@/$$
+
+$head See Also$$
+$mref/srcfile/codep/$$
+
+$head Purpose$$
+This command will display the specified program $icode source$$ code
+with highlighting and for the language
+corresponding to the specified file extension $icode file_ext$$.
+
+$head Delimiter Sequence$$
+$codei/
+	%/file_ext/%/source/%@@
+/$$
+is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
+where $code %$$ can be any character that is not a letter.
+
+$head Example$$
+The input
+$codep
+	@srccode%py%
+		def factorial(n) :
+			if n == 1 :
+				return 1
+			return n * factorial(n-1)
+		end
+	@@
+$$
+would create the following output
+$srccode%py%
+	def factorial(n) :
+		if n == 1 :
+			return 1
+		return n * factorial(n-1)
+	end
+%$$
+
+$end

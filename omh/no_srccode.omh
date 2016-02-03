@@ -5,26 +5,20 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
-$begin srcfile$$
+$begin srccode$$
 $spell
 	OMhelp
 	src
-	srcfile
+	srccode
 $$
 $escape $$
 $dollar @$$
 
-$section Displaying Source Code From a File$$
+$section Displaying In Line Source Code$$
+
 
 $head Syntax$$
-$codei/@srcfile%/filename/%@@
-/$$
-$codei/@srcfile%/filename/%/indent/%/@@
-/$$
-$codei/@srcfile%/filename/%/indent/%/start/%/stop/%@@
-/$$
-$codei/@srcfile%/filename/%/indent/%/start/%/stop/%/skip/@@
-/$$
+$codei/@srccode%/file_ext/%/source/%@@/$$
 
 $head Not Available$$
 This command is not available with this version of OMhelp because the

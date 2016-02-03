@@ -30,6 +30,7 @@ $childtable/
 	image.omh/
 	verbatim.omh/
 	@srcfile_omh@
+	@srccode_omh@
 	execute.omh/
 	keycharacter.omh/$$
 

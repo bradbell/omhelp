@@ -24,11 +24,10 @@ $section Preformatted Code Text$$
 $mindex font example paragraph$$
 
 $head Syntax$$
-$codei/@codep /text/@@
-/$$
+$codei/@codep /text/@@/$$
 
 $head See Also$$
-$mref/syntax/pre/math/verbatim/$$
+$mref/srccode/codei/pre/math/verbatim/$$
 
 
 $head Description$$

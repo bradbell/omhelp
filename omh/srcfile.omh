@@ -16,7 +16,7 @@ $$
 $escape $$
 $dollar @$$
 
-$section Displaying Source Code$$
+$section Displaying Source Code From a File$$
 
 $head Syntax$$
 $codei/@srcfile%/filename/%@@
@@ -44,11 +44,8 @@ $cref/input file/glossary/Input File Searching/$$
 as program source code with highlighting.
 
 $head Delimiter Sequence$$
-The $cref codep$$ and $cref verbatim$$ provide others ways
-that source code can be displayed.
 $codei/
-
-%/filename/%/indent/%/start/%/stop/%/skip/@@
+	%/filename/%/indent/%/start/%/stop/%/skip/%@@
 /$$
 is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
