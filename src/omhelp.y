@@ -877,41 +877,49 @@ static void FinishUp()
 
 }
 
-static void SkipCodep(int line, char *s)
+static void SkipBeforeFirstAndAfterLastNewline(
+	int line, char *s, const char *cmd, const char *name
+)
 {	char *next;
 	char *last;
+	int count;
 
 	next = s;
-	last  = s + strlen(s) - 1;
+	count = 0;
+	while( *next != '\0' )
+	{	if( *next == '\n' )
+			count++;
+		next++;
+	}
+	if( count < 2 ) fatalomh(
+		"In line number ",
+		int2str(line),
+		"\nThere must be at least two newlines in the ",
+		name,
+		" for a ",
+		cmd,
+		" command.\n",
+		NULL
+	);
+
+	// last character in s
+	last = next - 1;
+	// first character in s
+	next = s;
 
 	/*
 	skip to the first newline
 	*/
 	while( *next != '\n' && *next != '\0' )
 		next++;
-	if( *next != '\n' ) fatalomh(
-		"A new line was expected ",
-		"after the $codep command in line ",
-		int2str(line),
-		NULL
-	);
+	assert( *next == '\n' );
 
 	// find last character to include
 	while( *last != '\n' )
 		last--;
 
-	// could not have gone past newline found by next pointer
-	assert( next <= last );
-
-	if( next == last ) fatalomh(
-		"The output for $codep Text$$ comes after the first\n",
-		"newline in Text and before the last.\n",
-		"The output specified by the $codep command in line ",
-		int2str(line),
-		" is empty",
-		NULL
-	);
-
+	// last must be past next
+	assert( next < last );
 
 	// skift the string pointed to by s
 	while( next <= last )
@@ -2032,7 +2040,10 @@ codep
 		if( PreviousOutputWasHeading )
 			PreviousOutputWasHeading = 0;
 
-		SkipCodep($2.line, $2.str);
+		// $2 is called text in documentation
+		SkipBeforeFirstAndAfterLastNewline(
+			$2.line, $2.str, "$codep", "text"
+		);
 
 		if( ExecuteFile != NULL )
 		{	char *text;
