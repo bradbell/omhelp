@@ -53,7 +53,7 @@ You can view the
 result of making $code srcfile_example.omh$$
 part of the OMhelp help web site
 by selecting
-$cref src_example$$.
+$cref srcfile_example$$.
 
 $subhead Execute OMhelp$$
 In a command window and
