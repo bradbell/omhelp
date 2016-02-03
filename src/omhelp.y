@@ -4264,7 +4264,7 @@ srccode
 	| SRCCODE_lex text DOUBLE_DOLLAR_lex
 	{	int ntoken;
 		char *ext, *source, *input_lang, *output_lang, *data, *tmp;
-		int   start_with_newline, column;
+		int   newline_at_start, column;
 
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -4319,11 +4319,11 @@ srccode
 			$2.line, source, "$srccode", "source"
 		);
 
-		// start_with_newline does not matter (source starts with newline)
-		start_with_newline = 0;
+		// newline_at_start does not matter (source starts with newline)
+		newline_at_start = 0;
 
 		// convert source to the output language with highlighting
-		data = highlight(source, input_lang, output_lang, start_with_newline);
+		data = highlight(source, input_lang, output_lang, newline_at_start);
 
 		// output the data
 		tmp    = data;
@@ -4364,28 +4364,18 @@ srcfile
 	}
 	| SRCFILE_lex text DOUBLE_DOLLAR_lex
 	{	// command parameters
-		char *filename;
-		int  nspace;
-		char *start;
-		char *stop;
-		char *token;
+		char *filename, ident, *start, *stop, *token;
 		int  skip;
 
 		// local variables
-		char *input_lang;
-		char *output_lang;
-		char *root;
-		char *ext;
-		char ch;
-		char delimiter;
-		int  ntoken;
-		int  match;
-		int  len;
+		char *input_lang, *output_lang, *root, *ext;
+		char ch, delimiter;
+		int  ntoken, match, len;
 		int  i;
 		char line_buffer[300];
 		int  column_max = 299;
 		int  column_index;
-		int  start_with_newline;
+		int  newline_at_start;
 		//
 		char *data;
 		char *tmp;
@@ -4419,12 +4409,12 @@ srcfile
 		// filename
 		filename = $2.str + 1;
 
-		// nspace
+		// ident
 		if( ntoken < 2 )
-			nspace = 0;
+			ident = 0;
 		else
 		{	token  = filename + strlen(filename) + 1;
-			nspace = atoi(token);
+			ident = atoi(token);
 		}
 
 		// start
@@ -4569,7 +4559,7 @@ srcfile
 
 			// indent when previous character is a newline
 			if( column_index == 0 )
-			{	for(i = 0; i < nspace; i++)
+			{	for(i = 0; i < ident; i++)
 					line_buffer[column_index++] = ' ';
 			}
 
@@ -4640,10 +4630,10 @@ srcfile
 			NULL
 		);
 		// if start is not present, start with a newline for beginning of file
-		start_with_newline = ntoken < 3 && ConvertPreviousNewline() < 1;
+		newline_at_start = ntoken < 3 && ConvertPreviousNewline() < 1;
 
 		// if previous output was a heading, start with a newline
-		start_with_newline = start_with_newline || PreviousOutputWasHeading;
+		newline_at_start = newline_at_start || PreviousOutputWasHeading;
 
 		// no longer need flag for previous heading
 		PreviousOutputWasHeading = 0;
@@ -4656,7 +4646,7 @@ srcfile
 
 		// convert data to the output language with highlighting
 		tmp = data;
-		data = highlight(data, input_lang, output_lang, start_with_newline);
+		data = highlight(data, input_lang, output_lang, newline_at_start);
 		FreeMem(tmp);
 		assert( data != NULL );
 		tmp = data;
@@ -5186,18 +5176,9 @@ verbatim
 	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
 	}
 	| VERBATIM_lex text DOUBLE_DOLLAR_lex
-	{	char *root;
-		char *ext;
-		char *filename;
-		char *start;
-		char *stop;
-		char ch;
-		char previous;
-		int  skip;
-		int  ntoken;
-		int  nspace;
-		int  match;
-		int  len;
+	{	char *root, *ext, *filename, *start, *stop;
+		char ch, previous;
+		int  skip, ntoken, ident, match, len;
 		int  i;
 		char line_buffer[300];
 		int  line_max = 299;
@@ -5221,10 +5202,10 @@ verbatim
 
 		filename = $2.str + 1;
 		if( ntoken < 2 )
-			nspace = 0;
+			ident = 0;
 		else
 		{	token = filename + strlen(filename) + 1;
-			nspace = atoi(token);
+			ident = atoi(token);
 		}
 		if( ntoken < 3 )
 			start = "\0";
@@ -5353,7 +5334,7 @@ verbatim
 
 			// indent when previous character is a newline
 			if( (previous == '\n') & (ch != '\001' ) )
-			{	for(i = 0; i < nspace; i++)
+			{	for(i = 0; i < ident; i++)
 					ConvertOutputCh(' ', 0);
 			}
 			previous = ch;
