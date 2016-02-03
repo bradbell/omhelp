@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin srccode$$
 $dollar @$$
 $spell
+	tabsize
 	py
 	def
 	srccode
@@ -27,8 +28,7 @@ with highlighting and for the language
 corresponding to the specified file extension $icode file_ext$$.
 
 $head Delimiter Sequence$$
-$codei/
-	%/file_ext/%/source/%@@
+$codei/	%/file_ext/%/source/%@@
 /$$
 is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
@@ -36,6 +36,7 @@ where $code %$$ can be any character that is not a letter.
 $head Example$$
 The input
 $codep
+	@tabsize 4@@
 	@srccode%py%
 		def factorial(n) :
 			if n == 1 :
@@ -45,6 +46,7 @@ $codep
 	@@
 $$
 would create the following output
+$tabsize 4$$
 $srccode%py%
 	def factorial(n) :
 		if n == 1 :

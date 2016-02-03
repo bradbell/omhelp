@@ -133,7 +133,8 @@ static char Wspace;
 static char NewlineCh;
 
 // current tab size during root seciton (constant after)
-static int TabSizeRoot = TAB_SIZE;
+static int TabSizeRoot    = TAB_SIZE;
+static int TabSizeCurrent = TAB_SIZE;
 
 // current escape character
 static char Escape;
@@ -1535,6 +1536,7 @@ begin
 
 		// reset the current number of characters between tab columns
 		ConvertSetTabSize(TabSizeRoot);
+		TabSizeCurrent = TabSizeRoot;
 
 		// erase the current heading setting
 		InitializeHeading();
@@ -4262,7 +4264,7 @@ srccode
 	| SRCCODE_lex text DOUBLE_DOLLAR_lex
 	{	int ntoken;
 		char *ext, *source, *input_lang, *output_lang, *data, *tmp;
-		int   start_with_newline;
+		int   start_with_newline, column;
 
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -4324,9 +4326,29 @@ srccode
 		data = highlight(source, input_lang, output_lang, start_with_newline);
 
 		// output the data
-		tmp = data;
+		tmp    = data;
+		column = 0;
 		while( *tmp != '\0' )
-			OutputChar( *tmp++ );
+		{	if( *tmp == '\t' )
+			{	OutputChar(' ');
+				column++;
+				while( column % TabSizeCurrent )
+				{	OutputChar(' ');
+					column++;
+				}
+				tmp++;
+			}
+			else
+			{	if( *tmp == '\n' )
+				{	OutputChar( *tmp++ );
+					column = 0;
+				}
+				else
+				{	OutputChar( *tmp++ );
+					column++;
+				}
+			}
+		}
 
 		FreeMem(input_lang);
 		FreeMem(data);
@@ -4903,6 +4925,8 @@ tabsize
 			size = TAB_SIZE;
 
 		ConvertSetTabSize(size);
+		TabSizeCurrent = size;
+		//
 		if( CurrentSection->parent == NULL )
 			TabSizeRoot = size;
 
