@@ -57,6 +57,10 @@ $head filename$$
 The value of $icode filename$$ specifies the name
 of the file that is displayed.
 Leading and trailing white space in $icode filename$$ is ignored.
+The $icode filename$$ must have a
+$cref/file extension/glossary/File Extension/$$.
+The file extension, without the period $code '.'$$,
+is used to determine the source code language.
 
 $head indent$$
 If $icode indent$$ is present,

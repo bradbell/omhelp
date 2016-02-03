@@ -9,7 +9,7 @@ OMhelp is distributed under the terms of the
 # include <cstddef>
 extern "C" char* highlight(const char*, const char*, const char*)
 {	return NULL; }
-extern "C" char* file2lang(const char*)
+extern "C" char* file_ext2lang(const char*)
 {	return NULL; }
 # else
 
@@ -146,17 +146,17 @@ extern "C" char* highlight(
 }
 /*
 ----------------------------------------------------------------------------
-$begin file2lang$$
+$begin file_ext2lang$$
 $spell
 	cstr
 	Mem
 $$
 
-$section Determine Language Corresponding to a Source Code File$$
+$section Determine Source Code Language Corresponding to a File Extension$$
 
 $head Prototype$$
 $srcfile%highlight.cpp%0
-	%// BEGIN FILE2LANG_PROTOTYPE%// END FILE2LANG_PROTOTYPE%1%$$
+	%// BEGIN FILE_EXT2LANG_PROTOTYPE%// END FILE_EXT2LANG_PROTOTYPE%1%$$
 
 $head SOURCE_HIGHLIGHT_01$$
 If $code SOURCE_HIGHLIGHT_01$$ is $code 0$$,
@@ -164,30 +164,34 @@ this routine returns $code NULL$$.
 Otherwise it returns the compute language corresponding to the
 specified file.
 
-$head file_name_cstr$$
-This is the name of the file containing the compute language
+$head file_ext_cstr$$
+This is the extension of the file containing the compute language
 source code.
 
 $head Return Value$$
 The return value is a $code source-highlight$$ input language.
 It is allocated using $mref/AllocMem/$$
 and should be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
+If the language could not be determined, the empty string is returned; i.e.,
+it has one character and it is the $code '\0'$$ character.
 
 $end
 */
 
-// BEGIN FILE2LANG_PROTOTYPE
-extern "C" char* file2lang(const char* file_name_cstr)
-// END FILE2LANG_PROTOTYPE
+// BEGIN FILE_EXT2LANG_PROTOTYPE
+extern "C" char* file_ext2lang(const char* file_ext_cstr)
+// END FILE_EXT2LANG_PROTOTYPE
 {	using std::string;
+
+	// file extension
+	string file_ext( file_ext_cstr);
 
 	// source-highlight data directory
 	string data_dir = source_highlight_prefix();
 	data_dir       += "/share/source-highlight";
-
+	//
 	srchilite::LangMap lang_map(data_dir, "lang.map");
-	string file_name( file_name_cstr);
-	string lang = lang_map.getMappedFileNameFromFileName(file_name);
+	string lang = lang_map.getMappedFileName(file_ext);
 
 	// return value
 	char* ret = StrCat(__FILE__, __LINE__,  lang.c_str(), NULL);

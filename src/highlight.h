@@ -13,6 +13,6 @@ extern char* highlight(
 	const char* output_lang_cstr    ,
 	int         start_with_newline
 );
-extern char* file2lang(const char* file_name_cstr);
+extern char* file_ext2lang(const char* file_ext_cstr);
 // END PROTOTYPE
 # endif

@@ -4346,8 +4346,21 @@ srcfile
 		// clean up input file name
 		ClipWhiteSpace(filename);
 
+		// split name for opening file and checking extension
+		InputSplitName(&root, &ext, filename);
+
+		// make sure has an extension
+		if( ext[0] == '\0' ) fatalomh(
+			"At $srcfile command in line ",
+			int2str($1.line),
+			"\nThis file name does not have a '.' in it; i.e.,",
+			"\nsource-highlight or boost_regex library is not avaiable.",
+			NULL
+		);
+
 		// determine what language this file is in
-		input_lang = file2lang(filename);
+		assert( ext[0] = '.' );
+		input_lang = file_ext2lang( ext + 1 );
 		if( input_lang == NULL ) fatalomh(
 			"At $srcfile command in line ",
 			int2str($1.line),
@@ -4359,17 +4372,14 @@ srcfile
 		{	fatalomh(
 				"At $srcfile command in line ",
 				int2str($1.line),
-				"\nCannot determine language for the file\n",
-				filename,
+				"\nCannot determine language for the file extension ",
+				ext,
 				NULL
 			);
 		}
 
-		// start reading file
-		InputSplitName(&root, &ext, filename);
-		InputPush(root, ext, -1);
-
 		// initialize with input first character
+		InputPush(root, ext, -1);
 		ch       = InputGet();
 
 		// set start pattern
