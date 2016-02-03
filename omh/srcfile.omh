@@ -30,7 +30,7 @@ $codei/@srcfile%/filename/%/indent/%/start/%/stop/%/skip/@@
 
 $head See Also$$
 $cref/getting started/start_src/$$,
-$mref/codep/verbatim/$$
+$mref/srccode/codep/verbatim/$$
 
 $head Optional$$
 This command is optional and only supported when the

@@ -11,6 +11,7 @@ $escape !$$
 $spell
 	src
 	srcfile
+	srccode
 	omh
 	OMhelp
 	htm
@@ -27,6 +28,11 @@ The $cref srcfile$$ command
 enables one to include all of part of a source code file.
 This is useful for including examples in the documentation
 with source code highlighting.
+
+$head srccode$$
+The $cref srccode$$ command
+enables one to include line text with source code highlighting.
+
 
 $head Execute The Following Steps$$
 

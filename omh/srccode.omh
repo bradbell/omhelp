@@ -20,6 +20,7 @@ $head Syntax$$
 $codei/@srccode%/file_ext/%/source/%@@/$$
 
 $head See Also$$
+$cref/get started/start_src/$$,
 $mref/srcfile/codep/$$
 
 $head Purpose$$

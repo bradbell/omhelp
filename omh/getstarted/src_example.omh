@@ -6,10 +6,16 @@ OMhelp is distributed under the terms of the
 -------------------------------------------------------------------------------
 $begin src_example$$
 $spell
-	src srcfile py newline
+	inline src srcfile py newline
 $$
 
 $section Example Inclusion of Source Code$$
+
+$head Inline Source Code$$
+The following is an example of in-line source code
+$srccode%cpp%
+	extern std::set< std::string > string_set(const char* c_string);
+%$$
 
 $head Contents of src_example.py$$
 Note that a newline is automatically added at the beginning
@@ -21,7 +27,6 @@ Change the escape character from $code #$$ to $code !$$
 so $code #$$ can be used normally as part of the start
 and stop sequences:
 $escape !$$
-
 
 $head Just Usage Message$$
 Note that the newline following
