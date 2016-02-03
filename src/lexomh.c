@@ -228,6 +228,7 @@ keyword_table[] =
 	{ "skipnl",     SKIPNL_lex      },
 	{ "small",      SMALL_lex       },
 	{ "spell",      SPELL_lex       },
+	{ "srccode",    SRCCODE_lex     },
 	{ "srcfile",    SRCFILE_lex     },
 	{ "subhead",    SUBHEAD_lex     },
 	{ "syntax",     SYNTAX_lex      },

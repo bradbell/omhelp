@@ -1069,6 +1069,7 @@ void InitParser(const char *StartingInputFile)
 %token SKIPNL_lex
 %token SMALL_lex
 %token SPELL_lex
+%token SRCCODE_lex
 %token SRCFILE_lex
 %token SUBHEAD_lex
 %token SYNTAX_lex
@@ -1161,6 +1162,7 @@ element
 	| skipnl
 	| small
 	| spell
+	| srccode
 	| srcfile
 	| subhead
 	| syntax
@@ -4248,6 +4250,86 @@ spell
 		if( $2.str[0] != '\0' )
 			SpellingOkList($2.str);
 
+		FreeMem($2.str);
+
+		$$ = $1;
+	}
+	;
+srccode
+	: SRCCODE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| SRCCODE_lex text DOUBLE_DOLLAR_lex
+	{	int ntoken;
+		char *ext, *source, *input_lang, *output_lang, *data, *tmp;
+		int   start_with_newline;
+
+		assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		// do not need extra new line after previous heading
+		if( PreviousOutputWasHeading )
+			PreviousOutputWasHeading = 0;
+
+		// split delimiter sequence into tokens
+		ntoken = SplitText($1.line, "$srccode", $2.str);
+		if( ntoken != 2 ) fatalomh(
+			"At $srccode command in line ",
+			int2str($1.line),
+			"\nExpected 3 delimiters in the $srccode command",
+			NULL
+		);
+
+		// get the file extension token
+		ext  = $2.str + 1;
+
+		// get the source token
+		source  = ext + strlen(ext) + 1;
+
+		// check the input language
+		input_lang  = file_ext2lang(ext);
+		if( input_lang == NULL ) fatalomh(
+			"At $srccode command in line ",
+			int2str($1.line),
+			"\nCannot use the $srccode command becasue the",
+			"\nsource-highlight or boost_regex library is not avaiable.",
+			NULL
+		);
+		if( input_lang[0] == '\0' )
+		{	fatalomh(
+				"At $srccode command in line ",
+				int2str($1.line),
+				"\nCannot determine language for the file extension ",
+				ext,
+				NULL
+			);
+		}
+
+		// determine what language the output file is in
+		if( strcmp( Internal2Out("OutputExtension"), ".htm") == 0 )
+			output_lang = "html.outlang";
+        else
+            output_lang = "xhtml.outlang";
+
+		// skip characters before first and after last newline in source
+		SkipBeforeFirstAndAfterLastNewline(
+			$2.line, source, "$srccode", "source"
+		);
+
+		// start_with_newline does not matter (source starts with newline)
+		start_with_newline = 0;
+
+		// convert source to the output language with highlighting
+		data = highlight(source, input_lang, output_lang, start_with_newline);
+
+		// output the data
+		tmp = data;
+		while( *tmp != '\0' )
+			OutputChar( *tmp++ );
+
+		FreeMem(input_lang);
+		FreeMem(data);
 		FreeMem($2.str);
 
 		$$ = $1;

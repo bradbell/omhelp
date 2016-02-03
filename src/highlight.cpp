@@ -155,8 +155,9 @@ $$
 $section Determine Source Code Language Corresponding to a File Extension$$
 
 $head Prototype$$
-$srcfile%highlight.cpp%0
-	%// BEGIN FILE_EXT2LANG_PROTOTYPE%// END FILE_EXT2LANG_PROTOTYPE%1%$$
+$srccode%cpp% */
+extern "C" char* file_ext2lang(const char* file_ext_cstr)
+/* %$$
 
 $head SOURCE_HIGHLIGHT_01$$
 If $code SOURCE_HIGHLIGHT_01$$ is $code 0$$,
@@ -177,10 +178,6 @@ it has one character and it is the $code '\0'$$ character.
 
 $end
 */
-
-// BEGIN FILE_EXT2LANG_PROTOTYPE
-extern "C" char* file_ext2lang(const char* file_ext_cstr)
-// END FILE_EXT2LANG_PROTOTYPE
 {	using std::string;
 
 	// file extension
