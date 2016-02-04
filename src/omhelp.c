@@ -6606,7 +6606,7 @@ yyreduce:
   case 279:
 #line 4366 "/home/bradbell/omhelp.git/src/omhelp.y" /* yacc.c:1646  */
     {	// command parameters
-		char *filename, ident, *start, *stop, *token;
+		char *filename, indent, *start, *stop, *token;
 		int  skip;
 
 		// local variables
@@ -6651,12 +6651,12 @@ yyreduce:
 		// filename
 		filename = (yyvsp[-1]).str + 1;
 
-		// ident
+		// indent
 		if( ntoken < 2 )
-			ident = 0;
+			indent = 0;
 		else
 		{	token  = filename + strlen(filename) + 1;
-			ident = atoi(token);
+			indent = atoi(token);
 		}
 
 		// start
@@ -6801,7 +6801,7 @@ yyreduce:
 
 			// indent when previous character is a newline
 			if( column_index == 0 )
-			{	for(i = 0; i < ident; i++)
+			{	for(i = 0; i < indent; i++)
 					line_buffer[column_index++] = ' ';
 			}
 
@@ -7469,7 +7469,7 @@ yyreduce:
 #line 5179 "/home/bradbell/omhelp.git/src/omhelp.y" /* yacc.c:1646  */
     {	char *root, *ext, *filename, *start, *stop;
 		char ch, previous;
-		int  skip, ntoken, ident, match, len;
+		int  skip, ntoken, indent, match, len;
 		int  i;
 		char line_buffer[300];
 		int  line_max = 299;
@@ -7493,10 +7493,10 @@ yyreduce:
 
 		filename = (yyvsp[-1]).str + 1;
 		if( ntoken < 2 )
-			ident = 0;
+			indent = 0;
 		else
 		{	token = filename + strlen(filename) + 1;
-			ident = atoi(token);
+			indent = atoi(token);
 		}
 		if( ntoken < 3 )
 			start = "\0";
@@ -7625,7 +7625,7 @@ yyreduce:
 
 			// indent when previous character is a newline
 			if( (previous == '\n') & (ch != '\001' ) )
-			{	for(i = 0; i < ident; i++)
+			{	for(i = 0; i < indent; i++)
 					ConvertOutputCh(' ', 0);
 			}
 			previous = ch;

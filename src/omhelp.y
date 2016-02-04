@@ -4364,7 +4364,7 @@ srcfile
 	}
 	| SRCFILE_lex text DOUBLE_DOLLAR_lex
 	{	// command parameters
-		char *filename, ident, *start, *stop, *token;
+		char *filename, indent, *start, *stop, *token;
 		int  skip;
 
 		// local variables
@@ -4409,12 +4409,12 @@ srcfile
 		// filename
 		filename = $2.str + 1;
 
-		// ident
+		// indent
 		if( ntoken < 2 )
-			ident = 0;
+			indent = 0;
 		else
 		{	token  = filename + strlen(filename) + 1;
-			ident = atoi(token);
+			indent = atoi(token);
 		}
 
 		// start
@@ -4559,7 +4559,7 @@ srcfile
 
 			// indent when previous character is a newline
 			if( column_index == 0 )
-			{	for(i = 0; i < ident; i++)
+			{	for(i = 0; i < indent; i++)
 					line_buffer[column_index++] = ' ';
 			}
 
@@ -5178,7 +5178,7 @@ verbatim
 	| VERBATIM_lex text DOUBLE_DOLLAR_lex
 	{	char *root, *ext, *filename, *start, *stop;
 		char ch, previous;
-		int  skip, ntoken, ident, match, len;
+		int  skip, ntoken, indent, match, len;
 		int  i;
 		char line_buffer[300];
 		int  line_max = 299;
@@ -5202,10 +5202,10 @@ verbatim
 
 		filename = $2.str + 1;
 		if( ntoken < 2 )
-			ident = 0;
+			indent = 0;
 		else
 		{	token = filename + strlen(filename) + 1;
-			ident = atoi(token);
+			indent = atoi(token);
 		}
 		if( ntoken < 3 )
 			start = "\0";
@@ -5334,7 +5334,7 @@ verbatim
 
 			// indent when previous character is a newline
 			if( (previous == '\n') & (ch != '\001' ) )
-			{	for(i = 0; i < ident; i++)
+			{	for(i = 0; i < indent; i++)
 					ConvertOutputCh(' ', 0);
 			}
 			previous = ch;
