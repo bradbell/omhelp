@@ -97,25 +97,60 @@ else
 	echo_log_eval cd omhelp-$version
 fi
 # -----------------------------------------------------------------------------
-# CMake Command
-echo_log_eval bin/run_cmake.sh
+highlight_prefix=`grep source_highlight_prefix bin/run_cmake.sh | \
+		sed -e 's|^.*=||' -e 's|" .*||' -e 's|"||' -e "s|[$]HOME|$HOME|"`
 # -----------------------------------------------------------------------------
-# Build Executable
-echo_log_eval cd build
-echo_log_eval make
-echo_log_eval cd ..
-# -----------------------------------------------------------------------------
-# Build Documentation and Get Started
-echo_log_eval bin/run_omhelp.sh dev
-echo_log_eval bin/run_omhelp.sh doc
-echo_log_eval bin/run_omhelp.sh xam
-# ----------------------------------------------------------------------------
-# Check multiple language example
-echo_log_eval build/omh/getstarted/run_all
-# ----------------------------------------------------------------------------
-# Build each get_started example separately
-echo_log_eval cd omh/getstarted
-echo_log_eval ./run_all.sh batch
-# ----------------------------------------------------------------------------
+for test_case in highlight_no highlight_yes
+do
+	if [ "$test_case" == 'highlight_no' ] && [ -e "$highlight_prefix" ]
+	then
+		echo_eval mv $highlight_prefix $highlight_prefix.no
+	fi
+	if [ "$test_case" == 'highlight_yes' ]
+	then
+		if [ ! -e "$highlight_prefix.no" ]
+		then
+			echo_eval mv $highlight_prefix $highlight_prefix.no
+			echo "check_all.sh: cannot find $highlight_prefix.no"
+			exit 1
+		fi
+		echo_eval mv $highlight_prefix.no $highlight_prefix
+	fi
+	# -------------------------------------------------------------------------
+	# CMake Command
+	echo_log_eval bin/run_cmake.sh
+	if [ "$testcase" == 'highlight_no' ]
+	then
+		bin/run_cmake.sh > check_all.$$
+		if ! grep 'WARNING: \$srcfile command NOT available' check_all.$$ \
+			> /dev/null
+		then
+			rm check_all.$$
+			echo 'check_all.sh: test case highlight_no'
+			echo 'bin/run_cmake.sh WARNING missing'
+			exit 1
+		fi
+		rm check_all.$$
+	fi
+	# -------------------------------------------------------------------------
+	# Build Executable
+	echo_log_eval cd build
+	echo_log_eval make
+	echo_log_eval cd ..
+	# -------------------------------------------------------------------------
+	# Build Documentation and Get Started
+	echo_log_eval bin/run_omhelp.sh dev
+	echo_log_eval bin/run_omhelp.sh doc
+	echo_log_eval bin/run_omhelp.sh xam
+	# ------------------------------------------------------------------------
+	# Check multiple language example
+	echo_log_eval build/omh/getstarted/run_all
+	# ------------------------------------------------------------------------
+	# Build each get_started example separately
+	echo_log_eval cd omh/getstarted
+	echo_log_eval ./run_all.sh batch
+	# ------------------------------------------------------------------------
+	echo_log_eval cd ../..
+done
 echo "check_all.sh: OK"
 exit 0
