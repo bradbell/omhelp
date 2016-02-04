@@ -7,7 +7,7 @@ OMhelp is distributed under the terms of the
 
 # if ! SOURCE_HIGHLIGHT_01
 # include <cstddef>
-extern "C" char* highlight(const char*, const char*, const char*)
+extern "C" char* highlight(const char*, const char*, const char*, int, int)
 {	return NULL; }
 extern "C" char* file_ext2lang(const char*)
 {	return NULL; }
@@ -62,10 +62,16 @@ $head output_lang_cstr$$
 This is the output language and must be either
 $code "html.outlang"$$ or $code "xhtml.outlang"$$.
 
-$head start_with_newline$$
-This is either zero or one. If it is one,
-then make sure that the first output character in the preformatted text,
-that is not a space or tab, is a newline.
+$head indent$$
+This is the number of spaces to add to the input after each newline.
+Except for the last newline when it is the last character in
+$icode input_text_cstr$$.
+
+$head tabsize$$
+This is the number of columns between each of the tab stops,
+with the first tab stop being at the indentation specified by
+$icode indent$$. There is no specification for what happens
+if there is a tab before the first newline.
 
 $head Return Value$$
 The return value is a highlighted version of the input source code in
@@ -80,7 +86,8 @@ extern "C" char* highlight(
 	const char* input_text_cstr    ,
 	const char* input_lang_cstr    ,
 	const char* output_lang_cstr   ,
-	int         start_with_newline
+	int         indent             ,
+	int         tabsize
 ) // END HIGHLIGHT_PROTOTYPE
 {	using std::string;
 
@@ -88,8 +95,34 @@ extern "C" char* highlight(
 	string data_dir = source_highlight_prefix();
 	data_dir       += "/share/source-highlight";
 
-	// input string stream
-	string input_text( input_text_cstr );
+	// Add indentation and convert tabs to spaces
+	string input_text;
+	const char* c_str = input_text_cstr;
+	int column                  = -1;
+	bool   previous_was_newline = false;
+	while( *c_str != '\0' )
+	{	if( previous_was_newline )
+		{	for(int i = 0; i < indent; i++)
+				input_text.push_back(' ');
+			column = indent;
+		}
+		previous_was_newline = *c_str == '\n';
+		//
+		if( *c_str == '\t' )
+		{	input_text.push_back(' ');
+			column++;
+			while( column % tabsize )
+			{	input_text.push_back(' ');
+				column++;
+			}
+		}
+		else
+		{	input_text.push_back(*c_str);
+		}
+		c_str++;
+	}
+
+	// convert from string to string stream
 	std::stringstream input_sstream( input_text );
 
 	// ctor
@@ -108,7 +141,7 @@ extern "C" char* highlight(
 
 	// pointer to beginning of output string
 	string output_string ( output_sstream.str() );
-	const char* c_str = output_string.c_str();
+	c_str = output_string.c_str();
 
 	// check that string begins with <!--
 	assert( std::strncmp(c_str, "<!--", 4) == 0 );
@@ -128,14 +161,6 @@ extern "C" char* highlight(
 
 	// Add display inline to command
 	std::string start_output("<pre style='display:inline'><tt>");
-
-	// check if we need to add a newline to he beginning
-	if( start_with_newline )
-	{	while( *c_str == ' ' || *c_str == '\t' )
-			c_str++;
-		if( *c_str != '\n' )
-			start_output.push_back('\n');
-	}
 
 	// return value
 	char* ret = StrCat(

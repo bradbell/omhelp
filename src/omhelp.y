@@ -4264,7 +4264,7 @@ srccode
 	| SRCCODE_lex text DOUBLE_DOLLAR_lex
 	{	int ntoken;
 		char *ext, *source, *input_lang, *output_lang, *data, *tmp;
-		int   newline_at_start, column;
+		int   indent, tabsize;
 
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -4319,36 +4319,19 @@ srccode
 			$2.line, source, "$srccode", "source"
 		);
 
-		// newline_at_start does not matter (source starts with newline)
-		newline_at_start = 0;
+		// do not indent any more that the input specifies
+		indent = 0;
+
+		// space between tab columns
+		tabsize = TabSizeCurrent;
 
 		// convert source to the output language with highlighting
-		data = highlight(source, input_lang, output_lang, newline_at_start);
+		data = highlight(source, input_lang, output_lang, indent, tabsize);
 
 		// output the data
 		tmp    = data;
-		column = 0;
 		while( *tmp != '\0' )
-		{	if( *tmp == '\t' )
-			{	OutputChar(' ');
-				column++;
-				while( column % TabSizeCurrent )
-				{	OutputChar(' ');
-					column++;
-				}
-				tmp++;
-			}
-			else
-			{	if( *tmp == '\n' )
-				{	OutputChar( *tmp++ );
-					column = 0;
-				}
-				else
-				{	OutputChar( *tmp++ );
-					column++;
-				}
-			}
-		}
+			OutputChar( *tmp++ );
 
 		FreeMem(input_lang);
 		FreeMem(data);
@@ -4370,8 +4353,7 @@ srcfile
 		// local variables
 		char *input_lang, *output_lang, *root, *ext;
 		char ch, delimiter;
-		int  ntoken, match, len;
-		int  i;
+		int  ntoken, match, len, tabsize;
 		char line_buffer[300];
 		int  column_max = 299;
 		int  column_index;
@@ -4471,6 +4453,14 @@ srcfile
 				NULL
 			);
 		}
+		// if start is not present, start with a newline for beginning of file
+		newline_at_start = ntoken < 3 && ConvertPreviousNewline() < 1;
+
+		// if previous output was a heading, start with a newline
+		newline_at_start = newline_at_start || PreviousOutputWasHeading;
+
+		// no longer need flag for previous heading
+		PreviousOutputWasHeading = 0;
 
 		// initialize with input first character
 		InputPush(root, ext, -1);
@@ -4557,12 +4547,6 @@ srcfile
 			if( len > 0 )
 				match = PatternMatchCh(&ch);
 
-			// indent when previous character is a newline
-			if( column_index == 0 )
-			{	for(i = 0; i < indent; i++)
-					line_buffer[column_index++] = ' ';
-			}
-
 			// add this character to the output line buffer
 			if( (ch != '\001') & (ch != '\0') )
 			{	if( column_index >= column_max )
@@ -4584,7 +4568,14 @@ srcfile
 			if( (ch == '\001') | (ch == '\n') | match )
 			{	line_buffer[column_index] = '\0';
 				if( data == NULL )
-					data = str_alloc( line_buffer );
+				{	int i = 0;
+					while( line_buffer[i] == ' ' || line_buffer[i] == '\n' )
+						i++;
+					if( newline_at_start && line_buffer[i] != '\n' )
+						data = strjoin( "\n", line_buffer );
+					else
+						data = str_alloc( line_buffer );
+				}
 				else
 				{	tmp   = data;
 					data  = strjoin(data, line_buffer);
@@ -4629,14 +4620,6 @@ srcfile
 			filename,
 			NULL
 		);
-		// if start is not present, start with a newline for beginning of file
-		newline_at_start = ntoken < 3 && ConvertPreviousNewline() < 1;
-
-		// if previous output was a heading, start with a newline
-		newline_at_start = newline_at_start || PreviousOutputWasHeading;
-
-		// no longer need flag for previous heading
-		PreviousOutputWasHeading = 0;
 
 		// determine what language the output file is in
 		if( strcmp( Internal2Out("OutputExtension"), ".htm") == 0 )
@@ -4645,13 +4628,14 @@ srcfile
             output_lang = "xhtml.outlang";
 
 		// convert data to the output language with highlighting
-		tmp = data;
-		data = highlight(data, input_lang, output_lang, newline_at_start);
+		tabsize = TabSizeCurrent;
+		tmp     = data;
+		data = highlight(data, input_lang, output_lang, indent, tabsize);
 		FreeMem(tmp);
 		assert( data != NULL );
 		tmp = data;
 
-		// output rest of data
+		// output data
 		while( *tmp != '\0' )
 			OutputChar( *tmp++ );
 

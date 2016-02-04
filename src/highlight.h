@@ -11,7 +11,8 @@ extern char* highlight(
 	const char* input_text_cstr     ,
 	const char* input_lang_cstr     ,
 	const char* output_lang_cstr    ,
-	int         start_with_newline
+	int         indent              ,
+	int         tabsize
 );
 extern char* file_ext2lang(const char* file_ext_cstr);
 // END PROTOTYPE

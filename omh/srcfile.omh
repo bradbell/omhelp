@@ -44,8 +44,7 @@ $cref/input file/glossary/Input File Searching/$$
 as program source code with highlighting.
 
 $head Delimiter Sequence$$
-$codei/
-	%/filename/%/indent/%/start/%/stop/%/skip/%@@
+$codei/	%/filename/%/indent/%/start/%/stop/%/skip/%@@
 /$$
 is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
