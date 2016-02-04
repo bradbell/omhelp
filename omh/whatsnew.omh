@@ -112,8 +112,14 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 16-02-04$$
+The $cref srccode$$ command,
+which automatically highlights source code that appears inline,
+as added.
+
 $head 16-02-01$$
-The $cref srcfile$$, which automatically highlights source code, was added.
+The $cref srcfile$$ command,
+which automatically highlights source code from a file, was added.
 This is much easier to use than the $cref hilite$$ command,
 but it requires linking in $code source-highlight$$ and
 $code boost_regex$$ libraries and has only been tested with the
