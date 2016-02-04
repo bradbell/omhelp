@@ -33,6 +33,9 @@ $codei/@hiliteseq%
 	/before_n/%/seq_n/%/after_n/%/tag_n/
 %@@/$$
 
+$head See Also$$
+$mref/srccode/srcfile/$$
+
 $head Purpose$$
 These commands enables you to automatically highlight and cross reference
 certain tokens in the output text.

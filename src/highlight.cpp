@@ -28,6 +28,7 @@ extern "C" const char* source_highlight_prefix(void);
 -----------------------------------------------------------------------------
 $begin highlight$$
 $spell
+	tabsize
 	cstr
 	lang
 	outlang
