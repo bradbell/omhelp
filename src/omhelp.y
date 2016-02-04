@@ -4319,6 +4319,14 @@ srccode
 			$2.line, source, "$srccode", "source"
 		);
 
+		// number of newliness there will be at end of soruce
+		tmp = source + strlen(source) - 1;
+		while( isspace(*tmp) && source < tmp )
+		{	if( *tmp == '\n' )
+				ConvertAddPrevious(1);
+			tmp--;
+		}
+
 		// do not indent any more that the input specifies
 		indent = 0;
 
@@ -4626,6 +4634,14 @@ srcfile
 			output_lang = "html.outlang";
         else
             output_lang = "xhtml.outlang";
+
+		// number of newliness there will be at end of soruce
+		tmp = data + strlen(data) - 1;
+		while( isspace(*tmp) && data < tmp )
+		{	if( *tmp == '\n' )
+				ConvertAddPrevious(1);
+			tmp--;
+		}
 
 		// convert data to the output language with highlighting
 		tabsize = TabSizeCurrent;
