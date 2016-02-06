@@ -96,29 +96,68 @@ extern "C" char* highlight(
 	string data_dir = source_highlight_prefix();
 	data_dir       += "/share/source-highlight";
 
+	// shorter name for the input text
+	const char* c_str = input_text_cstr;
+
+	// check if there is a newline before the fist non-whitespace character,
+	// after the last non-whitespace character,
+	// and count the number of newline characters
+	size_t n_newline    = 0;
+	bool   before_first = true;
+	bool   after_last   = false;
+	bool   space;
+	while( *c_str != '\0' )
+	{	space = std::isspace(*c_str) != 0;
+		if( n_newline == 0 )
+			before_first &= space;
+		after_last &= space;
+		if( *c_str == '\n' )
+		{	after_last = true;
+			n_newline++;
+		}
+		c_str++;
+	}
+	// restore c_str
+	c_str = input_text_cstr;
+
+	// use paragraph (or inline) mode
+	bool paragraph_mode = before_first && after_last && n_newline > 4;
+
 	// Add indentation and convert tabs to spaces
 	string input_text;
-	const char* c_str = input_text_cstr;
-	int column                  = -1;
+	int    column               = -1;
 	bool   previous_was_newline = false;
+	size_t i_newline            = 0;
 	while( *c_str != '\0' )
 	{	if( previous_was_newline )
 		{	for(int i = 0; i < indent; i++)
 				input_text.push_back(' ');
 			column = indent;
 		}
-		previous_was_newline = *c_str == '\n';
-		//
-		if( *c_str == '\t' )
-		{	input_text.push_back(' ');
-			column++;
-			while( column % tabsize )
-			{	input_text.push_back(' ');
-				column++;
+		if( *c_str == '\n' )
+		{	previous_was_newline = true;
+			i_newline++;
+			if( paragraph_mode )
+			{	if( i_newline != 1 && i_newline != n_newline )
+					input_text.push_back(*c_str);
+			}
+			else
+			{	input_text.push_back(*c_str);
 			}
 		}
 		else
-		{	input_text.push_back(*c_str);
+		{	previous_was_newline = false;
+			if( *c_str == '\t' )
+			{	input_text.push_back(' ');
+				column++;
+				while( column % tabsize )
+				{	input_text.push_back(' ');
+					column++;
+				}
+			}
+			else
+			{	input_text.push_back(*c_str);
+			}
 		}
 		c_str++;
 	}
@@ -160,12 +199,16 @@ extern "C" char* highlight(
 	assert( std::strncmp(c_str, "<pre><tt>", 9) == 0 );
 	c_str += 9;
 
-	// Add display inline to command
-	std::string start_output("<pre style='display:inline'><tt>");
+	// now we set the preformat style
+	const char* start_output_cstr;
+	if( paragraph_mode )
+		start_output_cstr = "<pre><tt>";
+	else
+		start_output_cstr = "<pre style='display:inline'><tt>";
 
 	// return value
 	char* ret = StrCat(
-		__FILE__, __LINE__,  start_output.c_str(), c_str, NULL
+		__FILE__, __LINE__,  start_output_cstr, c_str, NULL
 	);
 
 	return ret;

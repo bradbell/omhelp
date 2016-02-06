@@ -112,6 +112,16 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 16-02-06$$
+$list number$$
+For the $cref srccode$$ and $cref srcfile$$ commands,
+change to using paragraph, instead of inline, mode when display
+more that four lines that start and end with newline.
+$lnext
+Include $cref tabsize$$ in examples that use the
+$cref/indent/srcfile/indent/$$ argument to the $code srcfile$$ command.
+$lend
+
 $head 16-02-04$$
 The $cref srccode$$ command,
 which automatically highlights source code that appears inline,

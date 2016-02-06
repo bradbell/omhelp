@@ -29,7 +29,7 @@ with highlighting and for the language
 corresponding to the specified file extension $icode file_ext$$.
 
 $head Delimiter Sequence$$
-$codei/	%/file_ext/%/source/%@@
+$codei/	%/file_ext/%/source/%
 /$$
 is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
