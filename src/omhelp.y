@@ -4437,8 +4437,10 @@ srcfile
 		if( ext[0] == '\0' ) fatalomh(
 			"At $srcfile command in line ",
 			int2str($1.line),
-			"\nThis file name does not have a '.' in it; i.e.,",
-			"\nsource-highlight or boost_regex library is not avaiable.",
+			"\nThe file name '",
+			filename,
+			"'\ndoes not have a '.' followed by an extension",
+			"\nso cannot determine its language.",
 			NULL
 		);
 
