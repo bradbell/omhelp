@@ -157,6 +157,7 @@ extern "C" char* highlight(
 			}
 			else
 			{	input_text.push_back(*c_str);
+				column++;
 			}
 		}
 		c_str++;
