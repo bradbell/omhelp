@@ -112,6 +112,13 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 16-04-19$$
+Improve documentation for the $cref srccode$$ command.
+
+$head 16-02-14$$
+Fix a $cref/tabbing/tabsize/$$ bug in the
+$cref srccode$$ and $cref srcfile$$ commands.
+
 $head 16-02-06$$
 $list number$$
 For the $cref srccode$$ and $cref srcfile$$ commands,

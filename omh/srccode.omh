@@ -12,6 +12,7 @@ $spell
 	py
 	def
 	srccode
+	newlines
 $$
 
 $section Displaying In Line Source Code$$
@@ -35,19 +36,25 @@ is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
 
 $head Example$$
-The input
+All the characters, except the end of line character,
+in the first and last line of the $code srccode$$ command are ignored.
+(There must be at least two newlines in text.)
+This enables the inclusion of source code that is actually compiled.
+For example, the input
 $codep
 	@tabsize 4@@
+	@subhead Factorial Program@@ */
 	@srccode%py%
 		def factorial(n) :
 			if n == 1 :
 				return 1
 			return n * factorial(n-1)
 		end
-	@@
+	/* %@@
 $$
 would create the following output
 $tabsize 4$$
+$subhead Factorial Program$$
 $srccode%py%
 	def factorial(n) :
 		if n == 1 :
