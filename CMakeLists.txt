@@ -17,7 +17,7 @@
 # ---------------------------------------------------------------------------
 # Set the minimum required version of cmake for this project
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-SET(omhelp_version      "20160206" )
+SET(omhelp_version      "20160419" )
 SET(omhelp_description  "Language independent embedded code documentation")
 SET(omhelp_url          "http://www.seanet.com/~bradbell/omhelp")
 PROJECT(omhelp)
