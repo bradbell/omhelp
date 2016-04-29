@@ -21,15 +21,24 @@ echo_eval mkdir htm
 echo "create htm/one.omh"
 cat << EOF > htm/one.omh
 @begin one@@
-@section 2015-10-08: Demonstrate Bub in Tab Setting@@
-@tabsize 20@@
-
-@head Use Tab Size@@
-@codep
-012345678901234567890
-There is no tab on this line.
-	This text should start at column 20.
+@spell
+	Firefox
+	Inline
 @@
+@section 2016-04-29: Firefox Spacing Above and Below MathML Inline Equations@@
+
+@head Problem@@
+Firefox seems to be putting more than necessary vertical white space
+above a line with and inline MathML equation:
+
+@head Example@@
+This line comes before the inline equation:
+@pre
+@@
+Line with the inline equation @latex y = f(x)@@
+@pre
+@@
+This line comes after the inline equation.
 
 @end
 EOF
@@ -45,4 +54,4 @@ then
 	exit 1
 fi
 echo_eval cd htm
-echo_eval ../$program ./one.omh -noframe -omhelp_dir ../../omhelp_data
+echo_eval ../$program ./one.omh -noframe -xml -omhelp_dir ../../omhelp_data
