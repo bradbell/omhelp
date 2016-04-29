@@ -24,21 +24,34 @@ cat << EOF > htm/one.omh
 @spell
 	Firefox
 	Inline
+	fc
 @@
-@section 2016-04-29: Firefox Spacing Above and Below MathML Inline Equations@@
+@section 2016-04-29: Firefox Spacing Above MathML Inline Equations@@
 
 @head Problem@@
-Firefox seems to be putting more than necessary vertical white space
-above a line with and inline MathML equation:
+Firefox on Fedora is be putting more than necessary vertical white space
+above a line with an inline MathML equation.
+To be more specific
+enough extra space to fit another line (with normal spacing above and below).
+
+@head RPM@@
+firefox-45.0-4.fc22.x86_64
 
 @head Example@@
 This line comes before the inline equation:
 @pre
 @@
-Line with the inline equation @latex y = f(x)@@
+Line with the inline equation @latex y = f(x)@@.
 @pre
 @@
 This line comes after the inline equation.
+
+@head Other Systems@@
+This extra space does not appear on Windows with Firefox 43.0.1.
+
+@head Bug Report@@
+This has been submitted as the following bug
+@href|https://bugzilla.redhat.com/show_bug.cgi?id=1331765|@@
 
 @end
 EOF
