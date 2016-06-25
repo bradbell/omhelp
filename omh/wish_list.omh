@@ -21,22 +21,29 @@ $$
 
 $section OMhelp Wish List$$
 
-$list number$$
+$head spell$$
+Print a warning when a $cref spell$$ command entry does not appear
+in the corresponding section.
+
+$head th$$
 Change the $code @th$$ command to use the same font as $code @icode$$.
-$lnext
+
+$head @@$$
 Only commands that do not allow other commands inside should be terminated
 by the $code @@$$. Use a special termination command for others; e.g.,
 $code @center$$ could be terminated by $code @endc$$.
-$lnext
+
+$head C_FLAGS$$
 Use the $code C_FLAGS$$ configure variable in the same way
 that the $code CXX_FLAGS$$ variable is used by CppAD.
 This will allow compiler flags to adapt to the particular compiler.
-$lnext
+
+$head Escape$$
 Add command line argument so there is no default escape character
 (backslash is often missing from output because it is escape character).
-$lnext
+
+$head verbatim$$
 Have a way for verbatim command to refer to current file
 (so works automatically when one moves or copies the file).
-$lend
 
 $end
