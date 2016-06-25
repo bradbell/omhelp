@@ -10,17 +10,13 @@ then
 	echo "bin/run_cmake.sh: must be executed from its parent directory"
 	exit 1
 fi
-if [ "$1" == 'debug' ]
+if [ "$1" != 'debug' ] && [ "$1" != 'release' ]
 then
-	build_type='DEBUG'
-elif [ "$1" == 'release' ]
-then
-	build_type='RELEASE'
-else
 	echo "bin/run_cmake.sh: build_type"
 	echo "where build type is debug or release"
 	exit 1
 fi
+build_type="$1"
 # ----------------------------------------------------------------------------
 # bash function that echos and executes a command
 echo_eval() {

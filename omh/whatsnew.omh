@@ -116,6 +116,8 @@ $head 16-06-25$$
 Added the
 $cref/omhelp_build_type/installunix/CMake Command/omhelp_build_type/$$
 the installation options.
+The execution time for one large help system was
+80 seconds with a debug build type and 21 seconds with a release build type.
 
 $head 16-04-19$$
 Improve documentation for the $cref srccode$$ command.

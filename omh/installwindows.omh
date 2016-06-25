@@ -126,10 +126,11 @@ $codei|
 		-G "NMake Makefiles"  ^
 		-D boost_regex_prefix=|boost_regex_prefix|  ^
 		-D source_highlight_prefix=|source_highlight_prefix|  ^
+		-D have_flex_and_bison=|have_flex_and_bison| ^
 		-D omhelp_prefix=|omhelp_prefix|  ^
 		-D omhelp_datadir=|omhelp_datadir|  ^
 		-D omhelp_c_flags=|omhelp_c_flags|  ^
-		-D have_flex_and_bison=|have_flex_and_bison| ^
+		-D omhelp_build_type=|omhelp_build_type|  ^
 		..
 |$$
 Only the program $code%cmake_prefix%cmake$$,
@@ -156,7 +157,13 @@ $codei%
 	/usr/lib/libsource-highlight.*
 	/usr/lib64/libsource-highlight.*
 %$$
-2DO: THis has not yet been tested.
+2DO: This has not yet been tested.
+
+$subhead have_flex_and_bison$$
+If you have these
+$cref/optional tools/InstallWindows/Requirements/Optional/$$,
+you should specify this value as $code YES$$.
+Otherwise, you should use $code NO$$ (the default).
 
 $subhead omhelp_prefix$$
 The default value for $icode omhelp_prefix$$ is $code \usr$$; i.e.,
@@ -183,11 +190,10 @@ These are extra flags, besides the debug and release flags,
 that are used during compilation.
 The default value for $icode omhelp_c_flags$$ is none.
 
-$subhead have_flex_and_bison$$
-If you have these
-$cref/optional tools/InstallWindows/Requirements/Optional/$$,
-you should specify this value as $code YES$$.
-Otherwise, you should use $code NO$$ (the default).
+$subhead omhelp_build_type$$
+This should be either $code debug$$ (compile for debugging)
+or $code release$$ (compile for speed).
+The default, if it is not specified, is $code debug$$.
 
 $head Build Executable$$
 In the directory $code omhelp-20160419\build$$ execute the following command

@@ -113,7 +113,7 @@ command_line_arg(omhelp_build_type NOTFOUND STRING
 	"DEBUG (compile for debugging) or RELEASE (compile for speed)"
 )
 IF ( omhelp_build_type )
-	SET(CMAKE_BUILD_TYPE "${omhelp_build_type}" )
+	STRING(TOUPPER "${omhelp_build_type}" CMAKE_BUILD_TYPE)
 ELSE ( omhelp_build_type )
 	SET(CMAKE_BUILD_TYPE "DEBUG")
 ENDIF ( omhelp_build_type )

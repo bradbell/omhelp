@@ -153,9 +153,9 @@ that are used during compilation.
 The default value for $icode omhelp_c_flags$$ is none.
 
 $subhead omhelp_build_type$$
-This should be either $code DEBUG$$ (compile for debugging)
-or $code RELEASE$$ (compile for speed).
-The default, if it is not specified, is $code DEBUG$$.
+This should be either $code debug$$ (compile for debugging)
+or $code release$$ (compile for speed).
+The default, if it is not specified, is $code debug$$.
 
 $head Build Executable$$
 In the directory $code omhelp-20160419/build$$ execute the following command
