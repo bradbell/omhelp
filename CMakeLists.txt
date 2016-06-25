@@ -85,6 +85,11 @@ set_library_info(
 	 "source-highlight" ${source_highlight_prefix}
 )
 # ---------------------------------------------------------------------------
+# have_flex_and_bison
+command_line_arg(have_flex_and_bison NOTFOUND BOOL
+	"are the flex and bison programs available on the this system"
+)
+# ---------------------------------------------------------------------------
 # omhelp_prefix
 command_line_arg(omhelp_prefix /usr PATH
 	"prefix for omhelp install"
@@ -103,16 +108,22 @@ IF( omhelp_c_flags )
 	SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${omhelp_c_flags}")
 ENDIF( omhelp_c_flags )
 # ---------------------------------------------------------------------------
-# have_flex_and_bison
-command_line_arg(have_flex_and_bison NOTFOUND BOOL
-	"are the flex and bison programs available on the this system"
+# omhelp_build_type
+command_line_arg(omhelp_build_type NOTFOUND STRING
+	"DEBUG (compile for debugging) or RELEASE (compile for speed)"
 )
+IF ( omhelp_build_type )
+	SET(CMAKE_BUILD_TYPE "${omhelp_build_type}" )
+ELSE ( omhelp_build_type )
+	SET(CMAKE_BUILD_TYPE "DEBUG")
+ENDIF ( omhelp_build_type )
+MESSAGE(STATUS "CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}" )
 # ---------------------------------------------------------------------------
 # source_highlight_01
 #
 LINK_DIRECTORIES( ${source_highlight_LIBRARY_DIR} )
 IF( source_highlight_dir AND boost_regex_dir )
-	SET(CMAKE_REQUIRED_INCLUDES "${source_highlight_prefix}/include")
+	SET(CMAKE_REQUIRED_INCLUDES "${source_highlight_prefix}/include" )
 	SET(CMAKE_REQUIRED_LIBRARIES
 		"${source_highlight_dir}/${source_highlight_file}"
 		"${boost_regex_dir}/${boost_regex_file}"

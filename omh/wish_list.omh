@@ -33,11 +33,6 @@ Only commands that do not allow other commands inside should be terminated
 by the $code @@$$. Use a special termination command for others; e.g.,
 $code @center$$ could be terminated by $code @endc$$.
 
-$head C_FLAGS$$
-Use the $code C_FLAGS$$ configure variable in the same way
-that the $code CXX_FLAGS$$ variable is used by CppAD.
-This will allow compiler flags to adapt to the particular compiler.
-
 $head Escape$$
 Add command line argument so there is no default escape character
 (backslash is often missing from output because it is escape character).

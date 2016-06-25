@@ -112,6 +112,11 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 16-06-25$$
+Added the
+$cref/omhelp_build_type/installunix/CMake Command/omhelp_build_type/$$
+the installation options.
+
 $head 16-04-19$$
 Improve documentation for the $cref srccode$$ command.
 

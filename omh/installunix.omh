@@ -91,10 +91,11 @@ $codei%
 	cmake \
 		-D boost_regex_prefix=%boost_regex_prefix%  \
 		-D source_highlight_prefix=%source_highlight_prefix%  \
+		-D have_flex_and_bison=%have_flex_and_bison% \
 		-D omhelp_prefix=%omhelp_prefix%  \
 		-D omhelp_datadir=%omhelp_datadir%  \
 		-D omhelp_c_flags=%omhelp_c_flags%  \
-		-D have_flex_and_bison=%have_flex_and_bison% \
+		-D omhelp_build_type=%omhelp_build_type% \
 		..
 %$$
 Only the program name $code cmake$$,
@@ -120,6 +121,11 @@ $codei%
 	/usr/lib64/libsource-highlight.*
 %$$
 
+$subhead have_flex_and_bison$$
+If you have these
+$cref/optional tools/InstallUnix/Requirements/Optional/$$,
+you should specify this value as $code YES$$.
+Otherwise, you should use $code NO$$ (the default).
 
 $subhead omhelp_prefix$$
 The default value for $icode omhelp_prefix$$ is $code /usr$$; i.e.,
@@ -134,7 +140,6 @@ you will have to specify the entire path
 $icode%omhelp_prefix%/bin/omhelp%$$ when
 you execute it.
 
-
 $subhead omhelp_datadir$$
 The data files used by OMhelp are installed in
 $codei%
@@ -147,11 +152,10 @@ These are extra flags, besides the debug and release flags,
 that are used during compilation.
 The default value for $icode omhelp_c_flags$$ is none.
 
-$subhead have_flex_and_bison$$
-If you have these
-$cref/optional tools/InstallUnix/Requirements/Optional/$$,
-you should specify this value as $code YES$$.
-Otherwise, you should use $code NO$$ (the default).
+$subhead omhelp_build_type$$
+This should be either $code DEBUG$$ (compile for debugging)
+or $code RELEASE$$ (compile for speed).
+The default, if it is not specified, is $code DEBUG$$.
 
 $head Build Executable$$
 In the directory $code omhelp-20160419/build$$ execute the following command
