@@ -414,10 +414,12 @@ white          ([ \t\r]*)
 	return CHAR_OPERATOR_lex;
 }
 {letter}+ {
-	size_t i;
 
+# ifndef NDEBUG
+	size_t i;
 	i = strlen(yytext);
 	assert( i > 0 );
+# endif
 
 	// check begins with a letter
 	assert( isalpha((int) yytext[0] ) );

@@ -82,9 +82,11 @@ void math_jax(const char* macro_cmd, const char* latex_cmds)
 
 	bool add      = strcmp(macro_cmd, "add") == 0;
 	bool output   = strcmp(macro_cmd, "output") == 0;
-	bool ignore   = strcmp(macro_cmd, "ignore") == 0;
 	bool clear    = strcmp(macro_cmd, "clear") == 0;
+# ifndef NDEBUG
+	bool ignore   = strcmp(macro_cmd, "ignore") == 0;
 	assert( add || output || ignore || clear );
+# endif
 	//
 	if( clear )
 	{	assert( latex_cmds == NULL );

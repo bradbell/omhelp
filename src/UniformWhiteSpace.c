@@ -38,7 +38,9 @@ $end
 void UniformWhiteSpace(char *s)
 {	int i = 0;  // index of next character in input value of string
 	int j = 0;  // index of next character in output value of string
+# ifndef NDEBUG
 	int k;      // temporary index
+# endif
 
 	if( s[i] == '\0' )
 		return;
@@ -56,7 +58,9 @@ void UniformWhiteSpace(char *s)
 			s[j++] = s[i++];
 
 		// find end of white space following this token
+# ifndef NDEBUG
 		k = i;
+# endif
 		while( isspace((int) s[i]) )
 			i++;
 

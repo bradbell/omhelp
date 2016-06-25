@@ -1382,7 +1382,9 @@ begin
 	{	char *tag;
 		char *tag_lower;
 		char *number = NULL;
+# ifndef NDEBUG
 		CrossReference *C;
+# endif
 
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
@@ -1551,7 +1553,10 @@ begin
 
 		// define cross reference point
 		number = SectionNumber(CurrentSection);
-		C      = DefineCrossReference(tag, "", InputName(), 0, number);
+# ifndef NDEBUG
+		C =
+# endif
+		DefineCrossReference(tag, "", InputName(), 0, number);
 		FreeMem(number);
 
 		assert( C != NULL );
@@ -1757,7 +1762,9 @@ contents
 childhead
 	: contents
 	{
+# ifndef NDEBUG
 		CrossReference *C;
+# endif
 		char           *number  = NULL;
 		char           *printid = NULL;
 		char           *converted;
@@ -1808,7 +1815,10 @@ childhead
 		ConvertForcedNewline(1);
 
 		// defined cross reference point
-		C = DefineCrossReference(
+# ifndef NDEBUG
+		C =
+# endif
+		DefineCrossReference(
 			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			InputName(),
@@ -2715,7 +2725,9 @@ head
 	}
 	| HEAD_lex argument DOUBLE_DOLLAR_lex
 	{
+# ifndef NDEBUG
 		CrossReference *C;
+# endif
 		char           *noEscape;
 		char           *converted;
 		char           *number = NULL;
@@ -2792,7 +2804,10 @@ head
 		OutputString("</a></big></b>\n");
 
 		// defined cross reference point
-		C = DefineCrossReference(
+# ifndef NDEBUG
+		C =
+# endif
+		DefineCrossReference(
 			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			InputName(),
@@ -4673,7 +4688,9 @@ subhead
 	}
 	| SUBHEAD_lex argument DOUBLE_DOLLAR_lex
 	{
+# ifndef NDEBUG
 		CrossReference *C;
+# endif
 		char           *number = NULL;
 		char           *printid = NULL;
 		char           *noEscape;
@@ -4757,7 +4774,10 @@ subhead
 		OutputString("</a></b>\n");
 
 		// defined cross reference point
-		C = DefineCrossReference(
+# ifndef NDEBUG
+		C =
+# endif
+		DefineCrossReference(
 			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			InputName(),

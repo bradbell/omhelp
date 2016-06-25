@@ -135,10 +135,12 @@ void AutomaticAppendSection(
 {
 	SectionInfo    *T;
 	SectionInfo    *S;
-	CrossReference *C;
 	char           *inputfile = NULL;
 	char           *sectionid;
 	char           *printid;
+# ifndef NDEBUG
+	CrossReference *C;
+# endif
 
 	// add this entry to list of automatically generated sections
 	assert( strlen(tag) < MAX_LENGTH );
@@ -183,7 +185,10 @@ void AutomaticAppendSection(
 
 	// add to list of cross references
 	sectionid = SectionNumber(S);
-	C         = DefineCrossReference(tag, "", "", 0, sectionid);
+# ifndef NDEBUG
+	C =
+# endif
+	DefineCrossReference(tag, "", "", 0, sectionid);
 	assert( C != NULL );
 
 	// Add automatic headings for index and function reference

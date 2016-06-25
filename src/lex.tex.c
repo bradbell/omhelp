@@ -1421,10 +1421,12 @@ case 37:
 YY_RULE_SETUP
 #line 416 "/home/bradbell/omhelp.git/src/latex.l"
 {
-	size_t i;
 
+# ifndef NDEBUG
+	size_t i;
 	i = strlen(textext);
 	assert( i > 0 );
+# endif
 
 	// check begins with a letter
 	assert( isalpha((int) textext[0] ) );
@@ -1437,14 +1439,14 @@ YY_RULE_SETUP
 case 38:
 /* rule 38 can match eol */
 YY_RULE_SETUP
-#line 429 "/home/bradbell/omhelp.git/src/latex.l"
+#line 431 "/home/bradbell/omhelp.git/src/latex.l"
 {
 	// ignore
 }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 432 "/home/bradbell/omhelp.git/src/latex.l"
+#line 434 "/home/bradbell/omhelp.git/src/latex.l"
 {
 	SetTexLval(textext, textext);
 	return NUMBER_lex;
@@ -1452,7 +1454,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 436 "/home/bradbell/omhelp.git/src/latex.l"
+#line 438 "/home/bradbell/omhelp.git/src/latex.l"
 {	// operators that do not need conversion to Unicode
 
 	SetTexLval(textext, textext);
@@ -1461,7 +1463,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 441 "/home/bradbell/omhelp.git/src/latex.l"
+#line 443 "/home/bradbell/omhelp.git/src/latex.l"
 {
 	SetTexLval(textext, NULL);
 	return CHAR_RIGHTBRACE_lex;
@@ -1469,7 +1471,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 445 "/home/bradbell/omhelp.git/src/latex.l"
+#line 447 "/home/bradbell/omhelp.git/src/latex.l"
 {
 	if( Cmd_Bracket_Mode == ']' )
 	{	SetTexLval(textext, NULL);
@@ -1482,7 +1484,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 454 "/home/bradbell/omhelp.git/src/latex.l"
+#line 456 "/home/bradbell/omhelp.git/src/latex.l"
 {
 	SetTexLval(textext, NULL);
 	return CHAR_UNDERBAR_lex;
@@ -1490,14 +1492,14 @@ YY_RULE_SETUP
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 458 "/home/bradbell/omhelp.git/src/latex.l"
+#line 460 "/home/bradbell/omhelp.git/src/latex.l"
 {
 	// ignore
 }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 462 "/home/bradbell/omhelp.git/src/latex.l"
+#line 464 "/home/bradbell/omhelp.git/src/latex.l"
 {
 	fataltex(
 		"The character with ascii code ",
@@ -1509,10 +1511,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 471 "/home/bradbell/omhelp.git/src/latex.l"
+#line 473 "/home/bradbell/omhelp.git/src/latex.l"
 ECHO;
 	YY_BREAK
-#line 1516 "/home/bradbell/omhelp.git/src/lex.tex.c"
+#line 1518 "/home/bradbell/omhelp.git/src/lex.tex.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2469,7 +2471,7 @@ void texfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 471 "/home/bradbell/omhelp.git/src/latex.l"
+#line 473 "/home/bradbell/omhelp.git/src/latex.l"
 
 
 /****************************************************************************/
