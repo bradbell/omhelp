@@ -17,7 +17,7 @@
 # ---------------------------------------------------------------------------
 # Set the minimum required version of cmake for this project
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-SET(omhelp_version      "20160419" )
+SET(omhelp_version      "20160926" )
 SET(omhelp_description  "Language independent embedded code documentation")
 SET(omhelp_url          "http://www.seanet.com/~bradbell/omhelp")
 PROJECT(omhelp)
@@ -153,13 +153,14 @@ int main(void)
 	//
 	// check some asserts that appear in omhelp.y
 	char null_char  = static_cast<char>(0);
-	const char* tmp = output_sstream.str().c_str();
-	assert( strncmp(tmp, \"<!--\", 4) == 0 );
-	while( *tmp != '>' && *tmp != null_char )
-		tmp++;
-	while( *tmp != '<' && *tmp != null_char )
-		tmp++;
-	assert( strncmp(tmp, \"<pre><tt>\", 9) == 0 );
+	std::string stmp = output_sstream.str();
+	const char* ctmp = stmp.c_str();
+	assert( strncmp(ctmp, \"<!--\", 4) == 0 );
+	while( *ctmp != '>' && *ctmp != null_char )
+		ctmp++;
+	while( *ctmp != '<' && *ctmp != null_char )
+		ctmp++;
+	assert( strncmp(ctmp, \"<pre><tt>\", 9) == 0 );
 	//
 	return 0;
 }"

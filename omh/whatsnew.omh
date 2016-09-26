@@ -112,6 +112,15 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 16-09-26$$
+A problem was fixed in the code that checked if
+$cref/source-highlight/installUnix/CMake Command/source_highlight_prefix/$$
+works correctly. For example,
+even though source-highlight was installed,
+the test was failing on gcc-6.2.1 and the
+$cref srcfile$$ command was not available.
+This has been fixed.
+
 $head 16-06-25$$
 Added the
 $cref/omhelp_build_type/installunix/CMake Command/omhelp_build_type/$$

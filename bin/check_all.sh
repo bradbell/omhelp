@@ -97,7 +97,7 @@ else
 	echo_log_eval cd omhelp-$version
 fi
 # -----------------------------------------------------------------------------
-highlight_prefix=`grep source_highlight_prefix bin/run_cmake.sh | \
+highlight_prefix=`grep source_highlight_prefix bin/run_cmake.sh debug | \
 		sed -e 's|^.*=||' -e 's|" .*||' -e 's|"||' -e "s|[$]HOME|$HOME|"`
 # -----------------------------------------------------------------------------
 for test_case in highlight_no highlight_yes
@@ -118,10 +118,10 @@ do
 	fi
 	# -------------------------------------------------------------------------
 	# CMake Command
-	echo_log_eval bin/run_cmake.sh
+	echo_log_eval bin/run_cmake.sh debug
 	if [ "$testcase" == 'highlight_no' ]
 	then
-		bin/run_cmake.sh > check_all.$$
+		bin/run_cmake.sh debug > check_all.$$
 		if ! grep 'WARNING: \$srcfile command NOT available' check_all.$$ \
 			> /dev/null
 		then
