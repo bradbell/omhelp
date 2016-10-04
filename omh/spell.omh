@@ -15,6 +15,10 @@ $spell
 	omhelp
 	lst
 	codep
+	http
+	www
+	msdos
+	html
 $$
 
 $index spell$$
@@ -152,11 +156,10 @@ $index english.wrd$$
 The $code english.wrd$$ file distributed with OMhelp
 is a combination of the files $codei/words/*/.lst/$$
 from the web site:
-$pre
-	$$
-$href%http://www.bookcase.com/library/software/msdos.education.linguistics.html%$$
-$pre
+$codep
+http://www.bookcase.com/library/software/msdos.education.linguistics.html
 $$
 (together with all the single letters $code a$$ through $code z$$).
+Unfortunately, this web address no longer exists.
 
 $end

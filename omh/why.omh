@@ -10,6 +10,9 @@ $escape #$$
 $spell
 	OMhelp
 	Microsoft
+	xml
+	Jax
+	htm
 $$
 
 $mindex OMhelp purpose$$
@@ -26,9 +29,9 @@ $cref|Same Time Documentation
 	|why
 	|Same Time Documentation
 |$$ $lnext
-$cref|Source Code Control
+$cref|Version Control
 	|why
-	|Source Code Control
+	|Version Control
 |$$ $lnext
 $cref|Language Independent and User Oriented
 	|why
@@ -85,11 +88,11 @@ a specification
 (for the changes and additions)
 that is separate from the actual code.
 
-$head Source Code Control$$
-Use the same system that tracks changes to the source code to track
-changes to the documentation.
-(See the $href%http://cvshome.org%$$ for an example of a source code
-control system.)
+$head Version Control$$
+Use the same version control system
+that tracks changes to the source code to track
+changes to the documentation; see
+$href%https://en.wikipedia.org/wiki/Version_control%version control%$$.
 This makes it easy and natural to make the documentation changes
 at the same time as the source code changes.
 In addition,
@@ -139,8 +142,7 @@ Many of the OMhelp features come from a single source philosophy.
 It is easy to create examples that are both source code and documentation.
 There is provision for jump tables such that if the destination text changes
 the source text changes automatically.
-A
-$cref/printable/running/printable/$$
+A $cref/printable/running/printable/$$
 version of the web site can be generated with all the cross reference
 links included and numbered so they are fully functional.
 
@@ -168,11 +170,12 @@ This makes it easy to check links that depend on things outside of the
 help system and that there usage within the help system is still correct.
 
 $head Platform Independent$$
-OMhelp will run under Microsoft Windows or any Unix Operating system.
+OMhelp will run under Microsoft Windows, Mac, or any Unix Operating system.
 
 $head Latex Support of Mathematics$$
 OMhelp supports Latex commands which it converts
-to MathML for display by a browser.
+to MathML ($icode%*%.xml%$$) or MathJax ($codei%*%.htm%$$)
+for display by a browser.
 This is far superior to using pictures to display mathematics.
 
 $end
