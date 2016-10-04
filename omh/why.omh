@@ -13,6 +13,8 @@ $spell
 	xml
 	Jax
 	htm
+	CppAD
+	Doxygen
 $$
 
 $mindex OMhelp purpose$$
@@ -21,59 +23,41 @@ $section The Purpose and Motivation for OMhelp$$
 
 
 $list number$$
-$cref|Introduction
-	|why
-	|Introduction
-|$$ $lnext
-$cref|Same Time Documentation
-	|why
-	|Same Time Documentation
-|$$ $lnext
-$cref|Version Control
-	|why
-	|Version Control
-|$$ $lnext
-$cref|Language Independent and User Oriented
-	|why
-	|Language Independent and User Oriented
-|$$ $lnext
-$cref|World Wide Web
-	|why
-	|World Wide Web
-|$$ $lnext
-$cref|Single Source
-	|why
-	|Single Source
-|$$ $lnext
-$cref|Searching
-	|why
-	|Searching
-|$$ $lnext
-$cref|Navigation Frame
-	|why
-	|Navigation Frame
-|$$ $lnext
-$cref|Cross Referencing Aids
-	|why
-	|Cross Referencing Aids
-|$$ $lnext
-$cref|Platform Independent
-	|why
-	|Platform Independent
-|$$ $lnext
-$cref|Latex Support of Mathematics
-	|why
-	|Latex Support of Mathematics
-|$$
+$cref/Introduction/why/Introduction/$$
+$lnext
+$cref/Same Time Documentation/why/Same Time Documentation/$$
+$lnext
+$cref/Version Control/why/Version Control/$$
+$lnext
+$cref/Language Independent and User Oriented
+	/why
+	/Language Independent and User Oriented
+/$$
+$lnext
+$cref/World Wide Web/why/World Wide Web/$$
+$lnext
+$cref/Single Source/why/Single Source/$$
+$lnext
+$cref/Searching/why/Searching/$$
+$lnext
+$cref/Cross Referencing Aids/why/Cross Referencing Aids/$$
+$lnext
+$cref/Platform Independent/why/Platform Independent/$$
+$lnext
+$cref/Latex Support of Mathematics/why/Latex Support of Mathematics/$$
+$lnext
+$cref/Source Code Examples/why/Source Code Examples/$$
+$lnext
+$cref/Spell Checking/why/Spell Checking/$$
 $lend
 
 $head Introduction$$
 OMhelp was originally created to reduce the time and effort required
 to document the
 $href%http://www.omatrix.com/manual/%O-Matrix%$$ computer language.
-The OMhelp
-$href%http://www.seanet.com/~bradbell/omhelp%documentation%$$
-is a another demonstration of what OMhelp can do.
+The CppAD
+$href%http://www.coin-or.org/CppAD/Doc/cppad.htm%CppAD%$$
+is a better demonstration of what OMhelp can do.
 Brad Bell's
 $href%http://www.seanet.com/~bradbell%home page%$$
 is also written in OMhelp.
@@ -111,20 +95,20 @@ embedding the documentation in the source code
 requires the developer to think about the changes from the users
 point of view.
 The
-$href%http://java.sun.com/j2se/JavaDoc/%JavaDoc%$$
+$href%http://www.stack.nl/~dimitri/doxygen/%doxygen%$$
 system is similar with the following exceptions:
 
 $list number$$
-JavaDoc is specialized to the Java language
+Doxygen only works for systems in one language.
 $lnext
-JavaDoc generates documentation from a developer (not user) point of view
+Doxygen generates documentation from a developer (not user) point of view;
+i.e., it exposes implementation details.
 $lend
 
-When the users are developer and the only language being used
-is Java, JavaDoc has the advantage of
+When the users are developer and only one language is being used,
+Doxygen has the advantage of
 automatically providing language specific
 aids to the documentation.
-
 
 $head World Wide Web$$
 OMhelp can create both HTML and XML representations for
@@ -149,18 +133,21 @@ links included and numbered so they are fully functional.
 $head Searching$$
 OMhelp makes it easy to provide the
 user of the corresponding help system with the means of finding things quickly.
-For example, entries in the keyword index are also used by the OMhelp
-search utility.
+For example, entries in the keyword
+$cref/index/_index/$$ are also used by the OMhelp
+$cref/search/_search/$$ utility.
 In addition, all the keywords are posted in meta commands that
 aid Web search engines in finding the corresponding documentation.
-
-$head Navigation Frame$$
-OMhelp automatically provides a frame that aids the user
-in navigating the help system.
-This also provides a uniform look to the system.
+Furthermore, a jump table for each section called
+$cref/reference/_reference/$$ table,
+a list of $cref/external/_external/$$ links,
+and a table of
+$cref/contents/_contents/$$
+are automatically provided.
 
 $head Cross Referencing Aids$$
-All of the internal cross references are checked when OMhelp is run.
+All of the internal
+$cref cross$$ references are checked when OMhelp is run.
 This informs one immediately when
 the help system changes in a way that breaks a cross reference
 (thus changes that have this effect are easier to make).
@@ -177,5 +164,19 @@ OMhelp supports Latex commands which it converts
 to MathML ($icode%*%.xml%$$) or MathJax ($codei%*%.htm%$$)
 for display by a browser.
 This is far superior to using pictures to display mathematics.
+
+$head Source Code Examples$$
+OMhelp has may options for including source code that also runs.
+This include some source code highlighting commands.
+It also makes it easy to keep the examples up to date with
+changes to a system (when the examples are also automated tests).
+
+$head Spell Checking$$
+OMhelp provides a $cref spell$$ command that lists spelling exceptions
+for a particular section.
+This relieves the user from having to
+allow the same spelling exception multiple times.
+
+
 
 $end

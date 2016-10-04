@@ -112,6 +112,17 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 16-10-04$$
+$list number$$
+Some broken $cref/external/_external/$$ reference were fixed.
+$lnext
+The OMhelp $cref/motivation section/why/$$ was improved.
+$lnext
+Documentation for the
+$cref/automatic tags/glossary/Cross Reference Tag/Automatic Tags/$$
+was added.
+$lend
+
 $head 16-09-26$$
 A problem was fixed in the code that checked if
 $cref/source-highlight/installUnix/CMake Command/source_highlight_prefix/$$
