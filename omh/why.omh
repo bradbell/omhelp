@@ -113,13 +113,14 @@ aids to the documentation.
 $head World Wide Web$$
 OMhelp can create both HTML and XML representations for
 display by browsers.
-This provides a means, with no extra work,
-by which the complete documentation
-can be searched for and viewed on the World Wide Web.
-For example, the complete documentation for OMhelp can be viewed at
-$pre
-	$$
-$href%http://www.seanet.com/~bradbell/omhelp%$$
+The file names corresponding to the web pages
+are controlled by the OMhelp user and persist between different builds
+of the documentation.
+Web search engines tend to pick up individual OMhelp pages
+(that are part of a package documentation)
+as solutions to specific problems.
+In addition,
+links to these web pages are a good way to discuss problems and solutions.
 
 $head Single Source$$
 Many of the OMhelp features come from a single source philosophy.
