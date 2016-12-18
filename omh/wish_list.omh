@@ -17,9 +17,18 @@ $spell
 	icode
 	CppAD
 	OMhelp
+	https
+	Jax
 $$
 
 $section OMhelp Wish List$$
+
+$head https$$
+Currently the $cref/MathJax/latex/MathJax (htm)/$$ does not display properly
+on a secure server; see
+$href%http://docs.mathjax.org/en/latest/start.html#secure-cdn-access
+%secure access
+%$$
 
 $head spell$$
 Print a warning when a $cref spell$$ command entry does not appear
