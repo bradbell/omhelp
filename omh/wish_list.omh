@@ -23,6 +23,11 @@ $$
 
 $section OMhelp Wish List$$
 
+$head Header$$
+Add an option to put a jump table at the top of each section,
+instead of the $code Headings$$ drop-down menu at top,
+because a jump table is more standard.
+
 $head https$$
 Currently the $cref/MathJax/latex/MathJax (htm)/$$ does not display properly
 on a secure server; see
