@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_OMH_HOME_BRADBELL_OMHELP_GIT_SRC_OMHELP_H_INCLUDED
-# define YY_OMH_HOME_BRADBELL_OMHELP_GIT_SRC_OMHELP_H_INCLUDED
+#ifndef YY_OMH_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_OMHELP_H_INCLUDED
+# define YY_OMH_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_OMHELP_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -142,4 +142,4 @@ extern YYSTYPE omhlval;
 
 int omhparse (void);
 
-#endif /* !YY_OMH_HOME_BRADBELL_OMHELP_GIT_SRC_OMHELP_H_INCLUDED  */
+#endif /* !YY_OMH_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_OMHELP_H_INCLUDED  */

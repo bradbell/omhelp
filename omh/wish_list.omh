@@ -19,9 +19,15 @@ $spell
 	OMhelp
 	https
 	Jax
+	nlcomment
 $$
 
 $section OMhelp Wish List$$
+
+$head Comment Character$$
+It would be nice to allow for more than one character in the
+$cref newlinech$$ command so that C++ $code //$$ comments can be recognized.
+Perhaps this should be a new command called $code nlcomment$$.
 
 $head Header$$
 Add an option to put a jump table at the top of each section,
