@@ -20,9 +20,16 @@ $spell
 	https
 	Jax
 	nlcomment
+	matlab
 $$
 
 $section OMhelp Wish List$$
+
+$head source-highlight$$
+Add a language definition for matlab/octave; see
+$href%http://blog.ivansiu.com/blog/2014/05/01/source-highlight-for-matlab-slash-octave/
+%source-highlight for matlab and octavve
+%$$.
 
 $head Comment Character$$
 It would be nice to allow for more than one character in the
