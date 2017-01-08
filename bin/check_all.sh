@@ -97,7 +97,7 @@ else
 	echo_log_eval cd omhelp-$version
 fi
 # -----------------------------------------------------------------------------
-highlight_prefix=`grep source_highlight_prefix bin/run_cmake.sh debug | \
+highlight_prefix=`grep source_highlight_prefix bin/run_cmake.sh | \
 		sed -e 's|^.*=||' -e 's|" .*||' -e 's|"||' -e "s|[$]HOME|$HOME|"`
 # -----------------------------------------------------------------------------
 for test_case in highlight_no highlight_yes

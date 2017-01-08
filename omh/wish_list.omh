@@ -26,11 +26,8 @@ $$
 $section OMhelp Wish List$$
 
 $head source-highlight$$
-Add a language definition for matlab/octave; see
-$href%http://blog.ivansiu.com/blog/2014/05/01/source-highlight-for-matlab-slash-octave/
-%source-highlight for matlab and octavve
-%$$.
-Once this works, add one for OMhelp files.
+Add a language definition for OMhelp to the $cref srcfile$$ command;
+see $cref%bin/highlight.sh%highlight.sh%$$.
 
 $head Comment Character$$
 It would be nice to allow for more than one character in the

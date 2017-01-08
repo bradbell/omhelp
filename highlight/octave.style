@@ -1,0 +1,6 @@
+# http://blog.ivansiu.com/blog/2014/05/01/
+#	source-highlight-for-matlab-slash-octave/
+#
+keyword blue;
+string #a020f0;
+comment darkgreen;

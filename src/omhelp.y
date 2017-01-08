@@ -2975,6 +2975,13 @@ href
 		if( heading != NULL )
 		{	*heading = '\0';
 			heading++;
+			if( strchr(heading, '#') != NULL ) fatalomh(
+				"In the $href command in line ",
+				int2str($1.line),
+				"\nlinking text has more than one '#' character",
+				"\nPerhaps missing $newlinech #$$ at top of this section",
+				NULL
+			);
 		}
 		else	heading = "\0";
 
