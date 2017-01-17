@@ -25,6 +25,11 @@ $$
 
 $section OMhelp Wish List$$
 
+$head Parent Section$$
+Add a command that says this section is the parent for all other sections
+that appear in the same file. Perhaps this would have to be the first section
+in the file.
+
 $head source-highlight$$
 Add a language definition for OMhelp to the $cref srcfile$$ command;
 see $cref%bin/highlight.sh%highlight.sh%$$.
