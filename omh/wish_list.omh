@@ -7,11 +7,8 @@ OMhelp is distributed under the terms of the
 $begin wish_list$$
 $dollar @$$
 $spell
-	xml
 	htm
 	html
-	cppad
-	href
 	backslash
 	endc
 	icode
@@ -20,10 +17,21 @@ $spell
 	https
 	Jax
 	nlcomment
-	matlab
+	tbl
 $$
 
 $section OMhelp Wish List$$
+
+$head Tables$$
+Add a version of the
+$cref table$$ command that specifies the number of spaces between columns
+and the adjustment for each column (center, top, bottom, right, left)
+and possible other options that tables can have; e.g.,
+$codei%
+	@tbl/%spaces%/@@
+	@tbl/%spaces%/%adjust_1%/@@
+	@tbl/%spaces%/%adjust_1%/%adjust_2%/@@
+%$$
 
 $head Parent Section$$
 Add a command that says this section is the parent for all other sections
