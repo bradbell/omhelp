@@ -88,7 +88,7 @@ MathJax.Hub.Config({
 });
 </script>
 <script type='text/javascript' src=
-'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
 >
 </script>
 $$
@@ -134,7 +134,7 @@ static char *Table[] = {
 "});\n"
 "</script>\n"
 "<script type='text/javascript' src=\n"
-"'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'\n"
+"'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'\n"
 ">\n"
 "</script>\n"
 

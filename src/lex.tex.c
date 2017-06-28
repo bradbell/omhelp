@@ -1,6 +1,6 @@
-#line 2 "/home/bradbell/omhelp.git/src/lex.tex.c"
+#line 2 "/home/bradbell/repo/omhelp.git/src/lex.tex.c"
 
-#line 4 "/home/bradbell/omhelp.git/src/lex.tex.c"
+#line 4 "/home/bradbell/repo/omhelp.git/src/lex.tex.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -27,8 +27,8 @@
 
 #define FLEX_SCANNER
 #define YY_FLEX_MAJOR_VERSION 2
-#define YY_FLEX_MINOR_VERSION 5
-#define YY_FLEX_SUBMINOR_VERSION 37
+#define YY_FLEX_MINOR_VERSION 6
+#define YY_FLEX_SUBMINOR_VERSION 0
 #if YY_FLEX_SUBMINOR_VERSION > 0
 #define FLEX_BETA
 #endif
@@ -161,7 +161,15 @@ typedef unsigned int flex_uint32_t;
 
 /* Size of default input buffer. */
 #ifndef YY_BUF_SIZE
+#ifdef __ia64__
+/* On IA-64, the buffer size is 16k, not 8k.
+ * Moreover, YY_BUF_SIZE is 2*YY_READ_BUF_SIZE in the general case.
+ * Ditto for the __ia64__ case accordingly.
+ */
+#define YY_BUF_SIZE 32768
+#else
 #define YY_BUF_SIZE 16384
+#endif /* __ia64__ */
 #endif
 
 /* The state buf must be large enough to hold one state per character in the main buffer.
@@ -187,13 +195,14 @@ extern FILE *texin, *texout;
 #define EOB_ACT_LAST_MATCH 2
 
     #define YY_LESS_LINENO(n)
+    #define YY_LINENO_REWIND_TO(ptr)
 
 /* Return all but the first "n" matched characters back to the input stream. */
 #define yyless(n) \
 	do \
 		{ \
 		/* Undo effects of setting up textext. */ \
-        int yyless_macro_arg = (n); \
+        yy_size_t yyless_macro_arg = (n); \
         YY_LESS_LINENO(yyless_macro_arg);\
 		*yy_cp = (yy_hold_char); \
 		YY_RESTORE_YY_MORE_OFFSET \
@@ -363,11 +372,17 @@ extern int texlineno;
 int texlineno = 1;
 
 extern char *textext;
+#ifdef yytext_ptr
+#undef yytext_ptr
+#endif
 #define yytext_ptr textext
 
 static yy_state_type yy_get_previous_state (void );
 static yy_state_type yy_try_NUL_trans (yy_state_type current_state  );
 static int yy_get_next_buffer (void );
+#if defined(__GNUC__) && __GNUC__ >= 3
+__attribute__((__noreturn__))
+#endif
 static void yy_fatal_error (yyconst char msg[]  );
 
 /* Done after the current pattern has been matched and before the
@@ -411,7 +426,7 @@ static yyconst flex_int16_t yy_accept[168] =
         0,   24,    0,    0,   15,   10,    0
     } ;
 
-static yyconst flex_int32_t yy_ec[256] =
+static yyconst YY_CHAR yy_ec[256] =
     {   0,
         1,    2,    2,    2,    2,    2,    2,    2,    3,    4,
         2,    2,    3,    2,    2,    2,    2,    2,    2,    2,
@@ -443,7 +458,7 @@ static yyconst flex_int32_t yy_ec[256] =
         2,    2,    2,    2,    2
     } ;
 
-static yyconst flex_int32_t yy_meta[49] =
+static yyconst YY_CHAR yy_meta[49] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    2,    1,
         1,    1,    1,    1,    1,    3,    1,    1,    1,    1,
@@ -452,7 +467,7 @@ static yyconst flex_int32_t yy_meta[49] =
         3,    3,    3,    3,    3,    1,    1,    4
     } ;
 
-static yyconst flex_int16_t yy_base[172] =
+static yyconst flex_uint16_t yy_base[172] =
     {   0,
         0,    0,  368,  369,  369,  364,  369,  369,   48,  369,
        38,  353,   41,    0,  369,   54,  369,  369,  369,  369,
@@ -498,7 +513,7 @@ static yyconst flex_int16_t yy_def[172] =
       167
     } ;
 
-static yyconst flex_int16_t yy_nxt[418] =
+static yyconst flex_uint16_t yy_nxt[418] =
     {   0,
         4,    5,    6,    7,    8,    5,    9,   10,    8,    8,
        11,   12,   13,    8,    8,   14,   15,   16,   17,   18,
@@ -612,8 +627,8 @@ int tex_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *textext;
-#line 1 "/home/bradbell/omhelp.git/src/latex.l"
-#line 2 "/home/bradbell/omhelp.git/src/latex.l"
+#line 1 "/home/bradbell/repo/omhelp.git/src/latex.l"
+#line 2 "/home/bradbell/repo/omhelp.git/src/latex.l"
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
           Copyright (C) 1998-2015 Bradley M. Bell
@@ -791,7 +806,7 @@ static size_t NDiacritical =
 	sizeof(Diacritical) / sizeof(Diacritical[0]);
 
 /***************************************************************************/
-#line 795 "/home/bradbell/omhelp.git/src/lex.tex.c"
+#line 810 "/home/bradbell/repo/omhelp.git/src/lex.tex.c"
 
 #define INITIAL 0
 
@@ -824,11 +839,11 @@ void texset_extra (YY_EXTRA_TYPE user_defined  );
 
 FILE *texget_in (void );
 
-void texset_in  (FILE * in_str  );
+void texset_in  (FILE * _in_str  );
 
 FILE *texget_out (void );
 
-void texset_out  (FILE * out_str  );
+void texset_out  (FILE * _out_str  );
 
 yy_size_t texget_leng (void );
 
@@ -836,7 +851,7 @@ char *texget_text (void );
 
 int texget_lineno (void );
 
-void texset_lineno (int line_number  );
+void texset_lineno (int _line_number  );
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -848,6 +863,10 @@ extern "C" int texwrap (void );
 #else
 extern int texwrap (void );
 #endif
+#endif
+
+#ifndef YY_NO_UNPUT
+
 #endif
 
 #ifndef yytext_ptr
@@ -870,7 +889,12 @@ static int input (void );
 
 /* Amount of stuff to slurp up with each read. */
 #ifndef YY_READ_BUF_SIZE
+#ifdef __ia64__
+/* On IA-64, the buffer size is 16k, not 8k */
+#define YY_READ_BUF_SIZE 16384
+#else
 #define YY_READ_BUF_SIZE 8192
+#endif /* __ia64__ */
 #endif
 
 /* Copy whatever the last rule matched to the standard output. */
@@ -957,7 +981,7 @@ extern int texlex (void);
 
 /* Code executed at the end of each rule. */
 #ifndef YY_BREAK
-#define YY_BREAK break;
+#define YY_BREAK /*LINTED*/break;
 #endif
 
 #define YY_RULE_SETUP \
@@ -967,15 +991,9 @@ extern int texlex (void);
  */
 YY_DECL
 {
-	register yy_state_type yy_current_state;
-	register char *yy_cp, *yy_bp;
-	register int yy_act;
-
-#line 201 "/home/bradbell/omhelp.git/src/latex.l"
-
-
-	// special commands with separate constructions
-#line 979 "/home/bradbell/omhelp.git/src/lex.tex.c"
+	yy_state_type yy_current_state;
+	char *yy_cp, *yy_bp;
+	int yy_act;
 
 	if ( !(yy_init) )
 		{
@@ -1003,7 +1021,14 @@ YY_DECL
 		tex_load_buffer_state( );
 		}
 
-	while ( 1 )		/* loops until end-of-file is reached */
+	{
+#line 201 "/home/bradbell/repo/omhelp.git/src/latex.l"
+
+
+	// special commands with separate constructions
+#line 1030 "/home/bradbell/repo/omhelp.git/src/lex.tex.c"
+
+	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
 		yy_cp = (yy_c_buf_p);
 
@@ -1019,7 +1044,7 @@ YY_DECL
 yy_match:
 		do
 			{
-			register YY_CHAR yy_c = yy_ec[YY_SC_TO_UI(*yy_cp)];
+			YY_CHAR yy_c = yy_ec[YY_SC_TO_UI(*yy_cp)] ;
 			if ( yy_accept[yy_current_state] )
 				{
 				(yy_last_accepting_state) = yy_current_state;
@@ -1060,7 +1085,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 204 "/home/bradbell/omhelp.git/src/latex.l"
+#line 204 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		assert( strlen(textext) == 2 );
 
@@ -1070,7 +1095,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 210 "/home/bradbell/omhelp.git/src/latex.l"
+#line 210 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		assert( strlen(textext) == 2 );
 
@@ -1080,7 +1105,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 216 "/home/bradbell/omhelp.git/src/latex.l"
+#line 216 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		assert( strlen(textext) == 2 );
 
@@ -1090,7 +1115,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 222 "/home/bradbell/omhelp.git/src/latex.l"
+#line 222 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		assert( strlen(textext) == 2 );
 
@@ -1102,7 +1127,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 230 "/home/bradbell/omhelp.git/src/latex.l"
+#line 230 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		assert( strlen(textext) == 2 );
 		SetTexLval(textext, NULL);
@@ -1111,7 +1136,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 235 "/home/bradbell/omhelp.git/src/latex.l"
+#line 235 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		assert( strlen(textext) == 2 );
 		SetTexLval(textext, NULL);
@@ -1120,7 +1145,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 240 "/home/bradbell/omhelp.git/src/latex.l"
+#line 240 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		assert( strlen(textext) == 2 );
 		SetTexLval(textext, NULL);
@@ -1129,7 +1154,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 245 "/home/bradbell/omhelp.git/src/latex.l"
+#line 245 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		assert( strlen(textext) == 2 );
 
@@ -1140,7 +1165,7 @@ YY_RULE_SETUP
 case 9:
 /* rule 9 can match eol */
 YY_RULE_SETUP
-#line 251 "/home/bradbell/omhelp.git/src/latex.l"
+#line 251 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		fataltex(
 			"The text '",
@@ -1152,7 +1177,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 259 "/home/bradbell/omhelp.git/src/latex.l"
+#line 259 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		Cmd_Bracket_Mode = '[';
@@ -1161,7 +1186,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 264 "/home/bradbell/omhelp.git/src/latex.l"
+#line 264 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, "bold" );
 		return CMD_FONT_lex;
@@ -1169,7 +1194,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 268 "/home/bradbell/omhelp.git/src/latex.l"
+#line 268 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, "italic" );
 		return CMD_FONT_lex;
@@ -1177,7 +1202,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 272 "/home/bradbell/omhelp.git/src/latex.l"
+#line 272 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_END_ARRAY_lex;
@@ -1185,7 +1210,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 276 "/home/bradbell/omhelp.git/src/latex.l"
+#line 276 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_FRAC_lex;
@@ -1193,7 +1218,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 280 "/home/bradbell/omhelp.git/src/latex.l"
+#line 280 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		size_t len = strlen(textext);
 
@@ -1209,7 +1234,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 292 "/home/bradbell/omhelp.git/src/latex.l"
+#line 292 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_LEFT_lex;
@@ -1218,7 +1243,7 @@ YY_RULE_SETUP
 case 17:
 /* rule 17 can match eol */
 YY_RULE_SETUP
-#line 296 "/home/bradbell/omhelp.git/src/latex.l"
+#line 296 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		size_t len = strlen(textext);
 
@@ -1234,7 +1259,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 308 "/home/bradbell/omhelp.git/src/latex.l"
+#line 308 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_OVERBRACE_lex;
@@ -1242,7 +1267,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 312 "/home/bradbell/omhelp.git/src/latex.l"
+#line 312 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_OVERLINE_lex;
@@ -1250,7 +1275,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 316 "/home/bradbell/omhelp.git/src/latex.l"
+#line 316 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_RIGHT_lex;
@@ -1258,7 +1283,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 320 "/home/bradbell/omhelp.git/src/latex.l"
+#line 320 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, "sans-serif" );
 		return CMD_FONT_lex;
@@ -1266,7 +1291,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 324 "/home/bradbell/omhelp.git/src/latex.l"
+#line 324 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		Cmd_Bracket_Mode = '[';
@@ -1275,7 +1300,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 329 "/home/bradbell/omhelp.git/src/latex.l"
+#line 329 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, "monospace" );
 		return CMD_FONT_lex;
@@ -1283,7 +1308,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 333 "/home/bradbell/omhelp.git/src/latex.l"
+#line 333 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_UNDERBRACE_lex;
@@ -1291,7 +1316,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 337 "/home/bradbell/omhelp.git/src/latex.l"
+#line 337 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_UNDERLINE_lex;
@@ -1299,7 +1324,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 341 "/home/bradbell/omhelp.git/src/latex.l"
+#line 341 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_WIDEHAT_lex;
@@ -1307,7 +1332,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 345 "/home/bradbell/omhelp.git/src/latex.l"
+#line 345 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_WIDETILDE_lex;
@@ -1315,7 +1340,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 349 "/home/bradbell/omhelp.git/src/latex.l"
+#line 349 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, "normal" );
 		return CMD_FONT_lex;
@@ -1323,7 +1348,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 353 "/home/bradbell/omhelp.git/src/latex.l"
+#line 353 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CMD_STACKREL_lex;
@@ -1331,7 +1356,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 357 "/home/bradbell/omhelp.git/src/latex.l"
+#line 357 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CHAR_AMPERSAND_lex;
@@ -1339,7 +1364,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 361 "/home/bradbell/omhelp.git/src/latex.l"
+#line 361 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 		SetTexLval(textext, NULL);
 		return CHAR_CARET_lex;
@@ -1347,7 +1372,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 365 "/home/bradbell/omhelp.git/src/latex.l"
+#line 365 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	const char *name;
 	const char  *str;
@@ -1378,14 +1403,14 @@ YY_RULE_SETUP
 case 33:
 /* rule 33 can match eol */
 YY_RULE_SETUP
-#line 391 "/home/bradbell/omhelp.git/src/latex.l"
+#line 391 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	// ignore
 }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 394 "/home/bradbell/omhelp.git/src/latex.l"
+#line 394 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	SetTexLval("CHAR_ENDINPUT_lex", NULL);
 	return CHAR_ENDINPUT_lex;
@@ -1393,7 +1418,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 398 "/home/bradbell/omhelp.git/src/latex.l"
+#line 398 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	SetTexLval(textext, NULL);
 	return CHAR_LEFTBRACE_lex;
@@ -1401,7 +1426,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 402 "/home/bradbell/omhelp.git/src/latex.l"
+#line 402 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	if( Cmd_Bracket_Mode == '[' )
 	{	SetTexLval(textext, NULL);
@@ -1419,7 +1444,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 416 "/home/bradbell/omhelp.git/src/latex.l"
+#line 416 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 
 # ifndef NDEBUG
@@ -1439,14 +1464,14 @@ YY_RULE_SETUP
 case 38:
 /* rule 38 can match eol */
 YY_RULE_SETUP
-#line 431 "/home/bradbell/omhelp.git/src/latex.l"
+#line 431 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	// ignore
 }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 434 "/home/bradbell/omhelp.git/src/latex.l"
+#line 434 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	SetTexLval(textext, textext);
 	return NUMBER_lex;
@@ -1454,7 +1479,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 438 "/home/bradbell/omhelp.git/src/latex.l"
+#line 438 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {	// operators that do not need conversion to Unicode
 
 	SetTexLval(textext, textext);
@@ -1463,7 +1488,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 443 "/home/bradbell/omhelp.git/src/latex.l"
+#line 443 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	SetTexLval(textext, NULL);
 	return CHAR_RIGHTBRACE_lex;
@@ -1471,7 +1496,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 447 "/home/bradbell/omhelp.git/src/latex.l"
+#line 447 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	if( Cmd_Bracket_Mode == ']' )
 	{	SetTexLval(textext, NULL);
@@ -1484,7 +1509,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 456 "/home/bradbell/omhelp.git/src/latex.l"
+#line 456 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	SetTexLval(textext, NULL);
 	return CHAR_UNDERBAR_lex;
@@ -1492,14 +1517,14 @@ YY_RULE_SETUP
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 460 "/home/bradbell/omhelp.git/src/latex.l"
+#line 460 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	// ignore
 }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 464 "/home/bradbell/omhelp.git/src/latex.l"
+#line 464 "/home/bradbell/repo/omhelp.git/src/latex.l"
 {
 	fataltex(
 		"The character with ascii code ",
@@ -1511,10 +1536,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 473 "/home/bradbell/omhelp.git/src/latex.l"
+#line 473 "/home/bradbell/repo/omhelp.git/src/latex.l"
 ECHO;
 	YY_BREAK
-#line 1518 "/home/bradbell/omhelp.git/src/lex.tex.c"
+#line 1543 "/home/bradbell/repo/omhelp.git/src/lex.tex.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1645,6 +1670,7 @@ case YY_STATE_EOF(INITIAL):
 			"fatal flex scanner internal error--no action found" );
 	} /* end of action switch */
 		} /* end of scanning one token */
+	} /* end of user's declarations */
 } /* end of texlex */
 
 /* yy_get_next_buffer - try to read in a new buffer
@@ -1656,9 +1682,9 @@ case YY_STATE_EOF(INITIAL):
  */
 static int yy_get_next_buffer (void)
 {
-	register char *dest = YY_CURRENT_BUFFER_LVALUE->yy_ch_buf;
-	register char *source = (yytext_ptr);
-	register int number_to_move, i;
+	char *dest = YY_CURRENT_BUFFER_LVALUE->yy_ch_buf;
+	char *source = (yytext_ptr);
+	yy_size_t number_to_move, i;
 	int ret_val;
 
 	if ( (yy_c_buf_p) > &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars) + 1] )
@@ -1687,7 +1713,7 @@ static int yy_get_next_buffer (void)
 	/* Try to read more data. */
 
 	/* First move last chars to start of buffer. */
-	number_to_move = (int) ((yy_c_buf_p) - (yytext_ptr)) - 1;
+	number_to_move = (yy_size_t) ((yy_c_buf_p) - (yytext_ptr)) - 1;
 
 	for ( i = 0; i < number_to_move; ++i )
 		*(dest++) = *(source++);
@@ -1700,7 +1726,7 @@ static int yy_get_next_buffer (void)
 
 	else
 		{
-			yy_size_t num_to_read =
+			int num_to_read =
 			YY_CURRENT_BUFFER_LVALUE->yy_buf_size - number_to_move - 1;
 
 		while ( num_to_read <= 0 )
@@ -1790,14 +1816,14 @@ static int yy_get_next_buffer (void)
 
     static yy_state_type yy_get_previous_state (void)
 {
-	register yy_state_type yy_current_state;
-	register char *yy_cp;
+	yy_state_type yy_current_state;
+	char *yy_cp;
 
 	yy_current_state = (yy_start);
 
 	for ( yy_cp = (yytext_ptr) + YY_MORE_ADJ; yy_cp < (yy_c_buf_p); ++yy_cp )
 		{
-		register YY_CHAR yy_c = (*yy_cp ? yy_ec[YY_SC_TO_UI(*yy_cp)] : 2);
+		YY_CHAR yy_c = (*yy_cp ? yy_ec[YY_SC_TO_UI(*yy_cp)] : 2);
 		if ( yy_accept[yy_current_state] )
 			{
 			(yy_last_accepting_state) = yy_current_state;
@@ -1822,10 +1848,10 @@ static int yy_get_next_buffer (void)
  */
     static yy_state_type yy_try_NUL_trans  (yy_state_type yy_current_state )
 {
-	register int yy_is_jam;
-	register char *yy_cp = (yy_c_buf_p);
+	int yy_is_jam;
+	char *yy_cp = (yy_c_buf_p);
 
-	register YY_CHAR yy_c = 2;
+	YY_CHAR yy_c = 2;
 	if ( yy_accept[yy_current_state] )
 		{
 		(yy_last_accepting_state) = yy_current_state;
@@ -1842,6 +1868,10 @@ static int yy_get_next_buffer (void)
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
+
+#ifndef YY_NO_UNPUT
+
+#endif
 
 #ifndef YY_NO_INPUT
 #ifdef __cplusplus
@@ -1992,7 +2022,7 @@ static void tex_load_buffer_state  (void)
 	if ( ! b )
 		YY_FATAL_ERROR( "out of dynamic memory in tex_create_buffer()" );
 
-	b->yy_buf_size = size;
+	b->yy_buf_size = (yy_size_t)size;
 
 	/* yy_ch_buf has to be 2 characters longer than the size given because
 	 * we need to put in 2 end-of-buffer characters.
@@ -2147,7 +2177,7 @@ static void texensure_buffer_stack (void)
 		 * scanner will even need a stack. We use 2 instead of 1 to avoid an
 		 * immediate realloc on the next call.
          */
-		num_to_alloc = 1;
+      num_to_alloc = 1; /* After all that talk, this was set to 1 anyways... */
 		(yy_buffer_stack) = (struct yy_buffer_state**)texalloc
 								(num_to_alloc * sizeof(struct yy_buffer_state*)
 								);
@@ -2164,7 +2194,7 @@ static void texensure_buffer_stack (void)
 	if ((yy_buffer_stack_top) >= ((yy_buffer_stack_max)) - 1){
 
 		/* Increase the buffer to prepare for a possible push. */
-		int grow_size = 8 /* arbitrary grow size */;
+		yy_size_t grow_size = 8 /* arbitrary grow size */;
 
 		num_to_alloc = (yy_buffer_stack_max) + grow_size;
 		(yy_buffer_stack) = (struct yy_buffer_state**)texrealloc
@@ -2272,7 +2302,7 @@ YY_BUFFER_STATE tex_scan_bytes  (yyconst char * yybytes, yy_size_t  _yybytes_len
 
 static void yy_fatal_error (yyconst char* msg )
 {
-	(void) fprintf( stderr, "%s\n", msg );
+			(void) fprintf( stderr, "%s\n", msg );
 	exit( YY_EXIT_FAILURE );
 }
 
@@ -2283,7 +2313,7 @@ static void yy_fatal_error (yyconst char* msg )
 	do \
 		{ \
 		/* Undo effects of setting up textext. */ \
-        int yyless_macro_arg = (n); \
+        yy_size_t yyless_macro_arg = (n); \
         YY_LESS_LINENO(yyless_macro_arg);\
 		textext[texleng] = (yy_hold_char); \
 		(yy_c_buf_p) = textext + yyless_macro_arg; \
@@ -2338,29 +2368,29 @@ char *texget_text  (void)
 }
 
 /** Set the current line number.
- * @param line_number
+ * @param _line_number line number
  *
  */
-void texset_lineno (int  line_number )
+void texset_lineno (int  _line_number )
 {
 
-    texlineno = line_number;
+    texlineno = _line_number;
 }
 
 /** Set the input stream. This does not discard the current
  * input buffer.
- * @param in_str A readable stream.
+ * @param _in_str A readable stream.
  *
  * @see tex_switch_to_buffer
  */
-void texset_in (FILE *  in_str )
+void texset_in (FILE *  _in_str )
 {
-        texin = in_str ;
+        texin = _in_str ;
 }
 
-void texset_out (FILE *  out_str )
+void texset_out (FILE *  _out_str )
 {
-        texout = out_str ;
+        texout = _out_str ;
 }
 
 int texget_debug  (void)
@@ -2368,9 +2398,9 @@ int texget_debug  (void)
         return tex_flex_debug;
 }
 
-void texset_debug (int  bdebug )
+void texset_debug (int  _bdebug )
 {
-        tex_flex_debug = bdebug ;
+        tex_flex_debug = _bdebug ;
 }
 
 static int yy_init_globals (void)
@@ -2430,7 +2460,8 @@ int texlex_destroy  (void)
 #ifndef yytext_ptr
 static void yy_flex_strncpy (char* s1, yyconst char * s2, int n )
 {
-	register int i;
+
+	int i;
 	for ( i = 0; i < n; ++i )
 		s1[i] = s2[i];
 }
@@ -2439,7 +2470,7 @@ static void yy_flex_strncpy (char* s1, yyconst char * s2, int n )
 #ifdef YY_NEED_STRLEN
 static int yy_flex_strlen (yyconst char * s )
 {
-	register int n;
+	int n;
 	for ( n = 0; s[n]; ++n )
 		;
 
@@ -2449,11 +2480,12 @@ static int yy_flex_strlen (yyconst char * s )
 
 void *texalloc (yy_size_t  size )
 {
-	return (void *) malloc( size );
+			return (void *) malloc( size );
 }
 
 void *texrealloc  (void * ptr, yy_size_t  size )
 {
+
 	/* The cast to (char *) in the following accommodates both
 	 * implementations that use char* generic pointers, and those
 	 * that use void* generic pointers.  It works with the latter
@@ -2466,12 +2498,12 @@ void *texrealloc  (void * ptr, yy_size_t  size )
 
 void texfree (void * ptr )
 {
-	free( (char *) ptr );	/* see texrealloc() for (char *) cast */
+			free( (char *) ptr );	/* see texrealloc() for (char *) cast */
 }
 
 #define YYTABLES_NAME "yytables"
 
-#line 473 "/home/bradbell/omhelp.git/src/latex.l"
+#line 473 "/home/bradbell/repo/omhelp.git/src/latex.l"
 
 
 /****************************************************************************/

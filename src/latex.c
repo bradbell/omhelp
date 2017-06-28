@@ -70,7 +70,7 @@
 #define yychar          texchar
 
 /* Copy the first part of user declarations.  */
-#line 18 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:339  */
+#line 18 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:339  */
 
 
 # include <stdio.h>
@@ -346,7 +346,7 @@ static void SetArrayAlign(char *str)
 
 // ***********************************************************************
 
-#line 350 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:339  */
+#line 350 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -366,8 +366,8 @@ static void SetArrayAlign(char *str)
 
 /* In a future release of Bison, this section will be replaced
    by #include "latex.h".  */
-#ifndef YY_TEX_HOME_BRADBELL_OMHELP_GIT_SRC_LATEX_H_INCLUDED
-# define YY_TEX_HOME_BRADBELL_OMHELP_GIT_SRC_LATEX_H_INCLUDED
+#ifndef YY_TEX_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_LATEX_H_INCLUDED
+# define YY_TEX_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_LATEX_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -442,11 +442,11 @@ extern YYSTYPE texlval;
 
 int texparse (void);
 
-#endif /* !YY_TEX_HOME_BRADBELL_OMHELP_GIT_SRC_LATEX_H_INCLUDED  */
+#endif /* !YY_TEX_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_LATEX_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 450 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:358  */
+#line 450 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1648,7 +1648,7 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 345 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 345 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-2]).str == NULL );
 		assert( (yyvsp[0]).str == NULL );
 
@@ -1680,11 +1680,11 @@ yyreduce:
 
 		return BlockDisplay;
 	}
-#line 1684 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1684 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 377 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 377 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-3]).str == NULL );
 		assert( (yyvsp[-1]).str == NULL );
 		assert( (yyvsp[0]).str == NULL );
@@ -1720,11 +1720,11 @@ yyreduce:
 
 		return BlockDisplay;
 	}
-#line 1724 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1724 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 416 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 416 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	yydebug      = 0;
 		BlockDisplay = 0;
 		FontLevel    = -1;
@@ -1739,11 +1739,11 @@ yyreduce:
 		(yyval).next  = NULL;
 		(yyval).extra = NULL;
 	}
-#line 1743 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1743 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 434 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 434 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	yydebug      = 0;
 		BlockDisplay = 1;
 		FontLevel    = -1;
@@ -1760,11 +1760,11 @@ yyreduce:
 		(yyval).next  = NULL;
 		(yyval).extra = NULL;
 	}
-#line 1764 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1764 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 454 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 454 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-2]).str == NULL );
 		assert( (yyvsp[-1]).str != NULL || (yyvsp[-1]).line == 0 );
 		assert( (yyvsp[0]).str == NULL );
@@ -1780,11 +1780,11 @@ yyreduce:
 		(yyval)      = (yyvsp[-1]);
 		(yyval).line = (yyvsp[-2]).line;
 	}
-#line 1784 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1784 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 473 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 473 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-2]).str != NULL );
 		assert( (yyvsp[-1]).str != NULL || (yyvsp[-1]).line == 0 );
 		assert( (yyvsp[-1]).str != NULL || LengthStype(& (yyvsp[-1])) == 1 );
@@ -1804,11 +1804,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-2]);
 	}
-#line 1808 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1808 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 496 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 496 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {
 		assert( (yyvsp[-2]).str == NULL );
 		assert( (yyvsp[-1]).str != NULL );
@@ -1838,11 +1838,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-2]);
 	}
-#line 1842 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1842 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 529 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 529 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {
 		assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
@@ -1853,11 +1853,11 @@ yyreduce:
 		(yyvsp[0]).str  = NULL;
 		(yyval)      = (yyvsp[0]);
 	}
-#line 1857 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1857 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 543 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 543 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-2]).str == NULL );
 		assert( (yyvsp[-1]).str == NULL );
 		assert( (yyvsp[0]).str == NULL );
@@ -1867,11 +1867,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-2]);
 	}
-#line 1871 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1871 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 557 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 557 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {
 		assert( (yyvsp[0]).str == NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
@@ -1883,22 +1883,22 @@ yyreduce:
 
 		(yyval)      = (yyvsp[0]);
 	}
-#line 1887 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1887 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 572 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 572 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL || (yyvsp[0]).line == 0 );
 		assert( ArrayLevel > 0 );
 
 		(yyval)      = (yyvsp[0]);
 		(yyval).data = 1;    // first column of the array
 	}
-#line 1898 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1898 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 579 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 579 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	char *str;
 
 		int col;
@@ -1963,11 +1963,11 @@ yyreduce:
 		(yyval)      = (yyvsp[-2]);
 		(yyval).data = col + 1;   // next column of the array
 	}
-#line 1967 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1967 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 647 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 647 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// center is the default row alignment
 		(yyval).line  = 0;
 		(yyval).data  = 0;
@@ -1975,11 +1975,11 @@ yyreduce:
 		(yyval).next  = NULL;
 		(yyval).extra = NULL;
 	}
-#line 1979 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 1979 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 655 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 655 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	size_t len;
 
 		char *str;
@@ -2027,11 +2027,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-2]);
 	}
-#line 2031 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2031 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 707 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 707 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL || (yyvsp[0]).line == 0 );
 		assert( (yyvsp[0]).str != NULL || LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2041,11 +2041,11 @@ yyreduce:
 		// no longer counting columns
 		(yyval).data = 0;
 	}
-#line 2045 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2045 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 717 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 717 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-2]).str != NULL || (yyvsp[-2]).line == 0 );
 		assert( (yyvsp[-2]).str != NULL || LengthStype(& (yyvsp[-2])) == 1 );
 
@@ -2078,11 +2078,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-2]);
 	}
-#line 2082 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2082 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 753 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 753 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is unicode for this symbol
 		assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
@@ -2093,11 +2093,11 @@ yyreduce:
 		assert( LengthStype( & (yyvsp[0]) ) == 3 );
 		(yyval) = (yyvsp[0]);
 	}
-#line 2097 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2097 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 767 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 767 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is unicode for this symbol
 		assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
@@ -2107,11 +2107,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2111 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2111 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 780 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 780 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-1]).str != NULL );
 		assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[-1])) == 1 );
@@ -2124,11 +2124,11 @@ yyreduce:
 		(yyval)      = (yyvsp[0]);
 		(yyval).line = (yyvsp[-1]).line;
 	}
-#line 2128 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2128 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 797 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 797 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is unicode for this symbol
 		assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
@@ -2138,21 +2138,21 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2142 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2142 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 22:
-#line 811 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 811 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2152 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2152 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 817 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 817 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2182,21 +2182,21 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2186 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2186 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 850 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 850 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2196 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2196 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 856 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 856 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2211,189 +2211,189 @@ yyreduce:
 		);
 
 	}
-#line 2215 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2215 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 871 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 871 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2225 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2225 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 880 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 880 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2231 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2231 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 882 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 882 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2237 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2237 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 884 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 884 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2243 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2243 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 886 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 886 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2249 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2249 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 888 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 888 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2255 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2255 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 890 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 890 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2261 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2261 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 892 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 892 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2267 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2267 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 894 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 894 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2273 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2273 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 896 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 896 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2279 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2279 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 898 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 898 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2285 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2285 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 900 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 900 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2291 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2291 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 902 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 902 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2297 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2297 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 904 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 904 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2303 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2303 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 906 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 906 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2309 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2309 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 908 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 908 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2315 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2315 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 910 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 910 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2321 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2321 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 43:
-#line 912 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 912 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2327 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2327 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 914 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 914 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2333 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2333 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 916 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 916 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2339 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2339 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 46:
-#line 918 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 918 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2345 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2345 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 47:
-#line 920 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 920 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2351 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2351 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 48:
-#line 922 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 922 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2357 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2357 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 49:
-#line 924 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 924 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2363 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2363 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 926 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 926 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2369 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2369 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 51:
-#line 928 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 928 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2375 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2375 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 930 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 930 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2381 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2381 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 932 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 932 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2387 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2387 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 54:
-#line 934 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 934 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2393 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2393 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 55:
-#line 939 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 939 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2415,11 +2415,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2419 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2419 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 56:
-#line 964 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 964 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-2]).str == NULL );
 		assert( LengthStype(& (yyvsp[-2])) == 1 );
 
@@ -2430,11 +2430,11 @@ yyreduce:
 		(yyval)      = (yyvsp[-1]);
 		(yyval).line = (yyvsp[-2]).line;
 	}
-#line 2434 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2434 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 57:
-#line 978 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 978 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	char *s;
 
 		// str is unicode for this symbol
@@ -2459,11 +2459,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2463 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2463 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 58:
-#line 1007 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1007 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// done processing this group
 		assert( LengthStype(& (yyvsp[-2])) == 1 );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
@@ -2485,11 +2485,11 @@ yyreduce:
 		(yyval)      = (yyvsp[-1]);
 		(yyval).line = (yyvsp[-2]).line;
 	}
-#line 2489 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2489 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 59:
-#line 1032 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1032 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// begin a group
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 		assert( (yyvsp[0]).str == NULL );
@@ -2501,11 +2501,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2505 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2505 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 60:
-#line 1047 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1047 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {
 		assert( (yyvsp[0]).str == NULL );
 		assert( LengthStype( & (yyvsp[0]) ) == 1 );
@@ -2514,11 +2514,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2518 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2518 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 61:
-#line 1059 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1059 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {
 		assert( (yyvsp[-4]).str == NULL );
 		assert( (yyvsp[-3]).str != NULL );
@@ -2553,11 +2553,11 @@ yyreduce:
 		(yyval).line = (yyvsp[-4]).line;
 
 	}
-#line 2557 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2557 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 62:
-#line 1097 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1097 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	char *s;
 
 		// str is the single letter
@@ -2582,27 +2582,27 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2586 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2586 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 63:
-#line 1125 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1125 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL );
 		(yyval) = (yyvsp[0]);
 	}
-#line 2594 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2594 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 64:
-#line 1129 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1129 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL );
 		(yyval) = (yyvsp[0]);
 	}
-#line 2602 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2602 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 65:
-#line 1133 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1133 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-1]).str != NULL );
 		assert( (yyvsp[0]).str != NULL );
 
@@ -2610,11 +2610,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-1]);
 	}
-#line 2614 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2614 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 66:
-#line 1141 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1141 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-1]).str != NULL );
 		assert( (yyvsp[0]).str != NULL );
 
@@ -2622,11 +2622,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-1]);
 	}
-#line 2626 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2626 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 67:
-#line 1152 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1152 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {
 		(yyval).line  = 0;
 		(yyval).data  = 0;
@@ -2634,17 +2634,17 @@ yyreduce:
 		(yyval).next  = NULL;
 		(yyval).extra = NULL;
 	}
-#line 2638 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2638 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 68:
-#line 1160 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1160 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	(yyval) = (yyvsp[0]); }
-#line 2644 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2644 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 69:
-#line 1165 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1165 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	int i;
 		int j;
 		int escape;
@@ -2673,11 +2673,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2677 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2677 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 70:
-#line 1197 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1197 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is unicode for this symbol
 		assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
@@ -2688,11 +2688,11 @@ yyreduce:
 		assert( LengthStype( & (yyvsp[0]) ) == 3 );
 		(yyval) = (yyvsp[0]);
 	}
-#line 2692 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2692 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 71:
-#line 1211 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1211 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str contains the number
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2702,11 +2702,11 @@ yyreduce:
 		assert( LengthStype( & (yyvsp[0]) ) == 3 );
 		(yyval) = (yyvsp[0]);
 	}
-#line 2706 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2706 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 72:
-#line 1224 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1224 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is one character and equal to operator
 		char *str = (yyvsp[0]).str;
 
@@ -2736,11 +2736,11 @@ yyreduce:
 		assert( LengthStype( & (yyvsp[0]) ) == 3 );
 		(yyval) = (yyvsp[0]);
 	}
-#line 2740 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2740 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 73:
-#line 1257 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1257 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-1]).str != NULL );
 		assert( (yyvsp[0]).str != NULL );
 
@@ -2750,11 +2750,11 @@ yyreduce:
 		(yyval)      = (yyvsp[0]);
 		(yyval).line = (yyvsp[-1]).line;
 	}
-#line 2754 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2754 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 74:
-#line 1270 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1270 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str == NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2764,11 +2764,11 @@ yyreduce:
 		);
 		(yyval) = (yyvsp[0]);
 	}
-#line 2768 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2768 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 75:
-#line 1280 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1280 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str == NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2779,11 +2779,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2783 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2783 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 76:
-#line 1291 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1291 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str == NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2794,11 +2794,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2798 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2798 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 77:
-#line 1302 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1302 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str == NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2809,11 +2809,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2813 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2813 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 78:
-#line 1317 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1317 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is unicode for this symbol
 		assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
@@ -2824,11 +2824,11 @@ yyreduce:
 		assert( LengthStype( & (yyvsp[0]) ) == 3 );
 		(yyval) = (yyvsp[0]);
 	}
-#line 2828 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2828 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 79:
-#line 1331 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1331 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str == NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2837,11 +2837,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2841 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2841 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 80:
-#line 1340 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1340 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str == NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2850,11 +2850,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2854 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2854 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 81:
-#line 1349 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1349 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str == NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2863,11 +2863,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2867 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2867 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 82:
-#line 1358 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1358 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
 
@@ -2876,11 +2876,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2880 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2880 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 83:
-#line 1370 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1370 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is the entire command
 		char *str = (yyvsp[0]).str;
 		assert( strlen((yyvsp[0]).str) == 1 );
@@ -2913,11 +2913,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 2917 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2917 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 84:
-#line 1406 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1406 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( LengthStype(& (yyvsp[-3])) == 1 );
 		assert( LengthStype(& (yyvsp[-1])) == 1 );
 
@@ -2927,11 +2927,11 @@ yyreduce:
 		*((yyval).extra) = (yyvsp[0]);
 
 	}
-#line 2931 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2931 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 85:
-#line 1416 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1416 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( LengthStype(& (yyvsp[-3])) == 1 );
 		assert( LengthStype(& (yyvsp[-1])) == 1 );
 
@@ -2941,11 +2941,11 @@ yyreduce:
 		*((yyval).extra) = (yyvsp[-2]);
 
 	}
-#line 2945 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2945 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 86:
-#line 1429 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1429 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	TexStype *E;
 		int munderover;
 
@@ -2974,11 +2974,11 @@ yyreduce:
 		FreeMem(E);
 		(yyval) = (yyvsp[-1]);
 	}
-#line 2978 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 2978 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 87:
-#line 1458 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1458 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	int munder;
 
 		assert( (yyvsp[-2]).str != NULL );
@@ -3002,11 +3002,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-2]);
 	}
-#line 3006 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3006 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 88:
-#line 1482 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1482 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	int mover;
 
 		assert( (yyvsp[-2]).str != NULL );
@@ -3029,11 +3029,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-2]);
 	}
-#line 3033 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3033 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 89:
-#line 1508 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1508 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-1]).str == NULL );
 		assert( LengthStype(& (yyvsp[-1])) == 1 );
 
@@ -3043,11 +3043,11 @@ yyreduce:
 		(yyval)      = (yyvsp[0]);
 		(yyval).line = (yyvsp[-1]).line;
 	}
-#line 3047 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3047 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 90:
-#line 1518 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1518 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-2]).str == NULL );
 		assert( (yyvsp[-1]).str != NULL );
 		assert( (yyvsp[0]).str != NULL );
@@ -3060,11 +3060,11 @@ yyreduce:
 		(yyval)      = (yyvsp[0]);
 		(yyval).line = (yyvsp[-2]).line;
 	}
-#line 3064 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3064 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 91:
-#line 1534 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1534 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-2]).str == NULL );
 		assert( (yyvsp[-1]).str != NULL );
 		assert( (yyvsp[0]).str != NULL );
@@ -3078,11 +3078,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-2]);
 	}
-#line 3082 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3082 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 92:
-#line 1552 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1552 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is the name of the standard function
 		assert( (yyvsp[0]).str != NULL );
 		assert( strlen((yyvsp[0]).str) > 1 );
@@ -3094,11 +3094,11 @@ yyreduce:
 		assert( LengthStype( & (yyvsp[0]) ) == 3 );
 		(yyval) = (yyvsp[0]);
 	}
-#line 3098 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3098 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 93:
-#line 1567 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1567 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is the name of the standard function
 		assert( (yyvsp[0]).str != NULL );
 		assert( strlen((yyvsp[0]).str) > 1 );
@@ -3115,11 +3115,11 @@ yyreduce:
 		if( BlockDisplay )
 			(yyval).data = SUBSUP_2_UNDEROVER_DATA;
 	}
-#line 3119 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3119 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 94:
-#line 1588 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1588 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	char *s;
 
 		// str is unicode for this symbol
@@ -3139,11 +3139,11 @@ yyreduce:
 		if( BlockDisplay )
 			(yyval).data = SUBSUP_2_UNDEROVER_DATA;
 	}
-#line 3143 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3143 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 95:
-#line 1611 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1611 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is unicode for this symbol
 		assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
@@ -3154,11 +3154,11 @@ yyreduce:
 		assert( LengthStype( & (yyvsp[0]) ) == 3 );
 		(yyval) = (yyvsp[0]);
 	}
-#line 3158 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3158 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 96:
-#line 1625 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1625 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	// str is unicode for this symbol
 		assert( (yyvsp[0]).str != NULL );
 		assert( LengthStype(& (yyvsp[0])) == 1 );
@@ -3168,11 +3168,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[0]);
 	}
-#line 3172 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3172 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 97:
-#line 1638 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1638 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-1]).str == NULL );
 		assert( (yyvsp[0]).str != NULL );
 
@@ -3187,11 +3187,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-1]);
 	}
-#line 3191 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3191 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
   case 98:
-#line 1656 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1646  */
+#line 1656 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1646  */
     {	assert( (yyvsp[-1]).str == NULL );
 		assert( (yyvsp[0]).str != NULL );
 
@@ -3207,11 +3207,11 @@ yyreduce:
 
 		(yyval) = (yyvsp[-1]);
 	}
-#line 3211 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3211 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
     break;
 
 
-#line 3215 "/home/bradbell/omhelp.git/src/latex.c" /* yacc.c:1646  */
+#line 3215 "/home/bradbell/repo/omhelp.git/src/latex.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -3439,5 +3439,5 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 1674 "/home/bradbell/omhelp.git/src/latex.y" /* yacc.c:1906  */
+#line 1674 "/home/bradbell/repo/omhelp.git/src/latex.y" /* yacc.c:1906  */
 

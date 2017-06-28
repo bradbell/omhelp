@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_TEX_HOME_BRADBELL_OMHELP_GIT_SRC_LATEX_H_INCLUDED
-# define YY_TEX_HOME_BRADBELL_OMHELP_GIT_SRC_LATEX_H_INCLUDED
+#ifndef YY_TEX_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_LATEX_H_INCLUDED
+# define YY_TEX_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_LATEX_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -106,4 +106,4 @@ extern YYSTYPE texlval;
 
 int texparse (void);
 
-#endif /* !YY_TEX_HOME_BRADBELL_OMHELP_GIT_SRC_LATEX_H_INCLUDED  */
+#endif /* !YY_TEX_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_LATEX_H_INCLUDED  */
