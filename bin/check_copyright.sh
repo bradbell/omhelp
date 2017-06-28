@@ -26,7 +26,7 @@ list=`git status |\
 	sed \
 		-e '/makefile.in$/d' \
 		-e '/^src\/omhelp.c$/d' \
-		-e '/^.gitignore$/d' | \
+		-e '/^.gitignore$/d' \
 		-e '/\/omhelp\.vim$/d' | \
 	sort -u`
 cat << EOF > check_copyright.1.$$

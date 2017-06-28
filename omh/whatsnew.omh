@@ -114,6 +114,12 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 17-28$$
+Change the $cref/MathJax/latex/MathJax (htm)/$$ server; see
+$href%https://www.mathjax.org/cdn-shutting-down/%cdn-shutting-down%$$.
+In addition, change to MathJax configuration to the default; see
+$href%http://docs.mathjax.org/en/latest/config-files.html%config-files%$$.
+
 $head 17-01-08$$
 $list number$$
 It was possible to get OMhelp to crash by putting more than one
