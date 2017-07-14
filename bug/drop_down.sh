@@ -64,3 +64,44 @@ fi
 echo_eval cd htm
 echo_eval ../$program ./one.omh -noframe -omhelp_dir ../../omhelp_data
 echo_eval ../$program ./one.omh -noframe -xml -omhelp_dir ../../omhelp_data
+#
+cat << EOF > junk.sed
+s|<a href="_contents.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
+s|<a href="_contents_xml.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
+/<option>contents<\/option>/d
+/'_contents_xml.htm'/d
+/'_contents.htm'/d
+#
+EOF
+list='
+	one.htm
+	one.xml
+	_one_htm.js
+	_one_xml.js
+
+	two.htm
+	two.xml
+	_two_htm.js
+	_two_xml.js
+'
+for file in $list
+do
+	sed $file -f junk.sed > junk
+	if ! diff $file junk
+	then
+		mv junk $file
+	fi
+done
+list='
+	_contents.htm
+	_contents_xml.htm
+	_contents.js
+	_close.gif
+	_closeblue.gif
+	_open.gif
+	_openblue.gif
+'
+for file in $list
+do
+	rm $file
+done
