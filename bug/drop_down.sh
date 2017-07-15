@@ -70,6 +70,30 @@ then
 	rm junk.sed
 fi
 cat << EOF >> junk.sed
+/>Prev</! b three
+: one
+N
+/<\\/td><td>$/! b one
+: two
+N
+/<\\/td>$/! b two
+d
+# ----------------------------------------------------------------------------
+: three
+/^var list_across/! b five
+: four
+N
+/\\]/! b four
+d
+# ----------------------------------------------------------------------------
+: five
+/^function choose_across0/! b seven
+: six
+N
+/}/! b six
+d
+# ----------------------------------------------------------------------------
+: seven
 s|<a href="_contents.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
 s|<a href="_contents_xml.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
 #
@@ -111,6 +135,9 @@ do
 done
 # ----------------------------------------------------------------------------
 list='
+	one.omh
+	two.omh
+
 	_close.gif
 	_closeblue.gif
 	_open.gif
