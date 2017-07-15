@@ -73,13 +73,13 @@ cat << EOF >> junk.sed
 />Prev</! b four
 : one
 N
-/<\\/td><td>$/! b one
+/<\\/td><td>\$/! b one
 : two
 N
-/<\\/td>$/! b two
+/<\\/td>\$/! b two
 : three
 N
-/<\\/td>$/! b three
+/<\\/td>\$/! b three
 d
 # ----------------------------------------------------------------------------
 : four
@@ -111,6 +111,32 @@ N
 d
 # ----------------------------------------------------------------------------
 : twelve
+/^<td>\$/ N
+/<select onchange='choose_current0(this)'>/! b fourteen
+: thirteen
+N
+/<\\/td>\$/! b thirteen
+d
+# ----------------------------------------------------------------------------
+: fourteen
+/^var list_current0/! b sixteen
+: fifteen
+N
+/]/! b fifteen
+d
+# ----------------------------------------------------------------------------
+: sixteen
+/^function choose_current0/! b eighteen
+: seventeen
+N
+/}/! b seventeen
+d
+# ----------------------------------------------------------------------------
+: eighteen
+# ----------------------------------------------------------------------------
+/<td>two<\\/td>/d
+/<td>Headings<\\/td>/d
+#
 s|<a href="_contents.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
 s|<a href="_contents_xml.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
 #
