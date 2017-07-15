@@ -70,30 +70,47 @@ then
 	rm junk.sed
 fi
 cat << EOF >> junk.sed
-/>Prev</! b three
+/>Prev</! b four
 : one
 N
 /<\\/td><td>$/! b one
 : two
 N
 /<\\/td>$/! b two
+: three
+N
+/<\\/td>$/! b three
 d
 # ----------------------------------------------------------------------------
-: three
-/^var list_across/! b five
 : four
+/^var list_across0/! b six
+: five
 N
 /\\]/! b four
 d
 # ----------------------------------------------------------------------------
-: five
-/^function choose_across0/! b seven
 : six
+/^var list_up0/! b eight
+: seven
 N
-/}/! b six
+/\\]/! b seven
 d
 # ----------------------------------------------------------------------------
-: seven
+: eight
+/^function choose_across0/! b ten
+: nine
+N
+/}/! b nine
+d
+# ----------------------------------------------------------------------------
+: ten
+/^function choose_up0/! b twelve
+: eleven
+N
+/}/! b eleven
+d
+# ----------------------------------------------------------------------------
+: twelve
 s|<a href="_contents.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
 s|<a href="_contents_xml.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
 #
