@@ -81,6 +81,10 @@ s|<a href="_contents_xml.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
 /'_index_xml.htm'/d
 /'_index_htm'/d
 #
+/<option>search<\/option>/d
+/'_search_xml.htm'/d
+/'_search_htm'/d
+#
 EOF
 list='
 	one.htm
@@ -119,6 +123,11 @@ list='
 	__index_htm.js
 	_index.xml
 	__index_xml.js
+
+	_search.htm
+	__search_htm.js
+	_search_xml.htm
+	__search_xml.js
 '
 for file in $list
 do
