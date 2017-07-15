@@ -29,12 +29,12 @@ cat << EOF > htm/one.omh
 @section One@@
 
 @head Problem@@
-The drop down menus in the file @href%one.xml%@@
-(e.g, @code one->@@)
-do not work for 32 bit Firefox 54.0.1 on Windows.
-They do work for this file using 64 bit Firefox 52.0 on Linux.
-They also work for the file @href%one.htm%@@ using
-32 bit Firefox 54.0.1 32 on Windows.
+The drop down menu @code one->@@
+in the file @href%one.xml%@@
+does not work for 32 bit Firefox 54.0.1 on Windows.
+It does work for this file using 64 bit Firefox 52.0 on Linux.
+It also works for the file @href%one.htm%@@
+using 32 bit Firefox 54.0.1 32 on Windows.
 
 
 @children%two.omh%@@
@@ -180,6 +180,7 @@ done
 list='
 	one.omh
 	two.omh
+	junk.sed
 
 	_close.gif
 	_closeblue.gif
@@ -215,10 +216,4 @@ do
 	rm $file
 done
 # ----------------------------------------------------------------------------
-cd ..
-if [ -e $HOME/share/htm ]
-then
-	rm -r $HOME/share/htm
-fi
-cp -r htm $HOME/share/htm
-
+echo 'drop_down.sh: OK'
