@@ -64,13 +64,22 @@ fi
 echo_eval cd htm
 echo_eval ../$program ./one.omh -noframe -omhelp_dir ../../omhelp_data
 echo_eval ../$program ./one.omh -noframe -xml -omhelp_dir ../../omhelp_data
-#
-cat << EOF > junk.sed
+# -----------------------------------------------------------------------------
+if [ -e junk.sed ]
+then
+	rm junk.sed
+fi
+cat << EOF >> junk.sed
 s|<a href="_contents.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
 s|<a href="_contents_xml.htm" target="_top">\\([^<]*\\)<\/a>|\\1|
+#
 /<option>contents<\/option>/d
 /'_contents_xml.htm'/d
 /'_contents.htm'/d
+#
+/<option>index<\/option>/d
+/'_index_xml.htm'/d
+/'_index_htm'/d
 #
 EOF
 list='
@@ -87,21 +96,39 @@ list='
 for file in $list
 do
 	sed $file -f junk.sed > junk
-	if ! diff $file junk
+	if ! diff $file junk > /dev/null
 	then
 		mv junk $file
 	fi
 done
+# ----------------------------------------------------------------------------
 list='
-	_contents.htm
-	_contents_xml.htm
-	_contents.js
 	_close.gif
 	_closeblue.gif
 	_open.gif
 	_openblue.gif
+
+	_contents.htm
+	_contents_xml.htm
+	_contents.js
+	__contents_htm.js
+	__contents_xml.js
+
+	index.html
+	_index.htm
+	__index_htm.js
+	_index.xml
+	__index_xml.js
 '
 for file in $list
 do
 	rm $file
 done
+# ----------------------------------------------------------------------------
+cd ..
+if [ -e $HOME/share/htm ]
+then
+	rm -r $HOME/share/htm
+fi
+cp -r htm $HOME/share/htm
+
