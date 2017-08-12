@@ -17,16 +17,29 @@ then
 	echo_eval rm -r htm
 fi
 echo_eval mkdir htm
-echo "create htm/one.omh"
-cat << EOF > htm/one.omh
+echo "create htm/one.cpp"
+cat << EOF > htm/one.cpp
+/*
 @begin one@@
-@section 2014-12-20: Demonstrate Missing Error Message@@
+@spell
+	srcfile
+@@
+@section 2017-08-12: srcfile causes Wrong Line number in Error Message@@
 
-@index erf@@
+@srcfile%one.cpp%0%// BEGIN_PROTOTYPE%// END_PROTOTYPE%2%@@
+@srcfile%one.cpp%0%// BEGIN_PROTOTYPE%// END_PROTOTYPE%2%@@
+
+Line 11: The error is in the following command: @icode%x% = 0@@.
+Line 12.
+line 13: The error is reported as being in this line.
 
 @end
+*/
+// BEGIN_PROTOTYPE
+void f(void)
+// END_PROTOTYPE
 EOF
-sed -e 's|@|$|g' -i htm/one.omh
+sed -e 's|@|$|g' -i htm/one.cpp
 #
 program='../build/src/omhelp'
 if [ ! -e "$program"  ]
@@ -37,4 +50,4 @@ then
 	exit 1
 fi
 echo_eval cd htm
-echo_eval ../$program ./one.omh -xml -omhelp_dir ../../omhelp_data
+echo_eval ../$program ./one.cpp -xml -omhelp_dir ../../omhelp_data
