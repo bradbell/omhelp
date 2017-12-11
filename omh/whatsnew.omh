@@ -114,7 +114,7 @@ $rref whatsNew01$$
 $tend
 $$
 
-$head 17-28$$
+$head 17-06-28$$
 Change the $cref/MathJax/latex/MathJax (htm)/$$ server; see
 $href%https://www.mathjax.org/cdn-shutting-down/%cdn-shutting-down%$$.
 In addition, change to MathJax configuration to the default; see
