@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Unix Installation and Testing</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Unix Installation and Testing">
-<meta name="keywords" id="keywords" content=" unix installation testing requirements source-highlight octave flex bison download omhelp create distribution directory cmake command boost_regex_prefix source_highlight_prefix have_flex_and_bison omhelp_prefix omhelp_datadir omhelp_c_flags omhelp_build_type build executable documentation developer user install getting started spelling list english.wrd local.wrd dictionary.bin vim editor syntax highlight ">
+<meta name="keywords" id="keywords" content=" unix installation testing requirements source-highlight octave flex bison download omhelp distribution directory cmake command boost_regex_prefix source_highlight_prefix have_flex_and_bison omhelp_prefix omhelp_datadir omhelp_c_flags omhelp_build_type build executable documentation developer user install getting started spelling list english.wrd local.wrd dictionary.bin vim editor syntax highlight ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -93,7 +93,7 @@ A:active { color : purple }
 <option>---..Octave</option>
 <option>---..flex, bison</option>
 <option>Download OMhelp</option>
-<option>Create Distribution Directory</option>
+<option>Distribution Directory</option>
 <option>CMake Command</option>
 <option>---..boost_regex_prefix</option>
 <option>---..source_highlight_prefix</option>
@@ -120,7 +120,10 @@ A:active { color : purple }
 <br>
 <b><big><a name="Requirements" id="Requirements">Requirements</a></big></b>
 <br>
-Building OMhelp requires that a C, C++ compiler and
+Building OMhelp requires that a C, C++ compiler,
+<a href="https://git-scm.com/" target="_top"><span style='white-space: nowrap'>git</span></a>
+,
+and
 <a href="http://www.cmake.org" target="_top"><span style='white-space: nowrap'>cmake</span></a>
  version 2.8 or greater
 are in your execution path.
@@ -165,36 +168,53 @@ If you are doing this, you will need
 <a href="http://bison.sourceforge.net/" target="_top"><span style='white-space: nowrap'>bison</span></a>
  in your execution path.
 
-
 <br>
 <br>
 <b><big><a name="Download OMhelp" id="Download OMhelp">Download OMhelp</a></big></b>
 <br>
-Use the following link to download this version:
-<a href="https://github.com/bradbell/omhelp/archive/20171212.tar.gz" target="_top"><span style='white-space: nowrap'>omhelp-20171212.tar.gz</span></a>
-
-
-<br>
-<br>
-<b><big><a name="Create Distribution Directory" id="Create Distribution Directory">Create Distribution Directory</a></big></b>
-<br>
-Use the command
-<code><font color='blue'><pre style='display:inline'> 
-     tar -xzf omhelp-20171212.tar.gz
-</pre></font></code>
-to decompress and extract the unix format version into the
-distribution directory
+Use the following commands to get the current version of OMhelp
 
 <code><font color="blue"><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;omhelp-20171212<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git&nbsp;clone&nbsp;https://github.com/bradbell/omhelp.git&nbsp;omhelp.git<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;omhelp.git<br>
 </span></font></code>
+Use the following commands to determine the corresponding
+
+<code><i><font color="black"><span style='white-space: nowrap'>git_hash</span></font></i></code>
+ and version:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git&nbsp;show-ref&nbsp;|&nbsp;grep&nbsp;'refs/heads/master'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bin/version.sh&nbsp;get<br>
+</span></font></code>
+Use the following commands to checkout as specific 
+<code><i><font color="black"><span style='white-space: nowrap'>git_hash</span></font></i></code>
+
+and check the corresponding version
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;git&nbsp;checkout&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>git_hash</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bin/version.sh&nbsp;get<br>
+</span></font></code>
+.
+
+<br>
+<br>
+<b><big><a name="Distribution Directory" id="Distribution Directory">Distribution Directory</a></big></b>
+<br>
+For this download procedure, we refer to <code><font color="blue">omhelp.git</font></code> as the
+
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i></code>
+.
+
+<br>
 <br>
 <b><big><a name="CMake Command" id="CMake Command">CMake Command</a></big></b>
 <br>
 Execute the following commands:
 
 <code><font color="blue"><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;omhelp-20171212<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mkdir&nbsp;build<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;build<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmake&nbsp;\<br>
@@ -307,22 +327,26 @@ The default, if it is not specified, is <code><font color="blue">debug</font></c
 <br>
 <b><big><a name="Build Executable" id="Build Executable">Build Executable</a></big></b>
 <br>
-In the directory <code><font color="blue">omhelp-20171212/build</font></code> execute the following command
+In the 
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/build</span></font></code>
+ execute the following command
 <code><font color='blue'><pre style='display:inline'> 
      make
 </pre></font></code>
 This should build the program
-<code><font color='blue'><pre style='display:inline'> 
-     omhelp-20171212/build/src/omhelp
-</pre></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/build/src/omhelp<br>
+</span></font></code>
 If you are using Cygwin or MinGw,
 the file <code><font color="blue">omhelp</font></code> may possibly be <code><font color="blue">omhelp.exe</font></code>.
 If you have fortran,
 and CMake can figure out how to link C to Fortran,
 the following program will also be built
-<code><font color='blue'><pre style='display:inline'> 
-     omhelp-20171212/build/omh/getstarted/run_all
-</pre></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/build/omh/getstarted/run_all<br>
+</span></font></code>
 <br>
 <b><big><a name="OMhelp Documentation" id="OMhelp Documentation">OMhelp Documentation</a></big></b>
 <br>
@@ -334,9 +358,13 @@ i.e., you can skip these steps.
 <br>
 <b><a name="OMhelp Documentation.Developer Documentation" id="OMhelp Documentation.Developer Documentation">Developer Documentation</a></b>
 <br>
-Starting in the <code><font color="blue">omhelp-20171212</font></code> directory,
+Starting in the 
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"></font></code>
+ directory,
 the following commands create the developer documentation in the
-directory <code><font color="blue">omhelp-20171212/dev</font></code>:
+
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/dev</span></font></code>
+:
 <code><font color='blue'><pre style='display:inline'> 
      mkdir dev
      cd dev
@@ -351,9 +379,13 @@ of the distribution.
 <br>
 <b><a name="OMhelp Documentation.User Documentation" id="OMhelp Documentation.User Documentation">User Documentation</a></b>
 <br>
-Starting in the <code><font color="blue">omhelp-20171212</font></code> directory,
+Starting in the 
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"></font></code>
+ directory,
 the following commands create the user documentation in the
-directory <code><font color="blue">omhelp-20171212/doc</font></code>:
+
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/doc</span></font></code>
+:
 <code><font color='blue'><pre style='display:inline'> 
      mkdir doc
      cd doc
@@ -367,7 +399,9 @@ of the distribution.
 <br>
 <b><big><a name="Install OMhelp" id="Install OMhelp">Install OMhelp</a></big></b>
 <br>
-In the directory <code><font color="blue">omhelp-20171212/build</font></code> execute the following command
+In the 
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/build</span></font></code>
+ execute the following command
 <code><font color='blue'><pre style='display:inline'> 
      make install
 </pre></font></code>
@@ -378,7 +412,9 @@ You can build the
 <a href="multiple_example_1.htm" target="_top"><span style='white-space: nowrap'>multiple_example_1</span></a>
  subtree of the OMhelp user documentation
 by executing the following commands starting in the
-<code><font color="blue">omhelp-20171212</font></code> directory:
+
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"></font></code>
+ directory:
 
 <code><font color="blue"><span style='white-space: nowrap'><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mkdir&nbsp;xam<br>
@@ -401,14 +437,18 @@ See the <a href="get_started.htm" target="_top"><span style='white-space: nowrap
 <b><big><a name="Spelling List" id="Spelling List">Spelling List</a></big></b>
 <br>
 The OMhelp utility files are stored in the
-<code><font color="blue">omhelp-20171212/omhelp_data</font></code> directory.
+
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/omhelp_data</span></font></code>
+ directory.
 The spelling lists below are a subset of these files.
 
 <br>
 <br>
 <b><a name="Spelling List.english.wrd" id="Spelling List.english.wrd">english.wrd</a></b>
 <br>
-The file <code><font color="blue">omhelp-20171212/omhelp_data/english.wrd</font></code> is a
+The file 
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/omhelp_data/english.wrd</span></font></code>
+ is a
 list of standard english words.
 The words must be in alphabetic order, lower case, and contain only letters.
 For example,
@@ -424,7 +464,9 @@ A default <code><font color="blue">english.wrd</font></code> file is distributed
 <br>
 <b><a name="Spelling List.local.wrd" id="Spelling List.local.wrd">local.wrd</a></b>
 <br>
-The file <code><font color="blue">omhelp-20171212/omhelp_data/local.wrd</font></code> is an optional
+The file 
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/omhelp_data/local.wrd</span></font></code>
+ is an optional
 list of special words, not in <code><font color="blue">english.wrd</font></code> that are to be
 considered correctly spelled.
 These words
@@ -436,14 +478,17 @@ must also be in alphabetic order, lower case, and contain only letters.
 <br>
 OMhelp combines the files <code><font color="blue">english.wrd</font></code> and <code><font color="blue">local.wrd</font></code>
 to form
-<code><font color='blue'><pre style='display:inline'> 
-     omhelp-20171212/omhelp_data/dictionary.bin
-</pre></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/omhelp_data/dictionary.bin<br>
+</span></font></code>
 If you make any changes to <code><font color="blue">english.wrd</font></code> or <code><font color="blue">local.wrd</font></code>,
 the file <code><font color="blue">dictionary.bin</font></code> should be deleted.
 A new <code><font color="blue">dictionary.bin</font></code> that combines the words <code><font color="blue">english.wrd</font></code>
 and <code><font color="blue">local.wrd</font></code> can be created and installed by executing following
-commands in the <code><font color="blue">omhelp-20171212</font></code> directory:
+commands in the 
+<code><i><font color="black"><span style='white-space: nowrap'>distribution_directory</span></font></i><font color="blue"></font></code>
+ directory:
 <code><font color='blue'><pre style='display:inline'> 
      rm omhelp_data/dictionary.bin
      cd build/omh/getstarted

@@ -41,7 +41,7 @@ var list_current0 = [
 'installunix.htm#Requirements.Octave',
 'installunix.htm#Requirements.flex, bison',
 'installunix.htm#Download OMhelp',
-'installunix.htm#Create Distribution Directory',
+'installunix.htm#Distribution Directory',
 'installunix.htm#CMake Command',
 'installunix.htm#CMake Command.boost_regex_prefix',
 'installunix.htm#CMake Command.source_highlight_prefix',

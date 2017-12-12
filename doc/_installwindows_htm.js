@@ -33,6 +33,7 @@ var list_down1 = [
 'installwindows.htm'
 ];
 var list_current0 = [
+'installwindows.htm#Warning',
 'installwindows.htm#Using Cygwin and MinGw',
 'installwindows.htm#Requirements',
 'installwindows.htm#Requirements.7z',
