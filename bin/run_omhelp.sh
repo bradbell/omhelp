@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#           Copyright (C) 1998-2015 Bradley M. Bell
+#           Copyright (C) 1998-2016 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
@@ -10,91 +10,88 @@ then
 	echo "bin/run_omhelp.sh: must be executed from its parent directory"
 	exit 1
 fi
-if [ "$1" != "doc" ] && [ "$1" != "dev" ] && [ "$1" != 'xam' ]
+arguments='[clean] [printable] (htm|xml) (doc|dev|xam)'
+clean='no'
+printable=''
+xml=''
+dir=''
+dev='no'
+if [ "$1" == 'clean' ]
 then
-	echo 'usage: bin/run_omhelp.sh target'
-	echo 'where target is doc or dev or xam'
+	clean='yes'
+	shift
+fi
+if [ "$1" == 'printable' ]
+then
+	printable='-printable'
+	shift
+fi
+#
+if [ "$1" == 'htm' ]
+then
+	xml=''
+	shift
+elif [ "$1" == 'xml' ]
+then
+	xml='-xml'
+	shift
+else
+	echo "usage: bin/run_omhelp.sh $arguments"
 	exit 1
 fi
-if [ "$1" = dev ]
+#
+if [ "$1" == 'doc' ] || [ "$1" == 'dev' ] || [ "$1" == 'xam' ]
 then
-	if [ -e dev ]
+	dir="$1"
+	shift
+else
+	echo "usage: bin/run_omhelp.sh $arguments"
+	exit 1
+fi
+if [ "$1" == 'doc' ] && [ ! -e omhelp.dev.log ]
+then
+	echo 'must execute bin/omhelp.sh [clean] [printable] (htm|xml) dev'
+	echo 'before bin/omhelp.sh [clean] [printable] (htm|xml) doc'
+	exit 1
+fi
+# -----------------------------------------------------------------------------
+if [ "$clean" == 'yes' ]
+then
+	if [ -e $dir ]
 	then
-		rm -r -f dev
-	fi
-	mkdir dev
-	cd    dev
-	if ! ../build/src/omhelp ../src/omh/omhelp.omh > ../omhelp.dev.log \
-		-noframe -debug -omhelp_dir ../omhelp_data
-	then
-		cat ../omhelp.dev.log
-		echo "OMhelp could not build developer documentation."
-		echo "See the complete error message in omhelp.dev.log."
-		grep "^OMhelp Error:" ../omhelp.dev.log
-		exit 1
-	fi
-	cd ..
-	if grep "^OMhelp Warning:" omhelp.dev.log
-	then
-		echo "See the complete warning messages in omhelp.dev.log."
-		exit 1
+		echo_eval rm -r $dir
 	fi
 fi
-if [ "$1" = doc ]
+# -----------------------------------------------------------------------------
+if [ ! -d "$dir" ]
 then
-	if [ ! -e omhelp.dev.log ]
-	then
-		echo 'must run bin/run_omhelp.sh dev'
-		echo 'before   bin/run_omhelp.sh doc'
-		exit 1
-	fi
-	if [ -e doc ]
-	then
-		rm -r -f doc
-	fi
-	mkdir doc
-	cd    doc
-	if ! ../build/src/omhelp ../omh/overview.omh > ../omhelp.doc.log \
-		-noframe -xml -debug -omhelp_dir ../omhelp_data
-	then
-		cat ../omhelp.dev.log
-		echo "OMhelp could not build user documentation."
-		echo "See the complete error message in omhelp.doc.log."
-		grep "^OMhelp Error:" ../omhelp.doc.log
-		exit 1
-	fi
-	../build/src/omhelp ../omh/overview.omh  \
-		-noframe -debug -omhelp_dir ../omhelp_data
-	cd ..
-	if grep "^OMhelp Warning:" omhelp.doc.log
-	then
-		echo "See the complete warning messages in omhelp.doc.log."
-		exit 1
-	fi
+	echo_eval mkdir $dir
 fi
-if [ "$1" == 'xam' ]
+echo_eval cd $dir
+if [ "$dir" == 'dev' ]
 then
-	if [ -e xam ]
-	then
-		rm -r -f xam
-	fi
-	mkdir xam
-	cd xam
-	if ! ../build/src/omhelp ../omh/getstarted/multiple_example_1.omh \
-			> ../omhelp.xam.log -omhelp_dir ../omhelp_data
-	then
-		cat ../omhelp.xam.log
-		echo "OMhelp could not build example case."
-		echo "See the complete error message in omhelp.xam.log."
-		grep "^OMhelp Error:" ../omhelp.xam.log
-		exit 1
-	fi
-	cd ..
-	if grep "^OMhelp Warning:" omhelp.xam.log
-	then
-		echo "See the complete warning messages in omhelp.xam.log."
-		exit 1
-	fi
+	root='../src/omh/omhelp.omh'
+elif [ "$dir" == 'doc' ]
+then
+	root='../omh/overview.omh'
+else
+	root='../omh/getstarted/multiple_example_1.omh'
 fi
+if ! ../build/src/omhelp "$root" $printable $xml \
+			-noframe -debug -omhelp_dir ../omhelp_data > ../omhelp.$dir.log
+then
+	cat ../omhelp.$dir.log
+	echo "OMhelp could not build $dir."
+	echo "See the complete error message in omhelp.$dir.log."
+	grep "^OMhelp Error:" ../omhelp.$dir.log
+	exit 1
+fi
+cd ..
+if grep "^OMhelp Warning:" omhelp.$dir.log
+then
+	echo "See the complete warning messages in omhelp.$dir.log."
+	exit 1
+fi
+# -----------------------------------------------------------------------------
 echo 'run_omhelp.sh OK'
 exit 0
