@@ -27,7 +27,7 @@ var list_down0 = [
 'whatsnew.htm'
 ];
 var list_current0 = [
-'overview.htm#User Support For OMhelp',
+'overview.htm#Home Page',
 'overview.htm#Introduction',
 'overview.htm#Contents'
 ];
