@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#           Copyright (C) 1998-2016 Bradley M. Bell
+#           Copyright (C) 1998-2017 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
@@ -32,7 +32,7 @@ list=`git status |\
 	sort -u`
 cat << EOF > check_copyright.1.$$
 # Change copyright second year to current year
-s/Copyright (C) \\([0-9]\\{4\\}\\)-[0-9]* Bradley M. Bell/Copyright (C) \\1-2016 Bradley M. Bell/
+s/Copyright (C) \\([0-9]\\{4\\}\\)-[0-9]* Bradley M. Bell/Copyright (C) \\1-2017 Bradley M. Bell/
 EOF
 ok=true
 for file in $list

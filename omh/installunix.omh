@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2016 Bradley M. Bell
+          Copyright (C) 1998-2017 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -8,6 +8,8 @@ OMhelp is distributed under the terms of the
 $begin InstallUnix$$
 $dollar @$$
 $spell
+	grep
+	https://github.com/bradbell
 	xam
 	dev
 	cmake
@@ -43,7 +45,9 @@ $$
 $section Unix Installation and Testing$$
 
 $head Requirements$$
-Building OMhelp requires that a C, C++ compiler and
+Building OMhelp requires that a C, C++ compiler,
+$href%https://git-scm.com/%git%$$,
+and
 $href%http://www.cmake.org%cmake%$$ version 2.8 or greater
 are in your execution path.
 These are some other optional requirements listed below:
@@ -72,29 +76,33 @@ If you are doing this, you will need
 $href%http://flex.sourceforge.net/%flex%$$ and
 $href%http://bison.sourceforge.net/%bison%$$ in your execution path.
 
-
 $head Download OMhelp$$
-Use the following link to download this version:
-$href%
-	https://github.com/bradbell/omhelp/archive/20171212.tar.gz%
-	omhelp-20171212.tar.gz
-%$$
-
-$head Create Distribution Directory$$
-Use the command
-$codep
-	tar -xzf omhelp-20171212.tar.gz
-$$
-to decompress and extract the unix format version into the
-distribution directory
+Use the following commands to get the current version of OMhelp
 $codei%
-	omhelp-20171212
+	git clone https://github.com/bradbell/omhelp.git omhelp.git
+	cd omhelp.git
 %$$
+Use the following commands to determine the corresponding
+$icode git_hash$$ and version:
+$codei%
+	git show-ref | grep 'refs/heads/master'
+	bin/version.sh get
+%$$
+Use the following commands to checkout as specific $icode git_hash$$
+and check the corresponding version
+$codei%
+	git checkout %git_hash%
+	bin/version.sh get
+%$$.
+
+$head Distribution Directory$$
+For this download procedure, we refer to $code omhelp.git$$ as the
+$icode distribution_directory$$.
 
 $head CMake Command$$
 Execute the following commands:
 $codei%
-	cd omhelp-20171212
+	cd %distribution_directory%
 	mkdir build
 	cd build
 	cmake \
@@ -167,22 +175,22 @@ or $code release$$ (compile for speed).
 The default, if it is not specified, is $code debug$$.
 
 $head Build Executable$$
-In the directory $code omhelp-20171212/build$$ execute the following command
+In the $icode%distribution_directory%/build%$$ execute the following command
 $codep
 	make
 $$
 This should build the program
-$codep
-	omhelp-20171212/build/src/omhelp
-$$
+$codei%
+	%distribution_directory%/build/src/omhelp
+%$$
 If you are using Cygwin or MinGw,
 the file $code omhelp$$ may possibly be $code omhelp.exe$$.
 If you have fortran,
 and CMake can figure out how to link C to Fortran,
 the following program will also be built
-$codep
-	omhelp-20171212/build/omh/getstarted/run_all
-$$
+$codei%
+	%distribution_directory%/build/omh/getstarted/run_all
+%$$
 
 $head OMhelp Documentation$$
 It is no longer necessary to build the
@@ -190,9 +198,9 @@ OMhelp developer and user documentation before installing OMhelp;
 i.e., you can skip these steps.
 
 $subhead Developer Documentation$$
-Starting in the $code omhelp-20171212$$ directory,
+Starting in the $icode%distribution_directory%%$$ directory,
 the following commands create the developer documentation in the
-directory $code omhelp-20171212/dev$$:
+$icode%distribution_directory%/dev%$$:
 $codep
 	mkdir dev
 	cd dev
@@ -204,9 +212,9 @@ This should complete without error, and so also functions as a test
 of the distribution.
 
 $subhead User Documentation$$
-Starting in the $code omhelp-20171212$$ directory,
+Starting in the $icode%distribution_directory%%$$ directory,
 the following commands create the user documentation in the
-directory $code omhelp-20171212/doc$$:
+$icode%distribution_directory%/doc%$$:
 $codep
 	mkdir doc
 	cd doc
@@ -217,7 +225,7 @@ This should complete without error, and so also functions as a test
 of the distribution.
 
 $head Install OMhelp$$
-In the directory $code omhelp-20171212/build$$ execute the following command
+In the $icode%distribution_directory%/build%$$ execute the following command
 $codep
 	make install
 $$
@@ -226,7 +234,7 @@ $head Getting Started$$
 You can build the
 $cref multiple_example_1$$ subtree of the OMhelp user documentation
 by executing the following commands starting in the
-$code omhelp-20171212$$ directory:
+$icode%distribution_directory%%$$ directory:
 $codei%
 	mkdir xam
 	cd xam
@@ -241,11 +249,11 @@ See the $cref get_started$$ section for more examples.
 
 $head Spelling List$$
 The OMhelp utility files are stored in the
-$code omhelp-20171212/omhelp_data$$ directory.
+$icode%distribution_directory%/omhelp_data%$$ directory.
 The spelling lists below are a subset of these files.
 
 $subhead english.wrd$$
-The file $code omhelp-20171212/omhelp_data/english.wrd$$ is a
+The file $icode%distribution_directory%/omhelp_data/english.wrd%$$ is a
 list of standard english words.
 The words must be in alphabetic order, lower case, and contain only letters.
 For example,
@@ -258,7 +266,7 @@ $$
 A default $code english.wrd$$ file is distributed with OMhelp.
 
 $subhead local.wrd$$
-The file $code omhelp-20171212/omhelp_data/local.wrd$$ is an optional
+The file $icode%distribution_directory%/omhelp_data/local.wrd%$$ is an optional
 list of special words, not in $code english.wrd$$ that are to be
 considered correctly spelled.
 These words
@@ -267,14 +275,14 @@ must also be in alphabetic order, lower case, and contain only letters.
 $subhead dictionary.bin$$
 OMhelp combines the files $code english.wrd$$ and $code local.wrd$$
 to form
-$codep
-	omhelp-20171212/omhelp_data/dictionary.bin
-$$
+$codei%
+	%distribution_directory%/omhelp_data/dictionary.bin
+%$$
 If you make any changes to $code english.wrd$$ or $code local.wrd$$,
 the file $code dictionary.bin$$ should be deleted.
 A new $code dictionary.bin$$ that combines the words $code english.wrd$$
 and $code local.wrd$$ can be created and installed by executing following
-commands in the $code omhelp-20171212$$ directory:
+commands in the $icode%distribution_directory%%$$ directory:
 $codep
 	rm omhelp_data/dictionary.bin
 	cd build/omh/getstarted
