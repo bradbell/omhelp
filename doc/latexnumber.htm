@@ -1,0 +1,194 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Latex Numbers</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Latex Numbers">
+<meta name="keywords" id="keywords" content=" latex numbers syntax description integer real ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_latexnumber_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="latexnormal.htm" target="_top">Prev</a>
+</td><td><a href="latexspecial.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>latex</option>
+<option>symbol</option>
+<option>latexnumber</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>latex-&gt;</option>
+<option>symbol</option>
+<option>diacritical</option>
+<option>stdfun</option>
+<option>subsup</option>
+<option>frac</option>
+<option>sqrt</option>
+<option>array</option>
+<option>left_right</option>
+<option>under_over</option>
+<option>stackrel</option>
+<option>latexfont</option>
+<option>latexcomment</option>
+<option>LatexMacro</option>
+<option>mathml</option>
+<option>diff_xml_htm</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>symbol-&gt;</option>
+<option>latexnormal</option>
+<option>latexnumber</option>
+<option>latexspecial</option>
+<option>ellipsis</option>
+<option>greek</option>
+<option>BinaryOp</option>
+<option>RelationSym</option>
+<option>ArrowSym</option>
+<option>MiscSym</option>
+<option>DisplaySym</option>
+<option>space</option>
+</select>
+</td>
+<td>latexnumber</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Description</option>
+<option>---..Latex Integer</option>
+<option>---..Latex Real</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Latex Numbers</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$latex&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>Number</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;$$</span></font></code>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+Display in Latex mode
+the numeric value specified by 
+<code><i><font color="black"><span style='white-space: nowrap'>Number</span></font></i></code>
+ where
+
+<code><i><font color="black"><span style='white-space: nowrap'>Number</span></font></i></code>
+ is either a Latex integer or a
+Latex real (as defined below).
+
+<br>
+<br>
+<b><a name="Description.Latex Integer" id="Description.Latex Integer">Latex Integer</a></b>
+<br>
+A Latex integer is a sequence of decimal digits (<code><font color="blue">0</font></code> through <code><font color="blue">9</font></code>)
+possibly preceded by a minus sign. For example,
+in the input
+<code><font color='blue'><pre style='display:inline'> 
+     $latex 123 and -123$$
+</pre></font></code>
+<code><font color="blue">123</font></code> and <code><font color="blue">-123</font></code> are a Latex integers.
+The input above would have the following output:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><small>@(@
+123 and -123
+@)@</small>
+
+<br>
+<b><a name="Description.Latex Real" id="Description.Latex Real">Latex Real</a></b>
+<br>
+A Latex real can be a Latex integer followed by a decimal point followed
+by any number of decimal digits (possibly zero decimal digits).
+For example, in the input
+<code><font color='blue'><pre style='display:inline'> 
+     $latex 123. and 123.0$$
+</pre></font></code>
+<code><font color="blue">123.</font></code> and <code><font color="blue">123.0</font></code> are a Latex reals.
+The input above would have the following output:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><small>@(@
+123. and 123.0
+@)@</small>
+<code><span style='white-space: nowrap'><br>
+</span></code>A Latex real can be a decimal point possibly preceded by a minus sign
+and followed by any number of decimal digits (at one decimal digit).
+For example, in the input
+<code><font color='blue'><pre style='display:inline'> 
+     $latex .123 and -.123$$
+</pre></font></code>
+<code><font color="blue">.123</font></code> and <code><font color="blue">-.123</font></code> are Latex reals.
+The input above would have the following output:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><small>@(@
+.123 and -.123
+@)@</small>
+
+
+
+<hr>Input File: latex/latexnumber.omh
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Math Mode</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Math Mode">
+<meta name="keywords" id="keywords" content=" math mode syntax see also deprecated 2015-10-11 description pre-formatted font escape sequences new lines using the delimiter changing ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_math_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="syntax.htm" target="_top">Prev</a>
+</td><td><a href="number.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>other</option>
+<option>deprecated</option>
+<option>math</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>other-&gt;</option>
+<option>comment</option>
+<option>date</option>
+<option>deprecated</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>deprecated-&gt;</option>
+<option>wspace</option>
+<option>xref</option>
+<option>fend</option>
+<option>syntax</option>
+<option>math</option>
+<option>number</option>
+</select>
+</td>
+<td>math</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Deprecated 2015-10-11</option>
+<option>Description</option>
+<option>Pre-formatted</option>
+<option>Font</option>
+<option>Escape Sequences</option>
+<option>New Lines</option>
+<option>Using The Delimiter</option>
+<option>Changing Escape</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Math Mode</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$math&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>text</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+ <a href="latex.htm" target="_top"><span style='white-space: nowrap'>latex</span></a>
+,  <a href="pre.htm" target="_top"><span style='white-space: nowrap'>pre</span></a>
+,  <a href="syntax.htm" target="_top"><span style='white-space: nowrap'>syntax</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Deprecated 2015-10-11" id="Deprecated 2015-10-11">Deprecated 2015-10-11</a></big></b>
+<br>
+This command has been deprecated, use the <a href="latex.htm" target="_top"><span style='white-space: nowrap'>latex</span></a>
+ command in its place.
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This command is used for displaying mathematical expressions
+in HTML format using only ascii characters.
+(The <a href="latex.htm" target="_top"><span style='white-space: nowrap'>latex</span></a>
+ command can be used to display an extended
+set of mathematical symbols in MathML format.)
+The argument 
+<code><i><font color="black"><span style='white-space: nowrap'>text</span></font></i></code>
+ must be a
+<a href="glossary.htm#Delimiter Sequence" target="_top"><span style='white-space: nowrap'>delimiter&nbsp;sequence</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Pre-formatted" id="Pre-formatted">Pre-formatted</a></big></b>
+<br>
+The characters in 
+<code><i><font color="black"><span style='white-space: nowrap'>text</span></font></i></code>
+ are output in a
+<a href="glossary.htm#Pre-formatted Font" target="_top"><span style='white-space: nowrap'>pre-formatted&nbsp;font</span></a>
+.
+This enables you to line up one equation above another.
+
+<br>
+<br>
+<b><big><a name="Font" id="Font">Font</a></big></b>
+<br>
+In math mode, letters are displayed in italic font. For example,
+the input
+<code><font color='blue'><pre style='display:inline'> 
+     $math%x * y%$$
+</pre></font></code>
+results in the output
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>x</i>&nbsp;*&nbsp;<i>y</i></span></code>
+
+<br>
+<br>
+<b><big><a name="Escape Sequences" id="Escape Sequences">Escape Sequences</a></big></b>
+<br>
+In math mode, the  <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character and the letters that follow it,
+represent an escape sequence. If the sequence is one of those listed below,
+the output is translated to the corresponding symbol. If the sequence is
+not one of those listed below, the escape character is removed and the
+sequences of letters that follow are printed in normal font
+(as opposed to italic font).
+The backslash is the default escape character and
+if the current escape character is different, it should replace
+the occurrences of the backslash character in the table below.
+<center>
+<table><tr><td align='left'  valign='top'>
+
+	<code><span style='white-space: nowrap'>\<i>ge</i></span></code> </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;</span></code> </td><td align='left'  valign='top'>
+ <code><font color="blue">\ge</font></code> </td></tr><tr><td align='left'  valign='top'>
+
+	<code><span style='white-space: nowrap'>\<i>le</i></span></code> </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;</span></code> </td><td align='left'  valign='top'>
+ <code><font color="blue">\le</font></code> </td></tr><tr><td align='left'  valign='top'>
+
+	<code><span style='white-space: nowrap'>\\</span></code>  </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;</span></code> </td><td align='left'  valign='top'>
+ <code><font color="blue">\\</font></code>
+</td></tr>
+</table>
+</center>For example,
+<code><font color='blue'><pre style='display:inline'> 
+     $math%\int f(x) dx \le 1%$$
+</pre></font></code>
+results in the following output
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<i>int</i>&nbsp;<i>f</i>(<i>x</i>)&nbsp;<i>dx</i>&nbsp;\<i>le</i>&nbsp;1</span></code>
+
+<br>
+<br>
+<b><big><a name="New Lines" id="New Lines">New Lines</a></big></b>
+<br>
+In math mode, new lines are transferred to the output so that
+the resulting equation has the same number of lines as the input.
+In addition, tabs are translated to spaces.
+For example, the input
+<code><font color='blue'><pre style='display:inline'> 
+     $math%
+          x * z = 1
+              y = 2
+     %$$
+</pre></font></code>
+would result in:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>x</i>&nbsp;*&nbsp;<i>z</i>&nbsp;=&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>y</i>&nbsp;=&nbsp;2</span></code>
+
+<br>
+<br>
+<b><big><a name="Using The Delimiter" id="Using The Delimiter">Using The Delimiter</a></big></b>
+<br>
+Neither the delimiter nor the escape character are included in the
+output.
+The delimiter can be used for spacing the equations so they line up.
+For example, the input
+<code><font color='blue'><pre style='display:inline'> 
+     $math%
+          %  \minimize f(x)
+          \subject \to g(x) &lt;= 0
+     %$$
+</pre></font></code>
+would result in:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<i>minimize</i>&nbsp;<i>f</i>(<i>x</i>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<i>subject</i>&nbsp;\<i>to</i>&nbsp;<i>g</i>(<i>x</i>)&nbsp;&lt;=&nbsp;0<br>
+</span></code><br>
+<b><big><a name="Changing Escape" id="Changing Escape">Changing Escape</a></big></b>
+<br>
+If there is a backslash in a formula, it can be useful to changed the
+ <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character.
+For example, the following input
+<code><font color='blue'><pre style='display:inline'> 
+     $escape #$$
+     $math%
+
+          / 1 0 0 \
+          | 0 1 0 |
+          \ 0 0 1 /
+
+     %$$
+</pre></font></code>
+produces the following output
+
+
+<code><span style='white-space: nowrap'><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;1&nbsp;0&nbsp;0&nbsp;\<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;0&nbsp;1&nbsp;0&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;0&nbsp;0&nbsp;1&nbsp;/<br>
+<br>
+</span></code>
+<hr>Input File: math.omh
+
+</body>
+</html>

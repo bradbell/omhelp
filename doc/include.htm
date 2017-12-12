@@ -1,0 +1,192 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>The Include Command</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="The Include Command">
+<meta name="keywords" id="keywords" content=" the include command read input file syntax see also description example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_include_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="stdout.htm" target="_top">Prev</a>
+</td><td><a href="image.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>files</option>
+<option>include</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>files-&gt;</option>
+<option>path</option>
+<option>children</option>
+<option>include</option>
+<option>image</option>
+<option>verbatim</option>
+<option>srcfile</option>
+<option>srccode</option>
+<option>execute</option>
+<option>KeyCharacter</option>
+</select>
+</td>
+<td>include</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>The Include Command</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$include&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+ <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
+,  <a href="path.htm" target="_top"><span style='white-space: nowrap'>path</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This command will cause the specified
+<a href="glossary.htm#Input File Searching" target="_top"><span style='white-space: nowrap'>input&nbsp;file</span></a>
+
+to be included
+as input for the current section.
+This is useful for commands that are repeated in many files.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The file <code><font color="blue">copyright.omh</font></code> contains the following text:
+
+<br>
+<pre style='display:inline'>     $comment This file is used as an example by include.omh and verbatim.omh$$
+     $codep
+     
+     # BEGIN SHORT COPYRIGHT
+     # ---------------------------------------------------------------------------
+     # OMhelp: Source Code -&gt; Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+     #
+     # This program is free software; you can redistribute it and/or
+     # modify it under the terms of the GNU General Public License
+     # as published by the Free Software Foundation; either version 2
+     # of the License, or (at your option) any later version.
+     #
+     # This program is distributed in the hope that it will be useful,
+     # but WITHOUT ANY WARRANTY; without even the implied warranty of
+     # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     # GNU General Public License for more details.
+     #
+     # You should have received a copy of the GNU General Public License
+     # along with this program; if not, write to the Free Software
+     # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+     # ---------------------------------------------------------------------------
+     # END SHORT COPYRIGHT
+     
+     $$
+</pre><br>
+The following command
+<code><font color='blue'><pre style='display:inline'> 
+     $include copyright.omh$$
+</pre></font></code>
+creates the following output
+
+
+
+<code><font color='blue'><pre style='display:inline'> 
+
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -&gt; Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+
+</pre></font></code>
+
+<hr>Input File: include.omh
+
+</body>
+</html>

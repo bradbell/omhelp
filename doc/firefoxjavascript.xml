@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='pmathml.xsl'?>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+	<head></head>
+	<body>
+		The word "Test" should appear in the text area below:
+		<br/>
+		<form name="search">
+			<textarea name="list" rows="1" cols="20" ></textarea>
+		</form>
+		<script type='text/javascript'>
+			document.search.list.value    = "Test";
+		</script>
+	</body>
+</html>

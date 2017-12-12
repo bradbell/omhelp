@@ -1,0 +1,146 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Using the Title of Another Section</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Using the Title of Another Section">
+<meta name="keywords" id="keywords" content=" section title using the another syntax see also description example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_title_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="section.htm" target="_top">Prev</a>
+</td><td><a href="head.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>titles+headings</option>
+<option>title</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>titles+headings-&gt;</option>
+<option>begin</option>
+<option>section</option>
+<option>title</option>
+<option>head</option>
+</select>
+</td>
+<td>title</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Using the Title of Another Section</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$title&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>tag</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+ <br>
+ <a href="tref.htm" target="_top"><span style='white-space: nowrap'>tref</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+The argument 
+<code><i><font color="black"><span style='white-space: nowrap'>tag</span></font></i></code>
+ specifies the
+<a href="glossary.htm#Cross Reference Tag" target="_top"><span style='white-space: nowrap'>cross&nbsp;reference&nbsp;tag</span></a>
+ for
+the another section.
+The
+<a href="section.htm" target="_top"><span style='white-space: nowrap'>title</span></a>
+ of the section corresponding to 
+<code><i><font color="black"><span style='white-space: nowrap'>tag</span></font></i></code>
+
+is placed in the text where this command appears.
+
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The following input
+<code><font color='blue'><pre style='display:inline'> 
+     $title section$$: $mref/section/$$
+</pre></font></code>
+produces the following output
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>Specify The Title For A Section:  <a href="section.htm" target="_top"><span style='white-space: nowrap'>section</span></a>
+
+<code><span style='white-space: nowrap'><br>
+</span></code>Note that <code><font color="blue">section</font></code> is the 
+<code><i><font color="black"><span style='white-space: nowrap'>tag</span></font></i></code>
+ in this example.
+
+
+<hr>Input File: title.omh
+
+</body>
+</html>

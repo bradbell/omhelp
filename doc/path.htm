@@ -1,0 +1,231 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Setting Input File Search Paths</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Setting Input File Search Paths">
+<meta name="keywords" id="keywords" content=" setting input file search paths read syntax see also warning directory extension purpose relative ignored example reference ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_path_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="files.htm" target="_top">Prev</a>
+</td><td><a href="children.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>files</option>
+<option>path</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>files-&gt;</option>
+<option>path</option>
+<option>children</option>
+<option>include</option>
+<option>image</option>
+<option>verbatim</option>
+<option>srcfile</option>
+<option>srccode</option>
+<option>execute</option>
+<option>KeyCharacter</option>
+</select>
+</td>
+<td>path</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Warning</option>
+<option>directory, extension</option>
+<option>Purpose</option>
+<option>Relative Paths</option>
+<option>Ignored</option>
+<option>Example</option>
+<option>Reference</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Setting Input File Search Paths</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$path%</span></font><i><font color="black"><span style='white-space: nowrap'>directory</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>extension</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+<a href="children.htm" target="_top"><span style='white-space: nowrap'>contents</span></a>
+,
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Warning" id="Warning">Warning</a></big></b>
+<br>
+The OMhelp documentation uses the <code><font color="blue">path</font></code> command so that
+file names in the <code><font color="blue">omh/getstarted</font></code> directory can be both relative to
+both the <code><font color="blue">omh</font></code> directory and the <code><font color="blue">getstarted</font></code> directory.
+This is an advanced usage.
+In general, it is suggested one use file names relative to the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+
+instead of using the <code><font color="blue">path</font></code> command.
+
+
+
+<br>
+<br>
+<b><big><a name="directory, extension" id="directory, extension">directory, extension</a></big></b>
+<br>
+The text
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%</span></font><i><font color="black"><span style='white-space: nowrap'>directory</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>extension</span></font></i><font color="blue"><span style='white-space: nowrap'>%<br>
+</span></font></code>
+is a <a href="glossary.htm#Delimiter Sequence" target="_top"><span style='white-space: nowrap'>delimiter&nbsp;sequence</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+This command adds 
+<code><i><font color="black"><span style='white-space: nowrap'>directory</span></font></i></code>
+ to the set of directories that OMhelp
+searches for files with
+<a href="glossary.htm#File Extension" target="_top"><span style='white-space: nowrap'>file&nbsp;extension</span></a>
+
+equal to 
+<code><i><font color="black"><span style='white-space: nowrap'>extension</span></font></i></code>
+.
+
+<br>
+<br>
+<b><big><a name="Relative Paths" id="Relative Paths">Relative Paths</a></big></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>directory</span></font></i></code>
+ is not a
+<a href="glossary.htm#Complete Path Specification" target="_top"><span style='white-space: nowrap'>complete&nbsp;path&nbsp;specification</span></a>
+,
+the path specification is relative to the
+directory where the file containing the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+
+is located.
+
+<br>
+<br>
+<b><big><a name="Ignored" id="Ignored">Ignored</a></big></b>
+<br>
+This command is ignored unless it appears in the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+.
+This enables one to use one OMhelp web site as a sub-tree of
+a larger OMhelp web site.
+(All of the <a href="get_started.htm" target="_top"><span style='white-space: nowrap'>getting&nbsp;started</span></a>
+ examples are
+used twice in this way.)
+Each of these web sites may have its starting file in a different directory
+and therefore require different <code><font color="blue">path</font></code> commands.
+
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The following input
+<code><font color='blue'><pre style='display:inline'> 
+     $path/c:\src/.cpp/$$
+     $path/c:\omwin\function/.mat/$$
+</pre></font></code>
+adds the directory <code><font color="blue">c:\src</font></code>
+to the search path for input files that have the extension <code><font color="blue">.cpp</font></code>,
+and the directory <code><font color="blue">c:\omwin\function</font></code>
+to the search path for input files that have the extension <code><font color="blue">.mat</font></code>.
+The directories are searched in the order that they are specified by
+the <code><font color="blue">path</font></code> command.
+Note that input files are specified by the
+<code><font color="blue">contents</font></code>, <code><font color="blue">childtable</font></code>, and  <a href="children.htm" target="_top"><span style='white-space: nowrap'>children</span></a>
+ commands.
+
+<br>
+<br>
+<b><big><a name="Reference" id="Reference">Reference</a></big></b>
+<br>
+The <code><font color="blue">path</font></code> command is special in that
+it persists for other sections and hence it sets the environment
+for the OMhelp.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>Both the forward slash <code><font color="blue">/</font></code>
+or the back slash <code><font color="blue">\</font></code>
+can be used as a directory separator character.
+For example, the path commands above are equivalent to
+<code><font color='blue'><pre style='display:inline'> 
+     $path%c:/src%.cpp%$$
+     $path%c:/omwin/function%.mat%$$
+</pre></font></code>
+
+<hr>Input File: path.omh
+
+</body>
+</html>

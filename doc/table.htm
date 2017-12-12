@@ -1,0 +1,271 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Specifying a Table and Its Rows and Columns</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Specifying a Table and Its Rows and Columns">
+<meta name="keywords" id="keywords" content=" table tend rnext cnext row in column specifying its rows columns syntax see also description example nesting alignment cend rend ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_table_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="center.htm" target="_top">Prev</a>
+</td><td><a href="align.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>format</option>
+<option>table</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>format-&gt;</option>
+<option>nobreak</option>
+<option>pre</option>
+<option>codep</option>
+<option>codei</option>
+<option>color</option>
+<option>hilite</option>
+<option>th</option>
+<option>center</option>
+<option>table</option>
+<option>list</option>
+<option>special</option>
+<option>font</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>table-&gt;</option>
+<option>align</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>table</option>
+<option>cnext</option>
+<option>rnext</option>
+<option>tend</option>
+<option>Example</option>
+<option>Nesting</option>
+<option>Alignment</option>
+<option>Cend and Rend</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Specifying a Table and Its Rows and Columns</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$table<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$cnext<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$rnext<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$tend<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+ <a href="list.htm" target="_top"><span style='white-space: nowrap'>list</span></a>
+,  <a href="pre.htm" target="_top"><span style='white-space: nowrap'>pre</span></a>
+,  <a href="center.htm" target="_top"><span style='white-space: nowrap'>center</span></a>
+,  <a href="array.htm" target="_top"><span style='white-space: nowrap'>array</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+These commands are used to create tables.
+
+<br>
+<br>
+<b><big><a name="table" id="table">table</a></big></b>
+<br>
+The command <code><font color="blue">$table</font></code> begins a new table.
+A new row and new column are automatically stated at the
+beginning of every table.
+
+<br>
+<br>
+<b><big><a name="cnext" id="cnext">cnext</a></big></b>
+<br>
+The command <code><font color="blue">$cnext</font></code> marks the end of the
+current column and the beginning of the next column.
+
+<br>
+<br>
+<b><big><a name="rnext" id="rnext">rnext</a></big></b>
+<br>
+The command <code><font color="blue">$rnext</font></code> marks
+the end of the current column,
+the end of the current row,
+the beginning of the next row,
+and the beginning of the next column.
+
+<br>
+<br>
+<b><big><a name="tend" id="tend">tend</a></big></b>
+<br>
+The command <code><font color="blue">$tend</font></code> marks the end of the current column,
+the end of the current row,
+and the end of the current table.
+The current table corresponds to the previous <code><font color="blue">$table</font></code>
+command in the OMhelp input stream.
+(Note that <code><font color="blue">$tend</font></code> is used instead of <code><font color="blue">$$</font></code>
+to terminate a table).
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     $table
+          1 $cnext 2 $cnext 3 $rnext
+          4 $cnext 5 $cnext 6
+     $tend
+</pre></font></code>
+results in the output
+<table><tr><td align='left'  valign='top'>
+
+	1 </td><td align='left'  valign='top'>
+ 2 </td><td align='left'  valign='top'>
+ 3 </td></tr><tr><td align='left'  valign='top'>
+
+	4 </td><td align='left'  valign='top'>
+ 5 </td><td align='left'  valign='top'>
+ 6
+</td></tr>
+</table>
+<br>
+<b><big><a name="Nesting" id="Nesting">Nesting</a></big></b>
+<br>
+You can nest one table inside of another.
+For example, the input
+<code><font color='blue'><pre style='display:inline'> 
+     $table
+          $table
+               1 $rnext 2 $rnext 3
+          $tend
+          $cnext
+          $table
+               4 $rnext 5 $rnext 6
+          $tend
+     $tend
+</pre></font></code>
+results in output
+<table><tr><td align='left'  valign='top'>
+
+	<table><tr><td align='left'  valign='top'>
+
+		1 </td></tr><tr><td align='left'  valign='top'>
+ 2 </td></tr><tr><td align='left'  valign='top'>
+ 3
+	</td></tr>
+</table>
+
+	</td><td align='left'  valign='top'>
+
+	<table><tr><td align='left'  valign='top'>
+
+		4 </td></tr><tr><td align='left'  valign='top'>
+ 5 </td></tr><tr><td align='left'  valign='top'>
+ 6
+	</td></tr>
+</table>
+
+</td></tr>
+</table>
+<br>
+<b><big><a name="Alignment" id="Alignment">Alignment</a></big></b>
+<br>
+You can use the  <a href="center.htm" target="_top"><span style='white-space: nowrap'>center</span></a>
+ command to center the table.
+The default horizontal and vertical alignment for data in each cell
+is <code><font color="blue">left</font></code> and <code><font color="blue">top</font></code>.
+You can use the <a href="align.htm" target="_top"><span style='white-space: nowrap'>align</span></a>
+ command to change this alignment.
+
+
+<br>
+<br>
+<b><big><a name="Cend and Rend" id="Cend and Rend">Cend and Rend</a></big></b>
+
+
+<br>
+The <code><font color="blue">cnext</font></code> command used to be called <code><font color="blue">cend</font></code> and
+the <code><font color="blue">rnext</font></code> command used to be called <code><font color="blue">rend</font></code>.
+In order to not have to change existing OMhelp input files,
+the older versions of these commands still work.
+
+
+<hr>Input File: table.omh
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Displaying In Line Source Code</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Displaying In Line Source Code">
+<meta name="keywords" id="keywords" content=" displaying line source code syntax see also purpose delimiter sequence example factorial program ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_srccode_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="srcfile.htm" target="_top">Prev</a>
+</td><td><a href="execute.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>files</option>
+<option>srccode</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>files-&gt;</option>
+<option>path</option>
+<option>children</option>
+<option>include</option>
+<option>image</option>
+<option>verbatim</option>
+<option>srcfile</option>
+<option>srccode</option>
+<option>execute</option>
+<option>KeyCharacter</option>
+</select>
+</td>
+<td>srccode</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Purpose</option>
+<option>Delimiter Sequence</option>
+<option>Example</option>
+<option>---..Factorial Program</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Displaying In Line Source Code</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$srccode%</span></font><i><font color="black"><span style='white-space: nowrap'>file_ext</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>source</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+<a href="start_src.htm" target="_top"><span style='white-space: nowrap'>get&nbsp;started</span></a>
+,
+ <a href="srcfile.htm" target="_top"><span style='white-space: nowrap'>srcfile</span></a>
+,  <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+This command will display the specified program 
+<code><i><font color="black"><span style='white-space: nowrap'>source</span></font></i></code>
+ code
+with highlighting and for the language
+corresponding to the specified file extension 
+<code><i><font color="black"><span style='white-space: nowrap'>file_ext</span></font></i></code>
+.
+
+<br>
+<br>
+<b><big><a name="Delimiter Sequence" id="Delimiter Sequence">Delimiter Sequence</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%</span></font><i><font color="black"><span style='white-space: nowrap'>file_ext</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>source</span></font></i><font color="blue"><span style='white-space: nowrap'>%<br>
+</span></font></code>
+is a <a href="glossary.htm#Delimiter Sequence" target="_top"><span style='white-space: nowrap'>delimiter&nbsp;sequence</span></a>
+
+where <code><font color="blue">%</font></code> can be any character that is not a letter.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+All the characters, except the end of line character,
+in the first and last line of the <code><font color="blue">srccode</font></code> command are ignored.
+(There must be at least two newlines in text.)
+This enables the inclusion of source code that is actually compiled.
+For example, the input
+<code><font color='blue'><pre style='display:inline'> 
+     $tabsize 4$$
+     $subhead Factorial Program$$ */
+     $srccode%py%
+          def factorial(n) :
+               if n == 1 :
+                    return 1
+               return n * factorial(n-1)
+          end
+     /* %$$
+</pre></font></code>
+would create the following output
+
+<br>
+<br>
+<b><a name="Example.Factorial Program" id="Example.Factorial Program">Factorial Program</a></b>
+
+<pre><tt>    <b><font color="#0000FF">def</font></b> <b><font color="#000000">factorial</font></b><font color="#990000">(</font>n<font color="#990000">)</font> <font color="#990000">:</font>
+        <b><font color="#0000FF">if</font></b> n <font color="#990000">==</font> <font color="#993399">1</font> <font color="#990000">:</font>
+            <b><font color="#0000FF">return</font></b> <font color="#993399">1</font>
+        <b><font color="#0000FF">return</font></b> n <font color="#990000">*</font> <b><font color="#000000">factorial</font></b><font color="#990000">(</font>n<font color="#990000">-</font><font color="#993399">1</font><font color="#990000">)</font>
+    end</tt></pre>
+
+<hr>Input File: srccode.omh
+
+</body>
+</html>

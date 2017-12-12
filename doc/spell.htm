@@ -1,0 +1,280 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Excluding Words from Spell Checking</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Excluding Words from Spell Checking">
+<meta name="keywords" id="keywords" content=" spell excluding words from checking syntax see also description double effect limits example one word errors two spelling error output dictionary english.wrd ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_spell_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="spellchecking.htm" target="_top">Prev</a>
+</td><td><a href="nospell.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>spellchecking</option>
+<option>spell</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>spellchecking-&gt;</option>
+<option>spell</option>
+<option>nospell</option>
+</select>
+</td>
+<td>spell</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>Double Words</option>
+<option>Effect Limits</option>
+<option>Example</option>
+<option>---..One Word Errors</option>
+<option>---..Two Word Errors</option>
+<option>Spelling Error Output</option>
+<option>Dictionary</option>
+<option>---..English.wrd</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Excluding Words from Spell Checking</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$spell&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>word&nbsp;list</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+<a href="start_spell.htm" target="_top"><span style='white-space: nowrap'>getting&nbsp;started</span></a>
+,  <a href="nospell.htm" target="_top"><span style='white-space: nowrap'>nospell</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+A standard and local dictionary are used to check for misspelled words.
+A word is an upper or lower case letter
+followed by a sequence and lower case letters.
+For example, <code><font color="blue">AddNumber</font></code> is two words namely <code><font color="blue">Add</font></code>
+and <code><font color="blue">Number</font></code>.
+Often, there are words in the text of a document that are not
+part of the standard or local
+<a href="spell.htm#Dictionary" target="_top"><span style='white-space: nowrap'>dictionary</span></a>
+.
+Any words that appear in 
+<code><i><font color="black"><span style='white-space: nowrap'>word_list</span></font></i></code>
+
+will be considered correctly spelled even if they are not in
+either of the dictionaries.
+
+<br>
+<br>
+<b><big><a name="Double Words" id="Double Words">Double Words</a></big></b>
+<br>
+Double words are also flagged as spelling errors.
+To be specific,
+a double word is two copies of the same word
+(ignoring case of the first letter and longer than one letter)
+with only
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+
+between the two copies.
+If a double word appears in 
+<code><i><font color="black"><span style='white-space: nowrap'>word_list</span></font></i></code>
+,
+it will be considered correctly spelled.
+
+<br>
+<br>
+<b><big><a name="Effect Limits" id="Effect Limits">Effect Limits</a></big></b>
+<br>
+A <code><font color="blue">spell</font></code> command has effect from the point of the command to
+the next <a href="begin.htm" target="_top"><span style='white-space: nowrap'>end</span></a>
+ command; i.e., the end of the section
+that the command appears in.
+If there are multiple <code><font color="blue">spell</font></code> commands in a section,
+the effect is cumulative.
+
+
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Example.One Word Errors" id="Example.One Word Errors">One Word Errors</a></b>
+<br>
+The following commands
+
+<code><font color='blue'><pre style='display:inline'> 
+     $spell
+          Wordone
+          wordtwo
+     $$
+     $codep
+          wordone
+          Wordtwo
+          wordthree
+     $$
+</pre></font></code>
+results in the following output
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><code><font color="blue">wordone</font></code><code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><code><font color="blue">Wordtwo</font></code><code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><code><font color="Red">wordthree</font></code><code><span style='white-space: nowrap'><br>
+</span></code>In addition, an error message that identifies <code><font color="Blue">wordthree</font></code>
+as misspelled is printed on <a href="stdout.htm" target="_top"><span style='white-space: nowrap'>standard&nbsp;output</span></a>
+.
+
+<br>
+<br>
+<b><a name="Example.Two Word Errors" id="Example.Two Word Errors">Two Word Errors</a></b>
+<br>
+The following commands
+
+<code><font color='Blue'><pre style='display:inline'> 
+     $spell
+          word word
+     $$
+     $codep
+          this this
+          word word
+     $$
+</pre></font></code>
+results in the following output
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><code><font color="Red">this this</font></code><code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code><code><font color="Blue">word word</font></code><code><span style='white-space: nowrap'><br>
+</span></code>In addition, an error message that identifies <code><font color="Blue">this this</font></code>
+as a spelling error is printed on standard output.
+
+
+<br>
+<br>
+<b><big><a name="Spelling Error Output" id="Spelling Error Output">Spelling Error Output</a></big></b>
+
+<br>
+Spelling errors are printed on
+<a href="stdout.htm" target="_top"><span style='white-space: nowrap'>standard&nbsp;output</span></a>
+.
+If the <a href="running.htm#debug" target="_top"><span style='white-space: nowrap'>-debug</span></a>
+ option is chosen,
+an alphabetic list of spelling errors
+is stored in the file
+<a href="running.htm#debug" target="_top"><span style='white-space: nowrap'>error.wrd</span></a>
+
+in the current directory
+(where OMhelp is <a href="running.htm" target="_top"><span style='white-space: nowrap'>run</span></a>
+).
+If you change dictionaries (see below) and you get
+spelling errors with your new dictionary,
+you can add the words in <code><font color="Blue">error.wrd</font></code> to your new dictionary
+to make your new dictionary compatible with your current help system.
+
+
+<br>
+<br>
+<b><big><a name="Dictionary" id="Dictionary">Dictionary</a></big></b>
+
+
+<br>
+The dictionary used by OMhelp is determined during installation
+(see the spelling list instructions for installing under
+<a href="installunix.htm#Spelling List" target="_top"><span style='white-space: nowrap'>Unix</span></a>
+ or
+<a href="installwindows.htm#Spelling List" target="_top"><span style='white-space: nowrap'>Windows</span></a>
+).
+The standard dictionary is located in a file called
+<code><font color="Blue">english.wrd</font></code>
+and the local dictionary is located in a file called
+<code><font color="Blue">local.wrd</font></code>.
+A combined binary version of these dictionaries is located in a file called
+<code><font color="Blue">dictionary.bin</font></code>
+
+
+<br>
+<br>
+<b><a name="Dictionary.English.wrd" id="Dictionary.English.wrd">English.wrd</a></b>
+
+<br>
+The <code><font color="Blue">english.wrd</font></code> file distributed with OMhelp
+is a combination of the files 
+<code><font color="blue"><span style='white-space: nowrap'>words</span></font><i><font color="black"><span style='white-space: nowrap'>*</span></font></i><font color="blue"><span style='white-space: nowrap'>.lst</span></font></code>
+
+from the web site:
+<code><font color='Blue'><pre style='display:inline'> 
+http://www.bookcase.com/library/software/msdos.education.linguistics.html
+</pre></font></code>
+(together with all the single letters <code><font color="Blue">a</font></code> through <code><font color="Blue">z</font></code>).
+Unfortunately, this web address no longer exists.
+
+
+<hr>Input File: spell.omh
+
+</body>
+</html>

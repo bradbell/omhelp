@@ -1,0 +1,192 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Changing the Command Key Character $</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Changing the Command Key Character $">
+<meta name="keywords" id="keywords" content=" changing the command key character $ Omhelpkeycharacter special syntax purpose keycharexample.omh keycharinclude.omh ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_keycharacter_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="execute.htm" target="_top">Prev</a>
+</td><td><a href="keycharexample.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>files</option>
+<option>KeyCharacter</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>files-&gt;</option>
+<option>path</option>
+<option>children</option>
+<option>include</option>
+<option>image</option>
+<option>verbatim</option>
+<option>srcfile</option>
+<option>srccode</option>
+<option>execute</option>
+<option>KeyCharacter</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>KeyCharacter-&gt;</option>
+<option>KeyCharExample</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Purpose</option>
+<option>keycharexample.omh</option>
+<option>keycharinclude.omh</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Changing the Command Key Character $</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$OMhelpKeyCharacter=</span></font><i><font color="black"><span style='white-space: nowrap'>c</span></font></i></code>
+
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+This is the only OMhelp command that does not occur between a
+<code><font color="blue">$begin</font></code>,
+<code><font color="blue">$end</font></code> pair.
+It instructs OMhelp to use the single character specified by 
+<code><font color="blue"><span style='white-space: nowrap'>c</span></font></code>
+
+as the Command Key character
+(in place of the default character which is the dollar sign <code><font color="blue">$</font></code>.)
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The character 
+<code><font color="blue"><span style='white-space: nowrap'>c</span></font></code>
+ can not be an alphabetic letter,
+a decimal digit, or white space.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The effect of this limited to sections that have there
+<code><font color="blue">$begin</font></code> and <code><font color="blue">$end</font></code> commands in the same file.
+
+
+
+<br>
+<br>
+<b><big><a name="keycharexample.omh" id="keycharexample.omh">keycharexample.omh</a></big></b>
+<br>
+The input file <code><font color="blue">keycharexample.omh</font></code> contains the text
+<code><font color="blue">
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>$OMhelp<pre style='display:inline'>KeyCharacter=@
+     
+     @begin KeyCharExample@@
+     
+     @section Command Key Character Example@@
+     
+     @include keycharinclude.omh@@
+     
+     @end
+</pre>
+
+</font></code>
+This input results
+in the following section: <a href="keycharexample.htm" target="_top"><span style='white-space: nowrap'>KeyCharExample</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="keycharinclude.omh" id="keycharinclude.omh">keycharinclude.omh</a></big></b>
+<br>
+The input above <a href="include.htm" target="_top"><span style='white-space: nowrap'>includes</span></a>
+ the file
+<code><font color="blue">keycharinclude.omh</font></code> which contains the text
+<code><font color="blue">
+<code><span style='white-space: nowrap'><br>
+</span></code><pre style='display:inline'>     @comment
+     -------------------------------------------------------------------------------
+     OMhelp: Language Independent Embedded Documentation
+               Copyright (C) 1998-2015 Bradley M. Bell
+     OMhelp is distributed under the terms of the
+                 GNU General Public License Version 2.
+     -------------------------------------------------------------------------------
+     
+     This file is included by keycharacter.omh and keycharexample.omh.
+     @@
+     @spell
+     	keycharinclude.omh
+     	keycharexample.omh
+     @@
+     @head Include File@@
+     This is text comes from the file @code keycharinclude.omh@@
+     which is included by @code keycharexample.omh@@.
+     Note that the command key character in @code keycharinclude.omh@@
+     is the same as for @code keycharexample.omh@@.
+</pre><br>
+</font></code>
+<hr>Input File: keycharacter.omh
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Latex MathML Command</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Latex MathML Command">
+<meta name="keywords" id="keywords" content=" latex mathml command test browser syntax restriction description extending the available set symbols testing commands mi font overbrace compared to tilde ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_mathml_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="latexmacro.htm" target="_top">Prev</a>
+</td><td><a href="diff_xml_htm.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>latex</option>
+<option>mathml</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>latex-&gt;</option>
+<option>symbol</option>
+<option>diacritical</option>
+<option>stdfun</option>
+<option>subsup</option>
+<option>frac</option>
+<option>sqrt</option>
+<option>array</option>
+<option>left_right</option>
+<option>under_over</option>
+<option>stackrel</option>
+<option>latexfont</option>
+<option>latexcomment</option>
+<option>LatexMacro</option>
+<option>mathml</option>
+<option>diff_xml_htm</option>
+</select>
+</td>
+<td>mathml</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Restriction</option>
+<option>Description</option>
+<option>Extending the Available Set of Latex Symbols</option>
+<option>Testing MathML Commands</option>
+<option>---..Mi Font</option>
+<option>Overbrace Compared To Tilde</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Latex MathML Command</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$latex&nbsp;\mathml{</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>text</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i><font color="blue"><span style='white-space: nowrap'>}$$<br>
+</span></font></code>
+<br>
+<b><big><a name="Restriction" id="Restriction">Restriction</a></big></b>
+<br>
+The Latex <code><font color="blue">\mathml</font></code> command only works using the 
+<code><i><font color="black"><span style='white-space: nowrap'>*</span></font></i><font color="blue"><span style='white-space: nowrap'>.xml</span></font></code>
+
+files and a browser that supports
+<a href="latex.htm#MathML (xml)" target="_top"><span style='white-space: nowrap'>MathML</span></a>
+; e.g., Firefox (and not Chrome).
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This command is not <a href="latex.htm#Reference" target="_top"><span style='white-space: nowrap'>Standard&nbsp;Latex</span></a>
+
+(which is why it does not work with
+<a href="latex.htm#MathJax (htm)" target="_top"><span style='white-space: nowrap'>MathJax</span></a>
+).
+The <code><font color="blue">mathml</font></code> command has two purposes described below:
+
+<br>
+<br>
+<b><big><a name="Extending the Available Set of Latex Symbols" id="Extending the Available Set of Latex Symbols">Extending the Available Set of Latex Symbols</a></big></b>
+<br>
+The argument  
+<code><i><font color="black"><span style='white-space: nowrap'>text</span></font></i></code>
+ is a sequence of characters.
+They can use the Unicode representation
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;x</span></font><i><font color="black"><span style='white-space: nowrap'>unicode</span></font></i><font color="blue"><span style='white-space: nowrap'>;<br>
+</span></font></code>
+where 
+<code><i><font color="black"><span style='white-space: nowrap'>unicode</span></font></i></code>
+ be a valid MathML Unicode value.
+For a list of the valid Unicode values see
+<a href="http://www.w3.org/TR/MathML2/chapter6.html#chars_unicodechars" target="_top"><span style='white-space: nowrap'>Section&nbsp;6.2.1</span></a>
+
+of the
+<a href="http://www.w3.org/TR/MathML2/overview.html" target="_top"><span style='white-space: nowrap'>MathML&nbsp;2.0</span></a>
+
+specifications.
+
+The arguments 
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+, 
+<code><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i></code>
+, 
+<code><i><font color="black"><span style='white-space: nowrap'>text</span></font></i></code>
+
+can be one of the following:
+<table><tr><td align='left'  valign='top'>
+
+
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+ </td><td align='left'  valign='top'>
+ 
+<code><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i></code>
+ </td><td align='left'  valign='top'>
+ 
+<code><i><font color="black"><span style='white-space: nowrap'>text</span></font></i></code>
+
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">&lt;mo stretchy='false'&gt;</font></code> </td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;/mo&gt;</font></code> </td><td align='left'  valign='top'>
+
+	an operator that should not stretch to fit
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">&lt;mi mathvariant='normal'&gt;</font></code> </td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;/mi&gt;</font></code> </td><td align='left'  valign='top'>
+
+	an identifier that should be displayed in normal font
+</td></tr><tr><td align='left'  valign='top'>
+
+</td></tr>
+</table>
+<br>
+<b><big><a name="Testing MathML Commands" id="Testing MathML Commands">Testing MathML Commands</a></big></b>
+<br>
+The <code><font color="blue">mathml</font></code> command is used to test,
+and discuss,
+certain MathML commands in the context for OMhelp.
+These usages the <code><font color="blue">mathml</font></code> command are not considered standard
+and may not work in future versions.
+
+<br>
+<br>
+<b><a name="Testing MathML Commands.Mi Font" id="Testing MathML Commands.Mi Font">Mi Font</a></b>
+<br>
+In Section 3.2.2 of
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>
+<a href="http://www.w3.org/TR/MathML2/chapter3.html#presm_tokel" target="_top"><span style='white-space: nowrap'>http://www.w3.org/TR/MathML2/chapter3.html#presm_tokel</span></a>
+
+<code><span style='white-space: nowrap'><br>
+</span></code>there is a paragraph with the text:
+&quot;Finally, there is a redundancy problem
+with the mathvariant attribute that must
+be dealt with as a special case.
+When the mathvariant attribute
+is used on an mi element containing a single character ...
+the resulting rendering will be visually indistinguishable
+from an mi element with no attributes containing
+the corresponding SMP character.&quot;
+From this discussion, it seems to me that both of the
+<code><font color="blue">x</font></code> in the commands below should
+be displayed the same.
+<code><font color='blue'><pre style='display:inline'> 
+     $latex \[
+          \mathml{
+               &lt;mi&gt;x&lt;/mi&gt;
+               &lt;mi mathvariant=&quot;normal&quot;&gt;x&lt;/mi&gt;
+          }
+     \]$$
+</pre></font></code>
+generates the output
+<small>@[@
+
+		\mathml{
+			<mi>x</mi>
+			<mi mathvariant="normal">x</mi>
+		}
+
+@]@</small>
+On the other hand, it appears that the browsers are changing
+fonts as requested.
+This is useful because
+<code><font color="blue">mi</font></code> elements are token elements and as such,
+<code><font color="blue">mstyle</font></code> elements can not be placed with in them.
+Thus, there does not seem to be another
+way to override the changing of fonts
+by <code><font color="blue">mi</font></code> elements that have single character values.
+
+<br>
+<br>
+<b><big><a name="Overbrace Compared To Tilde" id="Overbrace Compared To Tilde">Overbrace Compared To Tilde</a></big></b>
+<br>
+The OverBrace (U0FE37) stretches to fit the entire base
+and the tilde (U002DC) does not.
+This is a good thing because it agrees with LaTex,
+but it is unclear how the MathML specifications lead to this display.
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     $latex \mathml{
+     &lt;mover&gt;
+          &lt;mrow&gt;
+               &lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;
+          &lt;/mrow&gt;
+          &lt;mo stretchy=&quot;true&quot;&gt; &amp;#x0FE37; &lt;/mo&gt;
+     &lt;/mover&gt;
+     &lt;mspace width=&quot;2em&quot;/&gt;
+     &lt;mover&gt;
+          &lt;mrow&gt;
+               &lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;
+          &lt;/mrow&gt;
+          &lt;mo stretchy=&quot;true&quot;&gt; &amp;#x002DC; &lt;/mo&gt;
+     &lt;/mover&gt;
+     } $$
+</pre></font></code>
+results in the following output
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>
+	<small>@(@
+\mathml{
+	<mover>
+		<mrow>
+			<mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>z</mi>
+		</mrow>
+		<mo stretchy="true"> &#x0FE37; </mo>
+	</mover>
+	<mspace width="2em"/>
+	<mover>
+		<mrow>
+			<mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mi>z</mi>
+		</mrow>
+		<mo stretchy="true"> &#x002DC; </mo>
+	</mover>
+	}
+@)@</small>
+
+
+<hr>Input File: latex/mathml.omh
+
+</body>
+</html>

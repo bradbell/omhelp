@@ -1,0 +1,193 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Changing the Escape Character</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Changing the Escape Character">
+<meta name="keywords" id="keywords" content=" changing the escape character syntax description root section no example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_escape_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="accent.htm" target="_top">Prev</a>
+</td><td><a href="tabsize.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>format</option>
+<option>special</option>
+<option>escape</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>format-&gt;</option>
+<option>nobreak</option>
+<option>pre</option>
+<option>codep</option>
+<option>codei</option>
+<option>color</option>
+<option>hilite</option>
+<option>th</option>
+<option>center</option>
+<option>table</option>
+<option>list</option>
+<option>special</option>
+<option>font</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>special-&gt;</option>
+<option>dollar</option>
+<option>cmark</option>
+<option>rmark</option>
+<option>newlinech</option>
+<option>accent</option>
+<option>escape</option>
+<option>tabsize</option>
+</select>
+</td>
+<td>escape</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Description</option>
+<option>Root Section</option>
+<option>No Escape Character</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Changing the Escape Character</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$escape&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>character</span></font></i><font color="blue"><span style='white-space: nowrap'>$$</span></font></code>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+The default escape character is the backslash, <code><font color="blue">\</font></code>.
+This command changes the escape character to the first character in
+
+<code><i><font color="black"><span style='white-space: nowrap'>character</span></font></i></code>
+ (not counting leading
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+).
+The <code><font color="blue">escape</font></code> command has effect till the next such command
+is executed or the end of the current section (which ever comes first).
+
+<br>
+<br>
+<b><big><a name="Root Section" id="Root Section">Root Section</a></big></b>
+<br>
+In the special case where an <code><font color="blue">$escape</font></code> command appears in the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+ section,
+the last value specified in the root section
+replaces the backslash <code><font color="blue">\</font></code> as the default for other sections.
+
+<br>
+<br>
+<b><big><a name="No Escape Character" id="No Escape Character">No Escape Character</a></big></b>
+<br>
+There is no escape character if the command
+<code><font color='blue'><pre style='display:inline'> 
+     $escape $$
+</pre></font></code>
+appears in the current section.
+It is suggested that you use this as the default, by making
+it the last escape command in the root section.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The <a href="glossary.htm#Delimiter Sequence" target="_top"><span style='white-space: nowrap'>delimiter</span></a>
+ in a
+<a href="codei.htm" target="_top"><span style='white-space: nowrap'>codei</span></a>
+ command does not appear in its output.
+The escape character is useful for lining up output rows in a
+<code><font color="blue">$codei</font></code> or <code><font color="blue">$icode</font></code> command.
+For example, the input
+<code><font color='blue'><pre style='display:inline'> 
+     $escape #$$
+     $codei%
+     %x%   = 1 + %a% + %b%
+     %y%   = 2 + # #   %b%
+     %$$
+</pre></font></code>
+produces the following output
+
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>x</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;&nbsp;=&nbsp;1&nbsp;+&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>a</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;+&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>b</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>y</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;&nbsp;=&nbsp;2&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>b</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+
+<hr>Input File: escape.omh
+
+</body>
+</html>

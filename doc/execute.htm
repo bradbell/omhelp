@@ -1,0 +1,176 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Creating a File and Linking to its Execution</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Creating a File and Linking to its Execution">
+<meta name="keywords" id="keywords" content=" creating file linking to its execution link syntax see also purpose target example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_execute_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="srccode.htm" target="_top">Prev</a>
+</td><td><a href="keycharacter.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>files</option>
+<option>execute</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>files-&gt;</option>
+<option>path</option>
+<option>children</option>
+<option>include</option>
+<option>image</option>
+<option>verbatim</option>
+<option>srcfile</option>
+<option>srccode</option>
+<option>execute</option>
+<option>KeyCharacter</option>
+</select>
+</td>
+<td>execute</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Purpose</option>
+<option>Target</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Creating a File and Linking to its Execution</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$execute&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+ <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+,  <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+This command creates the file specified by 
+<code><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i></code>
+
+together with a link to the file.
+Both leading and trailing
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+
+in 
+<code><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i></code>
+
+is ignored and there cannot be any <code><font color="blue">$</font></code> characters
+in 
+<code><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i></code>
+.
+The file name is displayed as the text for the link.
+The contents of the file is the text that is displayed by the
+next  <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+ command.
+
+<br>
+<br>
+<b><big><a name="Target" id="Target">Target</a></big></b>
+<br>
+It is assumed that the extension in the file name will inform the web browser
+what application should be launched to execute the file.
+If the web browser itself displays the file, it will to so in its
+top frame; i.e., not in a sub-frame of the browser window.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The following input
+<code><font color='blue'><pre style='display:inline'> 
+     If you select
+     $execute Example.wri$$
+     using Microsoft Internet Explorer,
+     Wordpad will be opened with the following contents
+     $codep
+     Example contents for the file Example.wri
+     $$
+
+</pre></font></code>
+displays as follows:
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>If you select
+<a href="example.wri" target="_top"><font color="green">Example.wri</font></a>
+using Microsoft Internet Explorer,
+WordPad will be opened with the following contents
+<code><font color='blue'><pre style='display:inline'> 
+Example contents for the file Example.wri
+</pre></font></code>
+
+<hr>Input File: execute.omh
+
+</body>
+</html>

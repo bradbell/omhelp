@@ -1,0 +1,243 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Paragraph Headings and Subheadings</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Paragraph Headings and Subheadings">
+<meta name="keywords" id="keywords" content=" paragraph headings subheadings syntax see also description cross reference linking aindex example heading topic subheading ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_head_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="title.htm" target="_top">Prev</a>
+</td><td><a href="cross.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>titles+headings</option>
+<option>head</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>titles+headings-&gt;</option>
+<option>begin</option>
+<option>section</option>
+<option>title</option>
+<option>head</option>
+</select>
+</td>
+<td>head</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>Cross Reference Linking</option>
+<option>Aindex</option>
+<option>Example Heading</option>
+<option>Topic</option>
+<option>Example Subheading</option>
+<option>---..Topic</option>
+<option>Reference</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Paragraph Headings and Subheadings</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$head&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>heading</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$subhead&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>subheading</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+	<br>
+<a href="start_head.htm" target="_top"><span style='white-space: nowrap'>getting&nbsp;started</span></a>
+,
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+A new paragraph is started and it is given the heading
+specified by 
+<code><i><font color="black"><span style='white-space: nowrap'>heading</span></font></i></code>
+ or 
+<code><i><font color="black"><span style='white-space: nowrap'>subheading</span></font></i></code>
+.
+There can be no <code><font color="blue">$</font></code> or <code><font color="blue">#</font></code> characters in either
+
+<code><i><font color="black"><span style='white-space: nowrap'>heading</span></font></i></code>
+ or 
+<code><i><font color="black"><span style='white-space: nowrap'>subheading</span></font></i></code>
+.
+In addition,
+leading and trailing
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+
+in both 
+<code><i><font color="black"><span style='white-space: nowrap'>heading</span></font></i></code>
+ and 
+<code><i><font color="black"><span style='white-space: nowrap'>subheading</span></font></i></code>
+ is ignored.
+
+<br>
+<br>
+<b><big><a name="Cross Reference Linking" id="Cross Reference Linking">Cross Reference Linking</a></big></b>
+<br>
+You can specify a particular 
+<code><i><font color="black"><span style='white-space: nowrap'>heading</span></font></i></code>
+,
+using the <a href="xref.htm" target="_top"><span style='white-space: nowrap'>xref</span></a>
+ command with
+the specified <a href="xref.htm#Example.Headings" target="_top"><span style='white-space: nowrap'>heading</span></a>
+.
+You can specify a particular 
+<code><i><font color="black"><span style='white-space: nowrap'>subheading</span></font></i></code>
+,
+using the <a href="xref.htm" target="_top"><span style='white-space: nowrap'>xref</span></a>
+ command with
+the previous heading and
+<a href="xref.htm#Example.Subheadings" target="_top"><span style='white-space: nowrap'>subheading</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Aindex" id="Aindex">Aindex</a></big></b>
+<br>
+The <a href="keyword.htm#Aindex" target="_top"><span style='white-space: nowrap'>aindex</span></a>
+ command can connect
+the <code><font color="blue">head</font></code> command to the <a href="keyword.htm#Mindex" target="_top"><span style='white-space: nowrap'>mindex</span></a>
+ command.
+(To make this connection, it must appear before the <code><font color="blue">head</font></code> command.)
+If this is the case,
+each <code><font color="blue">head</font></code> command automatically generates a request of the form
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$mindex&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>heading</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+In this case,
+occurrences of the <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character in 
+<code><i><font color="black"><span style='white-space: nowrap'>heading</span></font></i></code>
+
+has the special meaning defined for the <code><font color="blue">mindex</font></code> command.
+These characters do not appear in the displayed output
+nor is it part of the corresponding cross reference link text.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>A similar effect can be obtained using the
+<a href="keyword.htm#Aindex" target="_top"><span style='white-space: nowrap'>aindex</span></a>
+ command to connect
+the <code><font color="blue">subhead</font></code> command to the <a href="keyword.htm#Mindex" target="_top"><span style='white-space: nowrap'>mindex</span></a>
+ command.
+
+
+<br>
+<br>
+<b><big><a name="Example Heading" id="Example Heading">Example Heading</a></big></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     $head Topic$$
+</pre></font></code>
+will result in the heading below:
+
+<br>
+<br>
+<b><big><a name="Topic" id="Topic">Topic</a></big></b>
+<br>
+This heading is the result of the example above.
+
+<br>
+<br>
+<b><big><a name="Example Subheading" id="Example Subheading">Example Subheading</a></big></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     $subhead Topic$$
+</pre></font></code>
+will result in the subheading below:
+
+<br>
+<br>
+<b><a name="Example Subheading.Topic" id="Example Subheading.Topic">Topic</a></b>
+<br>
+This subheading is the result of the example above.
+
+<br>
+<br>
+<b><big><a name="Reference" id="Reference">Reference</a></big></b>
+<br>
+Be aware that certain special characters in the heading have trouble
+when used as links in certain browsers. For example, I have had trouble
+with the forward slash in a heading using Netscape 4.5 to view the results.
+
+
+<hr>Input File: head.omh
+
+</body>
+</html>

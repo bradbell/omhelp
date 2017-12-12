@@ -1,0 +1,172 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Centering Text</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Centering Text">
+<meta name="keywords" id="keywords" content=" centering text align center syntax see also description example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_center_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="th.htm" target="_top">Prev</a>
+</td><td><a href="table.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>format</option>
+<option>center</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>format-&gt;</option>
+<option>nobreak</option>
+<option>pre</option>
+<option>codep</option>
+<option>codei</option>
+<option>color</option>
+<option>hilite</option>
+<option>th</option>
+<option>center</option>
+<option>table</option>
+<option>list</option>
+<option>special</option>
+<option>font</option>
+</select>
+</td>
+<td>center</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+<center><b><big><big>Centering Text</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$center&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>text</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+ <a href="pre.htm" target="_top"><span style='white-space: nowrap'>pre</span></a>
+,  <a href="math.htm" target="_top"><span style='white-space: nowrap'>math</span></a>
+,  <a href="table.htm" target="_top"><span style='white-space: nowrap'>table</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+Centers the output specified by 
+<code><i><font color="black"><span style='white-space: nowrap'>text</span></font></i></code>
+,
+where 
+<code><i><font color="black"><span style='white-space: nowrap'>text</span></font></i></code>
+
+is any input sequence and may have embedded commands; i.e.,
+there may be occurrences of the <code><font color="blue">$</font></code> character in 
+<code><i><font color="black"><span style='white-space: nowrap'>text</span></font></i></code>
+.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The following table contains an example for each of the fonts:
+In the input
+<code><font color='blue'><pre style='display:inline'> 
+     $center
+     $table
+     $bold variable$$  $cend $bold output$$ $rend
+     x                 $cend 1              $rend
+     y                 $cend 2
+     $tend
+     $$
+</pre></font></code>
+the last <code><font color="blue">$$</font></code> terminates the <code><font color="blue">center</font></code> command.
+The input above results in the following output
+<center>
+<table><tr><td align='left'  valign='top'>
+
+<b>variable</b>  </td><td align='left'  valign='top'>
+ <b>output</b> </td></tr><tr><td align='left'  valign='top'>
+
+x                 </td><td align='left'  valign='top'>
+ 1              </td></tr><tr><td align='left'  valign='top'>
+
+y                 </td><td align='left'  valign='top'>
+ 2
+</td></tr>
+</table>
+</center>
+<hr>Input File: center.omh
+
+</body>
+</html>

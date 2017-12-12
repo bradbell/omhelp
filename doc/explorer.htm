@@ -1,0 +1,390 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Problems Using MS Internet Explorer 6 To Display OMhelp Output</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Problems Using MS Internet Explorer 6 To Display OMhelp Output">
+<meta name="keywords" id="keywords" content=" problems using ms internet explorer 6 to display omhelp output bug browser error format description favicon xhtml line wrapping mathml operator sizes symbols ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_explorer_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="negativespace.htm" target="_top">Prev</a>
+</td><td><a href="glossary.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>browser</option>
+<option>Explorer</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>browser-&gt;</option>
+<option>Firefox</option>
+<option>Explorer</option>
+</select>
+</td>
+<td>Explorer</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Format</option>
+<option>Description</option>
+<option>Favicon</option>
+<option>XHTML</option>
+<option>---..Line Wrapping</option>
+<option>MathML</option>
+<option>---..Operator Sizes</option>
+<option>---..Symbols</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+
+<center><b><big><big>Problems Using MS Internet Explorer 6 To Display OMhelp Output</big></big></b></center>
+<br>
+<b><big><a name="Format" id="Format">Format</a></big></b>
+
+<br>
+<a href="explorer.xml" target="_top"><span style='white-space: nowrap'>XHTML&nbsp;+&nbsp;MATHML&nbsp;version&nbsp;of&nbsp;this&nbsp;web&nbsp;page</span></a>
+.
+<code><span style='white-space: nowrap'><br>
+</span></code><a href="explorer.htm" target="_top"><span style='white-space: nowrap'>HTML&nbsp;version&nbsp;of&nbsp;this&nbsp;web&nbsp;page</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+Version 6 of MS Internet Explorer can display MathML commands using
+the Mathplayer plug in
+which is freely available from
+<a href="http://www.dessci.com/webmath/mathplayer" target="_top"><span style='white-space: nowrap'>Design&nbsp;Science</span></a>
+,
+Below is a list of cases where the MS Internet Explorer 6,
+in this configuration,
+appears to have problems displaying MathML or XHTML commands.
+If you have any feed back for in this regard,
+please send e-mail to:
+<a href="mailto:bradbell@seanet.com" target="_top"><span style='white-space: nowrap'>bradbell@seanet.com</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Favicon" id="Favicon">Favicon</a></big></b>
+<br>
+If a <a href="running.htm#favicon" target="_top"><span style='white-space: nowrap'>-favicon</span></a>
+
+is specified on the <code><font color="blue">omhelp</font></code> command line,
+OMhelp follows the preferred method in the
+<a href="http://www.w3.org/2005/10/howto-favicon" target="_top"><span style='white-space: nowrap'>w3&nbsp;recommendation</span></a>
+.
+This recommendation works with the Firefox,
+but it does not yet work with MS Internet Explorer.
+It currently appears that MS Internet Explorer requires that the
+favorite icon be placed at the root directory of the domain.
+In addition (in MS Internet Explorer) the icon
+seems to have refresh problems when ones visits a new site.
+
+<br>
+<br>
+<b><big><a name="XHTML" id="XHTML">XHTML</a></big></b>
+
+
+<br>
+<br>
+<b><a name="XHTML.Line Wrapping" id="XHTML.Line Wrapping">Line Wrapping</a></b>
+<br>
+It appears that IE explorer will wrap input lines at the
+plain hyphen character <code><font color="blue">-</font></code>; i.e. ascii code 45.
+This is a violation of the HTML standard as specified in Section
+<a href="http://www.w3.org/TR/html4/struct/text.html#h-9.3.3" target="_top"><span style='white-space: nowrap'>9.3.3&nbsp;Hyphenation</span></a>
+
+of the HTML 4.0 standard.
+You can see the problem by selecting the following link to
+<a href="explorerlinewrap.htm" target="_top"><font color="green">ExplorerLineWrap.htm</font></a>
+which contains the following HTML commands:
+<code><font color='blue'><pre style='display:inline'> 
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></font></code>
+<br>
+<b><big><a name="MathML" id="MathML">MathML</a></big></b>
+
+
+<br>
+<br>
+<b><a name="MathML.Operator Sizes" id="MathML.Operator Sizes">Operator Sizes</a></b>
+<br>
+The specification of the minimum size attribute
+does not seem to work.
+For example
+<code><font color='blue'><pre style='display:inline'> 
+     &lt;mo minsize=&quot;2em&quot;&gt;(&lt;/mo&gt;
+     &lt;mi maxsize=&quot;1em&quot;&gt;x&lt;/mi&gt;
+     &lt;mo minsize=&quot;2em&quot;&gt;)&lt;/mo&gt;
+</pre></font></code>
+generates the output
+<small>@[@
+ \mathml{
+	<mo minsize="2em">(</mo>
+	<mi maxsize="1em">x</mi>
+	<mo minsize="2em">)</mo>
+} 
+@]@</small>
+
+
+
+<br>
+<br>
+<b><a name="MathML.Symbols" id="MathML.Symbols">Symbols</a></b>
+<br>
+The following symbols do not seem to be displayed correctly
+(note that they are in alphabetical order):
+
+ <table><tr><td align='left'  valign='top'>
+
+<b>Name</b>
+	</td><td align='left'  valign='top'>
+ <b>Unicode Command</b>
+	</td><td align='left'  valign='top'>
+ <b>W3 File</b>
+	</td><td align='left'  valign='top'>
+ <b>W3 Image</b>
+	</td><td align='left'  valign='top'>
+ <b>Explorer</b>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\succeq
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x02AB0;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/02A.html" target="_top"><span style='white-space: nowrap'>02A.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u02ab0.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02AB0;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\models
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x022A7;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/022.html" target="_top"><span style='white-space: nowrap'>022.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u022a7.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x022A7;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\bowtie
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x022C8;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/022.html" target="_top"><span style='white-space: nowrap'>022.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u022c8.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x022C8;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\Longleftarrow
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x027F8;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/027.html" target="_top"><span style='white-space: nowrap'>027.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u027f8.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x027F8;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\Longrightarrow
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x027F9;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/027.html" target="_top"><span style='white-space: nowrap'>027.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u027f9.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x027F9;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\longmapsto
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x027FC;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/027.html" target="_top"><span style='white-space: nowrap'>027.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u027fc.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x027FC;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\leadsto
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x0219D;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/021.html" target="_top"><span style='white-space: nowrap'>021.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u0219d.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0219D;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\bigodot
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x02A00;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/02A.html" target="_top"><span style='white-space: nowrap'>02A.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u02a00.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02A00;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\bigotimes
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x02A02;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/02A.html" target="_top"><span style='white-space: nowrap'>02A.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u02a02.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02A02;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\bigoplus
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x02A01;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/02A.html" target="_top"><span style='white-space: nowrap'>02A.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u02a01.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02A01;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\biguplus
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x02A04;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/02A.html" target="_top"><span style='white-space: nowrap'>02A.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u02a04.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02A04;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+
+</td></tr>
+</table>
+
+<hr>Input File: explorer.omh
+
+</body>
+</html>

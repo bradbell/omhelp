@@ -1,0 +1,247 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Using Latex Math Formulas in OMhelp</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Using Latex Math Formulas in OMhelp">
+<meta name="keywords" id="keywords" content=" using latex math formulas omhelp syntax see also introduction mathml (xml) mathjax (htm) inline displayed command documentation reference ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_latex_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="nospell.htm" target="_top">Prev</a>
+</td><td><a href="symbol.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>latex</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>latex-&gt;</option>
+<option>symbol</option>
+<option>diacritical</option>
+<option>stdfun</option>
+<option>subsup</option>
+<option>frac</option>
+<option>sqrt</option>
+<option>array</option>
+<option>left_right</option>
+<option>under_over</option>
+<option>stackrel</option>
+<option>latexfont</option>
+<option>latexcomment</option>
+<option>LatexMacro</option>
+<option>mathml</option>
+<option>diff_xml_htm</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Introduction</option>
+<option>MathML (xml)</option>
+<option>MathJax (htm)</option>
+<option>Inline Formulas</option>
+<option>Displayed Formulas</option>
+<option>Command Documentation</option>
+<option>Contents</option>
+<option>Reference</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Using Latex Math Formulas in OMhelp</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$latex&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>commands</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$latex&nbsp;\[&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>commands</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;\]$$</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+<a href="start_latex.htm" target="_top"><span style='white-space: nowrap'>getting&nbsp;started</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Introduction" id="Introduction">Introduction</a></big></b>
+
+<br>
+<a href="http://www.tug.org/begin.html" target="_top"><span style='white-space: nowrap'>Latex</span></a>
+
+is a widely used language for expressing mathematics in terms of text input.
+OMhelp will display math formulas expressed using the
+Latex math language.
+The Latex math language is defined in Section 3.3 of
+<a href="latex.htm#Reference" target="_top"><span style='white-space: nowrap'>Lamport's&nbsp;book</span></a>
+.
+These commands are documented in the
+<a href="latex.htm#Command Documentation" target="_top"><span style='white-space: nowrap'>latex&nbsp;command&nbsp;documentation</span></a>
+
+sections of this web site.
+
+<br>
+<br>
+<b><big><a name="MathML (xml)" id="MathML (xml)">MathML (xml)</a></big></b>
+<br>
+If the <a href="running.htm#xml" target="_top"><span style='white-space: nowrap'>-xml</span></a>
+
+command line option is specified,
+the Latex commands are converted to MathML
+and the corresponding output files have the <code><font color="blue">.xml</font></code> extension.
+You can view the XML
+version of this section by selecting
+<a href="latex.xml" target="_top"><span style='white-space: nowrap'>latex.xml</span></a>
+.
+(If your browser does not display MathML,
+refer to the
+<a href="running.htm#xml.Displaying MathML" target="_top"><span style='white-space: nowrap'>displaying&nbsp;MathML</span></a>
+.)
+
+<br>
+<br>
+<b><big><a name="MathJax (htm)" id="MathJax (htm)">MathJax (htm)</a></big></b>
+<br>
+If the <code><font color="blue">-xml</font></code> option is <b>not</b> specified,
+the corresponding output files have the <code><font color="blue">.htm</font></code> extension.
+In this case,
+the <code><font color="blue">latex</font></code> command are displayed using
+<a href="http://docs.mathjax.org/en/latest/index.html" target="_top"><span style='white-space: nowrap'>MathJax</span></a>
+.
+You can view the HTML
+version of this section by selecting
+<a href="latex.htm" target="_top"><span style='white-space: nowrap'>latex.htm</span></a>
+.
+This requires an internet connection
+in order to use the MathJax content delivery network.
+
+<br>
+<br>
+<b><big><a name="Inline Formulas" id="Inline Formulas">Inline Formulas</a></big></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     The ratio $latex \frac{1}{2 \pi} $$ is very useful.
+</pre></font></code>
+generates the output
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>The ratio  <small>@(@
+\frac{1}{2 \pi}
+@)@</small> is very useful.
+<code><span style='white-space: nowrap'><br>
+</span></code>It is ok to have an empty inline formula
+and this is useful for defining
+<a href="latexmacro.htm" target="_top"><span style='white-space: nowrap'>Latex&nbsp;macros</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Displayed Formulas" id="Displayed Formulas">Displayed Formulas</a></big></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     The ratio $latex \[ \frac{1}{2 \pi} \] $$ is very useful.
+</pre></font></code>
+generates the output
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>The ratio
+	<small>@[@
+ \frac{1}{2 \pi} 
+@]@</small>
+
+<code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>is very useful.
+
+
+
+<br>
+<br>
+<b><big><a name="Command Documentation" id="Command Documentation">Command Documentation</a></big></b>
+<br>
+Only the Latex
+commands documented below are allowed in 
+<code><i><font color="black"><span style='white-space: nowrap'>commands</span></font></i></code>
+.
+
+
+<br>
+<br>
+<b><big><a name="Contents" id="Contents">Contents</a></big></b>
+<br>
+<table>
+<tr><td><a href="symbol.htm" target="_top">symbol</a></td><td>Latex&nbsp;Symbols&nbsp;And&nbsp;Other&nbsp;Atomic&nbsp;Entities</td></tr><tr><td><a href="diacritical.htm" target="_top">diacritical</a></td><td>Latex&nbsp;Diacritical&nbsp;Marks&nbsp;Above&nbsp;Other&nbsp;Output</td></tr><tr><td><a href="stdfun.htm" target="_top">stdfun</a></td><td>Latex&nbsp;Standard&nbsp;Mathematics&nbsp;Functions</td></tr><tr><td><a href="subsup.htm" target="_top">subsup</a></td><td>Latex&nbsp;Subscripts&nbsp;and&nbsp;Superscripts</td></tr><tr><td><a href="frac.htm" target="_top">frac</a></td><td>Latex&nbsp;Fraction&nbsp;Command</td></tr><tr><td><a href="sqrt.htm" target="_top">sqrt</a></td><td>Latex&nbsp;Square&nbsp;Root&nbsp;Command</td></tr><tr><td><a href="array.htm" target="_top">array</a></td><td>Latex&nbsp;Array&nbsp;Command</td></tr><tr><td><a href="left_right.htm" target="_top">left_right</a></td><td>Latex&nbsp;Enclose&nbsp;With&nbsp;Left&nbsp;and&nbsp;Right&nbsp;Commands</td></tr><tr><td><a href="under_over.htm" target="_top">under_over</a></td><td>Latex&nbsp;Underline,&nbsp;Underbrace,&nbsp;Overline,&nbsp;and&nbsp;Overbrace</td></tr><tr><td><a href="stackrel.htm" target="_top">stackrel</a></td><td>Latex&nbsp;Stacking&nbsp;One&nbsp;Thing&nbsp;Above&nbsp;Another</td></tr><tr><td><a href="latexfont.htm" target="_top">latexfont</a></td><td>Changing&nbsp;Latex&nbsp;Font</td></tr><tr><td><a href="latexcomment.htm" target="_top">latexcomment</a></td><td>Latex&nbsp;Comment&nbsp;Command</td></tr><tr><td><a href="latexmacro.htm" target="_top">LatexMacro</a></td><td>The&nbsp;Latex&nbsp;Macro&nbsp;Preprocessor</td></tr><tr><td><a href="mathml.htm" target="_top">mathml</a></td><td>Latex&nbsp;MathML&nbsp;Command</td></tr><tr><td><a href="diff_xml_htm.htm" target="_top">diff_xml_htm</a></td><td>Difference&nbsp;Between&nbsp;MathML(xml)&nbsp;and&nbsp;MathJax(htm)&nbsp;Display</td></tr></table><br>
+<b><big><a name="Reference" id="Reference">Reference</a></big></b>
+<br>
+Latex is documented in
+Leslie Lamport's book
+<i>
+A Document Preparation System LaTex
+</i>
+published by Addison-Wesley in 1986.
+
+
+<hr>Input File: latex.omh
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Glossary</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Glossary">
+<meta name="keywords" id="keywords" content=" children complete path specification cross reference tag delimiter sequence directory separator character dollar sign file extension input searching parent pre-formatted font section siblings uniformly spaced white space ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_glossary_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="explorer.htm" target="_top">Prev</a>
+</td><td><a href="wish_list.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>glossary</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>glossary</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Children</option>
+<option>Complete Path Specification</option>
+<option>Cross Reference Tag</option>
+<option>---..Automatic Tags</option>
+<option>Delimiter Sequence</option>
+<option>Directory Separator Character</option>
+<option>The Dollar Sign Character</option>
+<option>File Extension</option>
+<option>Input File Searching</option>
+<option>Parent</option>
+<option>Pre-formatted Font</option>
+<option>Section</option>
+<option>Siblings</option>
+<option>Uniformly Spaced Font</option>
+<option>White Space</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Glossary</big></big></b></center>
+<br>
+<b><big><a name="Children" id="Children">Children</a></big></b>
+<br>
+The children of the current section
+are the sections directly following in the
+<a href="_contents.htm" target="_top"><span style='white-space: nowrap'>contents&nbsp;tree</span></a>
+
+that are indented more than the current section.
+The children of the current section are specified by
+the <a href="children.htm" target="_top"><span style='white-space: nowrap'>contents</span></a>
+, <code><font color="blue">childtable</font></code>, or
+<code><font color="blue">children</font></code> command for the current section.
+
+<br>
+<br>
+<b><big><a name="Complete Path Specification" id="Complete Path Specification">Complete Path Specification</a></big></b>
+<br>
+A complete path specification is a directory specification
+that begins with a forward slash, <code><font color="blue">/</font></code>,
+begins with a back slash, <code><font color="blue">\</font></code>,
+or has a colon, <code><font color="blue">:</font></code>, as its second character.
+(Note that a disk specification should precede the colon.)
+
+<br>
+<br>
+<b><big><a name="Cross Reference Tag" id="Cross Reference Tag">Cross Reference Tag</a></big></b>
+<br>
+Each section has a cross reference tag that is specified in its
+ <a href="begin.htm" target="_top"><span style='white-space: nowrap'>begin</span></a>
+ command.
+This tag is used to link to the section; e.g., using the
+<a href="cref.htm" target="_top"><span style='white-space: nowrap'>cref</span></a>
+ command.
+It should be an abbreviated version of the title
+for the corresponding section
+(similar to a variable name being short hand for a concept
+with in a program).
+It must be unique for each section.
+Upper and lower case versions of the same letter are considered
+equal when comparing cross reference tags.
+
+<br>
+<br>
+<b><a name="Cross Reference Tag.Automatic Tags" id="Cross Reference Tag.Automatic Tags">Automatic Tags</a></b>
+<br>
+The following cross reference tags begin with the underbar character
+<code><font color="blue">_</font></code> and are for automatically generated sections:
+<a href="_search.htm" target="_top"><span style='white-space: nowrap'>_search</span></a>
+,
+<a href="_external.htm" target="_top"><span style='white-space: nowrap'>_external</span></a>
+,
+<a href="_index.htm" target="_top"><span style='white-space: nowrap'>_index</span></a>
+,
+<a href="_contents.htm" target="_top"><span style='white-space: nowrap'>_contents</span></a>
+, and
+<a href="_reference.htm" target="_top"><span style='white-space: nowrap'>_reference</span></a>
+.
+
+
+<br>
+<br>
+<b><big><a name="Delimiter Sequence" id="Delimiter Sequence">Delimiter Sequence</a></big></b>
+<br>
+Some commands use a delimiter sequence.
+The first character in a delimiter sequence cannot be a letter.
+In addition, there can be no occurrences of the character <code><font color="blue">$</font></code>
+in any delimiter sequence; i.e.,
+there can not be any commands embedded in a delimiter sequence.
+If the first character in the sequence is a
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+ character,
+there is only one argument and it is the entire sequence except
+for the first character.
+If the first character in the sequence is not a white space character,
+any character equal to the first is called a delimiter for the sequence.
+In this case,
+the last character in the sequence must also be a delimiter.
+The characters between each pair of delimiters are called arguments.
+The number of arguments in a delimiter sequence is one less
+than the number of delimiters in the sequence.
+
+<br>
+<br>
+<b><big><a name="Directory Separator Character" id="Directory Separator Character">Directory Separator Character</a></big></b>
+<br>
+Both file names and directory names can use either the forward slash character,
+<code><font color="blue">/</font></code>, or the back slash character, <code><font color="blue">\</font></code>, to separate
+directories.
+For example,
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$include&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>directory</span></font></i><font color="blue"><span style='white-space: nowrap'>/</span></font><i><font color="black"><span style='white-space: nowrap'>file</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+has the same meaning as
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$include&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>directory</span></font></i><font color="blue"><span style='white-space: nowrap'>\</span></font><i><font color="black"><span style='white-space: nowrap'>file</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><big><a name="The Dollar Sign Character" id="The Dollar Sign Character">The Dollar Sign Character</a></big></b>
+<br>
+The character $ is used to signal the start of a text processing
+command. This character is referred to at the dollar sign.
+
+<br>
+<br>
+<b><big><a name="File Extension" id="File Extension">File Extension</a></big></b>
+<br>
+The term file extension refers to the characters
+that follow and include the last period in the file name.
+The extension for the HTML files written by <code><font color="blue">omhelp</font></code> is <code><font color="blue">.htm</font></code>.
+
+<br>
+<br>
+<b><big><a name="Input File Searching" id="Input File Searching">Input File Searching</a></big></b>
+<br>
+If an input file name is not a
+<a href="glossary.htm#Complete Path Specification" target="_top"><span style='white-space: nowrap'>complete&nbsp;path&nbsp;specification</span></a>
+,
+it is relative to the directory where the file containing the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+ is located.
+If it cannot be found there,
+the extension of the file name
+is used to determine which directories to search
+(as specified by the  <a href="path.htm" target="_top"><span style='white-space: nowrap'>path</span></a>
+ command).
+
+<br>
+<br>
+<b><big><a name="Parent" id="Parent">Parent</a></big></b>
+<br>
+The parent of the current section
+is the previous section in the
+<a href="_contents.htm" target="_top"><span style='white-space: nowrap'>contents&nbsp;tree</span></a>
+
+that is indented less than the current section.
+The parent of the current section specified the input
+file for the current section in a
+<a href="children.htm" target="_top"><span style='white-space: nowrap'>contents</span></a>
+, <code><font color="blue">childtable</font></code>, or
+<code><font color="blue">children</font></code> command.
+
+<br>
+<br>
+<b><big><a name="Pre-formatted Font" id="Pre-formatted Font">Pre-formatted Font</a></big></b>
+<br>
+A Pre-formatted font displays text with a
+<a href="glossary.htm#Uniformly Spaced Font" target="_top"><span style='white-space: nowrap'>uniformly&nbsp;spaced&nbsp;font</span></a>
+.
+In addition,
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+
+characters in the input are preserved in the output.
+This enables you to line up text between different lines.
+If you use an editor that displays the input text in a uniformly
+spaced font, a visual inspection will enable you to see the
+characters that will line up between different lines.
+
+
+<br>
+<br>
+<b><big><a name="Section" id="Section">Section</a></big></b>
+<br>
+A section of an OMhelp web site is the information
+between a  <a href="begin.htm" target="_top"><span style='white-space: nowrap'>begin</span></a>
+ and the corresponding <code><font color="blue">end</font></code>
+command.
+Each section corresponds to one browser window
+and can be divided into
+<a href="head.htm" target="_top"><span style='white-space: nowrap'>headings&nbsp;and&nbsp;subheadings</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Siblings" id="Siblings">Siblings</a></big></b>
+<br>
+A siblings of the current section
+is a section indented the same amount
+in the <a href="_contents.htm" target="_top"><span style='white-space: nowrap'>contents&nbsp;tree</span></a>
+
+and that has the same <a href="glossary.htm#Parent" target="_top"><span style='white-space: nowrap'>parent</span></a>
+.
+If siblings are in the same input file,
+they have the same order as in the input file.
+If siblings are in different input files,
+they have the order of their input files in the corresponding
+<a href="children.htm" target="_top"><span style='white-space: nowrap'>contents</span></a>
+, <code><font color="blue">childtable</font></code>, or
+<code><font color="blue">children</font></code> command.
+
+<br>
+<br>
+<b><big><a name="Uniformly Spaced Font" id="Uniformly Spaced Font">Uniformly Spaced Font</a></big></b>
+<br>
+A uniformly spaced font is a character font
+in which all character use the same amount of horizontal space.
+
+<br>
+<br>
+<b><big><a name="White Space" id="White Space">White Space</a></big></b>
+<br>
+The following ascii characters are considered white space:
+space, form feed, new line, carriage return, horizontal tab,
+vertical tab.
+
+
+<hr>Input File: glossary.omh
+
+</body>
+</html>

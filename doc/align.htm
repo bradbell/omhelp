@@ -1,0 +1,237 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Setting Alignment of Cells in Tables</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Setting Alignment of Cells in Tables">
+<meta name="keywords" id="keywords" content=" setting alignment cells tables syntax see also description horizontal vertical example reference ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_align_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="table.htm" target="_top">Prev</a>
+</td><td><a href="list.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>format</option>
+<option>table</option>
+<option>align</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>format-&gt;</option>
+<option>nobreak</option>
+<option>pre</option>
+<option>codep</option>
+<option>codei</option>
+<option>color</option>
+<option>hilite</option>
+<option>th</option>
+<option>center</option>
+<option>table</option>
+<option>list</option>
+<option>special</option>
+<option>font</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>table-&gt;</option>
+<option>align</option>
+</select>
+</td>
+<td>align</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>Horizontal</option>
+<option>Vertical</option>
+<option>Example</option>
+<option>Reference</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+<center><b><big><big>Setting Alignment of Cells in Tables</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$align&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>location</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+ <a href="table.htm" target="_top"><span style='white-space: nowrap'>table</span></a>
+,  <a href="array.htm" target="_top"><span style='white-space: nowrap'>array</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+Set the alignment for all subsequent <a href="table.htm" target="_top"><span style='white-space: nowrap'>table</span></a>
+ commands
+where 
+<code><i><font color="black"><span style='white-space: nowrap'>location</span></font></i></code>
+ is one of the following:
+<code><font color="blue">left</font></code>,
+<code><font color="blue">center</font></code>,
+<code><font color="blue">right</font></code>,
+<code><font color="blue">top</font></code>,
+<code><font color="blue">middle</font></code>,
+<code><font color="blue">bottom</font></code>.
+
+<br>
+<br>
+<b><big><a name="Horizontal" id="Horizontal">Horizontal</a></big></b>
+<br>
+The 
+<code><i><font color="black"><span style='white-space: nowrap'>location</span></font></i></code>
+ values
+<code><font color="blue">left</font></code>,
+<code><font color="blue">center</font></code>, and
+<code><font color="blue">right</font></code> set the horizontal alignment for the
+data in each cell of a subsequent table.
+The default value for the horizontal alignment is <code><font color="blue">left</font></code>.
+
+
+<br>
+<br>
+<b><big><a name="Vertical" id="Vertical">Vertical</a></big></b>
+<br>
+The 
+<code><i><font color="black"><span style='white-space: nowrap'>location</span></font></i></code>
+ values
+<code><font color="blue">top</font></code>,
+<code><font color="blue">middle</font></code>, and
+<code><font color="blue">bottom</font></code> set the vertical alignment for the
+data in each cell of a subsequent table.
+The default value for the vertical alignment is <code><font color="blue">top</font></code>.
+
+
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+
+$align center$$ $align middle$$ $table
+line one
+$pre
+$$
+column one
+$align left$$ $cnext
+1,2
+$align bottom$$ $rnext
+2,1
+$align center$$ $align middle$$ $cnext
+line two
+$pre
+$$
+column two
+$tend
+
+</pre></font></code>
+results in
+
+
+  <table><tr><td align='center'  valign='middle'>
+
+line one
+<code><span style='white-space: nowrap'><br>
+</span></code>column one
+ </td><td align='left'  valign='middle'>
+
+1,2
+ </td></tr><tr><td align='left'  valign='bottom'>
+
+2,1
+  </td><td align='center'  valign='middle'>
+
+line two
+<code><span style='white-space: nowrap'><br>
+</span></code>column two
+</td></tr>
+</table>
+<br>
+<b><big><a name="Reference" id="Reference">Reference</a></big></b>
+<br>
+If an alignment command appears inside a cell of a table,
+it only affects subsequent cells; i.e.,
+it only takes affect at the next <a href="table.htm" target="_top"><span style='white-space: nowrap'>table</span></a>
+, <code><font color="blue">rnext</font></code>
+or <code><font color="blue">cnext</font></code> command.
+A horizontal or vertical alignment has effect until it is changed
+or until the end of the current section (which ever comes first).
+
+
+<hr>Input File: align.omh
+
+</body>
+</html>

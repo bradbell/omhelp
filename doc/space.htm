@@ -1,0 +1,321 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Latex Horizontal Spacing Of Output</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Latex Horizontal Spacing Of Output">
+<meta name="keywords" id="keywords" content=" latex horizontal spacing output syntax description warning space hspace ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_space_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="displaysym.htm" target="_top">Prev</a>
+</td><td><a href="diacritical.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>latex</option>
+<option>symbol</option>
+<option>space</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>latex-&gt;</option>
+<option>symbol</option>
+<option>diacritical</option>
+<option>stdfun</option>
+<option>subsup</option>
+<option>frac</option>
+<option>sqrt</option>
+<option>array</option>
+<option>left_right</option>
+<option>under_over</option>
+<option>stackrel</option>
+<option>latexfont</option>
+<option>latexcomment</option>
+<option>LatexMacro</option>
+<option>mathml</option>
+<option>diff_xml_htm</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>symbol-&gt;</option>
+<option>latexnormal</option>
+<option>latexnumber</option>
+<option>latexspecial</option>
+<option>ellipsis</option>
+<option>greek</option>
+<option>BinaryOp</option>
+<option>RelationSym</option>
+<option>ArrowSym</option>
+<option>MiscSym</option>
+<option>DisplaySym</option>
+<option>space</option>
+</select>
+</td>
+<td>space</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Description</option>
+<option>Warning</option>
+<option>Space</option>
+<option>Hspace</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+<center><b><big><big>Latex Horizontal Spacing Of Output</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$latex&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>space</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$latex&nbsp;\hspace{</span></font><i><font color="black"><span style='white-space: nowrap'>number</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>unit</span></font></i><font color="blue"><span style='white-space: nowrap'>}&nbsp;$$<br>
+</span></font></code>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+Display Latex spacing commands.
+
+<br>
+<br>
+<b><big><a name="Warning" id="Warning">Warning</a></big></b>
+<br>
+The case where 
+<code><i><font color="black"><span style='white-space: nowrap'>unit</span></font></i></code>
+ is negative
+does not display properly in the Firefox browser.
+(This was fixed in version 3 of Firefox.)
+
+<br>
+<br>
+<b><big><a name="Space" id="Space">Space</a></big></b>
+<br>
+The following table demonstrates
+the result for the possible values of 
+<code><i><font color="black"><span style='white-space: nowrap'>space</span></font></i></code>
+:
+
+<table><tr><td align='left'  valign='top'>
+
+	<b>Space</b>
+	</td><td align='left'  valign='top'>
+ <b>Description</b>
+	</td><td align='left'  valign='top'>
+ <b>Example</b>
+	</td><td align='left'  valign='top'>
+ <b>Output</b>
+</td></tr><tr><td align='left'  valign='top'>
+
+	</td><td align='left'  valign='top'>
+ nothing
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+|    |
+@)@</small>
+</td></tr><tr><td align='left'  valign='top'>
+
+	<code><font color="blue">\,</font></code>
+	</td><td align='left'  valign='top'>
+ thin space
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | \, | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+| \, |
+@)@</small>
+</td></tr><tr><td align='left'  valign='top'>
+
+	<code><font color="blue">\:</font></code>
+	</td><td align='left'  valign='top'>
+ medium space
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | \: | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+| \: |
+@)@</small>
+</td></tr><tr><td align='left'  valign='top'>
+
+	<code><font color="blue">\;</font></code>
+	</td><td align='left'  valign='top'>
+ thick space
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | \; | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+| \; |
+@)@</small>
+
+</td></tr>
+</table>
+<br>
+<b><big><a name="Hspace" id="Hspace">Hspace</a></big></b>
+<br>
+In the Latex <code><font color="blue">hspace</font></code> command, 
+<code><i><font color="black"><span style='white-space: nowrap'>number</span></font></i></code>
+
+can be any valid
+<a href="latexnumber.htm" target="_top"><span style='white-space: nowrap'>Latex&nbsp;number</span></a>
+
+and 
+<code><i><font color="black"><span style='white-space: nowrap'>unit</span></font></i></code>
+ must be one of the units listed below
+
+<table><tr><td align='left'  valign='top'>
+
+	<b>Unit</b>
+	</td><td align='left'  valign='top'>
+ <b>Description</b>
+	</td><td align='left'  valign='top'>
+ <b>Example</b>
+	</td><td align='left'  valign='top'>
+ <b>Output</b>
+</td></tr><tr><td align='left'  valign='top'>
+
+	<code><font color="blue">em </font></code>
+	</td><td align='left'  valign='top'>
+ approximate width of M (current font)
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | \hspace{1em} | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+| \hspace{1em} |
+@)@</small>
+</td></tr><tr><td align='left'  valign='top'>
+
+	<code><font color="blue">ex </font></code>
+	</td><td align='left'  valign='top'>
+ approximate height of x (current font)
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | \hspace{2ex} | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+| \hspace{2ex} |
+@)@</small>
+</td></tr><tr><td align='left'  valign='top'>
+
+	<code><font color="blue">cm </font></code>
+	</td><td align='left'  valign='top'>
+ centimeters
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | \hspace{0.4cm} | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+| \hspace{0.4cm} |
+@)@</small>
+</td></tr><tr><td align='left'  valign='top'>
+
+	<code><font color="blue">mm </font></code>
+	</td><td align='left'  valign='top'>
+ millimeters
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | \hspace{4mm} | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+| \hspace{4mm} |
+@)@</small>
+</td></tr><tr><td align='left'  valign='top'>
+
+	<code><font color="blue">in </font></code>
+	</td><td align='left'  valign='top'>
+ inches
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | \hspace{0.15in} | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+| \hspace{0.15in} |
+@)@</small>
+</td></tr><tr><td align='left'  valign='top'>
+
+	<code><font color="blue">pt </font></code>
+	</td><td align='left'  valign='top'>
+ points (72 points = 1 inch)
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | \hspace{12pt} | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+| \hspace{12pt} |
+@)@</small>
+</td></tr><tr><td align='left'  valign='top'>
+
+	<code><font color="blue">pc </font></code>
+	</td><td align='left'  valign='top'>
+ picas (1 pica = 12 points)
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">$latex | \hspace{1pc} | $$ </font></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+| \hspace{1pc} |
+@)@</small>
+</td></tr>
+</table>
+
+<hr>Input File: latex/space.omh
+
+</body>
+</html>

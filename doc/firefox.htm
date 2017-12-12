@@ -1,0 +1,313 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Problems Using Firefox To Display OMhelp Output</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Problems Using Firefox To Display OMhelp Output">
+<meta name="keywords" id="keywords" content=" problems using firefox to display omhelp output bug browser format purpose mathvariant copy paste and javascript Javascript background color background-color operator sizes size symbols symbol ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_firefox_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="browser.htm" target="_top">Prev</a>
+</td><td><a href="negativespace.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>browser</option>
+<option>Firefox</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>browser-&gt;</option>
+<option>Firefox</option>
+<option>Explorer</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down0(this)'>
+<option>Firefox-&gt;</option>
+<option>NegativeSpace</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Format</option>
+<option>Purpose</option>
+<option>mathvariant</option>
+<option>Copy and Paste</option>
+<option>Javascript</option>
+<option>Background Color</option>
+<option>Operator Sizes</option>
+<option>Symbols</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Problems Using Firefox To Display OMhelp Output</big></big></b></center>
+<br>
+<b><big><a name="Format" id="Format">Format</a></big></b>
+
+<br>
+<a href="firefox.xml" target="_top"><span style='white-space: nowrap'>XHTML&nbsp;+&nbsp;MATHML&nbsp;version&nbsp;of&nbsp;this&nbsp;web&nbsp;page</span></a>
+.
+<code><span style='white-space: nowrap'><br>
+</span></code><a href="firefox.htm" target="_top"><span style='white-space: nowrap'>HTML&nbsp;version&nbsp;of&nbsp;this&nbsp;web&nbsp;page</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+The
+<a href="http://www.mozilla.org" target="_top"><span style='white-space: nowrap'>Firefox</span></a>
+
+browser can display both XHTML and MathML commands.
+Below is a list of cases where Firefox
+appears to have problems displaying MathML commands.
+If you have any feed back,
+please send e-mail to:
+<a href="mailto:bradbell@seanet.com" target="_top"><span style='white-space: nowrap'>bradbell@seanet.com</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="mathvariant" id="mathvariant">mathvariant</a></big></b>
+<br>
+The <code><font color="blue">mathvariant='script'</font></code> option does not work properly in Firefox.
+To see this select the following link to a <code><font color="blue">www.w3.org</font></code> test case:
+<a href="http://www.w3.org/Math/testsuite/testsuite/Presentation/TokenElements/mi/mimathvariant14.xml" target="_top"><span style='white-space: nowrap'>mimathvariant14.xml</span></a>
+
+This bug has the effect of displaying the Latex <code><font color="blue">\cal</font></code> font
+the same as its default font.
+
+
+<br>
+<br>
+<b><big><a name="Copy and Paste" id="Copy and Paste">Copy and Paste</a></big></b>
+
+<br>
+The link
+<a href="firefox_copy_paste.xml" target="_top"><font color="green">firefox_copy_paste.xml</font></a>
+is to the XHTML commands below.
+If you select that link,
+then copy all the text,
+then paste it anywhere (e.g., notepad in Windows),
+there will be extra white-space in the pasted text
+(as compared to the text display in the Firefox browser).
+For example, there is a blank line between
+&quot;First line.&quot; and &quot;Second line.&quot; in the copied text:
+
+<code><font color='blue'><pre style='display:inline'> 
+&lt;?xml version='1.0'?&gt;
+&lt;?xml-stylesheet type='text/xsl'?&gt;
+&lt;html xmlns='http://www.w3.org/1999/xhtml'&gt;
+        &lt;head&gt;&lt;/head&gt;
+        &lt;body&gt;
+                First line.&lt;br/&gt;
+                Second line.
+        &lt;/body&gt;
+&lt;/html&gt;
+</pre></font></code>
+<br>
+<b><big><a name="Javascript" id="Javascript">Javascript</a></big></b>
+
+<br>
+The file
+<a href="firefoxjavascript.htm" target="_top"><font color="green">FirefoxJavascript.htm</font></a>
+contains the HTML commands below.
+Note that the word <code><font color="blue">Test</font></code> will appear in the text area.
+
+<code><font color='blue'><pre style='display:inline'> 
+&lt;html&gt;
+     &lt;head&gt;&lt;/head&gt;
+     &lt;body&gt;
+          The word &quot;Test&quot; should appears in the text area below:
+          &lt;br/&gt;
+          &lt;form name=&quot;search&quot;&gt;
+               &lt;textarea name=&quot;list&quot; rows=&quot;1&quot; cols=&quot;20&quot; &gt;&lt;/textarea&gt;
+          &lt;/form&gt;
+          &lt;script type='text/javascript'&gt;
+               document.search.list.value    = &quot;Test&quot;;
+          &lt;/script&gt;
+     &lt;/body&gt;
+&lt;/html&gt;
+</pre></font></code>
+The file
+<a href="firefoxjavascript.xml" target="_top"><font color="green">FirefoxJavascript.xml</font></a>
+which contains the XML commands below.
+Note that the word <code><font color="blue">Test</font></code> should,
+but does not, appear in the text area.
+
+<code><font color='blue'><pre style='display:inline'> 
+&lt;?xml version='1.0'?&gt;
+&lt;?xml-stylesheet type='text/xsl' href='pmathml.xsl'?&gt;
+&lt;html xmlns='http://www.w3.org/1999/xhtml'&gt;
+     &lt;head&gt;&lt;/head&gt;
+     &lt;body&gt;
+          The word &quot;Test&quot; should appear in the text area below:
+          &lt;br/&gt;
+          &lt;form name=&quot;search&quot;&gt;
+               &lt;textarea name=&quot;list&quot; rows=&quot;1&quot; cols=&quot;20&quot; &gt;&lt;/textarea&gt;
+          &lt;/form&gt;
+          &lt;script type='text/javascript'&gt;
+               document.search.list.value    = &quot;Test&quot;;
+          &lt;/script&gt;
+     &lt;/body&gt;
+&lt;/html&gt;
+</pre></font></code>
+<br>
+<b><big><a name="Background Color" id="Background Color">Background Color</a></big></b>
+
+<br>
+The file
+<a href="firefoxbackground.htm" target="_top"><font color="green">FirefoxBackground.htm</font></a>
+contains the HTML commands below.
+
+<code><font color='blue'><pre style='display:inline'> 
+&lt;html&gt;
+     &lt;head&gt;&lt;/head&gt;
+     &lt;body style ='background-color : rgb(210, 210, 210)'&gt;
+          The background color around this text is a light shade of gray.
+          Note that this color applies to the entire frame.
+     &lt;/body&gt;
+&lt;/html&gt;
+</pre></font></code>
+The file
+<a href="firefoxbackground.xml" target="_top"><font color="green">FirefoxBackground.xml</font></a>
+contains the XML commands below.
+
+<code><font color='blue'><pre style='display:inline'> 
+&lt;?xml version='1.0'?&gt;
+&lt;?xml-stylesheet type='text/xsl' href='pmathml.xsl'?&gt;
+&lt;html xmlns='http://www.w3.org/1999/xhtml'&gt;
+     &lt;head&gt;&lt;/head&gt;
+     &lt;body style ='background-color : rgb(210, 210, 210)'&gt;
+          The background color around this text is a light shade of gray.
+          Note that this color only applies to the text.
+     &lt;/body&gt;
+&lt;/html&gt;
+</pre></font></code>
+<br>
+<b><big><a name="Operator Sizes" id="Operator Sizes">Operator Sizes</a></big></b>
+
+<br>
+In section 3.2.5.9 of
+<a href="http://www.w3.org/TR/MathML2/chapter3.html#presm.mo" target="_top"><span style='white-space: nowrap'>http://www.w3.org/TR/MathML2/chapter3.html#presm.mo</span></a>
+
+it states
+&quot;The <code><font color="blue">largeop</font></code> attribute specifies whether the operator
+should be drawn larger than normal if
+<code><font color="blue">displaystyle=&quot;true&quot;</font></code> in the current rendering environment.
+This does not work properly for the
+<code><font color="blue">&amp;coprod;</font></code> (code <code><font color="blue">&amp;#x02210;</font></code>) or
+<code><font color="blue">&amp;bigvee;</font></code> (code <code><font color="blue">&amp;#x022C1;</font></code>) or
+<code><font color="blue">&amp;bigwedge;</font></code> (code <code><font color="blue">&amp;#x022C0;</font></code>) symbols.
+For example
+<code><font color='blue'><pre style='display:inline'> 
+     &lt;mo displaystyle=&quot;false&quot; largeop=&quot;true&quot;&gt;&amp;#x022C1;&lt;/mo&gt;
+     &lt;mo displaystyle=&quot;true&quot; largeop=&quot;true&quot;&gt;&amp;#x022C1;&lt;/mo&gt;
+</pre></font></code>
+generates the output
+<small>@[@
+ \mathml{
+	<mo displaystyle="false" largeop="true">&#x022C1;</mo>
+	<mo displaystyle="true" largeop="true">&#x022C1;</mo>
+} 
+@]@</small>
+
+
+<br>
+<br>
+<b><big><a name="Symbols" id="Symbols">Symbols</a></big></b>
+
+<br>
+The following symbols do not seem to be displayed correctly:
+
+ <table><tr><td align='left'  valign='top'>
+
+<b>Latex </b>
+	</td><td align='left'  valign='top'>
+ <b>MathML</b>
+	</td><td align='left'  valign='top'>
+ <b>W3 File</b>
+	</td><td align='left'  valign='top'>
+ <b>W3 Image</b>
+	</td><td align='left'  valign='top'>
+ <b>Firefox</b>
+	</td></tr><tr><td align='left'  valign='top'>
+
+\biguplus
+	</td><td align='left'  valign='top'>
+ <code><font color="blue">&lt;mo&gt;&amp;#x02A04;&lt;/mo&gt; </font></code>
+	</td><td align='left'  valign='top'>
+ <a href="http://w3.org/TR/MathMl2/02A.html" target="_top"><span style='white-space: nowrap'>02A.html</span></a>
+
+	</td><td align='left'  valign='top'>
+ <img src="u02a04.png" valign="top">
+
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02A04;</mo>}
+@)@</small>
+	</td></tr><tr><td align='left'  valign='top'>
+
+</td></tr>
+</table>
+
+<hr>Input File: firefox.omh
+
+</body>
+</html>

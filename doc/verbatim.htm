@@ -1,0 +1,566 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Verbatim Display of All or Part of a File</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Verbatim Display of All or Part of a File">
+<meta name="keywords" id="keywords" content=" verbatim source code example pre format display file all part syntax see also description new lines filename highlighting hilite indent start stop skip tab stops ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_verbatim_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="image.htm" target="_top">Prev</a>
+</td><td><a href="srcfile.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>files</option>
+<option>verbatim</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>files-&gt;</option>
+<option>path</option>
+<option>children</option>
+<option>include</option>
+<option>image</option>
+<option>verbatim</option>
+<option>srcfile</option>
+<option>srccode</option>
+<option>execute</option>
+<option>KeyCharacter</option>
+</select>
+</td>
+<td>verbatim</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>New Lines</option>
+<option>Example File</option>
+<option>Filename</option>
+<option>---..Example</option>
+<option>Highlighting</option>
+<option>Indent</option>
+<option>---..Example</option>
+<option>Start</option>
+<option>Stop</option>
+<option>---..Example</option>
+<option>Skip</option>
+<option>---..Example</option>
+<option>Tab Stops</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Verbatim Display of All or Part of a File</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$verbatim%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$verbatim%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$verbatim%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$verbatim%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$verbatim%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>skip</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+<a href="start_verbatim.htm" target="_top"><span style='white-space: nowrap'>getting&nbsp;started</span></a>
+,
+ <a href="srcfile.htm" target="_top"><span style='white-space: nowrap'>srcfile</span></a>
+,  <a href="include.htm" target="_top"><span style='white-space: nowrap'>include</span></a>
+,  <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+,  <a href="execute.htm" target="_top"><span style='white-space: nowrap'>execute</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This command will cause the specified
+<a href="glossary.htm#Input File Searching" target="_top"><span style='white-space: nowrap'>input&nbsp;file</span></a>
+
+to be displayed
+with out any formatting; i.e., verbatim.
+This provides a way in which a single source code file
+can be used both for input to OMhelp and input to another program
+with out having OMhelp commands in the file.
+(The
+<a href="codep.htm#Source Code Examples" target="_top"><span style='white-space: nowrap'>source&nbsp;code&nbsp;example</span></a>
+
+option for the  <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+ command
+provides another way of doing this that does
+have OMhelp commands in the file.)
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+<br>
+%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>skip</span></font></i><font color="blue"><span style='white-space: nowrap'>%<br>
+</span></font></code>
+is a <a href="glossary.htm#Delimiter Sequence" target="_top"><span style='white-space: nowrap'>delimiter&nbsp;sequence</span></a>
+
+where <code><font color="blue">%</font></code> can be any character that is not a letter.
+
+
+<br>
+<br>
+<b><big><a name="New Lines" id="New Lines">New Lines</a></big></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+ is <b>not</b> present,
+the verbatim output starts and ends with a new line.
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+ is present,
+the verbatim output
+does not start on a new line.
+This enables you to include the starting text
+just before the verbatim output and not have an extra new line
+follow the starting text in the output
+(see the Five Delimiters example below).
+
+<br>
+<br>
+<b><big><a name="Example File" id="Example File">Example File</a></big></b>
+<br>
+The file <code><font color="blue">copyright.omh</font></code> contains the following text:
+
+<br>
+<pre style='display:inline'>     $comment This file is used as an example by include.omh and verbatim.omh$$
+     $codep
+     
+     # BEGIN SHORT COPYRIGHT
+     # ---------------------------------------------------------------------------
+     # OMhelp: Source Code -&gt; Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+     #
+     # This program is free software; you can redistribute it and/or
+     # modify it under the terms of the GNU General Public License
+     # as published by the Free Software Foundation; either version 2
+     # of the License, or (at your option) any later version.
+     #
+     # This program is distributed in the hope that it will be useful,
+     # but WITHOUT ANY WARRANTY; without even the implied warranty of
+     # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     # GNU General Public License for more details.
+     #
+     # You should have received a copy of the GNU General Public License
+     # along with this program; if not, write to the Free Software
+     # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+     # ---------------------------------------------------------------------------
+     # END SHORT COPYRIGHT
+     
+     $$
+</pre><br>
+All of the  <a href="font.htm" target="_top"><span style='white-space: nowrap'>font</span></a>
+ commands allow you to
+have other commands nested inside of them.
+
+
+<br>
+<br>
+<b><big><a name="Filename" id="Filename">Filename</a></big></b>
+<br>
+The value of 
+<code><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i></code>
+ specifies the name
+of the file that is displayed.
+Leading and trailing white space in 
+<code><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i></code>
+ is ignored.
+
+<br>
+<br>
+<b><a name="Filename.Example" id="Filename.Example">Example</a></b>
+<br>
+The following sequence displays the file <code><font color="blue">copyright.omh</font></code>
+in code  <a href="font.htm" target="_top"><span style='white-space: nowrap'>font</span></a>
+.
+<code><font color='blue'><pre style='display:inline'> 
+     $code
+     $verbatim!copyright.omh!$$
+     $$
+</pre></font></code>
+creates the following output
+
+<code><font color="blue">
+<br>
+<pre style='display:inline'>$comment This file is used as an example by include.omh and verbatim.omh$$
+$codep
+
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -&gt; Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+
+$$
+</pre><br>
+</font></code><br>
+<b><big><a name="Highlighting" id="Highlighting">Highlighting</a></big></b>
+
+<br>
+The <a href="hilite.htm" target="_top"><span style='white-space: nowrap'>hilite</span></a>
+ command can be used to highlight text in the output
+created by the <code><font color="blue">verbatim</font></code> command.  For example,
+<code><font color='blue'><pre style='display:inline'> 
+     $hilitecmd%verbatim%$$
+     $hiliteseq%%Bradley M. Bell%%%$$
+     $verbatim!copyright.omh!$$
+</pre></font></code>
+creates the following output
+
+
+<br>
+<pre style='display:inline'>$comment This file is used as an example by include.omh and verbatim.omh$$
+$codep
+
+# BEGIN SHORT COPYRIGHT
+# ---------------------------------------------------------------------------
+# OMhelp: Source Code -&gt; Help Files: Copyright (C) 1998-2004 <font color="purple">Bradley M. Bell</font>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# ---------------------------------------------------------------------------
+# END SHORT COPYRIGHT
+
+$$
+</pre><br>
+<br>
+<b><big><a name="Indent" id="Indent">Indent</a></big></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i></code>
+ is present,
+it is a positive integer and specifies
+the number of spaces to indent the output.
+
+<br>
+<br>
+<b><a name="Indent.Example" id="Indent.Example">Example</a></b>
+<br>
+The following sequence displays the file <code><font color="blue">copyright.omh</font></code>
+in italic  <a href="font.htm" target="_top"><span style='white-space: nowrap'>font</span></a>
+ and indented five spaces.
+<code><font color='blue'><pre style='display:inline'> 
+     $italic
+     $verbatim!copyright.omh!5!$$
+     $$
+</pre></font></code>
+creates the following output
+
+<i>
+<br>
+<pre style='display:inline'>     $comment This file is used as an example by include.omh and verbatim.omh$$
+     $codep
+     
+     # BEGIN SHORT COPYRIGHT
+     # ---------------------------------------------------------------------------
+     # OMhelp: Source Code -&gt; Help Files: Copyright (C) 1998-2004 <font color="purple">Bradley M. Bell</font>
+     #
+     # This program is free software; you can redistribute it and/or
+     # modify it under the terms of the GNU General Public License
+     # as published by the Free Software Foundation; either version 2
+     # of the License, or (at your option) any later version.
+     #
+     # This program is distributed in the hope that it will be useful,
+     # but WITHOUT ANY WARRANTY; without even the implied warranty of
+     # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     # GNU General Public License for more details.
+     #
+     # You should have received a copy of the GNU General Public License
+     # along with this program; if not, write to the Free Software
+     # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+     # ---------------------------------------------------------------------------
+     # END SHORT COPYRIGHT
+     
+     $$
+</pre><br>
+</i><br>
+<b><big><a name="Start" id="Start">Start</a></big></b>
+
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+ is present,
+it specifies a sequence of characters after which output should start.
+In this case none of the characters in the file before,
+and including,
+this starting sequence are displayed.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>If the  <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character is present in 
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+,
+there must be three decimal digits following it.
+In this case the escape character together with the three following
+characters, represent the single character with ascii code equal
+to the decimal value of the three decimal digits.
+
+<br>
+<br>
+<b><big><a name="Stop" id="Stop">Stop</a></big></b>
+
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i></code>
+ is present,
+it specifies
+a sequence of characters just before which output should stop.
+In this case none of the characters in the file following,
+and including,
+this stopping sequences are displayed.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>If the  <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character is present in the stopping
+sequence, there must be three decimal digits following it.
+In this case the escape character together with the three following
+characters, represent the single character with ascii code equal
+to the decimal value of the three decimal digits.
+
+<br>
+<br>
+<b><a name="Stop.Example" id="Stop.Example">Example</a></b>
+<br>
+The following command sequence
+replaces <code><font color="blue">Bradley M. Bell</font></code> by
+<code><font color="blue">http://www.seanet.com/~bradbell</font></code> in the file <code><font color="blue">copyright.omh</font></code>:
+<code><font color='blue'><pre style='display:inline'> 
+     $code
+     $pre
+          $$#$verbatim!copyright.omh!5!#!Bradley M. Bell!$$
+     http://www.seanet.com/~bradbell
+     $verbatim!copyright.omh!5!Bradley M. Bell ! COPYRIGHT!$$
+     COPYRIGHT
+     $$
+</pre></font></code>
+Here is a description of the command sequence:
+<code><font color='blue'><pre style='display:inline'> 
+
+$code
+$pre
+     $$#
+</pre></font></code>
+A <code><font color="blue">$code</font></code> command is started and
+a single <code><font color="blue">#</font></code> is displayed starting on a new line,
+indented 5 spaces,
+<code><font color='blue'><pre style='display:inline'> 
+
+$verbatim!copyright.omh!5!#!Bradley M. Bell!$$
+</pre></font></code>
+This commands displays some of the text in <code><font color="blue">copyright.omh</font></code>.
+The text starts at, and does not include,
+the first <code><font color="blue">#</font></code> in <code><font color="blue">copyright.omh</font></code>.
+The text ends at, and does not include,
+the <code><font color="blue">Bradley M. Bell</font></code> in <code><font color="blue">copyright.omh</font></code>
+that follows the starting text.
+<code><font color='blue'><pre style='display:inline'> 
+
+http://www.seanet.com/~bradbell
+</pre></font></code>
+The text <code><font color="blue">http://www.seanet.com/~bradbell</font></code> is output.
+<code><font color='blue'><pre style='display:inline'> 
+
+$verbatim!copyright.omh!5!Bradley M. Bell !COPYRIGHT!$$
+</pre></font></code>
+This commands displays some of the text in <code><font color="blue">copyright.omh</font></code>.
+The text starts at, and does not include,
+the first <code><font color="blue">Bradley M. Bell</font></code>  in <code><font color="blue">copyright.omh</font></code>.
+The text ends at, and does not include,
+the <code><font color="blue">COPYRIGHT</font></code> in <code><font color="blue">copyright.omh</font></code>
+that follows the starting text.
+<code><font color='blue'><pre style='display:inline'> 
+
+$$
+</pre></font></code>
+The <code><font color="blue">$code</font></code> command is terminated.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>Note that
+a <a href="verbatim.htm#New Lines" target="_top"><span style='white-space: nowrap'>new&nbsp;line</span></a>
+
+is not automatically included at the beginning and end
+of the verbatim text when the 
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+ text is present.
+Here is the result of the command sequence:
+<code><font color="blue">
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>#<pre style='display:inline'> BEGIN SHORT COPYRIGHT
+     # ---------------------------------------------------------------------------
+     # OMhelp: Source Code -&gt; Help Files: Copyright (C) 1998-2004 </pre>
+
+http://www.seanet.com/~bradbell
+<pre style='display:inline'> 
+     #
+     # This program is free software; you can redistribute it and/or
+     # modify it under the terms of the GNU General Public License
+     # as published by the Free Software Foundation; either version 2
+     # of the License, or (at your option) any later version.
+     #
+     # This program is distributed in the hope that it will be useful,
+     # but WITHOUT ANY WARRANTY; without even the implied warranty of
+     # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     # GNU General Public License for more details.
+     #
+     # You should have received a copy of the GNU General Public License
+     # along with this program; if not, write to the Free Software
+     # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+     # ---------------------------------------------------------------------------
+     # END SHORT </pre>
+
+COPYRIGHT
+</font></code>
+
+
+<br>
+<br>
+<b><big><a name="Skip" id="Skip">Skip</a></big></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>skip</span></font></i></code>
+ is present,
+it is a positive integer that specifies the number of
+
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+ matches to skip.
+This is very useful when the <code><font color="blue">verbatim</font></code> command and
+refers to the same file as the command is in.
+The skip option can be used to skip the match on the command
+and go forward to the location that you wish to display.
+
+<br>
+<br>
+<b><a name="Skip.Example" id="Skip.Example">Example</a></b>
+<br>
+The following command displays
+the second paragraph in the copyright description.
+<code><font color='blue'><pre style='display:inline'> 
+     $code
+     $pre
+          $$# This
+     $verbatim!copyright.omh!5!# This ! details.!1!$$
+     details.
+     $$
+</pre></font></code>
+creates the following output
+
+<code><font color="blue">
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code># This
+<pre style='display:inline'>program is distributed in the hope that it will be useful,
+     # but WITHOUT ANY WARRANTY; without even the implied warranty of
+     # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     # GNU General Public License for more</pre>
+
+details.
+</font></code>
+
+
+<br>
+<br>
+<b><big><a name="Tab Stops" id="Tab Stops">Tab Stops</a></big></b>
+<br>
+The  <a href="tabsize.htm" target="_top"><span style='white-space: nowrap'>tabsize</span></a>
+ command
+enables you to match the indentation of the <code><font color="blue">verbatim</font></code> command
+with one of the tabbing columns.
+
+
+<hr>Input File: verbatim.omh
+
+</body>
+</html>

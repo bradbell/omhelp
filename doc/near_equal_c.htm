@@ -1,0 +1,247 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Determine if Two Values Are Nearly Equal</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Determine if Two Values Are Nearly Equal">
+<meta name="keywords" id="keywords" content=" determine if two values are nearly equal syntax purpose x y r e example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_near_equal_c_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="view_near_equal_c.htm" target="_top">Prev</a>
+</td><td><a href="view_near_equal_f.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>get_started</option>
+<option>start_embed</option>
+<option>near_equal_c</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>get_started-&gt;</option>
+<option>start_simple</option>
+<option>start_head</option>
+<option>start_image</option>
+<option>start_pre</option>
+<option>start_font</option>
+<option>start_spell</option>
+<option>start_latex</option>
+<option>start_verbatim</option>
+<option>start_src</option>
+<option>start_embed</option>
+<option>start_multiple</option>
+<option>start_cref</option>
+<option>start_index</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>start_embed-&gt;</option>
+<option>view_near_equal_c</option>
+<option>near_equal_c</option>
+<option>view_near_equal_f</option>
+<option>near_equal_f</option>
+</select>
+</td>
+<td>near_equal_c</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Purpose</option>
+<option>x</option>
+<option>y</option>
+<option>r</option>
+<option>a</option>
+<option>e</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+<center><b><big><big>Determine if Two Values Are Nearly Equal</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><i><font color="black"><span style='white-space: nowrap'>e</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;near_equal_c(</span></font><i><font color="black"><span style='white-space: nowrap'>x</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>y</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>r</span></font></i><font color="blue"><span style='white-space: nowrap'>,&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>a</span></font></i><font color="blue"><span style='white-space: nowrap'>)</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+Returns true,
+if 
+<code><i><font color="black"><span style='white-space: nowrap'>x</span></font></i></code>
+ is nearly equal to 
+<code><i><font color="black"><span style='white-space: nowrap'>y</span></font></i></code>
+ and false otherwise.
+
+<br>
+<br>
+<b><big><a name="x" id="x">x</a></big></b>
+<br>
+The argument 
+<code><i><font color="black"><span style='white-space: nowrap'>x</span></font></i></code>
+ has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>x</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><big><a name="y" id="y">y</a></big></b>
+<br>
+The argument 
+<code><i><font color="black"><span style='white-space: nowrap'>y</span></font></i></code>
+ has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>y</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><big><a name="r" id="r">r</a></big></b>
+<br>
+The relative error criteria 
+<code><i><font color="black"><span style='white-space: nowrap'>r</span></font></i></code>
+ has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>r</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+It must be greater than or equal zero.
+The relative error condition is satisfied if
+<small>@[@
+
+	| x - y | \leq r ( |x| + |y| )
+
+@]@</small>
+where <small>@(@
+\leq
+@)@</small> denotes less than or equal.
+
+<br>
+<br>
+<b><big><a name="a" id="a">a</a></big></b>
+<br>
+The absolute error criteria 
+<code><i><font color="black"><span style='white-space: nowrap'>a</span></font></i></code>
+ has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>a</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+It must be greater than or equal zero.
+The absolute error condition is satisfied if
+<small>@[@
+
+	| x - y | \leq a
+
+@]@</small>
+
+<br>
+<br>
+<b><big><a name="e" id="e">e</a></big></b>
+<br>
+The return value 
+<code><i><font color="black"><span style='white-space: nowrap'>e</span></font></i></code>
+ has prototype
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>e</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+If either the relative or absolute error condition is satisfied,
+it is one.
+Otherwise, it is zero.
+
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The following is an example and test of <code><font color="blue">near_equal_c</font></code>,
+it returns true if the test succeeds and false if it fails:
+
+
+<code><font color="blue">
+<pre style='display:inline'> 
+// This extern statement should be in an include file so that it can be
+// included and checked by near_equal_c.c.
+extern int near_equal_c(double x, double y, double r, double a);
+
+int ok_near_equal_c()
+{	double x = 1.1;
+	double y = 1.2;
+	double r = .1;
+	double a = 0.;
+	if( near_equal_c(x, y, r, a) )
+		return 1; // expected return value (true)
+	else	return 0; // error return value (false)
+}
+</pre>
+
+</font></code>
+
+
+
+<hr>Input File: getstarted/near_equal_c.c
+
+</body>
+</html>

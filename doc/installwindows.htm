@@ -1,0 +1,497 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Windows Installation and Testing</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Windows Installation and Testing">
+<meta name="keywords" id="keywords" content=" windows installation testing using cygwin mingw requirements 7z cmake visual studio optional download omhelp create distribution directory command boost_regex_prefix source_highlight_prefix have_flex_and_bison omhelp_prefix omhelp_datadir omhelp_c_flags omhelp_build_type build executable documentation developer user install getting started spelling list english.wrd local.wrd dictionary.bin ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_installwindows_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="highlight.sh.htm" target="_top">Prev</a>
+</td><td><a href="get_started.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>Install</option>
+<option>InstallWindows</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>Install-&gt;</option>
+<option>InstallUnix</option>
+<option>InstallWindows</option>
+</select>
+</td>
+<td>InstallWindows</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Using Cygwin and MinGw</option>
+<option>Requirements</option>
+<option>---..7z</option>
+<option>---..cmake</option>
+<option>---..Visual Studio</option>
+<option>---..Optional</option>
+<option>Download OMhelp</option>
+<option>Create Distribution Directory</option>
+<option>CMake Command</option>
+<option>---..boost_regex_prefix</option>
+<option>---..source_highlight_prefix</option>
+<option>---..have_flex_and_bison</option>
+<option>---..omhelp_prefix</option>
+<option>---..omhelp_datadir</option>
+<option>---..omhelp_c_flags</option>
+<option>---..omhelp_build_type</option>
+<option>Build Executable</option>
+<option>OMhelp Documentation</option>
+<option>---..Developer Documentation</option>
+<option>---..User Documentation</option>
+<option>Install OMhelp</option>
+<option>Getting Started</option>
+<option>Spelling List</option>
+<option>---..english.wrd</option>
+<option>---..local.wrd</option>
+<option>---..dictionary.bin</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Windows Installation and Testing</big></big></b></center>
+<br>
+<b><big><a name="Using Cygwin and MinGw" id="Using Cygwin and MinGw">Using Cygwin and MinGw</a></big></b>
+<br>
+If you are using
+<a href="http://www.cygwin.com" target="_top"><span style='white-space: nowrap'>cygwin</span></a>
+
+or,
+<a href="http://www.mingw.org" target="_top"><span style='white-space: nowrap'>mingw</span></a>
+,
+just follow all of the <a href="installunix.htm" target="_top"><span style='white-space: nowrap'>unix&nbsp;install</span></a>
+ steps.
+If you are using Dos formatted files, download the DOS version
+(see next step) and then follow the Unix installation steps.
+
+<br>
+<br>
+<b><big><a name="Requirements" id="Requirements">Requirements</a></big></b>
+<br>
+The following programs are required to install OMhelp under windows:
+
+<br>
+<br>
+<b><a name="Requirements.7z" id="Requirements.7z">7z</a></b>
+<br>
+The program <a href="http://www.7-zip.org/" target="_top"><span style='white-space: nowrap'>7-zip</span></a>
+,
+for unpacking zip files, must be in your execution path.
+For example, on many systems can be done using
+<code><font color='blue'><pre style='display:inline'> 
+     set PATH=C:\Program Files\7-Zip;%PATH%
+</pre></font></code>
+A different archiving program could be used so long as it understands
+files with the <code><font color="blue">.zip</font></code> extension.
+
+<br>
+<br>
+<b><a name="Requirements.cmake" id="Requirements.cmake">cmake</a></b>
+<br>
+The program <a href="http://www.cmake.org/" target="_top"><span style='white-space: nowrap'>cmake</span></a>
+,
+for installing other programs from source code,
+must be in your execution path.
+For example, on some systems can be done using
+<code><font color='blue'><pre style='display:inline'> 
+     set PATH=C:\Program Files (x86)\CMake\bin;%PATH%
+</pre></font></code>
+<br>
+<b><a name="Requirements.Visual Studio" id="Requirements.Visual Studio">Visual Studio</a></b>
+
+<br>
+<a href="http://www.visualstudio.com/downloads/download-visual-studio-vs" target="_top"><span style='white-space: nowrap'>Visual&nbsp;Studio&nbsp;Express</span></a>
+,
+which contains a C compiler (other C compilers could be used).
+If you are using Visual Studio you will have to set some
+variables using its <code><font color="blue">vcvarsall.bat</font></code> file.
+For example, on some systems can be done using
+<code><font color='blue'><pre style='display:inline'> 
+     set VCDIR=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC
+     call &quot;%VCDIR%\vcvarsall.bat&quot; x86
+</pre></font></code>
+<br>
+<b><a name="Requirements.Optional" id="Requirements.Optional">Optional</a></b>
+
+<ol type="1"><li>
+If you are using the <a href="srcfile.htm" target="_top"><span style='white-space: nowrap'>srcfile</span></a>
+ command, you will need the
+<a href="http://www.gnu.org/software/src-highlite/" target="_top"><span style='white-space: nowrap'>source-highlight</span></a>
+
+library which in turn requires the
+<a href="http://www.boost.org/doc/libs/1_60_0/libs/regex/doc/html/index.html" target="_top"><span style='white-space: nowrap'>boost_regex</span></a>
+
+library.
+</li><li>
+
+If you are changing the <code><font color="blue">src/omhelp.y</font></code>, <code><font color="blue">latex.y</font></code>, or
+<code><font color="blue">latex.l</font></code> file you will also need
+<a href="http://flex.sourceforge.net/" target="_top"><span style='white-space: nowrap'>flex</span></a>
+ and
+<a href="http://bison.sourceforge.net/" target="_top"><span style='white-space: nowrap'>bison</span></a>
+ in your execution path.
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="Download OMhelp" id="Download OMhelp">Download OMhelp</a></big></b>
+<br>
+Use the following link to download the current version of OMhelp:
+<a href="https://github.com/bradbell/omhelp/archive/20171212.zip" target="_top"><span style='white-space: nowrap'>omhelp-20171212.zip</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Create Distribution Directory" id="Create Distribution Directory">Create Distribution Directory</a></big></b>
+<br>
+Use the command
+<code><font color='blue'><pre style='display:inline'> 
+     &quot;%zip_prefix%\7z&quot; x omhelp-20171212.zip
+</pre></font></code>
+where 
+<code><i><font color="black"><span style='white-space: nowrap'>zip_prefix</span></font></i></code>
+ is the prefix for the install of
+<code><font color="blue">7-zip</font></code>.
+
+<br>
+<br>
+<b><big><a name="CMake Command" id="CMake Command">CMake Command</a></big></b>
+<br>
+Execute the following commands:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;omhelp-20171212<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mkdir&nbsp;build<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;build<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;%cmake_prefix%\bin\cmake&quot;&nbsp;&nbsp;^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-G&nbsp;&quot;NMake&nbsp;Makefiles&quot;&nbsp;&nbsp;^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;boost_regex_prefix=</span></font><i><font color="black"><span style='white-space: nowrap'>boost_regex_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;source_highlight_prefix=</span></font><i><font color="black"><span style='white-space: nowrap'>source_highlight_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;have_flex_and_bison=</span></font><i><font color="black"><span style='white-space: nowrap'>have_flex_and_bison</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;omhelp_prefix=</span></font><i><font color="black"><span style='white-space: nowrap'>omhelp_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;omhelp_datadir=</span></font><i><font color="black"><span style='white-space: nowrap'>omhelp_datadir</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;omhelp_c_flags=</span></font><i><font color="black"><span style='white-space: nowrap'>omhelp_c_flags</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;omhelp_build_type=</span></font><i><font color="black"><span style='white-space: nowrap'>omhelp_build_type</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..<br>
+</span></font></code>
+Only the program <code><font color="blue">%cmake_prefix%cmake</font></code>,
+the type of make files <code><font color="blue">-G &quot;NMake Makefiles&quot;</font></code>,
+and the distribution directory reference <code><font color="blue">..</font></code>,
+are required.
+The other entries use default values if they are not specified.
+
+<br>
+<br>
+<b><a name="CMake Command.boost_regex_prefix" id="CMake Command.boost_regex_prefix">boost_regex_prefix</a></b>
+<br>
+The default value for 
+<code><i><font color="black"><span style='white-space: nowrap'>boost_regex_prefix</span></font></i></code>
+ is <code><font color="blue">/usr</font></code>.
+This prefix assumes the boost <code><font color="blue">regex</font></code> library is installed
+as one of the following:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/usr/lib/libboost_regex.*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/usr/lib64/libboost_regex.*<br>
+</span></font></code>
+2DO: THis has not yet been tested.
+
+<br>
+<br>
+<b><a name="CMake Command.source_highlight_prefix" id="CMake Command.source_highlight_prefix">source_highlight_prefix</a></b>
+<br>
+The default value for 
+<code><i><font color="black"><span style='white-space: nowrap'>source_highlight_prefix</span></font></i></code>
+ is <code><font color="blue">/usr</font></code>.
+This prefix assumes the boost <code><font color="blue">source-highlight</font></code> library is installed
+as one of the following:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/usr/lib/libsource-highlight.*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/usr/lib64/libsource-highlight.*<br>
+</span></font></code>
+2DO: This has not yet been tested.
+
+<br>
+<br>
+<b><a name="CMake Command.have_flex_and_bison" id="CMake Command.have_flex_and_bison">have_flex_and_bison</a></b>
+<br>
+If you have these
+<a href="installwindows.htm#Requirements.Optional" target="_top"><span style='white-space: nowrap'>optional&nbsp;tools</span></a>
+,
+you should specify this value as <code><font color="blue">YES</font></code>.
+Otherwise, you should use <code><font color="blue">NO</font></code> (the default).
+
+<br>
+<br>
+<b><a name="CMake Command.omhelp_prefix" id="CMake Command.omhelp_prefix">omhelp_prefix</a></b>
+<br>
+The default value for 
+<code><i><font color="black"><span style='white-space: nowrap'>omhelp_prefix</span></font></i></code>
+ is <code><font color="blue">\usr</font></code>; i.e.,
+by default the OMhelp executable is installed in
+<code><font color='blue'><pre style='display:inline'> 
+     \usr\bin\omhelp.exe
+</pre></font></code>
+If you do not have write permission for <code><font color="blue">\usr</font></code>,
+you must specify a 
+<code><i><font color="black"><span style='white-space: nowrap'>prefix</span></font></i></code>
+.
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>omhelp_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>\bin</span></font></code>
+ is not in your path,
+you will have to specify the entire path
+
+<code><i><font color="black"><span style='white-space: nowrap'>omhelp_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>\bin\omhelp</span></font></code>
+ when
+you execute it.
+
+<br>
+<br>
+<b><a name="CMake Command.omhelp_datadir" id="CMake Command.omhelp_datadir">omhelp_datadir</a></b>
+<br>
+The data files used by OMhelp are installed in
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>omhelp_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>\</span></font><i><font color="black"><span style='white-space: nowrap'>omhelp_datadir</span></font></i><font color="blue"><span style='white-space: nowrap'>\omhelp_data<br>
+</span></font></code>
+The default value for 
+<code><i><font color="black"><span style='white-space: nowrap'>omhelp_datadir</span></font></i></code>
+ is <code><font color="blue">share</font></code>.
+
+<br>
+<br>
+<b><a name="CMake Command.omhelp_c_flags" id="CMake Command.omhelp_c_flags">omhelp_c_flags</a></b>
+<br>
+These are extra flags, besides the debug and release flags,
+that are used during compilation.
+The default value for 
+<code><i><font color="black"><span style='white-space: nowrap'>omhelp_c_flags</span></font></i></code>
+ is none.
+
+<br>
+<br>
+<b><a name="CMake Command.omhelp_build_type" id="CMake Command.omhelp_build_type">omhelp_build_type</a></b>
+<br>
+This should be either <code><font color="blue">debug</font></code> (compile for debugging)
+or <code><font color="blue">release</font></code> (compile for speed).
+The default, if it is not specified, is <code><font color="blue">debug</font></code>.
+
+<br>
+<br>
+<b><big><a name="Build Executable" id="Build Executable">Build Executable</a></big></b>
+<br>
+In the directory <code><font color="blue">omhelp-20171212\build</font></code> execute the following command
+<code><font color='blue'><pre style='display:inline'> 
+     nmake
+</pre></font></code>
+This should build the program
+<code><font color='blue'><pre style='display:inline'> 
+     omhelp-20171212\build\src\omhelp.exe
+</pre></font></code>
+If you have fortran,
+and CMake can figure out how to link C to Fortran,
+the following program will also be built
+<code><font color='blue'><pre style='display:inline'> 
+     omhelp-20171212\build\omh\getstarted\run_all.exe
+</pre></font></code>
+<br>
+<b><big><a name="OMhelp Documentation" id="OMhelp Documentation">OMhelp Documentation</a></big></b>
+<br>
+It is no longer necessary to build the
+OMhelp developer and user documentation before installing OMhelp;
+i.e., you can skip these steps.
+
+<br>
+<br>
+<b><a name="OMhelp Documentation.Developer Documentation" id="OMhelp Documentation.Developer Documentation">Developer Documentation</a></b>
+<br>
+Starting in the <code><font color="blue">omhelp-20171212</font></code> directory,
+the following commands create the developer documentation in the
+directory <code><font color="blue">omhelp-20171212/dev</font></code>:
+<code><font color='blue'><pre style='display:inline'> 
+     mkdir dev
+     cd dev
+     ..\build\src\omhelp ..\src\omh\omhelp.omh &gt; ..\omhelp.dev.log ^
+          -noframe -xml -debug -omhelp_dir ..\omhelp_data
+     cd ..
+</pre></font></code>
+This should complete without error, and so also functions as a test
+of the distribution.
+
+<br>
+<br>
+<b><a name="OMhelp Documentation.User Documentation" id="OMhelp Documentation.User Documentation">User Documentation</a></b>
+<br>
+Starting in the <code><font color="blue">omhelp-20171212</font></code> directory,
+the following commands create the user documentation in the
+directory <code><font color="blue">omhelp-20171212/doc</font></code>:
+<code><font color='blue'><pre style='display:inline'> 
+     mkdir doc
+     cd doc
+     ..\build\src\omhelp ..\omh\overview.omh -noframe -xml -debug ^
+          -omhelp_dir ..\omhelp_data
+</pre></font></code>
+This should complete without error, and so also functions as a test
+of the distribution.
+
+<br>
+<br>
+<b><big><a name="Install OMhelp" id="Install OMhelp">Install OMhelp</a></big></b>
+<br>
+In the directory <code><font color="blue">omhelp-20171212\build</font></code> execute the following command
+<code><font color='blue'><pre style='display:inline'> 
+     nmake install
+</pre></font></code>
+<br>
+<b><big><a name="Getting Started" id="Getting Started">Getting Started</a></big></b>
+<br>
+You can build the
+<a href="multiple_example_1.htm" target="_top"><span style='white-space: nowrap'>multiple_example_1</span></a>
+ subtree of the OMhelp user documentation
+by executing the following commands starting in the
+<code><font color="blue">omhelp-20171212</font></code> directory:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mkdir&nbsp;xam<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;xam<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;</span></font><i><font color="black"><span style='white-space: nowrap'>omhelp_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>\bin\omhelp&quot;&nbsp;..\omh\getstarted\multiple_example_1.omh<br>
+</span></font></code>
+Note that if 
+<code><i><font color="black"><span style='white-space: nowrap'>omhelp_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>/bin</span></font></code>
+ is in you execution path,
+you can use the command
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;omhelp&nbsp;../omh/getstarted/multiple_example_1.omh<br>
+</span></font></code>
+See the <a href="get_started.htm" target="_top"><span style='white-space: nowrap'>get_started</span></a>
+ section for more examples.
+
+<br>
+<br>
+<b><big><a name="Spelling List" id="Spelling List">Spelling List</a></big></b>
+<br>
+The OMhelp utility files are stored in the
+<code><font color="blue">omhelp-20171212\omhelp_data</font></code> directory.
+The spelling lists below are a subset of these files.
+
+<br>
+<br>
+<b><a name="Spelling List.english.wrd" id="Spelling List.english.wrd">english.wrd</a></b>
+<br>
+The file <code><font color="blue">omhelp-20171212\omhelp_data\english.wrd</font></code> is a
+list of standard english words.
+The words must be in alphabetic order, lower case, and contain only letters.
+For example,
+<code><font color='blue'><pre style='display:inline'> 
+     a
+     aardvark
+     aardvarks
+     ...
+</pre></font></code>
+A default <code><font color="blue">english.wrd</font></code> file is distributed with OMhelp.
+
+<br>
+<br>
+<b><a name="Spelling List.local.wrd" id="Spelling List.local.wrd">local.wrd</a></b>
+<br>
+The file <code><font color="blue">omhelp-20171212\omhelp_data\local.wrd</font></code> is an optional
+list of special words, not in <code><font color="blue">english.wrd</font></code> that are to be
+considered correctly spelled.
+These words
+must also be in alphabetic order, lower case, and contain only letters.
+
+<br>
+<br>
+<b><a name="Spelling List.dictionary.bin" id="Spelling List.dictionary.bin">dictionary.bin</a></b>
+<br>
+OMhelp combines the files <code><font color="blue">english.wrd</font></code> and <code><font color="blue">local.wrd</font></code>
+to form
+<code><font color='blue'><pre style='display:inline'> 
+     omhelp-20171212\omhelp_data\dictionary.bin
+</pre></font></code>
+If you make any changes to <code><font color="blue">english.wrd</font></code> or <code><font color="blue">local.wrd</font></code>,
+the file <code><font color="blue">dictionary.bin</font></code> should be deleted.
+A new <code><font color="blue">dictionary.bin</font></code> that combines the words <code><font color="blue">english.wrd</font></code>
+and <code><font color="blue">local.wrd</font></code> can be created and installed by executing following
+commands in the <code><font color="blue">omhelp-20171212</font></code> directory:
+<code><font color='blue'><pre style='display:inline'> 
+     del omhelp_data\dictionary.bin
+     cd build\omh\getstarted
+     ..\..\src\omhelp ^
+          ..\..\..\omh\getstarted\simple_example.omh ^
+          -omhelp_dir ..\..\..\omhelp_data
+     cd ..\..
+     make install
+</pre></font></code>
+
+<hr>Input File: installwindows.omh
+
+</body>
+</html>

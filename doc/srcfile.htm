@@ -1,0 +1,344 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Displaying Source Code From a File</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Displaying Source Code From a File">
+<meta name="keywords" id="keywords" content=" displaying source code from file syntax see also optional purpose delimiter sequence filename indent example start escape stop skip tab stops ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_srcfile_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="verbatim.htm" target="_top">Prev</a>
+</td><td><a href="srccode.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>files</option>
+<option>srcfile</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>files-&gt;</option>
+<option>path</option>
+<option>children</option>
+<option>include</option>
+<option>image</option>
+<option>verbatim</option>
+<option>srcfile</option>
+<option>srccode</option>
+<option>execute</option>
+<option>KeyCharacter</option>
+</select>
+</td>
+<td>srcfile</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Optional</option>
+<option>Purpose</option>
+<option>Delimiter Sequence</option>
+<option>filename</option>
+<option>indent</option>
+<option>---..Example</option>
+<option>start</option>
+<option>---..escape</option>
+<option>stop</option>
+<option>---..escape</option>
+<option>---..Example</option>
+<option>skip</option>
+<option>Tab Stops</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+<center><b><big><big>Displaying Source Code From a File</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$srcfile%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$srcfile%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>$$<br>
+</span></font></i></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$srcfile%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$srcfile%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>skip</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+<a href="start_src.htm" target="_top"><span style='white-space: nowrap'>getting&nbsp;started</span></a>
+,
+ <a href="srccode.htm" target="_top"><span style='white-space: nowrap'>srccode</span></a>
+,  <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+,  <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Optional" id="Optional">Optional</a></big></b>
+<br>
+This command is optional and only supported when the
+<a href="installunix.htm#CMake Command.boost_regex_prefix" target="_top"><span style='white-space: nowrap'>boost_regex</span></a>
+ and
+<a href="installunix.htm#CMake Command.source_highlight_prefix" target="_top"><span style='white-space: nowrap'>source_highlight</span></a>
+
+library are successfully found by the cmake command.
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+This command will display the specified
+<a href="glossary.htm#Input File Searching" target="_top"><span style='white-space: nowrap'>input&nbsp;file</span></a>
+
+as program source code with highlighting.
+
+<br>
+<br>
+<b><big><a name="Delimiter Sequence" id="Delimiter Sequence">Delimiter Sequence</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>skip</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+is a <a href="glossary.htm#Delimiter Sequence" target="_top"><span style='white-space: nowrap'>delimiter&nbsp;sequence</span></a>
+
+where <code><font color="blue">%</font></code> can be any character that is not a letter.
+
+<br>
+<br>
+<b><big><a name="filename" id="filename">filename</a></big></b>
+<br>
+The value of 
+<code><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i></code>
+ specifies the name
+of the file that is displayed.
+Leading and trailing white space in 
+<code><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i></code>
+ is ignored.
+The 
+<code><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i></code>
+ must have a
+<a href="glossary.htm#File Extension" target="_top"><span style='white-space: nowrap'>file&nbsp;extension</span></a>
+.
+The file extension, without the period <code><font color="blue">'.'</font></code>,
+is used to determine the source code language.
+
+<br>
+<br>
+<b><big><a name="indent" id="indent">indent</a></big></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i></code>
+ is present,
+it is a positive integer and specifies
+the number of spaces to indent the output.
+(It is best if the 
+<code><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i></code>
+ is a multiple of the <a href="tabsize.htm" target="_top"><span style='white-space: nowrap'>tabsize</span></a>
+.)
+
+<br>
+<br>
+<b><a name="indent.Example" id="indent.Example">Example</a></b>
+<br>
+The following command
+<code><font color='blue'><pre style='display:inline'> 
+     $tabsize 4$$
+     $srcfile%../src/highlight.h%4%$$
+</pre></font></code>
+displays the entire file <code><font color="blue">highlight.h</font></code>,
+with a four space indentation as follows:
+
+<pre><tt><b><font color="#000080">    # ifndef</font></b> HIGHLIGHT_INCLUDED
+<b><font color="#000080">    # define</font></b> HIGHLIGHT_INCLUDED
+    <i><font color="#9A1900">/* ----------------------------------------------------------------------------</font></i>
+<i><font color="#9A1900">    OMhelp: Language Independent Embedded Documentation</font></i>
+<i><font color="#9A1900">              Copyright (C) 1998-2015 Bradley M. Bell</font></i>
+<i><font color="#9A1900">    OMhelp is distributed under the terms of the</font></i>
+<i><font color="#9A1900">                GNU General Public License Version 2.</font></i>
+<i><font color="#9A1900">    ---------------------------------------------------------------------------- */</font></i>
+    <i><font color="#9A1900">// BEGIN PROTOTYPE</font></i>
+    <b><font color="#0000FF">extern</font></b> <font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">highlight</font></b><font color="#990000">(</font>
+        <b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> input_text_cstr     <font color="#990000">,</font>
+        <b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> input_lang_cstr     <font color="#990000">,</font>
+        <b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> output_lang_cstr    <font color="#990000">,</font>
+        <font color="#009900">int</font>         indent              <font color="#990000">,</font>
+        <font color="#009900">int</font>         tabsize
+    <font color="#990000">);</font>
+    <b><font color="#0000FF">extern</font></b> <font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">file_ext2lang</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> file_ext_cstr<font color="#990000">);</font>
+    <i><font color="#9A1900">// END PROTOTYPE</font></i>
+<b><font color="#000080">    # endif</font></b></tt></pre>
+Note that a newline was automatically added at the beginning of the file.
+
+<br>
+<br>
+<b><big><a name="start" id="start">start</a></big></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+ is present,
+it specifies a sequence of characters after which output should start.
+In this case none of the characters in the file before,
+and including,
+this starting sequence are displayed.
+
+<br>
+<br>
+<b><a name="start.escape" id="start.escape">escape</a></b>
+<br>
+If the <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character is present in 
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+,
+there must be three decimal digits following it.
+In this case the escape character together with the three following
+characters, represent the single character with ascii code equal
+to the decimal value of the three decimal digits.
+
+<br>
+<br>
+<b><big><a name="stop" id="stop">stop</a></big></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+ is present, 
+<code><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i></code>
+ must also be present.
+It specifies
+a sequence of characters just before which output should stop.
+In this case none of the characters in the file following,
+and including,
+this stopping sequences are displayed.
+
+<br>
+<br>
+<b><a name="stop.escape" id="stop.escape">escape</a></b>
+<br>
+If the <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character is present in 
+<code><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i></code>
+,
+there must be three decimal digits following it.
+In this case the escape character together with the three following
+characters, represent the single character with ascii code equal
+to the decimal value of the three decimal digits.
+
+<br>
+<br>
+<b><a name="stop.Example" id="stop.Example">Example</a></b>
+<br>
+The following command sequence
+<code><font color='blue'><pre style='display:inline'> 
+    $srcfile%../src/highlight.h%8%// BEGIN PROTOTYPE%// END PROTOTYPE%$$
+</pre></font></code>
+displays the following output:
+<pre><tt>        <b><font color="#0000FF">extern</font></b> <font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">highlight</font></b><font color="#990000">(</font>
+            <b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> input_text_cstr     <font color="#990000">,</font>
+            <b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> input_lang_cstr     <font color="#990000">,</font>
+            <b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> output_lang_cstr    <font color="#990000">,</font>
+            <font color="#009900">int</font>         indent              <font color="#990000">,</font>
+            <font color="#009900">int</font>         tabsize
+        <font color="#990000">);</font>
+        <b><font color="#0000FF">extern</font></b> <font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">file_ext2lang</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> file_ext_cstr<font color="#990000">);</font></tt></pre>
+Note that the newline after <code><font color="blue">// BEGIN PROOTYPE</font></code>,
+and the newline before <code><font color="blue">// END PROTOTYPE</font></code>,
+are included in the output.
+Also note that the previous <a href="tabsize.htm" target="_top"><span style='white-space: nowrap'>tabsize</span></a>
+ command is still in effect.
+
+<br>
+<br>
+<b><big><a name="skip" id="skip">skip</a></big></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>skip</span></font></i></code>
+ is present,
+it is a positive integer that specifies the number of
+
+<code><i><font color="black"><span style='white-space: nowrap'>start</span></font></i></code>
+ matches to skip.
+This is very useful when the <code><font color="blue">$srcfile</font></code> command
+refers to the same file as the command is in.
+The skip option can be used to skip the match on the command
+and go forward to the location that you wish to display.
+
+<br>
+<br>
+<b><big><a name="Tab Stops" id="Tab Stops">Tab Stops</a></big></b>
+<br>
+The <a href="tabsize.htm" target="_top"><span style='white-space: nowrap'>tabsize</span></a>
+ command
+enables you to match the indentation of the <code><font color="blue">src</font></code> command
+with one of the tabbing columns.
+
+
+<hr>Input File: srcfile.omh
+
+</body>
+</html>

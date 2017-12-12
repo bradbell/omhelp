@@ -1,0 +1,236 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Specifying the Number of Characters Between Tab Columns</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Specifying the Number of Characters Between Tab Columns">
+<meta name="keywords" id="keywords" content=" tabsize tab size character column specifying the number characters between columns syntax see also description example default root section other sections reset ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_tabsize_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="escape.htm" target="_top">Prev</a>
+</td><td><a href="font.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>format</option>
+<option>special</option>
+<option>tabsize</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>format-&gt;</option>
+<option>nobreak</option>
+<option>pre</option>
+<option>codep</option>
+<option>codei</option>
+<option>color</option>
+<option>hilite</option>
+<option>th</option>
+<option>center</option>
+<option>table</option>
+<option>list</option>
+<option>special</option>
+<option>font</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>special-&gt;</option>
+<option>dollar</option>
+<option>cmark</option>
+<option>rmark</option>
+<option>newlinech</option>
+<option>accent</option>
+<option>escape</option>
+<option>tabsize</option>
+</select>
+</td>
+<td>tabsize</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>Example</option>
+<option>Default</option>
+<option>---..Root Section</option>
+<option>---..Other Sections</option>
+<option>---..Reset</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Specifying the Number of Characters Between Tab Columns</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$tabsize&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>columns</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+ <a href="pre.htm" target="_top"><span style='white-space: nowrap'>pre</span></a>
+,  <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+,  <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This command specifies how many columns
+there are between each of the tab stops
+when using a
+<a href="glossary.htm#Uniformly Spaced Font" target="_top"><span style='white-space: nowrap'>uniformly&nbsp;spaced&nbsp;font</span></a>
+.
+For example,
+when using the  <a href="pre.htm" target="_top"><span style='white-space: nowrap'>pre</span></a>
+,  <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+,  <a href="math.htm" target="_top"><span style='white-space: nowrap'>math</span></a>
+ commands.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The input commands
+<code><font color='blue'><pre style='display:inline'> 
+$tabsize 5$$
+$codep
+     line one
+     line two
+$$
+</pre></font></code>
+result in the following output
+
+<code><font color='blue'><pre style='display:inline'> 
+     line one
+     line two
+</pre></font></code>
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The input commands
+<code><font color='blue'><pre style='display:inline'> 
+$tabsize 10$$
+$codep
+     line one
+     line two
+$$
+</pre></font></code>
+result in the following output
+
+<code><font color='blue'><pre style='display:inline'> 
+          line one
+          line two
+</pre></font></code>
+<br>
+<b><big><a name="Default" id="Default">Default</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Default.Root Section" id="Default.Root Section">Root Section</a></b>
+<br>
+The default value for 
+<code><i><font color="black"><span style='white-space: nowrap'>columns</span></font></i></code>
+ in the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+ is not specified and may change
+in future versions of OMhelp.
+
+<br>
+<br>
+<b><a name="Default.Other Sections" id="Default.Other Sections">Other Sections</a></b>
+<br>
+The default value for 
+<code><i><font color="black"><span style='white-space: nowrap'>columns</span></font></i></code>
+,
+in sections other than the root section,
+is it's final value at the end of the root section.
+
+<br>
+<br>
+<b><a name="Default.Reset" id="Default.Reset">Reset</a></b>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>columns</span></font></i></code>
+ is not present,
+or if it is less than or equal 0,
+the default value is restored
+For example,
+the input commands
+
+<code><font color='blue'><pre style='display:inline'> 
+$tabsize $$
+$codep
+     line one
+     line two
+$$
+</pre></font></code>
+result in the following output
+<code><font color='blue'><pre style='display:inline'> 
+     line one
+     line two
+</pre></font></code>
+
+<hr>Input File: tabsize.omh
+
+</body>
+</html>

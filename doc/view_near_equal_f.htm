@@ -1,0 +1,193 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Contents of the File near_equal_f.f</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Contents of the File near_equal_f.f">
+<meta name="keywords" id="keywords" content=" contents the file near_equal_f.f ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_view_near_equal_f_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="near_equal_c.htm" target="_top">Prev</a>
+</td><td><a href="near_equal_f.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>get_started</option>
+<option>start_embed</option>
+<option>view_near_equal_f</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>get_started-&gt;</option>
+<option>start_simple</option>
+<option>start_head</option>
+<option>start_image</option>
+<option>start_pre</option>
+<option>start_font</option>
+<option>start_spell</option>
+<option>start_latex</option>
+<option>start_verbatim</option>
+<option>start_src</option>
+<option>start_embed</option>
+<option>start_multiple</option>
+<option>start_cref</option>
+<option>start_index</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>start_embed-&gt;</option>
+<option>view_near_equal_c</option>
+<option>near_equal_c</option>
+<option>view_near_equal_f</option>
+<option>near_equal_f</option>
+</select>
+</td>
+<td>view_near_equal_f</td>
+<td>Headings</td>
+</tr></table><br>
+
+
+<center><b><big><big>Contents of the File near_equal_f.f</big></big></b></center>
+<code><font color="blue"><pre style='display:inline'> 
+c
+c $begin near_equal_f$$ $newlinech c$$
+c $spell
+c $$
+c
+c $section Determine if Two Values Are Nearly Equal$$
+c
+c $head Syntax$$
+c $icode%e% = near_equal_f(%x%, %y%, %r%, %a%)%$$
+c
+c $head Purpose$$
+c Returns true,
+c if $icode x$$ is nearly equal to $icode y$$ and false otherwise.
+c
+c $head x$$
+c The argument $icode x$$ has prototype
+c $codei%
+c	double precision %x%
+c %$$
+c
+c $head y$$
+c The argument $icode y$$ has prototype
+c $codei%
+c	double precision %y%
+c %$$
+c
+c $head r$$
+c The relative error criteria $icode r$$ has prototype
+c $codei%
+c	double precision %r%
+c %$$
+c It must be greater than or equal zero.
+c The relative error condition is satisfied if
+c $latex \[
+c	| x - y | \leq r ( |x| + |y| )
+c \] $$
+c where $latex \leq$$ denotes less than or equal.
+c
+c $head a$$
+c The absolute error criteria $icode a$$ has prototype
+c $codei%
+c	double precision %a%
+c %$$
+c It must be greater than or equal zero.
+c The absolute error condition is satisfied if
+c $latex \[
+c	| x - y | \leq a
+c \] $$
+c
+c $head e$$
+c The return value $icode e$$ has prototype
+c $codei%
+c	logical %e%
+c %$$
+c If either the relative or absolute error condition is satisfied,
+c it is true.
+c Otherwise, it is false.
+c
+c
+c $head Example$$
+c The following is an example and test of $code near_equal_f$$.
+c It returns true if the test succeeds and false if it fails.
+c
+c $comment no indent, start output at text following END COPYRIGHT$$
+c $code
+c $verbatim%ok_near_equal_f.f%0%END COPYRIGHT%$$
+c $$
+c
+c $end
+c ---------------------------------------------------------------------------
+      logical function near_equal_f(x, y, r, a)
+      double precision x, y, r, a
+      double precision ax, ay, d
+      ax = dabs(x);
+      ay = dabs(y);
+      ad = dabs(x - y);
+      near_equal_f = (ad .le. a) .or. (ad .le. r * (ax + ay));
+      end
+</pre>
+
+</font></code>
+
+
+<hr>Input File: getstarted/view_near_equal_f.omh
+
+</body>
+</html>

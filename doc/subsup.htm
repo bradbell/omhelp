@@ -1,0 +1,245 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Latex Subscripts and Superscripts</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Latex Subscripts and Superscripts">
+<meta name="keywords" id="keywords" content=" latex subscripts superscripts sub sup syntax description example double scripting warning ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_subsup_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="stdfun.htm" target="_top">Prev</a>
+</td><td><a href="frac.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>latex</option>
+<option>subsup</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>latex-&gt;</option>
+<option>symbol</option>
+<option>diacritical</option>
+<option>stdfun</option>
+<option>subsup</option>
+<option>frac</option>
+<option>sqrt</option>
+<option>array</option>
+<option>left_right</option>
+<option>under_over</option>
+<option>stackrel</option>
+<option>latexfont</option>
+<option>latexcomment</option>
+<option>LatexMacro</option>
+<option>mathml</option>
+<option>diff_xml_htm</option>
+</select>
+</td>
+<td>subsup</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Description</option>
+<option>Example</option>
+<option>Double Scripting</option>
+<option>Warning</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Latex Subscripts and Superscripts</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$latex&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>Command</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;$$</span></font></code>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+Display in Latex mode
+the subscripts and superscripts specified by 
+<code><i><font color="black"><span style='white-space: nowrap'>Command</span></font></i></code>
+ where
+
+<code><i><font color="black"><span style='white-space: nowrap'>Command</span></font></i></code>
+ contains the underbar character <code><font color="blue">_</font></code>,
+the caret character <code><font color="blue">^</font></code> or both.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+
+
+<table><tr><td align='left'  valign='top'>
+
+
+<code><i><font color="black"><span style='white-space: nowrap'>Command</span></font></i></code>
+ </td><td align='left'  valign='top'>
+ 
+<code><i><font color="black"><span style='white-space: nowrap'>Output</span></font></i></code>
+   </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">x^{2y}</font></code>    </td><td align='left'  valign='top'>
+  <small>@(@
+x^{2y}
+@)@</small>    </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">x_{2y}</font></code>    </td><td align='left'  valign='top'>
+  <small>@(@
+x_{2y}
+@)@</small>    </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">x^{y^{2}}</font></code> </td><td align='left'  valign='top'>
+  <small>@(@
+x^{y^{2}}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">x^{y_{1}}</font></code> </td><td align='left'  valign='top'>
+  <small>@(@
+x^{y_{1}}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">x^{y}_{1}</font></code> </td><td align='left'  valign='top'>
+  <small>@(@
+x^{y}_{1}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">x_{1}^{y}</font></code> </td><td align='left'  valign='top'>
+  <small>@(@
+x_{1}^{y}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+</td></tr>
+</table>
+<br>
+<b><big><a name="Double Scripting" id="Double Scripting">Double Scripting</a></big></b>
+<br>
+Note that you can not double subscript or double superscript
+with out enclosing the first level in braces.
+For example,
+the input
+<code><font color='blue'><pre style='display:inline'> 
+     $latex x_1_2 $$
+</pre></font></code>
+would generate an error message. On the other hand the input
+<code><font color='blue'><pre style='display:inline'> 
+     $latex {x_1}_2 $$
+</pre></font></code>
+would result in the output
+<small>@[@
+
+	{x_1}_2
+
+@]@</small>
+
+<br>
+<br>
+<b><big><a name="Warning" id="Warning">Warning</a></big></b>
+<br>
+OMhelp's Latex groups sequences of
+<a href="latexnormal.htm#Description.Ascii Letters" target="_top"><span style='white-space: nowrap'>letters</span></a>
+
+as a single input token.
+In addition,
+<a href="latexnumber.htm" target="_top"><span style='white-space: nowrap'>Latex&nbsp;numbers</span></a>
+
+are multiple characters and grouped as a single token.
+For this reason,
+the input
+<code><font color='blue'><pre style='display:inline'> 
+     $latex x_ab  x_12  x_ab12 $$
+</pre></font></code>
+will generate the output
+<small>@[@
+
+	x_ab x_12 x_ab12
+
+@]@</small>
+Standard Latex, as per Lamport's
+<a href="latex.htm#Reference" target="_top"><span style='white-space: nowrap'>reference</span></a>
+,
+would output
+<small>@[@
+
+	x_a b x_1 2 x_a b12
+
+@]@</small>
+for this input.
+It may be that future versions of OMhelp
+will adopt this convention.
+Thus, if you wish to group more than one character in a subscript
+or superscript,
+you should use parenthesis.
+For example, the following input would obtain the
+same effect as the input above:
+<code><font color='blue'><pre style='display:inline'> 
+     $latex x_{ab}  x_{12}  x_{ab} 12 $$
+</pre></font></code>
+
+<hr>Input File: latex/subsup.omh
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>OMhelp Wish List</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="OMhelp Wish List">
+<meta name="keywords" id="keywords" content=" omhelp wish list tables parent section source-highlight comment character header https spell th $$ escape verbatim ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_wish_list_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="glossary.htm" target="_top">Prev</a>
+</td><td><a href="whatsnew.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>wish_list</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>wish_list</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Tables</option>
+<option>Parent Section</option>
+<option>source-highlight</option>
+<option>Comment Character</option>
+<option>Header</option>
+<option>https</option>
+<option>spell</option>
+<option>th</option>
+<option>$$</option>
+<option>Escape</option>
+<option>verbatim</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>OMhelp Wish List</big></big></b></center>
+<br>
+<b><big><a name="Tables" id="Tables">Tables</a></big></b>
+<br>
+Add a version of the
+<a href="table.htm" target="_top"><span style='white-space: nowrap'>table</span></a>
+ command that specifies the number of spaces between columns
+and the adjustment for each column (center, top, bottom, right, left)
+and possible other options that tables can have; e.g.,
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$tbl/</span></font><i><font color="black"><span style='white-space: nowrap'>spaces</span></font></i><font color="blue"><span style='white-space: nowrap'>/$$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$tbl/</span></font><i><font color="black"><span style='white-space: nowrap'>spaces</span></font></i><font color="blue"><span style='white-space: nowrap'>/</span></font><i><font color="black"><span style='white-space: nowrap'>adjust_1</span></font></i><font color="blue"><span style='white-space: nowrap'>/$$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$tbl/</span></font><i><font color="black"><span style='white-space: nowrap'>spaces</span></font></i><font color="blue"><span style='white-space: nowrap'>/</span></font><i><font color="black"><span style='white-space: nowrap'>adjust_1</span></font></i><font color="blue"><span style='white-space: nowrap'>/</span></font><i><font color="black"><span style='white-space: nowrap'>adjust_2</span></font></i><font color="blue"><span style='white-space: nowrap'>/$$<br>
+</span></font></code>
+<br>
+<b><big><a name="Parent Section" id="Parent Section">Parent Section</a></big></b>
+<br>
+Add a command that says this section is the parent for all other sections
+that appear in the same file. Perhaps this would have to be the first section
+in the file.
+
+<br>
+<br>
+<b><big><a name="source-highlight" id="source-highlight">source-highlight</a></big></b>
+<br>
+Add a language definition for OMhelp to the <a href="srcfile.htm" target="_top"><span style='white-space: nowrap'>srcfile</span></a>
+ command;
+see <a href="highlight.sh.htm" target="_top"><span style='white-space: nowrap'>bin/highlight.sh</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="Comment Character" id="Comment Character">Comment Character</a></big></b>
+<br>
+It would be nice to allow for more than one character in the
+<a href="newlinech.htm" target="_top"><span style='white-space: nowrap'>newlinech</span></a>
+ command so that C++ <code><font color="blue">//</font></code> comments can be recognized.
+Perhaps this should be a new command called <code><font color="blue">nlcomment</font></code>.
+
+<br>
+<br>
+<b><big><a name="Header" id="Header">Header</a></big></b>
+<br>
+Add an option to put a jump table at the top of each section,
+instead of the <code><font color="blue">Headings</font></code> drop-down menu at top,
+because a jump table is more standard.
+
+<br>
+<br>
+<b><big><a name="https" id="https">https</a></big></b>
+<br>
+Currently the <a href="latex.htm#MathJax (htm)" target="_top"><span style='white-space: nowrap'>MathJax</span></a>
+ does not display properly
+on a secure server; see
+<a href="http://docs.mathjax.org/en/latest/start.html#secure-cdn-access" target="_top"><span style='white-space: nowrap'>secure&nbsp;access</span></a>
+
+
+<br>
+<br>
+<b><big><a name="spell" id="spell">spell</a></big></b>
+<br>
+Print a warning when a <a href="spell.htm" target="_top"><span style='white-space: nowrap'>spell</span></a>
+ command entry does not appear
+in the corresponding section.
+
+<br>
+<br>
+<b><big><a name="th" id="th">th</a></big></b>
+<br>
+Change the <code><font color="blue">$th</font></code> command to use the same font as <code><font color="blue">$icode</font></code>.
+
+<br>
+<br>
+<b><big><a name="$$" id="$$">$$</a></big></b>
+<br>
+Only commands that do not allow other commands inside should be terminated
+by the <code><font color="blue">$$</font></code>. Use a special termination command for others; e.g.,
+<code><font color="blue">$center</font></code> could be terminated by <code><font color="blue">$endc</font></code>.
+
+<br>
+<br>
+<b><big><a name="Escape" id="Escape">Escape</a></big></b>
+<br>
+Add command line argument so there is no default escape character
+(backslash is often missing from output because it is escape character).
+
+<br>
+<br>
+<b><big><a name="verbatim" id="verbatim">verbatim</a></big></b>
+<br>
+Have a way for verbatim command to refer to current file
+(so works automatically when one moves or copies the file).
+
+
+<hr>Input File: wish_list.omh
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='pmathml.xsl'?>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+	<head></head>
+	<body style ='background-color : rgb(210, 210, 210)'>
+		The background color around this text is a light shade of gray.
+		Note that this color only applies to the text.
+	</body>
+</html>

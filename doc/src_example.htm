@@ -1,0 +1,156 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Example Inclusion of Source Code</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Example Inclusion of Source Code">
+<meta name="keywords" id="keywords" content=" example inclusion source code inline contents src_example.py escape character just usage message ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_src_example_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="start_src.htm" target="_top">Prev</a>
+</td><td><a href="start_embed.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>get_started</option>
+<option>start_src</option>
+<option>src_example</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>get_started-&gt;</option>
+<option>start_simple</option>
+<option>start_head</option>
+<option>start_image</option>
+<option>start_pre</option>
+<option>start_font</option>
+<option>start_spell</option>
+<option>start_latex</option>
+<option>start_verbatim</option>
+<option>start_src</option>
+<option>start_embed</option>
+<option>start_multiple</option>
+<option>start_cref</option>
+<option>start_index</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>start_src-&gt;</option>
+<option>src_example</option>
+</select>
+</td>
+<td>src_example</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Inline Source Code</option>
+<option>Contents of src_example.py</option>
+<option>Escape Character</option>
+<option>Just Usage Message</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+<center><b><big><big>Example Inclusion of Source Code</big></big></b></center>
+<br>
+<b><big><a name="Inline Source Code" id="Inline Source Code">Inline Source Code</a></big></b>
+<br>
+The following is an example of in-line source code
+<pre style='display:inline'><tt>
+     <b><font color="#0000FF">extern</font></b> std<font color="#990000">::</font><font color="#008080">set&lt; std::string &gt;</font> <b><font color="#000000">string_set</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> c_string<font color="#990000">);</font>
+</tt></pre>
+<br>
+<b><big><a name="Contents of src_example.py" id="Contents of src_example.py">Contents of src_example.py</a></big></b>
+<br>
+Note that a newline is automatically added at the beginning
+of a file:
+<pre><tt>     <i><font color="#9A1900">#! /usr/bin/python3</font></i>
+     <b><font color="#000080">import</font></b> sys
+     <i><font color="#9A1900"># BEGIN USAGE</font></i>
+     usage <font color="#990000">=</font> <font color="#FF0000">'src_example.py value'</font>
+     <i><font color="#9A1900"># END USAGE</font></i>
+     <b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>sys<font color="#990000">.</font>argv<font color="#990000">)</font> <font color="#990000">!=</font> <font color="#993399">2</font> <font color="#990000">:</font>
+          sys<font color="#990000">.</font><b><font color="#000000">exit</font></b><font color="#990000">(</font>usage<font color="#990000">)</font>
+     value  <font color="#990000">=</font> <b><font color="#000000">float</font></b><font color="#990000">(</font> sys<font color="#990000">.</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]</font> <font color="#990000">)</font>
+     square <font color="#990000">=</font> value <font color="#990000">*</font> value
+     output <font color="#990000">=</font> <font color="#FF0000">'value * value = '</font> <font color="#990000">+</font> <b><font color="#000000">str</font></b><font color="#990000">(</font>square<font color="#990000">)</font>
+     <b><font color="#0000FF">print</font></b><font color="#990000">(</font>output<font color="#990000">)</font></tt></pre>
+<br>
+<b><big><a name="Escape Character" id="Escape Character">Escape Character</a></big></b>
+<br>
+Change the escape character from <code><font color="blue">#</font></code> to <code><font color="blue">!</font></code>
+so <code><font color="blue">#</font></code> can be used normally as part of the start
+and stop sequences:
+
+
+<br>
+<br>
+<b><big><a name="Just Usage Message" id="Just Usage Message">Just Usage Message</a></big></b>
+<br>
+Note that the newline following
+<code><font color="blue"># BEGIN USAGE</font></code> is included:
+<pre style='display:inline'><tt>
+     usage <font color="#990000">=</font> <font color="#FF0000">'src_example.py value'</font>
+</tt></pre>
+
+<hr>Input File: getstarted/src_example.omh
+
+</body>
+</html>

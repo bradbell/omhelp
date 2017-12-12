@@ -1,0 +1,486 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>The Latex Macro Preprocessor</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="The Latex Macro Preprocessor">
+<meta name="keywords" id="keywords" content=" the latex macro preprocessor syntax definition usage global scope section name text m n jk examples no arguments two using pound sign recursion mathml restrictions nonstandard ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_latexmacro_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="latexcomment.htm" target="_top">Prev</a>
+</td><td><a href="mathml.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>latex</option>
+<option>LatexMacro</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>latex-&gt;</option>
+<option>symbol</option>
+<option>diacritical</option>
+<option>stdfun</option>
+<option>subsup</option>
+<option>frac</option>
+<option>sqrt</option>
+<option>array</option>
+<option>left_right</option>
+<option>under_over</option>
+<option>stackrel</option>
+<option>latexfont</option>
+<option>latexcomment</option>
+<option>LatexMacro</option>
+<option>mathml</option>
+<option>diff_xml_htm</option>
+</select>
+</td>
+<td>LatexMacro</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>---..Definition</option>
+<option>---..Usage</option>
+<option>Definition</option>
+<option>---..Global Scope</option>
+<option>---..Section Scope</option>
+<option>---..Name</option>
+<option>---..Text</option>
+<option>---..M</option>
+<option>---..N</option>
+<option>---..JK</option>
+<option>Usage</option>
+<option>Examples</option>
+<option>---..No Arguments</option>
+<option>---..Two Arguments</option>
+<option>---..Using Pound Sign in a Macro</option>
+<option>---..Recursion</option>
+<option>---..Mathml</option>
+<option>Restrictions</option>
+<option>Nonstandard</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+<center><b><big><big>The Latex Macro Preprocessor</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Syntax.Definition" id="Syntax.Definition">Definition</a></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>\newcommand{\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i><font color="blue"><span style='white-space: nowrap'>}{</span></font><i><font color="black"><span style='white-space: nowrap'>Text0</span></font></i><font color="blue"><span style='white-space: nowrap'>}<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>\newcommand{\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i><font color="blue"><span style='white-space: nowrap'>}[</span></font><i><font color="black"><span style='white-space: nowrap'>M</span></font></i><font color="blue"><span style='white-space: nowrap'>]{</span></font><i><font color="black"><span style='white-space: nowrap'>Text0</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;#</span></font><i><font color="black"><span style='white-space: nowrap'>J1</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;...&nbsp;</span></font></code>
+
+
+<code><i><font color="black"><span style='white-space: nowrap'>TextN-1</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;#</span></font><i><font color="black"><span style='white-space: nowrap'>JN</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>TextN</span></font></i><font color="blue"><span style='white-space: nowrap'>}</span></font></code>
+
+
+<br>
+<br>
+<b><a name="Syntax.Usage" id="Syntax.Usage">Usage</a></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i><font color="blue"><span style='white-space: nowrap'>{</span></font><i><font color="black"><span style='white-space: nowrap'>A1</span></font></i><font color="blue"><span style='white-space: nowrap'>}</span></font><i><font color="black"><span style='white-space: nowrap'>&nbsp;...&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>{</span></font><i><font color="black"><span style='white-space: nowrap'>AM</span></font></i><font color="blue"><span style='white-space: nowrap'>}</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="Definition" id="Definition">Definition</a></big></b>
+<br>
+When running OMhelp with the
+<a href="running.htm#xml" target="_top"><span style='white-space: nowrap'>-xml</span></a>
+ command line option,
+Latex macros can be defined and used in <a href="latex.htm" target="_top"><span style='white-space: nowrap'>latex</span></a>
+ mode.
+
+<br>
+<br>
+<b><a name="Definition.Global Scope" id="Definition.Global Scope">Global Scope</a></b>
+<br>
+Macros defined using a <code><font color="blue">\newcommand</font></code> in the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+
+have global scope; i.e., are defined for all sections.
+This avoids having to entirely
+reprocess all the macros for each section
+(which could be time consuming for large numbers of macros).
+It is suggested that you put all these macros in one file
+using an
+<a href="latex.htm#Inline Formulas" target="_top"><span style='white-space: nowrap'>inline</span></a>
+ latex command.
+(You cannot use a
+<a href="latex.htm#Displayed Formulas" target="_top"><span style='white-space: nowrap'>displayed</span></a>
+ latex command
+when you are just defining macros and there is no output to be displayed.)
+
+<br>
+<br>
+<b><a name="Definition.Section Scope" id="Definition.Section Scope">Section Scope</a></b>
+<br>
+Macros defined in sections, other than the root section,
+are limited in scope to the section they are defined in;
+i.e., they do not affect any other sections.
+
+
+<br>
+<br>
+<b><a name="Definition.Name" id="Definition.Name">Name</a></b>
+<br>
+The sequence of upper or lower case letters
+
+<code><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i></code>
+ specifies the name of the macro.
+
+<br>
+<br>
+<b><a name="Definition.Text" id="Definition.Text">Text</a></b>
+<br>
+For 
+<code><i><font color="black"><span style='white-space: nowrap'>K&nbsp;=&nbsp;0&nbsp;,&nbsp;...&nbsp;,&nbsp;N</span></font></i></code>
+,
+
+<code><i><font color="black"><span style='white-space: nowrap'>TextK</span></font></i></code>
+ is a sequence of characters.
+The character <code><font color="blue">#</font></code> does not appear in 
+<code><i><font color="black"><span style='white-space: nowrap'>TextK</span></font></i></code>
+
+except if directly preceded by a back slash; i.e., <code><font color="blue">\#</font></code>.
+In addition, 
+<code><i><font color="black"><span style='white-space: nowrap'>TextK</span></font></i></code>
+ does not contain
+any <code><font color="blue">}</font></code> characters unless preceded by a matching <code><font color="blue">{</font></code> character.
+
+<br>
+<br>
+<b><a name="Definition.M" id="Definition.M">M</a></b>
+<br>
+The decimal digit 
+<code><i><font color="black"><span style='white-space: nowrap'>M</span></font></i></code>
+ is between one and nine inclusive.
+It specifies the number of arguments connected to the corresponding
+
+<code><font color="blue"><span style='white-space: nowrap'>\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i></code>
+ macro.
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>M</span></font></i></code>
+ is not present in the macro definition,
+it is implicitly zero in the discussion below.
+
+<br>
+<br>
+<b><a name="Definition.N" id="Definition.N">N</a></b>
+<br>
+The number of replacements made with each use of the macro
+is denoted by 
+<code><i><font color="black"><span style='white-space: nowrap'>N</span></font></i></code>
+.
+
+<br>
+<br>
+<b><a name="Definition.JK" id="Definition.JK">JK</a></b>
+<br>
+For 
+<code><i><font color="black"><span style='white-space: nowrap'>K&nbsp;=&nbsp;1&nbsp;,&nbsp;...&nbsp;,&nbsp;N</span></font></i></code>
+, the decimal digit 
+<code><i><font color="black"><span style='white-space: nowrap'>JK</span></font></i></code>
+
+is between one and 
+<code><i><font color="black"><span style='white-space: nowrap'>M</span></font></i></code>
+.
+It specifies which argument is placed directly before 
+<code><i><font color="black"><span style='white-space: nowrap'>TextK</span></font></i></code>
+
+in the macro expansion.
+
+<br>
+<br>
+<b><big><a name="Usage" id="Usage">Usage</a></big></b>
+<br>
+If the macro 
+<code><font color="blue"><span style='white-space: nowrap'>\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i></code>
+ is defined with no arguments,
+the macro usage
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+has the replacement value
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>Text0<br>
+</span></font></i></code>
+corresponding to the definition of 
+<code><font color="blue"><span style='white-space: nowrap'>\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i></code>
+.
+If the macro 
+<code><font color="blue"><span style='white-space: nowrap'>\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i></code>
+ is defined with 
+<code><i><font color="black"><span style='white-space: nowrap'>M</span></font></i></code>
+ arguments,
+the macro usage
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i><font color="blue"><span style='white-space: nowrap'>{</span></font><i><font color="black"><span style='white-space: nowrap'>A1</span></font></i><font color="blue"><span style='white-space: nowrap'>}</span></font><i><font color="black"><span style='white-space: nowrap'>&nbsp;...&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>{</span></font><i><font color="black"><span style='white-space: nowrap'>AM</span></font></i><font color="blue"><span style='white-space: nowrap'>}<br>
+</span></font></code>
+has the replacement value
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>Text0&nbsp;A1&nbsp;Text_1&nbsp;...&nbsp;TextN-1&nbsp;AN&nbsp;TextN<br>
+</span></font></i></code>
+where 
+<code><i><font color="black"><span style='white-space: nowrap'>N</span></font></i></code>
+, and
+
+<code><i><font color="black"><span style='white-space: nowrap'>TextK</span></font></i></code>
+ for 
+<code><i><font color="black"><span style='white-space: nowrap'>K&nbsp;=&nbsp;1&nbsp;,&nbsp;..&nbsp;,&nbsp;N</span></font></i></code>
+,
+corresponds to the definition of 
+<code><font color="blue"><span style='white-space: nowrap'>\</span></font><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i></code>
+.
+
+<br>
+<br>
+<b><big><a name="Examples" id="Examples">Examples</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Examples.No Arguments" id="Examples.No Arguments">No Arguments</a></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+$latex \[
+     \newcommand{\Dx}{ \frac{d \hspace{1ex} }{d x} }
+     \Dx
+\] $$
+</pre></font></code>
+results in the output:
+<small>@[@
+
+	\newcommand{\Dx}{ \frac{d \hspace{1ex} }{d x} }
+	\Dx
+
+@]@</small>
+
+<br>
+<br>
+<b><a name="Examples.Two Arguments" id="Examples.Two Arguments">Two Arguments</a></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+$latex \[
+     \newcommand{\D}[2]{ \frac{d #1}{d #2} }
+     \D{y}{x}
+\] $$
+</pre></font></code>
+results in the output:
+<small>@[@
+
+	\newcommand{\D}[2]{ \frac{d #1}{d #2} }
+	\D{y}{x}
+
+@]@</small>
+
+<br>
+<br>
+<b><a name="Examples.Using Pound Sign in a Macro" id="Examples.Using Pound Sign in a Macro">Using Pound Sign in a Macro</a></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+$latex \[
+     \newcommand{\Pound}{The \; pound \; sign \; \# \; must \; be \; escaped}
+     \Pound
+\] $$
+</pre></font></code>
+results in the output:
+<small>@[@
+
+	\newcommand{\Pound}{The \; pound \; sign \; \# \; must \; be \; escaped}
+	\Pound
+
+@]@</small>
+
+<br>
+<br>
+<b><a name="Examples.Recursion" id="Examples.Recursion">Recursion</a></b>
+<br>
+You can use macros inside of macros.
+In addition, you can defined macros inside of inline latex commands.
+For example, the input
+<code><font color='blue'><pre style='display:inline'> 
+$latex
+     \newcommand{\one}[1]{#1}
+     \newcommand{\two}[1]{\one{#1} \; #1}
+     \newcommand{\three}[1]{\two{#1} \; #1}
+     \newcommand{\four}[1]{\three{#1} \; #1}
+$$
+$latex \four{4}$$.
+</pre></font></code>
+results in the output:
+<small>@(@
+\newcommand{\one}[1]{#1}
+	\newcommand{\two}[1]{\one{#1} \; #1}
+	\newcommand{\three}[1]{\two{#1} \; #1}
+	\newcommand{\four}[1]{\three{#1} \; #1}
+@)@</small>
+<small>@(@
+\four{4}
+@)@</small>.
+
+<br>
+<br>
+<b><a name="Examples.Mathml" id="Examples.Mathml">Mathml</a></b>
+<br>
+Macros combined with
+the <a href="mathml.htm" target="_top"><span style='white-space: nowrap'>mathml</span></a>
+ command can be used to define symbols
+not available in
+<a href="latex.htm#Reference" target="_top"><span style='white-space: nowrap'>Standard&nbsp;Latex's</span></a>
+
+math mode.
+For example, the
+<a href="http://www.w3.org/TR/MathML2/byalpha.html" target="_top"><span style='white-space: nowrap'>MathML&nbsp;symbol</span></a>
+ Ropf
+is used in the input
+<code><font color='blue'><pre style='display:inline'> 
+$latex \[
+     \newcommand{\Ropf}{
+          \mathml{ &lt;mi mathvariant='normal'&gt; &amp;\#x0211D; &lt;/mi&gt; }
+     }
+     x \in \Ropf^n
+\] $$
+</pre></font></code>
+which results in the output
+<small>@[@
+
+	\newcommand{\Ropf}{
+		\mathml{ <mi mathvariant='normal'> &\#x0211D; </mi> }
+	}
+	x \in \Ropf^n
+
+@]@</small>
+
+<br>
+<br>
+<b><big><a name="Restrictions" id="Restrictions">Restrictions</a></big></b>
+<br>
+If two macros are defined with the same value of 
+<code><i><font color="black"><span style='white-space: nowrap'>Name</span></font></i></code>
+,
+an error message is printed and OMhelp stops.
+
+<br>
+<br>
+<b><big><a name="Nonstandard" id="Nonstandard">Nonstandard</a></big></b>
+<br>
+Latex macros in OMhelp are different from those in standard
+Section 3.4.1 of
+<a href="latex.htm#Reference" target="_top"><span style='white-space: nowrap'>Lamport's&nbsp;book</span></a>
+.
+The following is a list of these differences:
+
+<ol type="1"><li>
+
+It is ok (not an error) to redefine any of the standard Latex
+commands.
+
+</li><li>
+
+Macro replacement values cannot use other macros; i.e.,
+the values 
+<code><i><font color="black"><span style='white-space: nowrap'>A1</span></font></i></code>
+, ..., 
+<code><i><font color="black"><span style='white-space: nowrap'>AM</span></font></i></code>
+ in a macro
+<a href="latexmacro.htm#Syntax.Usage" target="_top"><span style='white-space: nowrap'>usage</span></a>
+ cannot use other macros.
+
+</li><li>
+
+Macros defined in sections, other than the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+,
+have local scope; i.e., do not affect any other sections.
+
+
+</li></ol>
+
+
+
+
+
+<hr>Input File: latex/LatexMacro.omh
+
+</body>
+</html>

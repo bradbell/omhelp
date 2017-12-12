@@ -1,0 +1,201 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Contents of the File near_equal_c.c</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Contents of the File near_equal_c.c">
+<meta name="keywords" id="keywords" content=" contents the file near_equal_c.c ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_view_near_equal_c_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="start_embed.htm" target="_top">Prev</a>
+</td><td><a href="near_equal_c.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>get_started</option>
+<option>start_embed</option>
+<option>view_near_equal_c</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down3(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>get_started-&gt;</option>
+<option>start_simple</option>
+<option>start_head</option>
+<option>start_image</option>
+<option>start_pre</option>
+<option>start_font</option>
+<option>start_spell</option>
+<option>start_latex</option>
+<option>start_verbatim</option>
+<option>start_src</option>
+<option>start_embed</option>
+<option>start_multiple</option>
+<option>start_cref</option>
+<option>start_index</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>start_embed-&gt;</option>
+<option>view_near_equal_c</option>
+<option>near_equal_c</option>
+<option>view_near_equal_f</option>
+<option>near_equal_f</option>
+</select>
+</td>
+<td>view_near_equal_c</td>
+<td>Headings</td>
+</tr></table><br>
+
+
+<center><b><big><big>Contents of the File near_equal_c.c</big></big></b></center>
+<code><font color="blue"><pre style='display:inline'> 
+/*
+$begin near_equal_c$$
+$spell
+	OMhelp
+	ifdef
+	stdio
+	printf
+	endif
+$$
+
+$section Determine if Two Values Are Nearly Equal$$
+
+$head Syntax$$
+$icode%e% = near_equal_c(%x%, %y%, %r%, %a%)%$$
+
+$head Purpose$$
+Returns true,
+if $icode x$$ is nearly equal to $icode y$$ and false otherwise.
+
+$head x$$
+The argument $icode x$$ has prototype
+$codei%
+	double %x%
+%$$
+
+$head y$$
+The argument $icode y$$ has prototype
+$codei%
+	double %y%
+%$$
+
+$head r$$
+The relative error criteria $icode r$$ has prototype
+$codei%
+	double %r%
+%$$
+It must be greater than or equal zero.
+The relative error condition is satisfied if
+$latex \[
+	| x - y | \leq r ( |x| + |y| )
+\] $$
+where $latex \leq$$ denotes less than or equal.
+
+$head a$$
+The absolute error criteria $icode a$$ has prototype
+$codei%
+	double %a%
+%$$
+It must be greater than or equal zero.
+The absolute error condition is satisfied if
+$latex \[
+	| x - y | \leq a
+\] $$
+
+$head e$$
+The return value $icode e$$ has prototype
+$codei%
+	int %e%
+%$$
+If either the relative or absolute error condition is satisfied,
+it is one.
+Otherwise, it is zero.
+
+
+$head Example$$
+The following is an example and test of $code near_equal_c$$,
+it returns true if the test succeeds and false if it fails:
+
+$comment no indent, start output at text following END COPYRIGHT$$
+$code
+$verbatim%ok_near_equal_c.c%0%END COPYRIGHT%$$
+$$
+
+
+$end
+---------------------------------------------------------------------------
+*/
+# include &lt;math.h&gt;
+
+int near_equal_c(double x, double y, double r, double a)
+{	double ax = fabs(x);
+	double ay = fabs(y);
+	double ad = fabs(x - y);
+	int e = (ad &lt;= a) | (ad &lt;= r * (ax + ay));
+	return e;
+}
+</pre>
+
+</font></code>
+
+
+<hr>Input File: getstarted/view_near_equal_c.omh
+
+</body>
+</html>

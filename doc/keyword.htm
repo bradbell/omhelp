@@ -1,0 +1,505 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Keyword Index and Searching</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Keyword Index and Searching">
+<meta name="keywords" id="keywords" content=" Keyword index cross reference mindex cindex aindex syntax see also description the keyword list escape character headings command major key minor example for f(x , y) multiple word ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_keyword_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="cross.htm" target="_top">Prev</a>
+</td><td><a href="cref.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>cross</option>
+<option>Keyword</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>cross-&gt;</option>
+<option>Keyword</option>
+<option>cref</option>
+<option>href</option>
+<option>rref</option>
+<option>tref</option>
+<option>mref</option>
+<option>navigate</option>
+</select>
+</td>
+<td>Keyword</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>The Keyword Index</option>
+<option>Keyword List</option>
+<option>Escape Character</option>
+<option>Headings</option>
+<option>---..Example</option>
+<option>Index</option>
+<option>---..Example</option>
+<option>Mindex</option>
+<option>---..Example</option>
+<option>Aindex</option>
+<option>---..Excluded Words</option>
+<option>---..Root Section</option>
+<option>---..Example</option>
+<option>Cindex</option>
+<option>---..Example</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Keyword Index and Searching</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$index&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>one_entry</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$mindex&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>multiple_entries</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$cindex&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>multiple_entries</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$aindex&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>automatic_mindex</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+<a href="start_index.htm" target="_top"><span style='white-space: nowrap'>getting&nbsp;started</span></a>
+,
+<a href="_index.htm" target="_top"><span style='white-space: nowrap'>index</span></a>
+,
+<a href="_contents.htm" target="_top"><span style='white-space: nowrap'>contents</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+These commands add entries to the
+<a href="_index.htm" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index</span></a>
+ and
+<a href="_search.htm" target="_top"><span style='white-space: nowrap'>Search&nbsp;Index</span></a>
+
+for the current section.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>There can be no <code><font color="blue">$</font></code> characters in
+
+<code><i><font color="black"><span style='white-space: nowrap'>one_entry</span></font></i></code>
+,
+
+<code><i><font color="black"><span style='white-space: nowrap'>multiple_entries</span></font></i></code>
+, or 
+<code><i><font color="black"><span style='white-space: nowrap'>automatic_mindex</span></font></i></code>
+.
+In addition, leading and trailing
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+
+in these arguments are ignored.
+
+<br>
+<br>
+<b><big><a name="The Keyword Index" id="The Keyword Index">The Keyword Index</a></big></b>
+<br>
+The entries in the Keyword index are alphabetically ordered.
+There are two levels to this ordering and each
+index entry has a major and minor key.
+The major key corresponds to the overall ordering.
+The minor key corresponds to the ordering with in each
+value for the major key.
+You can link to the
+<a href="_index.htm" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;index</span></a>
+ using the
+<code><font color="blue">_index</font></code> cross reference
+<a href="glossary.htm#Cross Reference Tag" target="_top"><span style='white-space: nowrap'>tag</span></a>
+.
+
+
+<br>
+<br>
+<b><big><a name="Keyword List" id="Keyword List">Keyword List</a></big></b>
+
+<br>
+Each section has an associated Keyword list.
+This consists of all the words
+that appear in <code><font color="blue">index</font></code>, <code><font color="blue">cindex</font></code> or <code><font color="blue">mindex</font></code>
+commands for that section.
+Words that begin with an escape character
+will not appear in this Keyword list.
+This list of Keywords is connected to the corresponding section
+by the OMhelp search utility
+and by search engines on the internet
+(if your web site is on the internet).
+
+<br>
+<br>
+<b><big><a name="Escape Character" id="Escape Character">Escape Character</a></big></b>
+
+<br>
+The current
+<a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character is used to convey
+special meaning to the <code><font color="blue">index</font></code>, <code><font color="blue">cindex</font></code>, and <code><font color="blue">mindex</font></code>
+commands.
+These
+characters do not actually appear in the Keyword index or the Keyword list.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>When using the <code><font color="blue">cindex</font></code> and <code><font color="blue">mindex</font></code> commands,
+any commas in 
+<code><i><font color="black"><span style='white-space: nowrap'>multiple_entries</span></font></i></code>
+
+must be directly preceded by an escape character.
+
+
+<br>
+<br>
+<b><big><a name="Headings" id="Headings">Headings</a></big></b>
+<br>
+If the <code><font color="blue">index</font></code>, <code><font color="blue">cindex</font></code> or <code><font color="blue">mindex</font></code>
+command occurs before any  <a href="head.htm" target="_top"><span style='white-space: nowrap'>head</span></a>
+ commands
+in the a section,
+the corresponding links are to the entire section.
+If they occur after a <code><font color="blue">head</font></code> command
+and before any <code><font color="blue">subhead</font></code> commands,
+the corresponding link to the previous heading.
+If they occur after a <code><font color="blue">subhead</font></code> command
+the corresponding link to the previous subheading.
+
+<br>
+<br>
+<b><a name="Headings.Example" id="Headings.Example">Example</a></b>
+<br>
+The following command appears before any of the headings in this section:
+<code><font color='blue'><pre style='display:inline'> 
+     $cindex Keyword index$$
+</pre></font></code>
+The corresponding entries in the
+Keyword index are:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>Keyword <code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>Keyword index
+<a href="keyword.htm" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching</span></a>
+
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>index <code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>Keyword index
+<a href="keyword.htm" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching</span></a>
+
+<code><span style='white-space: nowrap'><br>
+</span></code>Note that the entries above link to the entire Keyword section.
+Most of the examples below
+link to the specific subheadings with in this section.
+
+
+<br>
+<br>
+<b><big><a name="Index" id="Index">Index</a></big></b>
+
+<br>
+The <code><font color="blue">index</font></code> command specifies a single
+<a href="_index.htm" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;index</span></a>
+
+entry that points to the current section.
+If there is a comma in 
+<code><i><font color="black"><span style='white-space: nowrap'>one_entry</span></font></i></code>
+
+the portion of 
+<code><i><font color="black"><span style='white-space: nowrap'>one_entry</span></font></i></code>
+ to the left of the
+comma specifies the major key and the part to the right
+specifies the minor key.
+If a comma is directly preceded by the  <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character,
+it is normal text and
+does not split the key into its major and minor parts.
+
+<br>
+<br>
+<b><a name="Index.Example" id="Index.Example">Example</a></b>
+
+
+
+<br>
+The following command appears directly after the subheading above:
+<code><font color='blue'><pre style='display:inline'> 
+     $index major key$$
+</pre></font></code>
+The corresponding entry in the
+<a href="_index.htm" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;index</span></a>
+ is:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>major key
+<a href="keyword.htm#Index.Example" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching:&nbsp;Index.Example</span></a>
+
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The comma can be used to separate the major and minor keys.
+The following command appears directly after the subheading above:
+<code><font color='blue'><pre style='display:inline'> 
+     $index major key, minor key$$
+</pre></font></code>
+The corresponding entry in the
+Keyword index is:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>major key <code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>minor key
+<a href="keyword.htm#Index.Example" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching:&nbsp;Index.Example</span></a>
+
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>If you want the comma character to appear in an index entry,
+you must escape it.
+The <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character for this section is <code><font color="blue">#</font></code>.
+The following command appears directly after the subheading above:
+<code><font color='blue'><pre style='display:inline'> 
+     $index index example for f(x#, y)$$
+</pre></font></code>
+The corresponding entry in the Keyword index is:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>index example for f(x, y)
+<a href="keyword.htm#Index.Example" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching:&nbsp;Index.Example</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Mindex" id="Mindex">Mindex</a></big></b>
+
+<br>
+This command adds an index entry for each key word in
+
+<code><i><font color="black"><span style='white-space: nowrap'>multiple_entries</span></font></i></code>
+.
+The index entry has the key word as its
+major key and its minor key is empty.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>A key word is terminated by a
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+
+character that is not directly preceded by an
+<a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character.
+If a key word  begins with an
+escape character, it is not included in the index entries.
+
+<br>
+<br>
+<b><a name="Mindex.Example" id="Mindex.Example">Example</a></b>
+
+<br>
+The following command appears directly after the subheading above:
+<code><font color='blue'><pre style='display:inline'> 
+     $mindex
+          multiple
+          major
+          key# word
+     $$
+</pre></font></code>
+The corresponding entries in the
+<a href="_index.htm" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;index</span></a>
+ are:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>multiple
+<a href="keyword.htm#Mindex.Example" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching:&nbsp;Mindex.Example</span></a>
+
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>major
+<a href="keyword.htm#Mindex.Example" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching:&nbsp;Mindex.Example</span></a>
+
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>key word
+<a href="keyword.htm#Mindex.Example" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching:&nbsp;Mindex.Example</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Aindex" id="Aindex">Aindex</a></big></b>
+<br>
+There are three commands that can be automatically connected
+to the <a href="keyword.htm#Mindex" target="_top"><span style='white-space: nowrap'>mindex</span></a>
+ command; namely the
+<a href="section.htm#Aindex" target="_top"><span style='white-space: nowrap'>section</span></a>
+,
+<a href="head.htm#Aindex" target="_top"><span style='white-space: nowrap'>head&nbsp;and&nbsp;subhead</span></a>
+ commands.
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>automatic_mindex</span></font></i></code>
+ contains the word
+&quot;section&quot;, &quot;head&quot;, or &quot;subhead&quot;,
+the corresponding commands are connected until
+the next <code><font color="blue">aindex</font></code> command or the end of the current section.
+If a command is connected to the <code><font color="blue">mindex</font></code> command,
+the command argument is automatically used as the 
+<code><i><font color="black"><span style='white-space: nowrap'>multiple_entries</span></font></i></code>
+
+argument to the <code><font color="blue">mindex</font></code> command.
+
+<br>
+<br>
+<b><a name="Aindex.Excluded Words" id="Aindex.Excluded Words">Excluded Words</a></b>
+<br>
+The <code><font color="blue">aindex</font></code> command does not automatically include the following words:
+
+<code><font color="blue"><span style='white-space: nowrap'>a</span></font><i><font color="black"><span style='white-space: nowrap'>,&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>an</span></font><i><font color="black"><span style='white-space: nowrap'>,&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>and</span></font><i><font color="black"><span style='white-space: nowrap'>,&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>as</span></font><i><font color="black"><span style='white-space: nowrap'>,&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>at</span></font><i><font color="black"><span style='white-space: nowrap'>,&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>by</span></font><i><font color="black"><span style='white-space: nowrap'>,&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>for</span></font><i><font color="black"><span style='white-space: nowrap'>,&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>in</span></font><i><font color="black"><span style='white-space: nowrap'>,&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>of</span></font><i><font color="black"><span style='white-space: nowrap'>,&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>or</span></font><i><font color="black"><span style='white-space: nowrap'>,&nbsp;</span></font></i><font color="blue"><span style='white-space: nowrap'>to</span></font></code>
+.
+
+<br>
+<br>
+<b><a name="Aindex.Root Section" id="Aindex.Root Section">Root Section</a></b>
+<br>
+In the special case where an <code><font color="blue">$aindex</font></code> command appears in the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+ section,
+and does not appear in the current section,
+the value specified in the root section is used for the current section; i.e.,
+it replaces the default which is to not do automatic indexing
+for section titles, headings, or subheadings.
+
+<br>
+<br>
+<b><a name="Aindex.Example" id="Aindex.Example">Example</a></b>
+<br>
+The following command appears before any of the heading commands
+in this section:
+<code><font color='blue'><pre style='display:inline'> 
+     $aindex head$$
+</pre></font></code>
+The
+<a href="_index.htm" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;index</span></a>
+ entry corresponding the heading
+<b>Aindex</b> is:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>aindex
+<i>
+<a href="keyword.htm#Aindex" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching:&nbsp;Aindex</span></a>
+
+</i>
+<code><span style='white-space: nowrap'><br>
+</span></code>Note that the word Aindex has been converted to lower case.
+In general all Keyword entries created using the <code><font color="blue">$aindex</font></code> command
+are converted to lower case.
+Also note that the links generated by
+<code><font color="blue">$aindex section</font></code> are to the entire section,
+<code><font color="blue">$aindex head</font></code> links to the corresponding headings, and
+<code><font color="blue">$aindex subhead</font></code> links to the corresponding subheading.
+
+<br>
+<br>
+<b><big><a name="Cindex" id="Cindex">Cindex</a></big></b>
+
+<br>
+This command adds an index entry for each key word in
+
+<code><i><font color="black"><span style='white-space: nowrap'>multiple_entries</span></font></i></code>
+.
+The major key for the index entry is the Keyword.
+Its minor key is the entire string 
+<code><i><font color="black"><span style='white-space: nowrap'>multiple_entries</span></font></i></code>
+.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>A key word is terminated by a
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+
+character that is not directly preceded by an escape character.
+Any key word may begin with an  <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character
+in which case the index entry with it in front is not included.
+
+
+<br>
+<br>
+<b><a name="Cindex.Example" id="Cindex.Example">Example</a></b>
+
+
+<br>
+The following command appears directly after the subheading above:
+<code><font color='blue'><pre style='display:inline'> 
+     $cindex cindex example$$
+</pre></font></code>
+The corresponding entries in the
+Keyword index are:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>cindex <code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>cindex example
+<a href="keyword.htm#Cindex.Example" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching:&nbsp;Cindex.Example</span></a>
+
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>example <code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>cindex example
+<a href="keyword.htm#Cindex.Example" target="_top"><span style='white-space: nowrap'>Keyword&nbsp;Index&nbsp;and&nbsp;Searching:&nbsp;Cindex.Example</span></a>
+
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>
+<hr>Input File: keyword.omh
+
+</body>
+</html>

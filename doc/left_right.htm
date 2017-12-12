@@ -1,0 +1,363 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Latex Enclose With Left and Right Commands</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Latex Enclose With Left and Right Commands">
+<meta name="keywords" id="keywords" content=" latex enclose with left right commands syntax description example using out the period symbol enclosing symbols ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_left_right_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="array.htm" target="_top">Prev</a>
+</td><td><a href="under_over.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>latex</option>
+<option>left_right</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>latex-&gt;</option>
+<option>symbol</option>
+<option>diacritical</option>
+<option>stdfun</option>
+<option>subsup</option>
+<option>frac</option>
+<option>sqrt</option>
+<option>array</option>
+<option>left_right</option>
+<option>under_over</option>
+<option>stackrel</option>
+<option>latexfont</option>
+<option>latexcomment</option>
+<option>LatexMacro</option>
+<option>mathml</option>
+<option>diff_xml_htm</option>
+</select>
+</td>
+<td>left_right</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Description</option>
+<option>Example</option>
+<option>---..Using Left and Right</option>
+<option>---..With Out Left and Right</option>
+<option>---..Using the Period Symbol</option>
+<option>Enclosing Symbols</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Latex Enclose With Left and Right Commands</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$latex&nbsp;\left&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>s1&nbsp;command_list</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;\right&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>s2</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;$$</span></font></code>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+Display in Latex mode
+the specified command list enclosed by the
+specified symbols.
+The enclosing symbols are stretched to be
+as large as the output corresponding to the command list.
+The values 
+<code><i><font color="black"><span style='white-space: nowrap'>s1</span></font></i></code>
+ and 
+<code><i><font color="black"><span style='white-space: nowrap'>s2</span></font></i></code>
+ must be one of the
+<a href="left_right.htm#Enclosing Symbols" target="_top"><span style='white-space: nowrap'>enclosing&nbsp;symbols</span></a>
+.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The enclosing symbols are called delimiters in LaTex
+but we avoid that reference because of the special meaning
+of a
+<a href="glossary.htm#Delimiter Sequence" target="_top"><span style='white-space: nowrap'>delimiter&nbsp;sequence</span></a>
+
+in OMhelp.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Example.Using Left and Right" id="Example.Using Left and Right">Using Left and Right</a></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     $latex
+     \left ( \frac{ x^1 }{ y_2 } \right )
+     $$
+</pre></font></code>
+results in the following output:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>
+<small>@(@
+\left ( \frac{ x^1 }{ y_2 } \right )
+@)@</small>
+
+<br>
+<b><a name="Example.With Out Left and Right" id="Example.With Out Left and Right">With Out Left and Right</a></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     $latex
+     ( \frac{ x^1 }{ y_2 } )
+     $$
+</pre></font></code>
+results in the following output:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>
+<small>@(@
+( \frac{ x^1 }{ y_2 } )
+@)@</small>
+
+<br>
+<b><a name="Example.Using the Period Symbol" id="Example.Using the Period Symbol">Using the Period Symbol</a></b>
+<br>
+If the period is used for an enclosing symbol,
+nothing is output in its place.
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     $latex
+     \left \{ \frac{ x^1 }{ y_2 } \right .
+     $$
+</pre></font></code>
+results in the following output:
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>
+<small>@(@
+\left \{ \frac{ x^1 }{ y_2 } \right .
+@)@</small>
+
+
+
+
+<br>
+<b><big><a name="Enclosing Symbols" id="Enclosing Symbols">Enclosing Symbols</a></big></b>
+
+
+
+<table><tr><td align='left'  valign='top'>
+
+
+<table><tr><td align='left'  valign='top'>
+
+
+<code><i><font color="black"><span style='white-space: nowrap'>s1</span></font></i></code>
+ or 
+<code><i><font color="black"><span style='white-space: nowrap'>s2</span></font></i></code>
+   </td><td align='left'  valign='top'>
+ 
+<code><i><font color="black"><span style='white-space: nowrap'>Output</span></font></i></code>
+ </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue"> (</font></code>                     </td><td align='left'  valign='top'>
+ <small>@(@
+(
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue"> [</font></code>                     </td><td align='left'  valign='top'>
+ <small>@(@
+[
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\{</font></code>                     </td><td align='left'  valign='top'>
+ <small>@(@
+\{
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue"> |</font></code>                     </td><td align='left'  valign='top'>
+ <small>@(@
+|
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue"> /</font></code>                     </td><td align='left'  valign='top'>
+ <small>@(@
+/
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\langle</font></code>                </td><td align='left'  valign='top'>
+ <small>@(@
+\langle
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\lfloor</font></code>                </td><td align='left'  valign='top'>
+ <small>@(@
+\lfloor
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\lceil</font></code>                 </td><td align='left'  valign='top'>
+ <small>@(@
+\lceil
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\uparrow</font></code>               </td><td align='left'  valign='top'>
+ <small>@(@
+\uparrow
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\downarrow</font></code>             </td><td align='left'  valign='top'>
+ <small>@(@
+\downarrow
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\updownarrow</font></code>           </td><td align='left'  valign='top'>
+ <small>@(@
+\updownarrow
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue"> .</font></code> </td><td align='left'  valign='top'>
+
+</td></tr>
+</table>
+
+
+</td><td align='left'  valign='top'>
+
+
+<table><tr><td align='left'  valign='top'>
+
+
+<code><i><font color="black"><span style='white-space: nowrap'>s1</span></font></i></code>
+ or 
+<code><i><font color="black"><span style='white-space: nowrap'>s2</span></font></i></code>
+   </td><td align='left'  valign='top'>
+ 
+<code><i><font color="black"><span style='white-space: nowrap'>Output</span></font></i></code>
+ </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue"> )</font></code>                     </td><td align='left'  valign='top'>
+ <small>@(@
+)
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue"> ]</font></code>                     </td><td align='left'  valign='top'>
+ <small>@(@
+]
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\}</font></code>                     </td><td align='left'  valign='top'>
+ <small>@(@
+\}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\|</font></code>                     </td><td align='left'  valign='top'>
+ <small>@(@
+\|
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\backslash</font></code>             </td><td align='left'  valign='top'>
+ <small>@(@
+\backslash
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\rangle</font></code>                </td><td align='left'  valign='top'>
+ <small>@(@
+\rangle
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\rfloor</font></code>                </td><td align='left'  valign='top'>
+ <small>@(@
+\rfloor
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\rceil</font></code>                 </td><td align='left'  valign='top'>
+ <small>@(@
+\rceil
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\Uparrow</font></code>               </td><td align='left'  valign='top'>
+ <small>@(@
+\Uparrow
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\Downarrow</font></code>             </td><td align='left'  valign='top'>
+ <small>@(@
+\Downarrow
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">\Updownarrow</font></code>           </td><td align='left'  valign='top'>
+ <small>@(@
+\Updownarrow
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+</td></tr>
+</table>
+
+
+</td></tr>
+</table>
+
+<hr>Input File: latex/left_right.omh
+
+</body>
+</html>

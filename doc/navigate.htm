@@ -1,0 +1,384 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Setting Relative Navigation Links For A Section</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Setting Relative Navigation Links For A Section">
+<meta name="keywords" id="keywords" content=" setting relative navigation links section link syntax purpose type example label prev next no such default root ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_navigate_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="_contents.htm" target="_top">Contents</a>
+</td>
+<td><a href="mref.htm" target="_top">Previous</a>
+</td><td><a href="format.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>cross</option>
+<option>navigate</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>Down_up_1-&gt;</option>
+<option>Keyword</option>
+<option>cref</option>
+<option>href</option>
+<option>rref</option>
+<option>tref</option>
+<option>mref</option>
+<option>navigate</option>
+</select>
+</td>
+<td>Down_up_0</td>
+<td>
+<select onchange='choose_sibling0(this)'>
+<option>Sibling-&gt;</option>
+<option>Keyword</option>
+<option>cref</option>
+<option>href</option>
+<option>rref</option>
+<option>tref</option>
+<option>mref</option>
+<option>navigate</option>
+</select>
+</td>
+<td>Down</td>
+<td>
+<select onchange='choose_across0(this)'>
+<option>Across-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Current-&gt;</option>
+<option>Syntax</option>
+<option>Purpose</option>
+<option>Type</option>
+<option>---..Example</option>
+<option>label</option>
+<option>Prev and Next</option>
+<option>No Such Section</option>
+<option>Default</option>
+<option>Example</option>
+<option>Root Section</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+<center><b><big><big>Setting Relative Navigation Links For A Section</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$navigate%</span></font><i><font color="black"><span style='white-space: nowrap'>type&nbsp;1</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>label&nbsp;1</span></font></i><font color="blue"><span style='white-space: nowrap'>%&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>...</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;%</span></font><i><font color="black"><span style='white-space: nowrap'>type&nbsp;n</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>label&nbsp;n</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+OMhelp automatically creates navigation links,
+relative to each section (at the top of each section).
+The <code><font color="blue">$navigate</font></code> command
+determines which navigation links are included,
+the order of the links,
+and label for each of the links.
+
+<br>
+<br>
+<b><big><a name="Type" id="Type">Type</a></big></b>
+<br>
+The navigation links have the types listed in the table below.
+<center>
+<table><tr><td align='left'  valign='top'>
+
+<b>Type</b>
+	</td><td align='left'  valign='top'>
+ <b>Link to</b>
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">Content</font></code>
+	</td><td align='left'  valign='top'>
+ The table of contents section for entire document
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">Prev</font></code>
+	</td><td align='left'  valign='top'>
+ The previous section in read order
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">Next</font></code>
+	</td><td align='left'  valign='top'>
+ The next section in read order
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">Top</font></code>
+	</td><td align='left'  valign='top'>
+ The section at the top of tree
+	(corresponds to <a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root_file</span></a>
+)
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">Up</font></code>
+	</td><td align='left'  valign='top'>
+ The group of section above this one in tree
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">Sibling</font></code>
+	</td><td align='left'  valign='top'>
+ The group of sections with same parent as this one in tree
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">Down</font></code>
+	</td><td align='left'  valign='top'>
+ The group of sections directly below this one in tree
+</td></tr><tr><td align='left'  valign='top'>
+
+
+<code><font color="blue"><span style='white-space: nowrap'>Down_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+
+	</td><td align='left'  valign='top'>
+ The sections directly below the section 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ levels
+	up in the documentation tree.
+</td></tr><tr><td align='left'  valign='top'>
+
+	</td><td align='left'  valign='top'>
+ where 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ is a number between <code><font color="blue">0</font></code> and <code><font color="blue">9</font></code>.
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">Across</font></code>
+	</td><td align='left'  valign='top'>
+ The group of sections that cross reference entire document
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">Current</font></code>
+	</td><td align='left'  valign='top'>
+ The group of headings and subheadings for this section
+</td></tr>
+</table>
+</center>Note that the type <code><font color="blue">Down_up_1</font></code> is the same as <code><font color="blue">Sibling</font></code>
+and <code><font color="blue">Down_up_0</font></code> is the same as <code><font color="blue">Down</font></code>
+(but <code><font color="blue">Down_up_2</font></code> is not the same as <code><font color="blue">Up</font></code>).
+
+<br>
+<br>
+<b><a name="Type.Example" id="Type.Example">Example</a></b>
+<br>
+Suppose that the tree corresponding to a document is
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;W<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPQ&nbsp;&nbsp;STUV&nbsp;&nbsp;XYZ<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;J<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HI&nbsp;&nbsp;KLM<br>
+</span></code>The corresponding read order is <code><span style='white-space: nowrap'>&nbsp;A</span></code>, <code><span style='white-space: nowrap'>&nbsp;B</span></code>, ..., <code><span style='white-space: nowrap'>&nbsp;Z</span></code>.
+For this example, if the current section is <code><span style='white-space: nowrap'>&nbsp;F</span></code>
+<table><tr><td align='left'  valign='top'>
+
+current section                 </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;F</span></code>  </td></tr><tr><td align='left'  valign='top'>
+
+The previous section            </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;E</span></code>  </td></tr><tr><td align='left'  valign='top'>
+
+The next section                </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;G</span></code>  </td></tr><tr><td align='left'  valign='top'>
+
+The section above               </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;B</span></code>  </td></tr><tr><td align='left'  valign='top'>
+
+The section two levels up       </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;A</span></code>  </td></tr><tr><td align='left'  valign='top'>
+
+The group above this one        </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;B</span></code>, <code><span style='white-space: nowrap'>&nbsp;A</span></code> </td></tr><tr><td align='left'  valign='top'>
+
+The group of siblings           </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;C</span></code>, <code><span style='white-space: nowrap'>&nbsp;F</span></code> </td></tr><tr><td align='left'  valign='top'>
+
+The group directly below        </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;G</span></code>, <code><span style='white-space: nowrap'>&nbsp;J</span></code>
+</td></tr>
+</table>
+<br>
+<b><big><a name="label" id="label">label</a></big></b>
+<br>
+The value 
+<code><i><font color="black"><span style='white-space: nowrap'>label&nbsp;1</span></font></i></code>
+ is the label that the user will see
+for the navigation links corresponding to 
+<code><i><font color="black"><span style='white-space: nowrap'>type&nbsp;1</span></font></i></code>
+.
+The value 
+<code><i><font color="black"><span style='white-space: nowrap'>label&nbsp;2</span></font></i></code>
+ is the label that the user will see
+for the navigation links corresponding to 
+<code><i><font color="black"><span style='white-space: nowrap'>type&nbsp;2</span></font></i></code>
+ and so on.
+The labels cannot begin with the special character <code><font color="blue">_</font></code>
+with the following special exception:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+<br>
+_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+where 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ is a number between <code><font color="blue">0</font></code> and <code><font color="blue">9</font></code>.
+In this special case,
+the <a href="glossary.htm#Cross Reference Tag" target="_top"><span style='white-space: nowrap'>cross&nbsp;reference&nbsp;tag</span></a>
+
+for the section 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ levels up from the current section
+is used for the label.
+
+<br>
+<br>
+<b><big><a name="Prev and Next" id="Prev and Next">Prev and Next</a></big></b>
+<br>
+Note that the size of the label corresponding to 
+<code><font color="blue"><span style='white-space: nowrap'>_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+
+will change from section to section.
+Hence the position of subsequent labels in the navigation command will change.
+Because the user will often repeatedly select <code><font color="blue">Prev</font></code> or <code><font color="blue">Next</font></code>,
+it is desirable to have their positions the same for all sections.
+This requires placing them before any labels that will change
+size between sections.
+
+
+<br>
+<br>
+<b><big><a name="No Such Section" id="No Such Section">No Such Section</a></big></b>
+<br>
+If 
+<code><font color="blue"><span style='white-space: nowrap'>Down_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ is the specified type,
+and there is no section 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ levels up,
+neither the label nor its links will be present on the current section.
+If 
+<code><font color="blue"><span style='white-space: nowrap'>_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ is specified label,
+and there is not section 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ levels up,
+neither the label nor its links will be present on the current section.
+
+<br>
+<br>
+<b><big><a name="Default" id="Default">Default</a></big></b>
+<br>
+The default value for the navigation command is
+<code><font color='blue'><pre style='display:inline'> 
+     $navigate%
+          Prev%Prev%
+          Next%Next%
+          Across%Index%
+          Up%Up%
+          Down_up_4%_up_4%
+          Down_up_3%_up_3%
+          Down_up_2%_up_2%
+          Down_up_1%_up_1%
+          Down_up_0%_up_0%
+          Current%Headings
+     %$$
+</pre></font></code>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The navigation links for this section were specified with
+the following command:
+
+<code><font color='blue'><pre style='display:inline'> 
+     $navigate%
+          Content%Contents%
+          Prev%Previous%
+          Next%Next%
+          Up%Up%
+          Down_up_2%Down_up_2%
+          Down_up_1%Down_up_1%
+          Down_up_0%Down_up_0%
+          Sibling%Sibling%
+          Down%Down%
+          Across%Across%
+          Current%Current
+     %$$
+</pre></font></code>
+<br>
+<b><big><a name="Root Section" id="Root Section">Root Section</a></big></b>
+<br>
+In the special case where a <code><font color="blue">$navigate</font></code> command appears in the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+ section,
+and does not appear in the current section,
+the value specified in the root section is used for the current section; i.e.,
+it replaces the <a href="navigate.htm#Default" target="_top"><span style='white-space: nowrap'>default</span></a>
+ command above.
+
+
+<hr>Input File: navigate.omh
+
+</body>
+</html>

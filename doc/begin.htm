@@ -1,0 +1,186 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Begin and End A Section</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Begin and End A Section">
+<meta name="keywords" id="keywords" content=" begin end specify cross reference tag link section syntax see also purpose example restrictions ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_begin_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="titles+headings.htm" target="_top">Prev</a>
+</td><td><a href="section.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>titles+headings</option>
+<option>begin</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>titles+headings-&gt;</option>
+<option>begin</option>
+<option>section</option>
+<option>title</option>
+<option>head</option>
+</select>
+</td>
+<td>begin</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Purpose</option>
+<option>Example</option>
+<option>Restrictions</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Begin and End A Section</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$begin&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>tag</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font><i><font color="black"><span style='white-space: nowrap'>.&nbsp;.&nbsp;.</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+$end<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+<a href="start_simple.htm" target="_top"><span style='white-space: nowrap'>getting&nbsp;started</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+OMhelp ignores all input in a file except
+between a
+<code><font color="blue">begin</font></code> command and a matching <code><font color="blue">end</font></code> command.
+The cross reference
+<a href="glossary.htm#Cross Reference Tag" target="_top"><span style='white-space: nowrap'>tag</span></a>
+
+for the corresponding section
+is specified by 
+<code><i><font color="black"><span style='white-space: nowrap'>tag</span></font></i></code>
+.
+Leading and trailing
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+
+is ignored and there can be no <code><font color="blue">$</font></code> characters in 
+<code><i><font color="black"><span style='white-space: nowrap'>tag</span></font></i></code>
+.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The following input file contains two sections.
+The first is named &quot;First Subject&quot; and is
+cross referenced as &quot;one&quot;.
+The second is named &quot;Second Subject&quot; and is
+cross referenced as &quot;two&quot;.
+In addition, each of the sections
+has a cross references to the other.
+
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$begin&nbsp;one$$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$section&nbsp;First&nbsp;Subject$$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;section&nbsp;is&nbsp;similar&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$cref/the&nbsp;second&nbsp;section/two/$$.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>...</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$end<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>Other&nbsp;text</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$begin&nbsp;two$$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$section&nbsp;Second&nbsp;Subject$$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;section&nbsp;is&nbsp;similar&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$cref/the&nbsp;first&nbsp;section/one/$$.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>...</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$end<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>Other&nbsp;text</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><big><a name="Restrictions" id="Restrictions">Restrictions</a></big></b>
+<br>
+No two sections can have the same cross reference
+<a href="glossary.htm#Cross Reference Tag" target="_top"><span style='white-space: nowrap'>tag</span></a>
+.
+(Note that upper and lower case letters are considered equal
+when comparing cross reference tags).
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>Cross reference tags that begin with the
+underbar character <code><font color="blue">_</font></code>, and the dot character <code><font color="blue">.</font></code>,
+are reserved by OMhelp and cannot be used in <code><font color="blue">begin</font></code> commands.
+
+
+<hr>Input File: title.omh
+
+</body>
+</html>

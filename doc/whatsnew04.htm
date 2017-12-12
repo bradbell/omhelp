@@ -1,0 +1,281 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Changes and Additions to OMhelp During 2004</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Changes and Additions to OMhelp During 2004">
+<meta name="keywords" id="keywords" content=" readme whats new change 2004 changes additions to omhelp during description 12-02 11-17 10-08 08-14 06-09 05-10 03-11 02-23 02-22 02-21 ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_whatsnew04_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="whatsnew.htm" target="_top">Prev</a>
+</td><td><a href="whatsnew03.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>whatsNew</option>
+<option>whatsNew04</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>whatsNew-&gt;</option>
+<option>whatsNew04</option>
+<option>whatsNew03</option>
+<option>whatsNew02</option>
+<option>whatsNew01</option>
+</select>
+</td>
+<td>whatsNew04</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Description</option>
+<option>12-02</option>
+<option>11-17</option>
+<option>10-08</option>
+<option>08-14</option>
+<option>06-09</option>
+<option>05-10</option>
+<option>03-11</option>
+<option>02-23</option>
+<option>02-22</option>
+<option>02-21</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+
+<center><b><big><big>Changes and Additions to OMhelp During 2004</big></big></b></center>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This section contains a list of changes to
+OMhelp during 2004 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+<br>
+<br>
+<b><big><a name="12-02" id="12-02">12-02</a></big></b>
+<br>
+Suppose that sections <i>First, Second, ... , Last</i>
+were multiple sections in one file,
+the <code><font color="blue">previous</font></code> link for a sibling that came after 
+<code><i><font color="black"><span style='white-space: nowrap'>Last</span></font></i></code>
+
+pointed to the Section 
+<code><i><font color="black"><span style='white-space: nowrap'>First</span></font></i></code>
+ instead of the 
+<code><i><font color="black"><span style='white-space: nowrap'>Last</span></font></i></code>
+.
+This also caused duplicate numbering in the
+<a href="running.htm#printable" target="_top"><span style='white-space: nowrap'>printable</span></a>
+ output.
+This problem has been fixed.
+
+
+<br>
+<br>
+<b><big><a name="11-17" id="11-17">11-17</a></big></b>
+<br>
+OMhelp used to put keyword meta commands
+only in the header for the frame that displays an entire section
+and not the other frames within a section.
+This was not optimal with respect to
+internet search engines because they not only look at the
+<a href="keyword.htm#Keyword List" target="_top"><span style='white-space: nowrap'>keyword&nbsp;list</span></a>
+,
+they also look for occurrences of the keywords in the text of the frame.
+OMhelp now puts the keyword list in the header for all the frames
+(except the automatically generated frame containing only links).
+In addition,
+because this will lead to search engines pointing to frames that
+display only part of a sections information,
+the link in the upper right hand corner
+to the corresponding entire section was made more visible
+by changing it from <code><font color="blue">this</font></code> to <code><font color="blue">This Section</font></code>
+(except for the first frame in each section which already
+contains a list of section links including one to <code><font color="blue">this</font></code>).
+
+
+<br>
+<br>
+<b><big><a name="10-08" id="10-08">10-08</a></big></b>
+<br>
+The <a href="th.htm" target="_top"><span style='white-space: nowrap'>th</span></a>
+ command was changed to use
+<a href="font.htm" target="_top"><span style='white-space: nowrap'>italic</span></a>
+ instead of <a href="math.htm" target="_top"><span style='white-space: nowrap'>math</span></a>
+ font
+and to have a dash between
+the index and the <code><font color="blue">th</font></code>.
+
+<br>
+<br>
+<b><big><a name="08-14" id="08-14">08-14</a></big></b>
+<br>
+If linking text is specified in the <a href="href.htm" target="_top"><span style='white-space: nowrap'>href</span></a>
+ command,
+the URL is not included in the visible output.
+This made it difficult to follow such links when reading printed output.
+These URLs are now included in the
+<a href="running.htm#printable" target="_top"><span style='white-space: nowrap'>printable</span></a>
+ case.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>All the letters form A through Z were included as headings in the
+<a href="_index.htm" target="_top"><span style='white-space: nowrap'>keyword&nbsp;index</span></a>
+ and
+<a href="_reference.htm" target="_top"><span style='white-space: nowrap'>function&nbsp;reference</span></a>
+.
+Now only the letters that actually have entries under them are
+included.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>In some cases, there was an XML parsing error in the
+<a href="_reference.htm" target="_top"><span style='white-space: nowrap'>function&nbsp;reference</span></a>
+ section.
+This has been fixed.
+
+<br>
+<br>
+<b><big><a name="06-09" id="06-09">06-09</a></big></b>
+<br>
+The proper 
+<code><i><font color="black"><span style='white-space: nowrap'>marker</span></font></i></code>
+ for a disk
+in the <a href="list.htm" target="_top"><span style='white-space: nowrap'>list</span></a>
+ command is <code><font color="blue">disk</font></code>.
+It was documented as <code><font color="blue">disc</font></code> and this has been fixed.
+
+
+<br>
+<br>
+<b><big><a name="05-10" id="05-10">05-10</a></big></b>
+<br>
+There was a bug in the handling of
+a comment occurred at the last line of a <a href="latex.htm" target="_top"><span style='white-space: nowrap'>latex</span></a>
+ command.
+For example
+<code><font color='blue'><pre style='display:inline'> 
+     $latex x_1 % this is a comment$$
+</pre></font></code>
+<br>
+<b><big><a name="03-11" id="03-11">03-11</a></big></b>
+<br>
+The unix version of files
+<code><font color="blue">omh/build</font></code> and <code><font color="blue">omh/getstarted/RunAll</font></code>
+did not have the executable flag set.
+This has been fixed.
+In addition, the file name
+<code><font color="blue">omh/Browser.omh</font></code>
+caused problems for the <code><font color="blue">omh/build</font></code> command in Unix
+because it should have been
+<code><font color="blue">omh/browser.omh</font></code>
+This has been fixed.
+
+<br>
+<br>
+<b><big><a name="02-23" id="02-23">02-23</a></big></b>
+<br>
+The command
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$OMhelpFileLocalCommandKeyCharacter=<br>
+</span></font></code>
+was changed to
+<a href="keycharacter.htm" target="_top"><span style='white-space: nowrap'>$OMhelpKeyCharacter=</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="02-22" id="02-22">02-22</a></big></b>
+<br>
+Some languages, for example R,
+make special use the <code><font color="blue">$</font></code> character.
+This can make it difficult to have sections of code
+that are also OMhelp documentation when the dollar sign
+is used as the OMhelp Command
+<a href="keycharacter.htm" target="_top"><span style='white-space: nowrap'>Key&nbsp;character</span></a>
+.
+A new command has been added that enables
+one to change this character.
+
+
+<br>
+<br>
+<b><big><a name="02-21" id="02-21">02-21</a></big></b>
+<br>
+There was a bug in the <a href="latexmacro.htm" target="_top"><span style='white-space: nowrap'>Latex&nbsp;macro</span></a>
+ command.
+If a macro definition had a <code><font color="blue">{</font></code> with out a matching <code><font color="blue">}</font></code>,
+the macro scanner would run of the end of the user input with out
+detecting the error.  This has been fixed.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>There was a bug in the macro search that caused to program to crash
+some times when it was checking if a normal command was a macro.
+This has been fixed.
+
+
+<hr>Input File: whatsnew04.omh
+
+</body>
+</html>

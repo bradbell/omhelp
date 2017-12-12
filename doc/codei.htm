@@ -1,0 +1,297 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Switch Between Code and Italic Preformatted Font</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Switch Between Code and Italic Preformatted Font">
+<meta name="keywords" id="keywords" content=" switch between code italic preformatted font icode syntax prototype command display see also purpose escape codei text example remark ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_codei_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="codep.htm" target="_top">Prev</a>
+</td><td><a href="color.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>format</option>
+<option>codei</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>format-&gt;</option>
+<option>nobreak</option>
+<option>pre</option>
+<option>codep</option>
+<option>codei</option>
+<option>color</option>
+<option>hilite</option>
+<option>th</option>
+<option>center</option>
+<option>table</option>
+<option>list</option>
+<option>special</option>
+<option>font</option>
+</select>
+</td>
+<td>codei</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Purpose</option>
+<option>escape</option>
+<option>codei</option>
+<option>icode</option>
+<option>text</option>
+<option>Example</option>
+<option>---..Escape</option>
+<option>Remark</option>
+</select>
+</td>
+</tr></table><br>
+<center><b><big><big>Switch Between Code and Italic Preformatted Font</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$</span></font><i><font color="black"><span style='white-space: nowrap'>codei</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>text1</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>text2</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>...</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>textN</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$</span></font><i><font color="black"><span style='white-space: nowrap'>icode</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>text1</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>text2</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>...</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>textN</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$</span></font></code>
+
+
+
+<br>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+<a href="font.htm" target="_top"><span style='white-space: nowrap'>font</span></a>
+, <a href="color.htm" target="_top"><span style='white-space: nowrap'>color</span></a>
+
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+Display text that alternates between
+a pre-formatted code font and
+a pre-formatted italic font.
+The code font is the same as for the <a href="font.htm" target="_top"><span style='white-space: nowrap'>$code</span></a>
+ command.
+Because it is pre-formatted,
+the italic font is different from the
+<a href="font.htm" target="_top"><span style='white-space: nowrap'>$italic</span></a>
+ command.
+
+<br>
+<br>
+<b><big><a name="escape" id="escape">escape</a></big></b>
+<br>
+Any occurrences of the <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character appears in the text,
+are not put in the output.
+This is helpful when aligning rows that have a different number
+of delimiters in them.
+
+
+<br>
+<br>
+<b><big><a name="codei" id="codei">codei</a></big></b>
+<br>
+In this case, 
+<code><i><font color="black"><span style='white-space: nowrap'>text1</span></font></i></code>
+ is in 
+<code><font color="blue"><span style='white-space: nowrap'>code</span></font></code>
+ font,
+
+<code><i><font color="black"><span style='white-space: nowrap'>text2</span></font></i></code>
+ is in 
+<code><i><font color="black"><span style='white-space: nowrap'>italic</span></font></i></code>
+ font, ...
+
+<br>
+<br>
+<b><big><a name="icode" id="icode">icode</a></big></b>
+<br>
+In this case, 
+<code><i><font color="black"><span style='white-space: nowrap'>text1</span></font></i></code>
+ is in 
+<code><i><font color="black"><span style='white-space: nowrap'>italic</span></font></i></code>
+ font,
+
+<code><i><font color="black"><span style='white-space: nowrap'>text2</span></font></i></code>
+ is in 
+<code><font color="blue"><span style='white-space: nowrap'>code</span></font></code>
+ font, ...
+
+
+<br>
+<br>
+<b><big><a name="text" id="text">text</a></big></b>
+<br>
+The text
+
+<code><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>text1</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>text2</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>...</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>textN</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font></code>
+
+is a <a href="glossary.htm#Delimiter Sequence" target="_top"><span style='white-space: nowrap'>delimiter&nbsp;sequence</span></a>
+
+and <code><font color="blue">%</font></code> can be any character that is not a letter.
+The characters in 
+<code><i><font color="black"><span style='white-space: nowrap'>text1</span></font></i></code>
+, ..., 
+<code><i><font color="black"><span style='white-space: nowrap'>textN</span></font></i></code>
+
+are using in a
+<a href="glossary.htm#Pre-formatted Font" target="_top"><span style='white-space: nowrap'>pre-formatted&nbsp;font</span></a>
+.
+The characters in 
+<code><i><font color="black"><span style='white-space: nowrap'>text1</span></font></i></code>
+ are in the first font
+(and corresponding color),
+the characters in 
+<code><i><font color="black"><span style='white-space: nowrap'>text2</span></font></i></code>
+ are in the second font,
+and so on.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The syntax above was created using the 
+<code><font color="blue"><span style='white-space: nowrap'>$codei</span></font></code>
+ command.
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     $codei%extern void f(int %i% , const char *%s%);%$$
+</pre></font></code>
+produces the following output:
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;void&nbsp;f(int&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;,&nbsp;const&nbsp;char&nbsp;*</span></font><i><font color="black"><span style='white-space: nowrap'>s</span></font></i><font color="blue"><span style='white-space: nowrap'>);<br>
+</span></font></code>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     $codei|
+     extern void f(
+          int         |i| ,
+          const char *|s|
+     );|$$
+</pre></font></code>
+produces the following output
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;void&nbsp;f(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;char&nbsp;*</span></font><i><font color="black"><span style='white-space: nowrap'>s</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+</span></font></code>
+<br>
+<b><a name="Example.Escape" id="Example.Escape">Escape</a></b>
+<br>
+The <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character is useful because
+the delimiter character does not appear in the output
+(the default value for this character is <code><font color="blue">\</font></code>).
+For example, the input
+<code><font color='blue'><pre style='display:inline'> 
+     $escape #$$
+     $codei%
+     %x%   = 1 + %a% + %b%
+     %y%   = 2 + # #   %b%
+     %$$
+</pre></font></code>
+produces the following output
+
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>x</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;&nbsp;=&nbsp;1&nbsp;+&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>a</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;+&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>b</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>y</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;&nbsp;=&nbsp;2&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>b</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+</span></font></code>
+<br>
+<b><big><a name="Remark" id="Remark">Remark</a></big></b>
+<br>
+The <code><font color="blue">$codei</font></code> and <code><font color="blue">$icode</font></code> commands
+provide similar functionality to the <a href="syntax.htm" target="_top"><span style='white-space: nowrap'>syntax</span></a>
+ command.
+The differences are
+
+<ol type="1"><li>
+You can begin with either the code or italic font.
+</li><li>
+
+Both fonts are pre-formatted.
+</li></ol>
+
+
+The advantage of beginning with either color is that it makes for
+easier to read commands. For example, the input
+<code><font color='blue'><pre style='display:inline'> 
+     $icode i$$
+</pre></font></code>
+can be used to reference 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ in the prototypes above
+(remember that when the delimiter is a space, there is only one entry in
+the delimiter sequence and the other spaces are not delimiters).
+
+
+<hr>Input File: codei.omh
+
+</body>
+</html>

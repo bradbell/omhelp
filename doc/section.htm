@@ -1,0 +1,180 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Specify The Title For A Section</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Specify The Title For A Section">
+<meta name="keywords" id="keywords" content=" specify the title section syntax see also description aindex example ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_section_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="begin.htm" target="_top">Prev</a>
+</td><td><a href="title.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>titles+headings</option>
+<option>section</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>titles+headings-&gt;</option>
+<option>begin</option>
+<option>section</option>
+<option>title</option>
+<option>head</option>
+</select>
+</td>
+<td>section</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>Aindex</option>
+<option>Example</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+<center><b><big><big>Specify The Title For A Section</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$section&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>title</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+<a href="start_simple.htm" target="_top"><span style='white-space: nowrap'>getting&nbsp;started</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This command specifies the 
+<code><i><font color="black"><span style='white-space: nowrap'>title</span></font></i></code>
+
+for the current section.
+A section starts with a <a href="begin.htm" target="_top"><span style='white-space: nowrap'>begin</span></a>
+ command
+and ends with an <a href="begin.htm" target="_top"><span style='white-space: nowrap'>end</span></a>
+ command.
+There must be one and only one <code><font color="blue">section</font></code> command
+in each section.
+Leading and trailing
+<a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+ in 
+<code><i><font color="black"><span style='white-space: nowrap'>title</span></font></i></code>
+
+is ignored.
+In addition, other white space
+characters in 
+<code><i><font color="black"><span style='white-space: nowrap'>title</span></font></i></code>
+ are interpreted as simple spaces.
+(The browser used to display the HTML will decide how to break the title
+into separate lines.)
+There cannot be any <code><font color="blue">$</font></code> characters in 
+<code><i><font color="black"><span style='white-space: nowrap'>title</span></font></i></code>
+.
+
+<br>
+<br>
+<b><big><a name="Aindex" id="Aindex">Aindex</a></big></b>
+
+<br>
+The <a href="keyword.htm#Aindex" target="_top"><span style='white-space: nowrap'>aindex</span></a>
+ command can connect
+the <code><font color="blue">section</font></code> command to the <a href="keyword.htm#Mindex" target="_top"><span style='white-space: nowrap'>mindex</span></a>
+ command.
+(To make this connection, it must appear before the <code><font color="blue">section</font></code> command.)
+If this is the case,
+the <code><font color="blue">section</font></code> command automatically generates a request of the form
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$mindex&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>title</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+In this case,
+occurrences of the <a href="escape.htm" target="_top"><span style='white-space: nowrap'>escape</span></a>
+ character in 
+<code><i><font color="black"><span style='white-space: nowrap'>title</span></font></i></code>
+
+has the special meaning defined for the <code><font color="blue">mindex</font></code> command.
+These characters do not appear in the displayed title.
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The heading for this section was created with the command
+<code><font color='blue'><pre style='display:inline'> 
+     $section Specify The Title For A Section$$
+</pre></font></code>
+
+<hr>Input File: title.omh
+
+</body>
+</html>

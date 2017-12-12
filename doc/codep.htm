@@ -1,0 +1,228 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Preformatted Code Text</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Preformatted Code Text">
+<meta name="keywords" id="keywords" content=" preformatted code text font example paragraph syntax see also description source examples highlighting ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_codep_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="pre.htm" target="_top">Prev</a>
+</td><td><a href="codei.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>format</option>
+<option>codep</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>format-&gt;</option>
+<option>nobreak</option>
+<option>pre</option>
+<option>codep</option>
+<option>codei</option>
+<option>color</option>
+<option>hilite</option>
+<option>th</option>
+<option>center</option>
+<option>table</option>
+<option>list</option>
+<option>special</option>
+<option>font</option>
+</select>
+</td>
+<td>codep</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>See Also</option>
+<option>Description</option>
+<option>Example</option>
+<option>Source Code Examples</option>
+<option>Highlighting Example</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+
+
+<center><b><big><big>Preformatted Code Text</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$codep&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>text</span></font></i><font color="blue"><span style='white-space: nowrap'>$$</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="See Also" id="See Also">See Also</a></big></b>
+
+<br>
+ <a href="srccode.htm" target="_top"><span style='white-space: nowrap'>srccode</span></a>
+,  <a href="codei.htm" target="_top"><span style='white-space: nowrap'>codei</span></a>
+,  <a href="pre.htm" target="_top"><span style='white-space: nowrap'>pre</span></a>
+,  <a href="math.htm" target="_top"><span style='white-space: nowrap'>math</span></a>
+,  <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
+
+
+
+<br>
+<br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+All of the text in 
+<code><i><font color="black"><span style='white-space: nowrap'>text</span></font></i></code>
+ is printed
+in with a <a href="glossary.htm#Pre-formatted Font" target="_top"><span style='white-space: nowrap'>pre-formatted&nbsp;font</span></a>
+.
+There can be no <code><font color="blue">$</font></code> characters in 
+<code><font color="blue"><span style='white-space: nowrap'>text</span></font></code>
+.
+The <code><font color="blue">codep</font></code> command uses the exact same font as
+the <a href="font.htm" target="_top"><span style='white-space: nowrap'>code</span></a>
+ command to signify that the text is
+compute input or output.
+(The  <a href="pre.htm" target="_top"><span style='white-space: nowrap'>pre</span></a>
+ command uses a font that is close to the
+normal font, but uniformly spaced.)
+
+<br>
+<br>
+<b><big><a name="Example" id="Example">Example</a></big></b>
+<br>
+The input
+<code><font color='blue'><pre style='display:inline'> 
+     $codep
+     begin
+          x = y
+     end
+     $$
+</pre></font></code>
+would create the following output
+<code><font color='blue'><pre style='display:inline'> 
+     begin
+          x = y
+     end
+</pre></font></code>
+<br>
+<b><big><a name="Source Code Examples" id="Source Code Examples">Source Code Examples</a></big></b>
+<br>
+All the characters, except the end of line character,
+in the first and last line of the <code><font color="blue">codep</font></code> command
+are ignored.
+(There must be at least two newlines in 
+<code><i><font color="black"><span style='white-space: nowrap'>text</span></font></i></code>
+.)
+This enables the inclusion of source code that is actually
+compiled.
+For example, the input
+<code><font color='blue'><pre style='display:inline'> 
+     $codep */
+     {
+          x = 1
+     }
+     /* $$
+</pre></font></code>
+would create the following output
+<code><font color='blue'><pre style='display:inline'> 
+     {
+          x = 1
+     }
+</pre></font></code>
+This enables the <code><font color="blue">codep</font></code> command and its corresponding terminating
+<code><font color="blue">$$</font></code> to be commented out so that it is not included in the
+compilation.
+
+<br>
+<br>
+<b><big><a name="Highlighting Example" id="Highlighting Example">Highlighting Example</a></big></b>
+<br>
+The following input
+<code><font color='blue'><pre style='display:inline'> 
+     $hilitecmd codep$$
+     $hiliteseq%
+          %codep% %%
+          %hiliteseq% %hilite%
+          %hilitecmd% %hilite
+     %$$
+     $codep
+          The hiliteseq and hilitecmd commands can be used
+          to highlight and cross reference text that is inside of a
+          codep command.
+     $$
+</pre></font></code>
+would create the following output
+
+
+<code><font color='blue'><pre style='display:inline'> 
+     The <a href="hilite.htm" target="_top">hiliteseq</a> and <a href="hilite.htm" target="_top">hilitecmd</a> commands can be used
+     to highlight and cross reference text that is inside of a
+     <font color="purple">codep</font> command.
+</pre></font></code>
+
+<hr>Input File: codep.omh
+
+</body>
+</html>

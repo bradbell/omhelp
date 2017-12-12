@@ -1,0 +1,458 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Setting Colors</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Setting Colors">
+<meta name="keywords" id="keywords" content=" setting colors syntax purpose command colorname rgb values color style root section non-style examples codecolor code errorcolor error hilitecolor highlight bgcolor background textcolor text linkcolor link ">
+<style type='text/css'>
+body { color : rgb(100, 100, 100) }
+body { background-color : rgb(240, 240, 240) }
+A:link { color : green }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_color_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td><a href="codei.htm" target="_top">Prev</a>
+</td><td><a href="hilite.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>overview</option>
+<option>format</option>
+<option>color</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>overview-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>format-&gt;</option>
+<option>nobreak</option>
+<option>pre</option>
+<option>codep</option>
+<option>codei</option>
+<option>color</option>
+<option>hilite</option>
+<option>th</option>
+<option>center</option>
+<option>table</option>
+<option>list</option>
+<option>special</option>
+<option>font</option>
+</select>
+</td>
+<td>color</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Purpose</option>
+<option>command</option>
+<option>colorname</option>
+<option>RGB Values</option>
+<option>Style</option>
+<option>Root Section</option>
+<option>Non-Style Examples</option>
+<option>---..codecolor</option>
+<option>---..errorcolor</option>
+<option>---..hilitecolor</option>
+<option>Style Examples</option>
+<option>---..bgcolor</option>
+<option>---..textcolor</option>
+<option>---..linkcolor</option>
+</select>
+</td>
+</tr></table><br>
+
+
+
+
+
+
+
+
+<center><b><big><big>Setting Colors</big></big></b></center>
+<br>
+<b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$</span></font><i><font color="black"><span style='white-space: nowrap'>command</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>colorname</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$</span></font><i><font color="black"><span style='white-space: nowrap'>command</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>red</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>green</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>blue</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$</span></font></code>
+
+
+<br>
+<br>
+<b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
+<br>
+The output specified by 
+<code><i><font color="black"><span style='white-space: nowrap'>command</span></font></i></code>
+ is changed to the
+color specified by 
+<code><i><font color="black"><span style='white-space: nowrap'>colorname</span></font></i></code>
+.
+The text following 
+<code><i><font color="black"><span style='white-space: nowrap'>command</span></font></i></code>
+ is a
+<a href="glossary.htm#Delimiter Sequence" target="_top"><span style='white-space: nowrap'>delimiter&nbsp;sequence</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="command" id="command">command</a></big></b>
+<br>
+The value 
+<code><i><font color="black"><span style='white-space: nowrap'>command</span></font></i></code>
+
+must be one of the following values:
+
+<table><tr><td align='left'  valign='top'>
+
+
+<code><i><font color="black"><span style='white-space: nowrap'>command</span></font></i></code>
+
+	</td><td align='left'  valign='top'>
+ Affected text
+	</td><td align='left'  valign='top'>
+ Default value
+	</td><td align='left'  valign='top'>
+ Style
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">codecolor</font></code>
+	</td><td align='left'  valign='top'>
+ inside <a href="font.htm" target="_top"><span style='white-space: nowrap'>code</span></a>
+ and <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+ commands
+	</td><td align='left'  valign='top'>
+ blue
+	</td><td align='left'  valign='top'>
+ no
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">hilitecolor</font></code>
+	</td><td align='left'  valign='top'>
+ color used for <a href="hilite.htm" target="_top"><span style='white-space: nowrap'>hilite</span></a>
+ text
+	</td><td align='left'  valign='top'>
+ purple
+	</td><td align='left'  valign='top'>
+ no
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">errorcolor</font></code>
+	</td><td align='left'  valign='top'>
+ used by OMhelp for errors in output files
+	</td><td align='left'  valign='top'>
+ red
+	</td><td align='left'  valign='top'>
+ no
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">bgcolor</font></code>
+	</td><td align='left'  valign='top'>
+ background color
+	</td><td align='left'  valign='top'>
+ white
+	</td><td align='left'  valign='top'>
+ yes
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">textcolor</font></code>
+	</td><td align='left'  valign='top'>
+ color of normal text
+	</td><td align='left'  valign='top'>
+ black
+	</td><td align='left'  valign='top'>
+ yes
+</td></tr><tr><td align='left'  valign='top'>
+
+<code><font color="blue">linkcolor</font></code>
+	</td><td align='left'  valign='top'>
+ color used for cross reference linking
+	</td><td align='left'  valign='top'>
+ blue
+	</td><td align='left'  valign='top'>
+ yes
+
+<code><font color="blue">visitcolor</font></code>
+	</td><td align='left'  valign='top'>
+ color used for cross reference linking that have been visited
+	</td><td align='left'  valign='top'>
+ purple
+	</td><td align='left'  valign='top'>
+ yes
+</td></tr>
+</table>
+<br>
+<b><big><a name="colorname" id="colorname">colorname</a></big></b>
+<br>
+The following is a list of the valid values for 
+<code><i><font color="black"><span style='white-space: nowrap'>colorname</span></font></i></code>
+:
+<table><tr><td align='left'  valign='top'>
+
+<code><span style='white-space: nowrap'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ black    </td><td align='left'  valign='top'>
+ green  </td></tr><tr><td align='left'  valign='top'>
+
+	</td><td align='left'  valign='top'>
+ silver   </td><td align='left'  valign='top'>
+ lime   </td></tr><tr><td align='left'  valign='top'>
+
+	</td><td align='left'  valign='top'>
+ gray     </td><td align='left'  valign='top'>
+ olive  </td></tr><tr><td align='left'  valign='top'>
+
+	</td><td align='left'  valign='top'>
+ white    </td><td align='left'  valign='top'>
+ yellow </td></tr><tr><td align='left'  valign='top'>
+
+	</td><td align='left'  valign='top'>
+ maroon   </td><td align='left'  valign='top'>
+ navy   </td></tr><tr><td align='left'  valign='top'>
+
+	</td><td align='left'  valign='top'>
+ red      </td><td align='left'  valign='top'>
+ blue   </td></tr><tr><td align='left'  valign='top'>
+
+	</td><td align='left'  valign='top'>
+ purple   </td><td align='left'  valign='top'>
+ teal   </td></tr><tr><td align='left'  valign='top'>
+
+	</td><td align='left'  valign='top'>
+ fuchsia  </td><td align='left'  valign='top'>
+ aqua
+</td></tr>
+</table>
+These values are case in-sensitive, and
+leading and trailing <a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+ is ignored.
+
+<br>
+<br>
+<b><big><a name="RGB Values" id="RGB Values">RGB Values</a></big></b>
+
+<br>
+In addition to the color names above,
+you can use the 
+<code><i><font color="black"><span style='white-space: nowrap'>red</span></font></i></code>
+, 
+<code><i><font color="black"><span style='white-space: nowrap'>blue</span></font></i></code>
+, 
+<code><i><font color="black"><span style='white-space: nowrap'>green</span></font></i></code>
+ syntax
+to describe a color (RGB value).
+The values 
+<code><i><font color="black"><span style='white-space: nowrap'>red</span></font></i></code>
+, 
+<code><i><font color="black"><span style='white-space: nowrap'>blue</span></font></i></code>
+, and 
+<code><i><font color="black"><span style='white-space: nowrap'>green</span></font></i></code>
+
+must be unsigned integers between 0 and 255.
+They represent the primary color mix for the
+RGB code of the color being specified.
+Leading and trailing <a href="glossary.htm#White Space" target="_top"><span style='white-space: nowrap'>white&nbsp;space</span></a>
+
+in an RGB value is ignored.
+
+
+<br>
+<br>
+<b><big><a name="Style" id="Style">Style</a></big></b>
+
+<br>
+Some of the colors are specified as styles
+in the <a href="color.htm#colorname" target="_top"><span style='white-space: nowrap'>colorname</span></a>
+ table above.
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>command</span></font></i></code>
+ is specified by a style,
+it can only appear once per section.
+
+<br>
+<br>
+<b><big><a name="Root Section" id="Root Section">Root Section</a></big></b>
+<br>
+If a color command appears in the
+<a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+,
+it specifies the default all the other sections in the web site.
+Otherwise, the default color is the one in the
+<a href="color.htm#colorname" target="_top"><span style='white-space: nowrap'>colorname</span></a>
+ table above.
+
+<br>
+<br>
+<b><big><a name="Non-Style Examples" id="Non-Style Examples">Non-Style Examples</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Non-Style Examples.codecolor" id="Non-Style Examples.codecolor">codecolor</a></b>
+
+<br>
+The following text
+<code><font color='blue'><pre style='display:inline'> 
+     $codecolor green$$
+     $codep
+          This text is green.
+     $$
+     $codecolor blue$$
+     $codep
+          This text is blue.
+     $$
+</pre></font></code>
+results in the following output:
+
+
+<code><font color='green'><pre style='display:inline'> 
+     This text is green.
+</pre></font></code>
+<code><font color='blue'><pre style='display:inline'> 
+     This text is blue.
+</pre></font></code>
+<br>
+<b><a name="Non-Style Examples.errorcolor" id="Non-Style Examples.errorcolor">errorcolor</a></b>
+
+<br>
+The following text
+<code><font color='blue'><pre style='display:inline'> 
+     $errorcolor blue$$
+     $codecolor red$$
+     $codep
+          This text is red but it is not an error message.
+     $$
+     $errorcolor red$$
+     $codecolor blue$$
+</pre></font></code>
+results in the following output:
+
+
+
+<code><font color='red'><pre style='display:inline'> 
+     This text is red but not an error.
+</pre></font></code>
+Note that if a spelling error occurred in the <code><font color="blue">codep</font></code> command,
+the corresponding word would have been in blue instead of red.
+
+<br>
+<br>
+<b><a name="Non-Style Examples.hilitecolor" id="Non-Style Examples.hilitecolor">hilitecolor</a></b>
+
+<br>
+The commands
+<code><font color='blue'><pre style='display:inline'> 
+     $hilitecolor purple$$
+     $hilitecmd codep$$
+     $hiliteseq%%codecolor%%%$$
+     $codep
+          The codecolor command is useful.
+     $$
+</pre></font></code>
+results in the following output
+
+
+
+<code><font color='blue'><pre style='display:inline'> 
+     The <font color="purple">codecolor</font> command is useful.
+</pre></font></code>
+<br>
+<b><big><a name="Style Examples" id="Style Examples">Style Examples</a></big></b>
+
+
+<br>
+<br>
+<b><a name="Style Examples.bgcolor" id="Style Examples.bgcolor">bgcolor</a></b>
+
+
+<br>
+The command
+<code><font color='blue'><pre style='display:inline'> 
+     $bgcolor/240/240/240/$$
+</pre></font></code>
+appears at the beginning of this section.
+That is why the background color for this section
+is light gray.
+
+<br>
+<br>
+<b><a name="Style Examples.textcolor" id="Style Examples.textcolor">textcolor</a></b>
+
+<br>
+The command
+<code><font color='blue'><pre style='display:inline'> 
+     $textcolor/100/100/100/$$
+</pre></font></code>
+appears at the beginning of this section.
+That is why the normal text color for this section is dark gray.
+
+<br>
+<br>
+<b><a name="Style Examples.linkcolor" id="Style Examples.linkcolor">linkcolor</a></b>
+
+<br>
+The command
+<code><font color='blue'><pre style='display:inline'> 
+     $linkcolor green$$
+</pre></font></code>
+appears at the beginning of this section.
+That is why the links appear in green for this section.
+
+
+
+
+
+<hr>Input File: color.omh
+
+</body>
+</html>
