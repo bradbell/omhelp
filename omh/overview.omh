@@ -46,9 +46,8 @@ $aindex section head subhead$$
 
 $section omhelp-20171212: Language Independent Embedded Documentation$$
 
-$head User Support For OMhelp$$
-E-mail your questions or suggestions to
-$href%mailto:bradbell@seanet.com%bradbell@seanet.com%$$
+$head Home Page$$
+$href%https://github.com/bradbell/omhelp%$$
 
 $head Introduction$$
 OMhelp was originally developed by
