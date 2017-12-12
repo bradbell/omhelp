@@ -77,8 +77,15 @@ then
 else
 	root='../omh/getstarted/multiple_example_1.omh'
 fi
-if ! ../build/src/omhelp "$root" $printable $xml \
-			-noframe -debug -omhelp_dir ../omhelp_data > ../omhelp.$dir.log
+if ! ../build/src/omhelp \
+		"$root" \
+		$printable \
+		$xml \
+		-image_link https://github.com/bradbell/omhelp \
+		-noframe \
+		-debug \
+		-omhelp_dir \
+		../omhelp_data > ../omhelp.$dir.log
 then
 	cat ../omhelp.$dir.log
 	echo "OMhelp could not build $dir."

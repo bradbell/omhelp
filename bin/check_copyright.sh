@@ -24,6 +24,7 @@ list=`git status |\
         -e '/^[#\t ]*new file:/p' | \
 	sed -e 's/^.*: *//' -e 's/.* -> *//' | \
 	sed \
+		-e '/^README$/d' \
 		-e '/makefile.in$/d' \
 		-e '/^src\/omhelp.c$/d' \
 		-e '/^.gitignore$/d' \
