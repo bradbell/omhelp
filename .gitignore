@@ -1,0 +1,29 @@
+#
+# file used to do checkins
+/git_commit.sh
+#
+# file build by omhelp
+omhelp_data/dictionary.bin
+#
+# directory used for bug reports
+/bug/htm/
+#
+# directory used to build program
+/build/
+#
+# directories used to build and test documentation
+/dev/
+/xam/
+#
+# directories used to stash files
+new/
+new.*/
+#
+# names used for temporary files
+junk
+junk.*
+#
+# extensions used for temporary files
+*.log
+*.swp
+*.tmp
