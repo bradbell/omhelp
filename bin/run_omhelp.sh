@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#           Copyright (C) 1998-2016 Bradley M. Bell
+#           Copyright (C) 1998-2017 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
@@ -10,34 +10,28 @@ then
 	echo "bin/run_omhelp.sh: must be executed from its parent directory"
 	exit 1
 fi
-arguments='[clean] [printable] (htm|xml) (doc|dev|xam)'
+echo "$0 $*"
+arguments='[-clean] [-printable] [-xml] (doc|dev|xam)'
 clean='no'
 printable=''
 xml=''
 dir=''
 dev='no'
-if [ "$1" == 'clean' ]
+if [ "$1" == '-clean' ]
 then
 	clean='yes'
 	shift
 fi
-if [ "$1" == 'printable' ]
+if [ "$1" == '-printable' ]
 then
 	printable='-printable'
 	shift
 fi
 #
-if [ "$1" == 'htm' ]
-then
-	xml=''
-	shift
-elif [ "$1" == 'xml' ]
+if [ "$1" == '-xml' ]
 then
 	xml='-xml'
 	shift
-else
-	echo "usage: bin/run_omhelp.sh $arguments"
-	exit 1
 fi
 #
 if [ "$1" == 'doc' ] || [ "$1" == 'dev' ] || [ "$1" == 'xam' ]
@@ -50,8 +44,8 @@ else
 fi
 if [ "$1" == 'doc' ] && [ ! -e omhelp.dev.log ]
 then
-	echo 'must execute bin/omhelp.sh [clean] [printable] (htm|xml) dev'
-	echo 'before bin/omhelp.sh [clean] [printable] (htm|xml) doc'
+	echo 'must execute bin/omhelp.sh [-clean] [-printable] [-xml] dev'
+	echo 'before bin/omhelp.sh [-clean] [-printable] [-xml] doc'
 	exit 1
 fi
 # -----------------------------------------------------------------------------
