@@ -1,25 +1,30 @@
-# top directory only
-bug/htm
-build
-dev
-doc
-git_commit.sh
-new
-new.*
-omh/getstarted/htm
+#
+# file used to do checkins
+/git_commit.sh
+#
+# file build by omhelp
 omhelp_data/dictionary.bin
-xam
-*.log
-# all directories
-*.swp
-*/*.swp
-*/*/*.swp
-*.tmp
-*/*.tmp
-*/*/*.tmp
+#
+# directory used for bug reports
+/bug/htm/
+#
+# directory used to build program
+/build/
+#
+# directories used to build and test documentation
+/dev/
+/doc/
+/xam/
+#
+# directories used to stash files
+new/
+new.*/
+#
+# names used for temporary files
 junk
-*/junk
-*/*/junk
 junk.*
-*/junk.*
-*/*/junk.*
+#
+# extensions used for temporary files
+*.log
+*.swp
+*.tmp
