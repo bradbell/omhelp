@@ -6709,7 +6709,7 @@ yyreduce:
 		);
 
 		// determine what language this file is in
-		assert( ext[0] = '.' );
+		assert( ext[0] == '.' );
 		input_lang = file_ext2lang( ext + 1 );
 		if( input_lang == NULL ) fatalomh(
 			"At $srcfile command in line ",

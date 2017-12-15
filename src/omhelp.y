@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2016 Bradley M. Bell
+          Copyright (C) 1998-2017 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -4467,7 +4467,7 @@ srcfile
 		);
 
 		// determine what language this file is in
-		assert( ext[0] = '.' );
+		assert( ext[0] == '.' );
 		input_lang = file_ext2lang( ext + 1 );
 		if( input_lang == NULL ) fatalomh(
 			"At $srcfile command in line ",

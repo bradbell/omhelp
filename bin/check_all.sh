@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#           Copyright (C) 1998-2015 Bradley M. Bell
+#           Copyright (C) 1998-2017 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
@@ -62,9 +62,13 @@ then
 fi
 top_srcdir=`pwd`
 # -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Create Distribution
 if [ "$version" == 'local' ]
 then
+	# check version number
+	bin/version.sh check
+	#
 	for dir in build dev doc
 	do
 		if [ -e $dir ]
@@ -73,6 +77,7 @@ then
 		fi
 	done
 else
+	# check for version number here has to wait for new tarball
 	if [ ! -e build ]
 	then
 		echo_eval mkdir build

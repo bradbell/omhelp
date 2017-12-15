@@ -3,7 +3,7 @@
 /git_commit.sh
 #
 # file build by omhelp
-omhelp_data/dictionary.bin
+/omhelp_data/dictionary.bin
 #
 # directory used for bug reports
 /bug/htm/
@@ -15,6 +15,7 @@ omhelp_data/dictionary.bin
 /dev/
 /doc/
 /xam/
+/omh/getstarted/htm/
 #
 # directories used to stash files
 new/
