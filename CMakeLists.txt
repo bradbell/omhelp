@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2016 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2017 Bradley M. Bell
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -17,7 +17,7 @@
 # ---------------------------------------------------------------------------
 # Set the minimum required version of cmake for this project
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-SET(omhelp_version      "20171212" )
+SET(omhelp_version "20171215")
 SET(omhelp_description  "Language independent embedded code documentation")
 SET(omhelp_url          "http://www.seanet.com/~bradbell/omhelp")
 PROJECT(omhelp)
