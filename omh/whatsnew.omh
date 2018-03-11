@@ -82,6 +82,7 @@ $spell
 	regex
 	uri
 	href
+	txt
 $$
 
 $index readme, whats new$$
@@ -112,6 +113,14 @@ $rref whatsNew03$$
 $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
+$$
+
+$head 18-03-11$$
+The install $cref/download omhelp/InstallUnix/Download OMhelp/$$
+procedure was changed
+to use the following command to determine the version number:
+$codep
+	grep '^SET(omhelp_version' CMakeLists.txt
 $$
 
 $head 17-06-28$$

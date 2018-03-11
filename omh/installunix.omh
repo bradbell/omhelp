@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2017 Bradley M. Bell
+          Copyright (C) 1998-2018 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -39,6 +39,7 @@ $spell
 	regex
 	libboost
 	libsource
+	txt
 $$
 
 
@@ -86,13 +87,13 @@ Use the following commands to determine the corresponding
 $icode git_hash$$ and version:
 $codei%
 	git show-ref | grep 'refs/heads/master'
-	bin/version.sh get
+	grep '^SET(omhelp_version' CMakeLists.txt
 %$$
 Use the following commands to checkout as specific $icode git_hash$$
 and check the corresponding version
 $codei%
 	git checkout %git_hash%
-	bin/version.sh get
+	grep '^SET(omhelp_version' CMakeLists.txt
 %$$.
 
 $head Distribution Directory$$

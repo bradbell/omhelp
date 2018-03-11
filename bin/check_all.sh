@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#           Copyright (C) 1998-2017 Bradley M. Bell
+#           Copyright (C) 1998-2018 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
@@ -62,12 +62,14 @@ then
 fi
 top_srcdir=`pwd`
 # -----------------------------------------------------------------------------
-# -----------------------------------------------------------------------------
 # Create Distribution
 if [ "$version" == 'local' ]
 then
+	# check copyright message
+	check_copyright.sh
+	#
 	# check version number
-	bin/version.sh check
+	version.sh check
 	#
 	for dir in build dev doc
 	do
@@ -100,6 +102,15 @@ else
 	#
 	echo_log_eval tar -xzf omhelp-$version.tar.gz
 	echo_log_eval cd omhelp-$version
+	#
+	# check version number
+	check=`grep '^SET(omhelp_version' CMakeLists.txt | \
+		sed -e 's|^[^"]*"\([^"]*\).*|\1|'`
+	if [ "$version" != "$check" ]
+	then
+		echo 'check_all.sh: CMakeLists.txt version number name of tarball'
+		exit 1
+	fi
 fi
 # -----------------------------------------------------------------------------
 highlight_prefix=`grep source_highlight_prefix bin/run_cmake.sh | \

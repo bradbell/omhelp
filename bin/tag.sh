@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#           Copyright (C) 1998-2015 Bradley M. Bell
+#           Copyright (C) 1998-2018 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
@@ -60,12 +60,12 @@ then
 	exit 1
 fi
 # check that version is set correctly
-version=`bin/version.sh get`
-echo_eval bin/version.sh copy
+version=`version.sh get`
+echo_eval version.sh copy
 list=`git status -s`
 if [ "$list" != '' ]
 then
-	echo "tag.sh: 'bin/version.sh copy' changed something"
+	echo "tag.sh: 'version.sh copy' changed something"
 	exit 1
 fi
 # check that remote branch agrees with local
