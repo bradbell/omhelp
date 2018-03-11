@@ -18,6 +18,13 @@ then
 	exit 1
 fi
 version="$1"
+top_srcdir=`pwd`
+if [ "$version" == 'local' ]
+then
+	exit_on_warning='yes'
+else
+	exit_on_warning='no'
+fi
 # -----------------------------------------------------------------------------
 remote_tarball="https://github.com/bradbell/omhelp/archive/$version.tar.gz"
 omhelp_prefix="$HOME/prefix/omhelp"
@@ -27,28 +34,25 @@ omhelp_c_flags='-Wall'
 echo_log_eval() {
 	echo $*
 	echo $* >> $top_srcdir/check_all.log
-	if ! eval $* >> $top_srcdir/check_all.log \
-		2> $top_srcdir/check_all.err
+	if ! eval $* >& check_all.$$
 	then
-		cat $top_srcdir/check_all.err
+		cat check_all.$$ >> $top_srcdir/check_all.log
 		echo 'Error: see check_all.log'
 		exit 1
 	fi
-	msg=`cat $top_srcdir/check_all.err`
-	if [ "$msg" != '' ]
+	if [ -e check_all.$$ ]
 	then
-		echo "$msg"
-		echo 'Warning: see check_all.err'
-		exit 1
-	fi
-	rm $top_srcdir/check_all.err
-}
-log_eval() {
-	echo $* >> $top_srcdir/check_all.log
-	if ! eval $* >> $top_srcdir/check_all.log
-	then
-		echo "Error: check check_all.log"
-		exit 1
+		cat check_all.$$ >> $top_srcdir/check_all.log
+		if grep '[0-9]: warning' check_all.$$ > /dev/null
+		then
+			echo 'Warnings: see check_all.log'
+			if [ "$exit_on_warning" == 'yes' ]
+			then
+				rm check_all.$$
+				exit 1
+			fi
+		fi
+		rm check_all.$$
 	fi
 }
 echo_eval() {
@@ -60,7 +64,6 @@ then
 	echo "rm check_all.log"
 	rm check_all.log
 fi
-top_srcdir=`pwd`
 # -----------------------------------------------------------------------------
 # Create Distribution
 if [ "$version" == 'local' ]
@@ -126,27 +129,29 @@ do
 	then
 		if [ ! -e "$highlight_prefix.no" ]
 		then
-			echo_eval mv $highlight_prefix $highlight_prefix.no
 			echo "check_all.sh: cannot find $highlight_prefix.no"
 			exit 1
 		fi
 		echo_eval mv $highlight_prefix.no $highlight_prefix
 	fi
 	# -------------------------------------------------------------------------
-	# CMake Command
 	echo_log_eval bin/run_cmake.sh debug
-	if [ "$testcase" == 'highlight_no' ]
+	number=`grep 'WARNING: \$srcfile command NOT available' \
+		$top_srcdir/check_all.log | wc -l`
+	if [ "$number" != 1 ]
 	then
-		bin/run_cmake.sh debug > check_all.$$
-		if ! grep 'WARNING: \$srcfile command NOT available' check_all.$$ \
-			> /dev/null
+		if [ "$test_case" == 'highlight_no' ]
 		then
-			rm check_all.$$
 			echo 'check_all.sh: test case highlight_no'
-			echo 'bin/run_cmake.sh WARNING missing'
+			echo 'bin/run_cmake.sh srcfile WARNING missing'
+		else
+			echo 'check_all.sh: test case highlight_yes'
+			echo 'bin/run_cmake.sh srcfile WARNING present'
+		fi
+		if [ "$exit_on_warning" == 'yes' ]
+		then
 			exit 1
 		fi
-		rm check_all.$$
 	fi
 	# -------------------------------------------------------------------------
 	# Build Executable
