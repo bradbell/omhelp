@@ -7002,7 +7002,7 @@ yyreduce:
 			printid = strjoin(number, HeadingAndSubPrintId()+1);
 		else	printid = strjoin(number, HeadingAndSubPrintId() );
 
-		OutputString("<b>");
+		OutputString("<big>");
 		if( PrintableOmhelp() )
 		{	FormatOutput2(
 				"<a name=\"%s\" id=\"%s\">",
@@ -7025,7 +7025,7 @@ yyreduce:
 		}
 
 		output_text((yyvsp[-1]).line,noEscape,0,'\0',CheckSpell,ErrorColor);
-		OutputString("</a></b>\n");
+		OutputString("</a></big>\n");
 
 		// defined cross reference point
 # ifndef NDEBUG

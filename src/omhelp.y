@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2017 Bradley M. Bell
+          Copyright (C) 1998-2018 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -4755,7 +4755,7 @@ subhead
 			printid = strjoin(number, HeadingAndSubPrintId()+1);
 		else	printid = strjoin(number, HeadingAndSubPrintId() );
 
-		OutputString("<b>");
+		OutputString("<big>");
 		if( PrintableOmhelp() )
 		{	FormatOutput2(
 				"<a name=\"%s\" id=\"%s\">",
@@ -4778,7 +4778,7 @@ subhead
 		}
 
 		output_text($2.line,noEscape,0,'\0',CheckSpell,ErrorColor);
-		OutputString("</a></b>\n");
+		OutputString("</a></big>\n");
 
 		// defined cross reference point
 # ifndef NDEBUG
