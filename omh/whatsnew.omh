@@ -115,6 +115,11 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 18-03-13$$
+The font used for sub-headings was changed to be
+same size as headings but normal instead of bold font; see
+$cref/example subheading/head/Example Subheading/$$.
+
 $head 18-03-11$$
 The install $cref/download omhelp/InstallUnix/Download OMhelp/$$
 procedure was changed
