@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2016 Bradley M. Bell
+          Copyright (C) 1998-2018 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -19,6 +19,9 @@ $section Displaying In Line Source Code$$
 
 $head Syntax$$
 $codei/@srccode%/file_ext/%/source/%@@/$$
+
+$head Letter Case$$
+$comment Headin needed for cross reference link$$
 
 $head Not Available$$
 This command is not available with this version of OMhelp because the

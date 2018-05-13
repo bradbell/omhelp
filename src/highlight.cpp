@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2016 Bradley M. Bell
+          Copyright (C) 1998-2018 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -236,8 +236,10 @@ Otherwise it returns the compute language corresponding to the
 specified file.
 
 $head file_ext_cstr$$
-This is the extension of the file containing the compute language
-source code.
+This is the extension, without the period $code .$$ at the beginning,
+for the file containing the source code.
+Case does not matter because it is mapped to
+lower case before checking.
 
 $head Return Value$$
 The return value is a $code source-highlight$$ input language.
@@ -252,6 +254,10 @@ $end
 
 	// file extension
 	string file_ext( file_ext_cstr);
+
+	// map to lower case
+	for(size_t i = 0; i < file_ext.size(); ++i)
+		file_ext[i] = std::tolower( file_ext[i] );
 
 	// source-highlight data directory
 	string data_dir = source_highlight_prefix();

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2016 Bradley M. Bell
+          Copyright (C) 1998-2018 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin whatsNew$$
 $dollar @$$
 $spell
+	srccode
 	cref
 	Bradley
 	tabsize
@@ -114,6 +115,13 @@ $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
 $$
+
+$head 18-05-13$$
+Upper case letters versus lower case letters
+no longer matters when determining the language
+corresponding to a file extension for
+$cref/srccode/srccode/Letter Case/$$ and
+$cref/srcfile/srcfile/Letter Case/$$.
 
 $head 18-03-13$$
 The font used for sub-headings was changed to be
