@@ -43,6 +43,8 @@ var list_current0 = [
 'srccode.htm#Syntax',
 'srccode.htm#See Also',
 'srccode.htm#Purpose',
+'srccode.htm#file_ext',
+'srccode.htm#Letter Case',
 'srccode.htm#Delimiter Sequence',
 'srccode.htm#Example',
 'srccode.htm#Example.Factorial Program'

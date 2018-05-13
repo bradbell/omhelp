@@ -44,6 +44,7 @@ var list_current0 = [
 'srcfile.htm#See Also',
 'srcfile.htm#Optional',
 'srcfile.htm#Purpose',
+'srcfile.htm#Letter Case',
 'srcfile.htm#Delimiter Sequence',
 'srcfile.htm#filename',
 'srcfile.htm#indent',
