@@ -31,29 +31,28 @@ omhelp_prefix="$HOME/prefix/omhelp"
 omhelp_datadir='share'
 omhelp_c_flags='-Wall'
 # -----------------------------------------------------------------------------
+temporary_file="$top_srcdir/check_all.$$"
 echo_log_eval() {
 	echo $*
 	echo $* >> $top_srcdir/check_all.log
-	if ! eval $* >& check_all.$$
+	if ! eval $* >& $temporary_file
 	then
-		cat check_all.$$ >> $top_srcdir/check_all.log
+		cat $temporary_file >> $top_srcdir/check_all.log
 		echo 'Error: see check_all.log'
+		rm $temporary_file
 		exit 1
 	fi
-	if [ -e check_all.$$ ]
+	cat $temporary_file >> $top_srcdir/check_all.log
+	if grep '[0-9]: warning' $temporary_file > /dev/null
 	then
-		cat check_all.$$ >> $top_srcdir/check_all.log
-		if grep '[0-9]: warning' check_all.$$ > /dev/null
+		echo 'Warnings: see check_all.log'
+		if [ "$exit_on_warning" == 'yes' ]
 		then
-			echo 'Warnings: see check_all.log'
-			if [ "$exit_on_warning" == 'yes' ]
-			then
-				rm check_all.$$
-				exit 1
-			fi
+			rm $temporary_file
+			exit 1
 		fi
-		rm check_all.$$
 	fi
+	rm $temporary_file
 }
 echo_eval() {
 	echo $*
