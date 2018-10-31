@@ -22,7 +22,7 @@ $$
 
 $section OMhelp Wish List$$
 
-$head images$$
+$head Image$$
 Extend the $cref image$$ and $code icon$$ commands
 so they can use images available on the web, in addition to those
 available locally.
