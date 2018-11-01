@@ -28,6 +28,7 @@ var list_down1 = [
 'whatsnew.htm'
 ];
 var list_current0 = [
+'wish_list.htm#Image',
 'wish_list.htm#Tables',
 'wish_list.htm#Parent Section',
 'wish_list.htm#source-highlight',
