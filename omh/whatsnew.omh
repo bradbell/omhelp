@@ -116,6 +116,17 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 18-11-15$$
+Improve documentation for $cref navigate$$ command.
+In addition, in its $cref/example/navigate/Example/$$
+$codep
+	Down_up_2%Down_up_2%
+$$
+was corrected to
+$codep
+	Down_up_2%_up_2%
+$$
+
 $head 18-10-31$$
 Add a $cref/image/wish_list/Image/$$ item to the wish list.
 

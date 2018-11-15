@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2018 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -14,7 +14,6 @@ $spell
 $$
 
 $section Setting Relative Navigation Links For A Section$$
-$index link, relative$$
 
 $head Syntax$$
 $codei|@navigate%|type 1|%|label 1|% |...| %|type n|%|label n|%@@|$$
@@ -28,50 +27,49 @@ the order of the links,
 and label for each of the links.
 
 $head Type$$
-The navigation links have the types listed in the table below.
-$center
-$table
-$bold Type$$
-	$cnext $bold Link to$$
-$rnext
-$code Content$$
-	$cnext The table of contents section for entire document
-$rnext
-$code Prev$$
-	$cnext The previous section in read order
-$rnext
-$code Next$$
-	$cnext The next section in read order
-$rnext
-$code Top$$
-	$cnext The section at the top of tree
-	(corresponds to $cref/root_file/running/root_file/$$)
-$rnext
-$code Up$$
-	$cnext The group of section above this one in tree
-$rnext
-$code Sibling$$
-	$cnext The group of sections with same parent as this one in tree
-$rnext
-$code Down$$
-	$cnext The group of sections directly below this one in tree
-$rnext
-$codei%Down_up_%i%$$
-	$cnext The sections directly below the section $icode i$$ levels
-	up in the documentation tree.
-$rnext
-	$cnext where $icode i$$ is a number between $code 0$$ and $code 9$$.
-$rnext
-$code Across$$
-	$cnext The group of sections that cross reference entire document
-$rnext
-$code Current$$
-	$cnext The group of headings and subheadings for this section
-$tend
-$$
-Note that the type $code Down_up_1$$ is the same as $code Sibling$$
-and $code Down_up_0$$ is the same as $code Down$$
-(but $code Down_up_2$$ is not the same as $code Up$$).
+The possible $icode type$$, and meaning, for the navigation links are
+specified below:
+
+$subhead Content$$
+The table of contents section for entire document.
+
+$subhead Prev$$
+The previous section in read order.
+
+$subhead Next$$
+The next section in read order.
+
+$subhead Across$$
+The group of sections that cross reference entire document; e.g,
+the search and index sections are in this group.
+
+$subhead Top$$
+The section corresponding to the top of the tree; i.e.,
+the section in the $cref/root_file/running/root_file/$$.
+
+$subhead Up$$
+The sections starting at the top of tree and down to
+the current section.
+
+$subhead Sibling$$
+The group of sections with same parent as the current section.
+This has the same meaning as $code Down_up_1$$; i.e.,
+down one and then up one.
+
+$subhead Down$$
+The group of sections directly below the current section;
+i.e., its children.
+This has the same meaning as $code Down_up_0$$; i.e.,
+down one and then up zero.
+
+$subhead Down_up_i$$
+For $icode i$$ between $code 0$$ and $code 9$$,
+the type $codei%Down_up_%i%$$ is the group of sections
+directly below the section $icode i$$ levels
+up from the current section.
+
+$subhead Current$$
+The group of headings and subheadings in the current section.
 
 $subhead Example$$
 Suppose that the tree corresponding to a document is
@@ -85,14 +83,14 @@ $$
 The corresponding read order is $pre A$$, $pre B$$, ..., $pre Z$$.
 For this example, if the current section is $pre F$$
 $table
-current section                 $cnext $pre F$$  $rnext
-The previous section            $cnext $pre E$$  $rnext
-The next section                $cnext $pre G$$  $rnext
-The section above               $cnext $pre B$$  $rnext
-The section two levels up       $cnext $pre A$$  $rnext
-The group above this one        $cnext $pre B$$, $pre A$$ $rnext
-The group of siblings           $cnext $pre C$$, $pre F$$ $rnext
-The group directly below        $cnext $pre G$$, $pre J$$
+current section             $cnext $pre F$$  $rnext
+previous section            $cnext $pre E$$  $rnext
+next section                $cnext $pre G$$  $rnext
+section above               $cnext $pre B$$  $rnext
+section two levels up       $cnext $pre A$$  $rnext
+sections up from this one   $cnext $pre A$$, $pre B$$, $pre F$$ $rnext
+siblings                    $cnext $pre C$$, $pre F$$ $rnext
+children                    $cnext $pre G$$, $pre J$$
 $tend
 
 $head label$$
@@ -169,7 +167,7 @@ $codep
 		Prev%Previous%
 		Next%Next%
 		Up%Up%
-		Down_up_2%Down_up_2%
+		Down_up_2%_up_2%
 		Down_up_1%Down_up_1%
 		Down_up_0%Down_up_0%
 		Sibling%Sibling%
