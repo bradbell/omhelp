@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2018 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -143,7 +143,7 @@ void RelativeFrame(SectionInfo *This)
 		label    = This->navigate.item[index].label;
 
 		// check for case where using cross reference tag for _up_i
-		if( label[0] == '_' )
+		if( strcmp(label, "_jump_table") != 0 && label[0] == '_' )
 		{	assert( strncmp(label, "_up_", 4) == 0 );
 			assert( strlen(label) == 5 );
 			assert( isdigit((int) label[4]) );
@@ -363,6 +363,11 @@ void RelativeFrame(SectionInfo *This)
 
 		// Current --------------------------------------------------
 		case CURRENT_nav:
+		// If label == _jump_table, the links to the heading and sub-headings
+		// for this section are placed in a jump table above the section title.
+		if( strcmp(label, "_jump_table") == 0 )
+			break;
+
 		TitleLinks(label);
 		titled = 1;
 		C = FindCrossReference(F->tag, "");
@@ -480,8 +485,12 @@ void RelativeTable(SectionInfo *This)
 	}
 
 	// =================================================================
+	//
+	// number of relative navigation types for this section
 	number = This->navigate.number;
 	assert( number <= MAX_NAVIGATE );
+	//
+	// is there CURRENT_nav type for this section
 	for(index = 0; index < number; index++)
 	{	char digit[] = { '0', '\0' };
 
@@ -489,7 +498,7 @@ void RelativeTable(SectionInfo *This)
 		label    = This->navigate.item[index].label;
 
 		// check for case where using cross reference tag for _up_i
-		if( label[0] == '_' )
+		if( strcmp(label, "_jump_table") != 0 && label[0] == '_' )
 		{	assert( strncmp(label, "_up_", 4) == 0 );
 			assert( strlen(label) == 5 );
 			assert( isdigit((int) label[4]) );
@@ -552,7 +561,9 @@ void RelativeTable(SectionInfo *This)
 					F = F->parent;
 			}
 		}
+	// ---------------------------------------------
 	// undo one level of indentation (need the space)
+	// ---------------------------------------------
 	if( F == NULL || label == NULL )
 		list_name[index] = NULL;
 	else switch( nav_type )
@@ -764,6 +775,12 @@ void RelativeTable(SectionInfo *This)
 
 		// Current ---------------------------------------------------
 		case CURRENT_nav:
+		// If label == _jump_table, the links to the heading and sub-headings
+		// for this section are placed in a jump table above the section title.
+		list_name[index] = NULL;
+		if( strcmp(label, "_jump_table") == 0 )
+			break;
+		//
 		list_name[index] = strjoin("current", digit);
 		C = FindCrossReference(F->tag, "");
 		assert( C != NULL );
@@ -828,7 +845,7 @@ void RelativeTable(SectionInfo *This)
 	}
 	// =================================================================
 
-	// End table that contains the links
+	// End table that contains the relative links
 	OutputString("</tr></table><br");
 	OutputString(Internal2Out("SelfTerminateCmd"));
 	OutputString("\n");
@@ -850,4 +867,5 @@ void RelativeTable(SectionInfo *This)
 		FreeMem(list_name[index]);
 	}
 	fclose(javascript_fp);
+
 }

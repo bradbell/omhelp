@@ -28,6 +28,7 @@ cross reference tag, NULL is returned.
 # include <assert.h>
 # include <time.h>
 
+# include "jump_table.h"
 # include "FrameSet.h"
 # include "HtmlHead.h"
 # include "relative.h"
@@ -334,6 +335,8 @@ static void SecondPass(SectionInfo *F)
 	FILE *fpTmp;
 	int  ch;
 	int  match;
+	int  index;
+	int  build_jump_table;
 
 	// initialize to not defined
 	int   lastCrossReferenceDefined = 0;
@@ -427,7 +430,19 @@ static void SecondPass(SectionInfo *F)
 				AutomaticLink(RootHasChildren, F);
 			}
 		}
-
+		// -----------------------------------------------------------------
+		// jump table
+		build_jump_table = 0;
+		for(index = 0; index < F->navigate.number; ++index)
+		{	if( F->navigate.item[index].nav_type == CURRENT_nav )
+			{	const char* label = F->navigate.item[index].label;
+				if( strcmp(label, "_jump_table") == 0 )
+					build_jump_table = 1;
+			}
+		}
+		if( build_jump_table )
+			jump_table(F);
+		//
 		// read until end of file
 		ch    = getc(fpTmp);
 		while( ch != EOF )

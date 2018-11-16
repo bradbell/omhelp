@@ -159,7 +159,10 @@ do
 	echo_log_eval cd ..
 	# -------------------------------------------------------------------------
 	# Build Documentation and Get Started
-	echo_log_eval bin/run_omhelp.sh dev
+	if [ "$test_case" == 'highlight_yes' ]
+	then
+		echo_log_eval bin/run_omhelp.sh dev
+	fi
 	echo_log_eval bin/run_omhelp.sh doc
 	echo_log_eval bin/run_omhelp.sh xam
 	# ------------------------------------------------------------------------

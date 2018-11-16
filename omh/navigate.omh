@@ -70,6 +70,9 @@ up from the current section.
 
 $subhead Current$$
 The group of headings and subheadings in the current section.
+If the corresponding $icode label$$ is $code _jump_table$$,
+a table at the top of the current section is used to link
+to the headings and sub-headings for this section.
 
 $subhead Example$$
 Suppose that the tree corresponding to a document is
@@ -93,22 +96,29 @@ siblings                    $cnext $pre C$$, $pre F$$ $rnext
 children                    $cnext $pre G$$, $pre J$$
 $tend
 
-$head label$$
+$head Label$$
 The value $icode label 1$$ is the label that the user will see
 for the navigation links corresponding to $icode type 1$$.
 The value $icode label 2$$ is the label that the user will see
 for the navigation links corresponding to $icode type 2$$ and so on.
 The labels cannot begin with the special character $code _$$
 with the following special exception:
-$codei%
 
-_up_%i%
-%$$
-where $icode i$$ is a number between $code 0$$ and $code 9$$.
-In this special case,
+$subhead _up_i$$
+The label $codei%_up_%i%$$,
+where $icode i$$ is a number between $code 0$$ and $code 9$$,
+is a special case.
+In this case,
 the $cref/cross reference tag/glossary/Cross Reference Tag/$$
 for the section $icode i$$ levels up from the current section
 is used for the label.
+
+$subhead _jump_table$$
+If $icode type$$ is $code Current$$,
+the label $code _jump_table$$ is a special case.
+In this case,
+a table at the top of the current section is used to link
+to the headings and sub-headings for this section.
 
 $head Prev and Next$$
 Note that the size of the label corresponding to $codei%_up_%i%$$
@@ -159,7 +169,7 @@ $navigate%
 	Sibling%Sibling%
 	Down%Down%
 	Across%Across%
-	Current%Current
+	Current%_jump_table
 %$$
 $codep
 	@navigate%
@@ -173,7 +183,7 @@ $codep
 		Sibling%Sibling%
 		Down%Down%
 		Across%Across%
-		Current%Current
+		Current%_jump_table
 	%@@
 $$
 

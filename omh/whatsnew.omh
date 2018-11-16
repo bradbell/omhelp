@@ -116,6 +116,10 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 18-11-16$$
+The option to use a  $cref/_jump_table/navigate/Label/_jump_table/$$
+for the current section of the documentation was added.
+
 $head 18-11-15$$
 Improve documentation for $cref navigate$$ command.
 In addition, in its $cref/example/navigate/Example/$$

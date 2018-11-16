@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#           Copyright (C) 1998-2017 Bradley M. Bell
+#           Copyright (C) 1998-2018 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
@@ -72,16 +72,27 @@ else
 	root='../omh/getstarted/multiple_example_1.omh'
 fi
 if ! ../build/src/omhelp \
-		"$root" \
-		$printable \
-		$xml \
-		-image_link https://github.com/bradbell/omhelp \
-		-noframe \
-		-debug \
-		-omhelp_dir \
-		../omhelp_data > ../omhelp.$dir.log
+	$root \
+	$printable \
+	$xml \
+	-image_link https://github.com/bradbell/omhelp \
+	-noframe \
+	-debug \
+	-omhelp_dir ../omhelp_data \
+	> ../omhelp.$dir.log
 then
-	cat ../omhelp.$dir.log
+cat << EOF
+
+../build/src/omhelp \\
+$root \\
+$printable \\
+$xml \\
+-image_link https://github.com/bradbell/omhelp \\
+-noframe \\
+-debug \\
+-omhelp_dir  ../omhelp_data \\
+> ../omhelp.$dir.log
+EOF
 	echo "OMhelp could not build $dir."
 	echo "See the complete error message in omhelp.$dir.log."
 	grep "^OMhelp Error:" ../omhelp.$dir.log
