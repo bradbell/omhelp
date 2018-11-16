@@ -194,6 +194,7 @@ static SectionInfo *CurrentSection = NULL;
 // ("<" in this case) appears no where else in any of the text. Thus
 // one match cannot startup while another is running.
 enum MatchType {
+	ETITLE_match,
 	HREF_match,
 	CONTENTS_match,
 	EXECUTE_match,
@@ -210,6 +211,7 @@ enum MatchType {
 };
 
 static char *MatchText[]  = {
+	"<ETITLE>",
 	"<HREF=\"",
 	"<CONTENTS>",
 	"<EXECUTE=\"",
@@ -222,7 +224,7 @@ static char *MatchText[]  = {
 	"<CHILDTABLE>",
 	"<ACCENT="
 };
-static int   MatchLen[]   = {7, 10, 10, 6,  8, 7, 7, 7, 10, 12, 8};
+static int   MatchLen[]   = {8, 7, 10, 10, 6,  8, 7, 7, 7, 10, 12, 8};
 static int   MatchState[] = {0, 0,  0,  0, 0,  0, 0, 0, 0,  0,  0, 0};
 static int   MatchNumber  = sizeof(MatchText) / sizeof(MatchText[0]);
 
@@ -446,8 +448,6 @@ static void SecondPass(SectionInfo *F)
 					build_jump_table = 1;
 			}
 		}
-		if( build_jump_table )
-			jump_table(F);
 		//
 		// read until end of file
 		ch    = getc(fpTmp);
@@ -456,6 +456,17 @@ static void SecondPass(SectionInfo *F)
 			match = MatchOrOutput(ch);
 			switch( match )
 			{
+				// ----------------------------------------------------------
+				case ETITLE_match:
+				// end of the tilte for this section
+				if( build_jump_table )
+				{	jump_table(F);
+					// add extra space after jump table to account for call to
+					// ConvertAddPrevious(1) after <ETITLE> in section code
+					OutputString("<br>\n");
+				}
+				break;
+
 				// ----------------------------------------------------------
 				case ACCENT_match:
 				// an accent over a vowel, convert to proper accent
@@ -4231,6 +4242,9 @@ section
 		else	output_text($2.line,noEscape,0,'\0',
 					CheckSpell,ErrorColor);
 		OutputString("</big></big></b></center>\n");
+
+		// mark the end of the title for this section
+		OutputString("<ETITLE>");
 
 		// the end of centering starts a new line
 		ConvertAddPrevious(1);

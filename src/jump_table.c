@@ -79,7 +79,7 @@ void jump_table(SectionInfo *Current)
 		}
 
 		// Each link is on a new line
-		OutputString("<br");
+		OutputString("\n<br");
 		OutputString(Internal2Out("SelfTerminateCmd"));
 
 		// indent the sub-hreading 5 non-breaking spaces
