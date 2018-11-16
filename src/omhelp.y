@@ -454,24 +454,22 @@ static void SecondPass(SectionInfo *F)
 		while( ch != EOF )
 		{	// output checking for special sequences
 			match = MatchOrOutput(ch);
-			while( ch != EOF && (match == NO_match || match == PARTIAL_match) )
-			{	ch    = getc(fpTmp);
-				match = MatchOrOutput(ch);
-			}
-
-			// check for an accent over a vowel
-			if( match == ACCENT_match )
-			{	// convert to proper accent
+			switch( match )
+			{
+				// ----------------------------------------------------------
+				case ACCENT_match:
+				// an accent over a vowel, convert to proper accent
 				buffer[0] = getc(fpTmp);
 				buffer[1] = '\0';
 				FormatOutput("&%sacute;", buffer);
 				ch = getc(fpTmp);
 				assert( ch == '>' );
-			}
+				break;
 
-			// check for a cross reference
-			if( match == HREF_match )
-			{
+				// ----------------------------------------------------------
+				case HREF_match:
+				// a cross reference
+				{ // Begin HREF_match block
 				char *tag;
 				int npound   = 0;
 				int itag     = 0;
@@ -567,26 +565,30 @@ static void SecondPass(SectionInfo *F)
 					if( PostWarnings() )
 					OutputString("</font></u>\n");
 				}
-
 				FreeMem(tag);
-			}
+				} // End HREF_match block
+				break;
 
-			// check for table of contents
-			if( match == CHILDTABLE_match )
-			{	TableChildren(F, PrintableOmhelp() );
-			}
-			if( match == CONTENTS_match )
-			{	ListChildren(F, PrintableOmhelp() );
-			}
-			if( match == CHILDREN_match )
-			{	// do nothing
-			}
+				// ----------------------------------------------------------
+				case CHILDTABLE_match:
+				TableChildren(F, PrintableOmhelp() );
+				break;
 
-			// check for execute reference
-			if( match == EXECUTE_match )
-			{	char *execute;
+				// ----------------------------------------------------------
+				case CONTENTS_match:
+				ListChildren(F, PrintableOmhelp() );
+				break;
+
+				// ----------------------------------------------------------
+				case CHILDREN_match:
+				// do nothing
+				break;
+
+				// ----------------------------------------------------------
+				case EXECUTE_match:
+				{ // Begin EXECUTE_match block
+				char *execute;
 				char *lower;
-
 				int i = 0;
 
 				execute = AllocMem(1000, sizeof(char));
@@ -615,11 +617,12 @@ static void SecondPass(SectionInfo *F)
 
 				FreeMem(lower);
 				FreeMem(execute);
-			}
+				} // End EXECUTE_match block
+				break;
 
-			// check for end of frame
-			if( match == FEND_match )
-			{
+				// ----------------------------------------------------------
+				case FEND_match:
+				// for end of frame
 				assert( ! PrintableOmhelp() );
 				assert( ! NoFrame() );
 
@@ -642,13 +645,14 @@ static void SecondPass(SectionInfo *F)
 
 				// Automatic links to this section and frame
 				AutomaticLink(0, F);
-			}
+				break;
 
-			if( match == TREF_match ||
-			    match == RREF_match ||
-			    match == TITLE_match
-			)
-			{	char           *tag;
+				// ----------------------------------------------------------
+				case TREF_match:
+				case RREF_match:
+				case TITLE_match:
+				{ // Begin TREF_match, RREF_match, TITLE_match block
+				char           *tag;
 				int            itag;
 				CrossReference *C;
 
@@ -718,10 +722,19 @@ static void SecondPass(SectionInfo *F)
 					}
 				}
 				FreeMem(tag);
-			}
-			if(match == ENDHREF_match && lastCrossReferenceDefined)
-			{
-				HrefEnd("");
+				} // End TREF_match, RREF_match, TITLE_match block
+				break;
+
+				// ----------------------------------------------------------
+				case ENDHREF_match:
+				if( lastCrossReferenceDefined )
+					HrefEnd("");
+				break;
+
+				// ----------------------------------------------------------
+				default:
+				assert( match == NO_match || match == PARTIAL_match );
+				break;
 			}
 
 			// get next character
