@@ -46,18 +46,6 @@ var list_across0 = [
 '_search.htm',
 '_external.htm'
 ];
-var list_current0 = [
-'navigate.htm#Syntax',
-'navigate.htm#Purpose',
-'navigate.htm#Type',
-'navigate.htm#Type.Example',
-'navigate.htm#label',
-'navigate.htm#Prev and Next',
-'navigate.htm#No Such Section',
-'navigate.htm#Default',
-'navigate.htm#Example',
-'navigate.htm#Root Section'
-];
 function choose_up0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -99,10 +87,4 @@ function choose_across0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_across0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

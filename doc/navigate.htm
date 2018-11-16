@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Setting Relative Navigation Links For A Section</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Setting Relative Navigation Links For A Section">
-<meta name="keywords" id="keywords" content=" setting relative navigation links section link syntax purpose type example label prev next no such default root ">
+<meta name="keywords" id="keywords" content=" setting relative navigation links section syntax purpose type content prev next across top up sibling down down_up_i current example label _up_i _jump_table no such default root ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -101,23 +101,8 @@ A:active { color : purple }
 <option>external</option>
 </select>
 </td>
-<td>
-<select onchange='choose_current0(this)'>
-<option>Current-&gt;</option>
-<option>Syntax</option>
-<option>Purpose</option>
-<option>Type</option>
-<option>---..Example</option>
-<option>label</option>
-<option>Prev and Next</option>
-<option>No Such Section</option>
-<option>Default</option>
-<option>Example</option>
-<option>Root Section</option>
-</select>
-</td>
 </tr></table><br>
-
+<br><a href="navigate.htm#Syntax" target="_top">Syntax</a><br><a href="navigate.htm#Purpose" target="_top">Purpose</a><br><a href="navigate.htm#Type" target="_top">Type</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Content" target="_top">Content</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Prev" target="_top">Prev</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Next" target="_top">Next</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Across" target="_top">Across</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Top" target="_top">Top</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Up" target="_top">Up</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Sibling" target="_top">Sibling</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Down" target="_top">Down</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Down_up_i" target="_top">Down_up_i</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Current" target="_top">Current</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Example" target="_top">Example</a><br><a href="navigate.htm#Label" target="_top">Label</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Label._up_i" target="_top">_up_i</a><br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Label._jump_table" target="_top">_jump_table</a><br><a href="navigate.htm#Prev and Next" target="_top">Prev&nbsp;and&nbsp;Next</a><br><a href="navigate.htm#No Such Section" target="_top">No&nbsp;Such&nbsp;Section</a><br><a href="navigate.htm#Default" target="_top">Default</a><br><a href="navigate.htm#Example" target="_top">Example</a><br><a href="navigate.htm#Root Section" target="_top">Root&nbsp;Section</a>
 
 
 
@@ -146,81 +131,93 @@ and label for each of the links.
 <br>
 <b><big><a name="Type" id="Type">Type</a></big></b>
 <br>
-The navigation links have the types listed in the table below.
-<center>
-<table><tr><td align='left'  valign='top'>
+The possible 
+<code><i><font color="black"><span style='white-space: nowrap'>type</span></font></i></code>
+, and meaning, for the navigation links are
+specified below:
 
-<b>Type</b>
-	</td><td align='left'  valign='top'>
- <b>Link to</b>
-</td></tr><tr><td align='left'  valign='top'>
+<br>
+<br>
+<big><a name="Type.Content" id="Type.Content">Content</a></big>
+<br>
+The table of contents section for entire document.
 
-<code><font color="blue">Content</font></code>
-	</td><td align='left'  valign='top'>
- The table of contents section for entire document
-</td></tr><tr><td align='left'  valign='top'>
+<br>
+<br>
+<big><a name="Type.Prev" id="Type.Prev">Prev</a></big>
+<br>
+The previous section in read order.
 
-<code><font color="blue">Prev</font></code>
-	</td><td align='left'  valign='top'>
- The previous section in read order
-</td></tr><tr><td align='left'  valign='top'>
+<br>
+<br>
+<big><a name="Type.Next" id="Type.Next">Next</a></big>
+<br>
+The next section in read order.
 
-<code><font color="blue">Next</font></code>
-	</td><td align='left'  valign='top'>
- The next section in read order
-</td></tr><tr><td align='left'  valign='top'>
+<br>
+<br>
+<big><a name="Type.Across" id="Type.Across">Across</a></big>
+<br>
+The group of sections that cross reference entire document; e.g,
+the search and index sections are in this group.
 
-<code><font color="blue">Top</font></code>
-	</td><td align='left'  valign='top'>
- The section at the top of tree
-	(corresponds to <a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root_file</span></a>
-)
-</td></tr><tr><td align='left'  valign='top'>
+<br>
+<br>
+<big><a name="Type.Top" id="Type.Top">Top</a></big>
+<br>
+The section corresponding to the top of the tree; i.e.,
+the section in the <a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root_file</span></a>
+.
 
-<code><font color="blue">Up</font></code>
-	</td><td align='left'  valign='top'>
- The group of section above this one in tree
-</td></tr><tr><td align='left'  valign='top'>
+<br>
+<br>
+<big><a name="Type.Up" id="Type.Up">Up</a></big>
+<br>
+The sections starting at the top of tree and down to
+the current section.
 
-<code><font color="blue">Sibling</font></code>
-	</td><td align='left'  valign='top'>
- The group of sections with same parent as this one in tree
-</td></tr><tr><td align='left'  valign='top'>
+<br>
+<br>
+<big><a name="Type.Sibling" id="Type.Sibling">Sibling</a></big>
+<br>
+The group of sections with same parent as the current section.
+This has the same meaning as <code><font color="blue">Down_up_1</font></code>; i.e.,
+down one and then up one.
 
-<code><font color="blue">Down</font></code>
-	</td><td align='left'  valign='top'>
- The group of sections directly below this one in tree
-</td></tr><tr><td align='left'  valign='top'>
+<br>
+<br>
+<big><a name="Type.Down" id="Type.Down">Down</a></big>
+<br>
+The group of sections directly below the current section;
+i.e., its children.
+This has the same meaning as <code><font color="blue">Down_up_0</font></code>; i.e.,
+down one and then up zero.
 
-
+<br>
+<br>
+<big><a name="Type.Down_up_i" id="Type.Down_up_i">Down_up_i</a></big>
+<br>
+For 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ between <code><font color="blue">0</font></code> and <code><font color="blue">9</font></code>,
+the type 
 <code><font color="blue"><span style='white-space: nowrap'>Down_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
-
-	</td><td align='left'  valign='top'>
- The sections directly below the section 
+ is the group of sections
+directly below the section 
 <code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
  levels
-	up in the documentation tree.
-</td></tr><tr><td align='left'  valign='top'>
+up from the current section.
 
-	</td><td align='left'  valign='top'>
- where 
-<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
- is a number between <code><font color="blue">0</font></code> and <code><font color="blue">9</font></code>.
-</td></tr><tr><td align='left'  valign='top'>
-
-<code><font color="blue">Across</font></code>
-	</td><td align='left'  valign='top'>
- The group of sections that cross reference entire document
-</td></tr><tr><td align='left'  valign='top'>
-
-<code><font color="blue">Current</font></code>
-	</td><td align='left'  valign='top'>
- The group of headings and subheadings for this section
-</td></tr>
-</table>
-</center>Note that the type <code><font color="blue">Down_up_1</font></code> is the same as <code><font color="blue">Sibling</font></code>
-and <code><font color="blue">Down_up_0</font></code> is the same as <code><font color="blue">Down</font></code>
-(but <code><font color="blue">Down_up_2</font></code> is not the same as <code><font color="blue">Up</font></code>).
+<br>
+<br>
+<big><a name="Type.Current" id="Type.Current">Current</a></big>
+<br>
+The group of headings and subheadings in the current section.
+If the corresponding 
+<code><i><font color="black"><span style='white-space: nowrap'>label</span></font></i></code>
+ is <code><font color="blue">_jump_table</font></code>,
+a table at the top of the current section is used to link
+to the headings and sub-headings for this section.
 
 <br>
 <br>
@@ -237,33 +234,33 @@ Suppose that the tree corresponding to a document is
 For this example, if the current section is <code><span style='white-space: nowrap'>&nbsp;F</span></code>
 <table><tr><td align='left'  valign='top'>
 
-current section                 </td><td align='left'  valign='top'>
+current section             </td><td align='left'  valign='top'>
  <code><span style='white-space: nowrap'>&nbsp;F</span></code>  </td></tr><tr><td align='left'  valign='top'>
 
-The previous section            </td><td align='left'  valign='top'>
+previous section            </td><td align='left'  valign='top'>
  <code><span style='white-space: nowrap'>&nbsp;E</span></code>  </td></tr><tr><td align='left'  valign='top'>
 
-The next section                </td><td align='left'  valign='top'>
+next section                </td><td align='left'  valign='top'>
  <code><span style='white-space: nowrap'>&nbsp;G</span></code>  </td></tr><tr><td align='left'  valign='top'>
 
-The section above               </td><td align='left'  valign='top'>
+section above               </td><td align='left'  valign='top'>
  <code><span style='white-space: nowrap'>&nbsp;B</span></code>  </td></tr><tr><td align='left'  valign='top'>
 
-The section two levels up       </td><td align='left'  valign='top'>
+section two levels up       </td><td align='left'  valign='top'>
  <code><span style='white-space: nowrap'>&nbsp;A</span></code>  </td></tr><tr><td align='left'  valign='top'>
 
-The group above this one        </td><td align='left'  valign='top'>
- <code><span style='white-space: nowrap'>&nbsp;B</span></code>, <code><span style='white-space: nowrap'>&nbsp;A</span></code> </td></tr><tr><td align='left'  valign='top'>
+sections up from this one   </td><td align='left'  valign='top'>
+ <code><span style='white-space: nowrap'>&nbsp;A</span></code>, <code><span style='white-space: nowrap'>&nbsp;B</span></code>, <code><span style='white-space: nowrap'>&nbsp;F</span></code> </td></tr><tr><td align='left'  valign='top'>
 
-The group of siblings           </td><td align='left'  valign='top'>
+siblings                    </td><td align='left'  valign='top'>
  <code><span style='white-space: nowrap'>&nbsp;C</span></code>, <code><span style='white-space: nowrap'>&nbsp;F</span></code> </td></tr><tr><td align='left'  valign='top'>
 
-The group directly below        </td><td align='left'  valign='top'>
+children                    </td><td align='left'  valign='top'>
  <code><span style='white-space: nowrap'>&nbsp;G</span></code>, <code><span style='white-space: nowrap'>&nbsp;J</span></code>
 </td></tr>
 </table>
 <br>
-<b><big><a name="label" id="label">label</a></big></b>
+<b><big><a name="Label" id="Label">Label</a></big></b>
 <br>
 The value 
 <code><i><font color="black"><span style='white-space: nowrap'>label&nbsp;1</span></font></i></code>
@@ -280,20 +277,36 @@ for the navigation links corresponding to
 The labels cannot begin with the special character <code><font color="blue">_</font></code>
 with the following special exception:
 
-<code><font color="blue"><span style='white-space: nowrap'><br>
 <br>
-_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
-</span></font></code>
+<br>
+<big><a name="Label._up_i" id="Label._up_i">_up_i</a></big>
+<br>
+The label 
+<code><font color="blue"><span style='white-space: nowrap'>_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+,
 where 
 <code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
- is a number between <code><font color="blue">0</font></code> and <code><font color="blue">9</font></code>.
-In this special case,
+ is a number between <code><font color="blue">0</font></code> and <code><font color="blue">9</font></code>,
+is a special case.
+In this case,
 the <a href="glossary.htm#Cross Reference Tag" target="_top"><span style='white-space: nowrap'>cross&nbsp;reference&nbsp;tag</span></a>
 
 for the section 
 <code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
  levels up from the current section
 is used for the label.
+
+<br>
+<br>
+<big><a name="Label._jump_table" id="Label._jump_table">_jump_table</a></big>
+<br>
+If 
+<code><i><font color="black"><span style='white-space: nowrap'>type</span></font></i></code>
+ is <code><font color="blue">Current</font></code>,
+the label <code><font color="blue">_jump_table</font></code> is a special case.
+In this case,
+a table at the top of the current section is used to link
+to the headings and sub-headings for this section.
 
 <br>
 <br>
@@ -360,13 +373,13 @@ the following command:
           Prev%Previous%
           Next%Next%
           Up%Up%
-          Down_up_2%Down_up_2%
+          Down_up_2%_up_2%
           Down_up_1%Down_up_1%
           Down_up_0%Down_up_0%
           Sibling%Sibling%
           Down%Down%
           Across%Across%
-          Current%Current
+          Current%_jump_table
      %$$
 </pre></font></code>
 <br>
