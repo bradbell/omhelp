@@ -194,7 +194,6 @@ static SectionInfo *CurrentSection = NULL;
 // ("<" in this case) appears no where else in any of the text. Thus
 // one match cannot startup while another is running.
 enum MatchType {
-	NO_match,           // corresponds to the value 0
 	HREF_match,
 	CONTENTS_match,
 	EXECUTE_match,
@@ -205,7 +204,9 @@ enum MatchType {
 	ENDHREF_match,
 	CHILDREN_match,
 	CHILDTABLE_match,
-	ACCENT_match
+	ACCENT_match,
+	NO_match,
+	PARTIAL_match
 };
 
 static char *MatchText[]  = {
@@ -289,14 +290,14 @@ static void PushTmpOutput(const char *root)
 
 static char MatchBuffer[10];
 static int  MatchIndex = 0;
-static int MatchOrOutput(int ch)
-{	int    i;
-	int    j;
-	int    state;
-	int    match;
-	char   *text;
+static enum MatchType MatchOrOutput(int ch)
+{	int            i;
+	int            j;
+	int            state;
+	char           *text;
+	enum MatchType result;
 
-	match = 0;
+	result = NO_match;
 	for(i = 0; i < MatchNumber; i++)
 	{	text  = MatchText[i];
 		state = MatchState[i];
@@ -306,25 +307,30 @@ static int MatchOrOutput(int ch)
 			{	for(j = 0; j < MatchNumber; j++)
 					MatchState[j] = 0;
 				MatchIndex = 0;
-				return i + 1;
+				result = (enum MatchType) i;
+				return result;
 			}
-			match = 1;
+			result = PARTIAL_match;
 		}
 		else	MatchState[i] = 0;
 	}
-	if( match )
+	if( result == PARTIAL_match )
 	{	assert(MatchIndex < 100);
 		MatchBuffer[MatchIndex++] = ch;
-		return 0;
+		return result;
 	}
+	assert( result == NO_match );
+	//
+	// output charages that have been waiting to see if a match
 	for(i = 0; i < MatchIndex; i++)
 		OutputChar(MatchBuffer[i]);
 	MatchIndex = 0;
-
+	//
+	// output this character
 	if( ch != EOF )
 		OutputChar((char) ch);
-
-	return 0;
+	//
+	return result;
 }
 
 
@@ -334,9 +340,9 @@ static void SecondPass(SectionInfo *F)
 	char *NameTmp;
 	FILE *fpTmp;
 	int  ch;
-	int  match;
 	int  index;
 	int  build_jump_table;
+	enum MatchType  match;
 
 	// initialize to not defined
 	int   lastCrossReferenceDefined = 0;
@@ -448,6 +454,10 @@ static void SecondPass(SectionInfo *F)
 		while( ch != EOF )
 		{	// output checking for special sequences
 			match = MatchOrOutput(ch);
+			while( ch != EOF && (match == NO_match || match == PARTIAL_match) )
+			{	ch    = getc(fpTmp);
+				match = MatchOrOutput(ch);
+			}
 
 			// check for an accent over a vowel
 			if( match == ACCENT_match )
