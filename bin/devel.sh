@@ -16,8 +16,8 @@
 # image_link='https://bradbell.github.io/omhelp'
 # echo "image_link=$image_link"
 #
-# list of files that are not automatically ignored by check_copyright.sh
-copyright_ignore='
+# special files, for this repository, that the devel tools should ignore
+ignore_files='
 	omhelp.c
 '
-echo "copyright_ignore=$copyright_ignore"
+echo "ignore_files=$ignore_files"

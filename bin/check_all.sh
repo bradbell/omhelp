@@ -118,38 +118,36 @@ fi
 highlight_prefix=`grep source_highlight_prefix bin/run_cmake.sh | \
 		sed -e 's|^.*=||' -e 's|" .*||' -e 's|"||' -e "s|[$]HOME|$HOME|"`
 # -----------------------------------------------------------------------------
-for test_case in highlight_no highlight_yes
+for test_case in highlight_yes highlight_no
 do
-	if [ "$test_case" == 'highlight_no' ] && [ -e "$highlight_prefix" ]
+	if [ "$test_case" == 'highlight_no' ]
 	then
 		echo_eval mv $highlight_prefix $highlight_prefix.no
-	fi
-	if [ "$test_case" == 'highlight_yes' ]
-	then
-		if [ ! -e "$highlight_prefix.no" ]
-		then
-			echo "check_all.sh: cannot find $highlight_prefix.no"
-			exit 1
-		fi
-		echo_eval mv $highlight_prefix.no $highlight_prefix
 	fi
 	# -------------------------------------------------------------------------
 	echo_log_eval bin/run_cmake.sh debug
 	number=`grep 'WARNING: \$srcfile command NOT available' \
-		$top_srcdir/check_all.log | wc -l`
-	if [ "$number" != 1 ]
+	$top_srcdir/check_all.log | wc -l`
+	if [ "$test_case" == 'highlight_no' ]
 	then
-		if [ "$test_case" == 'highlight_no' ]
+		if [ "$number" != 1 ]
 		then
 			echo 'check_all.sh: test case highlight_no'
 			echo 'bin/run_cmake.sh srcfile WARNING missing'
-		else
+			if [ "$exit_on_warning" == 'yes' ]
+			then
+				exit 1
+			fi
+		fi
+	else
+		if [ "$number" != 0 ]
+		then
 			echo 'check_all.sh: test case highlight_yes'
 			echo 'bin/run_cmake.sh srcfile WARNING present'
-		fi
-		if [ "$exit_on_warning" == 'yes' ]
-		then
-			exit 1
+			if [ "$exit_on_warning" == 'yes' ]
+			then
+				exit 1
+			fi
 		fi
 	fi
 	# -------------------------------------------------------------------------
@@ -174,6 +172,11 @@ do
 	echo_log_eval ./run_all.sh batch
 	# ------------------------------------------------------------------------
 	echo_log_eval cd ../..
+	#
+	if [ "$test_case" == 'highlight_no' ]
+	then
+		echo_eval mv $highlight_prefix.no $highlight_prefix
+	fi
 done
 echo "check_all.sh: OK"
 exit 0
