@@ -117,6 +117,13 @@ $tend
 $$
 
 $head 19-01-18$$
+$list number$$
+There was a bug in the optional
+$cref/jump_table/navigate/Label/_jump_table/$$ at the top of a section.
+To be specific, It did not tread headers that started with the character '0'
+correctly.
+This has been fixed.
+$lnext
 There was an error message bug related to the $cref verbatim$$ command,
 when a new line was placed directly after the command.
 To be more specific,
@@ -125,6 +132,7 @@ error messages was larger than it should have been.
 This was also true for other commands that read from a different file; e.g.,
 $cref srcfile$$.
 This bug has been fixed.
+$lend
 
 $head 18-11-16$$
 The option to use a  $cref/_jump_table/navigate/Label/_jump_table/$$

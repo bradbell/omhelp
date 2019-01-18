@@ -63,7 +63,7 @@ void jump_table(SectionInfo *Current)
 
 		// skip to start of this heading or subheading
 		i = 0;
-		while( (C->head[i] != '0') & (head[i] == C->head[i]) )
+		while( (C->head[i] != '\0') & (head[i] == C->head[i]) )
 			i++;
 		//
 		// linking text for this heading
