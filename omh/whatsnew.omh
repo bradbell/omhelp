@@ -116,6 +116,16 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 19-01-18$$
+There was an error message bug related to the $cref verbatim$$ command,
+when a new line was placed directly after the command.
+To be more specific,
+the new line was counted twice and the line number in subsequent
+error messages was larger than it should have been.
+This was also true for other commands that read from a different file; e.g.,
+$cref srcfile$$.
+This bug has been fixed.
+
 $head 18-11-16$$
 The option to use a  $cref/_jump_table/navigate/Label/_jump_table/$$
 for the current section of the documentation was added.
