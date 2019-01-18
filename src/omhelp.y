@@ -463,7 +463,8 @@ static void SecondPass(SectionInfo *F)
 				{	jump_table(F);
 					// add extra space after jump table to account for call to
 					// ConvertAddPrevious(1) after <ETITLE> in section code
-					OutputString("<br>\n");
+					OutputString("\n<br");
+					OutputString(Internal2Out("SelfTerminateCmd"));
 				}
 				break;
 

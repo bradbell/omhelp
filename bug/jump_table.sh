@@ -26,7 +26,7 @@ cat << EOF > htm/one.omh
 
 @section Jump Table@@
 
-@head Header-0-More@@
+@head Header.One@@
 If you change this header to start with 1 instead of 0,
 the sub-header will be indented in the jump table.
 
@@ -46,4 +46,4 @@ then
 	exit 1
 fi
 echo_eval cd htm
-echo_eval ../$program ./one.omh -omhelp_dir ../../omhelp_data
+echo_eval ../$program ./one.omh -xml -omhelp_dir ../../omhelp_data

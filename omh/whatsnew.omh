@@ -118,11 +118,13 @@ $$
 
 $head 19-01-18$$
 $list number$$
-There was a bug in the optional
+There were two bugs in the optional
 $cref/jump_table/navigate/Label/_jump_table/$$ at the top of a section.
-To be specific, It did not tread headers that started with the character '0'
-correctly.
-This has been fixed.
+The first bug caused an $code xml$$ format error when
+using jump tables with $cref/xml/running/xml/$$.
+The other bug did not indent sub headers below
+headers that started with the character '0'.
+These bugs have been fixed.
 $lnext
 There was an error message bug related to the $cref verbatim$$ command,
 when a new line was placed directly after the command.
