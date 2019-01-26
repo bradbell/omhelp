@@ -18,9 +18,19 @@ $spell
 	Jax
 	nlcomment
 	tbl
+	github gh-pages
 $$
 
 $section OMhelp Wish List$$
+
+$head Navigation$$
+The Java Script navigation menus at the top
+are the same for all siblings.
+Currently each section has its own copy of the corresponding code.
+This makes for lots of differences in the github gh-pages branch
+when the menus change.
+Perhaps it would be worth creating one version for each section
+that its children, grand children and so on could share.
 
 $head Image$$
 Extend the $cref image$$ and $code icon$$ commands

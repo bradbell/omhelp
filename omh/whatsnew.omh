@@ -116,6 +116,9 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 19-01-26$$
+Add a $cref/navigation/wish_list/Navigation/$$ wish list item.
+
 $head 19-01-18$$
 $list number$$
 There were two bugs in the optional
