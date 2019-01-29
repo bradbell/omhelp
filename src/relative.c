@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -80,6 +80,7 @@ $end
 # include "href.h"
 # include "AutoTag.h"
 # include "convert.h"
+# include "select_childtable.h"
 
 static void OutputOption(const char *name)
 {	// should option name be preformatted ?
@@ -711,6 +712,19 @@ void RelativeTable(SectionInfo *This)
 		{	OutputString("<td>");
 			ConvertOutputString(label, pre);
 			OutputString("</td>\n");
+		}
+		else if( strcmp(label, F->tag) == 0 )
+		{	char *script_name;
+			script_name = select_childtable(F);
+
+			OutputString("<td>\n");
+			FormatOutput(
+				"<script type='text/javascript' language='JavaScript'"
+				"src='%s'></script>\n", script_name
+			);
+			OutputString("</td>\n");
+			//
+			FreeMem(script_name);
 		}
 		else
 		{	OutputString("<td>\n");

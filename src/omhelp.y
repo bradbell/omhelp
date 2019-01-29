@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -1432,6 +1432,7 @@ begin
 	{	char *tag;
 		char *tag_lower;
 		char *number = NULL;
+		int i;
 # ifndef NDEBUG
 		CrossReference *C;
 # endif
@@ -1526,6 +1527,14 @@ begin
 			"to the starting file",
 			NULL
 		);
+		for(i = 0; tag[i] != '\0'; ++i)
+		if( isspace( tag[i] ) )	fatalomh(
+			"In the $begin command on line ",
+			int2str($1.line),
+			"\nthe section tag contains white space characters",
+			NULL
+		);
+
 
 		// start a new output file
 		PushTmpOutput(CurrentSection->tag);

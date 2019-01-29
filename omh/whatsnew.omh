@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin whatsNew$$
 $dollar @$$
 $spell
+	gh-pages
 	srccode
 	cref
 	Bradley
@@ -116,8 +117,20 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 19-01-29$$
+The drop down navigate links of
+$cref/type/navigate/Type/$$ $codei%Down_up_%i%$$, with label
+$cref/label/navigate/Label/$$ $codei%_up_%i%$$ were identical
+for every child section.
+This has been replace by a single Java script file for
+the identical cases.
+This reduces the size of the files
+and the number of difference in $code gh-pages$$ branches
+used to display omhelp documentation.
+(The corresponding 19-01-26 wish list item was removed).
+
 $head 19-01-26$$
-Add a $cref/navigation/wish_list/Navigation/$$ wish list item.
+Add a navigation wish list item.
 
 $head 19-01-18$$
 $list number$$

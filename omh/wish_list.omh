@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -22,15 +22,6 @@ $spell
 $$
 
 $section OMhelp Wish List$$
-
-$head Navigation$$
-The Java Script navigation menus at the top
-are the same for all siblings.
-Currently each section has its own copy of the corresponding code.
-This makes for lots of differences in the github gh-pages branch
-when the menus change.
-Perhaps it would be worth creating one version for each section
-that its children, grand children and so on could share.
 
 $head Image$$
 Extend the $cref image$$ and $code icon$$ commands

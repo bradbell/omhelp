@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2018 Bradley M. Bell
+# OMhelp: Source Code -> Help Files: Copyright (C) 1998-2019 Bradley M. Bell
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -110,6 +110,7 @@ ADD_EXECUTABLE(omhelp
 	relative.c
 	search.c
 	section.c
+	select_childtable.c
 	style.c
 	spell.c
 	trace_exit.c
