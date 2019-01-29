@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ $comment put this aindex command here so is the default for all sections$$
 $aindex section head subhead$$
 
 
-$section omhelp-20190126: Language Independent Embedded Documentation$$
+$section omhelp-20190129: Language Independent Embedded Documentation$$
 
 $head Home Page$$
 $href%https://github.com/bradbell/omhelp%$$
