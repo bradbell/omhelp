@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -115,6 +115,9 @@ void ContentPass1(SectionInfo *content)
 
 	// title for this section
 	OutputString("<center><b><big><big>\n");
+
+	// mark the end of the title for this section
+	OutputString("<ETITLE>");
 
 	// Add the section number to the title
 	number = SectionNumber(content);

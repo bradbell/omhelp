@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -175,6 +175,9 @@ void FunRefPass1(SectionInfo *section)
 	}
 	else	OutputString(section->title);
 	OutputString("</big></big></b></center>\n");
+
+	// mark the end of the title for this section
+	OutputString("<ETITLE>");
 
 	OutputString("<table>\n");
 	OutputString("<tr valign=\"top\"><td>\n");

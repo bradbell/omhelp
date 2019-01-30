@@ -118,12 +118,19 @@ $tend
 $$
 
 $head 19-01-30$$
+$list number$$
 A default $cref/default/navigate/Label/Default/$$ label
 was added for each navigation type.
-In addition, the OMhelp documentation now uses
+$lnext
+The OMhelp documentation now uses
 $cref/jump tables/navigate/Label/_jump_table/$$
 and the $cref/example/navigate/Example/$$
 navigation links were changed.
+$lnext
+The jump tables were missing at the top of the
+$cref _index$$ and $cref _reference$$.
+This has been fixed.
+$lend
 
 $head 19-01-29$$
 $list number$$

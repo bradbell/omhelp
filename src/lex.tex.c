@@ -616,7 +616,7 @@ char *textext;
 #line 2 "/home/bradbell/repo/omhelp.git/src/latex.l"
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
