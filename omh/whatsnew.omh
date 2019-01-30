@@ -117,6 +117,14 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 19-01-30$$
+A default $cref/default/navigate/Label/Default/$$ label
+was added for each navigation type.
+In addition, the OMhelp documentation now uses
+$cref/jump tables/navigate/Label/_jump_table/$$
+and the $cref/example/navigate/Example/$$
+navigation links were changed.
+
 $head 19-01-29$$
 $list number$$
 The drop down navigate links of
@@ -135,8 +143,8 @@ $cref/tag/begin/tag/$$ specified by the $code begin$$ command.
 In addition, the restriction that $code _links$$ and $code _frame$$
 cannot be part of the tag was added to the documentation.
 $lnext
-A special case where the navigation label is
-$cref/empty/navigate/Label/empty/$$ was added.
+A special case where the navigation label is empty was added.
+This was later changed to a default label for each navigation type.
 This encourages a more efficient representation.
 $lend
 

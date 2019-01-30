@@ -29,51 +29,64 @@ and label for each of the links.
 
 $head Type$$
 The possible $icode type$$, and meaning, for the navigation links are
-specified below:
+specified below.
+In addition, each $icode type$$ has a
+$cref/default/navigate/Label/Default/$$ label that is used
+when the label is empty.
 
 $subhead Content$$
 The table of contents section for entire document.
+The default label for this type is $code Content$$.
 
 $subhead Prev$$
 The previous section in read order.
+The default label for this type is $code Prev$$.
 
 $subhead Next$$
 The next section in read order.
+The default label for this type is $code Next$$.
 
 $subhead Across$$
 The group of sections that cross reference entire document; e.g,
 the search and index sections are in this group.
+The default label for this type is $code Index$$.
 
 $subhead Top$$
 The section corresponding to the top of the tree; i.e.,
 the section in the $cref/root_file/running/root_file/$$.
+The default label for this type is $code Top$$.
 
 $subhead Up$$
 The sections starting at the top of tree and down to
 the current section.
+The default label for this type is $code Up$$.
 
 $subhead Sibling$$
 The group of sections with same parent as the current section.
 This has the same meaning as $code Down_up_1$$; i.e.,
 down one and then up one.
+The default label for this type is $code _up_1$$.
 
 $subhead Down$$
 The group of sections directly below the current section;
 i.e., its children.
 This has the same meaning as $code Down_up_0$$; i.e.,
 down one and then up zero.
+The default label for this type is $code _up_0$$.
 
 $subhead Down_up_i$$
 For $icode i$$ between $code 0$$ and $code 9$$,
 the type $codei%Down_up_%i%$$ is the group of sections
 directly below the section $icode i$$ levels
 up from the current section.
+The default label for this type is $codei%_up_%i%$$.
 
 $subhead Current$$
 The group of headings and subheadings in the current section.
 If the corresponding $icode label$$ is $code _jump_table$$,
 a table at the top of the current section is used to link
 to the headings and sub-headings for this section.
+The default label for this type is $code _jump_table$$.
 
 $subhead Example$$
 Suppose that the tree corresponding to a document is
@@ -103,7 +116,13 @@ for the navigation links corresponding to $icode type 1$$.
 The value $icode label 2$$ is the label that the user will see
 for the navigation links corresponding to $icode type 2$$ and so on.
 The labels cannot begin with the special character $code _$$
-with the following special exception:
+with the following exception below:
+
+$subhead Default$$
+A default value is specified for each
+$cref/type/navigate/Type/$$ that is used when the corresponding label
+is empty; e.g., in the syntax
+$icode|type_i|%%|type_i+1 ...|$$ uses the default value for the $th i$$ label.
 
 $subhead _up_i$$
 The label $codei%_up_%i%$$,
@@ -113,6 +132,13 @@ In this case,
 the $cref/cross reference tag/glossary/Cross Reference Tag/$$
 for the section $icode i$$ levels up from the current section
 is used for the label.
+In the case where $icode type$$ is $codei%Down_up_%i%$$ and
+$icode label$$ is $codei%_up_%i%$$, the same cross reference link
+table can be used by many sections.
+This results in smaller file sizes and less changes when sections
+are added or moved.
+(Change result in differences when the output of OMhelp is checked into
+a source code control system for viewing on the web.)
 
 $subhead _jump_table$$
 If $icode type$$ is $code Current$$,
@@ -120,16 +146,6 @@ the label $code _jump_table$$ is a special case.
 In this case,
 a table at the top of the current section is used to link
 to the headings and sub-headings for this section.
-
-$subhead empty$$
-In the special case where $icode type$$ is
-$cref/Down_up_i/navigate/Type/Down_up_i/$$,
-and $icode label$$ is empty is equivalent
-$icode%label% = _up_%i%$$ for the same $icode i$$.
-In this case a single cross reference Javascript file
-can be used by multiple sections. This reduces the size
-of the files and the number of differences in the OMhelp output
-(which it is distributed using a source code control system).
 
 $head Prev and Next$$
 Note that the size of the label corresponding to $codei%_up_%i%$$
@@ -153,20 +169,34 @@ $head Default$$
 The default value for the navigation command is
 $codep
 	@navigate%
-		Prev%Prev%
-		Next%Next%
-		Across%Index%
-		Up%Up%
+		Prev%%
+		Next%%
+		Across%%
+		Up%%
 		Down_up_4%%
 		Down_up_3%%
 		Down_up_2%%
 		Down_up_1%%
 		Down_up_0%%
-		Current%Headings
+		Current
+	%%@@
+$$
+Note that, this is equivalent to
+$codep
+	@navigate%
+		Prev%Prev%
+		Next%Next%
+		Across%Index%
+		Up%Up%
+		Down_up_4%_up_4%
+		Down_up_3%_up_3%
+		Down_up_2%_up_2%
+		Down_up_1%_up_1%
+		Down_up_0%_up_0%
+		Current%_jump_table
 	%@@
 $$
-Note that, for $icode%i% = 0, 1, 2, 3, 4%$$,
-$codei|Down_up_|i|%_up_|i|%|$$ is equivalent to $codei|Down_up_|i|%%|$$.
+
 
 $head Example$$
 The navigation links for this section were specified with
@@ -175,28 +205,24 @@ $navigate%
 	Content%Contents%
 	Prev%Previous%
 	Next%Next%
-	Up%Up%
-	Down_up_2%_up_2%
-	Down_up_1%Down_up_1%
-	Down_up_0%Down_up_0%
-	Sibling%Sibling%
-	Down%Down%
 	Across%Across%
-	Current%_jump_table
+	Up%Location%
+	Down_up_2%Parents%
+	Down_up_1%Siblings%
+	Down_up_0%_up_0%
+	Current%Headings
 %$$
 $codep
 	@navigate%
 		Content%Contents%
 		Prev%Previous%
 		Next%Next%
-		Up%Up%
-		Down_up_2%_up_2%
-		Down_up_1%Down_up_1%
-		Down_up_0%Down_up_0%
-		Sibling%Sibling%
-		Down%Down%
 		Across%Across%
-		Current%_jump_table
+		Up%Location%
+		Down_up_2%Parents%
+		Down_up_1%Siblings%
+		Down_up_0%_up_0%
+		Current%Headings
 	%@@
 $$
 

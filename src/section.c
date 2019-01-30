@@ -479,25 +479,25 @@ static NavigateInfo NavigateType = {
 static NavigateInfo Default = {
 	10,
 	{
-		{ PREV_nav,      "Prev"      },
-		{ NEXT_nav,      "Next"      },
-		{ ACROSS_nav,    "Index"     },
-		{ UP_nav,        "Up"        },
-		{ DOWN_UP_4_nav, ""          },
-		{ DOWN_UP_3_nav, ""          },
-		{ DOWN_UP_2_nav, ""          },
-		{ DOWN_UP_1_nav, ""          },
-		{ DOWN_UP_0_nav, ""          },
-		{ CURRENT_nav,   "Headings"  },
-		{ INVALID_nav,   "not used"  },
-		{ INVALID_nav,   "not used"  },
-		{ INVALID_nav,   "not used"  },
-		{ INVALID_nav,   "not used"  },
-		{ INVALID_nav,   "not used"  },
-		{ INVALID_nav,   "not used"  },
-		{ INVALID_nav,   "not used"  },
-		{ INVALID_nav,   "not used"  },
-		{ INVALID_nav,   "not used"  }
+		{ PREV_nav,      "Prev"         },
+		{ NEXT_nav,      "Next"         },
+		{ ACROSS_nav,    "Index"        },
+		{ UP_nav,        "Up"           },
+		{ DOWN_UP_4_nav, "_up_4"        },
+		{ DOWN_UP_3_nav, "_up_3"        },
+		{ DOWN_UP_2_nav, "_up_2"        },
+		{ DOWN_UP_1_nav, "_up_1"        },
+		{ DOWN_UP_0_nav, "_up_0"        },
+		{ CURRENT_nav,   "_jump_table"  },
+		{ INVALID_nav,   "not used"     },
+		{ INVALID_nav,   "not used"     },
+		{ INVALID_nav,   "not used"     },
+		{ INVALID_nav,   "not used"     },
+		{ INVALID_nav,   "not used"     },
+		{ INVALID_nav,   "not used"     },
+		{ INVALID_nav,   "not used"     },
+		{ INVALID_nav,   "not used"     },
+		{ INVALID_nav,   "not used"     }
 	}
 };
 
@@ -817,14 +817,86 @@ const char *SectionNavigate(
 		tmp = str_alloc(cptr);
 		ClipWhiteSpace(tmp);
 		S->navigate.item[index].label = tmp;
+		if( strlen(tmp) == 0 )
+		{	// use the default label for this type
+			FreeMem(tmp);
+			switch( nav_type )
+			{
+				case ACROSS_nav:
+				tmp = str_alloc("Index");
+				break;
 
-		if( tmp[0] == '\0' ) fatalomh(
-			"In the $navigate command in line ",
-			int2str(line),
-			".\nThere is only white space between two",
-			"\nof the delimiters in this command.",
-			NULL
-		);
+				case CONTENT_nav:
+				tmp = str_alloc("Content");
+				break;
+
+				case CURRENT_nav:
+				tmp = str_alloc("_jump_table");
+				break;
+
+				case DOWN_nav:
+				case DOWN_UP_0_nav:
+				tmp = str_alloc("_up_0");
+				break;
+
+				case SIBLING_nav:
+				case DOWN_UP_1_nav:
+				tmp = str_alloc("_up_1");
+				break;
+
+				case DOWN_UP_2_nav:
+				tmp = str_alloc("_up_2");
+				break;
+
+				case DOWN_UP_3_nav:
+				tmp = str_alloc("_up_3");
+				break;
+
+				case DOWN_UP_4_nav:
+				tmp = str_alloc("_up_4");
+				break;
+
+				case DOWN_UP_5_nav:
+				tmp = str_alloc("_up_5");
+				break;
+
+				case DOWN_UP_6_nav:
+				tmp = str_alloc("_up_6");
+				break;
+
+				case DOWN_UP_7_nav:
+				tmp = str_alloc("_up_7");
+				break;
+
+				case DOWN_UP_8_nav:
+				tmp = str_alloc("_up_8");
+				break;
+
+				case DOWN_UP_9_nav:
+				tmp = str_alloc("_up_9");
+				break;
+
+				case NEXT_nav:
+				tmp = str_alloc("Next");
+				break;
+
+				case PREV_nav:
+				tmp = str_alloc("Prev");
+				break;
+
+				case TOP_nav:
+				tmp = str_alloc("Top");
+				break;
+
+				case UP_nav:
+				tmp = str_alloc("Up");
+				break;
+
+				default:
+				assert(0);
+			}
+			S->navigate.item[index].label = tmp;
+		}
 		if( strcmp(tmp, "_jump_table") != 0 && tmp[0] == '_' )
 		if(
 			strlen(tmp) != 5 ||

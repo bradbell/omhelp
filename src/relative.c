@@ -710,13 +710,10 @@ void RelativeTable(SectionInfo *This)
 		S = F->children;
 		if( S == NULL )
 		{	OutputString("<td>");
-			if( strlen(label) == 0 )
-				ConvertOutputString(F->tag, pre);
-			else
-				ConvertOutputString(label, pre);
+			ConvertOutputString(label, pre);
 			OutputString("</td>\n");
 		}
-		else if( (strcmp(label, F->tag) == 0) || strlen(label) == 0 )
+		else if( strcmp(label, F->tag) == 0 )
 		{	char *script_name;
 			script_name = select_childtable(F);
 

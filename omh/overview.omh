@@ -17,6 +17,20 @@ $spell
 	Bradley
 $$
 
+$comment The default navigation settings are set here for testing$$
+$navigate%
+	Prev%%
+	Next%%
+	Across%%
+	Up%%
+	Down_up_4%%
+	Down_up_3%%
+	Down_up_2%%
+	Down_up_1%%
+	Down_up_0%%
+	Current
+%%$$
+
 $comment
 Normally, one should not use path commands. These path commands are so that
 the getstarted subdirectory examples can use the same file names as the entire
