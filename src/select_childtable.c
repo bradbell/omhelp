@@ -57,8 +57,7 @@ $end
 # include "allocmem.h" // for FreeMem
 
 char* select_childtable(SectionInfo* This)
-{	static int call_count = 0;
-
+{
 	// file extension for this xml or htm file
 	const char* ext;
 
@@ -95,9 +94,9 @@ char* select_childtable(SectionInfo* This)
 	);
 
 	// Check if file already exists
-	++call_count;
-	if( call_count > 1 )
+	if( This->select_childtable )
 			return script_name;
+	This->select_childtable = 1;
 
 	// Create the file
 	script_fp = fopen(script_name, "w");

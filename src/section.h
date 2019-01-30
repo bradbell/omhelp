@@ -2,7 +2,7 @@
 # define SECTION_INCLUDED
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -64,7 +64,7 @@ typedef struct sectionInfo {
 	char        *keywords;          // keywords
 	int         nFrame;             // number of frames
 	int         Frame[MAX_FRAME];   // size of each frame
-
+	int         select_childtable;  // does select_childtable.js exist
 
 
 	// position of section in contents tree

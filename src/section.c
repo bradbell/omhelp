@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -538,6 +538,8 @@ SectionInfo *SectionInfoNew(
 	F->style.bgcolor   = NULL;
 	F->style.linkcolor = NULL;
 	F->style.visitcolor= NULL;
+
+	F->select_childtable = 0;
 
 	if( navigateCopy == NULL )
 	{	F->navigate.number = Default.number;
