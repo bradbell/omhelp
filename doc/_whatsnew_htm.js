@@ -9,32 +9,10 @@ var list_up0 = [
 'overview.htm',
 'whatsnew.htm'
 ];
-var list_down1 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down0 = [
-'whatsnew04.htm',
-'whatsnew03.htm',
-'whatsnew02.htm',
-'whatsnew01.htm'
-];
 var list_current0 = [
 'whatsnew.htm#Introduction',
+'whatsnew.htm#19-01-29',
+'whatsnew.htm#19-01-26',
 'whatsnew.htm#19-01-18',
 'whatsnew.htm#18-11-16',
 'whatsnew.htm#18-11-15',

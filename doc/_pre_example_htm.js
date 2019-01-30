@@ -11,42 +11,6 @@ var list_up0 = [
 'start_pre.htm',
 'pre_example.htm'
 ];
-var list_down3 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down2 = [
-'start_simple.htm',
-'start_head.htm',
-'start_image.htm',
-'start_pre.htm',
-'start_font.htm',
-'start_spell.htm',
-'start_latex.htm',
-'start_verbatim.htm',
-'start_src.htm',
-'start_embed.htm',
-'start_multiple.htm',
-'start_cref.htm',
-'start_index.htm'
-];
-var list_down1 = [
-'pre_example.htm'
-];
 var list_current0 = [
 'pre_example.htm#A Paragraph Without Heading or Subheading',
 'pre_example.htm#Indenting Text',

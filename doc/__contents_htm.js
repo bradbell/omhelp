@@ -9,24 +9,6 @@ var list_up0 = [
 'overview.htm',
 '_contents.htm'
 ];
-var list_down1 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;

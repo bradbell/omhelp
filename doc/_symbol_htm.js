@@ -10,54 +10,6 @@ var list_up0 = [
 'latex.htm',
 'symbol.htm'
 ];
-var list_down2 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down1 = [
-'symbol.htm',
-'diacritical.htm',
-'stdfun.htm',
-'subsup.htm',
-'frac.htm',
-'sqrt.htm',
-'array.htm',
-'left_right.htm',
-'under_over.htm',
-'stackrel.htm',
-'latexfont.htm',
-'latexcomment.htm',
-'latexmacro.htm',
-'mathml.htm',
-'diff_xml_htm.htm'
-];
-var list_down0 = [
-'latexnormal.htm',
-'latexnumber.htm',
-'latexspecial.htm',
-'ellipsis.htm',
-'greek.htm',
-'binaryop.htm',
-'relationsym.htm',
-'arrowsym.htm',
-'miscsym.htm',
-'displaysym.htm',
-'space.htm'
-];
 var list_current0 = [
 'symbol.htm#Syntax',
 'symbol.htm#Description',

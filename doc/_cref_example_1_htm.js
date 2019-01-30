@@ -11,46 +11,6 @@ var list_up0 = [
 'start_cref.htm',
 'cref_example_1.htm'
 ];
-var list_down3 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down2 = [
-'start_simple.htm',
-'start_head.htm',
-'start_image.htm',
-'start_pre.htm',
-'start_font.htm',
-'start_spell.htm',
-'start_latex.htm',
-'start_verbatim.htm',
-'start_src.htm',
-'start_embed.htm',
-'start_multiple.htm',
-'start_cref.htm',
-'start_index.htm'
-];
-var list_down1 = [
-'cref_example_1.htm'
-];
-var list_down0 = [
-'cref_example_2.htm',
-'cref3example.htm'
-];
 var list_current0 = [
 'cref_example_1.htm#First Argument',
 'cref_example_1.htm#Contents'

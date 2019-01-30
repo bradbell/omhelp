@@ -10,36 +10,12 @@ var list_up0 = [
 'titles+headings.htm',
 'begin.htm'
 ];
-var list_down2 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down1 = [
-'begin.htm',
-'section.htm',
-'title.htm',
-'head.htm'
-];
 var list_current0 = [
 'begin.htm#Syntax',
 'begin.htm#See Also',
 'begin.htm#Purpose',
 'begin.htm#Example',
-'begin.htm#Restrictions'
+'begin.htm#tag'
 ];
 function choose_across0(item)
 {	var index          = item.selectedIndex;

@@ -11,37 +11,6 @@ var list_up0 = [
 'deprecated.htm',
 'xref.htm'
 ];
-var list_down3 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down2 = [
-'comment.htm',
-'date.htm',
-'deprecated.htm'
-];
-var list_down1 = [
-'wspace.htm',
-'xref.htm',
-'fend.htm',
-'syntax.htm',
-'math.htm',
-'number.htm'
-];
 var list_current0 = [
 'xref.htm#Syntax',
 'xref.htm#See Also',

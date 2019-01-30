@@ -11,31 +11,6 @@ var list_up0 = [
 'installunix.htm',
 'highlight.sh.htm'
 ];
-var list_down3 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down2 = [
-'installunix.htm',
-'installwindows.htm'
-];
-var list_down1 = [
-'highlight.sh.htm'
-];
 var list_current0 = [
 'highlight.sh.htm#Syntax',
 'highlight.sh.htm#srcdir',

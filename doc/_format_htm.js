@@ -9,38 +9,6 @@ var list_up0 = [
 'overview.htm',
 'format.htm'
 ];
-var list_down1 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down0 = [
-'nobreak.htm',
-'pre.htm',
-'codep.htm',
-'codei.htm',
-'color.htm',
-'hilite.htm',
-'th.htm',
-'center.htm',
-'table.htm',
-'list.htm',
-'special.htm',
-'font.htm'
-];
 var list_current0 = [
 'format.htm#Introduction',
 'format.htm#Command Limited',

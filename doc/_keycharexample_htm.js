@@ -11,38 +11,6 @@ var list_up0 = [
 'keycharacter.htm',
 'keycharexample.htm'
 ];
-var list_down3 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down2 = [
-'path.htm',
-'children.htm',
-'include.htm',
-'image.htm',
-'verbatim.htm',
-'srcfile.htm',
-'srccode.htm',
-'execute.htm',
-'keycharacter.htm'
-];
-var list_down1 = [
-'keycharexample.htm'
-];
 var list_current0 = [
 'keycharexample.htm#Include File'
 ];

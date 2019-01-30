@@ -10,28 +10,6 @@ var list_up0 = [
 'spellchecking.htm',
 'spell.htm'
 ];
-var list_down2 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down1 = [
-'spell.htm',
-'nospell.htm'
-];
 var list_current0 = [
 'spell.htm#Syntax',
 'spell.htm#See Also',

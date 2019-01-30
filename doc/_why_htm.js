@@ -9,24 +9,6 @@ var list_up0 = [
 'overview.htm',
 'why.htm'
 ];
-var list_down1 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
 var list_current0 = [
 'why.htm#Introduction',
 'why.htm#Same Time Documentation',

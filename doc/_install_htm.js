@@ -9,28 +9,6 @@ var list_up0 = [
 'overview.htm',
 'install.htm'
 ];
-var list_down1 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down0 = [
-'installunix.htm',
-'installwindows.htm'
-];
 var list_current0 = [
 'install.htm#Contents'
 ];

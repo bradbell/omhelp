@@ -3,24 +3,6 @@ var list_up0 = [
 'cross.htm',
 'navigate.htm'
 ];
-var list_down2 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
 var list_down1 = [
 'keyword.htm',
 'cref.htm',

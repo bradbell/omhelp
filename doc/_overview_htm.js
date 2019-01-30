@@ -8,24 +8,6 @@ var list_across0 = [
 var list_up0 = [
 'overview.htm'
 ];
-var list_down0 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
 var list_current0 = [
 'overview.htm#Home Page',
 'overview.htm#Introduction',

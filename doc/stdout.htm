@@ -53,47 +53,13 @@ A:active { color : purple }
 </select>
 </td>
 <td>
-<select onchange='choose_down3(this)'>
-<option>overview-&gt;</option>
-<option>License</option>
-<option>why</option>
-<option>Install</option>
-<option>get_started</option>
-<option>running</option>
-<option>files</option>
-<option>titles+headings</option>
-<option>cross</option>
-<option>format</option>
-<option>spellchecking</option>
-<option>latex</option>
-<option>other</option>
-<option>browser</option>
-<option>glossary</option>
-<option>wish_list</option>
-<option>whatsNew</option>
-</select>
+<script type='text/javascript' language='JavaScript'src='_childtable_overview_htm.js'></script>
 </td>
 <td>
-<select onchange='choose_down2(this)'>
-<option>files-&gt;</option>
-<option>path</option>
-<option>children</option>
-<option>include</option>
-<option>image</option>
-<option>verbatim</option>
-<option>srcfile</option>
-<option>srccode</option>
-<option>execute</option>
-<option>KeyCharacter</option>
-</select>
+<script type='text/javascript' language='JavaScript'src='_childtable_files_htm.js'></script>
 </td>
 <td>
-<select onchange='choose_down1(this)'>
-<option>children-&gt;</option>
-<option>next</option>
-<option>previous</option>
-<option>stdout</option>
-</select>
+<script type='text/javascript' language='JavaScript'src='_childtable_children_htm.js'></script>
 </td>
 <td>stdout</td>
 <td>
@@ -212,7 +178,7 @@ store the example output file in <code><font color="blue">omhelp.dev.log</font><
 which is listed below
 <code><font color="blue">
 <br>
-<pre style='display:inline'>OMhelp: Version=20190118, ndebug=true, win32=false
+<pre style='display:inline'>OMhelp: Version=20190129, ndebug=true, win32=false
 
 omhelp.omh: OMhelp:
  ../../omh/license.omh: License:
@@ -230,6 +196,7 @@ omhelp.omh: OMhelp:
   ../index.c: KeywordIndex:
   ../relative.c: relative:
    ../links.c: links:
+  ../select_childtable.c: select_childtable:
   ../jump_table.c: jump_table:
   ../search.c: search:
   ../url.c: Url:

@@ -10,33 +10,6 @@ var list_up0 = [
 'cross.htm',
 'mref.htm'
 ];
-var list_down2 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down1 = [
-'keyword.htm',
-'cref.htm',
-'href.htm',
-'rref.htm',
-'tref.htm',
-'mref.htm',
-'navigate.htm'
-];
 var list_current0 = [
 'mref.htm#Syntax',
 'mref.htm#See Also',

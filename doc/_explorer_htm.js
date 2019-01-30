@@ -10,28 +10,6 @@ var list_up0 = [
 'browser.htm',
 'explorer.htm'
 ];
-var list_down2 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down1 = [
-'firefox.htm',
-'explorer.htm'
-];
 var list_current0 = [
 'explorer.htm#Format',
 'explorer.htm#Description',

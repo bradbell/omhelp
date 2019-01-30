@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Setting Relative Navigation Links For A Section</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Setting Relative Navigation Links For A Section">
-<meta name="keywords" id="keywords" content=" setting relative navigation links section syntax purpose type content prev next across top up sibling down down_up_i current example label _up_i _jump_table no such default root ">
+<meta name="keywords" id="keywords" content=" setting relative navigation links section syntax purpose type content prev next across top up sibling down down_up_i current example label _up_i _jump_table empty no such default root ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -45,25 +45,7 @@ A:active { color : purple }
 </select>
 </td>
 <td>
-<select onchange='choose_down2(this)'>
-<option>overview-&gt;</option>
-<option>License</option>
-<option>why</option>
-<option>Install</option>
-<option>get_started</option>
-<option>running</option>
-<option>files</option>
-<option>titles+headings</option>
-<option>cross</option>
-<option>format</option>
-<option>spellchecking</option>
-<option>latex</option>
-<option>other</option>
-<option>browser</option>
-<option>glossary</option>
-<option>wish_list</option>
-<option>whatsNew</option>
-</select>
+<script type='text/javascript' language='JavaScript'src='_childtable_overview_htm.js'></script>
 </td>
 <td>
 <select onchange='choose_down1(this)'>
@@ -126,6 +108,7 @@ A:active { color : purple }
 <br><a href="navigate.htm#Label" target="_top">Label</a>
 <br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Label._up_i" target="_top">_up_i</a>
 <br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Label._jump_table" target="_top">_jump_table</a>
+<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Label.empty" target="_top">empty</a>
 <br><a href="navigate.htm#Prev and Next" target="_top">Prev&nbsp;and&nbsp;Next</a>
 <br><a href="navigate.htm#No Such Section" target="_top">No&nbsp;Such&nbsp;Section</a>
 <br><a href="navigate.htm#Default" target="_top">Default</a>
@@ -333,6 +316,28 @@ to the headings and sub-headings for this section.
 
 <br>
 <br>
+<big><a name="Label.empty" id="Label.empty">empty</a></big>
+<br>
+In the special case where 
+<code><i><font color="black"><span style='white-space: nowrap'>type</span></font></i></code>
+ is
+<a href="navigate.htm#Type.Down_up_i" target="_top"><span style='white-space: nowrap'>Down_up_i</span></a>
+,
+and 
+<code><i><font color="black"><span style='white-space: nowrap'>label</span></font></i></code>
+ is empty is equivalent
+
+<code><i><font color="black"><span style='white-space: nowrap'>label</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ for the same 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+.
+In this case a single cross reference Javascript file
+can be used by multiple sections. This reduces the size
+of the files and the number of differences in the OMhelp output
+(which it is distributed using a source code control system).
+
+<br>
+<br>
 <b><big><a name="Prev and Next" id="Prev and Next">Prev and Next</a></big></b>
 <br>
 Note that the size of the label corresponding to 
@@ -376,14 +381,24 @@ The default value for the navigation command is
           Next%Next%
           Across%Index%
           Up%Up%
-          Down_up_4%_up_4%
-          Down_up_3%_up_3%
-          Down_up_2%_up_2%
-          Down_up_1%_up_1%
-          Down_up_0%_up_0%
+          Down_up_4%%
+          Down_up_3%%
+          Down_up_2%%
+          Down_up_1%%
+          Down_up_0%%
           Current%Headings
      %$$
 </pre></font></code>
+Note that, for 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;0,&nbsp;1,&nbsp;2,&nbsp;3,&nbsp;4</span></font></code>
+,
+
+<code><font color="blue"><span style='white-space: nowrap'>Down_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>%_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font></code>
+ is equivalent to 
+<code><font color="blue"><span style='white-space: nowrap'>Down_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>%%</span></font></code>
+.
+
+<br>
 <br>
 <b><big><a name="Example" id="Example">Example</a></big></b>
 <br>

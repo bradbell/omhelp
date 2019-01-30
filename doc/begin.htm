@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Begin and End A Section</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Begin and End A Section">
-<meta name="keywords" id="keywords" content=" begin end specify cross reference tag link section syntax see also purpose example restrictions ">
+<meta name="keywords" id="keywords" content=" begin end section syntax see also purpose example tag ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -52,34 +52,10 @@ A:active { color : purple }
 </select>
 </td>
 <td>
-<select onchange='choose_down2(this)'>
-<option>overview-&gt;</option>
-<option>License</option>
-<option>why</option>
-<option>Install</option>
-<option>get_started</option>
-<option>running</option>
-<option>files</option>
-<option>titles+headings</option>
-<option>cross</option>
-<option>format</option>
-<option>spellchecking</option>
-<option>latex</option>
-<option>other</option>
-<option>browser</option>
-<option>glossary</option>
-<option>wish_list</option>
-<option>whatsNew</option>
-</select>
+<script type='text/javascript' language='JavaScript'src='_childtable_overview_htm.js'></script>
 </td>
 <td>
-<select onchange='choose_down1(this)'>
-<option>titles+headings-&gt;</option>
-<option>begin</option>
-<option>section</option>
-<option>title</option>
-<option>head</option>
-</select>
+<script type='text/javascript' language='JavaScript'src='_childtable_titles+headings_htm.js'></script>
 </td>
 <td>begin</td>
 <td>
@@ -89,7 +65,7 @@ A:active { color : purple }
 <option>See Also</option>
 <option>Purpose</option>
 <option>Example</option>
-<option>Restrictions</option>
+<option>tag</option>
 </select>
 </td>
 </tr></table><br>
@@ -169,7 +145,7 @@ has a cross references to the other.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>Other&nbsp;text</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
 </span></font></code>
 <br>
-<b><big><a name="Restrictions" id="Restrictions">Restrictions</a></big></b>
+<b><big><a name="tag" id="tag">tag</a></big></b>
 <br>
 No two sections can have the same cross reference
 <a href="glossary.htm#Cross Reference Tag" target="_top"><span style='white-space: nowrap'>tag</span></a>
@@ -178,9 +154,15 @@ No two sections can have the same cross reference
 when comparing cross reference tags).
 <code><span style='white-space: nowrap'><br>
 <br>
-</span></code>Cross reference tags that begin with the
+</span></code>Cross reference 
+<code><i><font color="black"><span style='white-space: nowrap'>tag</span></font></i></code>
+ cannot begin with the
 underbar character <code><font color="blue">_</font></code>, and the dot character <code><font color="blue">.</font></code>,
-are reserved by OMhelp and cannot be used in <code><font color="blue">begin</font></code> commands.
+(these tags are reserved for use by OMhelp).
+The 
+<code><i><font color="black"><span style='white-space: nowrap'>tag</span></font></i></code>
+ cannot contain any white space characters,
+the string <code><font color="blue">_links</font></code> or the string <code><font color="blue">_frame</font></code>.
 
 
 <hr>Input File: title.omh

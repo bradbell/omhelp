@@ -11,47 +11,6 @@ var list_up0 = [
 'special.htm',
 'dollar.htm'
 ];
-var list_down3 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down2 = [
-'nobreak.htm',
-'pre.htm',
-'codep.htm',
-'codei.htm',
-'color.htm',
-'hilite.htm',
-'th.htm',
-'center.htm',
-'table.htm',
-'list.htm',
-'special.htm',
-'font.htm'
-];
-var list_down1 = [
-'dollar.htm',
-'cmark.htm',
-'rmark.htm',
-'newlinech.htm',
-'accent.htm',
-'escape.htm',
-'tabsize.htm'
-];
 var list_current0 = [
 'dollar.htm#Syntax',
 'dollar.htm#See Also',

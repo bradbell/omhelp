@@ -10,29 +10,6 @@ var list_up0 = [
 'other.htm',
 'date.htm'
 ];
-var list_down2 = [
-'license.htm',
-'why.htm',
-'install.htm',
-'get_started.htm',
-'running.htm',
-'files.htm',
-'titles+headings.htm',
-'cross.htm',
-'format.htm',
-'spellchecking.htm',
-'latex.htm',
-'other.htm',
-'browser.htm',
-'glossary.htm',
-'wish_list.htm',
-'whatsnew.htm'
-];
-var list_down1 = [
-'comment.htm',
-'date.htm',
-'deprecated.htm'
-];
 var list_current0 = [
 'date.htm#Syntax',
 'date.htm#Description',
