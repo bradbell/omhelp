@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -11,6 +11,7 @@ $spell
 	noframe
 	OMhelp
 	Prev
+	Javascript
 $$
 
 $section Setting Relative Navigation Links For A Section$$
@@ -120,6 +121,16 @@ In this case,
 a table at the top of the current section is used to link
 to the headings and sub-headings for this section.
 
+$subhead empty$$
+In the special case where $icode type$$ is
+$cref/Down_up_i/navigate/Type/Down_up_i/$$,
+and $icode label$$ is empty is equivalent
+$icode%label% = _up_%i%$$ for the same $icode i$$.
+In this case a single cross reference Javascript file
+can be used by multiple sections. This reduces the size
+of the files and the number of differences in the OMhelp output
+(which it is distributed using a source code control system).
+
 $head Prev and Next$$
 Note that the size of the label corresponding to $codei%_up_%i%$$
 will change from section to section.
@@ -146,14 +157,16 @@ $codep
 		Next%Next%
 		Across%Index%
 		Up%Up%
-		Down_up_4%_up_4%
-		Down_up_3%_up_3%
-		Down_up_2%_up_2%
-		Down_up_1%_up_1%
-		Down_up_0%_up_0%
+		Down_up_4%%
+		Down_up_3%%
+		Down_up_2%%
+		Down_up_1%%
+		Down_up_0%%
 		Current%Headings
 	%@@
 $$
+Note that, for $icode%i% = 0, 1, 2, 3, 4%$$,
+$codei|Down_up_|i|%_up_|i|%|$$ is equivalent to $codei|Down_up_|i|%%|$$.
 
 $head Example$$
 The navigation links for this section were specified with

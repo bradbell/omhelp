@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ $code linkcolor$$
 	$cnext color used for cross reference linking
 	$cnext blue
 	$cnext yes
-
+$rnext
 $code visitcolor$$
 	$cnext color used for cross reference linking that have been visited
 	$cnext purple

@@ -483,11 +483,11 @@ static NavigateInfo Default = {
 		{ NEXT_nav,      "Next"      },
 		{ ACROSS_nav,    "Index"     },
 		{ UP_nav,        "Up"        },
-		{ DOWN_UP_4_nav, "_up_4"     },
-		{ DOWN_UP_3_nav, "_up_3"     },
-		{ DOWN_UP_2_nav, "_up_2"     },
-		{ DOWN_UP_1_nav, "_up_1"     },
-		{ DOWN_UP_0_nav, "_up_0"     },
+		{ DOWN_UP_4_nav, ""          },
+		{ DOWN_UP_3_nav, ""          },
+		{ DOWN_UP_2_nav, ""          },
+		{ DOWN_UP_1_nav, ""          },
+		{ DOWN_UP_0_nav, ""          },
 		{ CURRENT_nav,   "Headings"  },
 		{ INVALID_nav,   "not used"  },
 		{ INVALID_nav,   "not used"  },
@@ -538,8 +538,6 @@ SectionInfo *SectionInfoNew(
 	F->style.bgcolor   = NULL;
 	F->style.linkcolor = NULL;
 	F->style.visitcolor= NULL;
-
-	F->select_childtable = 0;
 
 	if( navigateCopy == NULL )
 	{	F->navigate.number = Default.number;
