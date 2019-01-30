@@ -9,20 +9,6 @@ var list_up0 = [
 'overview.htm',
 'why.htm'
 ];
-var list_current0 = [
-'why.htm#Introduction',
-'why.htm#Same Time Documentation',
-'why.htm#Version Control',
-'why.htm#Language Independent and User Oriented',
-'why.htm#World Wide Web',
-'why.htm#Single Source',
-'why.htm#Searching',
-'why.htm#Cross Referencing Aids',
-'why.htm#Platform Independent',
-'why.htm#Latex Support of Mathematics',
-'why.htm#Source Code Examples',
-'why.htm#Spell Checking'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -46,10 +32,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

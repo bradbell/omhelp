@@ -9,30 +9,6 @@ var list_up0 = [
 'overview.htm',
 '_reference.htm'
 ];
-var list_current0 = [
-'_reference.htm#A',
-'_reference.htm#B',
-'_reference.htm#C',
-'_reference.htm#D',
-'_reference.htm#E',
-'_reference.htm#F',
-'_reference.htm#G',
-'_reference.htm#H',
-'_reference.htm#I',
-'_reference.htm#K',
-'_reference.htm#L',
-'_reference.htm#M',
-'_reference.htm#N',
-'_reference.htm#O',
-'_reference.htm#P',
-'_reference.htm#R',
-'_reference.htm#S',
-'_reference.htm#T',
-'_reference.htm#U',
-'_reference.htm#V',
-'_reference.htm#W',
-'_reference.htm#X'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -56,10 +32,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

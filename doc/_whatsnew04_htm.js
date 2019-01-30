@@ -10,19 +10,6 @@ var list_up0 = [
 'whatsnew.htm',
 'whatsnew04.htm'
 ];
-var list_current0 = [
-'whatsnew04.htm#Description',
-'whatsnew04.htm#12-02',
-'whatsnew04.htm#11-17',
-'whatsnew04.htm#10-08',
-'whatsnew04.htm#08-14',
-'whatsnew04.htm#06-09',
-'whatsnew04.htm#05-10',
-'whatsnew04.htm#03-11',
-'whatsnew04.htm#02-23',
-'whatsnew04.htm#02-22',
-'whatsnew04.htm#02-21'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -52,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

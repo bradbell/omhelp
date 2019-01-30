@@ -11,24 +11,6 @@ var list_up0 = [
 'deprecated.htm',
 'xref.htm'
 ];
-var list_current0 = [
-'xref.htm#Syntax',
-'xref.htm#See Also',
-'xref.htm#Deprecated 2006-07-07',
-'xref.htm#Description',
-'xref.htm#Tag',
-'xref.htm#Heading',
-'xref.htm#Linkingtext',
-'xref.htm#Frame',
-'xref.htm#Subheading',
-'xref.htm#Subheading.Deprecated',
-'xref.htm#Example',
-'xref.htm#Example.Linking Text',
-'xref.htm#Example.Headings',
-'xref.htm#Example.Frames',
-'xref.htm#Example.Subheadings',
-'xref.htm#Reference'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -64,10 +46,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

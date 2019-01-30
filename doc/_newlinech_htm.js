@@ -11,18 +11,6 @@ var list_up0 = [
 'special.htm',
 'newlinech.htm'
 ];
-var list_current0 = [
-'newlinech.htm#Syntax',
-'newlinech.htm#See Also',
-'newlinech.htm#Purpose',
-'newlinech.htm#character',
-'newlinech.htm#Example',
-'newlinech.htm#y',
-'newlinech.htm#n',
-'newlinech.htm#x',
-'newlinech.htm#Discussion of Example',
-'newlinech.htm#Reference'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -58,10 +46,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

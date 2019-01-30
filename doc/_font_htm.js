@@ -10,14 +10,6 @@ var list_up0 = [
 'format.htm',
 'font.htm'
 ];
-var list_current0 = [
-'font.htm#Syntax',
-'font.htm#See Also',
-'font.htm#font',
-'font.htm#Example',
-'font.htm#Heading',
-'font.htm#f(x)'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -47,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

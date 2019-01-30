@@ -10,28 +10,6 @@ var list_up0 = [
 'latex.htm',
 'latexmacro.htm'
 ];
-var list_current0 = [
-'latexmacro.htm#Syntax',
-'latexmacro.htm#Syntax.Definition',
-'latexmacro.htm#Syntax.Usage',
-'latexmacro.htm#Definition',
-'latexmacro.htm#Definition.Global Scope',
-'latexmacro.htm#Definition.Section Scope',
-'latexmacro.htm#Definition.Name',
-'latexmacro.htm#Definition.Text',
-'latexmacro.htm#Definition.M',
-'latexmacro.htm#Definition.N',
-'latexmacro.htm#Definition.JK',
-'latexmacro.htm#Usage',
-'latexmacro.htm#Examples',
-'latexmacro.htm#Examples.No Arguments',
-'latexmacro.htm#Examples.Two Arguments',
-'latexmacro.htm#Examples.Using Pound Sign in a Macro',
-'latexmacro.htm#Examples.Recursion',
-'latexmacro.htm#Examples.Mathml',
-'latexmacro.htm#Restrictions',
-'latexmacro.htm#Nonstandard'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -61,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

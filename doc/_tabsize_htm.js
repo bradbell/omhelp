@@ -11,16 +11,6 @@ var list_up0 = [
 'special.htm',
 'tabsize.htm'
 ];
-var list_current0 = [
-'tabsize.htm#Syntax',
-'tabsize.htm#See Also',
-'tabsize.htm#Description',
-'tabsize.htm#Example',
-'tabsize.htm#Default',
-'tabsize.htm#Default.Root Section',
-'tabsize.htm#Default.Other Sections',
-'tabsize.htm#Default.Reset'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -56,10 +46,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

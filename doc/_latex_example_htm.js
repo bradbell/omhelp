@@ -11,11 +11,6 @@ var list_up0 = [
 'start_latex.htm',
 'latex_example.htm'
 ];
-var list_current0 = [
-'latex_example.htm#Browser',
-'latex_example.htm#In Line',
-'latex_example.htm#Display Mode'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -51,10 +46,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

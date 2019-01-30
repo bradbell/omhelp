@@ -11,12 +11,6 @@ var list_up0 = [
 'symbol.htm',
 'latexnumber.htm'
 ];
-var list_current0 = [
-'latexnumber.htm#Syntax',
-'latexnumber.htm#Description',
-'latexnumber.htm#Description.Latex Integer',
-'latexnumber.htm#Description.Latex Real'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -52,10 +46,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

@@ -10,19 +10,6 @@ var list_up0 = [
 'format.htm',
 'table.htm'
 ];
-var list_current0 = [
-'table.htm#Syntax',
-'table.htm#See Also',
-'table.htm#Description',
-'table.htm#table',
-'table.htm#cnext',
-'table.htm#rnext',
-'table.htm#tend',
-'table.htm#Example',
-'table.htm#Nesting',
-'table.htm#Alignment',
-'table.htm#Cend and Rend'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -52,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

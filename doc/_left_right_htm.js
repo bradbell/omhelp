@@ -10,15 +10,6 @@ var list_up0 = [
 'latex.htm',
 'left_right.htm'
 ];
-var list_current0 = [
-'left_right.htm#Syntax',
-'left_right.htm#Description',
-'left_right.htm#Example',
-'left_right.htm#Example.Using Left and Right',
-'left_right.htm#Example.With Out Left and Right',
-'left_right.htm#Example.Using the Period Symbol',
-'left_right.htm#Enclosing Symbols'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -48,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

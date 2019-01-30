@@ -10,24 +10,6 @@ var list_up0 = [
 'files.htm',
 'verbatim.htm'
 ];
-var list_current0 = [
-'verbatim.htm#Syntax',
-'verbatim.htm#See Also',
-'verbatim.htm#Description',
-'verbatim.htm#New Lines',
-'verbatim.htm#Example File',
-'verbatim.htm#Filename',
-'verbatim.htm#Filename.Example',
-'verbatim.htm#Highlighting',
-'verbatim.htm#Indent',
-'verbatim.htm#Indent.Example',
-'verbatim.htm#Start',
-'verbatim.htm#Stop',
-'verbatim.htm#Stop.Example',
-'verbatim.htm#Skip',
-'verbatim.htm#Skip.Example',
-'verbatim.htm#Tab Stops'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -57,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

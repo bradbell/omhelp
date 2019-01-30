@@ -10,33 +10,6 @@ var list_up0 = [
 'install.htm',
 'installunix.htm'
 ];
-var list_current0 = [
-'installunix.htm#Requirements',
-'installunix.htm#Requirements.source-highlight',
-'installunix.htm#Requirements.Octave',
-'installunix.htm#Requirements.flex, bison',
-'installunix.htm#Download OMhelp',
-'installunix.htm#Distribution Directory',
-'installunix.htm#CMake Command',
-'installunix.htm#CMake Command.boost_regex_prefix',
-'installunix.htm#CMake Command.source_highlight_prefix',
-'installunix.htm#CMake Command.have_flex_and_bison',
-'installunix.htm#CMake Command.omhelp_prefix',
-'installunix.htm#CMake Command.omhelp_datadir',
-'installunix.htm#CMake Command.omhelp_c_flags',
-'installunix.htm#CMake Command.omhelp_build_type',
-'installunix.htm#Build Executable',
-'installunix.htm#OMhelp Documentation',
-'installunix.htm#OMhelp Documentation.Developer Documentation',
-'installunix.htm#OMhelp Documentation.User Documentation',
-'installunix.htm#Install OMhelp',
-'installunix.htm#Getting Started',
-'installunix.htm#Spelling List',
-'installunix.htm#Spelling List.english.wrd',
-'installunix.htm#Spelling List.local.wrd',
-'installunix.htm#Spelling List.dictionary.bin',
-'installunix.htm#Vim Editor'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -66,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

@@ -10,17 +10,6 @@ var list_up0 = [
 'get_started.htm',
 'start_multiple.htm'
 ];
-var list_current0 = [
-'start_multiple.htm#contents, childtable, children',
-'start_multiple.htm#Execute The Following Steps',
-'start_multiple.htm#Execute The Following Steps.multiple_example_1.omh',
-'start_multiple.htm#Execute The Following Steps.multiple_example_2.omh',
-'start_multiple.htm#Execute The Following Steps.multiple_example_3.omh',
-'start_multiple.htm#Execute The Following Steps.Example In This Web Site Context',
-'start_multiple.htm#Execute The Following Steps.Execute OMhelp',
-'start_multiple.htm#Execute The Following Steps.Example by Itself',
-'start_multiple.htm#Discussion'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -50,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

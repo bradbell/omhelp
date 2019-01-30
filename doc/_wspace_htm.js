@@ -11,14 +11,6 @@ var list_up0 = [
 'deprecated.htm',
 'wspace.htm'
 ];
-var list_current0 = [
-'wspace.htm#Syntax',
-'wspace.htm#See Also',
-'wspace.htm#Deprecated 2006-07-07',
-'wspace.htm#Description',
-'wspace.htm#Example',
-'wspace.htm#Reference'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -54,10 +46,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

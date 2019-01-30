@@ -11,16 +11,6 @@ var list_up0 = [
 'start_embed.htm',
 'near_equal_c.htm'
 ];
-var list_current0 = [
-'near_equal_c.htm#Syntax',
-'near_equal_c.htm#Purpose',
-'near_equal_c.htm#x',
-'near_equal_c.htm#y',
-'near_equal_c.htm#r',
-'near_equal_c.htm#a',
-'near_equal_c.htm#e',
-'near_equal_c.htm#Example'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -56,10 +46,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

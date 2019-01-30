@@ -10,16 +10,6 @@ var list_up0 = [
 'browser.htm',
 'firefox.htm'
 ];
-var list_current0 = [
-'firefox.htm#Format',
-'firefox.htm#Purpose',
-'firefox.htm#mathvariant',
-'firefox.htm#Copy and Paste',
-'firefox.htm#Javascript',
-'firefox.htm#Background Color',
-'firefox.htm#Operator Sizes',
-'firefox.htm#Symbols'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -49,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

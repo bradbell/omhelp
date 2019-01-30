@@ -10,18 +10,6 @@ var list_up0 = [
 'format.htm',
 'codei.htm'
 ];
-var list_current0 = [
-'codei.htm#Syntax',
-'codei.htm#See Also',
-'codei.htm#Purpose',
-'codei.htm#escape',
-'codei.htm#codei',
-'codei.htm#icode',
-'codei.htm#text',
-'codei.htm#Example',
-'codei.htm#Example.Escape',
-'codei.htm#Remark'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -51,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

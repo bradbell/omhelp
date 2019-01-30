@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Setting Relative Navigation Links For A Section</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Setting Relative Navigation Links For A Section">
-<meta name="keywords" id="keywords" content=" setting relative navigation links section syntax purpose type content prev next across top up sibling down down_up_i current example label _up_i _jump_table empty no such default root ">
+<meta name="keywords" id="keywords" content=" setting relative navigation links section syntax purpose type content prev next across top up sibling down down_up_i current example label default _up_i _jump_table no such root ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -37,43 +37,6 @@ A:active { color : purple }
 <td><a href="mref.htm" target="_top">Previous</a>
 </td><td><a href="format.htm" target="_top">Next</a>
 </td><td>
-<select onchange='choose_up0(this)'>
-<option>Up-&gt;</option>
-<option>overview</option>
-<option>cross</option>
-<option>navigate</option>
-</select>
-</td>
-<td>
-<script type='text/javascript' language='JavaScript'src='_childtable_overview_htm.js'></script>
-</td>
-<td>
-<select onchange='choose_down1(this)'>
-<option>Down_up_1-&gt;</option>
-<option>Keyword</option>
-<option>cref</option>
-<option>href</option>
-<option>rref</option>
-<option>tref</option>
-<option>mref</option>
-<option>navigate</option>
-</select>
-</td>
-<td>Down_up_0</td>
-<td>
-<select onchange='choose_sibling0(this)'>
-<option>Sibling-&gt;</option>
-<option>Keyword</option>
-<option>cref</option>
-<option>href</option>
-<option>rref</option>
-<option>tref</option>
-<option>mref</option>
-<option>navigate</option>
-</select>
-</td>
-<td>Down</td>
-<td>
 <select onchange='choose_across0(this)'>
 <option>Across-&gt;</option>
 <option>contents</option>
@@ -83,6 +46,76 @@ A:active { color : purple }
 <option>external</option>
 </select>
 </td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Location-&gt;</option>
+<option>overview</option>
+<option>cross</option>
+<option>navigate</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down2(this)'>
+<option>Parents-&gt;</option>
+<option>License</option>
+<option>why</option>
+<option>Install</option>
+<option>get_started</option>
+<option>running</option>
+<option>files</option>
+<option>titles+headings</option>
+<option>cross</option>
+<option>format</option>
+<option>spellchecking</option>
+<option>latex</option>
+<option>other</option>
+<option>browser</option>
+<option>glossary</option>
+<option>wish_list</option>
+<option>whatsNew</option>
+</select>
+</td>
+<td>
+<select onchange='choose_down1(this)'>
+<option>Siblings-&gt;</option>
+<option>Keyword</option>
+<option>cref</option>
+<option>href</option>
+<option>rref</option>
+<option>tref</option>
+<option>mref</option>
+<option>navigate</option>
+</select>
+</td>
+<td>navigate</td>
+<td>
+<select onchange='choose_current0(this)'>
+<option>Headings-&gt;</option>
+<option>Syntax</option>
+<option>Purpose</option>
+<option>Type</option>
+<option>---..Content</option>
+<option>---..Prev</option>
+<option>---..Next</option>
+<option>---..Across</option>
+<option>---..Top</option>
+<option>---..Up</option>
+<option>---..Sibling</option>
+<option>---..Down</option>
+<option>---..Down_up_i</option>
+<option>---..Current</option>
+<option>---..Example</option>
+<option>Label</option>
+<option>---..Default</option>
+<option>---.._up_i</option>
+<option>---.._jump_table</option>
+<option>Prev and Next</option>
+<option>No Such Section</option>
+<option>Default</option>
+<option>Example</option>
+<option>Root Section</option>
+</select>
+</td>
 </tr></table><br>
 
 
@@ -90,31 +123,7 @@ A:active { color : purple }
 
 
 <center><b><big><big>Setting Relative Navigation Links For A Section</big></big></b></center>
-
-<br><a href="navigate.htm#Syntax" target="_top">Syntax</a>
-<br><a href="navigate.htm#Purpose" target="_top">Purpose</a>
-<br><a href="navigate.htm#Type" target="_top">Type</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Content" target="_top">Content</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Prev" target="_top">Prev</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Next" target="_top">Next</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Across" target="_top">Across</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Top" target="_top">Top</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Up" target="_top">Up</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Sibling" target="_top">Sibling</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Down" target="_top">Down</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Down_up_i" target="_top">Down_up_i</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Current" target="_top">Current</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Type.Example" target="_top">Example</a>
-<br><a href="navigate.htm#Label" target="_top">Label</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Label._up_i" target="_top">_up_i</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Label._jump_table" target="_top">_jump_table</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="navigate.htm#Label.empty" target="_top">empty</a>
-<br><a href="navigate.htm#Prev and Next" target="_top">Prev&nbsp;and&nbsp;Next</a>
-<br><a href="navigate.htm#No Such Section" target="_top">No&nbsp;Such&nbsp;Section</a>
-<br><a href="navigate.htm#Default" target="_top">Default</a>
-<br><a href="navigate.htm#Example" target="_top">Example</a>
-<br><a href="navigate.htm#Root Section" target="_top">Root&nbsp;Section</a>
-<br><br>
+<br>
 <b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
 
 <br>
@@ -140,25 +149,34 @@ and label for each of the links.
 The possible 
 <code><i><font color="black"><span style='white-space: nowrap'>type</span></font></i></code>
 , and meaning, for the navigation links are
-specified below:
+specified below.
+In addition, each 
+<code><i><font color="black"><span style='white-space: nowrap'>type</span></font></i></code>
+ has a
+<a href="navigate.htm#Label.Default" target="_top"><span style='white-space: nowrap'>default</span></a>
+ label that is used
+when the label is empty.
 
 <br>
 <br>
 <big><a name="Type.Content" id="Type.Content">Content</a></big>
 <br>
 The table of contents section for entire document.
+The default label for this type is <code><font color="blue">Content</font></code>.
 
 <br>
 <br>
 <big><a name="Type.Prev" id="Type.Prev">Prev</a></big>
 <br>
 The previous section in read order.
+The default label for this type is <code><font color="blue">Prev</font></code>.
 
 <br>
 <br>
 <big><a name="Type.Next" id="Type.Next">Next</a></big>
 <br>
 The next section in read order.
+The default label for this type is <code><font color="blue">Next</font></code>.
 
 <br>
 <br>
@@ -166,6 +184,7 @@ The next section in read order.
 <br>
 The group of sections that cross reference entire document; e.g,
 the search and index sections are in this group.
+The default label for this type is <code><font color="blue">Index</font></code>.
 
 <br>
 <br>
@@ -174,6 +193,7 @@ the search and index sections are in this group.
 The section corresponding to the top of the tree; i.e.,
 the section in the <a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root_file</span></a>
 .
+The default label for this type is <code><font color="blue">Top</font></code>.
 
 <br>
 <br>
@@ -181,6 +201,7 @@ the section in the <a href="running.htm#root_file" target="_top"><span style='wh
 <br>
 The sections starting at the top of tree and down to
 the current section.
+The default label for this type is <code><font color="blue">Up</font></code>.
 
 <br>
 <br>
@@ -189,6 +210,7 @@ the current section.
 The group of sections with same parent as the current section.
 This has the same meaning as <code><font color="blue">Down_up_1</font></code>; i.e.,
 down one and then up one.
+The default label for this type is <code><font color="blue">_up_1</font></code>.
 
 <br>
 <br>
@@ -198,6 +220,7 @@ The group of sections directly below the current section;
 i.e., its children.
 This has the same meaning as <code><font color="blue">Down_up_0</font></code>; i.e.,
 down one and then up zero.
+The default label for this type is <code><font color="blue">_up_0</font></code>.
 
 <br>
 <br>
@@ -213,6 +236,9 @@ directly below the section
 <code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
  levels
 up from the current section.
+The default label for this type is 
+<code><font color="blue"><span style='white-space: nowrap'>_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+.
 
 <br>
 <br>
@@ -224,6 +250,7 @@ If the corresponding
  is <code><font color="blue">_jump_table</font></code>,
 a table at the top of the current section is used to link
 to the headings and sub-headings for this section.
+The default label for this type is <code><font color="blue">_jump_table</font></code>.
 
 <br>
 <br>
@@ -281,7 +308,19 @@ for the navigation links corresponding to
 <code><i><font color="black"><span style='white-space: nowrap'>type&nbsp;2</span></font></i></code>
  and so on.
 The labels cannot begin with the special character <code><font color="blue">_</font></code>
-with the following special exception:
+with the following exception below:
+
+<br>
+<br>
+<big><a name="Label.Default" id="Label.Default">Default</a></big>
+<br>
+A default value is specified for each
+<a href="navigate.htm#Type" target="_top"><span style='white-space: nowrap'>type</span></a>
+ that is used when the corresponding label
+is empty; e.g., in the syntax
+
+<code><i><font color="black"><span style='white-space: nowrap'>type_i</span></font></i><font color="blue"><span style='white-space: nowrap'>%%</span></font><i><font color="black"><span style='white-space: nowrap'>type_i+1&nbsp;...</span></font></i></code>
+ uses the default value for the <code><i>i</i></code>-th label.
 
 <br>
 <br>
@@ -301,6 +340,21 @@ for the section
 <code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
  levels up from the current section
 is used for the label.
+In the case where 
+<code><i><font color="black"><span style='white-space: nowrap'>type</span></font></i></code>
+ is 
+<code><font color="blue"><span style='white-space: nowrap'>Down_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+ and
+
+<code><i><font color="black"><span style='white-space: nowrap'>label</span></font></i></code>
+ is 
+<code><font color="blue"><span style='white-space: nowrap'>_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+, the same cross reference link
+table can be used by many sections.
+This results in smaller file sizes and less changes when sections
+are added or moved.
+(Change result in differences when the output of OMhelp is checked into
+a source code control system for viewing on the web.)
 
 <br>
 <br>
@@ -313,28 +367,6 @@ the label <code><font color="blue">_jump_table</font></code> is a special case.
 In this case,
 a table at the top of the current section is used to link
 to the headings and sub-headings for this section.
-
-<br>
-<br>
-<big><a name="Label.empty" id="Label.empty">empty</a></big>
-<br>
-In the special case where 
-<code><i><font color="black"><span style='white-space: nowrap'>type</span></font></i></code>
- is
-<a href="navigate.htm#Type.Down_up_i" target="_top"><span style='white-space: nowrap'>Down_up_i</span></a>
-,
-and 
-<code><i><font color="black"><span style='white-space: nowrap'>label</span></font></i></code>
- is empty is equivalent
-
-<code><i><font color="black"><span style='white-space: nowrap'>label</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
- for the same 
-<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
-.
-In this case a single cross reference Javascript file
-can be used by multiple sections. This reduces the size
-of the files and the number of differences in the OMhelp output
-(which it is distributed using a source code control system).
 
 <br>
 <br>
@@ -377,28 +409,33 @@ neither the label nor its links will be present on the current section.
 The default value for the navigation command is
 <code><font color='blue'><pre style='display:inline'> 
      $navigate%
-          Prev%Prev%
-          Next%Next%
-          Across%Index%
-          Up%Up%
+          Prev%%
+          Next%%
+          Across%%
+          Up%%
           Down_up_4%%
           Down_up_3%%
           Down_up_2%%
           Down_up_1%%
           Down_up_0%%
-          Current%Headings
+          Current
+     %%$$
+</pre></font></code>
+Note that, this is equivalent to
+<code><font color='blue'><pre style='display:inline'> 
+     $navigate%
+          Prev%Prev%
+          Next%Next%
+          Across%Index%
+          Up%Up%
+          Down_up_4%_up_4%
+          Down_up_3%_up_3%
+          Down_up_2%_up_2%
+          Down_up_1%_up_1%
+          Down_up_0%_up_0%
+          Current%_jump_table
      %$$
 </pre></font></code>
-Note that, for 
-<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;=&nbsp;0,&nbsp;1,&nbsp;2,&nbsp;3,&nbsp;4</span></font></code>
-,
-
-<code><font color="blue"><span style='white-space: nowrap'>Down_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>%_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font></code>
- is equivalent to 
-<code><font color="blue"><span style='white-space: nowrap'>Down_up_</span></font><i><font color="black"><span style='white-space: nowrap'>i</span></font></i><font color="blue"><span style='white-space: nowrap'>%%</span></font></code>
-.
-
-<br>
 <br>
 <b><big><a name="Example" id="Example">Example</a></big></b>
 <br>
@@ -410,14 +447,12 @@ the following command:
           Content%Contents%
           Prev%Previous%
           Next%Next%
-          Up%Up%
-          Down_up_2%_up_2%
-          Down_up_1%Down_up_1%
-          Down_up_0%Down_up_0%
-          Sibling%Sibling%
-          Down%Down%
           Across%Across%
-          Current%_jump_table
+          Up%Location%
+          Down_up_2%Parents%
+          Down_up_1%Siblings%
+          Down_up_0%_up_0%
+          Current%Headings
      %$$
 </pre></font></code>
 <br>

@@ -11,12 +11,6 @@ var list_up0 = [
 'start_src.htm',
 'src_example.htm'
 ];
-var list_current0 = [
-'src_example.htm#Inline Source Code',
-'src_example.htm#Contents of src_example.py',
-'src_example.htm#Escape Character',
-'src_example.htm#Just Usage Message'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -52,10 +46,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

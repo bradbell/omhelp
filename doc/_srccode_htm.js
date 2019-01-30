@@ -10,16 +10,6 @@ var list_up0 = [
 'files.htm',
 'srccode.htm'
 ];
-var list_current0 = [
-'srccode.htm#Syntax',
-'srccode.htm#See Also',
-'srccode.htm#Purpose',
-'srccode.htm#file_ext',
-'srccode.htm#Letter Case',
-'srccode.htm#Delimiter Sequence',
-'srccode.htm#Example',
-'srccode.htm#Example.Factorial Program'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -49,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

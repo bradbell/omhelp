@@ -10,12 +10,6 @@ var list_up0 = [
 'files.htm',
 'keycharacter.htm'
 ];
-var list_current0 = [
-'keycharacter.htm#Syntax',
-'keycharacter.htm#Purpose',
-'keycharacter.htm#keycharexample.omh',
-'keycharacter.htm#keycharinclude.omh'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -45,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

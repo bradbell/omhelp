@@ -10,35 +10,6 @@ var list_up0 = [
 'install.htm',
 'installwindows.htm'
 ];
-var list_current0 = [
-'installwindows.htm#Warning',
-'installwindows.htm#Using Cygwin and MinGw',
-'installwindows.htm#Requirements',
-'installwindows.htm#Requirements.7z',
-'installwindows.htm#Requirements.cmake',
-'installwindows.htm#Requirements.Visual Studio',
-'installwindows.htm#Requirements.Optional',
-'installwindows.htm#Download OMhelp',
-'installwindows.htm#Create Distribution Directory',
-'installwindows.htm#CMake Command',
-'installwindows.htm#CMake Command.boost_regex_prefix',
-'installwindows.htm#CMake Command.source_highlight_prefix',
-'installwindows.htm#CMake Command.have_flex_and_bison',
-'installwindows.htm#CMake Command.omhelp_prefix',
-'installwindows.htm#CMake Command.omhelp_datadir',
-'installwindows.htm#CMake Command.omhelp_c_flags',
-'installwindows.htm#CMake Command.omhelp_build_type',
-'installwindows.htm#Build Executable',
-'installwindows.htm#OMhelp Documentation',
-'installwindows.htm#OMhelp Documentation.Developer Documentation',
-'installwindows.htm#OMhelp Documentation.User Documentation',
-'installwindows.htm#Install OMhelp',
-'installwindows.htm#Getting Started',
-'installwindows.htm#Spelling List',
-'installwindows.htm#Spelling List.english.wrd',
-'installwindows.htm#Spelling List.local.wrd',
-'installwindows.htm#Spelling List.dictionary.bin'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -68,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

@@ -11,11 +11,6 @@ var list_up0 = [
 'start_head.htm',
 'head_example.htm'
 ];
-var list_current0 = [
-'head_example.htm#First Heading',
-'head_example.htm#First Heading.Subheading Of First Heading',
-'head_example.htm#Second Heading'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -51,10 +46,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

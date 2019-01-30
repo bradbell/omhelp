@@ -10,19 +10,6 @@ var list_up0 = [
 'get_started.htm',
 'start_embed.htm'
 ];
-var list_current0 = [
-'start_embed.htm#begin, end',
-'start_embed.htm#A Language with Block Structured Comments',
-'start_embed.htm#A Language with Block Structured Comments.near_equal_c.c',
-'start_embed.htm#A Language with Block Structured Comments.Example In This Web Site Context',
-'start_embed.htm#A Language with Block Structured Comments.Execute OMhelp',
-'start_embed.htm#A Language with Block Structured Comments.Example by Itself',
-'start_embed.htm#A Language with only One Line Comments',
-'start_embed.htm#A Language with only One Line Comments.near_equal_f.f',
-'start_embed.htm#A Language with only One Line Comments.Example In This Web Site Context',
-'start_embed.htm#A Language with only One Line Comments.Execute OMhelp',
-'start_embed.htm#A Language with only One Line Comments.Example by Itself'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -52,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

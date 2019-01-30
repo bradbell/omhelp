@@ -10,13 +10,6 @@ var list_up0 = [
 'cross.htm',
 'mref.htm'
 ];
-var list_current0 = [
-'mref.htm#Syntax',
-'mref.htm#See Also',
-'mref.htm#Description',
-'mref.htm#Example',
-'mref.htm#Reference'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -46,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

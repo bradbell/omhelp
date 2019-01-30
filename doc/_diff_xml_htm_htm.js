@@ -10,13 +10,6 @@ var list_up0 = [
 'latex.htm',
 'diff_xml_htm.htm'
 ];
-var list_current0 = [
-'diff_xml_htm.htm#Purpose',
-'diff_xml_htm.htm#MathML (xml)',
-'diff_xml_htm.htm#MathJax (htm)',
-'diff_xml_htm.htm#mathml',
-'diff_xml_htm.htm#Sub-script and Super-script'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -46,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

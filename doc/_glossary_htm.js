@@ -9,23 +9,6 @@ var list_up0 = [
 'overview.htm',
 'glossary.htm'
 ];
-var list_current0 = [
-'glossary.htm#Children',
-'glossary.htm#Complete Path Specification',
-'glossary.htm#Cross Reference Tag',
-'glossary.htm#Cross Reference Tag.Automatic Tags',
-'glossary.htm#Delimiter Sequence',
-'glossary.htm#Directory Separator Character',
-'glossary.htm#The Dollar Sign Character',
-'glossary.htm#File Extension',
-'glossary.htm#Input File Searching',
-'glossary.htm#Parent',
-'glossary.htm#Pre-formatted Font',
-'glossary.htm#Section',
-'glossary.htm#Siblings',
-'glossary.htm#Uniformly Spaced Font',
-'glossary.htm#White Space'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -49,10 +32,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }

@@ -10,21 +10,6 @@ var list_up0 = [
 'format.htm',
 'hilite.htm'
 ];
-var list_current0 = [
-'hilite.htm#Syntax',
-'hilite.htm#See Also',
-'hilite.htm#Purpose',
-'hilite.htm#hilitecmd',
-'hilite.htm#hiliteseq',
-'hilite.htm#hiliteseq.seq_j',
-'hilite.htm#hiliteseq.before_j',
-'hilite.htm#hiliteseq.after_j',
-'hilite.htm#hiliteseq.Highlighting',
-'hilite.htm#hiliteseq.Cross Referencing',
-'hilite.htm#White Space',
-'hilite.htm#Example',
-'hilite.htm#Root Section'
-];
 function choose_across0(item)
 {	var index          = item.selectedIndex;
 	item.selectedIndex = 0;
@@ -54,10 +39,4 @@ function choose_down0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_down0[index-1];
-}
-function choose_current0(item)
-{	var index          = item.selectedIndex;
-	item.selectedIndex = 0;
-	if(index > 0)
-		document.location = list_current0[index-1];
 }
