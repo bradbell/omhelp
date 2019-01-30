@@ -1,7 +1,7 @@
 #! /bin/bash -e
 # -----------------------------------------------------------------------------
 # OMhelp: Language Independent Embedded Documentation
-#           Copyright (C) 1998-2018 Bradley M. Bell
+#           Copyright (C) 1998-2019 Bradley M. Bell
 # OMhelp is distributed under the terms of the
 #             GNU General Public License Version 2.
 # -----------------------------------------------------------------------------
@@ -178,5 +178,9 @@ do
 		echo_eval mv $highlight_prefix.no $highlight_prefix
 	fi
 done
+# ----------------------------------------------------------------------------
+# re-run cmake with release version and highlighting
+echo_log_eval bin/run_cmake.sh release
+# ----------------------------------------------------------------------------
 echo "check_all.sh: OK"
 exit 0
