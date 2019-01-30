@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -19,11 +19,6 @@ $$
 $escape #$$
 $dollar @$$
 
-
-$mindex begin end$$
-$cindex specify cross reference tag$$
-$index link, specify cross reference tag$$
-$index section$$
 
 $section Begin and End A Section$$
 
@@ -82,7 +77,7 @@ $codei%
 	%Other text%
 %$$
 
-$head Restrictions$$
+$head tag$$
 No two sections can have the same cross reference
 $cref/tag/glossary/Cross Reference Tag/$$.
 (Note that upper and lower case letters are considered equal
@@ -90,9 +85,11 @@ when comparing cross reference tags).
 $pre
 
 $$
-Cross reference tags that begin with the
+Cross reference $icode tag$$ cannot begin with the
 underbar character $code _$$, and the dot character $code .$$,
-are reserved by OMhelp and cannot be used in $code begin$$ commands.
+(these tags are reserved for use by OMhelp).
+The $icode tag$$ cannot contain any white space characters,
+the string $code _links$$ or the string $code _frame$$.
 
 $end
 

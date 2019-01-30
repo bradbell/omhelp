@@ -77,16 +77,6 @@ char* select_childtable(SectionInfo* This)
 	// temporary section pointer
 	SectionInfo* S;
 
-	// First child of this section, not including the atuomatic sections
-	F = This->children;
-	assert(F != NULL);
-	while(F->previous != NULL )
-		F = F->previous;
-	while( IsAutomaticSection(F) )
-	{	F = F->next;
-		assert(F != NULL);
-	}
-
 	// The Output extension is xml or htm with out leading dot
 	ext = Internal2Out("OutputExtension");
 	assert( *ext == '.' );
@@ -117,10 +107,20 @@ char* select_childtable(SectionInfo* This)
 		NULL
 	);
 
+	// First child of this section, not including the atuomatic sections
+	F = This->children;
+	assert(F != NULL);
+	while(F->previous != NULL )
+		F = F->previous;
+	while( IsAutomaticSection(F) )
+	{	F = F->next;
+		assert(F != NULL);
+	}
+
 	// ----------------------------------------------------------------------
 	// place <select> ... </select> in htm or xml file that includes script
 	// ----------------------------------------------------------------------
-	fprintf(script_fp, "// Child Table for section %s\n", tagLower);
+	fprintf(script_fp, "// Child table for section %s\n", tagLower);
 	fprintf(script_fp, "document.write('\\\n");
 	fprintf(script_fp, "<select onchange=\"%s_child(this)\">\\\n", tagLower);
 	fprintf(script_fp, "<option>%s-&gt;</option>\\\n", tagLower);
@@ -136,9 +136,9 @@ char* select_childtable(SectionInfo* This)
 	S = F;
 	while( S != NULL )
 	{	if( S->next != NULL )
-			fprintf(script_fp, "\t\t'%s.%s',\n", S->tag, ext);
+			fprintf(script_fp, "\t\t'%s.%s',\n", S->tagLower, ext);
 		else
-			fprintf(script_fp, "\t\t'%s.%s'\n", S->tag, ext);
+			fprintf(script_fp, "\t\t'%s.%s'\n", S->tagLower, ext);
 		S = S->next;
 	}
 	fprintf(script_fp,

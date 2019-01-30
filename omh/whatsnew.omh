@@ -118,6 +118,7 @@ $tend
 $$
 
 $head 19-01-29$$
+$list number$$
 The drop down navigate links of
 $cref/type/navigate/Type/$$ $codei%Down_up_%i%$$, with label
 $cref/label/navigate/Label/$$ $codei%_up_%i%$$ were identical
@@ -128,6 +129,12 @@ This reduces the size of the files
 and the number of difference in $code gh-pages$$ branches
 used to display omhelp documentation.
 (The corresponding 19-01-26 wish list item was removed).
+$lnext
+White is now forbidden in the cross reference
+$cref/tag/begin/tag/$$ specified by the $code begin$$ command.
+In addition, the restriction that $code _links$$ and $code _frame$$
+cannot be part of the tag was added to the documentation.
+$lend
 
 $head 19-01-26$$
 Add a navigation wish list item.
