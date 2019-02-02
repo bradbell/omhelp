@@ -117,6 +117,10 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 19-02-01$$
+Fix bug whereby some shared navigation drop down menus were missing
+(see change on 19-01-29).
+
 $head 19-01-30$$
 $list number$$
 A default $cref/default/navigate/Label/Default/$$ label

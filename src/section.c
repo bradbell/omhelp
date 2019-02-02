@@ -516,12 +516,9 @@ SectionInfo *SectionInfoNew(
 
 	root = NULL;
 	ext  = NULL;
-
 	if( inputfile != NULL )
 		InputSplitName(&root, &ext, inputfile);
 
-	F->nFrame   = 1;
-	F->Frame[0] = 100;
 
 	F->root     = root;
 	F->ext      = ext;
@@ -529,6 +526,10 @@ SectionInfo *SectionInfoNew(
 	F->tagLower = NULL;
 	F->title    = NULL;
 	F->keywords = NULL;
+	F->nFrame   = 1;
+	F->Frame[0] = 100;
+	F->select_childtable = 0;
+
 	F->parent   = NULL;
 	F->children = NULL;
 	F->previous = NULL;

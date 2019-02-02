@@ -719,8 +719,8 @@ void RelativeTable(SectionInfo *This)
 
 			OutputString("<td>\n");
 			FormatOutput(
-				"<script type='text/javascript' language='JavaScript'"
-				"src='%s'></script>\n", script_name
+			"<script type='text/javascript' language='JavaScript' src='%s'>"
+			"</script>\n", script_name
 			);
 			OutputString("</td>\n");
 			//
