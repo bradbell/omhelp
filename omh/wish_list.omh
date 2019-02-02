@@ -19,9 +19,31 @@ $spell
 	nlcomment
 	tbl
 	github gh-pages
+	noframe
 $$
 
 $section OMhelp Wish List$$
+
+$head Whats New$$
+Split the current $cref whatsNew$$ to a separate section for
+each year.
+
+$head Home Page$$
+Make the top level documentation page, on github, the home page for OMhelp.
+
+$head Jump Table$$
+Put $cref/_jump_table/navigate/Label/_jump_table/$$ just before
+first heading (after text that comes before first heading).
+
+$head Git Differences$$
+Change output so that text that changes is on a separate line
+than HTML commands (which only change when OMhelp changes).
+
+$head Deprecate Features$$
+Mark certain features as deprecated and produce warnings when then are used.
+For example, it should produce a warning when OMhelp is used without the
+$cref/noframe/running/noframe/$$ option.
+This is in preparation for removing deprecated features.
 
 $head Image$$
 Extend the $cref image$$ and $code icon$$ commands
