@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>OMhelp Wish List</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="OMhelp Wish List">
-<meta name="keywords" id="keywords" content=" omhelp wish list whats new home page jump table git differences deprecate features image tables parent section source-highlight comment character header https spell th $$ escape verbatim ">
+<meta name="keywords" id="keywords" content=" omhelp wish list verbatim srcfile whats new home page jump table deprecate features image tables parent section source-highlight comment character spell th $$ ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -61,24 +61,30 @@ A:active { color : purple }
 
 <center><b><big><big>OMhelp Wish List</big></big></b></center>
 
+<br><a href="wish_list.htm#verbatim and srcfile" target="_top">verbatim&nbsp;and&nbsp;srcfile</a>
 <br><a href="wish_list.htm#Whats New" target="_top">Whats&nbsp;New</a>
 <br><a href="wish_list.htm#Home Page" target="_top">Home&nbsp;Page</a>
 <br><a href="wish_list.htm#Jump Table" target="_top">Jump&nbsp;Table</a>
-<br><a href="wish_list.htm#Git Differences" target="_top">Git&nbsp;Differences</a>
 <br><a href="wish_list.htm#Deprecate Features" target="_top">Deprecate&nbsp;Features</a>
 <br><a href="wish_list.htm#Image" target="_top">Image</a>
 <br><a href="wish_list.htm#Tables" target="_top">Tables</a>
 <br><a href="wish_list.htm#Parent Section" target="_top">Parent&nbsp;Section</a>
 <br><a href="wish_list.htm#source-highlight" target="_top">source-highlight</a>
 <br><a href="wish_list.htm#Comment Character" target="_top">Comment&nbsp;Character</a>
-<br><a href="wish_list.htm#Header" target="_top">Header</a>
-<br><a href="wish_list.htm#https" target="_top">https</a>
 <br><a href="wish_list.htm#spell" target="_top">spell</a>
 <br><a href="wish_list.htm#th" target="_top">th</a>
 <br><a href="wish_list.htm#$$" target="_top">$$</a>
-<br><a href="wish_list.htm#Escape" target="_top">Escape</a>
-<br><a href="wish_list.htm#verbatim" target="_top">verbatim</a>
 <br><br>
+<b><big><a name="verbatim and srcfile" id="verbatim and srcfile">verbatim and srcfile</a></big></b>
+<br>
+Have a way for the <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
+ and <a href="srcfile.htm" target="_top"><span style='white-space: nowrap'>srcfile</span></a>
+ commands
+to refer to current file
+(so works automatically when one moves or copies the file).
+
+<br>
+<br>
 <b><big><a name="Whats New" id="Whats New">Whats New</a></big></b>
 <br>
 Split the current <a href="whatsnew.htm" target="_top"><span style='white-space: nowrap'>whatsNew</span></a>
@@ -98,13 +104,6 @@ Make the top level documentation page, on github, the home page for OMhelp.
 Put <a href="navigate.htm#Label._jump_table" target="_top"><span style='white-space: nowrap'>_jump_table</span></a>
  just before
 first heading (after text that comes before first heading).
-
-<br>
-<br>
-<b><big><a name="Git Differences" id="Git Differences">Git Differences</a></big></b>
-<br>
-Change output so that text that changes is on a separate line
-than HTML commands (which only change when OMhelp changes).
 
 <br>
 <br>
@@ -167,29 +166,11 @@ Perhaps this should be a new command called <code><font color="blue">nlcomment</
 
 <br>
 <br>
-<b><big><a name="Header" id="Header">Header</a></big></b>
-<br>
-Add an option to put a jump table at the top of each section,
-instead of the <code><font color="blue">Headings</font></code> drop-down menu at top,
-because a jump table is more standard.
-
-<br>
-<br>
-<b><big><a name="https" id="https">https</a></big></b>
-<br>
-Currently the <a href="latex.htm#MathJax (htm)" target="_top"><span style='white-space: nowrap'>MathJax</span></a>
- does not display properly
-on a secure server; see
-<a href="http://docs.mathjax.org/en/latest/start.html#secure-cdn-access" target="_top"><span style='white-space: nowrap'>secure&nbsp;access</span></a>
-
-
-<br>
-<br>
 <b><big><a name="spell" id="spell">spell</a></big></b>
 <br>
 Print a warning when a <a href="spell.htm" target="_top"><span style='white-space: nowrap'>spell</span></a>
  command entry does not appear
-in the corresponding section.
+in the corresponding section (not necessary).
 
 <br>
 <br>
@@ -204,20 +185,6 @@ Change the <code><font color="blue">$th</font></code> command to use the same fo
 Only commands that do not allow other commands inside should be terminated
 by the <code><font color="blue">$$</font></code>. Use a special termination command for others; e.g.,
 <code><font color="blue">$center</font></code> could be terminated by <code><font color="blue">$endc</font></code>.
-
-<br>
-<br>
-<b><big><a name="Escape" id="Escape">Escape</a></big></b>
-<br>
-Add command line argument so there is no default escape character
-(backslash is often missing from output because it is escape character).
-
-<br>
-<br>
-<b><big><a name="verbatim" id="verbatim">verbatim</a></big></b>
-<br>
-Have a way for verbatim command to refer to current file
-(so works automatically when one moves or copies the file).
 
 
 <hr>Input File: wish_list.omh

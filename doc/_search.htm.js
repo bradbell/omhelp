@@ -3,7 +3,7 @@
 // ------------------------------------------------------------ 
 Keyword = 
 [
-'overview  omhelp-20190202: Language Independent Embedded Documentation  ',' home page introduction ',
+'overview  omhelp-20190418: Language Independent Embedded Documentation  ',' home page introduction ',
 'License  Your License for the OMhelp Software  ',' short copyright notice complete ',
 'why  The Purpose and Motivation for OMhelp  ',' introduction same time documentation version control language independent user oriented world wide web single source searching cross referencing aids platform latex support mathematics code examples spell checking ',
 'Install  Installing and Testing OMhelp  ',' ',
@@ -140,7 +140,7 @@ Keyword =
 'NegativeSpace  Mozilla Bug Report For Negative Width in Mspace Command  ',' claim reason spaces examples incorrect display ',
 'Explorer  Problems Using MS Internet Explorer 6 To Display OMhelp Output  ',' bug browser error format description favicon xhtml line wrapping mathml operator sizes symbols ',
 'glossary  Glossary  ',' children complete path specification cross reference tag delimiter sequence directory separator character dollar sign file extension input searching parent pre-formatted font section siblings uniformly spaced white ',
-'wish_list  OMhelp Wish List  ',' whats new home page jump table git differences deprecate features image tables parent section source-highlight comment character header https spell th $$ escape verbatim ',
+'wish_list  OMhelp Wish List  ',' verbatim srcfile whats new home page jump table deprecate features image tables parent section source-highlight comment character spell th $$ ',
 'whatsNew  Changes and Additions to OMhelp  ',' readme news introduction 19-02-02 19-02-01 19-01-30 19-01-29 19-01-26 19-01-18 18-11-16 18-11-15 18-10-31 18-05-13 18-03-13 18-03-11 17-06-28 17-01-08 16-10-04 16-09-26 16-06-25 16-04-19 16-02-14 16-02-06 16-02-04 16-02-01 15-10-14 15-10-12 15-10-11 15-10-10 15-10-08 15-10-07 15-06-03 15-06-02 15-05-31 15-01-18 15-01-10 14-11-27 14-11-23 14-11-21 14-07-27 14-07-20 14-07-17 14-05-26 13-01-16 13-01-02 12-05-09 12-02-24 12-02-12 12-01-25 10-10-20 10-07-05 10-09-02 10-02-25 09-05-12 09-03-28 09-03-24 09-02-24 09-02-12 09-02-10 09-02-08 09-02-07 09-02-06 09-02-01 09-01-31 09-01-28 08-10-01 08-07-08 08-04-11 08-03-22 08-03-21 07-12-13 07-11-03 07-10-20 07-10-18 07-09-14 07-08-14 07-07-21 07-04-06 07-03-25 07-03-13 07-01-28 06-12-23 06-12-09 06-09-30 06-09-27 06-09-19 06-09-18 06-09-16 06-09-13 06-08-30 06-08-29 06-08-28 06-08-17 06-08-15 06-08-11 06-07-25 06-07-12 06-07-08 06-07-07 06-06-30 06-04-11 06-04-10 06-04-09 06-04-08 06-04-07 06-03-14 06-03-09 06-03-03 06-02-10 06-01-25 06-01-07 06-01-06 05-12-16 05-12-06 05-11-08 05-10-27 05-10-22 05-10-05 05-09-24 05-08-15 05-08-14 05-07-05 05-06-29 05-06-26 05-06-24 05-05-18 05-02-17 05-02-15 05-02-13 05-02-10 05-02-05 ',
 'whatsNew04  Changes and Additions to OMhelp During 2004  ',' readme description 12-02 11-17 10-08 08-14 06-09 05-10 03-11 02-23 02-22 02-21 ',
 'whatsNew03  Changes and Additions to OMhelp During 2003  ',' readme most recent current version description 12-20 11-30 11-22 11-17 11-05 11-01 10-19 09-23 09-14 08-16 08-02 07-25 07-18 07-17 06-29 06-23 06-19 06-12 06-11 06-05 06-03 05-23 05-22 05-20 05-11 05-10 05-09 05-08 05-06 04-30 04-25 04-20 04-18 04-16 04-15 04-11 03-24 03-21 03-20 03-13 03-12 03-11 03-05 02-23 02-20 02-19 02-18 02-17 02-10 02-09 02-08 02-07 02-05 02-04 02-03 02-02 01-30 01-29 01-28 01-25 01-24 01-21 01-20 01-11 01-10 01-08 01-07 01-04 01-01 ',
