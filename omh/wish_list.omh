@@ -20,9 +20,15 @@ $spell
 	tbl
 	github gh-pages
 	noframe
+	srcfile
 $$
 
 $section OMhelp Wish List$$
+
+$head verbatim and srcfile$$
+Have a way for the $cref verbatim$$ and $cref srcfile$$ commands
+to refer to current file
+(so works automatically when one moves or copies the file).
 
 $head Whats New$$
 Split the current $cref whatsNew$$ to a separate section for
@@ -34,10 +40,6 @@ Make the top level documentation page, on github, the home page for OMhelp.
 $head Jump Table$$
 Put $cref/_jump_table/navigate/Label/_jump_table/$$ just before
 first heading (after text that comes before first heading).
-
-$head Git Differences$$
-Change output so that text that changes is on a separate line
-than HTML commands (which only change when OMhelp changes).
 
 $head Deprecate Features$$
 Mark certain features as deprecated and produce warnings when then are used.
@@ -75,21 +77,9 @@ It would be nice to allow for more than one character in the
 $cref newlinech$$ command so that C++ $code //$$ comments can be recognized.
 Perhaps this should be a new command called $code nlcomment$$.
 
-$head Header$$
-Add an option to put a jump table at the top of each section,
-instead of the $code Headings$$ drop-down menu at top,
-because a jump table is more standard.
-
-$head https$$
-Currently the $cref/MathJax/latex/MathJax (htm)/$$ does not display properly
-on a secure server; see
-$href%http://docs.mathjax.org/en/latest/start.html#secure-cdn-access
-%secure access
-%$$
-
 $head spell$$
 Print a warning when a $cref spell$$ command entry does not appear
-in the corresponding section.
+in the corresponding section (not necessary).
 
 $head th$$
 Change the $code @th$$ command to use the same font as $code @icode$$.
@@ -98,13 +88,5 @@ $head @@$$
 Only commands that do not allow other commands inside should be terminated
 by the $code @@$$. Use a special termination command for others; e.g.,
 $code @center$$ could be terminated by $code @endc$$.
-
-$head Escape$$
-Add command line argument so there is no default escape character
-(backslash is often missing from output because it is escape character).
-
-$head verbatim$$
-Have a way for verbatim command to refer to current file
-(so works automatically when one moves or copies the file).
 
 $end
