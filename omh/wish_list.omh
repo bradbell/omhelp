@@ -21,9 +21,27 @@ $spell
 	github gh-pages
 	noframe
 	srcfile
+	xml
+	javascript
 $$
 
 $section OMhelp Wish List$$
+
+$head XML Drop Down Menus Not Working$$
+The script $code bug/drop_down.sh$$ demonstrates this bug.
+If you run the javascript debugger,
+the xml file will result in the error message
+$codep
+	TypeError: document.write is not a function
+$$
+Currently there are calls to the javascript $code document.write$$
+function in the xml version of the output.
+This was done to group buttons with the corresponding javascript
+and so that the same button menu could be used in multiple files.
+This is not allowed because xml parsers cannot handle
+$code document.write$$.
+A separate file, with the corresponding xml, should be used
+for these button menus.
 
 $head verbatim and srcfile$$
 Have a way for the $cref verbatim$$ and $cref srcfile$$ commands

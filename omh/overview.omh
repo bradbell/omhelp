@@ -15,6 +15,8 @@ $spell
 	recompile
 	OMhelp
 	Bradley
+	github
+	xml
 $$
 
 $comment The default navigation settings are set here for testing$$
@@ -62,6 +64,15 @@ $section omhelp-20190418: Language Independent Embedded Documentation$$
 
 $head Home Page$$
 $href%https://github.com/bradbell/omhelp%$$
+
+$head Alert$$
+There is a problem with the
+$cref/xml/running/xml/$$ version of the output; see
+$cref/drop down menus not working
+	/wish_list
+	/XML Drop Down Menus Not Working
+/$$.
+Please add a github issue if this is a problem for you.
 
 $head Introduction$$
 OMhelp was originally developed by
