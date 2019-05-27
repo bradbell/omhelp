@@ -47,6 +47,8 @@ $head verbatim and srcfile$$
 Have a way for the $cref verbatim$$ and $cref srcfile$$ commands
 to refer to current file
 (so works automatically when one moves or copies the file).
+Also, detect if start pattern matches the patter itself and print an error
+suggesting a different skip for this case.
 
 $head Whats New$$
 Split the current $cref whatsNew$$ to a separate section for
