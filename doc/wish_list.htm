@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>OMhelp Wish List</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="OMhelp Wish List">
-<meta name="keywords" id="keywords" content=" omhelp wish list xml drop down menus not working verbatim srcfile whats new home page jump table deprecate features image tables parent section source-highlight comment character spell th $$ ">
+<meta name="keywords" id="keywords" content=" omhelp wish list verbatim srcfile srccode xml drop down menus not working whats new home page jump table deprecate features image tables parent section source-highlight comment character spell th $$ ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -61,8 +61,8 @@ A:active { color : purple }
 
 <center><b><big><big>OMhelp Wish List</big></big></b></center>
 
+<br><a href="wish_list.htm#verbatim, srcfile, srccode" target="_top">verbatim,&nbsp;srcfile,&nbsp;srccode</a>
 <br><a href="wish_list.htm#XML Drop Down Menus Not Working" target="_top">XML&nbsp;Drop&nbsp;Down&nbsp;Menus&nbsp;Not&nbsp;Working</a>
-<br><a href="wish_list.htm#verbatim and srcfile" target="_top">verbatim&nbsp;and&nbsp;srcfile</a>
 <br><a href="wish_list.htm#Whats New" target="_top">Whats&nbsp;New</a>
 <br><a href="wish_list.htm#Home Page" target="_top">Home&nbsp;Page</a>
 <br><a href="wish_list.htm#Jump Table" target="_top">Jump&nbsp;Table</a>
@@ -76,6 +76,21 @@ A:active { color : purple }
 <br><a href="wish_list.htm#th" target="_top">th</a>
 <br><a href="wish_list.htm#$$" target="_top">$$</a>
 <br><br>
+<b><big><a name="verbatim, srcfile, srccode" id="verbatim, srcfile, srccode">verbatim, srcfile, srccode</a></big></b>
+<br>
+Have a way for the <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
+, and <a href="srcfile.htm" target="_top"><span style='white-space: nowrap'>srcfile</span></a>
+ commands
+to refer to current file
+(so works automatically when one moves or copies the file).
+Also, detect if start pattern matches the pattern itself and print an error
+suggesting a different skip for this case.
+In addition, if a space follows the <a href="srccode.htm" target="_top"><span style='white-space: nowrap'>srccode</span></a>
+ command
+(no delimiter), use the current file extension for the type of source code.
+
+<br>
+<br>
 <b><big><a name="XML Drop Down Menus Not Working" id="XML Drop Down Menus Not Working">XML Drop Down Menus Not Working</a></big></b>
 <br>
 The script <code><font color="blue">bug/drop_down.sh</font></code> demonstrates this bug.
@@ -92,18 +107,6 @@ This is not allowed because xml parsers cannot handle
 <code><font color="blue">document.write</font></code>.
 A separate file, with the corresponding xml, should be used
 for these button menus.
-
-<br>
-<br>
-<b><big><a name="verbatim and srcfile" id="verbatim and srcfile">verbatim and srcfile</a></big></b>
-<br>
-Have a way for the <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
- and <a href="srcfile.htm" target="_top"><span style='white-space: nowrap'>srcfile</span></a>
- commands
-to refer to current file
-(so works automatically when one moves or copies the file).
-Also, detect if start pattern matches the patter itself and print an error
-suggesting a different skip for this case.
 
 <br>
 <br>
