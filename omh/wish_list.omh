@@ -21,11 +21,21 @@ $spell
 	github gh-pages
 	noframe
 	srcfile
+    srccode
 	xml
 	javascript
 $$
 
 $section OMhelp Wish List$$
+
+$head verbatim, srcfile, srccode$$
+Have a way for the $cref verbatim$$, and $cref srcfile$$ commands
+to refer to current file
+(so works automatically when one moves or copies the file).
+Also, detect if start pattern matches the pattern itself and print an error
+suggesting a different skip for this case.
+In addition, if a space follows the $cref srccode$$ command
+(no delimiter), use the current file extension for the type of source code.
 
 $head XML Drop Down Menus Not Working$$
 The script $code bug/drop_down.sh$$ demonstrates this bug.
@@ -42,13 +52,6 @@ This is not allowed because xml parsers cannot handle
 $code document.write$$.
 A separate file, with the corresponding xml, should be used
 for these button menus.
-
-$head verbatim and srcfile$$
-Have a way for the $cref verbatim$$ and $cref srcfile$$ commands
-to refer to current file
-(so works automatically when one moves or copies the file).
-Also, detect if start pattern matches the patter itself and print an error
-suggesting a different skip for this case.
 
 $head Whats New$$
 Split the current $cref whatsNew$$ to a separate section for
