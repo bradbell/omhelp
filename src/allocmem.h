@@ -2,10 +2,13 @@
 # define ALLOCMEM_INCLUDED
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
+# ifdef __cplusplus
+extern "C" {
+# endif
 
 // NDEBUG is define by the compiler, do not edit the if of this clause
 #ifdef NDEBUG
@@ -43,4 +46,7 @@ WARNING: if you change AllocMem, make sure StrCat.c agrees with the change
 
 # endif
 
+# ifdef __cplusplus
+}
+# endif
 # endif

@@ -2,10 +2,14 @@
 # define AUTO_TAG_INCLUDED
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
+# ifdef __cplusplus
+extern "C" {
+# endif
+
 
 # define SEARCH_TAG         "_search"
 # define EXTERNAL_TAG       "_external"
@@ -14,4 +18,7 @@ OMhelp is distributed under the terms of the
 # define REFERENCE_TAG      "_reference"
 # define PRINTABLE_TAG      "_printable"
 
+# ifdef __cplusplus
+}
+# endif
 # endif

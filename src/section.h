@@ -6,6 +6,10 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
+# ifdef __cplusplus
+extern "C" {
+# endif
+
 
 // maximum number of frames in one section
 # define MAX_FRAME     10
@@ -199,4 +203,7 @@ $childtable/
 $end
 */
 
+# ifdef __cplusplus
+}
+# endif
 # endif

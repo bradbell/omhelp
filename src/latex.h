@@ -1,3 +1,7 @@
+
+# ifdef __cplusplus
+extern "C" {
+# endif
 /* A Bison parser, made by GNU Bison 3.0.4.  */
 
 /* Bison interface for Yacc-like parsers in C
@@ -107,3 +111,6 @@ extern YYSTYPE texlval;
 int texparse (void);
 
 #endif /* !YY_TEX_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_LATEX_H_INCLUDED  */
+# ifdef __cplusplus
+}
+# endif

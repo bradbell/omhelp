@@ -2,10 +2,14 @@
 # define CONVERT_INCLUDED
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
+# ifdef __cplusplus
+extern "C" {
+# endif
+
 
 // special character that is converted to a resistered trade mark symbol
 # define REGISTERED_TRADE_MARK_CHARACTER '\01'
@@ -36,6 +40,9 @@ extern char *ConvertInternalString(
 	const char *s
 );
 
+# ifdef __cplusplus
+}
+# endif
 # endif
 
 /*

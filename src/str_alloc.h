@@ -2,10 +2,14 @@
 # define STR_ALLOC_INCLUDED
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
+# ifdef __cplusplus
+extern "C" {
+# endif
+
 
 /*
 $begin str_alloc$$
@@ -57,4 +61,7 @@ $end
 
 # define str_alloc(s1)       StrCat(__FILE__, __LINE__, s1, NULL)
 
+# ifdef __cplusplus
+}
+# endif
 # endif

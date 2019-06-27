@@ -2,10 +2,14 @@
 # define COLOR_SWITCH_INCLUDED
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
+# ifdef __cplusplus
+extern "C" {
+# endif
+
 
 extern void color_switch(
 	char       *text            ,
@@ -18,4 +22,7 @@ extern void color_switch(
 	const char *error_color
 );
 
+# ifdef __cplusplus
+}
+# endif
 # endif

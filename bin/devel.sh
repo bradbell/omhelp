@@ -25,6 +25,7 @@ ignore_files='
 	bin/devel.sh
 	src/omhelp.c
 	src/omhelp.h
+	src/latex.h
 '
 # ----------------------------------------------------------------------------
 echo "copyright_owner=$copyright_owner"

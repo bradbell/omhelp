@@ -2,10 +2,14 @@
 # define STRJOIN_INCLUDED
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
+# ifdef __cplusplus
+extern "C" {
+# endif
+
 
 /*
 $begin strjoin$$
@@ -67,4 +71,7 @@ $end
 
 # define strjoin(s1, s2)       StrCat(__FILE__, __LINE__, s1, s2, NULL)
 
+# ifdef __cplusplus
+}
+# endif
 # endif

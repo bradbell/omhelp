@@ -6,9 +6,16 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
+# ifdef __cplusplus
+extern "C" {
+# endif
+
 
 # include "section.h"
 
 extern char* select_childtable(SectionInfo* F);
 
+# ifdef __cplusplus
+}
+# endif
 # endif
