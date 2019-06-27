@@ -201,10 +201,14 @@ with a four space indentation as follows:
 <b><font color="#000080">    # define</font></b> HIGHLIGHT_INCLUDED
     <i><font color="#9A1900">/* ----------------------------------------------------------------------------</font></i>
 <i><font color="#9A1900">    OMhelp: Language Independent Embedded Documentation</font></i>
-<i><font color="#9A1900">              Copyright (C) 1998-2015 Bradley M. Bell</font></i>
+<i><font color="#9A1900">              Copyright (C) 1998-2019 Bradley M. Bell</font></i>
 <i><font color="#9A1900">    OMhelp is distributed under the terms of the</font></i>
 <i><font color="#9A1900">                GNU General Public License Version 2.</font></i>
 <i><font color="#9A1900">    ---------------------------------------------------------------------------- */</font></i>
+<b><font color="#000080">    # ifdef</font></b> __cplusplus
+    <b><font color="#0000FF">extern</font></b> <font color="#FF0000">"C"</font> <font color="#FF0000">{</font>
+<b><font color="#000080">    # endif</font></b>
+    
     <i><font color="#9A1900">// BEGIN PROTOTYPE</font></i>
     <b><font color="#0000FF">extern</font></b> <font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">highlight</font></b><font color="#990000">(</font>
         <b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> input_text_cstr     <font color="#990000">,</font>
@@ -215,6 +219,9 @@ with a four space indentation as follows:
     <font color="#990000">);</font>
     <b><font color="#0000FF">extern</font></b> <font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">file_ext2lang</font></b><font color="#990000">(</font><b><font color="#0000FF">const</font></b> <font color="#009900">char</font><font color="#990000">*</font> file_ext_cstr<font color="#990000">);</font>
     <i><font color="#9A1900">// END PROTOTYPE</font></i>
+<b><font color="#000080">    # ifdef</font></b> __cplusplus
+    <font color="#FF0000">}</font>
+<b><font color="#000080">    # endif</font></b>
 <b><font color="#000080">    # endif</font></b></tt></pre>
 Note that a newline was automatically added at the beginning of the file.
 

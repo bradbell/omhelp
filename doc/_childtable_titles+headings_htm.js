@@ -1,6 +1,6 @@
 // Child table for section titles+headings
 document.write('\
-<select onchange="titles+headings_child(this)">\
+<select onchange="titles__43__headings_child(this)">\
 <option>titles+headings-&gt;</option>\
 <option>begin</option>\
 <option>section</option>\
@@ -8,7 +8,7 @@ document.write('\
 <option>head</option>\
 </select>\
 ');
-function titles+headings_child(item)
+function titles__43__headings_child(item)
 {	var child_list = [
 		'begin.htm',
 		'section.htm',
