@@ -24,6 +24,7 @@ ignore_files='
 	batch_edit.sed
 	bin/devel.sh
 	src/omhelp.c
+	src/omhelp.h
 '
 # ----------------------------------------------------------------------------
 echo "copyright_owner=$copyright_owner"
