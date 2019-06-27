@@ -32,7 +32,7 @@ echo_eval cd build/bug
 #
 echo "create build/bug/one.hpp"
 cat << EOF > one.hpp
-@begin one_hpp@@
+@begin one.hpp@@
 @spell hpp@@
 @section Example Section one.hpp@@
 The drop down menu with title one.hpp as the title and two.hpp

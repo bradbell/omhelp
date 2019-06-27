@@ -110,7 +110,7 @@ ADD_EXECUTABLE(omhelp
 	relative.c
 	search.c
 	section.c
-	select_childtable.c
+	select_childtable.cpp
 	style.c
 	spell.c
 	trace_exit.c

@@ -45,27 +45,40 @@ $codei%FreeMem(%file_name%)%$$.
 
 $end
 */
-# include <stdio.h>
+# include <sstream>
+# include <string>
+# include <cstdio>
 # include <assert.h>
 
 # include "select_childtable.h"
 # include "automatic.h"
 # include "Internal2Out.h"
-# include "StrCat.h"
+# include "str_alloc.h"
 # include "fatalerr.h"
 
 # include "allocmem.h" // for FreeMem
 
-char* select_childtable(SectionInfo* This)
-{
+extern "C" char* select_childtable(SectionInfo* This)
+{	using std::string;
+
 	// file extension for this xml or htm file
 	const char* ext;
 
 	// lower case version of cross reference tag
 	const char* tagLower = This->tagLower;
 
-	// name of the javascript file
-	char* script_name;
+	// cross reference tag that can be used as Java script identifier
+	string tag_name;
+	std::stringstream ss;
+	for(size_t i = 0; tagLower[i] != '\0'; ++i)
+	{	char ch = tagLower[i];
+		if( isdigit(ch) || isalpha(ch) )
+			tag_name += ch;
+		else
+		{	ss << int(ch);
+			tag_name += "__" + ss.str() + "__";
+		}
+	}
 
 	// file pointer for the javascript file
 	FILE* script_fp;
@@ -82,7 +95,7 @@ char* select_childtable(SectionInfo* This)
 	ext++;
 
 	// Name of javascript file that contains the childtable for this section
-	script_name = StrCat(
+	char* script_name = StrCat(
 		__FILE__,
 		__LINE__,
 		"_childtable_",
@@ -121,7 +134,9 @@ char* select_childtable(SectionInfo* This)
 	// ----------------------------------------------------------------------
 	fprintf(script_fp, "// Child table for section %s\n", tagLower);
 	fprintf(script_fp, "document.write('\\\n");
-	fprintf(script_fp, "<select onchange=\"%s_child(this)\">\\\n", tagLower);
+	fprintf(script_fp,
+		"<select onchange=\"%s_child(this)\">\\\n", tag_name.c_str()
+	);
 	fprintf(script_fp, "<option>%s-&gt;</option>\\\n", tagLower);
 	S = F;
 	while( S != NULL )
@@ -130,7 +145,7 @@ char* select_childtable(SectionInfo* This)
 	}
 	fprintf(script_fp, "</select>\\\n");
 	fprintf(script_fp, "');\n");
-	fprintf(script_fp, "function %s_child(item)\n", tagLower);
+	fprintf(script_fp, "function %s_child(item)\n", tag_name.c_str() );
 	fprintf(script_fp, "{\tvar child_list = [\n");
 	S = F;
 	while( S != NULL )
@@ -149,5 +164,5 @@ char* select_childtable(SectionInfo* This)
 		"}\n"
 	);
 	//
-	return script_name;
+	return  script_name;
 }

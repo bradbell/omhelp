@@ -1513,6 +1513,12 @@ begin
 			"\nthe section tag contains the substring \"_links\"",
 			NULL
 		);
+		if( strstr(tag_lower, "__") != NULL ) fatalomh(
+			"In the $begin command on line ",
+			int2str($1.line),
+			"\nthe section tag contains the substring of two underbars \"__\"",
+			NULL
+		);
 		if( tag_lower[0] == '_' ) fatalomh(
 			"In the $begin command on line ",
 			int2str($1.line),

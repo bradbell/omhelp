@@ -85,6 +85,7 @@ $spell
 	uri
 	href
 	txt
+	underbars
 $$
 
 $index readme, whats new$$
@@ -116,6 +117,19 @@ $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
 $$
+
+$head 19-06-27$$
+$list number$$
+There was a problem with the drop down navigation menus when a section
+$cref/tag/begin/tag/$$ had a character that could not be used as
+a Java script identifier; e.g., the period.
+This has been fixed.
+$lnext
+An extra restriction was added for the value of a section
+$cref/tag/begin/tag/$$.
+To be specific, it cannot contain the sub-string $code __$$
+(two underbars).
+$lend
 
 $head 19-02-02$$
 Add some items to the $cref wish_list$$.

@@ -15,6 +15,7 @@ $spell
 	cref
 	OMhelp
 	underbar
+	underbars
 $$
 $escape #$$
 $dollar @$$
@@ -89,7 +90,8 @@ Cross reference $icode tag$$ cannot begin with the
 underbar character $code _$$, and the dot character $code .$$,
 (these tags are reserved for use by OMhelp).
 The $icode tag$$ cannot contain any white space characters,
-the string $code _links$$ or the string $code _frame$$.
+the sub-string $code _links$$, the sub-string $code _frame$$
+or the sub-string $code __$$ (two underbars).
 
 $end
 

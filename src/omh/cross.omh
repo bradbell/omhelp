@@ -23,7 +23,7 @@ $childtable%
 	href.h%
 	index.c%
 	relative.c%
-	select_childtable.c%
+	select_childtable.cpp%
 	jump_table.c%
 	search.c%
 	url.c
