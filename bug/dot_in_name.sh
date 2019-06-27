@@ -11,7 +11,7 @@ echo_eval() {
 	eval $*
 }
 # -----------------------------------------------
-name='template'
+name='dot_in_name'
 if [ "$0" != "bug/$name.sh" ]
 then
     echo "usage: bug/$name.sh"
@@ -30,19 +30,25 @@ fi
 echo_eval mkdir build/bug
 echo_eval cd build/bug
 #
-echo "create build/bug/one.omh"
-cat << EOF > one.omh
-@begin one@@
-@section Example Section One@@
-@childtable%two.omh%@@
+echo "create build/bug/one.hpp"
+cat << EOF > one.hpp
+@begin one_hpp@@
+@spell hpp@@
+@section Example Section one.hpp@@
+The drop down menu with title one.hpp as the title and two.hpp
+below it is missing.
+If you change the 'begin one.hpp' to 'begin one_hpp'
+the drop town menu will appear the resulting output.
+@childtable%two.hpp%@@
 @end
 EOF
-cat << EOF > two.omh
-@begin two@@
-@section Example Section Two@@
+cat << EOF > two.hpp
+@begin two.hpp@@
+@spell hpp@@
+@section Example Section two.hpp@@
 @end
 EOF
-sed -i one.omh -e 's|@|$|g'
-sed -i two.omh -e 's|@|$|g'
+sed -i one.hpp -e 's|@|$|g'
+sed -i two.hpp -e 's|@|$|g'
 #
-echo_eval ../src/omhelp ./one.omh -noframe -omhelp_dir ../../omhelp_data
+echo_eval ../src/omhelp ./one.hpp -noframe -omhelp_dir ../../omhelp_data
