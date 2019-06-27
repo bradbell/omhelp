@@ -72,7 +72,7 @@ extern "C" char* select_childtable(SectionInfo* This)
 	std::stringstream ss;
 	for(size_t i = 0; tagLower[i] != '\0'; ++i)
 	{	char ch = tagLower[i];
-		if( isdigit(ch) || isalpha(ch) )
+		if( isdigit(ch) || isalpha(ch) || ch == '_' )
 			tag_name += ch;
 		else
 		{	ss << int(ch);
