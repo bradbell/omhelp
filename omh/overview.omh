@@ -60,7 +60,7 @@ $comment put this aindex command here so is the default for all sections$$
 $aindex section head subhead$$
 
 
-$section omhelp-20190627: Language Independent Embedded Documentation$$
+$section omhelp-20190828: Language Independent Embedded Documentation$$
 
 $head Home Page$$
 $href%https://github.com/bradbell/omhelp%$$
