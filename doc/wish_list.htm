@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>OMhelp Wish List</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="OMhelp Wish List">
-<meta name="keywords" id="keywords" content=" omhelp wish list verbatim srcfile srccode xml drop down menus not working whats new home page jump table deprecate features image tables parent section source-highlight comment character spell th $$ ">
+<meta name="keywords" id="keywords" content=" omhelp wish list ubuntu install verbatim srcfile srccode xml drop down menus not working whats new home page jump table deprecate features image tables parent section source-highlight comment character spell th $$ ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -61,6 +61,7 @@ A:active { color : purple }
 
 <center><b><big><big>OMhelp Wish List</big></big></b></center>
 
+<br><a href="wish_list.htm#Ubuntu Install" target="_top">Ubuntu&nbsp;Install</a>
 <br><a href="wish_list.htm#verbatim, srcfile, srccode" target="_top">verbatim,&nbsp;srcfile,&nbsp;srccode</a>
 <br><a href="wish_list.htm#XML Drop Down Menus Not Working" target="_top">XML&nbsp;Drop&nbsp;Down&nbsp;Menus&nbsp;Not&nbsp;Working</a>
 <br><a href="wish_list.htm#Whats New" target="_top">Whats&nbsp;New</a>
@@ -76,6 +77,23 @@ A:active { color : purple }
 <br><a href="wish_list.htm#th" target="_top">th</a>
 <br><a href="wish_list.htm#$$" target="_top">$$</a>
 <br><br>
+<b><big><a name="Ubuntu Install" id="Ubuntu Install">Ubuntu Install</a></big></b>
+<br>
+Ubuntu has started putting libraries in a sub directory corresponding to the
+architecture; e.g,
+<code><font color='blue'><pre style='display:inline'> 
+    /usr/lib/x86_64-linux-gnu/libboost_random.so
+</pre></font></code>
+This has broken the OMhelp install; see
+<a href="installunix.htm#CMake Command.boost_regex_prefix" target="_top"><span style='white-space: nowrap'>boost_regex_prefix</span></a>
+ and needs to be fixed.
+Perhaps using
+<a href="https://cmake.org/cmake/help/v3.15/module/FindBoost.html" target="_top"><span style='white-space: nowrap'>find_package(Boost)</span></a>
+
+would be a better way to do this.
+
+<br>
+<br>
 <b><big><a name="verbatim, srcfile, srccode" id="verbatim, srcfile, srccode">verbatim, srcfile, srccode</a></big></b>
 <br>
 Have a way for the <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
