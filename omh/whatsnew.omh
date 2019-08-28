@@ -86,6 +86,7 @@ $spell
 	href
 	txt
 	underbars
+    ubuntu
 $$
 
 $index readme, whats new$$
@@ -117,6 +118,10 @@ $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
 $$
+
+$head 19-08-28$$
+There is a problem installing on Ubuntu that needs to be fixed; see
+$cref/ubuntu install/wish_list/Ubuntu Install/$$.
 
 $head 19-06-27$$
 $list number$$

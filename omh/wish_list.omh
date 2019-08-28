@@ -24,9 +24,26 @@ $spell
     srccode
 	xml
 	javascript
+    Ubuntu
+    usr
+    linux
+    libboost
+    regex
 $$
 
 $section OMhelp Wish List$$
+
+$head Ubuntu Install$$
+Ubuntu has started putting libraries in a sub directory corresponding to the
+architecture; e.g,
+$codep
+    /usr/lib/x86_64-linux-gnu/libboost_random.so
+$$
+This has broken the OMhelp install; see
+$cref/boost_regex_prefix/InstallUnix/CMake Command/boost_regex_prefix/$$ and needs to be fixed.
+Perhaps using
+$href%https://cmake.org/cmake/help/v3.15/module/FindBoost.html%find_package(Boost)%$$
+would be a better way to do this.
 
 $head verbatim, srcfile, srccode$$
 Have a way for the $cref verbatim$$, and $cref srcfile$$ commands
