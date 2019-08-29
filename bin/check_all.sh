@@ -118,7 +118,7 @@ fi
 highlight_prefix=`grep source_highlight_prefix bin/run_cmake.sh | \
 		sed -e 's|^.*=||' -e 's|" .*||' -e 's|"||' -e "s|[$]HOME|$HOME|"`
 # -----------------------------------------------------------------------------
-for test_case in highlight_yes highlight_no
+for test_case in highlight_no highlight_yes
 do
 	if [ "$test_case" == 'highlight_no' ]
 	then
@@ -140,7 +140,8 @@ do
 			fi
 		fi
 	else
-		if [ "$number" != 0 ]
+        # highlight_no waning is there, check if got another for highlight_yes
+		if [ "$number" == 2 ]
 		then
 			echo 'check_all.sh: test case highlight_yes'
 			echo 'bin/run_cmake.sh srcfile WARNING present'
