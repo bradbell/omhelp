@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Unix Installation and Testing</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Unix Installation and Testing">
-<meta name="keywords" id="keywords" content=" unix installation testing requirements source-highlight octave flex bison download omhelp distribution directory cmake command boost_regex_prefix source_highlight_prefix have_flex_and_bison omhelp_prefix omhelp_datadir omhelp_c_flags omhelp_build_type build executable documentation developer user install getting started spelling list english.wrd local.wrd dictionary.bin vim editor syntax highlight ">
+<meta name="keywords" id="keywords" content=" unix installation testing requirements source-highlight octave flex bison download omhelp distribution directory cmake command source_highlight_prefix have_flex_and_bison omhelp_prefix omhelp_datadir omhelp_c_flags omhelp_build_type build executable documentation developer user install getting started spelling list english.wrd local.wrd dictionary.bin vim editor syntax highlight ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -70,7 +70,6 @@ A:active { color : purple }
 <br><a href="installunix.htm#Download OMhelp" target="_top">Download&nbsp;OMhelp</a>
 <br><a href="installunix.htm#Distribution Directory" target="_top">Distribution&nbsp;Directory</a>
 <br><a href="installunix.htm#CMake Command" target="_top">CMake&nbsp;Command</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="installunix.htm#CMake Command.boost_regex_prefix" target="_top">boost_regex_prefix</a>
 <br>&#160;&#160;&#160;&#160;&#160;<a href="installunix.htm#CMake Command.source_highlight_prefix" target="_top">source_highlight_prefix</a>
 <br>&#160;&#160;&#160;&#160;&#160;<a href="installunix.htm#CMake Command.have_flex_and_bison" target="_top">have_flex_and_bison</a>
 <br>&#160;&#160;&#160;&#160;&#160;<a href="installunix.htm#CMake Command.omhelp_prefix" target="_top">omhelp_prefix</a>
@@ -189,7 +188,6 @@ Execute the following commands:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mkdir&nbsp;build<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;build<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmake&nbsp;\<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;boost_regex_prefix=</span></font><i><font color="black"><span style='white-space: nowrap'>boost_regex_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;\<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;source_highlight_prefix=</span></font><i><font color="black"><span style='white-space: nowrap'>source_highlight_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;\<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;have_flex_and_bison=</span></font><i><font color="black"><span style='white-space: nowrap'>have_flex_and_bison</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;\<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D&nbsp;omhelp_prefix=</span></font><i><font color="black"><span style='white-space: nowrap'>omhelp_prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;&nbsp;\<br>
@@ -204,19 +202,6 @@ are required.
 The other entries use default values if they are not specified.
 
 <br>
-<br>
-<big><a name="CMake Command.boost_regex_prefix" id="CMake Command.boost_regex_prefix">boost_regex_prefix</a></big>
-<br>
-The default value for 
-<code><i><font color="black"><span style='white-space: nowrap'>boost_regex_prefix</span></font></i></code>
- is <code><font color="blue">/usr</font></code>.
-This prefix assumes the boost <code><font color="blue">regex</font></code> library is installed
-as one of the following:
-
-<code><font color="blue"><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/usr/lib/libboost_regex.*<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/usr/lib64/libboost_regex.*<br>
-</span></font></code>
 <br>
 <big><a name="CMake Command.source_highlight_prefix" id="CMake Command.source_highlight_prefix">source_highlight_prefix</a></big>
 <br>
