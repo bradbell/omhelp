@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -37,7 +37,6 @@ $spell
 	datadir
 	usr
 	regex
-	libboost
 	libsource
 	txt
 $$
@@ -107,7 +106,6 @@ $codei%
 	mkdir build
 	cd build
 	cmake \
-		-D boost_regex_prefix=%boost_regex_prefix%  \
 		-D source_highlight_prefix=%source_highlight_prefix%  \
 		-D have_flex_and_bison=%have_flex_and_bison% \
 		-D omhelp_prefix=%omhelp_prefix%  \
@@ -120,15 +118,6 @@ Only the program name $code cmake$$,
 and the distribution directory reference $code ..$$,
 are required.
 The other entries use default values if they are not specified.
-
-$subhead boost_regex_prefix$$
-The default value for $icode boost_regex_prefix$$ is $code /usr$$.
-This prefix assumes the boost $code regex$$ library is installed
-as one of the following:
-$codei%
-	/usr/lib/libboost_regex.*
-	/usr/lib64/libboost_regex.*
-%$$
 
 $subhead source_highlight_prefix$$
 The default value for $icode source_highlight_prefix$$ is $code /usr$$.

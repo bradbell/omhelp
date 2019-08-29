@@ -67,14 +67,12 @@ MACRO(set_library_info dir_out file_out library prefix)
 	ENDIF( ${dir_out} )
 ENDMACRO( set_library_info )
 # ---------------------------------------------------------------------------
-# boost_regex_prefix
-command_line_arg(boost_regex_prefix /usr PATH
-	"prefix were the boost regex library was install"
-)
-set_library_info(
-	boost_regex_dir boost_regex_file
-	"boost_regex" ${boost_regex_prefix}
-)
+IF( boost_regex_prefix )
+    MESSAGE(FATAL_ERROR
+        "boost_regex_prefix is longer necessary on cmake comamnd line; "
+        "see whats new on 2019-08-29."
+    )
+ENDIF( boost_regex_prefix )
 # ---------------------------------------------------------------------------
 # source_highlight_prefix
 command_line_arg(source_highlight_prefix /usr PATH
@@ -118,6 +116,24 @@ ELSE ( omhelp_build_type )
 	SET(CMAKE_BUILD_TYPE "DEBUG")
 ENDIF ( omhelp_build_type )
 MESSAGE(STATUS "CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}" )
+# ---------------------------------------------------------------------------
+FIND_PACKAGE(Boost COMPONENTS regex)
+SET(boost_regex_dir NOTFOUND)
+IF( Boost_FOUND )
+    FOREACH(dir ${Boost_LIBRARY_DIRS} )
+        FOREACH(extension "a" "so")
+            SET(file_name "libboost_regex.${extension}")
+            IF( EXISTS "${dir}/${file_name}" )
+                MESSAGE(STATUS "Found = ${dir}/${file_name}")
+                SET(boost_regex_dir  "${dir}")
+                SET(boost_regex_file "${file_name}")
+            ENDIF( EXISTS "${dir}/${file_name}" )
+        ENDFOREACH(extension "so" "a")
+    ENDFOREACH(dir ${Boost_LIBRARY_DIRS} )
+ENDIF( Boost_FOUND )
+IF( NOT boost_regex_dir )
+	MESSAGE(STATUS "WARNING: Cannot find boost regex library")
+ENDIF( NOT boost_regex_dir )
 # ---------------------------------------------------------------------------
 # source_highlight_01
 #

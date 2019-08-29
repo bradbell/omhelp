@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -35,9 +35,9 @@ $mref/srccode/codep/verbatim/$$
 
 $head Optional$$
 This command is optional and only supported when the
-$cref/boost_regex/installunix/CMake Command/boost_regex_prefix/$$ and
 $cref/source_highlight/installunix/CMake Command/source_highlight_prefix/$$
-library are successfully found by the cmake command.
+library are successfully found; see the output printed by the
+$cref/cmake command/InstallUnix/CMake Command/$$.
 
 $head Purpose$$
 This command will display the specified

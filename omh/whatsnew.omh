@@ -87,6 +87,8 @@ $spell
 	txt
 	underbars
     ubuntu
+    linux
+    libboost
 $$
 
 $index readme, whats new$$
@@ -119,9 +121,19 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 19-08-29$$
+It is not longer necessary to specify the $icode boost_prefix$$ for the
+$cref/CMake command/InstallUnix/CMake Command/$$ because if is determined
+automatically using the CMake $code find_package$$ command.
+This change fixed the install on Ubuntu which was broken because
+Ubuntu-18 puts the boost libraries in a sub directory corresponding to the
+architecture; e.g,
+$codep
+    /usr/lib/x86_64-linux-gnu/libboost_regex.so
+$$
+
 $head 19-08-28$$
-There is a problem installing on Ubuntu that needs to be fixed; see
-$cref/ubuntu install/wish_list/Ubuntu Install/$$.
+There is a problem installing on Ubuntu that needs to be fixed.
 
 $head 19-06-27$$
 $list number$$
