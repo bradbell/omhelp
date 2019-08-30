@@ -140,7 +140,7 @@ do
 			fi
 		fi
 	else
-        # highlight_no waning is there, check if got another for highlight_yes
+		# highlight_no waning is there, check if got another for highlight_yes
 		if [ "$number" == 2 ]
 		then
 			echo 'check_all.sh: test case highlight_yes'
