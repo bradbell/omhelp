@@ -21,6 +21,7 @@
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
+#	omh/getstarted/start_image.omh
 # '
 # list of sed commands that are applied to the extra files,
 # after the other sed commands in this file.
@@ -30,5 +31,6 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|$path\/getstarted\/.dat\/$\$|$path%..%.dat%$$|
-s|%\([a-zA-Z0-9_][a-zA-Z0-9_]*\)\.dat%|%omh/getstarted/\1.dat%|g
+# s|$path\/getstarted\/.dat\/$\$|$path%..%.dat%$$|
+s|w3c_home.gif|omh/getstarted/w3c_home.gif|
+/$path\/getstarted\/.gif\/$\$/d

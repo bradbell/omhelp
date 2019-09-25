@@ -43,7 +43,6 @@ $path%..%.gif%$$
 $path%..%.jpg%$$
 $path%..%.png%$$
 $path/getstarted/.omh/$$
-$path/getstarted/.gif/$$
 $path%..%.dat%$$
 $path%..%.py%$$
 $path%..%.c%$$

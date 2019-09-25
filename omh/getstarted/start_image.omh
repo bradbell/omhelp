@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -9,6 +9,7 @@ $begin start_image$$
 $dollar @$$
 $escape #$$
 $spell
+	omh
 	noframe
 	omhelp
 	omh
@@ -50,9 +51,9 @@ $cref/getting started directory/get_started/Getting Started Directory/$$.
 $subhead W3c_home.gif$$
 Copy the file
 $center
-$href%http://www.w3.org/TR/1998/REC-html40-19980424/images/w3c_home.gif%$$
+$href%http://www.w3.org/TR/1998/REC-html40-19980424/images/omh/getstarted/w3c_home.gif%$$
 $$
-to the file $code w3c_home.gif$$ in the
+to the file $code omh/getstarted/w3c_home.gif$$ in the
 $cref/test directory
 	/start_simple
 	/Execute The Following Steps.Test Directory
