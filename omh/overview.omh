@@ -39,7 +39,7 @@ the getstarted subdirectory examples can use the same file names as the entire
 OMhelp documentation. Note that the latex subdirectory uses full file names
 and not a search path.
 $$
-$path/image/.gif/$$
+$path%..%.gif%$$
 $path/image/.jpg/$$
 $path/image/.png/$$
 $path/getstarted/.omh/$$

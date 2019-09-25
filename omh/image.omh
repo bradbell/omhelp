@@ -1,12 +1,13 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
 $begin image$$
 $spell
+	omh
 	cmd
 	xml
 	dos
@@ -81,7 +82,7 @@ $codep
 	@pre
 
 	@@
-	@image%run.gif % image_run.jpg%@@
+	@image%omh/image/run.gif% image_run.jpg%@@
 	@pre
 
 	@@
@@ -95,7 +96,7 @@ another section stores a different file with the name $code run.gif$$.
 $pre
 
 $$
-$image%run.gif%image_run.gif%$$
+$image%omh/image/run.gif%image_run.gif%$$
 $pre
 
 $$
@@ -103,16 +104,16 @@ The following input
 $codep
 	@center
 	@table
-	@icon noteIcon@@ @cend notebook icon @rend
-	@icon dosIcon@@  @cend dos command icon
+	@icon omh/image/noteIcon@@ @cend notebook icon @rend
+	@icon omh/image/dosIcon@@  @cend dos command icon
 	@tend
 	@@
 $$
 displays the following
 $center
 $table
-$icon noteIcon$$ $cnext notebook icon $rnext
-$icon dosIcon$$  $cnext dos command icon
+$icon omh/image/noteIcon$$ $cnext notebook icon $rnext
+$icon omh/image/dosIcon$$  $cnext dos command icon
 $tend
 $$
 

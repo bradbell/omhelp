@@ -14,21 +14,24 @@
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
-#	src/select_childtable.c
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
-#	s|select_childtable.c|select_childtable.cpp|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
+#	omh/image.omh
 # '
 # list of sed commands that are applied to the extra files,
 # after the other sed commands in this file.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # extra_seds='
+#	s|@dspell|&\n\tomh|
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|select_childtable.c|select_childtable.cpp|
+s|$path\/image\/.gif\/$\$|$path%..%.gif%$$|
+s|% *run.gif *%|%omh/image/run.gif%|
+s|@icon \([a-zA-Z0-9_][a-zA-Z0-9_]*\)@@|@icon omh/image/\1@@|
+s|$icon \([a-zA-Z0-9_][a-zA-Z0-9_]*\)$\$|$icon omh/image/\1$$|
