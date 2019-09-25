@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -17,8 +17,8 @@ $spell
 	htm
 $$
 
-$children/
-	cref_example_1.omh/$$
+$children%
+	omh/getstarted/cref_example_1.omh%$$
 
 $section An Example Linking To Other Pages In The Same Web Site$$
 $index cref, get started$$
@@ -45,7 +45,7 @@ $cref/test directory
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%cref_example_1.omh%5%#036begin %$$
+     $$@begin $verbatim%omh/getstarted/cref_example_1.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
@@ -63,7 +63,7 @@ $cref/test directory
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%cref_example_2.omh%5%#036begin %$$
+     $$@begin $verbatim%omh/getstarted/cref_example_2.omh%5%#036begin %$$
 $$
 
 $subhead Example In This Web Site Context$$

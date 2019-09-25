@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -18,9 +18,9 @@ $spell
 $$
 
 $children%
-	view_near_equal_c.omh%
+	omh/getstarted/view_near_equal_c.omh%
 	getstarted/near_equal_c.c%
-	view_near_equal_f.omh%
+	omh/getstarted/view_near_equal_f.omh%
 	getstarted/near_equal_f.f%$$
 
 $section Embedding OMhelp Commands in Source Code$$

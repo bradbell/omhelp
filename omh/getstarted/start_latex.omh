@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -20,8 +20,8 @@ $spell
 	xml
 $$
 
-$children/
-	latex_example.omh/$$
+$children%
+	omh/getstarted/latex_example.omh%$$
 
 $section An Example Using Latex Math Formula Commands$$
 $index latex, get started$$
@@ -49,7 +49,7 @@ $cref/test directory
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%latex_example.omh%5%#036begin %$$
+     $$@begin $verbatim%omh/getstarted/latex_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2016 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -30,20 +30,20 @@ Then you can run any of the
 getting started examples listed below.
 
 
-$childtable/
-	start_simple.omh/
-	start_head.omh/
-	start_image.omh/
-	start_pre.omh/
-	start_font.omh/
-	start_spell.omh/
-	start_latex.omh/
-	start_verbatim.omh/
+$childtable%
+	omh/getstarted/start_simple.omh%
+	omh/getstarted/start_head.omh%
+	omh/getstarted/start_image.omh%
+	omh/getstarted/start_pre.omh%
+	omh/getstarted/start_font.omh%
+	omh/getstarted/start_spell.omh%
+	omh/getstarted/start_latex.omh%
+	omh/getstarted/start_verbatim.omh%
 	@start_src_omh@
-	start_embed.omh/
-	start_multiple.omh/
-	start_cref.omh/
-	start_index.omh/$$
+	omh/getstarted/start_embed.omh%
+	omh/getstarted/start_multiple.omh%
+	omh/getstarted/start_cref.omh%
+	omh/getstarted/start_index.omh%$$
 
 $head Getting Started Directory$$
 Each of the examples above request that you create one or

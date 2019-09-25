@@ -17,10 +17,11 @@ $spell
 	htm
 	image_example
 	gif
+	getstarted
 $$
 
-$children/
-	image_example.omh/$$
+$children%
+	omh/getstarted/image_example.omh%$$
 
 $section An Example Using Images$$
 $index picture$$
@@ -41,7 +42,7 @@ $cref/test directory
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%image_example.omh%5%#036begin %$$
+     $$@begin $verbatim%omh/getstarted/image_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.

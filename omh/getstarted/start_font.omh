@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -17,8 +17,8 @@ $spell
 	head_example
 $$
 
-$children/
-	font_example.omh/$$
+$children%
+	omh/getstarted/font_example.omh%$$
 
 $section Example Using Font Commands$$
 
@@ -46,7 +46,7 @@ $cref/test directory
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%font_example.omh%5%#036begin %$$
+     $$@begin $verbatim%omh/getstarted/font_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.

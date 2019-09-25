@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -19,9 +19,9 @@ $spell
 	multipleexample
 $$
 
-$children/
-	multiple_example_1.omh/
-	multiple_example_2.omh/$$
+$children%
+	omh/getstarted/multiple_example_1.omh%
+	omh/getstarted/multiple_example_2.omh%$$
 
 $section An Example With Multiple Input Files and Sections$$
 $index multiple, get started$$
@@ -49,7 +49,7 @@ $cref/test directory
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%multiple_example_1.omh%5%#036begin %$$
+     $$@begin $verbatim%omh/getstarted/multiple_example_1.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
@@ -67,7 +67,7 @@ $cref/test directory
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%multiple_example_2.omh%5%#036begin %$$
+     $$@begin $verbatim%omh/getstarted/multiple_example_2.omh%5%#036begin %$$
 $$
 
 $subhead multiple_example_3.omh$$
@@ -81,7 +81,7 @@ $cref/test directory
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%multiple_example_3.omh%5%#036begin %$$
+     $$@begin $verbatim%omh/getstarted/multiple_example_3.omh%5%#036begin %$$
 $$
 
 

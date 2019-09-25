@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -17,8 +17,8 @@ $spell
 	spell_example
 $$
 
-$children/
-	spell_example.omh/$$
+$children%
+	omh/getstarted/spell_example.omh%$$
 
 $section Spelling Command Example$$
 $index spell, get started$$
@@ -54,7 +54,7 @@ $cref/test directory
 with the following contents:
 $code
 $pre
-     $$@begin $verbatim%spell_example.omh%5%#036begin %$$
+     $$@begin $verbatim%omh/getstarted/spell_example.omh%5%#036begin %$$
 $$
 Note that you can copy and paste the commands above
 to your editor window.
