@@ -19,9 +19,9 @@ $$
 
 $children%
 	omh/getstarted/view_near_equal_c.omh%
-	getstarted/near_equal_c.c%
+	omh/getstarted/near_equal_c.c%
 	omh/getstarted/view_near_equal_f.omh%
-	getstarted/near_equal_f.f%$$
+	omh/getstarted/near_equal_f.f%$$
 
 $section Embedding OMhelp Commands in Source Code$$
 
