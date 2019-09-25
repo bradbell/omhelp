@@ -1,6 +1,6 @@
 c -----------------------------------------------------------------------------
 c OMhelp: Language Independent Embedded Documentation
-c           Copyright (C) 1998-2015 Bradley M. Bell
+c           Copyright (C) 1998-2019 Bradley M. Bell
 c OMhelp is distributed under the terms of the
 c             GNU General Public License Version 2.
 c -----------------------------------------------------------------------------
@@ -70,7 +70,7 @@ c It returns true if the test succeeds and false if it fails.
 c
 c $comment no indent, start output at text following END COPYRIGHT$$
 c $code
-c $verbatim%ok_near_equal_f.f%0%END COPYRIGHT%$$
+c $verbatim%omh/getstarted/ok_near_equal_f.f%0%END COPYRIGHT%$$
 c $$
 c
 c $end

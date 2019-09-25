@@ -30,6 +30,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|$path\/image\/.png\/$\$|$path%..%.png%$$|
-s|@icon \([a-zA-Z0-9_][a-zA-Z0-9_]*\)\.png@@|@icon omh/image/\1.png@@|
-s|$icon \([a-zA-Z0-9_][a-zA-Z0-9_]*\).png$\$|$icon omh/image/\1.png$$|
+s|$path\/getstarted\/.f\/$\$|$path%..%.f%$$|
+s|%\([a-zA-Z0-9_][a-zA-Z0-9_]*\)\.f%|%omh/getstarted/\1.f%|g

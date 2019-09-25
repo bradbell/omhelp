@@ -47,7 +47,7 @@ $path/getstarted/.gif/$$
 $path/getstarted/.dat/$$
 $path/getstarted/.py/$$
 $path/getstarted/.c/$$
-$path/getstarted/.f/$$
+$path%..%.f%$$
 
 $comment ../build/omh is the build directory corresponding to this directory
 (where this file is stored). This path command is for files created by
