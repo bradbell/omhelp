@@ -54,9 +54,9 @@ $codep
 $$
 relative to the distribution directory
 $codei%
-	omhelp_%yy%-%mm%-%dd%
+	omhelp.git
 %$$
-created during the $cref/installation of OMhelp/Install/$$.
+see $cref/downloading OMhelp/InstallUnix/Download OMhelp/$$.
 If you have the bash shell on your system,
 there is a script file that can be run with the command
 $codep
