@@ -45,27 +45,30 @@ $childtable%
 	omh/getstarted/start_cref.omh%
 	omh/getstarted/start_index.omh%$$
 
-$head Getting Started Directory$$
+$head getstarted Directory$$
 Each of the examples above request that you create one or
 more files using the editor of your choice.
 You can instead just copy the corresponding file from the directory
 $codep
 	omh/getstarted
 $$
-relative to the distribution directory
-$codei%
-	omhelp.git
-%$$
+This and others mentioned in this section are relative to
+the download directory $code omhelp.git$$;
 see $cref/downloading OMhelp/InstallUnix/Download OMhelp/$$.
-If you have the bash shell on your system,
-there is a script file that can be run with the command
+
+$head get_started Directory$$
+For the purpose of simplification, we use the directory
 $codep
-	./run_all.sh
+	get_started
+$$
+as a temporary directory to copy files to before running the examples.
+
+$subhead get_started.sh$$
+If you have the bash shell on your system,
+the following script will copy the files and run omhelp:
+$codep
+	bin/get_started.sh
 $$
 This will run all of the getting started examples.
-The resulting web site files will be in the directory
-$codep
-	cd omh/getstarted/htm
-$$
 
 $end
