@@ -11,6 +11,7 @@
 # (with the possible exception of the extra_seds commands).
 # The files in bin/devel.sh ignore_files are automatically in this list.
 # ignore_files='
+#	src/jump_table.c
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
@@ -30,5 +31,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|$path\/getstarted\/.f\/$\$|$path%..%.f%$$|
-s|%\([a-zA-Z0-9_][a-zA-Z0-9_]*\)\.f%|%omh/getstarted/\1.f%|g
+s|$path\/getstarted\/.c\/$\$|$path%..%.c%$$|
+s|%\([a-zA-Z0-9_][a-zA-Z0-9_]*\)\.c%|%omh/getstarted/\1.c%|g

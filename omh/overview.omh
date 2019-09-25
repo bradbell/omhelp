@@ -46,7 +46,7 @@ $path/getstarted/.omh/$$
 $path/getstarted/.gif/$$
 $path/getstarted/.dat/$$
 $path/getstarted/.py/$$
-$path/getstarted/.c/$$
+$path%..%.c%$$
 $path%..%.f%$$
 
 $comment ../build/omh is the build directory corresponding to this directory
