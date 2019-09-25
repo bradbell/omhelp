@@ -30,5 +30,5 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|$path\/getstarted\/.py\/$\$|$path%..%.py%$$|
-s|%\([a-zA-Z0-9_][a-zA-Z0-9_]*\)\.py%|%omh/getstarted/\1.py%|g
+s|$path\/getstarted\/.dat\/$\$|$path%..%.dat%$$|
+s|%\([a-zA-Z0-9_][a-zA-Z0-9_]*\)\.dat%|%omh/getstarted/\1.dat%|g

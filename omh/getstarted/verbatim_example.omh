@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -13,16 +13,16 @@ $$
 $section Example Inclusion of Text File Information$$
 
 $head Contents of verbatim_example.dat$$
-$verbatim%verbatim_example.dat%5%$$
+$verbatim%omh/getstarted/verbatim_example.dat%5%$$
 
 $head Just Program Output$$
 $fixed
-$verbatim%verbatim_example.dat%5%PROGRAM OUTPUT%$$
+$verbatim%omh/getstarted/verbatim_example.dat%5%PROGRAM OUTPUT%$$
 $$
 
 $head Just Input Parameters$$
 $code
-$verbatim%verbatim_example.dat%5%INPUT PARAMETERS%PROGRAM OUTPUT%$$
+$verbatim%omh/getstarted/verbatim_example.dat%5%INPUT PARAMETERS%PROGRAM OUTPUT%$$
 $$
 
 
