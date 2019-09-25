@@ -21,7 +21,6 @@
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
-#	omh/image.omh
 # '
 # list of sed commands that are applied to the extra files,
 # after the other sed commands in this file.
@@ -31,7 +30,6 @@
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-s|$path\/image\/.gif\/$\$|$path%..%.gif%$$|
-s|% *run.gif *%|%omh/image/run.gif%|
-s|@icon \([a-zA-Z0-9_][a-zA-Z0-9_]*\)@@|@icon omh/image/\1@@|
-s|$icon \([a-zA-Z0-9_][a-zA-Z0-9_]*\)$\$|$icon omh/image/\1$$|
+s|$path\/image\/.jpg\/$\$|$path%..%.jpg%$$|
+s|@icon \([a-zA-Z0-9_][a-zA-Z0-9_]*\)\.jpg@@|@icon omh/image/\1.jpg@@|
+s|$icon \([a-zA-Z0-9_][a-zA-Z0-9_]*\).jpg$\$|$icon omh/image/\1.jpg$$|

@@ -40,7 +40,7 @@ OMhelp documentation. Note that the latex subdirectory uses full file names
 and not a search path.
 $$
 $path%..%.gif%$$
-$path/image/.jpg/$$
+$path%..%.jpg%$$
 $path/image/.png/$$
 $path/getstarted/.omh/$$
 $path/getstarted/.gif/$$
