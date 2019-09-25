@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ $srccode%cpp%
 $head Contents of src_example.py$$
 Note that a newline is automatically added at the beginning
 of a file:
-$srcfile%src_example.py%5%$$
+$srcfile%omh/getstarted/src_example.py%5%$$
 
 $head Escape Character$$
 Change the escape character from $code #$$ to $code !$$
@@ -31,6 +31,6 @@ $escape !$$
 $head Just Usage Message$$
 Note that the newline following
 $code # BEGIN USAGE$$ is included:
-$srcfile%src_example.py%5%# BEGIN USAGE%# END USAGE%$$
+$srcfile%omh/getstarted/src_example.py%5%# BEGIN USAGE%# END USAGE%$$
 
 $end
