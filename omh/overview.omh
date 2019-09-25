@@ -41,7 +41,7 @@ and not a search path.
 $$
 $path%..%.gif%$$
 $path%..%.jpg%$$
-$path/image/.png/$$
+$path%..%.png%$$
 $path/getstarted/.omh/$$
 $path/getstarted/.gif/$$
 $path/getstarted/.dat/$$
