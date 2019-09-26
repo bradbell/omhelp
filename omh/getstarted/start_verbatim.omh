@@ -4,27 +4,23 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
 $begin start_verbatim$$
 $dollar @$$
-$escape #$$
+$escape $$
 $spell
-	noframe
+	dat
+	getstarted
 	omhelp
 	omh
 	OMhelp
 	htm
-	verbatim_example
 $$
 
 $children%
-	omh/getstarted/verbatim_example.omh%$$
+	omh/getstarted/verbatim_example.omh
+%$$
 
 $section Example Using Verbatim Inclusion of a Text File$$
-$index verbatim, get started$$
-$index inclusion, verbatim$$
-$index text, include$$
-$index file, include$$
 
 $head verbatim$$
 The $cref verbatim$$ command
@@ -33,48 +29,36 @@ This avoids having to maintain a separate copy of
 the corresponding information in the documentation.
 (For example, the output of a program which might change over time.)
 
-$head Execute The Following Steps$$
 
-$subhead verbatim_example.omh$$
-Use an editor of your choice to
-create the file $code  verbatim_example.omh$$
-in the
-$cref/test directory
-	/start_simple
-	/Execute The Following Steps.Test Directory
-/$$
+$head verbatim_example.omh$$
+Use the editor of your choice to
+create the file $code verbatim_example.omh$$ in the
+$cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
-$pre
-     $$@begin $verbatim%omh/getstarted/verbatim_example.omh%5%#036begin %$$
+$verbatim%omh/getstarted/verbatim_example.omh%
+	5%# BEGIN_OMHELP%# END_OMHELP%0
+%$$
 $$
-Note that you can copy and paste the commands above
-to your editor window.
-You may just copy the file with the same name from the
-$cref/getting started directory/get_started/Getting Started Directory/$$.
+You can also just copy $code verbatim_example.omh$$ from the
+$cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
 
-$subhead Example In This Web Site Context$$
-You can view the
-result of making $code verbatim_example.omh$$
-part of the OMhelp help web site
-by selecting
-$cref verbatim_example$$.
+$head verbatim_example.dat$$
+Copy $code omh/getstarted/verbatim_example.dat$$ from the
+$cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
+to the
+$cref/get_started Directory/get_started/get_started Directory/$$.
+In the copy of $code verbatim_example.omh$$, change
+$code omh/getstarted/verbatim_example.dat$$ to $code verbatim_example.dat$$.
 
-$subhead Execute OMhelp$$
-In a command window and
-in the
-$cref/htm directory
-	/start_simple
-	/Execute The Following Steps.Htm Directory
-/$$
-execute the following command
-$codep
-	omhelp ../verbatim_example.omh -noframe
-$$
+$head Execute Example$$
+Once you have copied the files mentioned above, you can
+$cref/execute omhelp/get_started/Execute OMhelp/$$ with
+$cref/example_name/get_started/example_name/$$ equal to
+$code verbatim_example$$.
 
-
-$subhead Example by Itself$$
-Use a web browser of your choosing to view the file
-$icode%test%/htm/verbatim_example.htm%$$.
+$head Example In This Web Site$$
+You can view the result of making $code verbatim_example.omh$$
+part of the OMhelp help web site by selecting $cref verbatim_example$$.
 
 $end
