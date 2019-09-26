@@ -22,7 +22,9 @@ $$
 
 $head Just Input Parameters$$
 $code
-$verbatim%omh/getstarted/verbatim_example.dat%5%INPUT PARAMETERS%PROGRAM OUTPUT%$$
+$verbatim%omh/getstarted/verbatim_example.dat%
+	5%INPUT PARAMETERS%PROGRAM OUTPUT%0
+%$$
 $$
 
 

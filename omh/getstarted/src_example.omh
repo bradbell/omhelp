@@ -4,6 +4,7 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
+# BEGIN_OMHELP
 $begin src_example$$
 $spell
 	inline src srcfile py newline
@@ -31,6 +32,9 @@ $escape !$$
 $head Just Usage Message$$
 Note that the newline following
 $code # BEGIN USAGE$$ is included:
-$srcfile%omh/getstarted/src_example.py%5%# BEGIN USAGE%# END USAGE%$$
+$srcfile%omh/getstarted/src_example.py%
+	5%# BEGIN USAGE%# END USAGE%0
+%$$
 
 $end
+# END_OMHELP
