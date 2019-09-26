@@ -21,7 +21,8 @@ $$
 $section Getting Started: A Very Simple Section$$
 
 $children%
-	omh/getstarted/simple_example.omh%$$
+	omh/getstarted/simple_example.omh
+%$$
 
 $head begin, section, end$$
 The $cref begin$$ command starts a new section

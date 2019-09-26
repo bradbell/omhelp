@@ -16,7 +16,8 @@ $spell
 $$
 
 $children%
-	omh/getstarted/head_example.omh%$$
+	omh/getstarted/head_example.omh
+%$$
 
 $section Headings and Subheadings Example$$
 

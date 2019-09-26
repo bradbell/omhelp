@@ -7,7 +7,7 @@ OMhelp is distributed under the terms of the
 #
 $begin start_image$$
 $dollar @$$
-$escape #$$
+$escape $$
 $spell
 	omh
 	noframe
@@ -21,69 +21,43 @@ $spell
 $$
 
 $children%
-	omh/getstarted/image_example.omh%$$
+	omh/getstarted/image_example.omh
+%$$
 
 $section An Example Using Images$$
-$index picture$$
 
 $head image, icon$$
 The $cref/image and icon/image/$$ commands are used to display images.
 
-$head Execute The Following Steps$$
-
-$subhead pre_example.omh$$
-Use an editor of your choice to
-create the file $code  image_example.omh$$
-in the
-$cref/test directory
-	/start_simple
-	/Execute The Following Steps.Test Directory
-/$$
+$head image_example.omh$$
+Use the editor of your choice to
+create the file $code image_example.omh$$ in the
+$cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
-$pre
-     $$@begin $verbatim%omh/getstarted/image_example.omh%5%#036begin %$$
+$verbatim%omh/getstarted/image_example.omh%
+	5%# BEGIN_OMHELP%# END_OMHELP%0
+%$$
 $$
-Note that you can copy and paste the commands above
-to your editor window.
-You may just copy the file with the same name from the
-$cref/getting started directory/get_started/Getting Started Directory/$$.
+You can also just copy $code image_example.omh$$ from the
+$cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
 
-$subhead W3c_home.gif$$
-Copy the file
-$center
-$href%http://www.w3.org/TR/1998/REC-html40-19980424/images/omh/getstarted/w3c_home.gif%$$
-$$
-to the file $code omh/getstarted/w3c_home.gif$$ in the
-$cref/test directory
-	/start_simple
-	/Execute The Following Steps.Test Directory
-/$$
-You may just copy the file with the same name from the
-$cref/getting started directory/get_started/Getting Started Directory/$$.
+$head w3c_home.gif$$
+Copy $code omh/getstarted/w3c_home.gif$$ from the
+$cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
+to the
+$cref/get_started Directory/get_started/get_started Directory/$$.
+In the copy of $code image_example.omh$$, change
+$code omh/getstarted/w3c_home.gif$$ to $code w3c_home.gif$$.
 
-$subhead Example In This Web Site Context$$
-You can view the
-result of making $code image_example.omh$$
-part of the OMhelp help web site
-by selecting
-$cref image_example$$.
+$head Execute Example$$
+Once you have copied the files mentioned above, you can
+$cref/execute omhelp/get_started/Execute OMhelp/$$ with
+$cref/example_name/get_started/example_name/$$ equal to
+$code image_example$$.
 
-$subhead Execute OMhelp$$
-In a command window and
-in the
-$cref/htm directory
-	/start_simple
-	/Execute The Following Steps.Htm Directory
-/$$
-execute the following command
-$codep
-	omhelp ../image_example.omh -noframe
-$$
-
-
-$subhead Example by Itself$$
-Use a web browser of your choosing to view the file
-$icode%test%/htm/image_example.htm%$$.
+$head Example In This Web Site$$
+You can view the result of making $code image_example.omh$$
+part of the OMhelp help web site by selecting $cref image_example$$.
 
 $end
