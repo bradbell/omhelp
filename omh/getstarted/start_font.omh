@@ -7,18 +7,18 @@ OMhelp is distributed under the terms of the
 #
 $begin start_font$$
 $dollar @$$
-$escape #$$
+$escape $$
 $spell
-	noframe
 	omhelp
 	omh
 	OMhelp
 	htm
-	head_example
+	getstarted
 $$
 
 $children%
-	omh/getstarted/font_example.omh%$$
+	omh/getstarted/font_example.omh
+%$$
 
 $section Example Using Font Commands$$
 
@@ -32,49 +32,25 @@ $code big$$,
 $code small$$,
 change to the specified font.
 
-
-$head Execute The Following Steps$$
-
-$subhead font_example.omh$$
-Use an editor of your choice to
-create the file $code  font_example.omh$$
-in the
-$cref/test directory
-	/start_simple
-	/Execute The Following Steps.Test Directory
-/$$
+$head font_example.omh$$
+Use the editor of your choice to
+create the file $code font_example.omh$$ in the
+$cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
-$pre
-     $$@begin $verbatim%omh/getstarted/font_example.omh%5%#036begin %$$
+$verbatim%omh/getstarted/font_example.omh%
+	5%# BEGIN_OMHELP%# END_OMHELP%0
+%$$
 $$
-Note that you can copy and paste the commands above
-to your editor window.
-You may just copy the file with the same name from the
-$cref/getting started directory/get_started/Getting Started Directory/$$.
+You can also just copy $code font_example.omh$$ from the
+$cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
+Once you have done this, you can
+$cref/execute omhelp/get_started/Execute OMhelp/$$ with
+$cref/example_name/get_started/example_name/$$ equal to
+$code font_example$$.
 
-$subhead Example In This Web Site Context$$
-You can view the
-result of making $code font_example.omh$$
-part of the OMhelp help web site
-by selecting
-$cref font_example$$.
-
-$subhead Execute OMhelp$$
-In a command window and
-in the
-$cref/htm directory
-	/start_simple
-	/Execute The Following Steps.Htm Directory
-/$$
-execute the following command
-$codep
-	omhelp ../font_example.omh -noframe
-$$
-
-
-$subhead Example by Itself$$
-Use a web browser of your choosing to view the file
-$icode%test%/htm/head_example.htm%$$.
+$head Example In This Web Site$$
+You can view the result of making $code font_example.omh$$
+part of the OMhelp help web site by selecting $cref font_example$$.
 
 $end

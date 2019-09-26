@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
+# BEGIN_OMHELP
 $begin font_example$$
 
 $section Example Using Font Commands$$
@@ -26,5 +26,5 @@ $pre
 $$
 $small This text is in a smaller font.$$
 
-
 $end
+# END_OMHELP
