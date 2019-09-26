@@ -10,12 +10,10 @@ $dollar @$$
 $escape $$
 $spell
 	omh
-	noframe
 	omhelp
 	omh
 	OMhelp
 	htm
-	image_example
 	gif
 	getstarted
 $$
