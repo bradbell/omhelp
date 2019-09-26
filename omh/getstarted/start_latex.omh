@@ -4,28 +4,24 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
 $begin start_latex$$
 $dollar @$$
-$escape #$$
+$escape $$
 $spell
-	noframe
-	noframe
+	getstarted
 	omhelp
 	omh
 	OMhelp
 	htm
-	latex_example
 	Lamport
 	xml
 $$
 
 $children%
-	omh/getstarted/latex_example.omh%$$
+	omh/getstarted/latex_example.omh
+%$$
 
 $section An Example Using Latex Math Formula Commands$$
-$index latex, get started$$
-$index math, get started$$
 
 $head latex$$
 The $cref latex$$ command is used to
@@ -36,61 +32,26 @@ These commands are documented in the
 $cref/latex command documentation/latex/Command Documentation/$$
 sections of this web site.
 
-$head Execute The Following Steps$$
 
-$subhead latex_example.omh$$
-Use an editor of your choice to
-create the file $code  latex_example.omh$$
-in the
-$cref/test directory
-	/start_simple
-	/Execute The Following Steps.Test Directory
-/$$
+$head latex_example.omh$$
+Use the editor of your choice to
+create the file $code latex_example.omh$$ in the
+$cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
-$pre
-     $$@begin $verbatim%omh/getstarted/latex_example.omh%5%#036begin %$$
+$verbatim%omh/getstarted/latex_example.omh%
+	5%# BEGIN_OMHELP%# END_OMHELP%0
+%$$
 $$
-Note that you can copy and paste the commands above
-to your editor window.
-You may just copy the file with the same name from the
-$cref/getting started directory/get_started/Getting Started Directory/$$.
+You can also just copy $code latex_example.omh$$ from the
+$cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
+Once you have done this, you can
+$cref/execute omhelp/get_started/Execute OMhelp/$$ with
+$cref/example_name/get_started/example_name/$$ equal to
+$code latex_example$$.
 
-$subhead Example In This Web Site Context$$
-You can view the
-result of making $code image_example.omh$$
-part of the OMhelp help web site
-by selecting
-$cref latex_example$$.
-
-$subhead Execute OMhelp$$
-In a command window and
-in the
-$cref/htm directory
-	/start_simple
-	/Execute The Following Steps.Htm Directory
-/$$
-execute the following command
-$codep
-	omhelp ../latex_example.omh  -noframe
-	omhelp ../latex_example.omh -xml -noframe
-$$
-The first command creates a set of HTML files.
-The second command creates a set of
-$cref/XML/running/xml/$$ files.
-In the HTML case,
-the Latex commands appear to the viewer.
-In the XML case,
-the Latex commands are translated to MathML commands
-and the viewer will see the mathematics.
-
-
-$subhead Example by Itself$$
-Use any browser to view the file
-$icode%test%/htm/latex_example.htm%$$.
-Use the
-$href%http://www.mozilla.org%Mozilla%$$
-web browser to view the file
-$icode%test%/htm/latex_example.xml%$$.
+$head Example In This Web Site$$
+You can view the result of making $code latex_example.omh$$
+part of the OMhelp help web site by selecting $cref latex_example$$.
 
 $end
