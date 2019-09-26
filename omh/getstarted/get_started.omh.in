@@ -8,17 +8,12 @@ OMhelp is distributed under the terms of the
 $begin get_started$$
 $dollar @$$
 $spell
-	yy
-	mm
-	dd
 	OMhelp
 	omh
 	htm
 	omhelp
-	dir
 	getstarted
-	xml
-	Mozilla
+	noframe
 $$
 
 $section Getting Started Using OMhelp$$
@@ -45,30 +40,46 @@ $childtable%
 	omh/getstarted/start_cref.omh%
 	omh/getstarted/start_index.omh%$$
 
-$head getstarted Directory$$
+$head omh/getstarted Directory$$
 Each of the examples above request that you create one or
 more files using the editor of your choice.
 You can instead just copy the corresponding file from the directory
-$codep
-	omh/getstarted
-$$
-This and others mentioned in this section are relative to
-the download directory $code omhelp.git$$;
-see $cref/downloading OMhelp/InstallUnix/Download OMhelp/$$.
+$code omh/getstarted$$.
+This and the other directories and commands mentioned in this section
+are relative to the
+$cref/distribution directory/InstallUnix/Distribution Directory/$$.
 
 $head get_started Directory$$
-For the purpose of simplification, we use the directory
-$codep
-	get_started
-$$
-as a temporary directory to copy files to before running the examples.
+We use $code get_started$$ as a temporary directory to copy files
+and run the examples.
 
-$subhead get_started.sh$$
-If you have the bash shell on your system,
-the following script will copy the files and run omhelp:
+$head example_name$$
+The name of each example is specified by the documentation for the
+corresponding example.
+
+$head Execute OMhelp$$
+This requires building and installing OMhelp and making sure it is in your
+execution path.
+It also requires copying the example file to the $code get_started$$
+directory.
+In the directory $code get_started/htm$$ execute the following command
 $codep
-	bin/get_started.sh
+	omhelp ../%example_name%.omh -debug -noframe
 $$
-This will run all of the getting started examples.
+Once this command has executed,
+use a web browser of your choosing to view the file
+$codei%
+	get_started/htm/%example_name%.htm
+%$$
+
+$head bin/get_started.sh$$
+If you have the bash shell on your system,
+the command
+$codei%
+	bin/get_started.sh
+%$$
+will copy the example files and run omhelp.
+It will run all of the getting started examples
+and allow your to inspect the results.
 
 $end

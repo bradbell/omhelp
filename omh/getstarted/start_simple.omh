@@ -7,7 +7,7 @@ OMhelp is distributed under the terms of the
 #
 $begin start_simple$$
 $dollar @$$
-$escape #$$
+$escape $$
 $spell
 	noframe
 	OMhelp
@@ -15,9 +15,10 @@ $spell
 	htm
 	omhelp
 	simple_example
+	getstarted
 $$
 
-$section Getting Started With A Simple Section$$
+$section Getting Started: A Very Simple Section$$
 
 $children%
 	omh/getstarted/simple_example.omh%$$
@@ -31,63 +32,25 @@ The argument to a
 $cref section$$ command specifies the title
 for the current section.
 
-$head Execute The Following Steps$$
-
-$subhead Install$$
-The first step is to
-$cref install$$ OMhelp on your system.
-Then you can run any of the following examples:
-
-$subhead Test Directory$$
-Create an empty directory with a name of your choosing
-that we will refer to as $icode test$$ below.
-
-$subhead simple_example.omh$$
+$head simple_example.omh$$
 Use the editor of your choice to
-create the file $icode%test%/simple_example.omh%$$
+create the file $code simple_example.omh$$ in the
+$cref%get_started directory%get_started%get_started Directory%$$.
 with the following contents:
 $code
-$pre
-     $$@begin $verbatim%omh/getstarted/simple_example.omh%5%#036begin %$$
+$verbatim%omh/getstarted/simple_example.omh%
+	5%# BEGIN_OMHELP%# END_OMHELP%0
+%$$
 $$
-Note that you can copy and paste the commands above
-into your editor window.
-You may just copy the file with the same name from the
-$cref/getting started directory/get_started/Getting Started Directory/$$.
+You can also just copy $code simple_example.omh$$ from the
+$cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
+Once you have done this, you can
+$cref/execute omhelp/get_started/Execute OMhelp/$$ with
+$cref/example_name/get_started/example_name/$$ equal to
+$code simple_example$$.
 
-$subhead Example In This Web Site Context$$
-You can view the
-result of making $code simple_example.omh$$
-part of the OMhelp help web site
-by selecting
-$cref simple_example$$.
-
-$subhead Htm Directory$$
-Create the directory $icode%test%/htm%$$.
-
-$subhead Execute OMhelp$$
-In a command window and in the directory $icode%test%/htm%$$,
-execute the following command
-$codep
-	omhelp ../simple_example.omh -noframe
-$$
-
-$subhead Example by Itself$$
-If you use a web browser of your choosing to view the file
-$icode%test%/htm/simple_example.htm%$$,
-$pre
-	$$
-$code $title simple_example$$$$
-$pre
-$$
-is displayed as the title of the web page
-(and that is all that is displayed).
-
-
-$head Output File$$
-The file
-$code simple_example.htm$$ is created by running the $code omhelp$$
-command above.
-It contains the HTML version of this web page.
+$head Example In This Web Site$$
+You can view the result of making $code simple_example.omh$$
+part of the OMhelp help web site by selecting $cref simple_example$$.
 
 $end
