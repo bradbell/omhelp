@@ -63,9 +63,9 @@ execution path.
 It also requires copying the example file to the $code get_started$$
 directory.
 In the directory $code get_started/htm$$ execute the following command
-$codep
+$codei%
 	omhelp ../%example_name%.omh -debug -noframe
-$$
+%$$
 Once this command has executed,
 use a web browser of your choosing to view the file
 $codei%

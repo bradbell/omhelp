@@ -35,7 +35,7 @@ for the current section.
 $head simple_example.omh$$
 Use the editor of your choice to
 create the file $code simple_example.omh$$ in the
-$cref%get_started directory%get_started%get_started Directory%$$.
+$cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
 $verbatim%omh/getstarted/simple_example.omh%
