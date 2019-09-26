@@ -4,25 +4,22 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
 $begin start_spell$$
 $dollar @$$
-$escape #$$
+$escape $$
 $spell
-	noframe
+	getstarted
 	omhelp
 	omh
 	OMhelp
 	htm
-	spell_example
 $$
 
 $children%
-	omh/getstarted/spell_example.omh%$$
+	omh/getstarted/spell_example.omh
+%$$
 
 $section Spelling Command Example$$
-$index spell, get started$$
-$index error, spell$$
 
 $head word$$
 In OMhelp, a word starts either with an upper case letter or a lower
@@ -41,48 +38,26 @@ the same word occurs twice with just
 $cref/white space/glossary/White Space/$$
 between occurrences.)
 
-$head Execute The Following Steps$$
 
-$subhead spell_example.omh$$
-Use an editor of your choice to
-create the file $code  spell_example.omh$$
-in the
-$cref/test directory
-	/start_simple
-	/Execute The Following Steps.Test Directory
-/$$
+$head spell_example.omh$$
+Use the editor of your choice to
+create the file $code spell_example.omh$$ in the
+$cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
-$pre
-     $$@begin $verbatim%omh/getstarted/spell_example.omh%5%#036begin %$$
+$verbatim%omh/getstarted/spell_example.omh%
+	5%# BEGIN_OMHELP%# END_OMHELP%0
+%$$
 $$
-Note that you can copy and paste the commands above
-to your editor window.
-You may just copy the file with the same name from the
-$cref/getting started directory/get_started/Getting Started Directory/$$.
+You can also just copy $code spell_example.omh$$ from the
+$cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
+Once you have done this, you can
+$cref/execute omhelp/get_started/Execute OMhelp/$$ with
+$cref/example_name/get_started/example_name/$$ equal to
+$code spell_example$$.
 
-$subhead Example In This Web Site Context$$
-You can view the
-result of making $code spell_example.omh$$
-part of the OMhelp help web site
-by selecting
-$cref spell_example$$.
-
-$subhead Execute OMhelp$$
-In a command window and
-in the
-$cref/htm directory
-	/start_simple
-	/Execute The Following Steps.Htm Directory
-/$$
-execute the following command
-$codep
-	omhelp ../spell_example.omh -noframe
-$$
-
-
-$subhead Example by Itself$$
-Use a web browser of your choosing to view the file
-$icode%test%/htm/spell_example.htm%$$.
+$head Example In This Web Site$$
+You can view the result of making $code spell_example.omh$$
+part of the OMhelp help web site by selecting $cref spell_example$$.
 
 $end
