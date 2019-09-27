@@ -221,21 +221,7 @@ $codep
 $$
 
 $head Getting Started$$
-You can build the
-$cref multiple_example_1$$ subtree of the OMhelp user documentation
-by executing the following commands starting in the
-$icode%distribution_directory%%$$ directory:
-$codei%
-	mkdir xam
-	cd xam
-	%omhelp_prefix%/bin/omhelp ../omh/getstarted/multiple_example_1.omh
-%$$
-Note that if $icode%omhelp_prefix%/bin%$$ is in you execution path,
-you can use the command
-$codei%
-	omhelp ../omh/getstarted/multiple_example_1.omh
-%$$
-See the $cref get_started$$ section for more examples.
+See $cref get_started$$
 
 $head Spelling List$$
 The OMhelp utility files are stored in the

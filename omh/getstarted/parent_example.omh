@@ -1,10 +1,17 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
-$begin multiple_example_2$$
-$section Example With no Children$$
+# BEGIN_OMHELP
+$begin parent_example$$
+$section An Example Parent Section With Two Children$$
+
+$contents%
+	omh/getstarted/child_1_example.omh%
+	omh/getstarted/child_2_example.omh
+%$$
+
 $end
+# END_OMHELP
