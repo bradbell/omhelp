@@ -4,7 +4,7 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-# BEGIN_OMHELP
+BEGIN_OMHELP
 $begin image_example$$
 
 $section An Image Example$$
@@ -20,4 +20,4 @@ $icon omh/getstarted/w3c_home.gif$$
 displays an image in line with the nearby text.
 
 $end
-# END_OMHELP
+END_OMHELP

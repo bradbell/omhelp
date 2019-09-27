@@ -7,7 +7,6 @@ OMhelp is distributed under the terms of the
 #
 $begin start_oneline$$
 $dollar @$$
-$escape $$
 $spell
 	getstarted
 	omhelp

@@ -42,7 +42,7 @@ $cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
 $verbatim%omh/getstarted/src_example.omh%
-	5%# BEGIN_OMHELP%# END_OMHELP%0
+	5%BEGIN_OMHELP%END_OMHELP%0
 %$$
 $$
 You can also just copy $code src_example.omh$$ from the

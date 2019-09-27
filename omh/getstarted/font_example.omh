@@ -4,7 +4,7 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-# BEGIN_OMHELP
+BEGIN_OMHELP
 $begin font_example$$
 
 $section Example Using Font Commands$$
@@ -27,4 +27,4 @@ $$
 $small This text is in a smaller font.$$
 
 $end
-# END_OMHELP
+END_OMHELP

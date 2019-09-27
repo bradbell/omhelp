@@ -6,7 +6,6 @@ OMhelp is distributed under the terms of the
 -------------------------------------------------------------------------------
 BEGIN_PARENT_EXAMPLE
 $begin parent_example$$
-$escape $$
 $spell
 	omh
 $$

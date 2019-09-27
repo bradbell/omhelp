@@ -4,7 +4,7 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-# BEGIN_OMHELP
+BEGIN_OMHELP
 $begin head_example$$
 $section Example Headings$$
 
@@ -19,4 +19,4 @@ $head Second Heading$$
 The text "Second Heading" is the heading above this paragraph.
 
 $end
-# END_OMHELP
+END_OMHELP

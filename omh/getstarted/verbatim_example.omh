@@ -4,7 +4,7 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-# BEGIN_OMHELP
+BEGIN_OMHELP
 $begin verbatim_example$$
 $spell
 	dat
@@ -29,4 +29,4 @@ $$
 
 
 $end
-# END_OMHELP
+END_OMHELP

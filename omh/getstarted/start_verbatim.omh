@@ -6,7 +6,6 @@ OMhelp is distributed under the terms of the
 -------------------------------------------------------------------------------
 $begin start_verbatim$$
 $dollar @$$
-$escape $$
 $spell
 	dat
 	getstarted
@@ -37,7 +36,7 @@ $cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
 $verbatim%omh/getstarted/verbatim_example.omh%
-	5%# BEGIN_OMHELP%# END_OMHELP%0
+	5%BEGIN_OMHELP%END_OMHELP%0
 %$$
 $$
 You can also just copy $code verbatim_example.omh$$ from the

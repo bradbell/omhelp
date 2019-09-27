@@ -4,7 +4,7 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-# BEGIN_OMHELP
+BEGIN_OMHELP
 $begin spell_example$$
 $spell
 	Fft
@@ -21,4 +21,4 @@ $pre
 	$$It is not not true.
 
 $end
-# END_OMHELP
+END_OMHELP
