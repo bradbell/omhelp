@@ -4,8 +4,8 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-# BEGIN_OMHELP
+BEGIN_CHILD_1_EXAMPLE
 $begin child_1_example$$
 $section First Example Child Section$$
 $end
-# END_OMHELP
+END_CHILD_1_EXAMPLE

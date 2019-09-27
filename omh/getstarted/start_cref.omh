@@ -4,90 +4,58 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
 $begin start_cref$$
 $dollar @$$
-$escape #$$
+$escape $$
 $spell
-	noframe
-	Cref
 	omh
 	OMhelp
 	omhelp
-	htm
+	cref
+	getstarted
 $$
 
 $children%
-	omh/getstarted/cref_example_1.omh%$$
+	omh/getstarted/cref_example.omh
+%$$
 
-$section An Example Linking To Other Pages In The Same Web Site$$
-$index cref, get started$$
-$index link, get started$$
-$index cross reference, get started$$
+$section Example Cross References And Multiple Children in One File$$
 
 $head cref$$
-The cross reference command
-$cref cref$$
+The cross reference command $cref cref$$
 is used to link to another destination in the same web site.
 If the requested destination does not exist,
 a warning is printed on $cref stdout$$.
 
-$head Execute The Following Steps$$
-
-$subhead cref_example_1.omh$$
-Use an editor of your choice to
-create the file $code cref_example_1.omh$$
-in the
-$cref/test directory
-	/start_simple
-	/Execute The Following Steps.Test Directory
-/$$
+$head cref_example.omh$$
+Use the editor of your choice to
+create the file $code cref_example.omh$$ in the
+$cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
-$pre
-     $$@begin $verbatim%omh/getstarted/cref_example_1.omh%5%#036begin %$$
+$verbatim%omh/getstarted/cref_example.omh%
+	5%BEGIN_CREF_EXAMPLE%END_CREF_EXAMPLE%0
+%$$
 $$
-Note that you can copy and paste the commands above
-to your editor window.
-You may just copy the file with the same name from the
-$cref/getting started directory/get_started/Getting Started Directory/$$.
+You can also just copy $code cref_example.omh$$ from the
+$cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
 
-$subhead cref_example_2.omh$$
-Use an editor of your choice to
-create the file $code  cref_example_2.omh$$
-in the
-$cref/test directory
-	/start_simple
-	/Execute The Following Steps.Test Directory
-/$$
-with the following contents:
-$code
-$pre
-     $$@begin $verbatim%omh/getstarted/cref_example_2.omh%5%#036begin %$$
-$$
+$head cref_children.omh$$
+Copy $code omh/getstarted/cref_children.omh$$ from the
+$cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
+to the
+$cref/get_started Directory/get_started/get_started Directory/$$.
+In the copy of $code cref_example.omh$$, change
+$code omh/getstarted/cref_children.omh$$ to $code cref_children.omh$$.
 
-$subhead Example In This Web Site Context$$
-You can view the
-result of making $code cref_example_1.omh$$
-part of the OMhelp help web site
-by selecting
-$cref cref_example_1$$.
+$head Execute Example$$
+Once you have copied the files mentioned above, you can
+$cref/execute omhelp/get_started/Execute OMhelp/$$ with
+$cref/example_name/get_started/example_name/$$ equal to
+$code cref_example$$.
 
-$subhead Execute OMhelp$$
-In a command window and
-in the
-$cref/htm directory
-	/start_simple
-	/Execute The Following Steps.Htm Directory
-/$$
-execute the following command
-$codep
-	omhelp ../cref_example_1.omh -noframe
-$$
-
-
-$subhead Example by Itself$$
-Use a web browser of your choosing to view the file
-$icode%test%/htm/cref_example_1.htm%$$.
+$head Example In This Web Site$$
+You can view the result of making $code cref_example.omh$$
+part of the OMhelp help web site by selecting $cref cref_example$$.
 
 $end

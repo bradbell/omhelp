@@ -4,9 +4,23 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-# BEGIN_OMHELP
+BEGIN_PARENT_EXAMPLE
 $begin parent_example$$
+$escape $$
+$spell
+	omh
+$$
 $section An Example Parent Section With Two Children$$
+
+$head child_1_example.omh$$
+$verbatim%omh/getstarted/child_1_example.omh%
+	5%BEGIN_CHILD_1_EXAMPLE%END_CHILD_1_EXAMPLE%0
+%$$
+
+$head child_2_example.omh$$
+$verbatim%omh/getstarted/child_2_example.omh%
+	5%BEGIN_CHILD_2_EXAMPLE%END_CHILD_2_EXAMPLE%0
+%$$
 
 $contents%
 	omh/getstarted/child_1_example.omh%
@@ -14,4 +28,4 @@ $contents%
 %$$
 
 $end
-# END_OMHELP
+END_PARENT_EXAMPLEND_OMHELP

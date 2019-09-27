@@ -1,37 +1,39 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
-----------------------------------------------------------------------
-$begin cref_example_2$$
+BEGIN_CREF_CHILDREN
+$begin cref_child_1$$
 $spell
 	cref
 $$
 
-$section An Example Specifying the Cross Reference Tag$$
+$section Examples With Two Arguments$$
 
-If there is more than one argument to a cref command,
+$head Linking Text$$
+If there is more than one argument,
+the first argument is the linking text and
 the second argument specifies the cross reference tag.
-For example, if you select the following link:
-$cref/parent of this section/cref_example_1/$$.
+For example, select the following link:
+$cref/parent of this section/cref_example/$$.
 
 $end
 ----------------------------------------------------------------------
-$begin Cref3Example$$
+$begin cref_child_2$$
 $spell
 	cref
 	omhelp
 $$
 
-$section An Example Specifying a Heading $$
+$section An Example Specifying a Heading$$
 
+$head Heading$$
 The third argument to a cref command specifies the heading
-for the cross reference.
+within the section we are linking to.
 For example, if you select the following link:
-$cref/first argument/cref_example_1/First Argument/$$.
+$cref/cross reference tag/cref_example/Cross Reference Tag/$$.
 
 $end
-----------------------------------------------------------------------
+END_CREF_CHILDREN

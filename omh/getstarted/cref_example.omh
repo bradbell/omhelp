@@ -4,37 +4,33 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
-$begin cref_example_1$$
+BEGIN_CREF_EXAMPLE
+$begin cref_example$$
 $spell
-	Cref
+	cref
+	omh
+	getstarted
+	omhelp
+	OMhelp
 $$
 
-$section Parent Section For Cross Referencing Examples$$
+$section Examples With One Argument$$
 
-$head First Argument$$
+$head Cross Reference Tag$$
 The first argument to a cref command is the text
 that the user sees for the link.
 This is also the default value for the cross reference tag of the
 section that we are linking to.
 Each section starts with a begin command
 that contains its cross reference tag as an argument.
-The cross reference tag for this section is cref_example_1.
-The cross reference tags for the children of this section are
-$cref _contents$$,
-$cref cref_example_2$$,
-$cref Cref3Example$$,
-$cref _reference$$,
-$cref _index$$, or
-$cref _search$$.
-Note that the sections corresponding to
-_contents,
-_reference,
-_index,
-and _search,
-are automatically generated.
+The cross reference tag for this section is $code cref_example$$.
+
+$head Examples$$
+$cref cref_child_1$$, $cref cref_child_2$$.
 
 $contents%
-	omh/getstarted/cref_example_2.omh%$$
+	omh/getstarted/cref_children.omh
+%$$
 
 $end
+END_CREF_EXAMPLE
