@@ -1,0 +1,69 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2019 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+#
+$begin start_block$$
+$dollar @$$
+$escape $$
+$spell
+	getstarted
+	omhelp
+	omh
+	OMhelp
+$$
+
+$children%
+	omh/getstarted/near_equal_c.c
+%$$
+
+$section OMhelp in Source Code Using Block Comments$$
+
+$head begin, end$$
+OMhelp is designed to be embedded in computer source code.
+In fact, it is language independent and can be can combine source
+code files in multiple languages to form one documentation system.
+Only the text between a $cref begin$$ and a $code @end$$ is processed
+by OMhelp.
+It is intended that these commands be comments in the language.
+
+
+$head This Example is for Block Comments$$
+This example covers all languages that have block comments; e.g.,
+C, C++, Java, Python.
+
+$head near_equal_c.c$$
+Use the editor of your choice to
+create the file $code near_equal_c.c$$ in the
+$cref%get_started directory%get_started%get_started Directory%$$
+with the following contents:
+$code
+$verbatim%omh/getstarted/near_equal_c.c%
+	5%// BEGIN_NEAR_EQUAL%// END_NEAR_EQUAL%0
+%$$
+$$
+You can also just copy $code near_equal_c.c$$ from the
+$cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
+
+$head ok_near_equal_c.c$$
+Copy $code omh/getstarted/ok_near_equal_c.c$$ from the
+$cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
+to the
+$cref/get_started Directory/get_started/get_started Directory/$$.
+In the copy of $code near_equal_c.c$$, change
+$code omh/getstarted/ok_near_equal_c.c$$ to $code ok_near_equal_c.c$$.
+
+$head Execute Example$$
+Once you have copied the files mentioned above, you can
+$cref/execute omhelp/get_started/Execute OMhelp/$$ with
+$cref/example_name/get_started/example_name/$$ equal to
+$code near_equal_c$$ and
+$cref/example_extension/get_started/example_extension/$$ equal to $code c$$.
+
+$head Example In This Web Site$$
+You can view the result of making $code near_equal_c.c$$
+part of the OMhelp help web site by selecting $cref near_equal_c$$.
+
+$end

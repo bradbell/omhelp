@@ -4,7 +4,7 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
-// END COPYRIGHT
+// BEGIN_NEAR_EQUAL
 /*
 $begin near_equal_c$$
 $spell
@@ -73,9 +73,10 @@ $head Example$$
 The following is an example and test of $code near_equal_c$$,
 it returns true if the test succeeds and false if it fails:
 
-$comment no indent, start output at text following END COPYRIGHT$$
 $code
-$verbatim%omh/getstarted/ok_near_equal_c.c%0%END COPYRIGHT%$$
+$verbatim%omh/getstarted/ok_near_equal_c.c%
+	5%// BEGIN_OK_NEAR_EQUAL%// END_OK_NEAR_EQUAL%0
+%$$
 $$
 
 
@@ -91,3 +92,4 @@ int near_equal_c(double x, double y, double r, double a)
 	int e = (ad <= a) | (ad <= r * (ax + ay));
 	return e;
 }
+// END_NEAR_EQUAL

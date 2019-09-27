@@ -968,7 +968,7 @@ $head 07-09-14$$
 The $code view_factorial.m$$ example used the $cref wspace$$ command
 which has been deprecated.
 It was changed to use the $cref newlinech$$ command which works better.
-In addition, a link in $cref start_embed$$ to
+In addition, a link in $code start_embed$$ to
 view $code factorial.m$$ was mistakenly to $code view_factorial.c$$.
 This has been fixed.
 

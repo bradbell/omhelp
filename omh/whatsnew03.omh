@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -248,7 +248,7 @@ This has been fixed.
 
 $head 06-11$$
 A getting started section for
-$xref/start_embed//embedding/$$ OMhelp commands in
+embedding OMhelp commands in
 computer source code was added.
 
 $head 06-05$$

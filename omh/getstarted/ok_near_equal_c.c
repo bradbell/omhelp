@@ -1,12 +1,10 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
-// END COPYRIGHT
-// This extern statement should be in an include file so that it can be
-// included and checked by near_equal_c.c.
+// BEGIN_OK_NEAR_EQUAL
 extern int near_equal_c(double x, double y, double r, double a);
 
 int ok_near_equal_c()
@@ -18,3 +16,4 @@ int ok_near_equal_c()
 		return 1; // expected return value (true)
 	else	return 0; // error return value (false)
 }
+// END_OK_NEAR_EQUAL

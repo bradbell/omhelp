@@ -35,7 +35,7 @@ $childtable%
 	omh/getstarted/start_latex.omh%
 	omh/getstarted/start_verbatim.omh%
 	@start_src_omh@
-	omh/getstarted/start_embed.omh%
+	omh/getstarted/start_block.omh%
 	omh/getstarted/start_multiple.omh%
 	omh/getstarted/start_cref.omh%
 	omh/getstarted/start_index.omh%$$
@@ -57,6 +57,10 @@ $head example_name$$
 The name of each example is specified by the documentation for the
 corresponding example.
 
+$head example_extension$$
+A few examples specify $icode example_extension$$ in their documentation.
+The default value, when it is not specified, is $code omh$$.
+
 $head Execute OMhelp$$
 This requires building and installing OMhelp and making sure it is in your
 execution path.
@@ -64,7 +68,7 @@ It also requires copying the example file to the $code get_started$$
 directory.
 In the directory $code get_started/htm$$ execute the following command
 $codei%
-	omhelp ../%example_name%.omh -debug -noframe
+	omhelp ../%example_name%.%example_extension% -debug -noframe
 %$$
 Once this command has executed,
 use a web browser of your choosing to view the file
