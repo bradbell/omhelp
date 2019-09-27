@@ -45,11 +45,9 @@ Use the editor of your choice to
 create the file $code near_equal_f.f$$ in the
 $cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
-$code
 $verbatim%omh/getstarted/near_equal_f.f%
 	5%c BEGIN_NEAR_EQUAL%c END_NEAR_EQUAL%0
 %$$
-$$
 You can also just copy $code near_equal_f.f$$ from the
 $cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
 

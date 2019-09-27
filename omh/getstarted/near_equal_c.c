@@ -73,11 +73,9 @@ $head Example$$
 The following is an example and test of $code near_equal_c$$,
 it returns true if the test succeeds and false if it fails:
 
-$code
 $verbatim%omh/getstarted/ok_near_equal_c.c%
 	5%// BEGIN_OK_NEAR_EQUAL%// END_OK_NEAR_EQUAL%0
 %$$
-$$
 
 
 $end

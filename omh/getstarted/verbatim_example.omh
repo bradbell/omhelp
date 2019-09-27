@@ -21,11 +21,9 @@ $verbatim%omh/getstarted/verbatim_example.dat%5%PROGRAM OUTPUT%$$
 $$
 
 $head Just Input Parameters$$
-$code
 $verbatim%omh/getstarted/verbatim_example.dat%
 	5%INPUT PARAMETERS%PROGRAM OUTPUT%0
 %$$
-$$
 
 
 $end

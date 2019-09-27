@@ -50,11 +50,9 @@ Use the editor of your choice to
 create the file $code parent_example.omh$$ in the
 $cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
-$code
 $verbatim%omh/getstarted/parent_example.omh%
 	5%BEGIN_PARENT_EXAMPLE%END_PARENT_EXAMPLE%0
 %$$
-$$
 You can also just copy $code parent_example.omh$$ from the
 $cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
 
