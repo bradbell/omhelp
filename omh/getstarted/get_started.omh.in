@@ -28,18 +28,19 @@ getting started examples listed below.
 $childtable%
 	omh/getstarted/start_simple.omh%
 	omh/getstarted/start_head.omh%
-	omh/getstarted/start_image.omh%
 	omh/getstarted/start_pre.omh%
 	omh/getstarted/start_font.omh%
 	omh/getstarted/start_spell.omh%
 	omh/getstarted/start_latex.omh%
+	omh/getstarted/start_image.omh%
 	omh/getstarted/start_verbatim.omh%
 	@start_src_omh@
 	omh/getstarted/start_block.omh%
 	omh/getstarted/start_oneline.omh%
 	omh/getstarted/start_multiple.omh%
 	omh/getstarted/start_cref.omh%
-	omh/getstarted/start_index.omh%$$
+	omh/getstarted/start_index.omh
+%$$
 
 $head omh/getstarted Directory$$
 Each of the examples above request that you create one or

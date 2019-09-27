@@ -35,17 +35,17 @@ mkdir -p get_started/htm
 input_list='
 	simple_example.omh
 	head_example.omh
-	image_example.omh;w3c_home.gif
 	pre_example.omh
 	font_example.omh
 	spell_example.omh
+	latex_example.omh
+	image_example.omh;w3c_home.gif
 	verbatim_example.omh;verbatim_example.dat
 	near_equal_c.c;ok_near_equal_c.c
 	near_equal_f.f;ok_near_equal_f.f
-	multiple_example_1.omh;multiple_example_3.omh
-	cref_example_1.omh;cref_example_2.omh
-	index_example_1.omh;index_example_2.omh
-	latex_example.omh
+	parent_example.omh;child_1_example.omh;child_2_example.omh
+	cref_example.omh;cref_children.omh
+	index_example.omh;index_children.omh
 '
 for input in $input_list
 do
