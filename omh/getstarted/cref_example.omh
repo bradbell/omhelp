@@ -14,7 +14,7 @@ $spell
 	OMhelp
 $$
 
-$section Examples With One Argument$$
+$section Cross Reference Examples With One Argument$$
 
 $head Cross Reference Tag$$
 The first argument to a cref command is the text
@@ -27,6 +27,11 @@ The cross reference tag for this section is $code cref_example$$.
 
 $head Examples$$
 $cref cref_child_1$$, $cref cref_child_2$$.
+
+$head cref_children.omh$$
+$verbatim%omh/getstarted/cref_children.omh%
+	5%BEGIN_CREF_CHILDREN%END_CREF_CHILDREN%0
+%$$
 
 $contents%
 	omh/getstarted/cref_children.omh

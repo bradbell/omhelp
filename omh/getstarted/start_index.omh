@@ -4,33 +4,21 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
 $begin start_index$$
 $dollar @$$
-$escape #$$
 $spell
-	noframe
 	omhelp
 	omh
 	OMhelp
-	htm
 	childtable
-	indexexample
-	mindex
-	cindex
-	aindex
 	internet
+	getstarted
 $$
 
 $children%
-	omh/getstarted/index_example_1.omh%$$
+	omh/getstarted/index_example.omh%$$
 
 $section An Indexing Example$$
-$index keyword, get started$$
-$index index, get started$$
-$index mindex, get started$$
-$index cindex, get started$$
-$index aindex, get started$$
 
 $head Introduction$$
 The
@@ -44,62 +32,37 @@ to the internet search engines.
 This makes it easy for people to find information
 in your web site that is relevant to a particular topic.
 
-$head Execute The Following Steps$$
-
-$subhead index_example_1.omh$$
-Use an editor of your choice to
-create the file $code index_example_1.omh$$
-in the
-$cref/test directory
-	/start_simple
-	/Execute The Following Steps.Test Directory
-/$$
+$head index_example.omh$$
+Use the editor of your choice to
+create the file $code index_example.omh$$ in the
+$cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
-$pre
-     $$@begin $verbatim%omh/getstarted/index_example_1.omh%5%#036begin %$$
+$verbatim%omh/getstarted/index_example.omh%
+	5%BEGIN_INDEX_EXAMPLE%END_INDEX_EXAMPLE%0
+%$$
 $$
-Note that you can copy and paste the commands above
-to your editor window.
-You may just copy the file with the same name from the
-$cref/getting started directory/get_started/Getting Started Directory/$$.
+You can also just copy $code index_example.omh$$ from the
+$cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
 
-$subhead index_example_2.omh$$
-Use an editor of your choice to
-create the file $code  index_example_2.omh$$
-in the
-$cref/test directory
-	/start_simple
-	/Execute The Following Steps.Test Directory
-/$$
-with the following contents:
-$code
-$pre
-     $$@begin $verbatim%omh/getstarted/index_example_2.omh%5%#036begin %$$
-$$
+$head index_children.omh$$
+Copy $code omh/getstarted/index_children.omh$$ from the
+$cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
+to the
+$cref/get_started Directory/get_started/get_started Directory/$$.
+In the copy of $code index_example.omh$$, change
+$code omh/getstarted/index_children.omh$$ to $code index_children.omh$$.
 
-$subhead Example In This Web Site Context$$
-You can view the
-result of making $code index_example_1.omh$$
-part of the OMhelp help web site
-by selecting
-$cref index_example_1$$.
+$head Execute Example$$
+Once you have copied the files mentioned above, you can
+$cref/execute omhelp/get_started/Execute OMhelp/$$ with
+$cref/example_name/get_started/example_name/$$ equal to
+$code index_example$$.
 
-$subhead Execute OMhelp$$
-In a command window and
-in the
-$cref/htm directory
-	/start_simple
-	/Execute The Following Steps.Htm Directory
-/$$
-execute the following command
-$codep
-	omhelp ../index_example_1.omh -noframe
-$$
+$head Example In This Web Site$$
+You can view the result of making $code index_example.omh$$
+part of the OMhelp help web site by selecting $cref index_example$$.
 
 
-$subhead Example by Itself$$
-Use a web browser of your choosing to view the file
-$icode%test%/htm/index_example_1.htm%$$.
 
 $end

@@ -6,7 +6,6 @@ OMhelp is distributed under the terms of the
 -------------------------------------------------------------------------------
 $begin start_cref$$
 $dollar @$$
-$escape $$
 $spell
 	omh
 	OMhelp

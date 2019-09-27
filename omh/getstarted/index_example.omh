@@ -4,8 +4,11 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
-$begin index_example_1$$
+BEGIN_INDEX_EXAMPLE
+$begin index_example$$
+$spell
+	omh
+$$
 
 $section Parent Section For Indexing Examples$$
 $index index, example$$
@@ -14,7 +17,14 @@ $head Viewing Index$$
 Select the following link to view the index for this web site:
 $cref/Keyword Index/_index/$$
 
+$head index_children.omh$$
+$verbatim%omh/getstarted/index_children.omh%
+	5%BEGIN_INDEX_CHILDREN%END_INDEX_CHILDREN%0
+%$$
+
 $contents%
-	omh/getstarted/index_example_2.omh%$$
+	omh/getstarted/index_children.omh
+%$$
 
 $end
+END_INDEX_EXAMPLE

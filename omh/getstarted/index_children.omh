@@ -1,24 +1,22 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
-----------------------------------------------------------------------
-$begin index_example_2$$
+BEGIN_INDEX_CHILDREN
+$begin index_child_1$$
 $spell
 	Mindex
 $$
 
-$section An Example Using The Mindex Command$$
+$section An Example Using Mindex Command$$
 $mindex child$$
 
 $end
 ----------------------------------------------------------------------
-$begin Index3Example$$
+$begin index_child_2$$
 $spell
-	Aindex
 	aindex
 $$
 $aindex section$$
@@ -29,4 +27,4 @@ $escape @$$
 $section @An Example @Using @The Aindex Command$$
 
 $end
-----------------------------------------------------------------------
+END_INDEX_CHILDREN
