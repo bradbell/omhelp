@@ -1,10 +1,10 @@
 c -----------------------------------------------------------------------------
 c OMhelp: Language Independent Embedded Documentation
-c           Copyright (C) 1998-2015 Bradley M. Bell
+c           Copyright (C) 1998-2019 Bradley M. Bell
 c OMhelp is distributed under the terms of the
 c             GNU General Public License Version 2.
 c -----------------------------------------------------------------------------
-c END COPYRIGHT
+c BEGIN_OK_NEAR_EQUAL_F
 c Use integer for return value so that this function is callable by C
       integer function ok_near_equal_f()
       double precision x, y, r, a
@@ -20,3 +20,4 @@ c Use integer for return value so that this function is callable by C
             ok_near_equal_f = 0
       endif
       end
+c END_OK_NEAR_EQUAL_F

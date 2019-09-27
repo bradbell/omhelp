@@ -4,8 +4,7 @@ c           Copyright (C) 1998-2019 Bradley M. Bell
 c OMhelp is distributed under the terms of the
 c             GNU General Public License Version 2.
 c -----------------------------------------------------------------------------
-c END COPYRIGHT
-c
+c BEGIN_NEAR_EQUAL
 c $begin near_equal_f$$ $newlinech c$$
 c $spell
 c $$
@@ -70,7 +69,9 @@ c It returns true if the test succeeds and false if it fails.
 c
 c $comment no indent, start output at text following END COPYRIGHT$$
 c $code
-c $verbatim%omh/getstarted/ok_near_equal_f.f%0%END COPYRIGHT%$$
+c $verbatim%omh/getstarted/ok_near_equal_f.f%
+c       5%c BEGIN_OK_NEAR_EQUAL_F%c END_OK_NEAR_EQUAL_F%0
+c %$$
 c $$
 c
 c $end
@@ -83,3 +84,4 @@ c ---------------------------------------------------------------------------
       ad = dabs(x - y);
       near_equal_f = (ad .le. a) .or. (ad .le. r * (ax + ay));
       end
+c END_NEAR_EQUAL

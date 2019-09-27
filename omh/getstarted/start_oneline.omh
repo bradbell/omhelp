@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
-$begin start_block$$
+$begin start_oneline$$
 $dollar @$$
 $escape $$
 $spell
@@ -13,13 +13,15 @@ $spell
 	omhelp
 	omh
 	OMhelp
+	Matlab
+	newlinech
 $$
 
 $children%
-	omh/getstarted/near_equal_c.c
+	omh/getstarted/near_equal_f.f
 %$$
 
-$section OMhelp in Source Code Using Block Comments$$
+$section OMhelp in Source Code Using One Line Comments$$
 
 $head begin, end$$
 OMhelp is designed to be embedded in computer source code.
@@ -29,41 +31,46 @@ Only the text between a $cref begin$$ and a $code @end$$ is processed
 by OMhelp.
 It is intended that these commands be comments in the language.
 
-
 $head Source Code Languages$$
-This example covers all languages that have block comments; e.g.,
-C, C++, Java, Python.
+This example covers languages that only have one line comments; e.g.,
+Matlab, Fortran, R.
+(The R language uses the @ character, this it may be necessary to change
+the OMhelp $cref KeyCharacter$$.)
 
-$head near_equal_c.c$$
+$head newlinech$$
+The $cref newlinech$$ command is used to specify which character is
+used for one line comments.
+
+$head near_equal_f.f$$
 Use the editor of your choice to
-create the file $code near_equal_c.c$$ in the
+create the file $code near_equal_f.f$$ in the
 $cref%get_started directory%get_started%get_started Directory%$$
 with the following contents:
 $code
-$verbatim%omh/getstarted/near_equal_c.c%
-	5%// BEGIN_NEAR_EQUAL%// END_NEAR_EQUAL%0
+$verbatim%omh/getstarted/near_equal_f.f%
+	5%c BEGIN_NEAR_EQUAL%c END_NEAR_EQUAL%0
 %$$
 $$
-You can also just copy $code near_equal_c.c$$ from the
+You can also just copy $code near_equal_f.f$$ from the
 $cref%omh/getstarted directory%get_started%omh/getstarted Directory%$$.
 
-$head ok_near_equal_c.c$$
-Copy $code omh/getstarted/ok_near_equal_c.c$$ from the
+$head ok_near_equal_f.f$$
+Copy $code omh/getstarted/ok_near_equal_f.f$$ from the
 $cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
 to the
 $cref/get_started Directory/get_started/get_started Directory/$$.
-In the copy of $code near_equal_c.c$$, change
-$code omh/getstarted/ok_near_equal_c.c$$ to $code ok_near_equal_c.c$$.
+In the copy of $code near_equal_f.f$$, change
+$code omh/getstarted/ok_near_equal_f.f$$ to $code ok_near_equal_f.f$$.
 
 $head Execute Example$$
 Once you have copied the files mentioned above, you can
 $cref/execute omhelp/get_started/Execute OMhelp/$$ with
 $cref/example_name/get_started/example_name/$$ equal to
-$code near_equal_c$$ and
-$cref/example_extension/get_started/example_extension/$$ equal to $code c$$.
+$code near_equal_f$$ and
+$cref/example_extension/get_started/example_extension/$$ equal to $code f$$.
 
 $head Example In This Web Site$$
-You can view the result of making $code near_equal_c.c$$
-part of the OMhelp help web site by selecting $cref near_equal_c$$.
+You can view the result of making $code near_equal_f.f$$
+part of the OMhelp help web site by selecting $cref near_equal_f$$.
 
 $end

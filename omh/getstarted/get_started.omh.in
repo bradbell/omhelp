@@ -36,6 +36,7 @@ $childtable%
 	omh/getstarted/start_verbatim.omh%
 	@start_src_omh@
 	omh/getstarted/start_block.omh%
+	omh/getstarted/start_oneline.omh%
 	omh/getstarted/start_multiple.omh%
 	omh/getstarted/start_cref.omh%
 	omh/getstarted/start_index.omh%$$
