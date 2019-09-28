@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -15,7 +15,7 @@ $head Syntax$$
 $codei%jump_table(%Current%)%$$
 
 $head Prototype$$
-$srcfile%jump_table.c%
+$srcfile%src/jump_table.c%
 	0%// BEGIN_PROTOTYPE%// END_PROTOTYPE%1
 %$$
 

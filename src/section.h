@@ -197,8 +197,8 @@ $comment
 Only the section.c file can be included here because the routines in that file
 refer back to here to list all the routines in that file.
 $$
-$childtable/
-	section.c/$$
+$childtable%
+	src/section.c%$$
 
 $end
 */

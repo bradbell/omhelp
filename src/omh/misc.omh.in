@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2016 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -10,26 +10,25 @@ $escape #$$
 
 $section A List of Miscellaneous Routines that Need Better Grouping$$
 
-$childtable/
-	allocmem.c/
-	BinarySearch.c/
-	children.c/
-	Color.c/
-	copyfile.c/
-	fatalerr.c/
-	funref.c/
-	head.c/
+$childtable%
+	src/allocmem.c%
+	src/BinarySearch.c%
+	src/children.c%
+	src/Color.c%
+	src/copyfile.c%
+	src/fatalerr.c%
+	src/funref.c%
+	src/head.c%
 	@highlight_cpp@
-	Internal2Out.c/
-	LatexAtomic.c/
-	latex.l/
-	LatexMacro.h/
-	lexomh.c/
-	math.c/
-	pending.c/
-	spell.c/
-	style.c/
-	trace_exit.c/$$
+	src/Internal2Out.c%
+	src/LatexAtomic.c%
+	src/latex.l%
+	src/LatexMacro.h%
+	src/lexomh.c%
+	src/math.c%
+	src/pending.c%
+	src/spell.c%
+	src/style.c%
+	src/trace_exit.c%$$
 
 $end
-

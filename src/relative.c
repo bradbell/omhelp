@@ -47,7 +47,7 @@ $icode ext$$ is $code Internal2Out("OutputExtension")$$
 with out the leading "." character.
 
 $contents%
-	links.c
+	src/links.c
 %$$
 
 $end

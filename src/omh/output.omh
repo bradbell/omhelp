@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -9,10 +9,10 @@ $begin output$$
 $section Output Functions$$
 
 $contents%
-	FrameSet.c%
-	HtmlHead.c%
-	output.c%
-	output_text.c
+	src/FrameSet.c%
+	src/HtmlHead.c%
+	src/output.c%
+	src/output_text.c
 %$$
 
 $end

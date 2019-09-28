@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -10,18 +10,17 @@ $escape #$$
 
 $section Some String Manipulation Routines$$
 
-$childtable/
-	StrLowCase.c/
-	SplitText.c/
-	StrCat.c/
-	StrLowAlloc.h/
-	str_alloc.h/
-	strjoin.h/
-	StrRemove.c/
-	ClipWhiteSpace.c/
-	UniformWhiteSpace.c/
-	int2str.c/
-	FileEqual.c/$$
+$childtable%
+	src/StrLowCase.c%
+	src/SplitText.c%
+	src/StrCat.c%
+	src/StrLowAlloc.h%
+	src/str_alloc.h%
+	src/strjoin.h%
+	src/StrRemove.c%
+	src/ClipWhiteSpace.c%
+	src/UniformWhiteSpace.c%
+	src/int2str.c%
+	src/FileEqual.c%$$
 
 $end
-

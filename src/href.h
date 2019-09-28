@@ -65,8 +65,8 @@ $comment
 Only include href.c because routines in that file refer
 back to here for the list of all routines in that file
 $$
-$childtable/
-	href.c/$$
+$childtable%
+	src/href.c%$$
 $end
 */
 

@@ -18,15 +18,15 @@ $head Description$$
 These routines are an aid in generating cross reference links.
 
 $childtable%
-	automatic.omh%
-	cross.h%
-	href.h%
-	index.c%
-	relative.c%
-	select_childtable.cpp%
-	jump_table.c%
-	search.c%
-	url.c
+	src/omh/automatic.omh%
+	src/cross.h%
+	src/href.h%
+	src/index.c%
+	src/relative.c%
+	src/select_childtable.cpp%
+	src/jump_table.c%
+	src/search.c%
+	src/url.c
 %$$
 
 $end

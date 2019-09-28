@@ -50,8 +50,8 @@ Only include execute.c because routines in that file refer
 back to here for the list of all routines in that file
 $$
 
-$childtable/
-	execute.c/$$
+$childtable%
+	src/execute.c%$$
 
 
 $end

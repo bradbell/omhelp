@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -43,7 +43,7 @@ $$
 $section Highlighting Source Code$$
 
 $head Prototype$$
-$srcfile%highlight.cpp%0
+$srcfile%src/highlight.cpp%0
 	%// BEGIN HIGHLIGHT_PROTOTYPE%// END HIGHLIGHT_PROTOTYPE%1%$$
 
 $head SOURCE_HIGHLIGHT_01$$

@@ -94,8 +94,8 @@ points to the next cross reference int he list of
 cross references that have been defined
 (This is for use by cross.c only.)
 
-$childtable/
-	cross.c/$$
+$childtable%
+	src/cross.c%$$
 
 $end
 ==============================================================================

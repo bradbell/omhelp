@@ -71,8 +71,8 @@ Only include include.c because routines in that file refer
 back to here for the list of all routines in that file
 $$
 
-$childtable/
-	input.c/$$
+$childtable%
+	src/input.c%$$
 
 $end
 */

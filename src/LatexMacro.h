@@ -15,8 +15,8 @@ $begin LatexMacro$$
 
 $section Implementation of Latex Macro Preprocessor$$
 
-$contents/
-	LatexMacro.c/$$
+$contents%
+	src/LatexMacro.c%$$
 
 $end
 */

@@ -65,8 +65,8 @@ representation in that format.
 special characters with out output.)
 
 $head Convert Routines$$
-$childtable/
-	convert.c/$$
+$childtable%
+	src/convert.c%$$
 
 
 $end
