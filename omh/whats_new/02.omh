@@ -333,7 +333,7 @@ During the preparation for XHTML it was discovered that
 the gif files in the distributions help were empty.
 This was due to a bug that was introduced when file addressing was
 converted to the starting file on
-$xref/whatsNew01/08-08/01-08-08/$$.
+$xref/whats_new_01/08-08/01-08-08/$$.
 This turned up when OMhelp was run twice in the same directory
 and the second time the
 $xref/running/printable/-printable/$$ option was used
@@ -821,7 +821,7 @@ $pre
 $$
 The addition of
 $icode/*/.jpg/$$ files on
-$xref/whatsNew01/06-23/01-06-23/$$
+$xref/whats_new_01/06-23/01-06-23/$$
 broke the
 $xref/running/Example/example/$$ that rebuilds the help
 for OMhelp.
