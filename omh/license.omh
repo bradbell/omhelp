@@ -1,6 +1,6 @@
 // BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2019 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@ $head Complete Software License$$
 $codecolor black$$
 $code
 
-$verbatim%gpl.txt%$$
+$verbatim%omh/gpl.txt%$$
 
 $$
 

@@ -39,21 +39,11 @@ the getstarted subdirectory examples can use the same file names as the entire
 OMhelp documentation. Note that the latex subdirectory uses full file names
 and not a search path.
 $$
-$path%..%.gif%$$
-$path%..%.jpg%$$
-$path%..%.png%$$
-$path%..%.omh%$$
-$path%..%.dat%$$
-$path%..%.py%$$
-$path%..%.c%$$
-$path%..%.f%$$
 
 $comment ../build/omh is the build directory corresponding to this directory
 (where this file is stored). This path command is for files created by
 the CONFIGURE_FILE command in the file ../CMakeLists.txt.
 $$
-$path%../build/omh%.omh%$$
-$path%../build/omh/getstarted%.omh%$$
 
 $comment put this aindex command here so is the default for all sections$$
 $aindex section head subhead$$

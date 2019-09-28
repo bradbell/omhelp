@@ -75,12 +75,12 @@ $subhead Example$$
 The following command
 $codep
 	@tabsize 4@@
-	@srcfile%../src/highlight.h%4%@@
+	@srcfile%src/highlight.h%4%@@
 $$
 displays the entire file $code highlight.h$$,
 with a four space indentation as follows:
 $tabsize 4$$
-$srcfile%../src/highlight.h%4%$$
+$srcfile%src/highlight.h%4%$$
 Note that a newline was automatically added at the beginning of the file.
 
 $head start$$
@@ -115,10 +115,10 @@ to the decimal value of the three decimal digits.
 $subhead Example$$
 The following command sequence
 $codep
-	@srcfile%../src/highlight.h%8%// BEGIN PROTOTYPE%// END PROTOTYPE%@@
+	@srcfile%src/highlight.h%8%// BEGIN PROTOTYPE%// END PROTOTYPE%@@
 $$
 displays the following output:
-$srcfile%../src/highlight.h%8%// BEGIN PROTOTYPE%// END PROTOTYPE%$$
+$srcfile%src/highlight.h%8%// BEGIN PROTOTYPE%// END PROTOTYPE%$$
 Note that the newline after $code // BEGIN PROOTYPE$$,
 and the newline before $code // END PROTOTYPE$$,
 are included in the output.

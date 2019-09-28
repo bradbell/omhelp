@@ -62,7 +62,7 @@ $href%http://www.boost.org/doc/libs/1_60_0/libs/regex/doc/html/index.html
 %$$
 library.
 
-$children%../bin/highlight.sh%$$
+$children%bin/highlight.sh%$$
 $subhead Octave$$
 The current version of $code source-highlight$$ does not support
 Octave source code ($icode%*%.m%$$).

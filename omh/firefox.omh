@@ -64,7 +64,7 @@ $mindex bug browser$$
 
 $comment no longer a problem, but referened by whatsnew$$
 $children%
-        latex/NegativeSpace.omh
+        omh/latex/NegativeSpace.omh
 %$$
 
 $head Format$$

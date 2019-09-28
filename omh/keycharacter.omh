@@ -47,7 +47,7 @@ $head keycharexample.omh$$
 The input file $code keycharexample.omh$$ contains the text
 $code
 $pre
-     $$@OMhelp$verbatim%keycharexample.omh%5%#036OMhelp%$$
+     $$@OMhelp$verbatim%omh/keycharexample.omh%5%#036OMhelp%$$
 $$
 This input results
 in the following section: $cref KeyCharExample$$.
@@ -57,7 +57,7 @@ The input above $cref/includes/include/$$ the file
 $code keycharinclude.omh$$ which contains the text
 $code
 $pre
-$$$verbatim%keycharinclude.omh%5%$$
+$$$verbatim%omh/keycharinclude.omh%5%$$
 $$
 
 $end

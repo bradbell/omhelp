@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2016 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -80,9 +80,9 @@ follow the starting text in the output
 (see the Five Delimiters example below).
 
 $head Example File$$
-The file $code copyright.omh$$ contains the following text:
+The file $code omh/copyright.omh$$ contains the following text:
 
-$verbatim!copyright.omh!5!$$
+$verbatim!omh/copyright.omh!5!$$
 
 All of the $mref/font/$$ commands allow you to
 have other commands nested inside of them.
@@ -94,7 +94,7 @@ of the file that is displayed.
 Leading and trailing white space in $icode filename$$ is ignored.
 
 $subhead Example$$
-The following sequence displays the file $code copyright.omh$$
+The following sequence displays the file $code omh/copyright.omh$$
 in code $mref/font/$$.
 $codep
 	@code
@@ -104,7 +104,7 @@ $$
 creates the following output
 
 $code
-$verbatim!copyright.omh!$$
+$verbatim!omh/copyright.omh!$$
 $$
 
 $head Highlighting$$
@@ -119,7 +119,7 @@ $$
 creates the following output
 $hilitecmd%verbatim%$$
 $hiliteseq%%Bradley M. Bell%%%$$
-$verbatim!copyright.omh!$$
+$verbatim!omh/copyright.omh!$$
 
 $head Indent$$
 If $icode indent$$ is present,
@@ -127,7 +127,7 @@ it is a positive integer and specifies
 the number of spaces to indent the output.
 
 $subhead Example$$
-The following sequence displays the file $code copyright.omh$$
+The following sequence displays the file $code omh/copyright.omh$$
 in italic $mref/font/$$ and indented five spaces.
 $codep
 	@italic
@@ -137,7 +137,7 @@ $$
 creates the following output
 
 $italic
-$verbatim!copyright.omh!5!$$
+$verbatim!omh/copyright.omh!5!$$
 $$
 
 $head Start$$
@@ -176,7 +176,7 @@ to the decimal value of the three decimal digits.
 $subhead Example$$
 The following command sequence
 replaces $code Bradley M. Bell$$ by
-$code http://www.seanet.com/~bradbell$$ in the file $code copyright.omh$$:
+$code http://www.seanet.com/~bradbell$$ in the file $code omh/copyright.omh$$:
 $codep
 	@code
 	@pre
@@ -200,11 +200,11 @@ $codep
 
 @verbatim!copyright.omh!5!#!Bradley M. Bell!@@
 $$
-This commands displays some of the text in $code copyright.omh$$.
+This commands displays some of the text in $code omh/copyright.omh$$.
 The text starts at, and does not include,
-the first $code #$$ in $code copyright.omh$$.
+the first $code #$$ in $code omh/copyright.omh$$.
 The text ends at, and does not include,
-the $code Bradley M. Bell$$ in $code copyright.omh$$
+the $code Bradley M. Bell$$ in $code omh/copyright.omh$$
 that follows the starting text.
 $codep
 
@@ -215,11 +215,11 @@ $codep
 
 @verbatim!copyright.omh!5!Bradley M. Bell !COPYRIGHT!@@
 $$
-This commands displays some of the text in $code copyright.omh$$.
+This commands displays some of the text in $code omh/copyright.omh$$.
 The text starts at, and does not include,
-the first $code Bradley M. Bell$$  in $code copyright.omh$$.
+the first $code Bradley M. Bell$$  in $code omh/copyright.omh$$.
 The text ends at, and does not include,
-the $code COPYRIGHT$$ in $code copyright.omh$$
+the $code COPYRIGHT$$ in $code omh/copyright.omh$$
 that follows the starting text.
 $codep
 
@@ -236,9 +236,9 @@ of the verbatim text when the $icode start$$ text is present.
 Here is the result of the command sequence:
 $code
 $pre
-     $$#$verbatim!copyright.omh!5!#!Bradley M. Bell!$$
+     $$#$verbatim!omh/copyright.omh!5!#!Bradley M. Bell!$$
 http://www.seanet.com/~bradbell
-$verbatim!copyright.omh!5!Bradley M. Bell!COPYRIGHT!$$
+$verbatim!omh/copyright.omh!5!Bradley M. Bell!COPYRIGHT!$$
 COPYRIGHT
 $$
 
@@ -268,7 +268,7 @@ creates the following output
 $code
 $pre
      $$# This
-$verbatim!copyright.omh!5!# This ! details.!1!$$
+$verbatim!omh/copyright.omh!5!# This ! details.!1!$$
 details.
 $$
 

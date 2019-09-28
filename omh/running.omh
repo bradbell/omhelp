@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -279,7 +279,7 @@ The $code -favicon$$ command line option was used when building the
 OMhelp web documentation.
 If you view this
 $href%http://www.seanet.com/~bradbell/omhelp/%documentaiton%$$,
-you should see the icon $icon image/help_icon.png$$
+you should see the icon $icon omh/image/help_icon.png$$
 at the left of the address bar in your browser.
 (This icon corresponds to the file $code omh/image/help_icon.png$$
 in the OMhelp distribution.)
