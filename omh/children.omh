@@ -112,10 +112,10 @@ The table of contents directly above
 is generated with the following command
 $nospell
 $codep
-	@contents/
-		next.omh/
-		previous.omh/
-		stdout.omh/@@
+	@contents%
+		omh/next.omh%
+		omh/previous.omh%
+		omh/stdout.omh%@@
 $$
 $$
 
@@ -128,8 +128,8 @@ $pre
 $$
 
 $code
-@childtable/
-$verbatim/childtable_cmd.omh/5/#036childtable%/$$
+@childtable%
+$verbatim|omh/childtable_cmd.omh|5|childtable%|$$
 $$
 
 $head Children Command$$
@@ -141,8 +141,8 @@ $pre
 $$
 
 $code
-@children/
-$verbatim/children_cmd.omh/5/#036children%/$$
+@children%
+$verbatim|omh/children_cmd.omh|5|children%|$$
 $$
 
 $pre
