@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin children$$
+$begin children_dev$$
 $spell
 	printable
 	printid
@@ -32,7 +32,7 @@ $codei/
 TableChildren
 /$$
 Use the
-$cref/cross reference tag/CrossReference/Tag/$$ for each child
+$cref/cross reference tag/CrossReference_dev/Tag/$$ for each child
 as the linking text.
 Output the corresponding title next to the linking text.
 $codei/
@@ -40,7 +40,7 @@ $codei/
 /S/
 /$$
 is an pointer to a
-$cref/SectionInfo/SectionInfo/$$ record
+$cref/SectionInfo/SectionInfo_dev/$$ record
 that specifies which section children
 are being listed for cross reference linking.
 $codei/
@@ -51,7 +51,7 @@ is an integer either equal to zero or one.
 If it is zero, no special action is taken.
 If it is one, we are outputting a printable version of the web site.
 In this case, the
-$cref/printid/CrossReference/Printid/$$
+$cref/printid/CrossReference_dev/Printid/$$
 corresponding to each child is included at the end of the
 linking text.
 In addition, the cross reference link is to the same file

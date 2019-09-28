@@ -26,7 +26,7 @@ extern void  ExecuteFree(
 );
 
 /*
-$begin execute$$
+$begin execute_dev$$
 $spell
 	OMhelp
 $$
@@ -40,10 +40,10 @@ and writing of files created by the OMhelp $code execute$$ command.
 
 $head Memory Allocation$$
 When you are finished using the routines listed below,
-the routine $mref/ExecuteFree/$$ should be called.
+the routine $mref/ExecuteFree_dev/$$ should be called.
 This will free hidden memory allocated for these routines
 and avoid a
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$ error.
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$ error.
 
 $comment
 Only include execute.c because routines in that file refer

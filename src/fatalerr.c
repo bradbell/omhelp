@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin fatalerr$$
+$begin fatalerr_dev$$
 $spell
 	fatalerr
 	fatalomh
@@ -69,13 +69,13 @@ is printed on standard output followed by the $icode Message$$.
 After $icode Message$$, and starting with a new line,
 a line number is reported.
 This is where the next input token (after the error) would start; i.e.,
-the current value of $cref/InputLine()/InputLine/$$.
+the current value of $cref/InputLine()/InputLine_dev/$$.
 $pre
 
 $$
 All occurrences of the character $code @$$ in the error message
 are converted to the current
-$cref/command key character/CommandKeyCharacter/$$ before being output.
+$cref/command key character/CommandKeyCharacter_dev/$$ before being output.
 
 $head fataltex$$
 $index fataltex$$

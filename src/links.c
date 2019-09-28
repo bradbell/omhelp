@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin links$$
+$begin links_dev$$
 $spell
 	tagfrom
 	crossheading
@@ -57,7 +57,7 @@ BeginLinks(/tagfrom/, /direction/, /image_link/, /image_file/, /stylecmd/)
 The opens a new output file named $icode/taglower/_links./ext/$$
 where $icode taglower$$ is a lower case version of $icode tagfrom$$
 and $icode ext$$ is the output file extension specified by
-$cref Internal2Out$$.
+$cref Internal2Out_dev$$.
 This file will contain a set of links for navigating from
 specified section.
 The argument $icode tagfrom$$ contains
@@ -116,10 +116,10 @@ $pre
 $$
 If neither of the cases above hold,
 It is assumed that $icode tag$$ and $icode crossheading$$.
-specify a valid $cref/cross reference/CrossReference/$$.
+specify a valid $cref/cross reference/CrossReference_dev/$$.
 In this case
 $icode text$$ is linked to the
-$cref/cross reference heading/glossary/Cross Reference Heading/$$
+$cref/cross reference heading/glossary_dev/Cross Reference Heading/$$
 specified by $icode crossheading$$
 with in the section specified by $icode tag$$.
 $pre

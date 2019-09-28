@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin StrCat$$
+$begin StrCat_dev$$
 $spell str StrCat printf Mem$$
 
 $section Memory Allocation And Concatenation Of Strings$$
@@ -18,7 +18,7 @@ $index StrCat$$
 $head Syntax$$ $codei/StrCat(/file/, /line/, /s1/, /s2/, /.../, NULL)
 /$$
 
-$head See Also$$ $mref/strjoin/str_alloc/$$
+$head See Also$$ $mref/strjoin_dev/str_alloc_dev/$$
 
 
 $head Description$$
@@ -38,8 +38,8 @@ memory allocate reporting.
 $pre
 
 $$
-The return value is memory that was allocated with $mref/AllocMem/$$
-and should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$.
+The return value is memory that was allocated with $mref/AllocMem_dev/$$
+and should be freed using the routine $cref/FreeMem/AllocMem_dev/FreeMem/$$.
 
 $head Example$$
 The macros $code __FILE__$$ and $code __LINE__$$

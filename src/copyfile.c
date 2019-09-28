@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin copyfile$$
+$begin copyfile_dev$$
 $spell
 	copyfile
 	str
@@ -47,7 +47,7 @@ It is a user error to call $code copyfile$$ twice with the same
 value for $icode destination$$.
 It is also a user error if the source or destination file
 cannot be opened.
-The value of $cref InputName$$ and $cref InputLine$$
+The value of $cref InputName_dev$$ and $cref InputLine_dev$$
 are used to identify where the access to
 $icode source$$ and $icode destination$$ occurred.
 If a user error occurs, an error message is printed
@@ -57,9 +57,9 @@ $codei/
 
 copyfileFreeMemory()
 /$$
-Uses $cref/FreeMem/AllocMem/FreeMem/$$ to free memory that was allocated using
-$cref AllocMem$$ (so that
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$ can be used).
+Uses $cref/FreeMem/AllocMem_dev/FreeMem/$$ to free memory that was allocated using
+$cref AllocMem_dev$$ (so that
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$ can be used).
 This memory is used to track what line and file certain destination
 file names were used at.
 

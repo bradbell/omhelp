@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin math_jax$$
+$begin math_jax_dev$$
 $spell
 $$
 
@@ -16,7 +16,7 @@ $codei%math_jax(const char* %macro_cmd%, const char* %latex_cmds%)%$$
 
 $head Purpose$$
 If the output file is
-$cref/htm/Internal2Out/Internal2OutSet/htm/$$,
+$cref/htm/Internal2Out_dev/Internal2OutSet/htm/$$,
 this routine outputs the latex commands so they will be processed by
 MathJax.
 
@@ -33,7 +33,7 @@ $code add$$, $code output$$, $code ignore$$, $code clear$$.
 
 $subhead add$$
 The
-$cref/latex macros/LatexMacro/$$ defined in $icode latex_cmds$$
+$cref/latex macros/LatexMacro_dev/$$ defined in $icode latex_cmds$$
 are added to those that are held for future use.
 In this case, $icode latex_cmds$$ must not be $code NULL$$.
 
@@ -48,7 +48,7 @@ In this case, $icode latex_cmds$$ should be $code NULL$$.
 
 $subhead clear$$
 The currently held
-$cref/latex macros/LatexMacro/$$ are cleared; i.e., upon return,
+$cref/latex macros/LatexMacro_dev/$$ are cleared; i.e., upon return,
 the set of held macros is empty.
 This has the side effect of freeing the corresponding memory.
 In this case, $icode latex_cmds$$ should be $code NULL$$.

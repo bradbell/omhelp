@@ -12,7 +12,7 @@ extern "C" {
 
 
 /*
-$begin str_alloc$$
+$begin str_alloc_dev$$
 $spell
 	Mem
 	str
@@ -29,7 +29,7 @@ $head Syntax$$
 $codei%str_alloc(*%s%)
 %$$
 
-$head See Also$$ $mref/StrCat/$$
+$head See Also$$ $mref/StrCat_dev/$$
 
 
 $head Description$$
@@ -40,11 +40,11 @@ character vector specified by $icode s$$.
 $head Memory$$
 The return value of $code str_alloc$$
 points to memory that
-should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$
+should be freed using the routine $cref/FreeMem/AllocMem_dev/FreeMem/$$
 when it is no longer needed.
 If this memory is not freed,
 a call to
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$
 will report the corresponding source code line and file where the
 corresponding call to $code str_alloc$$ is located.
 

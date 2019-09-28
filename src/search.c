@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin search$$
+$begin search_dev$$
 $spell
 	Javascript
 	tmp
@@ -76,7 +76,7 @@ and the following call to $code SearchEnd$$
 are linked by the search utility
 to the web page $icode%tag%.%ext%$$
 (where $icode ext$$ is the output file extension specified by
-$cref Internal2Out$$).
+$cref Internal2Out_dev$$).
 If multiple sequential white spaces characters
 occur in $icode tag$$, a fatal error message
 is generated and the program is terminated.
@@ -132,7 +132,7 @@ The words have been converted to lower case,
 duplicate keywords have been removed,
 an each keyword is surrounded by a space.
 The memory for the return value is allocated with
-$cref AllocMem$$ and should be freed with $cref/FreeMem/AllocMem/FreeMem/$$
+$cref AllocMem_dev$$ and should be freed with $cref/FreeMem/AllocMem_dev/FreeMem/$$
 when it is no longer needed.
 $codei%
 
@@ -159,7 +159,7 @@ is freed when $code CloseSearchFile$$ is called.)
 
 $head Errors$$
 All the routines documented above use
-$cref/fatalomh/fatalerr/$$ to report error messages; i.e.,
+$cref/fatalomh/fatalerr_dev/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.
 

@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2018 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -8,7 +8,7 @@ OMhelp is distributed under the terms of the
 The documentation below is for these routines with respect to other files; i.e.,
 it does not include communication through static variables in this file.
 ============================================================================
-$begin InputGet$$
+$begin InputGet_dev$$
 $escape #$$
 
 $index InputGet$$
@@ -21,12 +21,12 @@ $head Syntax$$
 $codei%char InputGet()%$$
 
 $head See Also$$
-$mref/InputPush/$$
+$mref/InputPush_dev/$$
 
 
 $head Description$$
 Get the next character from the top of the input
-$cref/stack/InputPush/$$.
+$cref/stack/InputPush_dev/$$.
 If there are no more characters in the input file
 the value $code '\001'$$
 is returned to signal end of file.
@@ -37,7 +37,7 @@ will halt execution of the program.
 
 $end
 =======================================================================
-$begin InputInit$$
+$begin InputInit_dev$$
 $escape #$$
 $spell
 	Init
@@ -55,7 +55,7 @@ $codei%void InputInit(
 $head Description$$
 The $code '\0'$$ terminated character vector $icode directory$$
 specifies the local directory for all input file searching by
-$cref InputPush$$ and $cref InputAddPath$$.
+$cref InputPush_dev$$ and $cref InputAddPath_dev$$.
 The last character in $icode directory$$ must be either a forward
 or back slash; i.e., '/' or '\\'.
 
@@ -64,17 +64,17 @@ $list number$$
 this routine is called only once.
 $lnext
 $icode directory$$ is a
-$cref/complete path specification/glossary/Complete Path Specification/$$.
+$cref/complete path specification/glossary_dev/Complete Path Specification/$$.
 $lnext
 $code InputInit$$
-is called before any of the other routines in $cref input$$
-(except for $cref InputName$$ which will return "NONE" if called before
+is called before any of the other routines in $cref input_dev$$
+(except for $cref InputName_dev$$ which will return "NONE" if called before
 $code InputInit$$).
 $lend
 
 $end
 ============================================================================
-$begin InputPush$$
+$begin InputPush_dev$$
 $escape #$$
 $spell
 	const
@@ -96,19 +96,19 @@ $codei%void InputPush(
 )%$$
 
 $head See Also$$
-$mref/InputSplitName/InputPop/$$
+$mref/InputSplitName_dev/InputPop_dev/$$
 
 
 $head Description$$
 The $code '\0'$$ terminated character row vector $icode ext$$
 specifies the
-$cref/extension/glossary/File Extension/$$
+$cref/extension/glossary_dev/File Extension/$$
 of the file to be pushed on the input stack.
 The $code '\0'$$ terminated character row vector $icode root$$
 specifies the
-$cref/root/glossary/Root File Name/$$ file name of the file.
+$cref/root/glossary_dev/Root File Name/$$ file name of the file.
 The routine
-$cref InputSearch$$ specifies how the input file is searched for.
+$cref InputSearch_dev$$ specifies how the input file is searched for.
 
 $head File Opened$$
 If the file is opened for reading, it is placed on top of the input stack.
@@ -129,12 +129,12 @@ and this routine does not return.
 $head Errors$$
 If there is currently a file on the input stack,
 the routines documented above use
-$cref/fatalomh/fatalerr/$$ to report error messages.
+$cref/fatalomh/fatalerr_dev/$$ to report error messages.
 Otherwise they use $code fatalerr$$.
 
 $end
 ============================================================================
-$begin InputPop$$
+$begin InputPop_dev$$
 $escape #$$
 
 $cindex close file #and pop #from input stack$$
@@ -145,7 +145,7 @@ $head Syntax$$
 $codei%void InputPop()%$$
 
 $head See Also$$
-$mref/InputPush/$$
+$mref/InputPush_dev/$$
 
 
 $head Description$$
@@ -154,7 +154,7 @@ and removed from the stack.
 
 $end
 ============================================================================
-$begin InputName$$
+$begin InputName_dev$$
 $escape #$$
 $spell
 	const
@@ -168,12 +168,12 @@ $head Syntax$$
 $codei%const char *InputName()%$$
 
 $head See Also$$
-$mref/InputLine/InputPush/$$
+$mref/InputLine_dev/InputPush_dev/$$
 
 
 $head Description$$
 Returns the $icode root$$ plus $icode ext$$ corresponding
-to the call to $mref/InputPush/$$ that placed the current input
+to the call to $mref/InputPush_dev/$$ that placed the current input
 file on top of the input stack.
 $pre
 
@@ -183,12 +183,12 @@ the value $code "NONE"$$ is returned.
 $pre
 
 $$
-The $cref/local directory/InputInit/$$ is not included
+The $cref/local directory/InputInit_dev/$$ is not included
 at the beginning of the file name.
 
 $end
 ============================================================================
-$begin InputLine$$
+$begin InputLine_dev$$
 $escape #$$
 $spell
 	const
@@ -202,7 +202,7 @@ $head Syntax$$
 $codei%const int InputLine()%$$
 
 $head See Also$$
-$mref/InputName/$$
+$mref/InputName_dev/$$
 
 
 $head Description$$
@@ -214,7 +214,7 @@ the value zero is returned
 
 $end
 ============================================================================
-$begin InputAddPath$$
+$begin InputAddPath_dev$$
 $escape #$$
 $spell
 	const
@@ -231,13 +231,13 @@ $codei%void InputAddPath(
 )%$$
 
 $head See Also$$
-$mref/InputSearch/$$
+$mref/InputSearch_dev/$$
 
 
 $head Description$$
 Adds the search path specified by $icode path$$
 to the set of input search paths for the
-$cref/extension/glossary/File Extension/$$
+$cref/extension/glossary_dev/File Extension/$$
 specified by $icode ext$$.
 Both $icode path$$ and $icode ext$$ must be
 $code '\0'$$ terminated character row vectors.
@@ -245,7 +245,7 @@ $code '\0'$$ terminated character row vectors.
 
 $end
 ============================================================================
-$begin InputSearch$$
+$begin InputSearch_dev$$
 $escape #$$
 $spell
 	const
@@ -264,30 +264,30 @@ $codei%const char *InputSearch(
 )%$$
 
 $head See Also$$
-$mref/InputAddPath/$$
+$mref/InputAddPath_dev/$$
 
 
 $head Description$$
 Searches the set of paths corresponding to the
-$cref/extension/glossary/File Extension/$$ specified
+$cref/extension/glossary_dev/File Extension/$$ specified
 by $icode ext$$ for a file that has its
-$cref/root/glossary/Root File Name/$$ name equal to $icode root$$.
+$cref/root/glossary_dev/Root File Name/$$ name equal to $icode root$$.
 The arguments $icode root$$ and $icode ext$$ are
 $code '\0'$$ terminated character row vectors.
 
 $head Searching For File$$
 If $icode root$$ has a
-$cref/complete path specification/glossary/Complete Path Specification/$$,
+$cref/complete path specification/glossary_dev/Complete Path Specification/$$,
 no path are added to the $icode root$$ before searching for the file.
 Otherwise, the
-$cref/local directory/InputInit/$$ is placed in front of
+$cref/local directory/InputInit_dev/$$ is placed in front of
 $icode root$$ and the file is searched for.
 If the file is not found relative to the local directory,
 each of the
-$cref/search paths/InputAddPath/$$ is placed in front of
+$cref/search paths/InputAddPath_dev/$$ is placed in front of
 $icode root$$ and the file is searched for.
 For each search path, if it is not a complete path specification,
-the $cref/local directory/InputInit/$$ is placed
+the $cref/local directory/InputInit_dev/$$ is placed
 in front of it to complete the path specification.
 $pre
 
@@ -299,12 +299,12 @@ where + denotes string concatenation.)
 
 $head Errors$$
 If the file is not found, an error message is reported using
-$mref/fatalerr/$$
+$mref/fatalerr_dev/$$
 and the this routine does not return.
 
 $end
 ============================================================================
-$begin InputSplitName$$
+$begin InputSplitName_dev$$
 $escape #$$
 $spell
 	const
@@ -325,14 +325,14 @@ $codei%void InputSplitName(
 )%$$
 
 $head See Also$$
-$mref/InputPush/$$
+$mref/InputPush_dev/$$
 
 
 $head Description$$
 Determine the
-$cref/root/glossary/Root File Name/$$
+$cref/root/glossary_dev/Root File Name/$$
 and
-$cref/extension/glossary/File Extension/$$
+$cref/extension/glossary_dev/File Extension/$$
 corresponding to the file specified by
 $icode filename$$.
 The argument $icode filename$$ is a
@@ -344,27 +344,27 @@ $pre
 $$
 The character row vector $codei%*%pext%$$
 is set to be $code '\0'$$ terminated and contains the
-$cref/extension/glossary/File Extension/$$
+$cref/extension/glossary_dev/File Extension/$$
 corresponding to $icode filename$$.
 The character row vector $codei%*%proot%$$
 is set to be $code '\0'$$ terminated and contains the
-$cref/root/glossary/Root File Name/$$
+$cref/root/glossary_dev/Root File Name/$$
 corresponding to $icode filename$$.
 
 $head Memory Allocation$$
 The character vectors corresponding to
 both $codei%*%proot%$$ and $codei%*%pext%$$ is allocated using
-$mref/AllocMem/$$ and is not freed by any of the
-$mref/input/$$ routines.
-In particular, it is not freed by $mref/InputFree/$$.
+$mref/AllocMem_dev/$$ and is not freed by any of the
+$mref/input_dev/$$ routines.
+In particular, it is not freed by $mref/InputFree_dev/$$.
 Hence the calling routine
 must ensure that the character vectors corresponding to
 both $codei%*%proot%$$ and $codei%*%pext%$$
-are freed using $cref/FreeMem/AllocMem/FreeMem/$$.
+are freed using $cref/FreeMem/AllocMem_dev/FreeMem/$$.
 
 $end
 ============================================================================
-$begin InputFree$$
+$begin InputFree_dev$$
 $escape #$$
 
 $cindex free input allocate memory$$
@@ -375,16 +375,16 @@ $head Syntax$$
 $codei%void InputFree()%$$
 
 $head See Also$$
-$mref/input/$$
+$mref/input_dev/$$
 
 
 $head Description$$
-This routines listed in $mref/input/$$ allocate some memory
+This routines listed in $mref/input_dev/$$ allocate some memory
 that is hidden from the calling routines.
 This routine must be called before
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$
 or this memory will be reported as a leak.
-No other routines listed in $mref/input/$$
+No other routines listed in $mref/input_dev/$$
 should be called after a call to this routine.
 
 $end

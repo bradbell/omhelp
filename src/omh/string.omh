@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
-$begin string$$
+$begin string_dev$$
 $escape #$$
 
 $section Some String Manipulation Routines$$

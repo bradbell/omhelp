@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -8,7 +8,7 @@ OMhelp is distributed under the terms of the
 The documentation below is for these routines with respect to other files; i.e.,
 it does not include communication through static variables in this file.
 ============================================================================
-$begin PushOutput$$
+$begin PushOutput_dev$$
 $spell
 	const
 	Microsoft
@@ -26,7 +26,7 @@ $codei%void PushOutput(const char *%name%)%$$
 
 $head Description$$
 Opens the file corresponding to the
-$cref/string/glossary/String/$$ $icode name$$
+$cref/string/glossary_dev/String/$$ $icode name$$
 and places it on the top of the output stack.
 Upper case letters in $icode name$$
 are interpreted as lower case.
@@ -36,13 +36,13 @@ sensitive when it comes to distinguishing file names.
 $head Current Output File$$
 The file specified by $icode name$$ becomes
 the current output file.
-The $cref PopOutput$$ function removes the
+The $cref PopOutput_dev$$ function removes the
 current output file from the top of the stack
 and makes the previous output file the current one.
 
 $end
 ============================================================================
-$begin FormatOutput$$
+$begin FormatOutput_dev$$
 $spell
 	const
 	fmt
@@ -61,12 +61,12 @@ $codei%void FormatOutput2(const char *%fmt%, const char *%s1%, const char *%s2%)
 
 $head Description$$
 Write the
-$cref/string/glossary/String/$$
+$cref/string/glossary_dev/String/$$
 specified by $icode s1$$
 (and $icode s2$$ if it is present)
 using the format specified by $icode fmt$$.
 The output is written to the
-$cref/current output file/PushOutput/Current Output File/$$.
+$cref/current output file/PushOutput_dev/Current Output File/$$.
 $codei/
 
 FormatOutput(/fmt/, /s1/)
@@ -86,7 +86,7 @@ the second represents where $icode s2$$ goes in the output.
 
 $end
 ============================================================================
-$begin OutputString$$
+$begin OutputString_dev$$
 $spell
 	const
 $$
@@ -102,14 +102,14 @@ $codei%void OutputString(const char *%s%)%$$
 
 $head Description$$
 Write the
-$cref/string/glossary/String/$$
+$cref/string/glossary_dev/String/$$
 specified by $icode s$$ to the
-$cref/current output file/PushOutput/Current Output File/$$.
+$cref/current output file/PushOutput_dev/Current Output File/$$.
 
 
 $end
 ============================================================================
-$begin OutputChar$$
+$begin OutputChar_dev$$
 $spell
 	const
 	ch
@@ -127,12 +127,12 @@ $codei%void OutputChar(const char %ch%)%$$
 $head Description$$
 Write the
 character specified by $icode ch$$ to the
-$cref/current output file/PushOutput/Current Output File/$$.
+$cref/current output file/PushOutput_dev/Current Output File/$$.
 
 
 $end
 ============================================================================
-$begin PopOutput$$
+$begin PopOutput_dev$$
 
 $index PopOutput$$
 $index output file$$
@@ -146,7 +146,7 @@ $codei%void PopOutput()%$$
 
 $head Description$$
 Closes the
-$cref/current output file/PushOutput/Current Output File/$$
+$cref/current output file/PushOutput_dev/Current Output File/$$
 and removes it from the top of the output stack.
 This makes the previous output file the current one.
 If no file is currently on the output stack,
@@ -154,7 +154,7 @@ this call has no effect.
 
 $end
 ============================================================================
-$begin OutputName$$
+$begin OutputName_dev$$
 $spell
 	const
 $$
@@ -172,8 +172,8 @@ $codei%const char *OutputName()%$$
 
 $head Description$$
 Returns the name of the output file currently on top
-of the stack as specified by previous calls to $cref PushOutput$$
-and $cref PopOutput$$.
+of the stack as specified by previous calls to $cref PushOutput_dev$$
+and $cref PopOutput_dev$$.
 If no file is currently on the output stack,
 the NULL pointer is returned.
 

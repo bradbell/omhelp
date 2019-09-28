@@ -1,13 +1,13 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 Assumption: ~tag[0] != '\0' and ! isspace((int) tag[0])
 =============================================================================
-$begin HrefOutputPass1$$
+$begin HrefOutputPass1_dev$$
 $escape @$$
 $spell
 	Href
@@ -32,7 +32,7 @@ $codei%void HrefOutputPass1(
 )%$$
 
 $head See Also$$
-$mref/HrefOutputPass2/$$
+$mref/HrefOutputPass2_dev/$$
 
 
 $head Description$$
@@ -44,7 +44,7 @@ $codei%
 %$$
 $end
 =============================================================================
-$begin HrefOutputPass2$$
+$begin HrefOutputPass2_dev$$
 $escape @$$
 $spell
 	Href
@@ -67,7 +67,7 @@ $codei%void HrefOutputPass2(
 )%$$
 
 $head See Also$$
-$mref/HrefOutputPass1/HrefPrintablePass2/$$
+$mref/HrefOutputPass1_dev/HrefPrintablePass2_dev/$$
 
 
 $head Description$$
@@ -110,12 +110,12 @@ $codei%
 	assert( %tag%[0] != '\0' );
 	assert( ! isspace((int) %tag%[0]) );
 %$$
-A call to the routine $mref/HrefEnd/$$ must follow any call
+A call to the routine $mref/HrefEnd_dev/$$ must follow any call
 to $code HrefOutputPass2$$ and precede a call to any of the routines
-listed in section $tref href$$.
+listed in section $tref href_dev$$.
 $end
 =============================================================================
-$begin HrefPrintablePass2$$
+$begin HrefPrintablePass2_dev$$
 $escape @$$
 $spell
 	Href
@@ -138,7 +138,7 @@ $codei%void HrefPrintablePass2(
 )%$$
 
 $head See Also$$
-$mref/HrefOutputPass1/HrefOutputPass2/$$
+$mref/HrefOutputPass1_dev/HrefOutputPass2_dev/$$
 
 
 $head Description$$
@@ -163,12 +163,12 @@ Otherwise, $icode display_printid$$ must be $code "false"$$
 and the identifier it is not displayed.
 
 $head Restrictions$$
-A call to the routine $mref/HrefEnd/$$ must follow any call
+A call to the routine $mref/HrefEnd_dev/$$ must follow any call
 to $code HrefPrintablePass2$$ and precede a call to any of the routines
-listed in section $tref href$$.
+listed in section $tref href_dev$$.
 $end
 =============================================================================
-$begin HrefEnd$$
+$begin HrefEnd_dev$$
 $escape @$$
 $spell
 	Href
@@ -186,13 +186,13 @@ $codei%void HrefEnd(
 )%$$
 
 $head See Also$$
-$mref/HrefOutputPass1/HrefOutputPass2/$$
+$mref/HrefOutputPass1_dev/HrefOutputPass2_dev/$$
 
 
 $head Description$$
 The text output after a call to
-$mref/HrefOutputPass1/$$ or
-$mref/HrefOutputPass2/$$ is what the user sees for
+$mref/HrefOutputPass1_dev/$$ or
+$mref/HrefOutputPass2_dev/$$ is what the user sees for
 a cross reference link.
 The routine $code HrefEnd$$ terminates this linking text.
 In addition, it follows this termination by the text specified
@@ -217,14 +217,14 @@ is written to the output file.
 Any addition formatting initiated by the preceding call is also terminated.
 
 $head Restrictions$$
-A call to the routine $mref/HrefOutputPass1/$$
-or $mref/HrefOutputPass2/$$ must precede any call
+A call to the routine $mref/HrefOutputPass1_dev/$$
+or $mref/HrefOutputPass2_dev/$$ must precede any call
 to $code HrefEnd$$ and no other of the routines
-listed in section $tref href$$ can be between these calls.
+listed in section $tref href_dev$$ can be between these calls.
 
 $end
 =============================================================================
-$begin HrefAddList$$
+$begin HrefAddList_dev$$
 $escape @$$
 $spell
 	Href
@@ -248,12 +248,12 @@ $codei%void HrefAddList(
 )%$$
 
 $head See Also$$
-$mref/HrefOutputList/$$
+$mref/HrefOutputList_dev/$$
 
 
 $head Description$$
 A call to $code HrefAddList$$ adds a cross reference to
-the list that is output by a call to $mref/HrefOutputList/$$.
+the list that is output by a call to $mref/HrefOutputList_dev/$$.
 $codei%
 
 %TagFrom%
@@ -268,7 +268,7 @@ $codei%
 %$$
 The $code '\0'$$
 terminated character vector $icode TagFrom$$ specifies
-the previous $cref/cross reference heading/glossary/Cross Reference Heading/$$
+the previous $cref/cross reference heading/glossary_dev/Cross Reference Heading/$$
 in the section where the cross reference command occurs.
 $codei%
 
@@ -286,7 +286,7 @@ $icode HeadTo$$ specifies the heading (or data) for the web resource
 being referenced by $icode UrlTo$$.
 $end
 =============================================================================
-$begin HrefOutputList$$
+$begin HrefOutputList_dev$$
 $escape @$$
 $spell
 	Href
@@ -305,27 +305,27 @@ $codei%void HrefOutputList(
 )%$$
 
 $head See Also$$
-$mref/HrefAddList/$$
+$mref/HrefAddList_dev/$$
 
 
 
 $head Description$$
 Creates a Pass1 HTML file that contains
-a list of all the references corresponding to calls to $mref/HrefAddList/$$.
-The argument $icode section$$ is a $cref SectionInfo$$ pointer
+a list of all the references corresponding to calls to $mref/HrefAddList_dev/$$.
+The argument $icode section$$ is a $cref SectionInfo_dev$$ pointer
 that specifies the section corresponding to this automatically
 generated output.
 The output file has root name $icode/section/->tag/$$
 and extension $code .tmp$$.
 It is a Pass1 output file because the cross references
-use the $cref HrefOutputPass1$$ format.
+use the $cref HrefOutputPass1_dev$$ format.
 The resulting section contains a table of cross reference links
 where each destination link is matched to all there places where
 it is referenced.
 
 $end
 =============================================================================
-$begin HrefFreeMemory$$
+$begin HrefFreeMemory_dev$$
 $spell
 	Href
 $$
@@ -338,17 +338,17 @@ $head Syntax$$
 $codei/void HrefFreeMemory()/$$
 
 $head See Also$$
-$mref/href/$$
+$mref/href_dev/$$
 
 
 
 $head Description$$
 This routine frees all memory associated with
-other routines in the $mref/href/$$ section.
+other routines in the $mref/href_dev/$$ section.
 It should be called after all the calls to those
 routines and before any call to
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$.
-None of the routines listed in $mref/href/$$ should be called
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$.
+None of the routines listed in $mref/href_dev/$$ should be called
 after this routine is called.
 $end
 =============================================================================
@@ -641,4 +641,3 @@ void HrefFreeMemory()
 	}
 	return;
 }
-

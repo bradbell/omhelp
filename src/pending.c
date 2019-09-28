@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -18,7 +18,7 @@ OMhelp is distributed under the terms of the
 # include "fatalerr.h"
 /*
 
-$begin pending$$
+$begin pending_dev$$
 $spell
 	Omh
 	OMhelp
@@ -38,7 +38,7 @@ $codei/PushPending(/line/, /name/)
 /$$
 This signals the beginning of the specified command
 where the integer $icode line$$ is the line number the command appears,
-$cref/InputName()/InputName/$$ is the file,
+$cref/InputName()/InputName_dev/$$ is the file,
 and $icode name$$ is a '\0' terminate character vector
 of at most
 $codep */
@@ -52,7 +52,7 @@ PopPending(/line/, /name/)
 /$$
 This signals the end of the command specified by $icode name$$
 (which occurred on line $icode line$$ of the file
-$cref/InputName()/InputName/$$) .
+$cref/InputName()/InputName_dev/$$) .
 It is assumed that commands will end on a last in first out basis.
 If this is not the case, an error message is displayed saying that
 command $icode name$$ terminated before the expected command.

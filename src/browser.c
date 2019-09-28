@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin browser$$
+$begin browser_dev$$
 $spell
 	tmp
 $$
@@ -22,7 +22,7 @@ $icode/tag/.tmp/$$ and writes
 a pass one version of the table of
 the browser sectionto that file.
 The argument $icode browser$$ is the corresponding
-$cref SectionInfo$$ pointer corresponding to the browser section.
+$cref SectionInfo_dev$$ pointer corresponding to the browser section.
 The value $icode tag$$ in the file name
 is equal to $icode/browser/->tag/$$.
 
@@ -340,4 +340,3 @@ void BrowserPass1(SectionInfo *browser)
 
 	fclose(Fp);
 }
-

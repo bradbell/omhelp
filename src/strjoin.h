@@ -12,7 +12,7 @@ extern "C" {
 
 
 /*
-$begin strjoin$$
+$begin strjoin_dev$$
 $spell
 	printf
 	Mem
@@ -31,7 +31,7 @@ $head Syntax$$
 $codei/strjoin(/s1/, /s2/)
 /$$
 
-$head See Also$$ $mref/StrCat/str_alloc/$$
+$head See Also$$ $mref/StrCat_dev/str_alloc_dev/$$
 
 
 $head Description$$
@@ -41,8 +41,8 @@ which are '\0' terminated character vectors.
 $pre
 
 $$
-The return value is memory that was allocated with $mref/AllocMem/$$
-and should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$.
+The return value is memory that was allocated with $mref/AllocMem_dev/$$
+and should be freed using the routine $cref/FreeMem/AllocMem_dev/FreeMem/$$.
 
 $head Example$$
 If $code s$$ is a $code char *$$ and you execute the call

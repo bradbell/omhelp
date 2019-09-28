@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin AutomaticAppendSection$$
+$begin AutomaticAppendSection_dev$$
 
 $mindex add automatic section tree$$
 $section Add an Automatically Generated Section to Section Tree$$
@@ -19,7 +19,7 @@ This call adds a section to the section tree.
 
 $head parent$$
 The argument $icode parent$$
-$cref/SectionInfo/SectionInfo/$$ pointer
+$cref/SectionInfo/SectionInfo_dev/$$ pointer
 that specifies the parent of the section being added.
 This cannot be NULL, but $icode/parent/->children/$$
 can be NULL.
@@ -29,14 +29,14 @@ $head tag$$
 The argument $icode tag$$ is a $code '\0'$$
 terminated character vector that specifies the cross reference
 tag for the section that is appended.
-A $cref/cross reference/CrossReference/$$ is defined pointing to this section
+A $cref/cross reference/CrossReference_dev/$$ is defined pointing to this section
 with tag equal to $icode tag$$ and
 heading equal to the empty string.
 
 $head title$$
 The argument $icode title$$ is a $code '\0'$$
 terminated character vector that specifies the
-$cref/section title/SectionInfo/$$
+$cref/section title/SectionInfo_dev/$$
 for the section that is added to the tree.
 
 $head letterHeadings$$
@@ -52,7 +52,7 @@ will contain a heading for each capital letter in the alphabet.
 
 $end
 ==============================================================================
-$begin IsAutomaticSection$$
+$begin IsAutomaticSection_dev$$
 
 $section Determine if a Section is Automatically Generated$$
 
@@ -62,19 +62,19 @@ $codei/IsAutomaticSection(/section/)/$$
 
 $head Description$$
 Returns one, if $icode section$$ is one of the sections generated
-by a previous call to $cref AutomaticAppendSection$$,
+by a previous call to $cref AutomaticAppendSection_dev$$,
 and returns zero otherwise.
 
 
 $head section$$
 The argument $icode section$$ is a
-$cref/SectionInfo/SectionInfo/$$ pointer.
+$cref/SectionInfo/SectionInfo_dev/$$ pointer.
 The value $icode section$$ or $icode/section/->tag/$$ can be NULL,
 in which case zero is returned.
 
 $end
 ==============================================================================
-$begin AutomaticTag$$
+$begin AutomaticTag_dev$$
 
 $section Get List of Automatically Generated Sections$$
 

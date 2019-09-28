@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2007 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2019 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -42,7 +42,7 @@ extern int PreviousOmhelpOutputWasHeading(void);
 
 /*
 ----------------------------------------------------------------------------
-$begin TexInitialNumberPending$$
+$begin TexInitialNumberPending_dev$$
 $dollar @$$
 
 $section Number of Commands Pending When @latex Command Started$$

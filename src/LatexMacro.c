@@ -1,12 +1,12 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 -----------------------------------------------------------------------------
-$begin LatexMacroUserInput$$
+$begin LatexMacroUserInput_dev$$
 $spell
 	const
 	ntoken
@@ -23,16 +23,16 @@ The Latex macro preprocessor reads its data from memory.
 This call sets the input data to the '\0' terminated
 character vector specified by $icode input$$.
 The integer $icode line$$ specifies the line
-number in the file $cref/InputName()/InputName/$$
+number in the file $cref/InputName()/InputName_dev/$$
 where $icode input$$ started.
 
 $head Memory Allocation$$
-This call allocates memory using $cref AllocMem$$
-and this memory is freed by $cref LatexMacroFree$$.
+This call allocates memory using $cref AllocMem_dev$$
+and this memory is freed by $cref LatexMacroFree_dev$$.
 
 $end
 -----------------------------------------------------------------------------
-$begin LatexMacroFree$$
+$begin LatexMacroFree_dev$$
 $spell
 	Ch
 $$
@@ -46,9 +46,9 @@ $section Free Memory Allocated By Latex Macro Preprocessor$$
 $head Description$$
 This routine deletes all of the macros defined
 since the previous call to
-$cref LatexMacroKeep$$.
+$cref LatexMacroKeep_dev$$.
 It also erases the information passed to the macro preprocessor
-by the previous call to $cref LatexMacroUserInput$$.
+by the previous call to $cref LatexMacroUserInput_dev$$.
 $pre
 
 $$
@@ -59,19 +59,19 @@ $codei%
 %$$
 which should be called after you are done using the preprocessor;
 i.e., any of the routines in the following list:
-$cref LatexMacroUserInput$$,
-$cref LatexMacroGetCh$$,
-$cref LatexMacroInputLine$$,
-$cref LatexMacroInputFile$$,
-$cref LatexMacroExpandInput$$,
-$cref LatexMacroExpandLine$$,
+$cref LatexMacroUserInput_dev$$,
+$cref LatexMacroGetCh_dev$$,
+$cref LatexMacroInputLine_dev$$,
+$cref LatexMacroInputFile_dev$$,
+$cref LatexMacroExpandInput_dev$$,
+$cref LatexMacroExpandLine_dev$$,
 and
-$cref LatexMacroExpandFile$$.
+$cref LatexMacroExpandFile_dev$$.
 
 
 $end
 -----------------------------------------------------------------------------
-$begin LatexMacroGetCh$$
+$begin LatexMacroGetCh_dev$$
 $spell
 	Ch
 $$
@@ -84,7 +84,7 @@ $codei%char LatexMacroGetCh()%$$
 
 $head Description$$
 Gets the next character after the input specified by
-$cref LatexMacroUserInput$$
+$cref LatexMacroUserInput_dev$$
 has been run through the Latex macro preprocessor.
 
 If there is no more input or
@@ -94,7 +94,7 @@ the value '\001' is returned.
 
 $end
 -----------------------------------------------------------------------------
-$begin LatexMacroInputLine$$
+$begin LatexMacroInputLine_dev$$
 
 $section Determine the Current User Input Line Number$$
 
@@ -104,17 +104,17 @@ $codei%int LatexMacroInputLine()%$$
 
 $head Description$$
 Returns the line number corresponding to the next
-character returned by $cref LatexMacroGetCh$$
+character returned by $cref LatexMacroGetCh_dev$$
 (not counting macro expansion).
 This line number corresponds to the file specified
-by the previous call to $cref LatexMacroUserInput$$.
+by the previous call to $cref LatexMacroUserInput_dev$$.
 
 If no call has been made to $code LatexMacroUserInput$$,
 the value zero is returned.
 
 $end
 -----------------------------------------------------------------------------
-$begin LatexMacroInputFile$$
+$begin LatexMacroInputFile_dev$$
 $spell
 	const
 $$
@@ -127,14 +127,14 @@ $codei%const char *LatexMacroInputFile()%$$
 
 $head Description$$
 Returns the file name corresponding to the previous call to
-$cref LatexMacroUserInput$$.
+$cref LatexMacroUserInput_dev$$.
 
 If no call has been made to $code LatexMacroUserInput$$,
 the value "NONE" is returned.
 
 $end
 -----------------------------------------------------------------------------
-$begin LatexMacroExpandInput$$
+$begin LatexMacroExpandInput_dev$$
 $spell
 	const
 	AllocMem
@@ -157,8 +157,8 @@ If the current input point corresponds to a macro,
 then the expansion of that macro is included.
 
 $head Memory Allocation$$
-The return value is memory that was allocated with $cref AllocMem$$
-and should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$
+The return value is memory that was allocated with $cref AllocMem_dev$$
+and should be freed using the routine $cref/FreeMem/AllocMem_dev/FreeMem/$$
 (or used for a fatal error message).
 
 $head Input File$$
@@ -166,7 +166,7 @@ If no call has been made to $code LatexMacroUserInput$$,
 the value $code NULL$$ is returned.
 $end
 -----------------------------------------------------------------------------
-$begin LatexMacroExpandLine$$
+$begin LatexMacroExpandLine_dev$$
 
 $section Line Where the Currently Expanded Latex Macro is Defined$$
 
@@ -180,11 +180,11 @@ This is useful for error reporting.
 
 $head Restrictions$$
 It a programming  error to call this routine if the return value of
-$cref LatexMacroExpandInput$$ is $code NULL$$.
+$cref LatexMacroExpandInput_dev$$ is $code NULL$$.
 
 $end
 -----------------------------------------------------------------------------
-$begin LatexMacroExpandFile$$
+$begin LatexMacroExpandFile_dev$$
 $spell
 	const
 $$
@@ -201,12 +201,12 @@ This is useful for error reporting.
 
 $head Restrictions$$
 It a programming  error to call this routine if the return value of
-$cref LatexMacroExpandInput$$ is $code NULL$$.
+$cref LatexMacroExpandInput_dev$$ is $code NULL$$.
 
 $end
 
 -----------------------------------------------------------------------------
-$begin LatexMacroExpandName$$
+$begin LatexMacroExpandName_dev$$
 $spell
 	const
 $$
@@ -223,12 +223,12 @@ This is useful for error reporting.
 
 $head Restrictions$$
 It a programming  error to call this routine if the return value of
-$cref LatexMacroExpandInput$$ is $code NULL$$.
+$cref LatexMacroExpandInput_dev$$ is $code NULL$$.
 
 $end
 
 -----------------------------------------------------------------------------
-$begin LatexMacroKeep$$
+$begin LatexMacroKeep_dev$$
 
 $mindex keep macro$$
 $section Keep The Currently Defined Latex Macros$$
@@ -244,11 +244,11 @@ one to remove
 the macro definitions that are local to a particular part
 section.
 This can be done by calling $code LatexMacroKeep$$ before
-processing a section and $cref LatexMacroFree$$ after.
+processing a section and $cref LatexMacroFree_dev$$ after.
 
 $end
 ------------------------------------------------------------------------\
-$begin LatexMacroPopFullyExpandedInput$$
+$begin LatexMacroPopFullyExpandedInput_dev$$
 $spell
 	OMhelp
 $$
@@ -260,7 +260,7 @@ input character.
 This help error message when an error is detected at the end of a macro.
 In the case where there are no more latex commands after the end
 of the last macro in the OMhelp input, there can be
-$cref AllocMem$$ left over for this purpose that must be freed
+$cref AllocMem_dev$$ left over for this purpose that must be freed
 before checking for memory leaks.
 This function will free that memory.
 

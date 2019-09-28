@@ -94,7 +94,7 @@ extern const char *SectionNavigate(
 );
 
 /*
-$begin SectionInfo$$
+$begin SectionInfo_dev$$
 $escape #$$
 $spell
 	nav

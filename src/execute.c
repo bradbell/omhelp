@@ -1,12 +1,12 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 ==============================================================================
-$begin ExecuteNextFile$$
+$begin ExecuteNextFile_dev$$
 $escape #$$
 
 $index ExecuteNextFile$$
@@ -18,12 +18,12 @@ $head Syntax$$
 $codei%ExecuteNextFile()%$$
 
 $head See Also$$
-$mref/ExecuteSetFile/$$
+$mref/ExecuteSetFile_dev/$$
 
 
 $head Description$$
-An execute file is pending between a call to $mref/ExecuteSetFile/$$
-and the following call to $mref/ExecuteWriteFile/$$.
+An execute file is pending between a call to $mref/ExecuteSetFile_dev/$$
+and the following call to $mref/ExecuteWriteFile_dev/$$.
 If there is no execute file pending,
 $code ExecuteNextFile$$ returns $code NULL$$.
 Otherwise it returns a pointer to a $code '\0'$$
@@ -32,7 +32,7 @@ terminated character string containing the name of the next execute file
 
 $end
 ==============================================================================
-$begin ExecuteSetFile$$
+$begin ExecuteSetFile_dev$$
 $escape #$$
 $spell
 	const
@@ -52,12 +52,12 @@ $codei%ExecuteSetFile(
 )%$$
 
 $head See Also$$
-$mref/ExecuteWriteFile/$$
+$mref/ExecuteWriteFile_dev/$$
 
 
 $head Description$$
 Sets the name of the next execute file
-(as returned by $mref/ExecuteNextFile/$$) to a lower case version
+(as returned by $mref/ExecuteNextFile_dev/$$) to a lower case version
 of the characters in the $code '\0'$$ terminated character
 vector $icode name$$.
 The $code '\0'$$ terminated character vector $icode tag$$ specifies the
@@ -71,17 +71,17 @@ the same name was used for a previous execute file.
 It is also a user error if the file name contains the \ or the " character.
 In either of these cases,
 a fatal error message identifying the problem is reported using
-$cref/fatalomh/fatalerr/$$; i.e.,
+$cref/fatalomh/fatalerr_dev/$$; i.e.,
 it is assumed that there is an open input file and
 that we are currently parsing OMhelp input.
 
 $head Restriction$$
 It is considered a program error if
-$cref/ExecuteNextFile()/ExecuteNextFile/$$
+$cref/ExecuteNextFile()/ExecuteNextFile_dev/$$
 is not equal to $code NULL$$ when $code ExecuteSetFile$$ is called.
 $end
 ==============================================================================
-$begin ExecuteWriteFile$$
+$begin ExecuteWriteFile_dev$$
 $escape #$$
 $spell
 	const
@@ -99,30 +99,30 @@ $codei%ExecuteWriteFile(
 )%$$
 
 $head See Also$$
-$mref/ExecuteNextFile/$$
+$mref/ExecuteNextFile_dev/$$
 
 
 $head Description$$
 Writes the characters in the '\0' terminated character vector
 $icode text$$ to the file specified by
-$cref/ExecuteNextFile()/ExecuteNextFile/$$.
+$cref/ExecuteNextFile()/ExecuteNextFile_dev/$$.
 The value of $code ExecuteNextFile()$$ is then set to $code NULL$$.
 
 $head Error$$
 If the next execute file cannot be written,
 a fatal error message identifying the problem is reported using
-$cref/fatalomh/fatalerr/$$; i.e.,
+$cref/fatalomh/fatalerr_dev/$$; i.e.,
 it is assumed that there is an open input file and
 that we are currently parsing OMhelp input.
 
 
 $head Restriction$$
 It is considered a program error if
-$cref/ExecuteNextFile()/ExecuteNextFile/$$
+$cref/ExecuteNextFile()/ExecuteNextFile_dev/$$
 is equal to $code NULL$$ when $code ExecuteWriteFile$$ is called.
 $end
 ============================================================================
-$begin ExecuteFree$$
+$begin ExecuteFree_dev$$
 $escape #$$
 
 $cindex free execute allocate memory$$
@@ -133,16 +133,16 @@ $head Syntax$$
 $codei%void ExecuteFree()%$$
 
 $head See Also$$
-$mref/execute/$$
+$mref/execute_dev/$$
 
 
 $head Description$$
-This routines listed in $mref/execute/$$ allocate some memory
+This routines listed in $mref/execute_dev/$$ allocate some memory
 that is hidden from the calling routines.
 This routine must be called before
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$
 or this memory will be reported as a leak.
-No other routines listed in $mref/execute/$$
+No other routines listed in $mref/execute_dev/$$
 should be called after a call to this routine.
 
 $end

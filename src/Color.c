@@ -1,12 +1,12 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 -----------------------------------------------------------------------------
-$begin Color$$
+$begin Color_dev$$
 $spell
 	Mem
 	cmd
@@ -43,8 +43,8 @@ The return value
 of $code Color$$
 is a '\0' terminate character vector containing a valid
 for a color style.
-It is allocated using $cref AllocMem$$ and should be freed
-using $cref/FreeMem/AllocMem/FreeMem/$$ when it is no longer needed.
+It is allocated using $cref AllocMem_dev$$ and should be freed
+using $cref/FreeMem/AllocMem_dev/FreeMem/$$ when it is no longer needed.
 
 
 $head Color Names$$
@@ -64,7 +64,7 @@ $tend
 
 $head Errors$$
 It $icode delseq$$ does not meet the specifications above,
-$cref/fatalomh/fatalerr/$$ is used to report error messages; i.e.,
+$cref/fatalomh/fatalerr_dev/$$ is used to report error messages; i.e.,
 it is assumed that there is an open input file and
 that we are currently parsing OMhelp input.
 The error messages listed above identify

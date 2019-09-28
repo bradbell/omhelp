@@ -1,12 +1,12 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 
-$begin SplitText$$
+$begin SplitText_dev$$
 $spell
 	int
 	substrings
@@ -57,7 +57,7 @@ $lend
 
 $head Errors$$
 All the routines documented above use
-$cref/fatalomh/fatalerr/$$ to report error messages; i.e.,
+$cref/fatalomh/fatalerr_dev/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.
 The error messages listed above identify

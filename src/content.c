@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin content$$
+$begin content_dev$$
 $spell
 	tmp
 $$
@@ -22,7 +22,7 @@ $icode/tag/.tmp/$$ and writes
 a pass one version of the table of
 contents to that file.
 The argument $icode content$$ is the corresponding
-$cref SectionInfo$$ pointer corresponding to the table of contents.
+$cref SectionInfo_dev$$ pointer corresponding to the table of contents.
 The value $icode tag$$ in the file name
 is equal to $icode/content/->tag/$$.
 

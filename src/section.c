@@ -6,7 +6,7 @@ OMhelp is distributed under the terms of the
 ---------------------------------------------------------------------------- */
 /*
 =============================================================================
-$begin SectionInfoNew$$
+$begin SectionInfoNew_dev$$
 $escape #$$
 $spell
 	const
@@ -24,12 +24,12 @@ $codei%SectionInfo *SectionInfoNew(
 )%$$
 
 $head See Also$$
-$mref/SectionInfoNew/$$
+$mref/SectionInfoNew_dev/$$
 
 
 $head Purpose$$
-Uses $mref/AllocMem/$$ to allocate memory for a new
-$mref/SectionInfo/$$ record.
+Uses $mref/AllocMem_dev/$$ to allocate memory for a new
+$mref/SectionInfo_dev/$$ record.
 All of the field values in the record
 are initialized as $code NULL$$ with the following exceptions:
 
@@ -62,17 +62,17 @@ fields named $code root$$ and $code ext$$ are set to $code '\0'$$
 terminated character row vectors.
 To be specific, $code ext$$
 contains the
-$cref/extension/glossary/File Extension/$$ corresponding to $icode filename$$
+$cref/extension/glossary_dev/File Extension/$$ corresponding to $icode filename$$
 and $code root$$
 contains the other characters in $icode filename$$.
 Both $code root$$ and $code ext$$ are allocated memory using
-$mref/AllocMem/$$.
+$mref/AllocMem_dev/$$.
 The
-$mref/SectionFreeTree/$$ routine is designed to free this memory.
+$mref/SectionFreeTree_dev/$$ routine is designed to free this memory.
 
 $end
 =============================================================================
-$begin SectionDefaultStyle$$
+$begin SectionDefaultStyle_dev$$
 
 $mindex default style$$
 $section Replace Undefined Style Values by Defaults$$
@@ -100,7 +100,7 @@ $icode/From/->style/./field/$$
 $end
 =============================================================================
 
-$begin SectionFreeTree$$
+$begin SectionFreeTree_dev$$
 $escape #$$
 $spell
 	FreeMem
@@ -115,14 +115,14 @@ $codei%void SectionFreeTree(
 )%$$
 
 $head See Also$$
-$mref/SectionInfoNew/$$
+$mref/SectionInfoNew_dev/$$
 
 
 
 $head Description$$
-Use $cref/FreeMem/AllocMem/FreeMem/$$ to free all of the
-$mref/SectionInfo/$$ records in the specified
-$cref/Section tree/glossary/Section Tree/$$.
+Use $cref/FreeMem/AllocMem_dev/FreeMem/$$ to free all of the
+$mref/SectionInfo_dev/$$ records in the specified
+$cref/Section tree/glossary_dev/Section Tree/$$.
 The argument $icode tree$$ is a $code SectionInfo$$ pointer to
 the root node of the tree.
 In addition, all of the field with type $code char *$$
@@ -138,7 +138,7 @@ and $icode tree$$ cannot have a parent.
 
 $end
 =============================================================================
-$begin SectionFind$$
+$begin SectionFind_dev$$
 $escape #$$
 $spell
 	const
@@ -159,13 +159,13 @@ $codei%SectionInfo* SectionFind(
 )%$$
 
 $head See Also$$
-$mref/SectionInfo/$$
+$mref/SectionInfo_dev/$$
 
 
 $head Description$$
 Searches the specified
-$cref/Section tree/glossary/Section Tree/$$
-for the $mref/SectionInfo/$$ record that has the specified
+$cref/Section tree/glossary_dev/Section Tree/$$
+for the $mref/SectionInfo_dev/$$ record that has the specified
 value for its $code tag$$ field.
 The argument
 $icode tree$$ points to the
@@ -188,7 +188,7 @@ before this routine is called.
 
 $end
 =============================================================================
-$begin SectionSetTag$$
+$begin SectionSetTag_dev$$
 $escape #$$
 $spell
 	const
@@ -205,19 +205,19 @@ $codei%void SectionSetTag(
 )%$$
 
 $head See Also$$
-$mref/SectionInfo/$$
+$mref/SectionInfo_dev/$$
 
 
 $head Description$$
-Sets the $code tag$$ field of the specified $mref/SectionInfo/$$
+Sets the $code tag$$ field of the specified $mref/SectionInfo_dev/$$
 record to point to a copy of the $code '\0'$$ terminated
 character row vector $icode tag$$.
 In addition, the $code tagLower$$ field
 points to a copy of $icode tag$$ in which upper case characters
 are changed to lower case.
 The memory pointed to by $code tag$$ and $code tagLower$$
-is allocated by $mref/AllocMem/$$
-and must be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
+is allocated by $mref/AllocMem_dev/$$
+and must be freed using $cref/FreeMem/AllocMem_dev/FreeMem/$$.
 
 $head Restrictions$$
 The value of the $code tag$$ and $code tagLower$$ fields
@@ -227,7 +227,7 @@ must be $code NULL$$ when this routine is called.
 $end
 =============================================================================
 
-$begin SectionNumber$$
+$begin SectionNumber_dev$$
 $spell
 	Mem
 $$
@@ -248,8 +248,8 @@ It is assumed that there is only one section at the top
 of the tree. The identifying number corresponding to that section
 is the empty string.
 The memory pointed to by the return value
-is allocated by $mref/AllocMem/$$
-and must be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
+is allocated by $mref/AllocMem_dev/$$
+and must be freed using $cref/FreeMem/AllocMem_dev/FreeMem/$$.
 
 $head Assumptions$$
 The numbering scheme identifies a section relative to the sections
@@ -261,7 +261,7 @@ and hence the number corresponding to all the children of section X changes.
 
 $end
 =============================================================================
-$begin SectionTagNotDefined$$
+$begin SectionTagNotDefined_dev$$
 $escape #$$
 $spell
 	const
@@ -279,14 +279,14 @@ $codei%SectionInfo* SectionTagNotDefined(
 )%$$
 
 $head See Also$$
-$mref/SectionFind/$$
+$mref/SectionFind_dev/$$
 
 
 $head Description$$
 Searches the specified
-$cref/Section tree/glossary/Section Tree/$$
+$cref/Section tree/glossary_dev/Section Tree/$$
 starting at $icode root$$,
-for a $mref/SectionInfo/$$ record that does not have its
+for a $mref/SectionInfo_dev/$$ record that does not have its
 $code tag$$ field defined.
 The return value is a pointer to a $code SectionInfo$$ record
 in which the $code tag$$ field is $code NULL$$.
@@ -304,7 +304,7 @@ the value $code NULL$$ is returned.
 
 $end
 =============================================================================
-$begin SectionReadOrder$$
+$begin SectionReadOrder_dev$$
 $escape #$$
 $spell
 	const
@@ -354,7 +354,7 @@ $code SectionReadNext$$ returns NULL.
 
 $end
 =============================================================================
-$begin SectionNavigate$$
+$begin SectionNavigate_dev$$
 $spell
 	const
 	ntoken

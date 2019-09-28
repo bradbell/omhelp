@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin heading$$
+$begin heading_dev$$
 $spell
 	const
 	initializes
@@ -98,7 +98,7 @@ return value is '\0', otherwise it is '\.'; i.e. the period character.
 
 $head Errors$$
 All the routines documented above use
-$cref/fatalomh/fatalerr/$$ to report error messages; i.e.,
+$cref/fatalomh/fatalerr_dev/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.
 $end

@@ -1,12 +1,12 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 
-$begin spell$$
+$begin spell_dev$$
 $spell
 	non
 	wrd
@@ -89,9 +89,9 @@ $codei/
 FreeSpelling(debug)
 /$$
 Frees all memory that is connected to spell checking
-This memory is allocated using $mref/AllocMem/$$
+This memory is allocated using $mref/AllocMem_dev/$$
 and should be freed before calling
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$.
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$.
 
 If debug is true, a list of all reported spelling errors is written
 in alphabetical order and lower case to a file called error.wrd.

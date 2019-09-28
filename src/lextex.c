@@ -528,7 +528,7 @@ char *yytext;
 #line 2 "latex.l"
 // BEGIN SHORT COPYRIGHT
 /* -----------------------------------------------------------------------
-OMhelp: Source Code -> Help Files: Copyright (C) 1998-2004 Bradley M. Bell
+OMhelp: Source Code -> Help Files: Copyright (C) 1998-2019 Bradley M. Bell
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -564,18 +564,18 @@ The Latex lexical analyzer reads its data from memory.
 This call sets the input data to the $code const$$ '\0' terminated
 character vector specified by $icode input$$.
 The integer $icode line$$ specifies the line
-number in the file $cref/InputName()/InputName/$$
+number in the file $cref/InputName()/InputName_dev/$$
 where $icode input$$ started.
 
 $head Memory Allocation$$
-This call allocates memory using $cref AllocMem$$.
+This call allocates memory using $cref AllocMem_dev$$.
 This memory is freed when the Latex lexical analyzer returns
 $code CHAR_ENDINPUT_lex$$.
 
 
 $end
 ------------------------------------------------------------------------
-$begin LatexLexHistory$$
+$begin LatexLexHistory_dev$$
 $spell
 	ntoken
 $$
@@ -616,7 +616,7 @@ For $math% i=0,...,ntoken-1 %$$
 the value of $icode/line/[/i/]/$$ is set to the line
 number where the token
 $icode/token/[/i/]/$$ appeared in the
-file $cref/InputName()/InputName/$$.
+file $cref/InputName()/InputName_dev/$$.
 $codei%
 
 char **%token%

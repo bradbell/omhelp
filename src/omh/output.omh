@@ -4,7 +4,7 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-$begin output$$
+$begin output_dev$$
 
 $section Output Functions$$
 

@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin KeywordIndex$$
+$begin KeywordIndex_dev$$
 $dollar @$$
 $spell
 	cindex
@@ -76,7 +76,7 @@ points to.
 
 $head Head$$
 The '\0' terminated character vector $icode head$$ is the
-$cref/cross reference heading/glossary/Cross Reference Heading/$$
+$cref/cross reference heading/glossary_dev/Cross Reference Heading/$$
 for this index entry.
 It specifies the location with in the section
 that the index entry points to.
@@ -91,7 +91,7 @@ The escape character is used for special processing of index entries
 and does not appear in the index entries.
 
 $head Section$$
-This is a $cref SectionInfo$$ pointer
+This is a $cref SectionInfo_dev$$ pointer
 that specifies the section corresponding to the automatically
 generated index page.
 
@@ -100,7 +100,7 @@ $index InsertInIndex$$
 this routine will insert one index entry corresponding to
 the text in $icode key$$.
 The characters in $icode key$$ before the first
-$cref/key comma/KeywordIndex/Key.Key Comma/$$
+$cref/key comma/KeywordIndex_dev/Key.Key Comma/$$
 specify the first level of the index entry.
 If there is a key comma in $icode key$$
 the text after the first key comma specifies
@@ -109,9 +109,9 @@ the second level of the index entry.
 $head MultipleIntoIndex$$
 $index MultipleIntoIndex$$
 This routine will insert a one level index entry for each
-$cref/key word/KeywordIndex/Key.Key Word/$$
+$cref/key word/KeywordIndex_dev/Key.Key Word/$$
 that is not a
-$cref/key comment/KeywordIndex/Key.Key Comment/$$.
+$cref/key comment/KeywordIndex_dev/Key.Key Comment/$$.
 (For this function,
 the comma does not have the special meaning it has in $code InsertInIndex$$.)
 Words that appear in $icode ignore$$ will not be included in the index.
@@ -119,9 +119,9 @@ Words that appear in $icode ignore$$ will not be included in the index.
 $head CycleIntoIndex$$
 $index CycleIntoIndex$$
 This routine will insert a two level index entry for each
-$cref/key word/KeywordIndex/Key.Key Word/$$
+$cref/key word/KeywordIndex_dev/Key.Key Word/$$
 that is not a
-$cref/key comment/KeywordIndex/Key.Key Comment/$$.
+$cref/key comment/KeywordIndex_dev/Key.Key Comment/$$.
 The first level of the index entry will be the key word.
 The second level will be the entire $icode key$$.
 $pre
@@ -129,7 +129,7 @@ $pre
 $$
 If a comma character appears in $icode key$$ and it not
 is preceded by the
-$cref/key escape/KeywordIndex/Key.Key Escape Character/$$ character,
+$cref/key escape/KeywordIndex_dev/Key.Key Escape Character/$$ character,
 an error message for the $code cindex$$ command is generated.
 
 
@@ -151,16 +151,16 @@ reference that points to the position of that letter in the index.
 In addition, it is added to the list of cross references to this section.
 
 $head IndexFreeMem$$
-The routines listed above allocate memory using $cref AllocMem$$.
+The routines listed above allocate memory using $cref AllocMem_dev$$.
 The routine $code IndexFreeMem$$ must be called
 after the last call to any of the routines above,
 and before calling
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$.
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$.
 
 
 $head Errors$$
 All the routines documented above use
-$cref/fatalomh/fatalerr/$$ to report error messages; i.e.,
+$cref/fatalomh/fatalerr_dev/$$ to report error messages; i.e.,
 they assume that there is an open input file and
 that we are currently parsing OMhelp input.
 

@@ -11,7 +11,7 @@ extern "C" {
 # endif
 
 /*
-$begin LatexMacro$$
+$begin LatexMacro_dev$$
 
 $section Implementation of Latex Macro Preprocessor$$
 

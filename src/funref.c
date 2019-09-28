@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin FunRef$$
+$begin FunRef_dev$$
 $spell
 	Href
 	tmp
@@ -40,7 +40,7 @@ $codei%
 
 %section%
 %$$
-The is a pointer to the $cref SectionInfo$$ record that
+The is a pointer to the $cref SectionInfo_dev$$ record that
 corresponds to the function reference section.
 $codei%
 
@@ -73,7 +73,7 @@ $codei%
 FunRefFree()
 %$$
 The $code InsertInFunRef$$ routine uses
-$cref AllocMem$$ to store information that is used by
+$cref AllocMem_dev$$ to store information that is used by
 $code FunRefPass1$$.
 The routine $code FunRefFree$$ frees all this temporary memory.
 

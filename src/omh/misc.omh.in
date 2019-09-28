@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
-$begin misc$$
+$begin misc_dev$$
 $escape #$$
 
 $section A List of Miscellaneous Routines that Need Better Grouping$$

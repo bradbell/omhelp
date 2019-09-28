@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin int2str$$
+$begin int2str_dev$$
 $spell
 	Mem
 	str
@@ -21,7 +21,7 @@ $head Syntax$$
 $codei%int2str(%i%)
 %$$
 
-$head See Also$$ $mref/str_alloc/$$
+$head See Also$$ $mref/str_alloc_dev/$$
 
 
 $head Description$$
@@ -32,11 +32,11 @@ contains the ascii representation of $icode i$$.
 $head Memory$$
 The return value of $code int2str$$
 points to memory that
-should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$
+should be freed using the routine $cref/FreeMem/AllocMem_dev/FreeMem/$$
 when it is no longer needed.
 If this memory is not freed,
 a call to
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$
 will report the corresponding source code line and file where the
 corresponding call to $code str_alloc$$ is located.
 

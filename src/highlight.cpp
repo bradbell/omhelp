@@ -26,7 +26,7 @@ extern "C" char* StrCat( const char *file, int line, ... );
 extern "C" const char* source_highlight_prefix(void);
 /*
 -----------------------------------------------------------------------------
-$begin highlight$$
+$begin highlight_dev$$
 $spell
 	tabsize
 	cstr
@@ -77,8 +77,8 @@ if there is a tab before the first newline.
 $head Return Value$$
 The return value is a highlighted version of the input source code in
 either HTML or XHTML depending on the output language.
-The return value memory is allocated using $mref/AllocMem/$$
-and should be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
+The return value memory is allocated using $mref/AllocMem_dev/$$
+and should be freed using $cref/FreeMem/AllocMem_dev/FreeMem/$$.
 
 $end
 */
@@ -216,7 +216,7 @@ extern "C" char* highlight(
 }
 /*
 ----------------------------------------------------------------------------
-$begin file_ext2lang$$
+$begin file_ext2lang_dev$$
 $spell
 	cstr
 	Mem
@@ -243,8 +243,8 @@ lower case before checking.
 
 $head Return Value$$
 The return value is a $code source-highlight$$ input language.
-It is allocated using $mref/AllocMem/$$
-and should be freed using $cref/FreeMem/AllocMem/FreeMem/$$.
+It is allocated using $mref/AllocMem_dev/$$
+and should be freed using $cref/FreeMem/AllocMem_dev/FreeMem/$$.
 If the language could not be determined, the empty string is returned; i.e.,
 it has one character and it is the $code '\0'$$ character.
 

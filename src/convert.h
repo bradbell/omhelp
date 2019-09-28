@@ -47,7 +47,7 @@ extern char *ConvertInternalString(
 
 /*
 
-$begin convert$$
+$begin convert_dev$$
 $escape #$$
 $spell
 	const

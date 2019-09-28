@@ -1,12 +1,12 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 =============================================================================
-$begin ConvertNewline$$
+$begin ConvertNewline_dev$$
 $escape #$$
 $spell
 	const
@@ -33,7 +33,7 @@ a forced new line.
 
 $end
 ==============================================================================
-$begin ConvertOutput$$
+$begin ConvertOutput_dev$$
 $escape #$$
 $spell
 	const
@@ -107,7 +107,7 @@ The tab characters are converted to the corresponding number of spaces.
 
 $end
 ==============================================================================
-$begin ConvertAddColumn$$
+$begin ConvertAddColumn_dev$$
 $escape #$$
 $spell
 	const
@@ -123,18 +123,18 @@ $head Syntax$$
 $codei/int ConvertAddColumn(const int /add/)/$$
 
 $head See Also$$
-$mref/ConvertSetTabSize/ConvertOutput/$$
+$mref/ConvertSetTabSize_dev/ConvertOutput_dev/$$
 
 
 
 $head Description$$
-The routines listed in $cref convert$$
+The routines listed in $cref convert_dev$$
 keep track of the current output column number.
 This is used for
 converting tab characters in pre-formatted mode.
 The routine $code ConvertAddColumn$$
 is used when the current output column changes because
-of output that does not use one of the $cref convert$$ routines.
+of output that does not use one of the $cref convert_dev$$ routines.
 Calling $code ConvertAddColumn$$, adds the value $icode add$$ to
 the current output column number and returns the resulting column.
 The call
@@ -145,7 +145,7 @@ can be used to set the current column to zero.
 
 $end
 ==============================================================================
-$begin ConvertSetTabSize$$
+$begin ConvertSetTabSize_dev$$
 $spell
 	const
 	Ch
@@ -161,7 +161,7 @@ $head Syntax$$
 $codei/void ConvertSetTabSize(const int /size/)/$$
 
 $head See Also$$
-$mref/ConvertAddColumn/ConvertOutput/$$
+$mref/ConvertAddColumn_dev/ConvertOutput_dev/$$
 
 
 $head Description$$
@@ -174,7 +174,7 @@ of the columns that correspond to a tab character.
 
 $end
 ==============================================================================
-$begin ConvertPreviousNewline$$
+$begin ConvertPreviousNewline_dev$$
 $spell
 	newline
 	newlines
@@ -197,7 +197,7 @@ ConvertPreviousNewline()
 /$$
 Returns the number of newlines, since the previous non white space character,
 that were output by any of the
-$cref/convert routines/convert/Convert Routines/$$.
+$cref/convert routines/convert_dev/Convert Routines/$$.
 
 $codei/
 
@@ -205,7 +205,7 @@ ConvertAddPrevious(/n/)
 /$$
 The value $icode n$$ is added to the previous newline counter.
 If newlines are output by routines other than the
-$cref/convert routines/convert/Convert Routines/$$,
+$cref/convert routines/convert_dev/Convert Routines/$$,
 a positive value of $icode n$$ will adjust for this.
 $pre
 
@@ -220,12 +220,12 @@ $pre
 
 $$
 If $icode n$$ is greater than zero, the current
-$cref/column counter/ConvertAddColumn/$$ is set to zero.
+$cref/column counter/ConvertAddColumn_dev/$$ is set to zero.
 
 
 $end
 ===========================================================================
-$begin ConvertInternalString$$
+$begin ConvertInternalString_dev$$
 $escape #$$
 $spell
 	Mem
@@ -243,7 +243,7 @@ $codei%char *ConvertInternalString(const char *%s%)
 %$$
 
 $head See Also$$
-$cref ConvertOutput$$
+$cref ConvertOutput_dev$$
 
 
 $head Description$$
@@ -263,8 +263,8 @@ $code REGISTERED_TRADE_MARK_CHARACTER$$,
 are defined in $code convert.h$$.
 
 $head Memory$$
-The return value is allocated with $cref AllocMem$$ and should be freed
-with $cref/FreeMem/AllocMem/FreeMem/$$ when it is no longer needed.
+The return value is allocated with $cref AllocMem_dev$$ and should be freed
+with $cref/FreeMem/AllocMem_dev/FreeMem/$$ when it is no longer needed.
 
 
 $end

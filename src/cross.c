@@ -1,12 +1,12 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 ==============================================================================
-$begin CreateCrossReference$$
+$begin CreateCrossReference_dev$$
 $spell
 	printid
 $$
@@ -21,7 +21,7 @@ $codei%CreateCrossReference(%tag%, %head%, %file%)%$$
 
 
 $head Description$$
-Uses $mref/AllocMem/$$ to allocate memory for a new
+Uses $mref/AllocMem_dev/$$ to allocate memory for a new
 $code CrossReference$$ record with the following fields and settings:
 
 $table
@@ -35,24 +35,24 @@ $rend
 
 $code frame$$     $cend       0  $cend
 if head[0]!='\0', frame that the
-$cref/cross reference heading/glossary/Cross Reference Heading/$$
+$cref/cross reference heading/glossary_dev/Cross Reference Heading/$$
 refers to
 $rend
 
-$cref/tag/CrossReference/Tag/$$       $cend       $icode tag$$  $cend
+$cref/tag/CrossReference_dev/Tag/$$       $cend       $icode tag$$  $cend
 a separated allocated copy of section tag
 $rend
 
-$cref/head/CrossReference/Head/$$      $cend       $icode head$$ $cend
+$cref/head/CrossReference_dev/Head/$$      $cend       $icode head$$ $cend
 a separated allocated copy of a
-$cref/cross reference heading/glossary/Cross Reference Heading/$$
+$cref/cross reference heading/glossary_dev/Cross Reference Heading/$$
 $rend
 
-$cref/file/CrossReference/File/$$      $cend       $icode file$$ $cend
+$cref/file/CrossReference_dev/File/$$      $cend       $icode file$$ $cend
 name of user input file corresponding to this cross reference
 $rend
 
-$cref/printid/CrossReference/Printid/$$    $cend       $code NULL$$ $cend
+$cref/printid/CrossReference_dev/Printid/$$    $cend       $code NULL$$ $cend
 identification of cross reference in printed version of web site
 $rend
 
@@ -76,11 +76,11 @@ $head Return Value$$
 A $code CrossReference$$ pointer to the
 new cross reference is returned and it is programming error
 to create a cross reference that already exists; i.e., for which
-$mref/FindCrossReference/$$ would not return $code NULL$$
+$mref/FindCrossReference_dev/$$ would not return $code NULL$$
 
 $end
 ==============================================================================
-$begin FindCrossReference$$
+$begin FindCrossReference_dev$$
 
 $index cross reference, find$$
 $index FindCrossReference$$
@@ -94,16 +94,16 @@ $codei/FindCrossReference(/tag/, /head/)/$$
 $head Description$$
 Search the cross reference list for a Cross Reference record that has the
 specified
-$cref/tag/CrossReference/Tag/$$
+$cref/tag/CrossReference_dev/Tag/$$
 and
-$cref/heading/CrossReference/Head/$$.
+$cref/heading/CrossReference_dev/Head/$$.
 The return value is a $code CrossReference$$ pointer to the cross
 reference. If such a cross reference is found, a pointer to it is returned.
 Otherwise $code NULL$$ is returned.
 
 $end
 ==============================================================================
-$begin DefineCrossReference$$
+$begin DefineCrossReference_dev$$
 $spell
 	printid
 $$
@@ -120,9 +120,9 @@ $codei/DefineCrossReference(/tag/, /head/, /file/, /frame/, /printid/)/$$
 
 $head Description$$
 The cross reference with the specified
-$cref/tag/CrossReference/Tag/$$
+$cref/tag/CrossReference_dev/Tag/$$
 and
-$cref/head/CrossReference/Head/$$
+$cref/head/CrossReference_dev/Head/$$
 is searched for.
 If no such cross reference is found, a new one is created.
 $pre
@@ -130,29 +130,29 @@ $pre
 $$
 If a cross reference destination with the same $icode tag$$
 and $icode head$$ has already been
-$cref/defined/CrossReference/Defined/$$,
+$cref/defined/CrossReference_dev/Defined/$$,
 a fatal error message is printed and the program stops.
 (Note that defined is different from created.)
 $pre
 
 $$
 The cross reference is marked as defined. In addition, the
-$cref/frame/CrossReference/Frame/$$
+$cref/frame/CrossReference_dev/Frame/$$
 and
-$cref/file/CrossReference/File/$$
+$cref/file/CrossReference_dev/File/$$
 fields are set to the values specified by the call.
 $pre
 
 $$
 If $icode file$$
-is equal to $mref/InputName/$$,
-the line number is set to $mref/InputLine/$$.
+is equal to $mref/InputName_dev/$$,
+the line number is set to $mref/InputLine_dev/$$.
 $pre
 
 $$
 The argument  $icode printid$$
 specifies the
-$cref/printid/CrossReference/Printid/$$
+$cref/printid/CrossReference_dev/Printid/$$
 for this cross reference.
 The argument $icode printid$$ can point to the empty string
 in which case there is no print id for this cross reference.
@@ -162,7 +162,7 @@ $$
 A pointer to the cross reference is returned.
 $end
 ==============================================================================
-$begin NextCrossReference$$
+$begin NextCrossReference_dev$$
 
 $index NextCrossReference$$
 $index cross reference, next$$
@@ -175,18 +175,18 @@ $codei/NextCrossReference(/cross/)/$$
 
 $head Description$$
 Returns a $code CrossReference$$ pointer that has the same
-$cref/tag/CrossReference/Tag/$$ as $icode cross$$
+$cref/tag/CrossReference_dev/Tag/$$ as $icode cross$$
 and is defined directly after the definition of $icode cross$$.
 The argument $icode cross$$ is a $code CrossReference$$ pointer.
 If no such a cross reference exists,
 $code NULL$$ is returned.
 This is useful for listing the
-$cref/cross reference headings/glossary/Cross Reference Heading/$$
+$cref/cross reference headings/glossary_dev/Cross Reference Heading/$$
 and corresponding links for a particular section.
 
 $end
 ==============================================================================
-$begin FreeCrossReference$$
+$begin FreeCrossReference_dev$$
 $spell
 	Mem
 $$
@@ -205,10 +205,10 @@ $head Description$$
 Checks that all the cross references were defined and prints an error
 message for each one that was not. In addition Frees all the memory
 associated with the cross reference list
-(using $cref/FreeMem/AllocMem/FreeMem/$$) and leave the list
+(using $cref/FreeMem/AllocMem_dev/FreeMem/$$) and leave the list
 as empty.
 This should be done before
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$ is called.
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$ is called.
 
 $end
 */

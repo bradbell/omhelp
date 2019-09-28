@@ -1,12 +1,12 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 =============================================================================
-$begin Url$$
+$begin Url_dev$$
 $spell
 	isspace
 	Mem
@@ -63,7 +63,7 @@ $codei%
 %$$
 
 $head Memory$$
-The return value is allocated using $cref AllocMem$$
+The return value is allocated using $cref AllocMem_dev$$
 and should be freed using $code FreeMem$$
 
 $end

@@ -49,7 +49,7 @@ extern void  InputSplitName(
 );
 
 /*
-$begin input$$
+$begin input_dev$$
 $escape #$$
 
 $cindex set input path #and read file$$
@@ -61,10 +61,10 @@ The functions listed below manage the reading of input files.
 
 $head Memory Allocation$$
 When you are finished using the routines listed below,
-the routine $mref/InputFree/$$ should be called.
+the routine $mref/InputFree_dev/$$ should be called.
 This will free hidden memory allocated for these routines
 and avoid a
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$ error.
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$ error.
 
 $comment
 Only include include.c because routines in that file refer

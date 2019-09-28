@@ -12,7 +12,7 @@ extern "C" {
 
 /*
 =============================================================================
-$begin Url$$
+$begin Url_dev$$
 $spell
 $$
 $index Url, href$$
@@ -64,7 +64,7 @@ $codei%
 %$$
 
 $head Memory$$
-The return value is allocated using $cref AllocMem$$
+The return value is allocated using $cref AllocMem_dev$$
 and should be freed using $code FreeMem$$
 
 $end

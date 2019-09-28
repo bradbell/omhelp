@@ -1,12 +1,12 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 --------------------------------------------------------------------------
-$begin hilite_command$$
+$begin hilite_command_dev$$
 
 $section Set Commands for Automatic Highlighting and Cross Referencing$$
 
@@ -50,7 +50,7 @@ the state of the vector $icode commands$$ is unspecified.
 
 $end
 --------------------------------------------------------------------------
-$begin hilite_pattern$$
+$begin hilite_pattern_dev$$
 
 $section
 Set Patterns and Tags for Automatic Highlighting and Cross Referencing$$
@@ -112,7 +112,7 @@ the state of the vector $icode args$$ is unspecified.
 
 $end
 --------------------------------------------------------------------------
-$begin hilite_out$$
+$begin hilite_out_dev$$
 
 $section Output Text with Automatic Highlighting and Cross Referencing$$
 
@@ -161,7 +161,7 @@ the text to be output.
 
 $end
 ---------------------------------------------------------------------------
-$begin hilite_set_default$$
+$begin hilite_set_default_dev$$
 
 $section Set Default for hilite Commands and Tokens$$
 
@@ -170,12 +170,12 @@ $icode hilite_set_default()$$
 
 $head Purpose$$
 The current settings by
-$cref hilite_command$$ and $cref hilite_seq$$
+$cref hilite_command_dev$$ and $cref hilite_seq_dev$$
 are stored so that they can be recalled later.
 
 $end
 ---------------------------------------------------------------------------
-$begin hilite_get_default$$
+$begin hilite_get_default_dev$$
 
 $section Get Default for hilite Commands and Tokens$$
 
@@ -185,8 +185,8 @@ $icode hilite_get_default()$$
 $head Purpose$$
 The values stored by the previous call to
 $code hilite_set_default$$ are restored as the current settings corresponding
-$cref hilite_command$$ and $cref hilite_seq$$.
-If there was no previous call to $cref hilite_set_default$$,
+$cref hilite_command_dev$$ and $cref hilite_seq_dev$$.
+If there was no previous call to $cref hilite_set_default_dev$$,
 the correspondign settings will not highlite or cross reference any commands.
 
 $end

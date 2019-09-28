@@ -6,7 +6,7 @@ OMhelp is distributed under the terms of the
 ---------------------------------------------------------------------------- */
 
 /*
-$begin relative$$
+$begin relative_dev$$
 $spell
 	Javascript
 	js

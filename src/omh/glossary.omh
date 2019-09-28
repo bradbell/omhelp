@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
-$begin glossary$$
+$begin glossary_dev$$
 $dollar @$$
 $spell
 	crossheading
@@ -64,16 +64,16 @@ in the file name.
 
 $head Root File Name$$
 The term root file name refers a file name without
-its  $cref/extension/glossary/File Extension/$$.
+its  $cref/extension/glossary_dev/File Extension/$$.
 It may include a
-$cref/complete path specification/glossary/Complete Path Specification/$$,
+$cref/complete path specification/glossary_dev/Complete Path Specification/$$,
 it may be relative to one of the
-input search $cref/paths/InputAddPath/$$,
+input search $cref/paths/InputAddPath_dev/$$,
 or it may be relative to the
-$cref/input local directory/InputInit/$$.
+$cref/input local directory/InputInit_dev/$$.
 
 $head Section Tree$$
-A Section tree is specified by a $mref/SectionInfo/$$
+A Section tree is specified by a $mref/SectionInfo_dev/$$
 record that has its $code parent$$ and $code previous$$
 fields equal to $code NULL$$.
 All of the sibling (linked by the $code next$$ field)

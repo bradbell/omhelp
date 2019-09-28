@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin HtmlHead$$
+$begin HtmlHead_dev$$
 $spell
 	http
 	equiv
@@ -72,7 +72,7 @@ $codei%
 %$$
 
 $head Style$$
-The $cref/StyleCommand/style/$$ function is used to determine
+The $cref/StyleCommand/style_dev/$$ function is used to determine
 a style record that is also output as part of the header.
 
 $head Script$$

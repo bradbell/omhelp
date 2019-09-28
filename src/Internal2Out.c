@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin Internal2Out$$
+$begin Internal2Out_dev$$
 $spell
 	const
 	htm
@@ -41,7 +41,7 @@ $code xml$$.
 
 $head Internal2Out$$
 The argument $icode internal$$ must be one of the internal
-$cref/strings/glossary/String/$$
+$cref/strings/glossary_dev/String/$$
 listed in the table below.
 The return value it is one of the output strings listed in the
 table below

@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin jump_table$$
+$begin jump_table_dev$$
 $spell
 $$
 

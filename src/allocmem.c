@@ -1,11 +1,11 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
-$begin AllocMem$$
+$begin AllocMem_dev$$
 $spell
 	Alloc
 	num
@@ -35,9 +35,9 @@ $index AllocMemory$$
 This routine returns a pointer to space that is sufficient
 for $icode num$$ elements each of size $icode size$$
 where $icode num$$ and $icode size$$ are positive integers.
-The memory is allocated using $cref c_alloc$$.
+The memory is allocated using $cref c_alloc_dev$$.
 The
-$cref/string/glossary/String/$$ $icode file$$ is the
+$cref/string/glossary_dev/String/$$ $icode file$$ is the
 file name and the integer $icode line$$ is the line number
 where the call to $code AllocMemory$$ is made.
 The standard macros $code __FILE__$$ and $code __LINE__$$
@@ -50,7 +50,7 @@ this macro calls $code AllocMemory$$ with
 the file and line set by the macros
 $code __FILE__$$ and $code __LINE__$$ respectively.
 Otherwise, this macro just uses
-$cref c_alloc$$ to allocate the requested memory.
+$cref c_alloc_dev$$ to allocate the requested memory.
 
 $head FreeMemory$$
 $index FreeMemory$$
@@ -59,7 +59,7 @@ The value $icode ptr$$ must be either $code NULL$$
 or a pointer that was allocated using
 $code AllocMemory$$.
 (If it is $code NULL$$, no action is taken).
-The $cref/string/glossary/String/$$ $icode file$$
+The $cref/string/glossary_dev/String/$$ $icode file$$
 is the file name and the integer $icode line$$ is the line number
 where the call to $code FreeMemory$$ is made.
 The standard macros $code __FILE__$$ and $code __LINE__$$
@@ -74,7 +74,7 @@ If $code NDEBUG$$ is defined when $code allocmem.h$$ is included,
 this macro calls $code FreeMemory$$ with
 the file and line set by the macros
 $code __FILE__$$ and $code __LINE__$$ respectively.
-Otherwise, this macro uses $cref/c_free/c_alloc/$$ to directly
+Otherwise, this macro uses $cref/c_free/c_alloc_dev/$$ to directly
 the memory pointed to by $icode ptr$$.
 
 
@@ -89,7 +89,7 @@ that was not freed was allocated.
 
 $end
 ------------------------------------------------------------------------------
-$begin c_alloc$$
+$begin c_alloc_dev$$
 $spell
 	alloc
 	num

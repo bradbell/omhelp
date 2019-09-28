@@ -1,13 +1,13 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
 /*
 Lexical analyizer for OMhelp commands
 ------------------------------------------------------------------------------
-$begin CommandKeyCharacter$$
+$begin CommandKeyCharacter_dev$$
 $dollar @$$
 $spell
 	OMhelp
@@ -62,7 +62,7 @@ is set to the current key character just before the end of file.
 
 $end
 ------------------------------------------------------------------------------
-$begin TokenCode2String$$
+$begin TokenCode2String_dev$$
 $spell
 	Mem
 $$
@@ -91,11 +91,11 @@ $codei%
 	char *%string%
 %$$
 It points to memory that
-should be freed using the routine $cref/FreeMem/AllocMem/FreeMem/$$
+should be freed using the routine $cref/FreeMem/AllocMem_dev/FreeMem/$$
 when it is no longer needed.
 If this memory is not freed,
 a call to
-$cref/CheckMemoryLeak/AllocMem/CheckMemoryLeak/$$
+$cref/CheckMemoryLeak/AllocMem_dev/CheckMemoryLeak/$$
 will report the corresponding source code line in the routine
 $code TokenCode2String$$.
 

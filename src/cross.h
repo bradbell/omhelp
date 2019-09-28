@@ -12,7 +12,7 @@ extern "C" {
 
 
 /*
-$begin CrossReference$$
+$begin CrossReference_dev$$
 $spell
 	isspace
 	printid
@@ -49,7 +49,7 @@ it corresponds to the input file where the cross reference was created.
 $head Head$$
 $index head, cross reference$$
 A variable or record field called $icode head$$
-is a $cref/cross reference heading/glossary/Cross Reference Heading/$$.
+is a $cref/cross reference heading/glossary_dev/Cross Reference Heading/$$.
 Two different values for $icode head$$ are called equal
 if they are equal in a case sensitive sense.
 
@@ -72,7 +72,7 @@ The value $math/frame = 0/$$
 should be used for the overall section,
 $math/frame = 1/$$ corresponds
 to the first user defined frame, and so on.
-If $cref/head/CrossReference/Head/$$ is empty,
+If $cref/head/CrossReference_dev/Head/$$ is empty,
 it must hold that $math/frame = 0/$$.
 
 $head Defined$$
