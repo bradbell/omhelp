@@ -107,7 +107,7 @@ the following sections:
 
 $children%
 	omh/whats_new/04.omh%
-	omh/whatsnew03.omh%
+	omh/whats_new/03.omh%
 	omh/whatsnew02.omh%
 	omh/whatsnew01.omh%$$
 
@@ -115,7 +115,7 @@ $center
 
 $table
 $rref whats_new_04$$
-$rref whatsNew03$$
+$rref whats_new_03$$
 $rref whatsNew02$$
 $rref whatsNew01$$
 $tend
@@ -384,7 +384,7 @@ Shorten the copyright message at the beginning of each source code file.
 $lnext
 Remove two old Harmonic Software copyright messages because the
 copyright was transferred to Bradley M. Bell; see
-$cref/2003-10-19/whatsNew03/10-19/$$.
+$cref/2003-10-19/whats_new_03/10-19/$$.
 $lnext
 Add the deprecation date for
 $cref/wspace/wspace/Deprecated 2006-07-07/$$,

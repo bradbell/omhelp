@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
-$begin whatsNew03$$
+$begin whats_new_03$$
 $dollar @$$
 $spell
 	colorname
@@ -309,7 +309,7 @@ $head 05-10$$
 There is a problem with IE explorer whereby it will
 $xref/Explorer/XHTML/Line Wrapping/wrap lines/1/$$ at the
 $code -$$ character.
-The change on $xref/whatsnew03/05-08/05-08/$$ used the
+The change on $xref/whats_new_03/05-08/05-08/$$ used the
 HTML $code <nobr>$$ command, which is non-standard, to get around
 this problem.
 This was changed to use the $code white-space: nowrap$$ style which
@@ -376,7 +376,7 @@ was included in the documentation
 (these reports are now relative to $xref/Firefox/$$).
 
 $head 04-25$$
-Part of the change on $xref/whatsnew03/03-24/03-24/$$
+Part of the change on $xref/whats_new_03/03-24/03-24/$$
 was that the index is not generated when there is only one section.
 This caused a memory leak that has been fixed.
 In addition,
@@ -427,7 +427,7 @@ $pre
 
 $$
 The change on
-$xref/whatsnew03/03-12/03-12/$$
+$xref/whats_new_03/03-12/03-12/$$
 placed the automatically generated links
 at the top of the first frame of a section.
 This caused there to be no space between
@@ -536,7 +536,7 @@ $xref/spell/Dictionary/local.wrd/$$.
 
 $head 02-23$$
 In order to make MathML work with Internet Explorer
-on $xref/whatsnew03/02-17/03-02-17/$$
+on $xref/whats_new_03/02-17/03-02-17/$$
 the $code &nbsp;$$ command was changed to its unicode value
 $code &xA0;$$.
 This does not work for HTML display on some old browsers;
@@ -768,7 +768,7 @@ $pre
 
 $$
 The change on
-$xref/whatsnew03/01-24/03-01-04/$$
+$xref/whats_new_03/01-24/03-01-04/$$
 allowed one to replace an entire window by just one frame of another window.
 When this happened, the user did not have a navigation link available.
 This has been fixed by making it illegal to replace the entire

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -111,7 +111,7 @@ $xref/whatsNew02/09-23/02-09-23/$$
 work around of unwanted line breaks in pre-formatted text
 (when displayed by MS Internet Explorer).
 This was finally understood and fixed properly on
-$xref/whatsnew03/05-08/03-05-08/$$.
+$xref/whats_new_03/05-08/03-05-08/$$.
 
 
 $head 12-09$$
@@ -377,7 +377,7 @@ has been modified to avoid this bug where possible.
 (The $mref/codep/verbatim/math/$$ commands
 were modified on $xref/whatsNew02/09-09/02-09-09/$$.)
 This was finally understood and fixed properly on
-$xref/whatsnew03/05-08/03-05-08/$$.
+$xref/whats_new_03/05-08/03-05-08/$$.
 
 $head 09-18$$
 The $xref/image/$$ and $code icon$$ commands
@@ -399,7 +399,7 @@ was not displaying OMhelp pre-formatted text correctly.
 The $mref/codep/verbatim/math/$$ commands have been modified
 to avoid this bug where possible.
 This was finally understood and fixed properly on
-$xref/whatsnew03/05-08/03-05-08/$$.
+$xref/whats_new_03/05-08/03-05-08/$$.
 
 $head 08-30$$
 If one of the words in an
