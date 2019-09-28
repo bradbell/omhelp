@@ -106,7 +106,7 @@ A historical record of the changes to OMhelp can be found in
 the following sections:
 
 $children%
-	omh/whatsnew04.omh%
+	omh/whats_new/04.omh%
 	omh/whatsnew03.omh%
 	omh/whatsnew02.omh%
 	omh/whatsnew01.omh%$$
@@ -114,7 +114,7 @@ $children%
 $center
 
 $table
-$rref whatsNew04$$
+$rref whats_new_04$$
 $rref whatsNew03$$
 $rref whatsNew02$$
 $rref whatsNew01$$
