@@ -108,7 +108,7 @@ the following sections:
 $children%
 	omh/whats_new/04.omh%
 	omh/whats_new/03.omh%
-	omh/whatsnew02.omh%
+	omh/whats_new/02.omh%
 	omh/whatsnew01.omh%$$
 
 $center
@@ -116,7 +116,7 @@ $center
 $table
 $rref whats_new_04$$
 $rref whats_new_03$$
-$rref whatsNew02$$
+$rref whats_new_02$$
 $rref whatsNew01$$
 $tend
 $$

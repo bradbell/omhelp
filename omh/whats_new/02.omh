@@ -5,7 +5,7 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
-$begin whatsNew02$$
+$begin whats_new_02$$
 $dollar &$$
 $spell
 	newline
@@ -107,7 +107,7 @@ This was done to conserve on screen space and make the output of the
 $xref/running/printable/_printable/$$ version smaller
 (conserve paper).
 These changes included backing out the
-$xref/whatsNew02/09-23/02-09-23/$$
+$xref/whats_new_02/09-23/02-09-23/$$
 work around of unwanted line breaks in pre-formatted text
 (when displayed by MS Internet Explorer).
 This was finally understood and fixed properly on
@@ -169,7 +169,7 @@ The $code build$$ command in the $code omh$$ directory
 did not work because some
 $icode/*/.png/$$ files were missing.
 (These files were required for the change on
-$xref/whatsNew02/11-22/02-11-22/$$.)
+$xref/whats_new_02/11-22/02-11-22/$$.)
 The name of the $code omh\gif$$ directory
 was changed to $code omh\image$$
 and the $icode/*/.png/$$ files were placed there
@@ -337,7 +337,7 @@ $xref/whatsNew01/08-08/01-08-08/$$.
 This turned up when OMhelp was run twice in the same directory
 and the second time the
 $xref/running/printable/-printable/$$ option was used
-(see $xref/whatsNew02/06-19/02-05-19/$$).
+(see $xref/whats_new_02/06-19/02-05-19/$$).
 
 $head 10-11$$
 All the HTML commands in the output files
@@ -356,7 +356,7 @@ $pre
 $$
 There was a mistake in how the
 in the $xref/pre/$$ command modification made on
-$xref/whatsNew02/09-23/02-09-23/$$.
+$xref/whats_new_02/09-23/02-09-23/$$.
 To be specific, the pre-formatted mode was not terminated correctly
 in some cases. This has been fixed.
 $pre
@@ -375,7 +375,7 @@ displaying OMhelp pre-formatted text correctly.
 The $xref/pre/$$ command
 has been modified to avoid this bug where possible.
 (The $mref/codep/verbatim/math/$$ commands
-were modified on $xref/whatsNew02/09-09/02-09-09/$$.)
+were modified on $xref/whats_new_02/09-09/02-09-09/$$.)
 This was finally understood and fixed properly on
 $xref/whats_new_03/05-08/03-05-08/$$.
 
@@ -466,7 +466,7 @@ $$
 The error message for the $code -g$$ command line option
 has been improved.
 It now provides the information about the backward compatibility
-(see $xref/whatsNew02/08-06/02-08-06/$$)
+(see $xref/whats_new_02/08-06/02-08-06/$$)
 
 
 $head 08-08$$
