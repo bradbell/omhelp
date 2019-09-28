@@ -14,23 +14,21 @@
 # '
 # list of files and or directories that are moved to new names
 # move_paths='
+#	omh/titles+headings.omh
 # '
 # list of sed commands that map old file and directory names to new names.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # move_seds='
+#	s|titles+headings|titles_headings|
 # '
 # list of files that get edited by the extra_seds command
 # extra_files='
-#	omh/getstarted/start_image.omh
 # '
 # list of sed commands that are applied to the extra files,
 # after the other sed commands in this file.
 # The characters @s, @d, @n get converted to a space, dollar sign, new line.
 # extra_seds='
-#	s|@dspell|&\n\tomh|
 # '
 # ----------------------------------------------------------------------------
 # Put other sed commands below here and without # at start of line
-# s|$path\/getstarted\/.dat\/$\$|$path%..%.dat%$$|
-s|w3c_home.gif|omh/getstarted/w3c_home.gif|
-/$path\/getstarted\/.gif\/$\$/d
+s|titles+headings|titles_headings|g
