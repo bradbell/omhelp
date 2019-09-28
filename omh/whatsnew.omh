@@ -121,6 +121,10 @@ $rref whatsNew01$$
 $tend
 $$
 
+$head 19-09-28$$
+The $code path$$ command has bee
+$cref/deprecated/path/Deprecated 2019-09-28/$$.
+
 $head 19-08-29$$
 It is not longer necessary to specify the $icode boost_prefix$$ for the
 $cref/CMake command/InstallUnix/CMake Command/$$ because if is determined
@@ -345,8 +349,8 @@ $lnext
 Improve $cref get_started$$ section and headings/indexing to
 its subsections.
 $lnext
-A $cref/warning/path/Warning/$$, that suggests one not use the
-$code @path$$ command, was added.
+A warning, that suggests one not use the
+$cref path$$ command, was added.
 $lend
 
 $head 15-10-11$$
