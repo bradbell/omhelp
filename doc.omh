@@ -4,81 +4,14 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
-#
-$begin overview$$
-$escape #$$
+$begin omhelp$$
 $spell
-	omhelp
-	exe
-	omh
-	htm
-	recompile
 	OMhelp
-	Bradley
-	github
-	xml
 $$
 
-$comment The default navigation settings are set here for testing$$
-$navigate%
-	Prev%%
-	Next%%
-	Across%%
-	Up%%
-	Down_up_4%%
-	Down_up_3%%
-	Down_up_2%%
-	Down_up_1%%
-	Down_up_0%%
-	Current
-%%$$
+$section Root Node of Documentation for OMhelp$$
 
-$comment
-Normally, one should not use path commands. These path commands are so that
-the getstarted subdirectory examples can use the same file names as the entire
-OMhelp documentation. Note that the latex subdirectory uses full file names
-and not a search path.
-$$
-
-$comment ../build/omh is the build directory corresponding to this directory
-(where this file is stored). This path command is for files created by
-the CONFIGURE_FILE command in the file ../CMakeLists.txt.
-$$
-
-$comment put this aindex command here so is the default for all sections$$
-$aindex section head subhead$$
-
-
-$section omhelp-20190829: Language Independent Embedded Documentation$$
-
-$head Home Page$$
-$href%https://github.com/bradbell/omhelp%$$
-
-$head Alert$$
-There is a problem with the
-$cref/xml/running/xml/$$ version of the output; see
-$cref/drop down menus not working
-	/wish_list
-	/XML Drop Down Menus Not Working
-/$$.
-Please add a github issue if this is a problem for you.
-
-$head Introduction$$
-OMhelp was originally developed by
-$href%http://www.seanet.com/~bradbell/%Brad Bell%$$ to document
-($href%http://www.omatrix.com%O-Matrix%$$)
-which has source code in multiple languages.
-OMhelp extracts the documentation from the source code
-and generates an HTML or XHTML+MATHML
-web site that contains the corresponding help files.
-It can also be used to create a web site not
-related to a program.
-It enables you to divide your help or web site into separate files
-and to track changes using source code control
-(in the case of a program, the same source code control at the same time).
-OMhelp makes it easy to build a large help system or web site,
-by tracking both internal and external links.
-
+$include omhelp.omh$$
 
 $contents%
 	omh/license.omh%
@@ -96,6 +29,7 @@ $contents%
 	omh/browser.omh%
 	omh/glossary.omh%
 	omh/wish_list.omh%
-	omh/whatsnew.omh%$$
+	omh/whatsnew.omh
+%$$
 
 $end

@@ -5,40 +5,33 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
-$begin OMhelp$$
+$begin omhelp$$
 $spell
 	OMhelp
 $$
 
-$comment .. is the OMhelp source code directory$$
+$section Root Node of Documentation for OMhelp$$
 
-$comment ../../build/src/omh is the build directory corresponding to this
-directory (where this file is stored). This path command is for files created
-by the CONFIGURE_FILE command in the file ../../CMakeLists.txt.
-$$
-
-$comment default automatic indexing command for all CppAD documentaiton$$
-$aindex section head subhead$$
-
-$section Documentation of OMhelp Source Code$$
-
-$head Description$$
-OMhelp is written and maintained by
-$href%www.seanet.com/~bradbell%Brad Bell%$$.
-This is the developer documentation for OMhelp.
-User documentation can be found at
-$href%www.seanet.com/~bradbell/omhelp%$$.
+$include omhelp.omh$$
 
 $contents%
 	omh/license.omh%
-	src/convert.h%
-	src/omh/cross.omh%
-	src/execute.h%
-	src/input.h%
-	src/omh/output.omh%
-	src/section.h%
-	src/omh/string.omh%
-	build/src/omh/misc.omh%
-	src/omh/glossary.omh%$$
+	omh/why.omh%
+	omh/install.omh%
+	build/omh/getstarted/get_started.omh%
+	omh/running.omh%
+	build/omh/file.omh%
+	omh/titles_headings.omh%
+	omh/cross.omh%
+	omh/format.omh%
+	omh/spellchecking.omh%
+	omh/latex.omh%
+	omh/other.omh%
+	omh/browser.omh%
+	omh/glossary.omh%
+	omh/wish_list.omh%
+	omh/whatsnew.omh%
+	src/omh/devel.omh
+%$$
 
 $end

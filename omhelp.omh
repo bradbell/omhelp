@@ -1,0 +1,68 @@
+$comment
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2019 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+$$
+$comment Top level decumentation included byy doc.omh and dev.omh$$
+
+$spell
+	omhelp
+	omh
+	htm
+	OMhelp
+	github
+	xml
+$$
+
+$comment The defualt escape character used by OMhelp documentation$$
+$escape #$$
+
+
+$comment The default navigation settings are set here for testing$$
+$navigate%
+	Prev%%
+	Next%%
+	Across%%
+	Up%%
+	Down_up_4%%
+	Down_up_3%%
+	Down_up_2%%
+	Down_up_1%%
+	Down_up_0%%
+	Current
+%%$$
+
+$comment put this aindex command here so is the default for all sections$$
+$aindex section head subhead$$
+
+
+$head Home Page$$
+$href%https://github.com/bradbell/omhelp%$$
+
+$head Alert$$
+There is a problem with the
+$cref/xml/running/xml/$$ version of the output; see
+$cref/drop down menus not working
+	/wish_list
+	/XML Drop Down Menus Not Working
+/$$.
+Please add a github issue if this is a problem for you.
+
+$head Introduction$$
+OMhelp was originally developed by
+$href%http://www.seanet.com/~bradbell/%Brad Bell%$$ to document
+($href%http://www.omatrix.com%O-Matrix%$$)
+which has source code in multiple languages.
+OMhelp extracts the documentation from the source code
+and generates an HTML or XHTML+MATHML
+web site that contains the corresponding help files.
+It can also be used to create a web site not
+related to a program.
+It enables you to divide your help or web site into separate files
+and to track changes using source code control
+(in the case of a program, the same source code control at the same time).
+OMhelp makes it easy to build a large help system or web site,
+by tracking both internal and external links.
