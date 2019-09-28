@@ -90,22 +90,22 @@ OMhelp makes it easy to build a large help system or web site,
 by tracking both internal and external links.
 
 
-$contents/
-	license.omh/
-	why.omh/
-	install.omh/
-	get_started.omh/
-	running.omh/
-	file.omh/
-	titles_headings.omh/
-	cross.omh/
-	format.omh/
-	spellchecking.omh/
-	latex.omh/
-	other.omh/
-	browser.omh/
-	glossary.omh/
-	wish_list.omh/
-	whatsnew.omh/$$
+$contents%
+	omh/license.omh%
+	omh/why.omh%
+	omh/install.omh%
+	build/omh/getstarted/get_started.omh%
+	omh/running.omh%
+	build/omh/file.omh%
+	omh/titles_headings.omh%
+	omh/cross.omh%
+	omh/format.omh%
+	omh/spellchecking.omh%
+	omh/latex.omh%
+	omh/other.omh%
+	omh/browser.omh%
+	omh/glossary.omh%
+	omh/wish_list.omh%
+	omh/whatsnew.omh%$$
 
 $end

@@ -18,8 +18,8 @@ $cref/tag/glossary/Cross Reference Tag/$$,
 or separate the section into
 $cref/headings and subheadings/head/$$.
 
-$childtable/
-	title.omh/
-	head.omh/$$
+$childtable%
+	omh/title.omh%
+	omh/head.omh%$$
 
 $end

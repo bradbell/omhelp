@@ -105,11 +105,11 @@ changes between versions.
 A historical record of the changes to OMhelp can be found in
 the following sections:
 
-$children/
-	whatsnew04.omh/
-	whatsnew03.omh/
-	whatsnew02.omh/
-	whatsnew01.omh/$$
+$children%
+	omh/whatsnew04.omh%
+	omh/whatsnew03.omh%
+	omh/whatsnew02.omh%
+	omh/whatsnew01.omh%$$
 
 $center
 

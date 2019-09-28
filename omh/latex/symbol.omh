@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -27,18 +27,18 @@ The following sections document special symbols
 that are available using the $cref latex$$ command:
 
 
-$contents/
-	latex\latexnormal.omh/
-	latex\latexnumber.omh/
-	latex\latexspecial.omh/
-	latex\ellipsis.omh/
-	latex\greek.omh/
-	latex\binaryop.omh/
-	latex\relationsym.omh/
-	latex\arrowsym.omh/
-	latex\miscsym.omh/
-	latex\displaysym.omh/
-	latex\space.omh/$$
+$contents%
+	omh/latex\latexnormal.omh%
+	omh/latex\latexnumber.omh%
+	omh/latex\latexspecial.omh%
+	omh/latex\ellipsis.omh%
+	omh/latex\greek.omh%
+	omh/latex\binaryop.omh%
+	omh/latex\relationsym.omh%
+	omh/latex\arrowsym.omh%
+	omh/latex\miscsym.omh%
+	omh/latex\displaysym.omh%
+	omh/latex\space.omh%$$
 
 
 $end

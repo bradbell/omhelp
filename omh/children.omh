@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -103,10 +103,10 @@ a Contents heading will be included in the current section.
 This will be followed by a list of the title for each of the
 subsections together a link to the corresponding subsection.
 
-$contents/
-	next.omh/
-	previous.omh/
-	stdout.omh/$$
+$contents%
+	omh/next.omh%
+	omh/previous.omh%
+	omh/stdout.omh%$$
 
 The table of contents directly above
 is generated with the following command
@@ -129,7 +129,7 @@ $$
 
 $code
 @childtable/
-$verbatim%childtable_cmd.omh%5%#036childtable/%$$
+$verbatim/childtable_cmd.omh/5/#036childtable%/$$
 $$
 
 $head Children Command$$
@@ -142,7 +142,7 @@ $$
 
 $code
 @children/
-$verbatim%children_cmd.omh%5%#036children/%$$
+$verbatim/children_cmd.omh/5/#036children%/$$
 $$
 
 $pre

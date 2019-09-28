@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -106,9 +106,9 @@ $table
 $tend
 
 
-$children/
-	align.omh
-/$$
+$children%
+	omh/align.omh
+%$$
 $head Alignment$$
 You can use the $mref/center/$$ command to center the table.
 The default horizontal and vertical alignment for data in each cell

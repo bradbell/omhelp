@@ -1,7 +1,7 @@
 $comment
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2015 Bradley M. Bell
+          Copyright (C) 1998-2019 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -11,19 +11,19 @@ These commands are in separate file so they can also be used
 as an example by children.omh.
 $$
 
-$children/
-	nobreak.omh/
-	pre.omh/
-	codep.omh/
-	codei.omh/
-	color.omh/
-	hilite.omh/
-	th.omh/
-	center.omh/
-	table.omh/
-	list.omh/
-	special.omh/
-	font.omh/$$
+$children%
+	omh/nobreak.omh%
+	omh/pre.omh%
+	omh/codep.omh%
+	omh/codei.omh%
+	omh/color.omh%
+	omh/hilite.omh%
+	omh/th.omh%
+	omh/center.omh%
+	omh/table.omh%
+	omh/list.omh%
+	omh/special.omh%
+	omh/font.omh%$$
 
 $head Command Limited$$
 The effect of the following commands
@@ -47,4 +47,3 @@ $rref list$$
 $rref special$$
 $rref font$$
 $tend
-
