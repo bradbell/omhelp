@@ -1,0 +1,78 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2019 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+$begin whats_new_10$$
+$dollar @$$
+$spell
+	OMhelp
+	icode
+$$
+
+$section Changes and Additions to OMhelp During 2010$$
+
+$head Description$$
+This section contains a list of changes to
+OMhelp during 2010 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+$head 10-20$$
+Add the ability for macros to be used inside of macros; i.e.,
+macro $cref/recursion/LatexMacro/Examples/Recursion/$$.
+
+$head 07-05$$
+Improve error message when the $cref newlinech$$ character
+is the same as the first character in a
+$cref/delimiter sequence/glossary/Delimiter Sequence/$$.
+$pre
+
+$$
+Avoid compiler warnings by converting argument type
+from $code char$$ to $code int$$ for the
+following functions:
+$nospell
+	$code isalpha$$,
+	$code islower$$,
+	$code isupper$$,
+	$code isspace$$,
+	$code isdigit$$,
+	$code tolower$$, and
+	$code toupper$$.
+$$
+
+$head 09-02$$
+The error message for certain parsing errors was not as helpful as it could
+have been because a keyword table was out of date. For example, the code
+$codep
+	@icode%x% = %y% and @icode%x% = %z%@@
+$$
+generated the error message
+$codei%
+	OMhelp Error: in file %file_name%
+	OMhelp parsing error.
+	Error occurred in or before line %line number%.
+
+	OMhelp exiting with status equal to 1.
+%$$
+This has been fixed and now has the form:
+$code%
+	OMhelp Error: in file %file_name%
+	Error in the @icode command that begins in line %line_number%.
+	This command is not terminated by @@ before @code appears.
+	Error occurred in or before line %line_number%.
+%$$
+
+$head 02-25$$
+There was a bug whereby the
+$cref/command key character/KeyCharacter/$$
+was reset to $code @$$ when an
+$cref include$$ command was used in an input file.
+This has been fixed.
+In addition, an
+$cref/include file/KeyCharExample/Include File/$$
+example was added for this commands documentation.
+
+$end

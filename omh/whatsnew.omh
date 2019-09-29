@@ -106,6 +106,7 @@ A historical record of the changes to OMhelp can be found in
 the following sections:
 
 $children%
+	omh/whats_new/10.omh%
 	omh/whats_new/09.omh%
 	omh/whats_new/08.omh%
 	omh/whats_new/07.omh%
@@ -117,6 +118,7 @@ $children%
 	omh/whats_new/01.omh%$$
 
 $head Previous Years$$
+$cref whats_new_10$$,
 $cref whats_new_09$$,
 $cref whats_new_08$$,
 $cref whats_new_07$$,
@@ -548,61 +550,5 @@ $head 12-01-25$$
 OMhelp could fall into an infinite loop when the command
 $cref/@OMhelpKeyCharacter=/KeyCharacter/$$ command was misspelled.
 This has been fixed.
-
-$head 10-10-20$$
-Add the ability for macros to be used inside of macros; i.e.,
-macro $cref/recursion/LatexMacro/Examples/Recursion/$$.
-
-$head 10-07-05$$
-Improve error message when the $cref newlinech$$ character
-is the same as the first character in a
-$cref/delimiter sequence/glossary/Delimiter Sequence/$$.
-$pre
-
-$$
-Avoid compiler warnings by converting argument type
-from $code char$$ to $code int$$ for the
-following functions:
-$nospell
-	$code isalpha$$,
-	$code islower$$,
-	$code isupper$$,
-	$code isspace$$,
-	$code isdigit$$,
-	$code tolower$$, and
-	$code toupper$$.
-$$
-
-$head 10-09-02$$
-The error message for certain parsing errors was not as helpful as it could
-have been because a keyword table was out of date. For example, the code
-$codep
-	@icode%x% = %y% and @icode%x% = %z%@@
-$$
-generated the error message
-$codei%
-	OMhelp Error: in file %file_name%
-	OMhelp parsing error.
-	Error occurred in or before line %line number%.
-
-	OMhelp exiting with status equal to 1.
-%$$
-This has been fixed and now has the form:
-$code%
-	OMhelp Error: in file %file_name%
-	Error in the @icode command that begins in line %line_number%.
-	This command is not terminated by @@ before @code appears.
-	Error occurred in or before line %line_number%.
-%$$
-
-$head 10-02-25$$
-There was a bug whereby the
-$cref/command key character/KeyCharacter/$$
-was reset to $code @$$ when an
-$cref include$$ command was used in an input file.
-This has been fixed.
-In addition, an
-$cref/include file/KeyCharExample/Include File/$$
-example was added for this commands documentation.
 
 $end
