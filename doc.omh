@@ -29,7 +29,7 @@ $contents%
 	omh/browser.omh%
 	omh/glossary.omh%
 	omh/wish_list.omh%
-	omh/whatsnew.omh
+	omh/whats_new/whats_new.omh
 %$$
 
 $end

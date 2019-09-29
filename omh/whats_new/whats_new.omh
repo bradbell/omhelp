@@ -5,90 +5,20 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 #
-$begin whatsNew$$
+$begin whats_new$$
 $dollar @$$
 $spell
-	gh-pages
-	srccode
-	cref
-	Bradley
-	tabsize
-	wrd
-	cmake
-	aindex
-	gcc
-	hiliteseq
-	gfortran
-	Opensuse
-	usr
-	gfortran
-	hilitetok
-	xml
-	linkcolor
-	hilitecolor
-	bgcolor
-	textcolor
-	underbar
-	bigcap
-	bigcup
-	diamondsuit
-	heartsuit
-	executables
-	mathvariant
-	getstarted
-	executable
-	codei
-	icode
-	Cvs
-	omh
-	linkingtext
-	Prev
-	childtable
-	favicon
-	mfenced
-	vim_runtime
-	Kargl
-	noframe
-	grep
-	Javascript
-	htm
-	html
-	codep
-	myfile
-	gzip
-	Diaplay
-	Firefox
-	src
-	srcfile
-	stdlib
-	malloc
-	allocmem
-	newline
-	Mozilla
-	wspace
-	inline
-	cygwin
-	autoconf
-	automake
-	Microsoft
-	cnext
-	Spanish
-	gz
-	xref
 	readme
 	OMhelp
-	omhelp
-	dir dir
-	hh
-	Jax
+	Ubuntu
+	usr
+	linux
+	libboost
 	regex
-	uri
-	href
-	txt
 	underbars
-    ubuntu
-    linux
-    libboost
+	gh
+	omhelp
+	xml
 $$
 
 $index readme, whats new$$
@@ -144,8 +74,15 @@ $cref whats_new_02$$,
 $cref whats_new_01$$.
 
 $head 19-09-28$$
+$list number$$
 The $code path$$ command has bee
 $cref/deprecated/path/Deprecated 2019-09-28/$$.
+$lnext
+Put the whats new for 2005 through 2018 in separate files;
+see $cref/previous years/whats_new/Previous Years/$$ above
+and remove the corresponding $cref wish_list$$ item.
+$lend
+
 
 $head 19-08-29$$
 It is not longer necessary to specify the $icode boost_prefix$$ for the

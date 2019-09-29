@@ -55,10 +55,6 @@ $code document.write$$.
 A separate file, with the corresponding xml, should be used
 for these button menus.
 
-$head Whats New$$
-Split the current $cref whatsNew$$ to a separate section for
-each year.
-
 $head Home Page$$
 Make the top level documentation page, on github, the home page for OMhelp.
 
