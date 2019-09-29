@@ -1,0 +1,84 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2019 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+$begin whats_new_16$$
+$dollar @$$
+$spell
+	OMhelp
+	gcc
+	omhelp
+	inline
+	newline
+	srcfile
+	regex
+$$
+
+$section Changes and Additions to OMhelp During 2016$$
+
+$head Description$$
+This section contains a list of changes to
+OMhelp during 2016 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+$head 10-04$$
+$list number$$
+Some broken $cref/external/_external/$$ reference were fixed.
+$lnext
+The OMhelp $cref/motivation section/why/$$ was improved.
+$lnext
+Documentation for the
+$cref/automatic tags/glossary/Cross Reference Tag/Automatic Tags/$$
+was added.
+$lend
+
+$head 09-26$$
+A problem was fixed in the code that checked if
+$cref/source-highlight/installUnix/CMake Command/source_highlight_prefix/$$
+works correctly. For example,
+even though source-highlight was installed,
+the test was failing on gcc-6.2.1 and the
+$cref srcfile$$ command was not available.
+This has been fixed.
+
+$head 06-25$$
+Added the
+$cref/omhelp_build_type/installunix/CMake Command/omhelp_build_type/$$
+the installation options.
+The execution time for one large help system was
+80 seconds with a debug build type and 21 seconds with a release build type.
+
+$head 04-19$$
+Improve documentation for the $cref srccode$$ command.
+
+$head 02-14$$
+Fix a $cref/tabbing/tabsize/$$ bug in the
+$cref srccode$$ and $cref srcfile$$ commands.
+
+$head 02-06$$
+$list number$$
+For the $cref srccode$$ and $cref srcfile$$ commands,
+change to using paragraph, instead of inline, mode when display
+more that four lines that start and end with newline.
+$lnext
+Include $cref tabsize$$ in examples that use the
+$cref/indent/srcfile/indent/$$ argument to the $code srcfile$$ command.
+$lend
+
+$head 02-04$$
+The $cref srccode$$ command,
+which automatically highlights source code that appears inline,
+as added.
+
+$head 02-01$$
+The $cref srcfile$$ command,
+which automatically highlights source code from a file, was added.
+This is much easier to use than the $cref hilite$$ command,
+but it requires linking in $code source-highlight$$ and
+$code boost_regex$$ libraries and has only been tested with the
+$cref/unix install/installunix/$$ procedure.
+
+$end
