@@ -1,0 +1,42 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2019 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+$begin whats_new_17$$
+$dollar @$$
+$spell
+	OMhelp
+	Jax
+	uri
+	href
+$$
+
+$section Changes and Additions to OMhelp During 2017$$
+
+$head Description$$
+This section contains a list of changes to
+OMhelp during 2017 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+$head 06-28$$
+Change the $cref/MathJax/latex/MathJax (htm)/$$ server; see
+$href%https://www.mathjax.org/cdn-shutting-down/%cdn-shutting-down%$$.
+In addition, change to MathJax configuration to the default; see
+$href%http://docs.mathjax.org/en/latest/config-files.html%config-files%$$.
+
+$head 01-08$$
+$list number$$
+It was possible to get OMhelp to crash by putting more than one
+$code #$$ symbol in the $cref/uri/href/uri/$$ for an
+$code @href$$ command.
+This has been fixed and an error message is now generated.
+$lnext
+This install process was extended to include optional support for the
+$cref/Octave/InstallUnix/Requirements/Octave/$$
+language in the $cref srcfile$$ command.
+$lend
+
+$end

@@ -106,6 +106,7 @@ A historical record of the changes to OMhelp can be found in
 the following sections:
 
 $children%
+	omh/whats_new/17.omh%
 	omh/whats_new/16.omh%
 	omh/whats_new/15.omh%
 	omh/whats_new/14.omh%
@@ -123,6 +124,7 @@ $children%
 	omh/whats_new/01.omh%$$
 
 $head Previous Years$$
+$cref whats_new_17$$,
 $cref whats_new_16$$,
 $cref whats_new_15$$,
 $cref whats_new_14$$,
@@ -275,23 +277,5 @@ to use the following command to determine the version number:
 $codep
 	grep '^SET(omhelp_version' CMakeLists.txt
 $$
-
-$head 17-06-28$$
-Change the $cref/MathJax/latex/MathJax (htm)/$$ server; see
-$href%https://www.mathjax.org/cdn-shutting-down/%cdn-shutting-down%$$.
-In addition, change to MathJax configuration to the default; see
-$href%http://docs.mathjax.org/en/latest/config-files.html%config-files%$$.
-
-$head 17-01-08$$
-$list number$$
-It was possible to get OMhelp to crash by putting more than one
-$code #$$ symbol in the $cref/uri/href/uri/$$ for an
-$code @href$$ command.
-This has been fixed and an error message is now generated.
-$lnext
-This install process was extended to include optional support for the
-$cref/Octave/InstallUnix/Requirements/Octave/$$
-language in the $cref srcfile$$ command.
-$lend
 
 $end
