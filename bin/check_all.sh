@@ -73,13 +73,6 @@ then
 	# check version number
 	version.sh check
 	#
-	for dir in build dev doc
-	do
-		if [ -e $dir ]
-		then
-			echo_eval rm -r $dir
-		fi
-	done
 else
 	# check for version number here has to wait for new tarball
 	if [ ! -e build ]
@@ -157,23 +150,17 @@ do
 	echo_log_eval make
 	echo_log_eval cd ..
 	# -------------------------------------------------------------------------
-	# Build Documentation and Get Started
+	# check omhelp documentation
 	if [ "$test_case" == 'highlight_yes' ]
 	then
-		echo_log_eval bin/run_omhelp.sh dev
+		echo_log_eval run_omhelp.sh -clean dev
 	fi
-	echo_log_eval bin/run_omhelp.sh doc
-	echo_log_eval bin/run_omhelp.sh xam
+	echo_log_eval run_omhelp.sh -clean doc
 	# ------------------------------------------------------------------------
-	# Check multiple language example
+	# Check get_started
+	echo_log_eval bin/get_started.sh batch
 	echo_log_eval build/omh/getstarted/run_all
 	# ------------------------------------------------------------------------
-	# Build each get_started example separately
-	echo_log_eval cd omh/getstarted
-	echo_log_eval ./run_all.sh batch
-	# ------------------------------------------------------------------------
-	echo_log_eval cd ../..
-	#
 	if [ "$test_case" == 'highlight_no' ]
 	then
 		echo_eval mv $highlight_prefix.no $highlight_prefix

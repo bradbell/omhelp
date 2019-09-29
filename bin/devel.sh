@@ -12,7 +12,7 @@ image_link='https://bradbell.github.io/omhelp'
 # List of files, besides CMakeLists.txt, that have have a copy of the
 # version number (can be empty).
 version_files='
-	omh/overview.omh
+	omhelp.omh
 '
 #
 # List of special files, for this repository, that the devel tools ignore.

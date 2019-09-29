@@ -6,8 +6,6 @@ OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
 $$
-$comment Top level decumentation included byy doc.omh and dev.omh$$
-
 $spell
 	omhelp
 	omh
@@ -16,6 +14,9 @@ $spell
 	github
 	xml
 $$
+
+$section omhelp-20190928: Language Independent Embedded Documentation$$
+
 
 $comment The defualt escape character used by OMhelp documentation$$
 $escape #$$

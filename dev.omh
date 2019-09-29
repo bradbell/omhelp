@@ -10,8 +10,6 @@ $spell
 	OMhelp
 $$
 
-$section Root Node of Documentation for OMhelp$$
-
 $include omhelp.omh$$
 
 $contents%
