@@ -106,6 +106,7 @@ A historical record of the changes to OMhelp can be found in
 the following sections:
 
 $children%
+	omh/whats_new/12.omh%
 	omh/whats_new/10.omh%
 	omh/whats_new/09.omh%
 	omh/whats_new/08.omh%
@@ -118,6 +119,7 @@ $children%
 	omh/whats_new/01.omh%$$
 
 $head Previous Years$$
+$cref whats_new_12$$,
 $cref whats_new_10$$,
 $cref whats_new_09$$,
 $cref whats_new_08$$,
@@ -527,28 +529,5 @@ $head 13-01-02$$
 The file $code index.html$$ is created as a link to the root section.
 This is an aid when viewing over the web because referencing the
 directory will automatically load the root section.
-
-$head 12-05-09$$
-Change the $cref/vim/InstallUnix/Vim Editor/$$ installation instructions.
-This removed the $code VIMRUNTIME$$ option from the $code configure$$
-command line.
-
-$head 12-02-24$$
-Extend $cref image$$ command so that it can have a different
-value for
-$cref/file_in/image/file_in/$$ and
-$cref/file_out/image/file_out/$$.
-
-$head 12-02-12$$
-The $cref/xml/running/xml/$$ rendering case, cross references to a
-$cref/heading/cref/heading/$$ in another section were going to
-the beginning of the section instead of the heading.
-This has been fixed.
-
-
-$head 12-01-25$$
-OMhelp could fall into an infinite loop when the command
-$cref/@OMhelpKeyCharacter=/KeyCharacter/$$ command was misspelled.
-This has been fixed.
 
 $end
