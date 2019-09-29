@@ -1,0 +1,220 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2019 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+$begin whats_new_05$$
+$dollar @$$
+$spell
+	allocmem
+	OMhelp
+	Firefox
+	malloc
+	stdlib
+	src
+	allocmme
+	newline
+	Mozilla
+	wspace
+	inline
+	cygwin
+	autoconf
+	automake
+	omhelp
+	dir
+	dir dir
+	Microsoft
+	cnext
+	gz
+	Spanish
+	xref
+$$
+
+$section Changes and Additions to OMhelp During 2005$$
+
+$head Description$$
+This section contains a list of changes to
+OMhelp during 2005 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+$head 12-16$$
+Links to specific frames were not working properly in Firefox 1.5
+This has been fixed.
+
+$head 12-06$$
+In FreeBSD, $code malloc.h$$ is obsolete and one should use
+$code stdlib.h$$ instead.
+The reference to $code malloc.h$$ has been removed from
+$code src/allocmem.c$$.
+
+$head 11-08$$
+It used to be that multiple white space was ignored when it followed
+an occurrence of a special character after a $xref/newlinech/$$.
+This made it impossible to indent multiple lines within a
+$xref/syntax/$$ command.
+This has been fixed by only ignoring the first space or tab
+following an occurrence of the special newline character after
+a newline.
+
+$head 10-27$$
+The automatic links to This: $code section$$, $code frame$$
+(in the upper right corner of the window)
+has been omitted when there is only one section and one frame
+in the entire web site.
+This is useful when using OMhelp to create a single web page.
+
+
+$head 10-22$$
+The Mozilla bug section has been updated
+so that it is relative to the current version of $xref/Firefox/$$.
+
+$head 10-05$$
+The $xref/wspace/$$ command is deficient in a few ways:
+it generates white space that sometimes interferes with output formatting,
+it is very difficult to use with the Fortran programming language.
+The $xref/newlinech/$$ command, which overcomes these problems,
+had been added and the $code wspace$$ command has been deprecated.
+
+$head 09-24$$
+In the $xref/InstallUnix//Unix install/$$ case, the file
+$codei%
+	%prefix%/share/OMhelp/dictionary.bin
+%$$
+was created the first time OMhelp was run.
+This would cause an error if the user running
+the program did not have permission to write in the $icode prefix$$
+directory.
+This has been fixed by changing the
+$cref/spelling list/InstallUnix/Spelling List/$$ install procedure.
+
+$head 08-15$$
+The install directory was not being properly embedded in the program
+during the $xref/InstallUnix//unix install/$$. This has been fixed.
+$pre
+
+$$
+The file $code RunOMhelp.bat$$, which is used during the windows install,
+was not being distributed. This has been fixed.
+$pre
+
+$$
+The first output line, which identifies the version of OMhelp, has been
+extended to include information about compiler flag settings.
+
+
+$head 08-14$$
+Standard latex treats subscripts and superscripts for some of the
+$xref/stdfun//standard math functions/$$ differently
+when they are in
+$xref/stdfun/Inline Formulas/inline formulas/$$ from when they are in
+$xref/stdfun/Display Formulas/Displayed formulas/$$.
+
+
+$head 07-05$$
+The $code #$$ character is used to separate fields in cross references.
+This confused OMhelp when a heading or subheading contained the
+$code #$$ character.
+The $xref/head/$$ and $code subhead$$ commands
+were modified to make it illegal to include the $code #$$ character.
+(It would be better to separate fields differently so that this
+restriction could be removed.)
+$pre
+
+$$
+The previous install worked under cygwin, but not under Unix, because
+of some case mismatch in the file names. This has been fixed by converting
+the file names to entirely lower case as suggested by
+$href%
+	http://www.boost.org/more/lib_guide.htm#Directory_structure%
+	boost
+%$$
+The conversion to entirely lower case file and directory names
+will be done slowly and with minimal user impact.
+
+
+
+
+$head 06-29$$
+The $xref/InstallUnix//Unix install/$$ now uses autoconf and automake
+and the environment variable $code omhelp_dir$$ is no longer necessary.
+In addition, the Unix and Windows
+$xref/Install//install/$$ instructions were split into two separate
+sections and improved.
+
+$head 06-26$$
+The
+$xref/running/omhelp_dir/-omhelp_dir dir/$$
+command was added.
+This specifies the OMhelp installation directory on the
+command line was added.
+
+$head 06-24$$
+OMhelp now supports Microsoft Visual C++ version 7 or higher
+(version 6 is no longer supported).
+The project files have been changed to version 7 format.
+In addition, only source code distributions are included; i.e.,
+a windows executable with out source code is no longer distributed.
+
+$head 05-18$$
+The use input
+$codep
+	@table
+	@bold Notation @cnext Description@@
+	@tend
+$$
+did not cause an OMhelp error but the corresponding web page
+generated an XML error (and the HTML did not display properly).
+This is because the bold command is started inside of one column
+and terminated in a different column of the table.
+This has been fixed so that OMhelp generates an error message
+in this an related cases.
+In addition, the documentation for the
+$xref/table/$$ commands have been improved so that it explicitly states
+where row and columns start and end
+(and a nesting table example has been added).
+
+$head 02-17$$
+A command as was added so that one can control the
+$xref/align//alignment/$$ of data within each cell of a table.
+$pre
+
+$$
+The files $code build$$ and $code build.bat$$
+were moved to $code RunOMhelp$$ and $code RunOMhelp.bat$$
+(see $xref/install/$$).
+
+$head 02-15$$
+The download files and $xref/install//installation/$$ instructions
+were changed.
+All the download files now use $icode/*/.tar.gz/$$ format which
+gives better compression and is understood by most decompression programs.
+
+
+$head 02-13$$
+The $xref/accent/$$ command was added to improve the display
+of Spanish text.
+
+$head 02-10$$
+The upper right corner now contains a link to the current frame by itself; i.e,
+displayed without the supporting navigation frames
+and other frames for the same section.
+The other automatically generated links, such as previous and next
+were reorganized and right (instead of left) justified.
+
+$head 02-05$$
+If Java Script is not enabled in a user's browser,
+and the $xref/_search//search/$$ page is entered,
+an error message is printed.
+A spelling error in this message was fixed.
+$pre
+
+$$
+If one uses long $xref/head//headings/$$ and subheadings,
+it is sometimes useful to break them up into multiple lines.
+The cross reference links have been extended so that they will
+still work for such headings and subheadings
+(see $xref/xref/Reference/xref: Reference/$$).
+
+$end
