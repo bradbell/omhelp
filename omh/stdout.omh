@@ -7,6 +7,7 @@ OMhelp is distributed under the terms of the
 #
 $begin stdout$$
 $spell
+	xam
 	dev
 	stdout
 	OMhelp
@@ -77,13 +78,10 @@ The $mref/include/$$ command does not cause the name of the corresponding
 file to be printed on standard output.
 
 $head Example$$
-The Build Documentation instructions for
-$cref/unix/InstallUnix/OMhelp Documentation/$$ and
-$cref/unix/InstallWindows/OMhelp Documentation/$$
-store the example output file in $code omhelp.dev.log$$
-which is listed below
+The file $code omhelp.xam.log$$ contains the output corresponding to
+one of the $cref get_started$$ examples and is included below:
 $code
-$verbatim%omhelp.dev.log%$$
+$verbatim%omhelp.xam.log%$$
 $$
 
 $end

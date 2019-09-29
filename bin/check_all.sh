@@ -145,10 +145,14 @@ do
 		fi
 	fi
 	# -------------------------------------------------------------------------
-	# Build Executable
+	# Build omhelp executable and run_all
 	echo_log_eval cd build
 	echo_log_eval make
+	echo_log_eval omh/getstarted/run_all
 	echo_log_eval cd ..
+	# ------------------------------------------------------------------------
+	# Must check get_started first because doc and dev include omhelp.xam.log
+	echo_log_eval bin/get_started.sh batch
 	# -------------------------------------------------------------------------
 	# check omhelp documentation
 	if [ "$test_case" == 'highlight_yes' ]
@@ -156,10 +160,6 @@ do
 		echo_log_eval run_omhelp.sh -clean dev
 	fi
 	echo_log_eval run_omhelp.sh -clean doc
-	# ------------------------------------------------------------------------
-	# Check get_started
-	echo_log_eval bin/get_started.sh batch
-	echo_log_eval build/omh/getstarted/run_all
 	# ------------------------------------------------------------------------
 	if [ "$test_case" == 'highlight_no' ]
 	then
