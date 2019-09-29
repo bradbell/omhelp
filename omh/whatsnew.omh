@@ -106,6 +106,7 @@ A historical record of the changes to OMhelp can be found in
 the following sections:
 
 $children%
+	omh/whats_new/07.omh%
 	omh/whats_new/06.omh%
 	omh/whats_new/05.omh%
 	omh/whats_new/04.omh%
@@ -911,106 +912,6 @@ $bold Latex$$  $pre  $$
 	$cnext &#x003C6; $pre  $$
 	$cnext $latex \mathml{<mi mathvariant='normal'>&#x003C6;</mi>} $$ $rnext
 $tend $$
-
-
-$head 07-12-13$$
-The $code codei$$ and $code icode$$ commands were added.
-These commands switch
-$cref/pre-formatted/glossary/Pre-formatted Font/$$ text between
-code and italic font.
-See the $cref/remark/codei/Remark/$$ at the end
-of the command.
-$pre
-
-$$
-The latex Calligraphic font $cref/\cal/latexfont/$$ was added.
-This turned up another problem in $cref Firefox$$; see
-the $cref/mathvariant/Firefox/mathvariant/$$ bug entry.
-$pre
-
-$$
-Remove some objects that executables that were mistakenly part
-of the distribution copy of $code omh/getstarted$$.
-(This caused the $code make$$ command to fail on other systems
-because they were not built from source.)
-
-$head 07-11-03$$
-If a navigate command was used in the
-$cref/root section/navigate/Root Section/$$
-the corresponding setting did not get transferred to the
-$cref/table of contents/_contents/$$ section.
-This has been fixed.
-
-$head 07-10-20$$
-The script file for batching the $cref get_started$$ examples
-$code RunAll$$ was no longer working.
-Change it to a bash script called $code run_all.sh$$
-(which now works).
-$pre
-
-$$
-The name used for the directory where the user copies the $cref get_started$$
-examples was changed from the $icode omh$$ directory to the
-$icode test$$ directory
-(to avoid confusion with the $code omh$$ directory in the OMhelp distribution).
-$pre
-
-$$
-All of the section names and file names in $cref get_started$$ were
-changed from mixed case to lower case.
-$pre
-
-$$
-Due to a problem with using Cvs with Cygwin, it is not possible
-to change just change the case of a file name.
-For this reason, the examples $code Factorial.c$$ and $code Factorial.m$$
-have been replaced by $cref near_equal_c$$ and $cref near_equal_f$$.
-
-$head 07-10-18$$
-The $cref href$$ command was improved to detect when the
-$italic  linkingtext$$ was empty and stop with a fatal error message.
-
-$head 07-09-14$$
-The $code view_factorial.m$$ example used the $cref wspace$$ command
-which has been deprecated.
-It was changed to use the $cref newlinech$$ command which works better.
-In addition, a link in $code start_embed$$ to
-view $code factorial.m$$ was mistakenly to $code view_factorial.c$$.
-This has been fixed.
-
-$head 07-08-14$$
-The $cref/favicon/running/favicon/$$ option
-was not listed when OMhelp printed its usage message
-(in response to an improper command line).
-This has been fixed.
-
-$head 07-07-21$$
-The $cref Firefox$$ back button bug has been removed
-(it seems to be fixed).
-The Firefox $cref/copy and paste/Firefox/Copy and Paste/$$ bug has
-been added.
-
-
-$head 07-04-06$$
-A common mistake is to include the same file in two different
-places and thereby multiple definitions for the same cross
-reference destination.
-The error message for this case has been improved to
-suggest that perhaps the same file has been included twice.
-
-$head 07-03-25$$
-There was a problem with the $code configure$$
-script whereby there was a space at the end of the name of the
-file that it was checking $code src/UniformWhiteSpace.c$$.
-This has been fixed.
-
-$head 07-03-13$$
-Changes the $cref _search$$ dialog so that it selects the current
-entry when you hit return (or select the button).
-
-$head 07-01-28$$
-The $code navigate$$ command $cref/default/navigate/Default/$$ value was
-changed so that $code Up$$ is grouped with $code Across$$.
 
 
 $end
