@@ -116,9 +116,7 @@ is $code left$$ and $code top$$.
 You can use the $cref align$$ command to change this alignment.
 
 
-$head Cend and Rend$$
-$index cend$$
-$index rend$$
+$head cend and rend Deprecated 2019-09-29$$
 The $code cnext$$ command used to be called $code cend$$ and
 the $code rnext$$ command used to be called $code rend$$.
 In order to not have to change existing OMhelp input files,

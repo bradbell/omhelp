@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin whats_new$$
 $dollar @$$
 $spell
+	cend
 	readme
 	OMhelp
 	Ubuntu
@@ -73,9 +74,13 @@ $cref whats_new_03$$,
 $cref whats_new_02$$,
 $cref whats_new_01$$.
 
+$head 19-09-29$$
+The $code cend$$ and $code rend$$ commands have been
+$cref/deprecated/table/cend and rend Deprecated 2019-09-29/$$.
+
 $head 19-09-28$$
 $list number$$
-The $code path$$ command has bee
+The $code path$$ command has been
 $cref/deprecated/path/Deprecated 2019-09-28/$$.
 $lnext
 Put the whats new for 2005 through 2018 in separate files;

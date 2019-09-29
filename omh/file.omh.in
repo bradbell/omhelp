@@ -24,7 +24,6 @@ The $mref/execute/$$ command is an exception because it
 writes, instead of reads, a specific file.
 
 $childtable%
-	omh/path.omh%
 	omh/children.omh%
 	omh/include.omh%
 	omh/image.omh%
