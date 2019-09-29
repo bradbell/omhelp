@@ -106,6 +106,7 @@ A historical record of the changes to OMhelp can be found in
 the following sections:
 
 $children%
+	omh/whats_new/13.omh%
 	omh/whats_new/12.omh%
 	omh/whats_new/10.omh%
 	omh/whats_new/09.omh%
@@ -119,6 +120,7 @@ $children%
 	omh/whats_new/01.omh%$$
 
 $head Previous Years$$
+$cref whats_new_13$$,
 $cref whats_new_12$$,
 $cref whats_new_10$$,
 $cref whats_new_09$$,
@@ -518,16 +520,5 @@ where as it used to generate
 $pre
 	$$
 	$math%x_i%$$ is the $icode i$$-th element of $math x$$
-
-$head 13-01-16$$
-The $cref _search$$ section was using the non-standard XHTML code
-$codei%<input% input parameters%></input>%$$.
-This has been converted to
-$codei%<input% input parameters%/>%$$.
-
-$head 13-01-02$$
-The file $code index.html$$ is created as a link to the root section.
-This is an aid when viewing over the web because referencing the
-directory will automatically load the root section.
 
 $end

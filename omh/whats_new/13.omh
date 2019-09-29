@@ -1,0 +1,33 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2019 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+$begin whats_new_13$$
+$dollar @$$
+$spell
+	OMhelp
+	html
+$$
+
+$section Changes and Additions to OMhelp During 2013$$
+
+$head Description$$
+This section contains a list of changes to
+OMhelp during 2013 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+$head 01-16$$
+The $cref _search$$ section was using the non-standard XHTML code
+$codei%<input% input parameters%></input>%$$.
+This has been converted to
+$codei%<input% input parameters%/>%$$.
+
+$head 01-02$$
+The file $code index.html$$ is created as a link to the root section.
+This is an aid when viewing over the web because referencing the
+directory will automatically load the root section.
+
+$end
