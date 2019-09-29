@@ -106,6 +106,7 @@ A historical record of the changes to OMhelp can be found in
 the following sections:
 
 $children%
+	omh/whats_new/18.omh%
 	omh/whats_new/17.omh%
 	omh/whats_new/16.omh%
 	omh/whats_new/15.omh%
@@ -124,6 +125,7 @@ $children%
 	omh/whats_new/01.omh%$$
 
 $head Previous Years$$
+$cref whats_new_18$$,
 $cref whats_new_17$$,
 $cref whats_new_16$$,
 $cref whats_new_15$$,
@@ -239,43 +241,5 @@ This was also true for other commands that read from a different file; e.g.,
 $cref srcfile$$.
 This bug has been fixed.
 $lend
-
-$head 18-11-16$$
-The option to use a  $cref/_jump_table/navigate/Label/_jump_table/$$
-for the current section of the documentation was added.
-
-$head 18-11-15$$
-Improve documentation for $cref navigate$$ command.
-In addition, in its $cref/example/navigate/Example/$$
-$codep
-	Down_up_2%Down_up_2%
-$$
-was corrected to
-$codep
-	Down_up_2%_up_2%
-$$
-
-$head 18-10-31$$
-Add a $cref/image/wish_list/Image/$$ item to the wish list.
-
-$head 18-05-13$$
-Upper case letters versus lower case letters
-no longer matters when determining the language
-corresponding to a file extension for
-$cref/srccode/srccode/Letter Case/$$ and
-$cref/srcfile/srcfile/Letter Case/$$.
-
-$head 18-03-13$$
-The font used for sub-headings was changed to be
-same size as headings but normal instead of bold font; see
-$cref/example subheading/head/Example Subheading/$$.
-
-$head 18-03-11$$
-The install $cref/download omhelp/InstallUnix/Download OMhelp/$$
-procedure was changed
-to use the following command to determine the version number:
-$codep
-	grep '^SET(omhelp_version' CMakeLists.txt
-$$
 
 $end
