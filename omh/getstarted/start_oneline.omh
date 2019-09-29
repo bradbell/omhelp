@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin start_oneline$$
 $dollar @$$
 $spell
+	xam
 	getstarted
 	omhelp
 	omh
@@ -43,7 +44,7 @@ used for one line comments.
 $head near_equal_f.f$$
 Use the editor of your choice to
 create the file $code near_equal_f.f$$ in the
-$cref%get_started directory%get_started%get_started Directory%$$
+$cref%xam directory%get_started%xam Directory%$$
 with the following contents:
 $verbatim%omh/getstarted/near_equal_f.f%
 	5%c BEGIN_NEAR_EQUAL%c END_NEAR_EQUAL%0
@@ -55,7 +56,7 @@ $head ok_near_equal_f.f$$
 Copy $code omh/getstarted/ok_near_equal_f.f$$ from the
 $cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
 to the
-$cref/get_started Directory/get_started/get_started Directory/$$.
+$cref/xam directory/get_started/xam Directory/$$.
 In the copy of $code near_equal_f.f$$, change
 $code omh/getstarted/ok_near_equal_f.f$$ to $code ok_near_equal_f.f$$.
 

@@ -7,6 +7,7 @@ OMhelp is distributed under the terms of the
 $begin start_multiple$$
 $dollar @$$
 $spell
+	xam
 	omhelp
 	omh
 	OMhelp
@@ -48,7 +49,7 @@ $cref _external$$.
 $head parent_example.omh$$
 Use the editor of your choice to
 create the file $code parent_example.omh$$ in the
-$cref%get_started directory%get_started%get_started Directory%$$
+$cref%xam directory%get_started%xam Directory%$$
 with the following contents:
 $verbatim%omh/getstarted/parent_example.omh%
 	5%BEGIN_PARENT_EXAMPLE%END_PARENT_EXAMPLE%0
@@ -62,7 +63,7 @@ $list number$$
 Copy $codei%omh/getstarted/child_%j%_example.omh%$$ from the
 $cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
 to the
-$cref/get_started Directory/get_started/get_started Directory/$$.
+$cref/xam directory/get_started/xam Directory/$$.
 $lnext
 In the copy of $code multiple_example.omh$$, change
 $codei%omh/getstarted/child_%j%_example.omh%$$ to

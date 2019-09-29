@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin start_image$$
 $dollar @$$
 $spell
+	xam
 	omh
 	omhelp
 	omh
@@ -29,7 +30,7 @@ The $cref/image and icon/image/$$ commands are used to display images.
 $head image_example.omh$$
 Use the editor of your choice to
 create the file $code image_example.omh$$ in the
-$cref%get_started directory%get_started%get_started Directory%$$
+$cref%xam directory%get_started%xam Directory%$$
 with the following contents:
 $verbatim%omh/getstarted/image_example.omh%
 	5%BEGIN_OMHELP%END_OMHELP%0
@@ -41,7 +42,7 @@ $head w3c_home.gif$$
 Copy $code omh/getstarted/w3c_home.gif$$ from the
 $cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
 to the
-$cref/get_started Directory/get_started/get_started Directory/$$.
+$cref/xam directory/get_started/xam Directory/$$.
 In the copy of $code image_example.omh$$, change
 $code omh/getstarted/w3c_home.gif$$ to $code w3c_home.gif$$.
 

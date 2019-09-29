@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin get_started$$
 $dollar @$$
 $spell
+	xam
 	OMhelp
 	omh
 	htm
@@ -51,8 +52,8 @@ This and the other directories and commands mentioned in this section
 are relative to the
 $cref/distribution directory/InstallUnix/Distribution Directory/$$.
 
-$head get_started Directory$$
-We use $code get_started$$ as a temporary directory to copy files
+$head xam Directory$$
+We use $code xam$$ as a temporary directory to copy files
 and run the examples.
 
 $head example_name$$
@@ -66,16 +67,16 @@ The default value, when it is not specified, is $code omh$$.
 $head Execute OMhelp$$
 This requires building and installing OMhelp and making sure it is in your
 execution path.
-It also requires copying the example file to the $code get_started$$
+It also requires copying the example file to the $code xam$$
 directory.
-In the directory $code get_started/htm$$ execute the following command
+In the directory $code xam/htm$$ execute the following command
 $codei%
 	omhelp ../%example_name%.%example_extension% -debug -noframe
 %$$
 Once this command has executed,
 use a web browser of your choosing to view the file
 $codei%
-	get_started/htm/%example_name%.htm
+	xam/htm/%example_name%.htm
 %$$
 
 $head bin/get_started.sh$$

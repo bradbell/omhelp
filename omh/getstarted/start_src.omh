@@ -8,6 +8,7 @@ $begin start_src$$
 $dollar @$$
 $escape !$$
 $spell
+	xam
 	py
 	getstarted
 	src
@@ -38,7 +39,7 @@ enables one to include line text with source code highlighting.
 $head src_example.omh$$
 Use the editor of your choice to
 create the file $code src_example.omh$$ in the
-$cref%get_started directory%get_started%get_started Directory%$$
+$cref%xam directory%get_started%xam Directory%$$
 with the following contents:
 $verbatim%omh/getstarted/src_example.omh%
 	5%BEGIN_OMHELP%END_OMHELP%0
@@ -50,7 +51,7 @@ $head src_example.py$$
 Copy $code omh/getstarted/src_example.py$$ from the
 $cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
 to the
-$cref/get_started Directory/get_started/get_started Directory/$$.
+$cref/xam directory/get_started/xam Directory/$$.
 In the copy of $code src_example.omh$$, change
 $code omh/getstarted/src_example.py$$ to $code src_example.py$$.
 

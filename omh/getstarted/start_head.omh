@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin start_head$$
 $dollar @$$
 $spell
+	xam
 	omhelp
 	omh
 	OMhelp
@@ -33,7 +34,7 @@ the last level of the tree.
 $head head_example.omh$$
 Use the editor of your choice to
 create the file $code head_example.omh$$ in the
-$cref%get_started directory%get_started%get_started Directory%$$
+$cref%xam directory%get_started%xam Directory%$$
 with the following contents:
 $verbatim%omh/getstarted/head_example.omh%
 	5%BEGIN_OMHELP%END_OMHELP%0

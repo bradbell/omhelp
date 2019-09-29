@@ -7,6 +7,7 @@ OMhelp is distributed under the terms of the
 $begin start_verbatim$$
 $dollar @$$
 $spell
+	xam
 	dat
 	getstarted
 	omhelp
@@ -32,7 +33,7 @@ the corresponding information in the documentation.
 $head verbatim_example.omh$$
 Use the editor of your choice to
 create the file $code verbatim_example.omh$$ in the
-$cref%get_started directory%get_started%get_started Directory%$$
+$cref%xam directory%get_started%xam Directory%$$
 with the following contents:
 $verbatim%omh/getstarted/verbatim_example.omh%
 	5%BEGIN_OMHELP%END_OMHELP%0
@@ -44,7 +45,7 @@ $head verbatim_example.dat$$
 Copy $code omh/getstarted/verbatim_example.dat$$ from the
 $cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
 to the
-$cref/get_started Directory/get_started/get_started Directory/$$.
+$cref/xam directory/get_started/xam Directory/$$.
 In the copy of $code verbatim_example.omh$$, change
 $code omh/getstarted/verbatim_example.dat$$ to $code verbatim_example.dat$$.
 

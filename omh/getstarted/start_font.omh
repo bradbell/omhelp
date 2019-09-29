@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin start_font$$
 $dollar @$$
 $spell
+	xam
 	omhelp
 	omh
 	OMhelp
@@ -34,7 +35,7 @@ change to the specified font.
 $head font_example.omh$$
 Use the editor of your choice to
 create the file $code font_example.omh$$ in the
-$cref%get_started directory%get_started%get_started Directory%$$
+$cref%xam directory%get_started%xam Directory%$$
 with the following contents:
 $verbatim%omh/getstarted/font_example.omh%
 	5%BEGIN_OMHELP%END_OMHELP%0

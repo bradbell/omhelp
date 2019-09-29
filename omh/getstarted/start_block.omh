@@ -8,6 +8,7 @@ OMhelp is distributed under the terms of the
 $begin start_block$$
 $dollar @$$
 $spell
+	xam
 	getstarted
 	omhelp
 	omh
@@ -36,7 +37,7 @@ C, C++, Java, Python.
 $head near_equal_c.c$$
 Use the editor of your choice to
 create the file $code near_equal_c.c$$ in the
-$cref%get_started directory%get_started%get_started Directory%$$
+$cref%xam directory%get_started%xam Directory%$$
 with the following contents:
 $verbatim%omh/getstarted/near_equal_c.c%
 	5%// BEGIN_NEAR_EQUAL%// END_NEAR_EQUAL%0
@@ -48,7 +49,7 @@ $head ok_near_equal_c.c$$
 Copy $code omh/getstarted/ok_near_equal_c.c$$ from the
 $cref%omh/getstarted Directory%get_started%omh/getstarted Directory%$$
 to the
-$cref/get_started Directory/get_started/get_started Directory/$$.
+$cref/xam directory/get_started/xam Directory/$$.
 In the copy of $code near_equal_c.c$$, change
 $code omh/getstarted/ok_near_equal_c.c$$ to $code ok_near_equal_c.c$$.
 

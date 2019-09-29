@@ -23,15 +23,14 @@ then
 	exit 1
 fi
 # -----------------------------------------------------------------------------
-top_srcdir=`pwd`
-omhelp="$top_srcdir/build/src/omhelp"
-omhelp_dir="$top_srcdir/omhelp_data"
+omhelp="../../build/src/omhelp"
+omhelp_dir="../../omhelp_data"
+example_dir='xam'
 # -----------------------------------------------------------------------------
-if [ -e get_started ]
+if [ ! -d $example_dir ]
 then
-	rm -r get_started
+	mkdir -p $example_dir/htm
 fi
-mkdir -p get_started/htm
 input_list='
 	simple_example.omh
 	head_example.omh
@@ -49,27 +48,38 @@ input_list='
 '
 for input in $input_list
 do
+	for dir in $example_dir $example_dir/htm
+	do
+		list=`ls $dir`
+		for file in $list
+		do
+			if [ -f $dir/$file ]
+			then
+				rm $dir/$file
+			fi
+		done
+	done
+	echo "Executing following command in $example_dir/htm directory:"
+	cd $example_dir/htm
+	#
 	sub_list=`echo $input | sed -e 's|;| |g'`
 	for file in $sub_list
 	do
+		echo_eval cp ../../omh/getstarted/$file ../$file
 		ext=`echo $file | sed -e 's|.*\.||'`
 		if [ "$ext" != 'gif' ] && [ "$ext" != 'dat' ]
 		then
-			sed < "omh/getstarted/$file" > get_started/$file \
-				-e 's|omh/getstarted/||'
-		else
-			echo_eval cp "omh/getstarted/$file" get_started/$file
+			echo "sed -i ../$file -e 's|omh/getstarted/||'"
+			sed -i ../$file -e 's|omh/getstarted/||'
 		fi
 	done
 	file=`echo $input | sed -e 's|;.*||'`
 	output=`echo $file | \
 		sed -e 's|;.*||' -e s/\.omh/.htm/ -e 's|\.[cf]|.htm|'`
 	#
-	echo 'Executing following command in get_started/htm directory'
-	cd get_started/htm
 	cmd="$omhelp ../$file -debug -noframe -omhelp_dir $omhelp_dir"
-	echo $cmd
-	if ! $cmd
+	echo "$cmd > ../../omhelp.xam.log"
+	if ! $cmd > ../../omhelp.xam.log
 	then
 		echo "cannot run omh/getstarted/$file example"
 		exit 1
@@ -78,26 +88,25 @@ do
 	then
 		if [ ! -e $output ]
 		then
-			echo "file get_started/htm/$output missing"
+			echo "file $example_dir/htm/$output missing"
 			exit 1
 		fi
 	else
 		echo ""
-		echo 'You can view the soruce files in get_started'
-		echo "View result by opening get_started/htm/$output in your browser"
-		echo 'Just return will continue, any text will stop this script.'
-		read response
-		if [ "$response" != "" ]
+		echo "You can view the soruce files in $example_dir"
+		echo "View result by opening $example_dir/htm/$output in your browser."
+		response=''
+		while [ "$response" != 'c' ] && [ "$response" != 's' ]
+		do
+			echo 'Continue or stop this script [c/s] ?'
+			read response
+		done
+		if [ "$response" == 's' ]
 		then
 			exit 0
 		fi
 	fi
 	cd ../..
-	rm get_started/htm/*
-	for file in $sub_list
-	do
-		rm get_started/$file
-	done
 done
 # ----------------------------------------------------------------------------
 echo 'bin/get_started.sh: OK'
