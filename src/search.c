@@ -4,167 +4,6 @@ OMhelp: Language Independent Embedded Documentation
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
-/*
-$begin search_dev$$
-$spell
-	Javascript
-	tmp
-	omhelp
-	OMhelp
-	fatalomh
-	Mem
-$$
-
-$section Routines That Create Search Page For a Web Site$$
-
-$mindex search page keyword$$
-$mindex
-	OpenSearchFile
-	SearchBegin
-	SearchTitle
-	SearchKeywords
-	SearchGetKeywords
-	SearchEnd
-	CloseSearchFile
-$$
-
-$head Syntax$$
-$codei%OpenSearchFile(%fileTag%, %siteTitle%)%$$
-$codei%SearchBegin(%tag%)%$$
-$codei%SearchTitle(%title%)%$$
-$codei%SearchKeywords(%list%, %escape%, %ignore%)%$$
-$codei%SearchGetKeywords()%$$
-$codei%SearchEnd()%$$
-$codei%CloseSearchFile(%delete%)%$$
-
-
-$head Description$$
-These routines create a Pass One version of the
-web page that searches the web site being created.
-It is a Pass One version because it is written
-to a file with extension $code .tmp%$$ and does not have any
-Pass One escape sequences; i.e., no matches for
-$code MatchText$$ in $code omhelp.y$$.
-$codei%
-
-OpenSearchFile(%fileTag%, %siteTitle%)%
-%$$
-The '\0' terminated character vector $icode fileTag$$
-specifies the cross reference tag for the search utility.
-The '\0' terminated character string $icode siteTitle$$
-specifies the title for the automatically generated web page that
-is a search utility for this web site.
-This call opens a new file called
-$icode%fileTag%.tmp%$$
-in which the search information is written.
-This will be a  Pass One version of the web page that
-can be used to search the web site being created.
-It needs to be linked up as the proper frame of a page in the system
-during Pass Two.
-The $code OpenSearchFile$$ routine must be called
-before any of the other routines documented below.
-$codei%
-
-SearchBegin(%tag%)%
-%$$
-This begins a the search information for a new section.
-The '\0' terminated character vector $icode tag$$
-specifies the cross reference tag for the current section.
-(It is assumed that $icode%tag%[0]%$$ is not equal to '\0'.)
-The title and keywords that come between a call to $code SearchBegin$$
-and the following call to $code SearchEnd$$
-are linked by the search utility
-to the web page $icode%tag%.%ext%$$
-(where $icode ext$$ is the output file extension specified by
-$cref Internal2Out_dev$$).
-If multiple sequential white spaces characters
-occur in $icode tag$$, a fatal error message
-is generated and the program is terminated.
-$pre
-
-$$
-$codei%
-
-SearchTitle(%title%)%
-%$$
-The '\0' terminated character vector $icode title$$ specifies the title
-for the current section.
-The current section is defined as the one specified by the
-previous call to $code SearchBegin$$.
-It is assumed that the corresponding call to $code SearchEnd$$
-has not yet occurred.
-It is also assumed that there is one and only one call to
-$code SearchTitle$$ between each call to $code SectionBegin$$
-and the next call to $code SectionEnd$$.
-$codei%
-
-SearchKeywords(%list%, %escape%, %ignore%)%
-%$$
-Adds the keywords in $icode list$$ to the
-set of keywords for the current section
-where $icode list$$ is a '\0' terminated character vector.
-$pre
-
-$$
-The current section is defined as the one specified by the
-previous call to $code SearchBegin$$.
-It is assumed that the corresponding call to $code SearchEnd$$
-has not yet occurred.
-$pre
-
-$$
-A keyword is any sequence of characters (in $icode list$$) not including
-white space or commas.
-Keywords beginning with the character $icode escape$$
-are not included.
-Commas are treated as white space
-except for those commas that are preceded by the $icode escape$$
-character.
-Words that appear in $icode ignore$$, surrounded by spaces, are not included
-in the search keywords.
-$codei%
-
-SearchGetKeywords()
-%$$
-returns a '\0' terminate copy of the keywords for the
-current section.
-The words have been converted to lower case,
-duplicate keywords have been removed,
-an each keyword is surrounded by a space.
-The memory for the return value is allocated with
-$cref AllocMem_dev$$ and should be freed with $cref/FreeMem/AllocMem_dev/FreeMem/$$
-when it is no longer needed.
-$codei%
-
-SearchEnd()
-%$$
-This completes the current section specified by
-the previous call to $code SearchBegin$$.
-(Temporary memory that is allocated for this section by $code SearchTitle$$
-and $code SearchKeywords$$ is freed by this call.)
-$codei%
-
-CloseSearchFile(%delete%)
-%$$
-Closes the $icode%fileTag%.tmp%$$ file.
-Calls to the other routines documented above are invalid
-after this call.
-If $icode delete$$ is true,
-it is assumed that the search file
-$icode%fileTag%.tmp%$$
-is not used and so it is
-deleted from the directory (as well as a supporting Javascript file).
-(Temporary memory that is allocated for these file names
-is freed when $code CloseSearchFile$$ is called.)
-
-$head Errors$$
-All the routines documented above use
-$cref/fatalomh/fatalerr_dev/$$ to report error messages; i.e.,
-they assume that there is an open input file and
-that we are currently parsing OMhelp input.
-
-$end
-*/
 
 # include <stdio.h>
 # include <string.h>
@@ -453,8 +292,47 @@ static void MakeKeywordList()
 	}
 }
 
+/*
+------------------------------------------------------------------------------
+$begin open_search_file$$
+$spell
+	tmp
+$$
 
+$section Opens File for Web Pages That Searches This Site$$
+
+$head Syntax$$
+$codei%OpenSearchFile(%fileTag%, %siteTitle%)%$$
+
+$head Prototype$$
+$srcfile%src/search.c%
+	0%// BEGIN_OPEN_SEARCH_FILE%// END_OPEN_SEARCH_FILE%1
+%$$
+
+$head fileTag$$
+The '\0' terminated character vector $icode fileTag$$
+specifies the cross reference tag for the search utility.
+
+$head siteTitle$$
+The '\0' terminated character string $icode siteTitle$$
+specifies the title for the automatically generated web page that
+is a search utility for this web site.
+
+$head Output$$
+This call opens a new file called $icode%fileTag%.tmp%$$
+in which the search information is written.
+This will be a Pass One version of the web page that
+can be used to search the web site being created.
+It needs to be linked up as the proper frame of a page in the system
+during Pass Two.
+This routine must be called
+before any of the other routines listed in $cref search_dev$$.
+
+$end
+*/
+// BEGIN_OPEN_SEARCH_FILE
 void OpenSearchFile(const char *fileTag, const char *siteTitle)
+// END_OPEN_SEARCH_FILE
 {
 	char *frameOne;
 	char *str;
@@ -543,8 +421,51 @@ void OpenSearchFile(const char *fileTag, const char *siteTitle)
 
 	return;
 }
+/*
+-----------------------------------------------------------------------------
+$begin search_begin$$
+$spell
+$$
 
+$section Starts Search Information For Next Section$$
+
+$head Syntax$$
+$codei%SearchBegin(%tag%)%$$
+
+$head Prototype$$
+$srcfile%src/search.c%
+	0%// BEGIN_SEARCH_BEGIN%// END_SEARCH_BEGIN%1
+%$$
+
+$head tag$$
+This begins a the search information for a new section.
+The '\0' terminated character vector $icode tag$$
+specifies the cross reference tag for the current section.
+It is assumed that $icode%tag%[0]%$$ is not equal to '\0'.
+If multiple sequential white spaces characters
+occur in $icode tag$$, a fatal error message
+is generated and the program is terminated.
+
+$head Tag$$
+This is an allocated version of $icode tag$$.
+
+$head TagLower$$
+This is an allocated lower case version of $icode tag$$.
+
+$head Keyword$$
+This is an allocated empty string.
+
+$head Current Section$$
+The current section is defined as the one specified by the
+previous call to $cref search_begin$$.
+There is no current section after the corresponding call to
+$cref search_end$$.
+
+$end
+*/
+// BEGIN_SEARCH_BEGIN
 void SearchBegin(const char *tag)
+// END_SEARCH_BEGIN
 {
 	int   i;
 	char ch;
@@ -587,8 +508,36 @@ void SearchBegin(const char *tag)
 	}
 
 }
+/*
+$begin search_title$$
+$spell
+$$
 
+$section Sets Title For Current Section$$
+
+$head Syntax$$
+$codei%SearchTitle(%title%)%$$
+
+$head Prototype$$
+$srcfile%src/search.c%
+	0%// BEGIN_SEARCH_TITLE%// END_SEARCH_TITLE%1
+%$$
+
+$head title$$
+The '\0' terminated character vector $icode title$$ specifies the title
+for the current section.
+
+$head Title$$
+This is an allocated version of $icode title$$.
+
+$head TitleLower$$
+This is an allocated lower case version of $icode title$$.
+
+$end
+*/
+// BEGIN_SEARCH_TITLE
 void SearchTitle(const char *title)
+// END_SEARCH_TITLE
 {
 	assert( SectionOpen );
 	assert( Title == NULL );
@@ -597,11 +546,51 @@ void SearchTitle(const char *title)
 	Title      = str_alloc(title);
 	TitleLower = StrLowAlloc(title);
 }
+/*
+-----------------------------------------------------------------------------
+$begin search_keywords$$
+$spell
+$$
 
+$section Sets Keywords For Current Section$$
+
+$head Syntax$$
+$codei%SearchKeywords(%keyword%, %escape%, %ignore%)%$$
+
+$head Prototype$$
+$srcfile%src/search.c%
+	0%// BEGIN_SEARCH_KEYWORDS%// END_SEARCH_KEYWORDS%1
+%$$
+
+$head Current Section$$
+see $cref/current section/search_begin/Current Section/$$.
+
+$head keyword$$
+is a '\0' terminated character vector
+containing a list of keywords separated by white space
+and commas.
+
+$head escape$$
+is the escape character for the list of keywords.
+Words that begin with this character will not be included.
+
+$head ignore$$
+words that appear in $icode ignore$$, surrounded by spaces,
+are not included.
+
+$head KeywordLower$$
+A lower case version of the accepted keywords, surrounded by spaces,
+is placed here.
+
+$end
+*/
+
+// BEGIN_SEARCH_KEYWORDS
 void SearchKeywords(
 	const char *keyword ,
 	const char escape   ,
 	const char* ignore  )
+// END_SEARCH_KEYWORDS
 {	char   ch;
 
 	assert( ! isspace((int) escape) );
@@ -691,7 +680,43 @@ void SearchKeywords(
 	}
 }
 
+/*
+-------------------------------------------------------------------------------
+$begin search_get_keywords$$
+$spell
+	str
+	Mem
+$$
+
+$section Gets An Allocated Copy of the Keywords$$
+
+$head Syntax$$
+$icode%str% = SearchGetKeywords()%$$
+
+$head Prototype$$
+$srcfile%src/search.c%
+	0%// BEGIN_SEARCH_GET_KEYWORDS%// END_SEARCH_GET_KEYWORDS%1
+%$$
+
+$head Current Section$$
+see $cref/current section/search_begin/Current Section/$$.
+
+$head str$$
+is an allocated '\0' terminate copy of the keywords for the
+current section.
+The words have been converted to lower case,
+duplicate keywords have been removed,
+an each keyword is surrounded by a space.
+The memory for the return value is allocated with
+$cref AllocMem_dev$$ and should be freed with
+$cref/FreeMem/AllocMem_dev/FreeMem/$$
+when it is no longer needed.
+
+$end
+*/
+// BEGIN_SEARCH_GET_KEYWORDS
 char *SearchGetKeywords()
+// END_SEARCH_GET_KEYWORDS
 {	int len;
 	int i, j, k;
 	char *s;
@@ -732,7 +757,43 @@ char *SearchGetKeywords()
 	return s;
 }
 
+/*
+----------------------------------------------------------------------------
+$begin search_end$$
+$spell
+$$
+
+$section Outputs the Search Information for this Section$$
+
+$head Syntax$$
+$codei%SearchEnd()%$$
+
+$head Prototype$$
+$srcfile%src/search.c%
+	0%// BEGIN_SEARCH_END%// END_SEARCH_END%1
+%$$
+
+$head Current Section$$
+see $cref/current section/search_begin/Current Section/$$.
+
+$head Tag$$
+The tag for this section is written to the output file
+and both $icode Tag$$ and $icode TagLower$$ are freed.
+
+$head Title$$
+The title for this section is written to the output file
+and both $icode Title$$ and $icode TitleLower$$ are freed.
+
+$head KeywordLower$$
+A lower case version of keywords for this section are written to
+the output file. Entire that are equal to the tag, or in the title,
+are not included. In addition, duplicates are not included
+
+$end
+*/
+// BEGIN_SEARCH_END
 void SearchEnd()
+// END_SEARCH_END
 {
 	assert( SectionOpen );
 	SectionOpen = 0;
@@ -769,8 +830,43 @@ void SearchEnd()
 
 	++SectionCount;
 }
+/*
+$begin close_search_file$$
+$spell
+	tmp
+	Javascript
+$$
 
+$section Close Search Page For the Web Site$$
+
+$head Syntax$$
+$codei%CloseSearchFile(%delete%)%$$
+
+$head Prototype$$
+$srcfile%src/search.c%
+	0%// BEGIN_CLOSE_SEARCH_FILE%// END_CLOSE_SEARCH_FILE%1
+%$$
+
+$head Output$$
+This operation closes the file
+$cref/fileTag/open_search_file/fileTag/$$.
+Calls to the other $cref search_dev$$ routines, except
+$cref/OpenSearchFile/open_search_file/$$, are invalid after this call.
+
+$head delete$$
+If $icode delete$$ is true,
+the search file $icode%fileTag%.tmp%$$
+is not used and so it is
+deleted from the directory (as well as a supporting Javascript file).
+Temporary memory that is allocated for these file names
+is freed when $code CloseSearchFile$$ is called.
+
+$end
+*/
+
+// BEGIN_CLOSE_SEARCH_FILE
 void CloseSearchFile(int delete)
+// END_CLOSE_SEARCH_FILE
 {	char *next;
 	char *str;
 	char *javascript;

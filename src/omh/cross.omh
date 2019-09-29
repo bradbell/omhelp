@@ -25,7 +25,7 @@ $childtable%
 	src/relative.c%
 	src/select_childtable.cpp%
 	src/jump_table.c%
-	src/search.c%
+	src/omh/search.omh%
 	src/url.c
 %$$
 

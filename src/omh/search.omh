@@ -1,0 +1,35 @@
+/* ----------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2019 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+---------------------------------------------------------------------------- */
+$begin search_dev$$
+$spell
+	tmp
+	omhelp
+	fatalomh
+	OMhelp
+$$
+
+$section Routines That Create Search Page For a Web Site$$
+
+$head Description$$
+These routines create a Pass One version of the
+web page that searches the web site being created.
+It is a Pass One version because it is written
+to a file with extension $code .tmp%$$.
+It does not have any Pass One escape sequences; i.e., no matches for
+$code MatchText$$ in $code omhelp.y$$.
+
+$head Errors$$
+All the routines documented below this section use
+$cref/fatalomh/fatalerr_dev/$$ to report error messages; i.e.,
+they assume that there is an open input file and
+that we are currently parsing OMhelp input.
+
+$childtable%
+	src/search.c
+%$$
+
+$end
