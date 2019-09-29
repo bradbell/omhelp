@@ -106,6 +106,7 @@ A historical record of the changes to OMhelp can be found in
 the following sections:
 
 $children%
+	omh/whats_new/14.omh%
 	omh/whats_new/13.omh%
 	omh/whats_new/12.omh%
 	omh/whats_new/10.omh%
@@ -120,6 +121,7 @@ $children%
 	omh/whats_new/01.omh%$$
 
 $head Previous Years$$
+$cref whats_new_14$$,
 $cref whats_new_13$$,
 $cref whats_new_12$$,
 $cref whats_new_10$$,
@@ -464,61 +466,8 @@ See the new $cref InstallUnix$$ and $cref InstallWindows$$ procedures.
 $head 15-01-10$$
 The program would sometimes crash while reporting spelling errors
 in $cref keyword$$ index commands.
-This bug was introduced on $cref/14-07-20/whatsnew/14-07-20/$$
+This bug was introduced on $cref/2014-07-20/whats_new_14/07-20/$$
 where misspelled words are only reported once per section.
 It has been fixed.
-
-$head 14-11-27$$
-Change the default install prefix from $code @HOME$$ to $code /usr/local$$.
-
-$head 14-11-23$$
-$list number$$
-Use the $cref/root section aindex/Keyword/Aindex/Root Section/$$
-setting as the default for all other sections.
-$lnext
-Use the $cref/root section escape/Escape/Root Section/$$
-setting as the default for all other sections.
-$lend
-
-$head 14-11-21$$
-$list number$$
-The $cref/search/_search/$$ feature has been improved by using
-selection from the list of keyword matches.
-$lnext
-Fix some warnings that occurred when compiling with
-gcc 4.8.3.
-$lend
-
-$head 14-07-27$$
-Spelling errors were being reported once per run, not once per section
-(since 14-07-20).
-This has been fixed.
-
-$head 14-07-20$$
-Only report spelling errors once per word for each section
-(that way it is easier to see all the misspelled words in a section).
-
-$head 14-07-17$$
-The $code with-fortran$$ configure option was
-added to the $code configure$$ command line so that it is possible
-to build and run the tests on systems that do not have a fortran compiler.
-
-$head 14-05-26$$
-There was a bug in display of the $cref th$$ command.
-It did not use a code $cref font$$ while the $cref math$$ command did.
-This has been fixed so that now the input
-$codep
-	@math%x_i%@@ is the @th i@@ element of @math x@@
-$$
-generates
-$pre
-	$$
-	$math%x_i%$$ is the $th i$$ element of $math x$$
-$pre
-$$
-where as it used to generate
-$pre
-	$$
-	$math%x_i%$$ is the $icode i$$-th element of $math x$$
 
 $end

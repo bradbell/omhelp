@@ -1,0 +1,77 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2019 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+$begin whats_new_14$$
+$dollar @$$
+$spell
+	OMhelp
+	usr
+	aindex
+	gcc
+$$
+
+$section Changes and Additions to OMhelp During 2014$$
+
+$head Description$$
+This section contains a list of changes to
+OMhelp during 2014 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+$head 11-27$$
+Change the default install prefix from $code @HOME$$ to $code /usr/local$$.
+
+$head 11-23$$
+$list number$$
+Use the $cref/root section aindex/Keyword/Aindex/Root Section/$$
+setting as the default for all other sections.
+$lnext
+Use the $cref/root section escape/Escape/Root Section/$$
+setting as the default for all other sections.
+$lend
+
+$head 11-21$$
+$list number$$
+The $cref/search/_search/$$ feature has been improved by using
+selection from the list of keyword matches.
+$lnext
+Fix some warnings that occurred when compiling with
+gcc 4.8.3.
+$lend
+
+$head 07-27$$
+Spelling errors were being reported once per run, not once per section
+(since 14-07-20).
+This has been fixed.
+
+$head 07-20$$
+Only report spelling errors once per word for each section
+(that way it is easier to see all the misspelled words in a section).
+
+$head 07-17$$
+The $code with-fortran$$ configure option was
+added to the $code configure$$ command line so that it is possible
+to build and run the tests on systems that do not have a fortran compiler.
+
+$head 05-26$$
+There was a bug in display of the $cref th$$ command.
+It did not use a code $cref font$$ while the $cref math$$ command did.
+This has been fixed so that now the input
+$codep
+	@math%x_i%@@ is the @th i@@ element of @math x@@
+$$
+generates
+$pre
+	$$
+	$math%x_i%$$ is the $th i$$ element of $math x$$
+$pre
+$$
+where as it used to generate
+$pre
+	$$
+	$math%x_i%$$ is the $icode i$$-th element of $math x$$
+
+$end
