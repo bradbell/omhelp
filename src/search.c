@@ -100,7 +100,7 @@ static char *FrameOne =
 "		<input\n"
 "			type='text'\n"
 "			name='keywords'\n"
-"			onkeydown='UpdateList(event)'\n"
+"			onkeydown='UpdateList()'\n"
 "			size='50'\n"
 "		></input>\n"
 "	</td><td>\n"
@@ -160,20 +160,8 @@ static char *Javascript =
 	// set the cursor to the users input field
 "	document.search.keywords.focus();\n"
 "}\n"
-"function UpdateList(event)\n"
+"function UpdateList()\n"
 "{\n"
-	// check for return key
-"	key = 0;\n"
-"	if( window.event )\n"
-		// IE
-"		key = window.event.keyCode;\n"
-"	else if( event )\n"
-		// Firefox
-"		key = event.which;\n"
-"	if( key == 13 )\n"
-"	{	Goto();\n"
-"		return;\n"
-"	}\n"
 	// search string
 "	var string  = document.search.keywords.value;\n"
 
@@ -235,7 +223,7 @@ static char *Javascript =
 "}\n"
 "function Choose(textarea)\n"
 "{	var start_select = textarea.value.substring(0, textarea.selectionStart);\n"
-"	var start_pos    = Math.max(0, start_select.lastIndexOf('\\n') );\n"
+"	var start_pos    = Math.max(0, start_select.lastIndexOf('\\n') + 1);\n"
 "	var length       = textarea.value.length;\n"
 "	var end_select   = \n"
 "		textarea.value.substring(textarea.selectionEnd, length);\n"
@@ -253,8 +241,9 @@ static char *Javascript =
 "	return true;\n"
 "}\n"
 "function Goto()\n"
-"{\n"
-"	parent.location = document.search.selection.value + '.htm';\n"
+"{  selection       = document.search.selection.value;\n"
+"   if( selection != '' )\n"
+"	    parent.location = selection + '.htm';\n"
 "}\n"
 "function CheckForReturn()\n"
 "{\n"
