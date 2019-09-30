@@ -1,0 +1,240 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Changes and Additions to OMhelp During 2007</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Changes and Additions to OMhelp During 2007">
+<meta name="keywords" id="keywords" content=" changes additions to omhelp during 2007 description 12-13 11-03 10-20 10-18 09-14 08-14 07-21 04-06 03-25 03-13 01-28 ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_whats_new_07_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="whats_new_08.htm" target="_top">Prev</a>
+</td><td><a href="whats_new_06.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>omhelp</option>
+<option>whats_new</option>
+<option>whats_new_07</option>
+</select>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_whats_new_htm.js'></script>
+</td>
+<td>whats_new_07</td>
+</tr></table><br>
+<center><b><big><big>Changes and Additions to OMhelp During 2007</big></big></b></center>
+
+<br><a href="whats_new_07.htm#Description" target="_top">Description</a>
+<br><a href="whats_new_07.htm#12-13" target="_top">12-13</a>
+<br><a href="whats_new_07.htm#11-03" target="_top">11-03</a>
+<br><a href="whats_new_07.htm#10-20" target="_top">10-20</a>
+<br><a href="whats_new_07.htm#10-18" target="_top">10-18</a>
+<br><a href="whats_new_07.htm#09-14" target="_top">09-14</a>
+<br><a href="whats_new_07.htm#08-14" target="_top">08-14</a>
+<br><a href="whats_new_07.htm#07-21" target="_top">07-21</a>
+<br><a href="whats_new_07.htm#04-06" target="_top">04-06</a>
+<br><a href="whats_new_07.htm#03-25" target="_top">03-25</a>
+<br><a href="whats_new_07.htm#03-13" target="_top">03-13</a>
+<br><a href="whats_new_07.htm#01-28" target="_top">01-28</a>
+<br><br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This section contains a list of changes to
+OMhelp during 2007 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+<br>
+<br>
+<b><big><a name="12-13" id="12-13">12-13</a></big></b>
+<br>
+The <code><font color="blue">codei</font></code> and <code><font color="blue">icode</font></code> commands were added.
+These commands switch
+<a href="glossary.htm#Pre-formatted Font" target="_top"><span style='white-space: nowrap'>pre-formatted</span></a>
+ text between
+code and italic font.
+See the <a href="codei.htm#Remark" target="_top"><span style='white-space: nowrap'>remark</span></a>
+ at the end
+of the command.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The latex Calligraphic font <a href="latexfont.htm" target="_top"><span style='white-space: nowrap'>\cal</span></a>
+ was added.
+This turned up another problem in <a href="firefox.htm" target="_top"><span style='white-space: nowrap'>Firefox</span></a>
+; see
+the <a href="firefox.htm#mathvariant" target="_top"><span style='white-space: nowrap'>mathvariant</span></a>
+ bug entry.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>Remove some objects that executables that were mistakenly part
+of the distribution copy of <code><font color="blue">omh/getstarted</font></code>.
+(This caused the <code><font color="blue">make</font></code> command to fail on other systems
+because they were not built from source.)
+
+<br>
+<br>
+<b><big><a name="11-03" id="11-03">11-03</a></big></b>
+<br>
+If a navigate command was used in the
+<a href="navigate.htm#Root Section" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
+
+the corresponding setting did not get transferred to the
+<a href="_contents.htm" target="_top"><span style='white-space: nowrap'>table&nbsp;of&nbsp;contents</span></a>
+ section.
+This has been fixed.
+
+<br>
+<br>
+<b><big><a name="10-20" id="10-20">10-20</a></big></b>
+<br>
+The script file for batching the <a href="get_started.htm" target="_top"><span style='white-space: nowrap'>get_started</span></a>
+ examples
+<code><font color="blue">RunAll</font></code> was no longer working.
+Change it to a bash script called <code><font color="blue">run_all.sh</font></code>
+(which now works).
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The name used for the directory where the user copies the <a href="get_started.htm" target="_top"><span style='white-space: nowrap'>get_started</span></a>
+
+examples was changed from the 
+<code><i><font color="black"><span style='white-space: nowrap'>omh</span></font></i></code>
+ directory to the
+
+<code><i><font color="black"><span style='white-space: nowrap'>test</span></font></i></code>
+ directory
+(to avoid confusion with the <code><font color="blue">omh</font></code> directory in the OMhelp distribution).
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>All of the section names and file names in <a href="get_started.htm" target="_top"><span style='white-space: nowrap'>get_started</span></a>
+ were
+changed from mixed case to lower case.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>Due to a problem with using Cvs with Cygwin, it is not possible
+to change just change the case of a file name.
+For this reason, the examples <code><font color="blue">Factorial.c</font></code> and <code><font color="blue">Factorial.m</font></code>
+have been replaced by <a href="near_equal_c.htm" target="_top"><span style='white-space: nowrap'>near_equal_c</span></a>
+ and <a href="near_equal_f.htm" target="_top"><span style='white-space: nowrap'>near_equal_f</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="10-18" id="10-18">10-18</a></big></b>
+<br>
+The <a href="href.htm" target="_top"><span style='white-space: nowrap'>href</span></a>
+ command was improved to detect when the
+<i> linkingtext</i> was empty and stop with a fatal error message.
+
+<br>
+<br>
+<b><big><a name="09-14" id="09-14">09-14</a></big></b>
+<br>
+The <code><font color="blue">view_factorial.m</font></code> example used the <a href="wspace.htm" target="_top"><span style='white-space: nowrap'>wspace</span></a>
+ command
+which has been deprecated.
+It was changed to use the <a href="newlinech.htm" target="_top"><span style='white-space: nowrap'>newlinech</span></a>
+ command which works better.
+In addition, a link in <code><font color="blue">start_embed</font></code> to
+view <code><font color="blue">factorial.m</font></code> was mistakenly to <code><font color="blue">view_factorial.c</font></code>.
+This has been fixed.
+
+<br>
+<br>
+<b><big><a name="08-14" id="08-14">08-14</a></big></b>
+<br>
+The <a href="running.htm#favicon" target="_top"><span style='white-space: nowrap'>favicon</span></a>
+ option
+was not listed when OMhelp printed its usage message
+(in response to an improper command line).
+This has been fixed.
+
+<br>
+<br>
+<b><big><a name="07-21" id="07-21">07-21</a></big></b>
+<br>
+The <a href="firefox.htm" target="_top"><span style='white-space: nowrap'>Firefox</span></a>
+ back button bug has been removed
+(it seems to be fixed).
+The Firefox <a href="firefox.htm#Copy and Paste" target="_top"><span style='white-space: nowrap'>copy&nbsp;and&nbsp;paste</span></a>
+ bug has
+been added.
+
+
+<br>
+<br>
+<b><big><a name="04-06" id="04-06">04-06</a></big></b>
+<br>
+A common mistake is to include the same file in two different
+places and thereby multiple definitions for the same cross
+reference destination.
+The error message for this case has been improved to
+suggest that perhaps the same file has been included twice.
+
+<br>
+<br>
+<b><big><a name="03-25" id="03-25">03-25</a></big></b>
+<br>
+There was a problem with the <code><font color="blue">configure</font></code>
+script whereby there was a space at the end of the name of the
+file that it was checking <code><font color="blue">src/UniformWhiteSpace.c</font></code>.
+This has been fixed.
+
+<br>
+<br>
+<b><big><a name="03-13" id="03-13">03-13</a></big></b>
+<br>
+Changes the <a href="_search.htm" target="_top"><span style='white-space: nowrap'>_search</span></a>
+ dialog so that it selects the current
+entry when you hit return (or select the button).
+
+<br>
+<br>
+<b><big><a name="01-28" id="01-28">01-28</a></big></b>
+<br>
+The <code><font color="blue">navigate</font></code> command <a href="navigate.htm#Default" target="_top"><span style='white-space: nowrap'>default</span></a>
+ value was
+changed so that <code><font color="blue">Up</font></code> is grouped with <code><font color="blue">Across</font></code>.
+
+
+
+<hr>Input File: omh/whats_new/07.omh
+
+</body>
+</html>

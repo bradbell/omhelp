@@ -6,8 +6,9 @@ var list_across0 = [
 '_external.htm'
 ];
 var list_up0 = [
-'overview.htm',
-'files.htm',
+'omhelp.htm',
+'other.htm',
+'deprecated.htm',
 'path.htm'
 ];
 function choose_across0(item)
@@ -21,6 +22,12 @@ function choose_up0(item)
 	item.selectedIndex = 0;
 	if(index > 0)
 		document.location = list_up0[index-1];
+}
+function choose_down3(item)
+{	var index          = item.selectedIndex;
+	item.selectedIndex = 0;
+	if(index > 0)
+		document.location = list_down3[index-1];
 }
 function choose_down2(item)
 {	var index          = item.selectedIndex;

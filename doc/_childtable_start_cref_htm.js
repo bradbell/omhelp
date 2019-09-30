@@ -2,12 +2,12 @@
 document.write('\
 <select onchange="start_cref_child(this)">\
 <option>start_cref-&gt;</option>\
-<option>cref_example_1</option>\
+<option>cref_example</option>\
 </select>\
 ');
 function start_cref_child(item)
 {	var child_list = [
-		'cref_example_1.htm'
+		'cref_example.htm'
 	];
 	var index = item.selectedIndex;
 	item.selectedIndex = 0;

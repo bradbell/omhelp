@@ -1,0 +1,173 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Changes and Additions to OMhelp During 2014</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Changes and Additions to OMhelp During 2014">
+<meta name="keywords" id="keywords" content=" changes additions to omhelp during 2014 description 11-27 11-23 11-21 07-27 07-20 07-17 05-26 ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_whats_new_14_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="whats_new_15.htm" target="_top">Prev</a>
+</td><td><a href="whats_new_13.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>omhelp</option>
+<option>whats_new</option>
+<option>whats_new_14</option>
+</select>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_whats_new_htm.js'></script>
+</td>
+<td>whats_new_14</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Changes and Additions to OMhelp During 2014</big></big></b></center>
+
+<br><a href="whats_new_14.htm#Description" target="_top">Description</a>
+<br><a href="whats_new_14.htm#11-27" target="_top">11-27</a>
+<br><a href="whats_new_14.htm#11-23" target="_top">11-23</a>
+<br><a href="whats_new_14.htm#11-21" target="_top">11-21</a>
+<br><a href="whats_new_14.htm#07-27" target="_top">07-27</a>
+<br><a href="whats_new_14.htm#07-20" target="_top">07-20</a>
+<br><a href="whats_new_14.htm#07-17" target="_top">07-17</a>
+<br><a href="whats_new_14.htm#05-26" target="_top">05-26</a>
+<br><br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This section contains a list of changes to
+OMhelp during 2014 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+<br>
+<br>
+<b><big><a name="11-27" id="11-27">11-27</a></big></b>
+<br>
+Change the default install prefix from <code><font color="blue">$HOME</font></code> to <code><font color="blue">/usr/local</font></code>.
+
+<br>
+<br>
+<b><big><a name="11-23" id="11-23">11-23</a></big></b>
+
+<ol type="1"><li>
+Use the <a href="keyword.htm#Aindex.Root Section" target="_top"><span style='white-space: nowrap'>root&nbsp;section&nbsp;aindex</span></a>
+
+setting as the default for all other sections.
+</li><li>
+
+Use the <a href="escape.htm#Root Section" target="_top"><span style='white-space: nowrap'>root&nbsp;section&nbsp;escape</span></a>
+
+setting as the default for all other sections.
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="11-21" id="11-21">11-21</a></big></b>
+
+<ol type="1"><li>
+The <a href="_search.htm" target="_top"><span style='white-space: nowrap'>search</span></a>
+ feature has been improved by using
+selection from the list of keyword matches.
+</li><li>
+
+Fix some warnings that occurred when compiling with
+gcc 4.8.3.
+</li></ol>
+
+
+<br>
+<br>
+<b><big><a name="07-27" id="07-27">07-27</a></big></b>
+<br>
+Spelling errors were being reported once per run, not once per section
+(since 14-07-20).
+This has been fixed.
+
+<br>
+<br>
+<b><big><a name="07-20" id="07-20">07-20</a></big></b>
+<br>
+Only report spelling errors once per word for each section
+(that way it is easier to see all the misspelled words in a section).
+
+<br>
+<br>
+<b><big><a name="07-17" id="07-17">07-17</a></big></b>
+<br>
+The <code><font color="blue">with-fortran</font></code> configure option was
+added to the <code><font color="blue">configure</font></code> command line so that it is possible
+to build and run the tests on systems that do not have a fortran compiler.
+
+<br>
+<br>
+<b><big><a name="05-26" id="05-26">05-26</a></big></b>
+<br>
+There was a bug in display of the <a href="th.htm" target="_top"><span style='white-space: nowrap'>th</span></a>
+ command.
+It did not use a code <a href="font.htm" target="_top"><span style='white-space: nowrap'>font</span></a>
+ while the <a href="math.htm" target="_top"><span style='white-space: nowrap'>math</span></a>
+ command did.
+This has been fixed so that now the input
+<code><font color='blue'><pre style='display:inline'> 
+     $math%x_i%$$ is the $th i$$ element of $math x$$
+</pre></font></code>
+generates
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>
+	<code><span style='white-space: nowrap'><i>x</i>_<i>i</i></span></code> is the <code><i>i</i></code>-th element of <code><span style='white-space: nowrap'><i>x</i></span></code>
+<code><span style='white-space: nowrap'><br>
+</span></code>where as it used to generate
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>
+	<code><span style='white-space: nowrap'><i>x</i>_<i>i</i></span></code> is the 
+<code><i><font color="black"><span style='white-space: nowrap'>i</span></font></i></code>
+-th element of <code><span style='white-space: nowrap'><i>x</i></span></code>
+
+
+<hr>Input File: omh/whats_new/14.omh
+
+</body>
+</html>

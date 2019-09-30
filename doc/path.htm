@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Setting Input File Search Paths</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Setting Input File Search Paths">
-<meta name="keywords" id="keywords" content=" setting input file search paths read syntax see also warning directory extension purpose relative ignored example reference ">
+<meta name="keywords" id="keywords" content=" setting input file search paths read syntax see also deprecated 2019-09-28 directory extension purpose relative ignored example reference ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -29,10 +29,10 @@ A:active { color : purple }
 <body>
 <table><tr>
 <td>
-<a href="https://github.com/bradbell/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
 </td>
-<td><a href="files.htm" target="_top">Prev</a>
-</td><td><a href="children.htm" target="_top">Next</a>
+<td><a href="number.htm" target="_top">Prev</a>
+</td><td><a href="browser.htm" target="_top">Next</a>
 </td><td>
 <select onchange='choose_across0(this)'>
 <option>Index-&gt;</option>
@@ -46,24 +46,32 @@ A:active { color : purple }
 <td>
 <select onchange='choose_up0(this)'>
 <option>Up-&gt;</option>
-<option>overview</option>
-<option>files</option>
+<option>omhelp</option>
+<option>other</option>
+<option>deprecated</option>
 <option>path</option>
 </select>
 </td>
 <td>
-<script type='text/javascript' language='JavaScript' src='_childtable_overview_htm.js'></script>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
 </td>
 <td>
-<script type='text/javascript' language='JavaScript' src='_childtable_files_htm.js'></script>
+<script type='text/javascript' language='JavaScript' src='_childtable_other_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_deprecated_htm.js'></script>
 </td>
 <td>path</td>
 </tr></table><br>
+
+
+
+
 <center><b><big><big>Setting Input File Search Paths</big></big></b></center>
 
 <br><a href="path.htm#Syntax" target="_top">Syntax</a>
 <br><a href="path.htm#See Also" target="_top">See&nbsp;Also</a>
-<br><a href="path.htm#Warning" target="_top">Warning</a>
+<br><a href="path.htm#Deprecated 2019-09-28" target="_top">Deprecated&nbsp;2019-09-28</a>
 <br><a href="path.htm#directory, extension" target="_top">directory,&nbsp;extension</a>
 <br><a href="path.htm#Purpose" target="_top">Purpose</a>
 <br><a href="path.htm#Relative Paths" target="_top">Relative&nbsp;Paths</a>
@@ -88,18 +96,12 @@ A:active { color : purple }
 
 <br>
 <br>
-<b><big><a name="Warning" id="Warning">Warning</a></big></b>
+<b><big><a name="Deprecated 2019-09-28" id="Deprecated 2019-09-28">Deprecated 2019-09-28</a></big></b>
 <br>
-The OMhelp documentation uses the <code><font color="blue">path</font></code> command so that
-file names in the <code><font color="blue">omh/getstarted</font></code> directory can be both relative to
-both the <code><font color="blue">omh</font></code> directory and the <code><font color="blue">getstarted</font></code> directory.
-This is an advanced usage.
-In general, it is suggested one use file names relative to the
+It is suggested one reference files relative to the
 <a href="running.htm#root_file" target="_top"><span style='white-space: nowrap'>root&nbsp;section</span></a>
 
-instead of using the <code><font color="blue">path</font></code> command.
-
-
+and not use the <code><font color="blue">path</font></code> command.
 
 <br>
 <br>
@@ -195,7 +197,7 @@ For example, the path commands above are equivalent to
      $path%c:/omwin/function%.mat%$$
 </pre></font></code>
 
-<hr>Input File: path.omh
+<hr>Input File: omh/path.omh
 
 </body>
 </html>

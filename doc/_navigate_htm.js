@@ -6,7 +6,7 @@ var list_across0 = [
 '_external.htm'
 ];
 var list_up0 = [
-'overview.htm',
+'omhelp.htm',
 'cross.htm',
 'navigate.htm'
 ];
@@ -17,7 +17,7 @@ var list_down2 = [
 'get_started.htm',
 'running.htm',
 'files.htm',
-'titles+headings.htm',
+'titles_headings.htm',
 'cross.htm',
 'format.htm',
 'spellchecking.htm',
@@ -26,7 +26,7 @@ var list_down2 = [
 'browser.htm',
 'glossary.htm',
 'wish_list.htm',
-'whatsnew.htm'
+'whats_new.htm'
 ];
 var list_down1 = [
 'keyword.htm',

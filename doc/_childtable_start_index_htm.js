@@ -2,12 +2,12 @@
 document.write('\
 <select onchange="start_index_child(this)">\
 <option>start_index-&gt;</option>\
-<option>index_example_1</option>\
+<option>index_example</option>\
 </select>\
 ');
 function start_index_child(item)
 {	var child_list = [
-		'index_example_1.htm'
+		'index_example.htm'
 	];
 	var index = item.selectedIndex;
 	item.selectedIndex = 0;

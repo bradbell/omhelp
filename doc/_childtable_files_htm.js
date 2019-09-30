@@ -2,7 +2,6 @@
 document.write('\
 <select onchange="files_child(this)">\
 <option>files-&gt;</option>\
-<option>path</option>\
 <option>children</option>\
 <option>include</option>\
 <option>image</option>\
@@ -15,7 +14,6 @@ document.write('\
 ');
 function files_child(item)
 {	var child_list = [
-		'path.htm',
 		'children.htm',
 		'include.htm',
 		'image.htm',

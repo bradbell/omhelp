@@ -29,9 +29,9 @@ A:active { color : purple }
 <body>
 <table><tr>
 <td>
-<a href="https://github.com/bradbell/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
 </td>
-<td><a href="path.htm" target="_top">Prev</a>
+<td><a href="files.htm" target="_top">Prev</a>
 </td><td><a href="next.htm" target="_top">Next</a>
 </td><td>
 <select onchange='choose_across0(this)'>
@@ -46,13 +46,13 @@ A:active { color : purple }
 <td>
 <select onchange='choose_up0(this)'>
 <option>Up-&gt;</option>
-<option>overview</option>
+<option>omhelp</option>
 <option>files</option>
 <option>children</option>
 </select>
 </td>
 <td>
-<script type='text/javascript' language='JavaScript' src='_childtable_overview_htm.js'></script>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
 </td>
 <td>
 <script type='text/javascript' language='JavaScript' src='_childtable_files_htm.js'></script>
@@ -188,10 +188,10 @@ subsections together a link to the corresponding subsection.
 is generated with the following command
 
 <code><font color='blue'><pre style='display:inline'> 
-     $contents/
-          next.omh/
-          previous.omh/
-          stdout.omh/$$
+     $contents%
+          omh/next.omh%
+          omh/previous.omh%
+          omh/stdout.omh%$$
 </pre></font></code>
 <br>
 <b><big><a name="Childtable Command" id="Childtable Command">Childtable Command</a></big></b>
@@ -202,16 +202,16 @@ The table of
 in the <a href="cross.htm" target="_top">Cross Reference Linking</a> section is generated
 with the following <code><font color="blue">childtable</font></code> command:
 <code><span style='white-space: nowrap'><br>
-</span></code><code><font color="blue">$childtable/
+</span></code><code><font color="blue">$childtable%
 <pre style='display:inline'> 
-     	keyword.omh/
-     	cref.omh/
-     	href.omh/
-     	rref.omh/
-     	tref.omh/
-     	mref.omh/
-     	navigate.omh
-     /$$
+     	omh/keyword.omh%
+     	omh/cref.omh%
+     	omh/href.omh%
+     	omh/rref.omh%
+     	omh/tref.omh%
+     	omh/mref.omh%
+     	omh/navigate.omh
+     %$$
 </pre>
 
 </font></code>
@@ -226,20 +226,20 @@ The  <a href="format.htm" target="_top"><span style='white-space: nowrap'>format
  section uses the following
 commands to specify its children and corresponding jump tables.
 <code><span style='white-space: nowrap'><br>
-</span></code><code><font color="blue">$children/
+</span></code><code><font color="blue">$children%
 <pre style='display:inline'> 
-     	nobreak.omh/
-     	pre.omh/
-     	codep.omh/
-     	codei.omh/
-     	color.omh/
-     	hilite.omh/
-     	th.omh/
-     	center.omh/
-     	table.omh/
-     	list.omh/
-     	special.omh/
-     	font.omh/$$
+     	omh/nobreak.omh%
+     	omh/pre.omh%
+     	omh/codep.omh%
+     	omh/codei.omh%
+     	omh/color.omh%
+     	omh/hilite.omh%
+     	omh/th.omh%
+     	omh/center.omh%
+     	omh/table.omh%
+     	omh/list.omh%
+     	omh/special.omh%
+     	omh/font.omh%$$
      
      $head Command Limited$$
      The effect of the following commands
@@ -263,7 +263,6 @@ commands to specify its children and corresponding jump tables.
      $rref special$$
      $rref font$$
      $tend
-     
 </pre>
 
 </font></code>
@@ -279,7 +278,7 @@ in the corresponding jump tables.
 
 
 
-<hr>Input File: children.omh
+<hr>Input File: omh/children.omh
 
 </body>
 </html>

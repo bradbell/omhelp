@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Getting Started Using OMhelp</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Getting Started Using OMhelp">
-<meta name="keywords" id="keywords" content=" getting started using omhelp introduction directory ">
+<meta name="keywords" id="keywords" content=" getting started using omhelp introduction omh/getstarted directory xam example_name example_extension execute bin/get_started.sh ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -29,7 +29,7 @@ A:active { color : purple }
 <body>
 <table><tr>
 <td>
-<a href="https://github.com/bradbell/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
 </td>
 <td><a href="installwindows.htm" target="_top">Prev</a>
 </td><td><a href="start_simple.htm" target="_top">Next</a>
@@ -46,12 +46,12 @@ A:active { color : purple }
 <td>
 <select onchange='choose_up0(this)'>
 <option>Up-&gt;</option>
-<option>overview</option>
+<option>omhelp</option>
 <option>get_started</option>
 </select>
 </td>
 <td>
-<script type='text/javascript' language='JavaScript' src='_childtable_overview_htm.js'></script>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
 </td>
 <td>
 <script type='text/javascript' language='JavaScript' src='_childtable_get_started_htm.js'></script>
@@ -61,7 +61,12 @@ A:active { color : purple }
 
 <br><a href="get_started.htm#Introduction" target="_top">Introduction</a>
 <br><a href="get_started.htm#Contents" target="_top">Contents</a>
-<br><a href="get_started.htm#Getting Started Directory" target="_top">Getting&nbsp;Started&nbsp;Directory</a>
+<br><a href="get_started.htm#omh/getstarted Directory" target="_top">omh/getstarted&nbsp;Directory</a>
+<br><a href="get_started.htm#xam Directory" target="_top">xam&nbsp;Directory</a>
+<br><a href="get_started.htm#example_name" target="_top">example_name</a>
+<br><a href="get_started.htm#example_extension" target="_top">example_extension</a>
+<br><a href="get_started.htm#Execute OMhelp" target="_top">Execute&nbsp;OMhelp</a>
+<br><a href="get_started.htm#bin/get_started.sh" target="_top">bin/get_started.sh</a>
 <br><br>
 <b><big><a name="Introduction" id="Introduction">Introduction</a></big></b>
 <br>
@@ -77,34 +82,75 @@ getting started examples listed below.
 <b><big><a name="Contents" id="Contents">Contents</a></big></b>
 <br>
 <table>
-<tr><td><a href="start_simple.htm" target="_top">start_simple</a></td><td>Getting&nbsp;Started&nbsp;With&nbsp;A&nbsp;Simple&nbsp;Section</td></tr><tr><td><a href="start_head.htm" target="_top">start_head</a></td><td>Headings&nbsp;and&nbsp;Subheadings&nbsp;Example</td></tr><tr><td><a href="start_image.htm" target="_top">start_image</a></td><td>An&nbsp;Example&nbsp;Using&nbsp;Images</td></tr><tr><td><a href="start_pre.htm" target="_top">start_pre</a></td><td>Preformatted&nbsp;Text&nbsp;Example</td></tr><tr><td><a href="start_font.htm" target="_top">start_font</a></td><td>Example&nbsp;Using&nbsp;Font&nbsp;Commands</td></tr><tr><td><a href="start_spell.htm" target="_top">start_spell</a></td><td>Spelling&nbsp;Command&nbsp;Example</td></tr><tr><td><a href="start_latex.htm" target="_top">start_latex</a></td><td>An&nbsp;Example&nbsp;Using&nbsp;Latex&nbsp;Math&nbsp;Formula&nbsp;Commands</td></tr><tr><td><a href="start_verbatim.htm" target="_top">start_verbatim</a></td><td>Example&nbsp;Using&nbsp;Verbatim&nbsp;Inclusion&nbsp;of&nbsp;a&nbsp;Text&nbsp;File</td></tr><tr><td><a href="start_src.htm" target="_top">start_src</a></td><td>Example&nbsp;Including&nbsp;Source&nbsp;Code</td></tr><tr><td><a href="start_embed.htm" target="_top">start_embed</a></td><td>Embedding&nbsp;OMhelp&nbsp;Commands&nbsp;in&nbsp;Source&nbsp;Code</td></tr><tr><td><a href="start_multiple.htm" target="_top">start_multiple</a></td><td>An&nbsp;Example&nbsp;With&nbsp;Multiple&nbsp;Input&nbsp;Files&nbsp;and&nbsp;Sections</td></tr><tr><td><a href="start_cref.htm" target="_top">start_cref</a></td><td>An&nbsp;Example&nbsp;Linking&nbsp;To&nbsp;Other&nbsp;Pages&nbsp;In&nbsp;The&nbsp;Same&nbsp;Web&nbsp;Site</td></tr><tr><td><a href="start_index.htm" target="_top">start_index</a></td><td>An&nbsp;Indexing&nbsp;Example</td></tr></table><br>
-<b><big><a name="Getting Started Directory" id="Getting Started Directory">Getting Started Directory</a></big></b>
+<tr><td><a href="start_simple.htm" target="_top">start_simple</a></td><td>Getting&nbsp;Started:&nbsp;A&nbsp;Very&nbsp;Simple&nbsp;Section</td></tr><tr><td><a href="start_head.htm" target="_top">start_head</a></td><td>Headings&nbsp;and&nbsp;Subheadings&nbsp;Example</td></tr><tr><td><a href="start_pre.htm" target="_top">start_pre</a></td><td>Preformatted&nbsp;Text&nbsp;Example</td></tr><tr><td><a href="start_font.htm" target="_top">start_font</a></td><td>Example&nbsp;Using&nbsp;Font&nbsp;Commands</td></tr><tr><td><a href="start_spell.htm" target="_top">start_spell</a></td><td>Spelling&nbsp;Command&nbsp;Example</td></tr><tr><td><a href="start_latex.htm" target="_top">start_latex</a></td><td>An&nbsp;Example&nbsp;Using&nbsp;Latex&nbsp;Math&nbsp;Formula&nbsp;Commands</td></tr><tr><td><a href="start_image.htm" target="_top">start_image</a></td><td>An&nbsp;Example&nbsp;Using&nbsp;Images</td></tr><tr><td><a href="start_verbatim.htm" target="_top">start_verbatim</a></td><td>Example&nbsp;Using&nbsp;Verbatim&nbsp;Inclusion&nbsp;of&nbsp;a&nbsp;Text&nbsp;File</td></tr><tr><td><a href="start_src.htm" target="_top">start_src</a></td><td>Example&nbsp;Including&nbsp;Source&nbsp;Code</td></tr><tr><td><a href="start_block.htm" target="_top">start_block</a></td><td>OMhelp&nbsp;in&nbsp;Source&nbsp;Code&nbsp;Using&nbsp;Block&nbsp;Comments</td></tr><tr><td><a href="start_oneline.htm" target="_top">start_oneline</a></td><td>OMhelp&nbsp;in&nbsp;Source&nbsp;Code&nbsp;Using&nbsp;One&nbsp;Line&nbsp;Comments</td></tr><tr><td><a href="start_multiple.htm" target="_top">start_multiple</a></td><td>Multiple&nbsp;Input&nbsp;Files&nbsp;and&nbsp;Sections</td></tr><tr><td><a href="start_cref.htm" target="_top">start_cref</a></td><td>Example&nbsp;Cross&nbsp;References&nbsp;And&nbsp;Multiple&nbsp;Children&nbsp;in&nbsp;One&nbsp;File</td></tr><tr><td><a href="start_index.htm" target="_top">start_index</a></td><td>An&nbsp;Indexing&nbsp;Example</td></tr></table><br>
+<b><big><a name="omh/getstarted Directory" id="omh/getstarted Directory">omh/getstarted Directory</a></big></b>
 <br>
 Each of the examples above request that you create one or
 more files using the editor of your choice.
 You can instead just copy the corresponding file from the directory
-<code><font color='blue'><pre style='display:inline'> 
-     omh/getstarted
-</pre></font></code>
-relative to the distribution directory
+<code><font color="blue">omh/getstarted</font></code>.
+This and the other directories and commands mentioned in this section
+are relative to the
+<a href="installunix.htm#Distribution Directory" target="_top"><span style='white-space: nowrap'>distribution&nbsp;directory</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="xam Directory" id="xam Directory">xam Directory</a></big></b>
+<br>
+We use <code><font color="blue">xam</font></code> as a temporary directory to copy files
+and run the examples.
+
+<br>
+<br>
+<b><big><a name="example_name" id="example_name">example_name</a></big></b>
+<br>
+The name of each example is specified by the documentation for the
+corresponding example.
+
+<br>
+<br>
+<b><big><a name="example_extension" id="example_extension">example_extension</a></big></b>
+<br>
+A few examples specify 
+<code><i><font color="black"><span style='white-space: nowrap'>example_extension</span></font></i></code>
+ in their documentation.
+The default value, when it is not specified, is <code><font color="blue">omh</font></code>.
+
+<br>
+<br>
+<b><big><a name="Execute OMhelp" id="Execute OMhelp">Execute OMhelp</a></big></b>
+<br>
+This requires building and installing OMhelp and making sure it is in your
+execution path.
+It also requires copying the example file to the <code><font color="blue">xam</font></code>
+directory.
+In the directory <code><font color="blue">xam/htm</font></code> execute the following command
 
 <code><font color="blue"><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;omhelp_</span></font><i><font color="black"><span style='white-space: nowrap'>yy</span></font></i><font color="blue"><span style='white-space: nowrap'>-</span></font><i><font color="black"><span style='white-space: nowrap'>mm</span></font></i><font color="blue"><span style='white-space: nowrap'>-</span></font><i><font color="black"><span style='white-space: nowrap'>dd</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;omhelp&nbsp;../</span></font><i><font color="black"><span style='white-space: nowrap'>example_name</span></font></i><font color="blue"><span style='white-space: nowrap'>.</span></font><i><font color="black"><span style='white-space: nowrap'>example_extension</span></font></i><font color="blue"><span style='white-space: nowrap'>&nbsp;-debug&nbsp;-noframe<br>
 </span></font></code>
-created during the <a href="install.htm" target="_top"><span style='white-space: nowrap'>installation&nbsp;of&nbsp;OMhelp</span></a>
-.
-If you have the bash shell on your system,
-there is a script file that can be run with the command
-<code><font color='blue'><pre style='display:inline'> 
-     ./run_all.sh
-</pre></font></code>
-This will run all of the getting started examples.
-The resulting web site files will be in the directory
-<code><font color='blue'><pre style='display:inline'> 
-     cd omh/getstarted/htm
-</pre></font></code>
+Once this command has executed,
+use a web browser of your choosing to view the file
 
-<hr>Input File: ../build/omh/getstarted/get_started.omh
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xam/htm/</span></font><i><font color="black"><span style='white-space: nowrap'>example_name</span></font></i><font color="blue"><span style='white-space: nowrap'>.htm<br>
+</span></font></code>
+<br>
+<b><big><a name="bin/get_started.sh" id="bin/get_started.sh">bin/get_started.sh</a></big></b>
+<br>
+If you have the bash shell on your system,
+the command
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bin/get_started.sh<br>
+</span></font></code>
+will copy the example files and run omhelp.
+It will run all of the getting started examples
+and allow your to inspect the results.
+
+
+<hr>Input File: build/omh/getstarted/get_started.omh
 
 </body>
 </html>

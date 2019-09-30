@@ -29,10 +29,10 @@ A:active { color : purple }
 <body>
 <table><tr>
 <td>
-<a href="https://github.com/bradbell/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
 </td>
-<td><a href="view_near_equal_c.htm" target="_top">Prev</a>
-</td><td><a href="view_near_equal_f.htm" target="_top">Next</a>
+<td><a href="start_block.htm" target="_top">Prev</a>
+</td><td><a href="start_oneline.htm" target="_top">Next</a>
 </td><td>
 <select onchange='choose_across0(this)'>
 <option>Index-&gt;</option>
@@ -46,20 +46,20 @@ A:active { color : purple }
 <td>
 <select onchange='choose_up0(this)'>
 <option>Up-&gt;</option>
-<option>overview</option>
+<option>omhelp</option>
 <option>get_started</option>
-<option>start_embed</option>
+<option>start_block</option>
 <option>near_equal_c</option>
 </select>
 </td>
 <td>
-<script type='text/javascript' language='JavaScript' src='_childtable_overview_htm.js'></script>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
 </td>
 <td>
 <script type='text/javascript' language='JavaScript' src='_childtable_get_started_htm.js'></script>
 </td>
 <td>
-<script type='text/javascript' language='JavaScript' src='_childtable_start_embed_htm.js'></script>
+<script type='text/javascript' language='JavaScript' src='_childtable_start_block_htm.js'></script>
 </td>
 <td>near_equal_c</td>
 </tr></table><br>
@@ -179,29 +179,24 @@ Otherwise, it is zero.
 The following is an example and test of <code><font color="blue">near_equal_c</font></code>,
 it returns true if the test succeeds and false if it fails:
 
-
-<code><font color="blue">
 <pre style='display:inline'> 
-// This extern statement should be in an include file so that it can be
-// included and checked by near_equal_c.c.
-extern int near_equal_c(double x, double y, double r, double a);
-
-int ok_near_equal_c()
-{	double x = 1.1;
-	double y = 1.2;
-	double r = .1;
-	double a = 0.;
-	if( near_equal_c(x, y, r, a) )
-		return 1; // expected return value (true)
-	else	return 0; // error return value (false)
-}
+     extern int near_equal_c(double x, double y, double r, double a);
+     
+     int ok_near_equal_c()
+     {	double x = 1.1;
+     	double y = 1.2;
+     	double r = .1;
+     	double a = 0.;
+     	if( near_equal_c(x, y, r, a) )
+     		return 1; // expected return value (true)
+     	else	return 0; // error return value (false)
+     }
 </pre>
 
-</font></code>
 
 
 
-<hr>Input File: getstarted/near_equal_c.c
+<hr>Input File: omh/getstarted/near_equal_c.c
 
 </body>
 </html>

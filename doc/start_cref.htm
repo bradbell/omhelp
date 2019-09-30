@@ -12,10 +12,10 @@ MathJax.Hub.Config({
 >
 </script>
 <head>
-<title>An Example Linking To Other Pages In The Same Web Site</title>
+<title>Example Cross References And Multiple Children in One File</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
-<meta name="description" id="description" content="An Example Linking To Other Pages In The Same Web Site">
-<meta name="keywords" id="keywords" content=" example linking to other pages the same web site cref get started link cross reference execute following steps cref_example_1.omh cref_example_2.omh this context omhelp itself ">
+<meta name="description" id="description" content="Example Cross References And Multiple Children in One File">
+<meta name="keywords" id="keywords" content=" example cross references multiple children one file cref cref_example.omh cref_children.omh execute this web site ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -29,10 +29,10 @@ A:active { color : purple }
 <body>
 <table><tr>
 <td>
-<a href="https://github.com/bradbell/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
 </td>
-<td><a href="multiple_example_2.htm" target="_top">Prev</a>
-</td><td><a href="cref_example_1.htm" target="_top">Next</a>
+<td><a href="child_2_example.htm" target="_top">Prev</a>
+</td><td><a href="cref_example.htm" target="_top">Next</a>
 </td><td>
 <select onchange='choose_across0(this)'>
 <option>Index-&gt;</option>
@@ -46,13 +46,13 @@ A:active { color : purple }
 <td>
 <select onchange='choose_up0(this)'>
 <option>Up-&gt;</option>
-<option>overview</option>
+<option>omhelp</option>
 <option>get_started</option>
 <option>start_cref</option>
 </select>
 </td>
 <td>
-<script type='text/javascript' language='JavaScript' src='_childtable_overview_htm.js'></script>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
 </td>
 <td>
 <script type='text/javascript' language='JavaScript' src='_childtable_get_started_htm.js'></script>
@@ -61,20 +61,17 @@ A:active { color : purple }
 <script type='text/javascript' language='JavaScript' src='_childtable_start_cref_htm.js'></script>
 </td>
 </tr></table><br>
-<center><b><big><big>An Example Linking To Other Pages In The Same Web Site</big></big></b></center>
+<center><b><big><big>Example Cross References And Multiple Children in One File</big></big></b></center>
 
 <br><a href="start_cref.htm#cref" target="_top">cref</a>
-<br><a href="start_cref.htm#Execute The Following Steps" target="_top">Execute&nbsp;The&nbsp;Following&nbsp;Steps</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_cref.htm#Execute The Following Steps.cref_example_1.omh" target="_top">cref_example_1.omh</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_cref.htm#Execute The Following Steps.cref_example_2.omh" target="_top">cref_example_2.omh</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_cref.htm#Execute The Following Steps.Example In This Web Site Context" target="_top">Example&nbsp;In&nbsp;This&nbsp;Web&nbsp;Site&nbsp;Context</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_cref.htm#Execute The Following Steps.Execute OMhelp" target="_top">Execute&nbsp;OMhelp</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_cref.htm#Execute The Following Steps.Example by Itself" target="_top">Example&nbsp;by&nbsp;Itself</a>
+<br><a href="start_cref.htm#cref_example.omh" target="_top">cref_example.omh</a>
+<br><a href="start_cref.htm#cref_children.omh" target="_top">cref_children.omh</a>
+<br><a href="start_cref.htm#Execute Example" target="_top">Execute&nbsp;Example</a>
+<br><a href="start_cref.htm#Example In This Web Site" target="_top">Example&nbsp;In&nbsp;This&nbsp;Web&nbsp;Site</a>
 <br><br>
 <b><big><a name="cref" id="cref">cref</a></big></b>
 <br>
-The cross reference command
-<a href="cref.htm" target="_top"><span style='white-space: nowrap'>cref</span></a>
+The cross reference command <a href="cref.htm" target="_top"><span style='white-space: nowrap'>cref</span></a>
 
 is used to link to another destination in the same web site.
 If the requested destination does not exist,
@@ -83,141 +80,87 @@ a warning is printed on <a href="stdout.htm" target="_top"><span style='white-sp
 
 <br>
 <br>
-<b><big><a name="Execute The Following Steps" id="Execute The Following Steps">Execute The Following Steps</a></big></b>
-
-
+<b><big><a name="cref_example.omh" id="cref_example.omh">cref_example.omh</a></big></b>
 <br>
-<br>
-<big><a name="Execute The Following Steps.cref_example_1.omh" id="Execute The Following Steps.cref_example_1.omh">cref_example_1.omh</a></big>
-<br>
-Use an editor of your choice to
-create the file <code><font color="blue">cref_example_1.omh</font></code>
-in the
-<a href="start_simple.htm#Execute The Following Steps.Test Directory" target="_top"><span style='white-space: nowrap'>test&nbsp;directory</span></a>
+Use the editor of your choice to
+create the file <code><font color="blue">cref_example.omh</font></code> in the
+<a href="get_started.htm#xam Directory" target="_top"><span style='white-space: nowrap'>xam&nbsp;directory</span></a>
 
 with the following contents:
-<code><font color="blue">
-<code><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>$begin <pre style='display:inline'>cref_example_1$$
+<pre style='display:inline'> 
+     $begin cref_example$$
      $spell
-     	Cref
+     	cref
+     	omh
+     	getstarted
+     	omhelp
+     	OMhelp
      $$
      
-     $section Parent Section For Cross Referencing Examples$$
+     $section Cross Reference Examples With One Argument$$
      
-     $head First Argument$$
+     $head Cross Reference Tag$$
      The first argument to a cref command is the text
      that the user sees for the link.
      This is also the default value for the cross reference tag of the
      section that we are linking to.
      Each section starts with a begin command
      that contains its cross reference tag as an argument.
-     The cross reference tag for this section is cref_example_1.
-     The cross reference tags for the children of this section are
-     $cref _contents$$,
-     $cref cref_example_2$$,
-     $cref Cref3Example$$,
-     $cref _reference$$,
-     $cref _index$$, or
-     $cref _search$$.
-     Note that the sections corresponding to
-     _contents,
-     _reference,
-     _index,
-     and _search,
-     are automatically generated.
+     The cross reference tag for this section is $code cref_example$$.
      
-     $contents/
-     	cref_example_2.omh/$$
+     $head Examples$$
+     $cref cref_child_1$$, $cref cref_child_2$$.
+     
+     $head cref_children.omh$$
+     $verbatim%omh/getstarted/cref_children.omh%
+     	5%BEGIN_CREF_CHILDREN%END_CREF_CHILDREN%0
+     %$$
+     
+     $contents%
+     	omh/getstarted/cref_children.omh
+     %$$
      
      $end
 </pre>
 
-</font></code>
-Note that you can copy and paste the commands above
-to your editor window.
-You may just copy the file with the same name from the
-<a href="get_started.htm#Getting Started Directory" target="_top"><span style='white-space: nowrap'>getting&nbsp;started&nbsp;directory</span></a>
+You can also just copy <code><font color="blue">cref_example.omh</font></code> from the
+<a href="get_started.htm#omh/getstarted Directory" target="_top"><span style='white-space: nowrap'>omh/getstarted&nbsp;directory</span></a>
 .
 
 <br>
 <br>
-<big><a name="Execute The Following Steps.cref_example_2.omh" id="Execute The Following Steps.cref_example_2.omh">cref_example_2.omh</a></big>
+<b><big><a name="cref_children.omh" id="cref_children.omh">cref_children.omh</a></big></b>
 <br>
-Use an editor of your choice to
-create the file <code><font color="blue"> cref_example_2.omh</font></code>
-in the
-<a href="start_simple.htm#Execute The Following Steps.Test Directory" target="_top"><span style='white-space: nowrap'>test&nbsp;directory</span></a>
+Copy <code><font color="blue">omh/getstarted/cref_children.omh</font></code> from the
+<a href="get_started.htm#omh/getstarted Directory" target="_top"><span style='white-space: nowrap'>omh/getstarted&nbsp;Directory</span></a>
 
-with the following contents:
-<code><font color="blue">
-<code><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>$begin <pre style='display:inline'>cref_example_2$$
-     $spell
-     	cref
-     $$
-     
-     $section An Example Specifying the Cross Reference Tag$$
-     
-     If there is more than one argument to a cref command,
-     the second argument specifies the cross reference tag.
-     For example, if you select the following link:
-     $cref/parent of this section/cref_example_1/$$.
-     
-     $end
-     ----------------------------------------------------------------------
-     $begin Cref3Example$$
-     $spell
-     	cref
-     	omhelp
-     $$
-     
-     $section An Example Specifying a Heading $$
-     
-     The third argument to a cref command specifies the heading
-     for the cross reference.
-     For example, if you select the following link:
-     $cref/first argument/cref_example_1/First Argument/$$.
-     
-     $end
-     ----------------------------------------------------------------------
-</pre>
-
-</font></code>
-
-<br>
-<br>
-<big><a name="Execute The Following Steps.Example In This Web Site Context" id="Execute The Following Steps.Example In This Web Site Context">Example In This Web Site Context</a></big>
-<br>
-You can view the
-result of making <code><font color="blue">cref_example_1.omh</font></code>
-part of the OMhelp help web site
-by selecting
-<a href="cref_example_1.htm" target="_top"><span style='white-space: nowrap'>cref_example_1</span></a>
+to the
+<a href="get_started.htm#xam Directory" target="_top"><span style='white-space: nowrap'>xam&nbsp;directory</span></a>
 .
+In the copy of <code><font color="blue">cref_example.omh</font></code>, change
+<code><font color="blue">omh/getstarted/cref_children.omh</font></code> to <code><font color="blue">cref_children.omh</font></code>.
 
 <br>
 <br>
-<big><a name="Execute The Following Steps.Execute OMhelp" id="Execute The Following Steps.Execute OMhelp">Execute OMhelp</a></big>
+<b><big><a name="Execute Example" id="Execute Example">Execute Example</a></big></b>
 <br>
-In a command window and
-in the
-<a href="start_simple.htm#Execute The Following Steps.Htm Directory" target="_top"><span style='white-space: nowrap'>htm&nbsp;directory</span></a>
+Once you have copied the files mentioned above, you can
+<a href="get_started.htm#Execute OMhelp" target="_top"><span style='white-space: nowrap'>execute&nbsp;omhelp</span></a>
+ with
+<a href="get_started.htm#example_name" target="_top"><span style='white-space: nowrap'>example_name</span></a>
+ equal to
+<code><font color="blue">cref_example</font></code>.
 
-execute the following command
-<code><font color='blue'><pre style='display:inline'> 
-     omhelp ../cref_example_1.omh -noframe
-</pre></font></code>
 <br>
-<big><a name="Execute The Following Steps.Example by Itself" id="Execute The Following Steps.Example by Itself">Example by Itself</a></big>
 <br>
-Use a web browser of your choosing to view the file
-
-<code><i><font color="black"><span style='white-space: nowrap'>test</span></font></i><font color="blue"><span style='white-space: nowrap'>/htm/cref_example_1.htm</span></font></code>
+<b><big><a name="Example In This Web Site" id="Example In This Web Site">Example In This Web Site</a></big></b>
+<br>
+You can view the result of making <code><font color="blue">cref_example.omh</font></code>
+part of the OMhelp help web site by selecting <a href="cref_example.htm" target="_top"><span style='white-space: nowrap'>cref_example</span></a>
 .
 
 
-<hr>Input File: getstarted/start_cref.omh
+<hr>Input File: omh/getstarted/start_cref.omh
 
 </body>
 </html>

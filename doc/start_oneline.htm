@@ -1,0 +1,241 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>OMhelp in Source Code Using One Line Comments</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="OMhelp in Source Code Using One Line Comments">
+<meta name="keywords" id="keywords" content=" omhelp source code using one line comments begin end languages newlinech near_equal_f.f ok_near_equal_f.f execute example this web site ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_start_oneline_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="near_equal_c.htm" target="_top">Prev</a>
+</td><td><a href="near_equal_f.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>omhelp</option>
+<option>get_started</option>
+<option>start_oneline</option>
+</select>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_get_started_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_start_oneline_htm.js'></script>
+</td>
+</tr></table><br>
+
+
+
+
+
+
+<center><b><big><big>OMhelp in Source Code Using One Line Comments</big></big></b></center>
+
+<br><a href="start_oneline.htm#begin, end" target="_top">begin,&nbsp;end</a>
+<br><a href="start_oneline.htm#Source Code Languages" target="_top">Source&nbsp;Code&nbsp;Languages</a>
+<br><a href="start_oneline.htm#newlinech" target="_top">newlinech</a>
+<br><a href="start_oneline.htm#near_equal_f.f" target="_top">near_equal_f.f</a>
+<br><a href="start_oneline.htm#ok_near_equal_f.f" target="_top">ok_near_equal_f.f</a>
+<br><a href="start_oneline.htm#Execute Example" target="_top">Execute&nbsp;Example</a>
+<br><a href="start_oneline.htm#Example In This Web Site" target="_top">Example&nbsp;In&nbsp;This&nbsp;Web&nbsp;Site</a>
+<br><br>
+<b><big><a name="begin, end" id="begin, end">begin, end</a></big></b>
+<br>
+OMhelp is designed to be embedded in computer source code.
+In fact, it is language independent and can be can combine source
+code files in multiple languages to form one documentation system.
+Only the text between a <a href="begin.htm" target="_top"><span style='white-space: nowrap'>begin</span></a>
+ and a <code><font color="blue">$end</font></code> is processed
+by OMhelp.
+It is intended that these commands be comments in the language.
+
+<br>
+<br>
+<b><big><a name="Source Code Languages" id="Source Code Languages">Source Code Languages</a></big></b>
+<br>
+This example covers languages that only have one line comments; e.g.,
+Matlab, Fortran, R.
+(The R language uses the $ character, this it may be necessary to change
+the OMhelp <a href="keycharacter.htm" target="_top"><span style='white-space: nowrap'>KeyCharacter</span></a>
+.)
+
+<br>
+<br>
+<b><big><a name="newlinech" id="newlinech">newlinech</a></big></b>
+<br>
+The <a href="newlinech.htm" target="_top"><span style='white-space: nowrap'>newlinech</span></a>
+ command is used to specify which character is
+used for one line comments.
+
+<br>
+<br>
+<b><big><a name="near_equal_f.f" id="near_equal_f.f">near_equal_f.f</a></big></b>
+<br>
+Use the editor of your choice to
+create the file <code><font color="blue">near_equal_f.f</font></code> in the
+<a href="get_started.htm#xam Directory" target="_top"><span style='white-space: nowrap'>xam&nbsp;directory</span></a>
+
+with the following contents:
+<pre style='display:inline'> 
+     c $begin near_equal_f$$ $newlinech c$$
+     c $spell
+     c $$
+     c
+     c $section Determine if Two Values Are Nearly Equal$$
+     c
+     c $head Syntax$$
+     c $icode%e% = near_equal_f(%x%, %y%, %r%, %a%)%$$
+     c
+     c $head Purpose$$
+     c Returns true,
+     c if $icode x$$ is nearly equal to $icode y$$ and false otherwise.
+     c
+     c $head x$$
+     c The argument $icode x$$ has prototype
+     c $codei%
+     c	double precision %x%
+     c %$$
+     c
+     c $head y$$
+     c The argument $icode y$$ has prototype
+     c $codei%
+     c	double precision %y%
+     c %$$
+     c
+     c $head r$$
+     c The relative error criteria $icode r$$ has prototype
+     c $codei%
+     c	double precision %r%
+     c %$$
+     c It must be greater than or equal zero.
+     c The relative error condition is satisfied if
+     c $latex \[
+     c	| x - y | \leq r ( |x| + |y| )
+     c \] $$
+     c where $latex \leq$$ denotes less than or equal.
+     c
+     c $head a$$
+     c The absolute error criteria $icode a$$ has prototype
+     c $codei%
+     c	double precision %a%
+     c %$$
+     c It must be greater than or equal zero.
+     c The absolute error condition is satisfied if
+     c $latex \[
+     c	| x - y | \leq a
+     c \] $$
+     c
+     c $head e$$
+     c The return value $icode e$$ has prototype
+     c $codei%
+     c	logical %e%
+     c %$$
+     c If either the relative or absolute error condition is satisfied,
+     c it is true.
+     c Otherwise, it is false.
+     c
+     c
+     c $head Example$$
+     c The following is an example and test of $code near_equal_f$$.
+     c It returns true if the test succeeds and false if it fails.
+     c
+     c $comment no indent, start output at text following END COPYRIGHT$$
+     c $code
+     c $verbatim%omh/getstarted/ok_near_equal_f.f%
+     c       5%c BEGIN_OK_NEAR_EQUAL_F%c END_OK_NEAR_EQUAL_F%0
+     c %$$
+     c $$
+     c
+     c $end
+     c ---------------------------------------------------------------------------
+           logical function near_equal_f(x, y, r, a)
+           double precision x, y, r, a
+           double precision ax, ay, d
+           ax = dabs(x);
+           ay = dabs(y);
+           ad = dabs(x - y);
+           near_equal_f = (ad .le. a) .or. (ad .le. r * (ax + ay));
+           end
+</pre>
+
+You can also just copy <code><font color="blue">near_equal_f.f</font></code> from the
+<a href="get_started.htm#omh/getstarted Directory" target="_top"><span style='white-space: nowrap'>omh/getstarted&nbsp;directory</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="ok_near_equal_f.f" id="ok_near_equal_f.f">ok_near_equal_f.f</a></big></b>
+<br>
+Copy <code><font color="blue">omh/getstarted/ok_near_equal_f.f</font></code> from the
+<a href="get_started.htm#omh/getstarted Directory" target="_top"><span style='white-space: nowrap'>omh/getstarted&nbsp;Directory</span></a>
+
+to the
+<a href="get_started.htm#xam Directory" target="_top"><span style='white-space: nowrap'>xam&nbsp;directory</span></a>
+.
+In the copy of <code><font color="blue">near_equal_f.f</font></code>, change
+<code><font color="blue">omh/getstarted/ok_near_equal_f.f</font></code> to <code><font color="blue">ok_near_equal_f.f</font></code>.
+
+<br>
+<br>
+<b><big><a name="Execute Example" id="Execute Example">Execute Example</a></big></b>
+<br>
+Once you have copied the files mentioned above, you can
+<a href="get_started.htm#Execute OMhelp" target="_top"><span style='white-space: nowrap'>execute&nbsp;omhelp</span></a>
+ with
+<a href="get_started.htm#example_name" target="_top"><span style='white-space: nowrap'>example_name</span></a>
+ equal to
+<code><font color="blue">near_equal_f</font></code> and
+<a href="get_started.htm#example_extension" target="_top"><span style='white-space: nowrap'>example_extension</span></a>
+ equal to <code><font color="blue">f</font></code>.
+
+<br>
+<br>
+<b><big><a name="Example In This Web Site" id="Example In This Web Site">Example In This Web Site</a></big></b>
+<br>
+You can view the result of making <code><font color="blue">near_equal_f.f</font></code>
+part of the OMhelp help web site by selecting <a href="near_equal_f.htm" target="_top"><span style='white-space: nowrap'>near_equal_f</span></a>
+.
+
+
+<hr>Input File: omh/getstarted/start_oneline.omh
+
+</body>
+</html>

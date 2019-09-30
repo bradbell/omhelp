@@ -1,0 +1,356 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Changes and Additions to OMhelp During 2005</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Changes and Additions to OMhelp During 2005">
+<meta name="keywords" id="keywords" content=" changes additions to omhelp during 2005 description 12-16 12-06 11-08 10-27 10-22 10-05 09-24 08-15 08-14 07-05 06-29 06-26 06-24 05-18 02-17 02-15 02-13 02-10 02-05 ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_whats_new_05_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="whats_new_06.htm" target="_top">Prev</a>
+</td><td><a href="whats_new_04.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>omhelp</option>
+<option>whats_new</option>
+<option>whats_new_05</option>
+</select>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_whats_new_htm.js'></script>
+</td>
+<td>whats_new_05</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Changes and Additions to OMhelp During 2005</big></big></b></center>
+
+<br><a href="whats_new_05.htm#Description" target="_top">Description</a>
+<br><a href="whats_new_05.htm#12-16" target="_top">12-16</a>
+<br><a href="whats_new_05.htm#12-06" target="_top">12-06</a>
+<br><a href="whats_new_05.htm#11-08" target="_top">11-08</a>
+<br><a href="whats_new_05.htm#10-27" target="_top">10-27</a>
+<br><a href="whats_new_05.htm#10-22" target="_top">10-22</a>
+<br><a href="whats_new_05.htm#10-05" target="_top">10-05</a>
+<br><a href="whats_new_05.htm#09-24" target="_top">09-24</a>
+<br><a href="whats_new_05.htm#08-15" target="_top">08-15</a>
+<br><a href="whats_new_05.htm#08-14" target="_top">08-14</a>
+<br><a href="whats_new_05.htm#07-05" target="_top">07-05</a>
+<br><a href="whats_new_05.htm#06-29" target="_top">06-29</a>
+<br><a href="whats_new_05.htm#06-26" target="_top">06-26</a>
+<br><a href="whats_new_05.htm#06-24" target="_top">06-24</a>
+<br><a href="whats_new_05.htm#05-18" target="_top">05-18</a>
+<br><a href="whats_new_05.htm#02-17" target="_top">02-17</a>
+<br><a href="whats_new_05.htm#02-15" target="_top">02-15</a>
+<br><a href="whats_new_05.htm#02-13" target="_top">02-13</a>
+<br><a href="whats_new_05.htm#02-10" target="_top">02-10</a>
+<br><a href="whats_new_05.htm#02-05" target="_top">02-05</a>
+<br><br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This section contains a list of changes to
+OMhelp during 2005 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+<br>
+<br>
+<b><big><a name="12-16" id="12-16">12-16</a></big></b>
+<br>
+Links to specific frames were not working properly in Firefox 1.5
+This has been fixed.
+
+<br>
+<br>
+<b><big><a name="12-06" id="12-06">12-06</a></big></b>
+<br>
+In FreeBSD, <code><font color="blue">malloc.h</font></code> is obsolete and one should use
+<code><font color="blue">stdlib.h</font></code> instead.
+The reference to <code><font color="blue">malloc.h</font></code> has been removed from
+<code><font color="blue">src/allocmem.c</font></code>.
+
+<br>
+<br>
+<b><big><a name="11-08" id="11-08">11-08</a></big></b>
+<br>
+It used to be that multiple white space was ignored when it followed
+an occurrence of a special character after a <a href="newlinech.htm" target="_top"><span style='white-space: nowrap'>newlinech</span></a>
+.
+This made it impossible to indent multiple lines within a
+<a href="syntax.htm" target="_top"><span style='white-space: nowrap'>syntax</span></a>
+ command.
+This has been fixed by only ignoring the first space or tab
+following an occurrence of the special newline character after
+a newline.
+
+<br>
+<br>
+<b><big><a name="10-27" id="10-27">10-27</a></big></b>
+<br>
+The automatic links to This: <code><font color="blue">section</font></code>, <code><font color="blue">frame</font></code>
+(in the upper right corner of the window)
+has been omitted when there is only one section and one frame
+in the entire web site.
+This is useful when using OMhelp to create a single web page.
+
+
+<br>
+<br>
+<b><big><a name="10-22" id="10-22">10-22</a></big></b>
+<br>
+The Mozilla bug section has been updated
+so that it is relative to the current version of <a href="firefox.htm" target="_top"><span style='white-space: nowrap'>Firefox</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="10-05" id="10-05">10-05</a></big></b>
+<br>
+The <a href="wspace.htm" target="_top"><span style='white-space: nowrap'>wspace</span></a>
+ command is deficient in a few ways:
+it generates white space that sometimes interferes with output formatting,
+it is very difficult to use with the Fortran programming language.
+The <a href="newlinech.htm" target="_top"><span style='white-space: nowrap'>newlinech</span></a>
+ command, which overcomes these problems,
+had been added and the <code><font color="blue">wspace</font></code> command has been deprecated.
+
+<br>
+<br>
+<b><big><a name="09-24" id="09-24">09-24</a></big></b>
+<br>
+In the <a href="installunix.htm" target="_top"><span style='white-space: nowrap'>Unix&nbsp;install</span></a>
+ case, the file
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>prefix</span></font></i><font color="blue"><span style='white-space: nowrap'>/share/OMhelp/dictionary.bin<br>
+</span></font></code>
+was created the first time OMhelp was run.
+This would cause an error if the user running
+the program did not have permission to write in the 
+<code><i><font color="black"><span style='white-space: nowrap'>prefix</span></font></i></code>
+
+directory.
+This has been fixed by changing the
+<a href="installunix.htm#Spelling List" target="_top"><span style='white-space: nowrap'>spelling&nbsp;list</span></a>
+ install procedure.
+
+<br>
+<br>
+<b><big><a name="08-15" id="08-15">08-15</a></big></b>
+<br>
+The install directory was not being properly embedded in the program
+during the <a href="installunix.htm" target="_top"><span style='white-space: nowrap'>unix&nbsp;install</span></a>
+. This has been fixed.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The file <code><font color="blue">RunOMhelp.bat</font></code>, which is used during the windows install,
+was not being distributed. This has been fixed.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The first output line, which identifies the version of OMhelp, has been
+extended to include information about compiler flag settings.
+
+
+<br>
+<br>
+<b><big><a name="08-14" id="08-14">08-14</a></big></b>
+<br>
+Standard latex treats subscripts and superscripts for some of the
+<a href="stdfun.htm" target="_top"><span style='white-space: nowrap'>standard&nbsp;math&nbsp;functions</span></a>
+ differently
+when they are in
+<a href="stdfun.htm#Inline Formulas" target="_top"><span style='white-space: nowrap'>inline&nbsp;formulas</span></a>
+ from when they are in
+<a href="stdfun.htm#Display Formulas" target="_top"><span style='white-space: nowrap'>Displayed&nbsp;formulas</span></a>
+.
+
+
+<br>
+<br>
+<b><big><a name="07-05" id="07-05">07-05</a></big></b>
+<br>
+The <code><font color="blue">#</font></code> character is used to separate fields in cross references.
+This confused OMhelp when a heading or subheading contained the
+<code><font color="blue">#</font></code> character.
+The <a href="head.htm" target="_top"><span style='white-space: nowrap'>head</span></a>
+ and <code><font color="blue">subhead</font></code> commands
+were modified to make it illegal to include the <code><font color="blue">#</font></code> character.
+(It would be better to separate fields differently so that this
+restriction could be removed.)
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The previous install worked under cygwin, but not under Unix, because
+of some case mismatch in the file names. This has been fixed by converting
+the file names to entirely lower case as suggested by
+<a href="http://www.boost.org/more/lib_guide.htm#Directory_structure" target="_top"><span style='white-space: nowrap'>boost</span></a>
+
+The conversion to entirely lower case file and directory names
+will be done slowly and with minimal user impact.
+
+
+
+
+<br>
+<br>
+<b><big><a name="06-29" id="06-29">06-29</a></big></b>
+<br>
+The <a href="installunix.htm" target="_top"><span style='white-space: nowrap'>Unix&nbsp;install</span></a>
+ now uses autoconf and automake
+and the environment variable <code><font color="blue">omhelp_dir</font></code> is no longer necessary.
+In addition, the Unix and Windows
+<a href="install.htm" target="_top"><span style='white-space: nowrap'>install</span></a>
+ instructions were split into two separate
+sections and improved.
+
+<br>
+<br>
+<b><big><a name="06-26" id="06-26">06-26</a></big></b>
+<br>
+The
+<a href="running.htm#omhelp_dir" target="_top"><span style='white-space: nowrap'>-omhelp_dir&nbsp;dir</span></a>
+
+command was added.
+This specifies the OMhelp installation directory on the
+command line was added.
+
+<br>
+<br>
+<b><big><a name="06-24" id="06-24">06-24</a></big></b>
+<br>
+OMhelp now supports Microsoft Visual C++ version 7 or higher
+(version 6 is no longer supported).
+The project files have been changed to version 7 format.
+In addition, only source code distributions are included; i.e.,
+a windows executable with out source code is no longer distributed.
+
+<br>
+<br>
+<b><big><a name="05-18" id="05-18">05-18</a></big></b>
+<br>
+The use input
+<code><font color='blue'><pre style='display:inline'> 
+     $table
+     $bold Notation $cnext Description$$
+     $tend
+</pre></font></code>
+did not cause an OMhelp error but the corresponding web page
+generated an XML error (and the HTML did not display properly).
+This is because the bold command is started inside of one column
+and terminated in a different column of the table.
+This has been fixed so that OMhelp generates an error message
+in this an related cases.
+In addition, the documentation for the
+<a href="table.htm" target="_top"><span style='white-space: nowrap'>table</span></a>
+ commands have been improved so that it explicitly states
+where row and columns start and end
+(and a nesting table example has been added).
+
+<br>
+<br>
+<b><big><a name="02-17" id="02-17">02-17</a></big></b>
+<br>
+A command as was added so that one can control the
+<a href="align.htm" target="_top"><span style='white-space: nowrap'>alignment</span></a>
+ of data within each cell of a table.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The files <code><font color="blue">build</font></code> and <code><font color="blue">build.bat</font></code>
+were moved to <code><font color="blue">RunOMhelp</font></code> and <code><font color="blue">RunOMhelp.bat</font></code>
+(see <a href="install.htm" target="_top"><span style='white-space: nowrap'>install</span></a>
+).
+
+<br>
+<br>
+<b><big><a name="02-15" id="02-15">02-15</a></big></b>
+<br>
+The download files and <a href="install.htm" target="_top"><span style='white-space: nowrap'>installation</span></a>
+ instructions
+were changed.
+All the download files now use 
+<code><i><font color="black"><span style='white-space: nowrap'>*</span></font></i><font color="blue"><span style='white-space: nowrap'>.tar.gz</span></font></code>
+ format which
+gives better compression and is understood by most decompression programs.
+
+
+<br>
+<br>
+<b><big><a name="02-13" id="02-13">02-13</a></big></b>
+<br>
+The <a href="accent.htm" target="_top"><span style='white-space: nowrap'>accent</span></a>
+ command was added to improve the display
+of Spanish text.
+
+<br>
+<br>
+<b><big><a name="02-10" id="02-10">02-10</a></big></b>
+<br>
+The upper right corner now contains a link to the current frame by itself; i.e,
+displayed without the supporting navigation frames
+and other frames for the same section.
+The other automatically generated links, such as previous and next
+were reorganized and right (instead of left) justified.
+
+<br>
+<br>
+<b><big><a name="02-05" id="02-05">02-05</a></big></b>
+<br>
+If Java Script is not enabled in a user's browser,
+and the <a href="_search.htm" target="_top"><span style='white-space: nowrap'>search</span></a>
+ page is entered,
+an error message is printed.
+A spelling error in this message was fixed.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>If one uses long <a href="head.htm" target="_top"><span style='white-space: nowrap'>headings</span></a>
+ and subheadings,
+it is sometimes useful to break them up into multiple lines.
+The cross reference links have been extended so that they will
+still work for such headings and subheadings
+(see <a href="xref.htm#Reference" target="_top"><span style='white-space: nowrap'>xref:&nbsp;Reference</span></a>
+).
+
+
+<hr>Input File: omh/whats_new/05.omh
+
+</body>
+</html>

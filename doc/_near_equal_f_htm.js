@@ -6,9 +6,9 @@ var list_across0 = [
 '_external.htm'
 ];
 var list_up0 = [
-'overview.htm',
+'omhelp.htm',
 'get_started.htm',
-'start_embed.htm',
+'start_oneline.htm',
 'near_equal_f.htm'
 ];
 function choose_across0(item)

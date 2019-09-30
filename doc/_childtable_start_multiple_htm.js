@@ -2,14 +2,12 @@
 document.write('\
 <select onchange="start_multiple_child(this)">\
 <option>start_multiple-&gt;</option>\
-<option>multiple_example_1</option>\
-<option>multiple_example_2</option>\
+<option>parent_example</option>\
 </select>\
 ');
 function start_multiple_child(item)
 {	var child_list = [
-		'multiple_example_1.htm',
-		'multiple_example_2.htm'
+		'parent_example.htm'
 	];
 	var index = item.selectedIndex;
 	item.selectedIndex = 0;

@@ -1,0 +1,599 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Changes and Additions to OMhelp During 2008</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Changes and Additions to OMhelp During 2008">
+<meta name="keywords" id="keywords" content=" changes additions to omhelp during 2008 description 10-01 07-08 04-11 03-22 03-21 ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_whats_new_08_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="whats_new_09.htm" target="_top">Prev</a>
+</td><td><a href="whats_new_07.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>omhelp</option>
+<option>whats_new</option>
+<option>whats_new_08</option>
+</select>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_whats_new_htm.js'></script>
+</td>
+<td>whats_new_08</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Changes and Additions to OMhelp During 2008</big></big></b></center>
+
+<br><a href="whats_new_08.htm#Description" target="_top">Description</a>
+<br><a href="whats_new_08.htm#10-01" target="_top">10-01</a>
+<br><a href="whats_new_08.htm#07-08" target="_top">07-08</a>
+<br><a href="whats_new_08.htm#04-11" target="_top">04-11</a>
+<br><a href="whats_new_08.htm#03-22" target="_top">03-22</a>
+<br><a href="whats_new_08.htm#03-21" target="_top">03-21</a>
+<br><br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This section contains a list of changes to
+OMhelp during 2008 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+<br>
+<br>
+<b><big><a name="10-01" id="10-01">10-01</a></big></b>
+<br>
+The <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+ and <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
+ commands
+were generating extra new lines at the beginning and end of the
+corresponding text (after the fix on 08-07-08).
+This has been fixed.
+
+<br>
+<br>
+<b><big><a name="07-08" id="07-08">07-08</a></big></b>
+<br>
+There is a problem with Firefox's
+<a href="firefox.htm#Copy and Paste" target="_top"><span style='white-space: nowrap'>copy&nbsp;and&nbsp;paste</span></a>
+ which results
+in extra new lines.
+The <a href="codep.htm" target="_top"><span style='white-space: nowrap'>codep</span></a>
+ and <a href="verbatim.htm" target="_top"><span style='white-space: nowrap'>verbatim</span></a>
+
+command outputs have been changed so that these commands are not affected.
+
+<br>
+<br>
+<b><big><a name="04-11" id="04-11">04-11</a></big></b>
+<br>
+Change getting started examples
+<code><font color="blue">near_equal.c</font></code> and <code><font color="blue">near_equal.f</font></code>
+to <a href="near_equal_c.htm" target="_top"><span style='white-space: nowrap'>near_equal_c</span></a>
+ and <a href="near_equal_f.htm" target="_top"><span style='white-space: nowrap'>near_equal_f</span></a>
+.
+This makes it simpler to avoid conflicts between
+the C and Fortran versions of these files.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>The test of <a href="near_equal_f.htm" target="_top"><span style='white-space: nowrap'>near_equal_f</span></a>
+ was failing to link properly
+to the corresponding C main program.
+This has been fixed by
+adding configuration testing that checks how Fortran names
+should be linked from C.
+
+
+<br>
+<br>
+<b><big><a name="03-22" id="03-22">03-22</a></big></b>
+<br>
+Modify the method where by symbols change size in displayed formulas;
+see <a href="displaysym.htm" target="_top"><span style='white-space: nowrap'>DisplaySym</span></a>
+.
+This fixed <code><font color="blue">\bigcap</font></code> and <code><font color="blue">\bigcup</font></code> in displayed formulas.
+
+
+<br>
+<br>
+<b><big><a name="03-21" id="03-21">03-21</a></big></b>
+<br>
+Some of the Latex <a href="symbol.htm" target="_top"><span style='white-space: nowrap'>symbols</span></a>
+ were using character codes
+of the form 
+<code><font color="blue"><span style='white-space: nowrap'>&amp;x0F5</span></font><i><font color="black"><span style='white-space: nowrap'>hh</span></font></i></code>
+ (where 
+<code><i><font color="black"><span style='white-space: nowrap'>hh</span></font></i></code>
+ is two hex digits).
+Such codes are not in the current MathML standard; e.g., see
+<code><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code> <a href="http://www.w3.org/TR/MathML2/byalpha.html" target="_top"><span style='white-space: nowrap'>http://www.w3.org/TR/MathML2/byalpha.html</span></a>
+
+<code><span style='white-space: nowrap'><br>
+</span></code>This has been fixed.
+Most all the codes now come directly from the standard document listed above.
+The exceptions are <code><font color="blue">\diamondsuit</font></code> and <code><font color="blue">\heartsuit</font></code>.
+You can find a list of which of these codes are not displayed properly for
+Firefox and IE Explorer at the following links:
+<a href="firefox.htm#Symbols" target="_top"><span style='white-space: nowrap'>Firefox</span></a>
+, <a href="explorer.htm#MathML.Symbols" target="_top"><span style='white-space: nowrap'>IE&nbsp;Explorer</span></a>
+.
+Here is a list of the OMhelp Latex symbols that changed with
+this correction to OMhelp:
+
+
+ <table><tr><td align='left'  valign='top'>
+
+<b>Latex</b>  <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <b>Display</b>       <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <b>Old Code</b>      <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <b>Old Display</b>   <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <b>New Code</b>      <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <b>New Display</b> </td></tr><tr><td align='left'  valign='top'>
+
+\Box <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\Box
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x025FD; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x025FD;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x025A1; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x025A1;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\Longleftarrow <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\Longleftarrow
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x0F579; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0F579;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x027F8; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x027F8;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\Longleftrightarrow <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\Longleftrightarrow
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x0F57B; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0F57B;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x027FA; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x027FA;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\Longrightarrow <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\Longrightarrow
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x0F57A; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0F57A;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x027F9; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x027F9;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\bigodot <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\bigodot
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02299; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02299;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02A00; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02A00;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\bigoplus <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\bigoplus
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02295; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02295;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02A01; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02A01;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\bigotimes <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\bigotimes
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02297; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02297;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02A02; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02A02;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\biguplus <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\biguplus
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x0228E; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0228E;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02A04; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02A04;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\diamondsuit <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\diamondsuit
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02666; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02666;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02662; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02662;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\epsilon <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\epsilon
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x003B5; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x003B5;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02208; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mi mathvariant='normal'>&#x02208;</mi>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\longleftarrow <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\longleftarrow
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x0F576; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0F576;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x027F5; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x027F5;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\longleftrightarrow <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\longleftrightarrow
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x0F578; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0F578;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x027F7; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x027F7;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\longmapsto <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\longmapsto
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x0F57D; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0F57D;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x027FC; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x027FC;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\longrightarrow <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\longrightarrow
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x0F577; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0F577;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x027F6; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x027F6;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\oslash <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\oslash
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x000F8; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x000F8;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02298; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02298;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\phi <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\phi
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x003C6; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x003C6;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x003D5; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mi mathvariant='normal'>&#x003D5;</mi>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\star <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\star
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x022C6; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x022C6;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02605; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02605;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\succeq <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\succeq
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x0227D; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0227D;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x02AB0; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x02AB0;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\triangle <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\triangle
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x025B5; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x025B5;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x025B3; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x025B3;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\triangleleft <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\triangleleft
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x025C3; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x025C3;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x022B2; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x022B2;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\triangleright <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\triangleright
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x025B9; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x025B9;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x022B3; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x022B3;</mo>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\varepsilon <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\varepsilon
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x0025B; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x0025B;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x003B5; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mi mathvariant='normal'>&#x003B5;</mi>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+\varphi <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\varphi
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x003D5; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mo>&#x003D5;</mo>}
+@)@</small> <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ &amp;#x003C6; <code><span style='white-space: nowrap'>&nbsp;&nbsp;</span></code>
+	</td><td align='left'  valign='top'>
+ <small>@(@
+\mathml{<mi mathvariant='normal'>&#x003C6;</mi>}
+@)@</small> </td></tr><tr><td align='left'  valign='top'>
+
+</td></tr>
+</table>
+
+<hr>Input File: omh/whats_new/08.omh
+
+</body>
+</html>

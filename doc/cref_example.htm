@@ -1,0 +1,147 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Cross Reference Examples With One Argument</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Cross Reference Examples With One Argument">
+<meta name="keywords" id="keywords" content=" cross reference examples with one argument tag cref_children.omh ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_cref_example_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="start_cref.htm" target="_top">Prev</a>
+</td><td><a href="cref_child_1.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>omhelp</option>
+<option>get_started</option>
+<option>start_cref</option>
+<option>cref_example</option>
+</select>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_get_started_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_start_cref_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_cref_example_htm.js'></script>
+</td>
+</tr></table><br>
+
+
+
+<center><b><big><big>Cross Reference Examples With One Argument</big></big></b></center>
+
+<br><a href="cref_example.htm#Cross Reference Tag" target="_top">Cross&nbsp;Reference&nbsp;Tag</a>
+<br><a href="cref_example.htm#Examples" target="_top">Examples</a>
+<br><a href="cref_example.htm#cref_children.omh" target="_top">cref_children.omh</a>
+<br><a href="cref_example.htm#Contents" target="_top">Contents</a>
+<br><br>
+<b><big><a name="Cross Reference Tag" id="Cross Reference Tag">Cross Reference Tag</a></big></b>
+<br>
+The first argument to a cref command is the text
+that the user sees for the link.
+This is also the default value for the cross reference tag of the
+section that we are linking to.
+Each section starts with a begin command
+that contains its cross reference tag as an argument.
+The cross reference tag for this section is <code><font color="blue">cref_example</font></code>.
+
+<br>
+<br>
+<b><big><a name="Examples" id="Examples">Examples</a></big></b>
+
+<br>
+<a href="cref_child_1.htm" target="_top"><span style='white-space: nowrap'>cref_child_1</span></a>
+, <a href="cref_child_2.htm" target="_top"><span style='white-space: nowrap'>cref_child_2</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="cref_children.omh" id="cref_children.omh">cref_children.omh</a></big></b>
+
+<br>
+<pre style='display:inline'> 
+     $begin cref_child_1$$
+     $spell
+     	cref
+     $$
+     
+     $section Cross Reference Examples With Two Arguments$$
+     
+     $head Linking Text$$
+     If there is more than one argument,
+     the first argument is the linking text and
+     the second argument specifies the cross reference tag.
+     For example, select the following link:
+     $cref/parent of this section/cref_example/$$.
+     
+     $end
+     ----------------------------------------------------------------------
+     $begin cref_child_2$$
+     $spell
+     	cref
+     	omhelp
+     $$
+     
+     $section An Example Specifying a Heading$$
+     
+     $head Heading$$
+     The third argument to a cref command specifies the heading
+     within the section we are linking to.
+     For example, if you select the following link:
+     $cref/cross reference tag/cref_example/Cross Reference Tag/$$.
+     
+     $end
+</pre>
+
+
+<br>
+<br>
+<b><big><a name="Contents" id="Contents">Contents</a></big></b>
+<br>
+<div><a href="cref_child_1.htm" target="_top">Cross&nbsp;Reference&nbsp;Examples&nbsp;With&nbsp;Two&nbsp;Arguments</a><br>
+<a href="cref_child_2.htm" target="_top">An&nbsp;Example&nbsp;Specifying&nbsp;a&nbsp;Heading</a><br>
+</div>
+<hr>Input File: omh/getstarted/cref_example.omh
+
+</body>
+</html>

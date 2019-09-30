@@ -1,0 +1,159 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>Changes and Additions to OMhelp During 2010</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="Changes and Additions to OMhelp During 2010">
+<meta name="keywords" id="keywords" content=" changes additions to omhelp during 2010 description 10-20 07-05 09-02 02-25 ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_whats_new_10_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="whats_new_12.htm" target="_top">Prev</a>
+</td><td><a href="whats_new_09.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>omhelp</option>
+<option>whats_new</option>
+<option>whats_new_10</option>
+</select>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_whats_new_htm.js'></script>
+</td>
+<td>whats_new_10</td>
+</tr></table><br>
+
+
+
+
+<center><b><big><big>Changes and Additions to OMhelp During 2010</big></big></b></center>
+
+<br><a href="whats_new_10.htm#Description" target="_top">Description</a>
+<br><a href="whats_new_10.htm#10-20" target="_top">10-20</a>
+<br><a href="whats_new_10.htm#07-05" target="_top">07-05</a>
+<br><a href="whats_new_10.htm#09-02" target="_top">09-02</a>
+<br><a href="whats_new_10.htm#02-25" target="_top">02-25</a>
+<br><br>
+<b><big><a name="Description" id="Description">Description</a></big></b>
+<br>
+This section contains a list of changes to
+OMhelp during 2010 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+<br>
+<br>
+<b><big><a name="10-20" id="10-20">10-20</a></big></b>
+<br>
+Add the ability for macros to be used inside of macros; i.e.,
+macro <a href="latexmacro.htm#Examples.Recursion" target="_top"><span style='white-space: nowrap'>recursion</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="07-05" id="07-05">07-05</a></big></b>
+<br>
+Improve error message when the <a href="newlinech.htm" target="_top"><span style='white-space: nowrap'>newlinech</span></a>
+ character
+is the same as the first character in a
+<a href="glossary.htm#Delimiter Sequence" target="_top"><span style='white-space: nowrap'>delimiter&nbsp;sequence</span></a>
+.
+<code><span style='white-space: nowrap'><br>
+<br>
+</span></code>Avoid compiler warnings by converting argument type
+from <code><font color="blue">char</font></code> to <code><font color="blue">int</font></code> for the
+following functions:
+
+	<code><font color="blue">isalpha</font></code>,
+	<code><font color="blue">islower</font></code>,
+	<code><font color="blue">isupper</font></code>,
+	<code><font color="blue">isspace</font></code>,
+	<code><font color="blue">isdigit</font></code>,
+	<code><font color="blue">tolower</font></code>, and
+	<code><font color="blue">toupper</font></code>.
+
+
+<br>
+<br>
+<b><big><a name="09-02" id="09-02">09-02</a></big></b>
+<br>
+The error message for certain parsing errors was not as helpful as it could
+have been because a keyword table was out of date. For example, the code
+<code><font color='blue'><pre style='display:inline'> 
+     $icode%x% = %y% and $icode%x% = %z%$$
+</pre></font></code>
+generated the error message
+
+<code><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OMhelp&nbsp;Error:&nbsp;in&nbsp;file&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>file_name</span></font></i><font color="blue"><span style='white-space: nowrap'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OMhelp&nbsp;parsing&nbsp;error.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error&nbsp;occurred&nbsp;in&nbsp;or&nbsp;before&nbsp;line&nbsp;</span></font><i><font color="black"><span style='white-space: nowrap'>line&nbsp;number</span></font></i><font color="blue"><span style='white-space: nowrap'>.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OMhelp&nbsp;exiting&nbsp;with&nbsp;status&nbsp;equal&nbsp;to&nbsp;1.<br>
+</span></font></code>
+This has been fixed and now has the form:
+<code><font color="blue">%
+	OMhelp Error: in file %file_name%
+	Error in the $icode command that begins in line %line_number%.
+	This command is not terminated by $$ before $code appears.
+	Error occurred in or before line %line_number%.
+%</font></code>
+
+<br>
+<br>
+<b><big><a name="02-25" id="02-25">02-25</a></big></b>
+<br>
+There was a bug whereby the
+<a href="keycharacter.htm" target="_top"><span style='white-space: nowrap'>command&nbsp;key&nbsp;character</span></a>
+
+was reset to <code><font color="blue">$</font></code> when an
+<a href="include.htm" target="_top"><span style='white-space: nowrap'>include</span></a>
+ command was used in an input file.
+This has been fixed.
+In addition, an
+<a href="keycharexample.htm#Include File" target="_top"><span style='white-space: nowrap'>include&nbsp;file</span></a>
+
+example was added for this commands documentation.
+
+
+<hr>Input File: omh/whats_new/10.omh
+
+</body>
+</html>

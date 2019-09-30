@@ -1,0 +1,230 @@
+<html>
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath:  [ ['@(@','@)@'] ] ,
+    displayMath: [ ['@[@','@]@'] ]
+  }
+});
+</script>
+<script type='text/javascript' src=
+'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=default'
+>
+</script>
+<head>
+<title>OMhelp in Source Code Using Block Comments</title>
+<meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
+<meta name="description" id="description" content="OMhelp in Source Code Using Block Comments">
+<meta name="keywords" id="keywords" content=" omhelp source code using block comments begin end languages near_equal_c.c ok_near_equal_c.c execute example this web site ">
+<style type='text/css'>
+body { color : black }
+body { background-color : white }
+A:link { color : blue }
+A:visited { color : purple }
+A:active { color : purple }
+</style>
+<script type='text/javascript' language='JavaScript' src='_start_block_htm.js'>
+</script>
+</head>
+<body>
+<table><tr>
+<td>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+</td>
+<td><a href="src_example.htm" target="_top">Prev</a>
+</td><td><a href="near_equal_c.htm" target="_top">Next</a>
+</td><td>
+<select onchange='choose_across0(this)'>
+<option>Index-&gt;</option>
+<option>contents</option>
+<option>reference</option>
+<option>index</option>
+<option>search</option>
+<option>external</option>
+</select>
+</td>
+<td>
+<select onchange='choose_up0(this)'>
+<option>Up-&gt;</option>
+<option>omhelp</option>
+<option>get_started</option>
+<option>start_block</option>
+</select>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_get_started_htm.js'></script>
+</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_start_block_htm.js'></script>
+</td>
+</tr></table><br>
+<center><b><big><big>OMhelp in Source Code Using Block Comments</big></big></b></center>
+
+<br><a href="start_block.htm#begin, end" target="_top">begin,&nbsp;end</a>
+<br><a href="start_block.htm#Source Code Languages" target="_top">Source&nbsp;Code&nbsp;Languages</a>
+<br><a href="start_block.htm#near_equal_c.c" target="_top">near_equal_c.c</a>
+<br><a href="start_block.htm#ok_near_equal_c.c" target="_top">ok_near_equal_c.c</a>
+<br><a href="start_block.htm#Execute Example" target="_top">Execute&nbsp;Example</a>
+<br><a href="start_block.htm#Example In This Web Site" target="_top">Example&nbsp;In&nbsp;This&nbsp;Web&nbsp;Site</a>
+<br><br>
+<b><big><a name="begin, end" id="begin, end">begin, end</a></big></b>
+<br>
+OMhelp is designed to be embedded in computer source code.
+In fact, it is language independent and can be can combine source
+code files in multiple languages to form one documentation system.
+Only the text between a <a href="begin.htm" target="_top"><span style='white-space: nowrap'>begin</span></a>
+ and a <code><font color="blue">$end</font></code> is processed
+by OMhelp.
+It is intended that these commands be comments in the language.
+
+
+<br>
+<br>
+<b><big><a name="Source Code Languages" id="Source Code Languages">Source Code Languages</a></big></b>
+<br>
+This example covers all languages that have block comments; e.g.,
+C, C++, Java, Python.
+
+<br>
+<br>
+<b><big><a name="near_equal_c.c" id="near_equal_c.c">near_equal_c.c</a></big></b>
+<br>
+Use the editor of your choice to
+create the file <code><font color="blue">near_equal_c.c</font></code> in the
+<a href="get_started.htm#xam Directory" target="_top"><span style='white-space: nowrap'>xam&nbsp;directory</span></a>
+
+with the following contents:
+<pre style='display:inline'> 
+     /*
+     $begin near_equal_c$$
+     $spell
+     	OMhelp
+     	ifdef
+     	stdio
+     	printf
+     	endif
+     $$
+     
+     $section Determine if Two Values Are Nearly Equal$$
+     
+     $head Syntax$$
+     $icode%e% = near_equal_c(%x%, %y%, %r%, %a%)%$$
+     
+     $head Purpose$$
+     Returns true,
+     if $icode x$$ is nearly equal to $icode y$$ and false otherwise.
+     
+     $head x$$
+     The argument $icode x$$ has prototype
+     $codei%
+     	double %x%
+     %$$
+     
+     $head y$$
+     The argument $icode y$$ has prototype
+     $codei%
+     	double %y%
+     %$$
+     
+     $head r$$
+     The relative error criteria $icode r$$ has prototype
+     $codei%
+     	double %r%
+     %$$
+     It must be greater than or equal zero.
+     The relative error condition is satisfied if
+     $latex \[
+     	| x - y | \leq r ( |x| + |y| )
+     \] $$
+     where $latex \leq$$ denotes less than or equal.
+     
+     $head a$$
+     The absolute error criteria $icode a$$ has prototype
+     $codei%
+     	double %a%
+     %$$
+     It must be greater than or equal zero.
+     The absolute error condition is satisfied if
+     $latex \[
+     	| x - y | \leq a
+     \] $$
+     
+     $head e$$
+     The return value $icode e$$ has prototype
+     $codei%
+     	int %e%
+     %$$
+     If either the relative or absolute error condition is satisfied,
+     it is one.
+     Otherwise, it is zero.
+     
+     
+     $head Example$$
+     The following is an example and test of $code near_equal_c$$,
+     it returns true if the test succeeds and false if it fails:
+     
+     $verbatim%omh/getstarted/ok_near_equal_c.c%
+     	5%// BEGIN_OK_NEAR_EQUAL%// END_OK_NEAR_EQUAL%0
+     %$$
+     
+     
+     $end
+     ---------------------------------------------------------------------------
+     */
+     # include &lt;math.h&gt;
+     
+     int near_equal_c(double x, double y, double r, double a)
+     {	double ax = fabs(x);
+     	double ay = fabs(y);
+     	double ad = fabs(x - y);
+     	int e = (ad &lt;= a) | (ad &lt;= r * (ax + ay));
+     	return e;
+     }
+</pre>
+
+You can also just copy <code><font color="blue">near_equal_c.c</font></code> from the
+<a href="get_started.htm#omh/getstarted Directory" target="_top"><span style='white-space: nowrap'>omh/getstarted&nbsp;directory</span></a>
+.
+
+<br>
+<br>
+<b><big><a name="ok_near_equal_c.c" id="ok_near_equal_c.c">ok_near_equal_c.c</a></big></b>
+<br>
+Copy <code><font color="blue">omh/getstarted/ok_near_equal_c.c</font></code> from the
+<a href="get_started.htm#omh/getstarted Directory" target="_top"><span style='white-space: nowrap'>omh/getstarted&nbsp;Directory</span></a>
+
+to the
+<a href="get_started.htm#xam Directory" target="_top"><span style='white-space: nowrap'>xam&nbsp;directory</span></a>
+.
+In the copy of <code><font color="blue">near_equal_c.c</font></code>, change
+<code><font color="blue">omh/getstarted/ok_near_equal_c.c</font></code> to <code><font color="blue">ok_near_equal_c.c</font></code>.
+
+<br>
+<br>
+<b><big><a name="Execute Example" id="Execute Example">Execute Example</a></big></b>
+<br>
+Once you have copied the files mentioned above, you can
+<a href="get_started.htm#Execute OMhelp" target="_top"><span style='white-space: nowrap'>execute&nbsp;omhelp</span></a>
+ with
+<a href="get_started.htm#example_name" target="_top"><span style='white-space: nowrap'>example_name</span></a>
+ equal to
+<code><font color="blue">near_equal_c</font></code> and
+<a href="get_started.htm#example_extension" target="_top"><span style='white-space: nowrap'>example_extension</span></a>
+ equal to <code><font color="blue">c</font></code>.
+
+<br>
+<br>
+<b><big><a name="Example In This Web Site" id="Example In This Web Site">Example In This Web Site</a></big></b>
+<br>
+You can view the result of making <code><font color="blue">near_equal_c.c</font></code>
+part of the OMhelp help web site by selecting <a href="near_equal_c.htm" target="_top"><span style='white-space: nowrap'>near_equal_c</span></a>
+.
+
+
+<hr>Input File: omh/getstarted/start_block.omh
+
+</body>
+</html>

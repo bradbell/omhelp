@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>An Indexing Example</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="An Indexing Example">
-<meta name="keywords" id="keywords" content=" indexing example keyword get started index mindex cindex aindex introduction execute the following steps index_example_1.omh index_example_2.omh this web site context omhelp itself ">
+<meta name="keywords" id="keywords" content=" indexing example introduction index_example.omh index_children.omh execute this web site ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -29,10 +29,10 @@ A:active { color : purple }
 <body>
 <table><tr>
 <td>
-<a href="https://github.com/bradbell/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
 </td>
-<td><a href="cref3example.htm" target="_top">Prev</a>
-</td><td><a href="index_example_1.htm" target="_top">Next</a>
+<td><a href="cref_child_2.htm" target="_top">Prev</a>
+</td><td><a href="index_example.htm" target="_top">Next</a>
 </td><td>
 <select onchange='choose_across0(this)'>
 <option>Index-&gt;</option>
@@ -46,13 +46,13 @@ A:active { color : purple }
 <td>
 <select onchange='choose_up0(this)'>
 <option>Up-&gt;</option>
-<option>overview</option>
+<option>omhelp</option>
 <option>get_started</option>
 <option>start_index</option>
 </select>
 </td>
 <td>
-<script type='text/javascript' language='JavaScript' src='_childtable_overview_htm.js'></script>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
 </td>
 <td>
 <script type='text/javascript' language='JavaScript' src='_childtable_get_started_htm.js'></script>
@@ -67,16 +67,13 @@ A:active { color : purple }
 
 
 
-
 <center><b><big><big>An Indexing Example</big></big></b></center>
 
 <br><a href="start_index.htm#Introduction" target="_top">Introduction</a>
-<br><a href="start_index.htm#Execute The Following Steps" target="_top">Execute&nbsp;The&nbsp;Following&nbsp;Steps</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_index.htm#Execute The Following Steps.index_example_1.omh" target="_top">index_example_1.omh</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_index.htm#Execute The Following Steps.index_example_2.omh" target="_top">index_example_2.omh</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_index.htm#Execute The Following Steps.Example In This Web Site Context" target="_top">Example&nbsp;In&nbsp;This&nbsp;Web&nbsp;Site&nbsp;Context</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_index.htm#Execute The Following Steps.Execute OMhelp" target="_top">Execute&nbsp;OMhelp</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_index.htm#Execute The Following Steps.Example by Itself" target="_top">Example&nbsp;by&nbsp;Itself</a>
+<br><a href="start_index.htm#index_example.omh" target="_top">index_example.omh</a>
+<br><a href="start_index.htm#index_children.omh" target="_top">index_children.omh</a>
+<br><a href="start_index.htm#Execute Example" target="_top">Execute&nbsp;Example</a>
+<br><a href="start_index.htm#Example In This Web Site" target="_top">Example&nbsp;In&nbsp;This&nbsp;Web&nbsp;Site</a>
 <br><br>
 <b><big><a name="Introduction" id="Introduction">Introduction</a></big></b>
 <br>
@@ -96,22 +93,18 @@ in your web site that is relevant to a particular topic.
 
 <br>
 <br>
-<b><big><a name="Execute The Following Steps" id="Execute The Following Steps">Execute The Following Steps</a></big></b>
-
-
+<b><big><a name="index_example.omh" id="index_example.omh">index_example.omh</a></big></b>
 <br>
-<br>
-<big><a name="Execute The Following Steps.index_example_1.omh" id="Execute The Following Steps.index_example_1.omh">index_example_1.omh</a></big>
-<br>
-Use an editor of your choice to
-create the file <code><font color="blue">index_example_1.omh</font></code>
-in the
-<a href="start_simple.htm#Execute The Following Steps.Test Directory" target="_top"><span style='white-space: nowrap'>test&nbsp;directory</span></a>
+Use the editor of your choice to
+create the file <code><font color="blue">index_example.omh</font></code> in the
+<a href="get_started.htm#xam Directory" target="_top"><span style='white-space: nowrap'>xam&nbsp;directory</span></a>
 
 with the following contents:
-<code><font color="blue">
-<code><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>$begin <pre style='display:inline'>index_example_1$$
+<pre style='display:inline'> 
+     $begin index_example$$
+     $spell
+     	omh
+     $$
      
      $section Parent Section For Indexing Examples$$
      $index index, example$$
@@ -120,92 +113,58 @@ with the following contents:
      Select the following link to view the index for this web site:
      $cref/Keyword Index/_index/$$
      
-     $contents/
-     	index_example_2.omh/$$
+     $head index_children.omh$$
+     $verbatim%omh/getstarted/index_children.omh%
+     	5%BEGIN_INDEX_CHILDREN%END_INDEX_CHILDREN%0
+     %$$
+     
+     $contents%
+     	omh/getstarted/index_children.omh
+     %$$
      
      $end
 </pre>
 
-</font></code>
-Note that you can copy and paste the commands above
-to your editor window.
-You may just copy the file with the same name from the
-<a href="get_started.htm#Getting Started Directory" target="_top"><span style='white-space: nowrap'>getting&nbsp;started&nbsp;directory</span></a>
+You can also just copy <code><font color="blue">index_example.omh</font></code> from the
+<a href="get_started.htm#omh/getstarted Directory" target="_top"><span style='white-space: nowrap'>omh/getstarted&nbsp;directory</span></a>
 .
 
 <br>
 <br>
-<big><a name="Execute The Following Steps.index_example_2.omh" id="Execute The Following Steps.index_example_2.omh">index_example_2.omh</a></big>
+<b><big><a name="index_children.omh" id="index_children.omh">index_children.omh</a></big></b>
 <br>
-Use an editor of your choice to
-create the file <code><font color="blue"> index_example_2.omh</font></code>
-in the
-<a href="start_simple.htm#Execute The Following Steps.Test Directory" target="_top"><span style='white-space: nowrap'>test&nbsp;directory</span></a>
+Copy <code><font color="blue">omh/getstarted/index_children.omh</font></code> from the
+<a href="get_started.htm#omh/getstarted Directory" target="_top"><span style='white-space: nowrap'>omh/getstarted&nbsp;Directory</span></a>
 
-with the following contents:
-<code><font color="blue">
-<code><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>$begin <pre style='display:inline'>index_example_2$$
-     $spell
-     	Mindex
-     $$
-     
-     $section An Example Using The Mindex Command$$
-     $mindex child$$
-     
-     $end
-     ----------------------------------------------------------------------
-     $begin Index3Example$$
-     $spell
-     	Aindex
-     	aindex
-     $$
-     $aindex section$$
-     
-     $comment Supress not have index entry corresponding to An Using or The$$
-     $escape @$$
-     
-     $section @An Example @Using @The Aindex Command$$
-     
-     $end
-     ----------------------------------------------------------------------
-</pre>
-
-</font></code>
-
-<br>
-<br>
-<big><a name="Execute The Following Steps.Example In This Web Site Context" id="Execute The Following Steps.Example In This Web Site Context">Example In This Web Site Context</a></big>
-<br>
-You can view the
-result of making <code><font color="blue">index_example_1.omh</font></code>
-part of the OMhelp help web site
-by selecting
-<a href="index_example_1.htm" target="_top"><span style='white-space: nowrap'>index_example_1</span></a>
+to the
+<a href="get_started.htm#xam Directory" target="_top"><span style='white-space: nowrap'>xam&nbsp;directory</span></a>
 .
+In the copy of <code><font color="blue">index_example.omh</font></code>, change
+<code><font color="blue">omh/getstarted/index_children.omh</font></code> to <code><font color="blue">index_children.omh</font></code>.
 
 <br>
 <br>
-<big><a name="Execute The Following Steps.Execute OMhelp" id="Execute The Following Steps.Execute OMhelp">Execute OMhelp</a></big>
+<b><big><a name="Execute Example" id="Execute Example">Execute Example</a></big></b>
 <br>
-In a command window and
-in the
-<a href="start_simple.htm#Execute The Following Steps.Htm Directory" target="_top"><span style='white-space: nowrap'>htm&nbsp;directory</span></a>
+Once you have copied the files mentioned above, you can
+<a href="get_started.htm#Execute OMhelp" target="_top"><span style='white-space: nowrap'>execute&nbsp;omhelp</span></a>
+ with
+<a href="get_started.htm#example_name" target="_top"><span style='white-space: nowrap'>example_name</span></a>
+ equal to
+<code><font color="blue">index_example</font></code>.
 
-execute the following command
-<code><font color='blue'><pre style='display:inline'> 
-     omhelp ../index_example_1.omh -noframe
-</pre></font></code>
 <br>
-<big><a name="Execute The Following Steps.Example by Itself" id="Execute The Following Steps.Example by Itself">Example by Itself</a></big>
 <br>
-Use a web browser of your choosing to view the file
-
-<code><i><font color="black"><span style='white-space: nowrap'>test</span></font></i><font color="blue"><span style='white-space: nowrap'>/htm/index_example_1.htm</span></font></code>
+<b><big><a name="Example In This Web Site" id="Example In This Web Site">Example In This Web Site</a></big></b>
+<br>
+You can view the result of making <code><font color="blue">index_example.omh</font></code>
+part of the OMhelp help web site by selecting <a href="index_example.htm" target="_top"><span style='white-space: nowrap'>index_example</span></a>
 .
 
 
-<hr>Input File: getstarted/start_index.omh
+
+
+<hr>Input File: omh/getstarted/start_index.omh
 
 </body>
 </html>

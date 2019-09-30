@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Example Using Verbatim Inclusion of a Text File</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Example Using Verbatim Inclusion of a Text File">
-<meta name="keywords" id="keywords" content=" example using verbatim inclusion text file get started include execute the following steps verbatim_example.omh this web site context omhelp itself ">
+<meta name="keywords" id="keywords" content=" example using verbatim inclusion text file verbatim_example.omh verbatim_example.dat execute this web site ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -29,9 +29,9 @@ A:active { color : purple }
 <body>
 <table><tr>
 <td>
-<a href="https://github.com/bradbell/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
 </td>
-<td><a href="latex_example.htm" target="_top">Prev</a>
+<td><a href="image_example.htm" target="_top">Prev</a>
 </td><td><a href="verbatim_example.htm" target="_top">Next</a>
 </td><td>
 <select onchange='choose_across0(this)'>
@@ -46,13 +46,13 @@ A:active { color : purple }
 <td>
 <select onchange='choose_up0(this)'>
 <option>Up-&gt;</option>
-<option>overview</option>
+<option>omhelp</option>
 <option>get_started</option>
 <option>start_verbatim</option>
 </select>
 </td>
 <td>
-<script type='text/javascript' language='JavaScript' src='_childtable_overview_htm.js'></script>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
 </td>
 <td>
 <script type='text/javascript' language='JavaScript' src='_childtable_get_started_htm.js'></script>
@@ -67,15 +67,13 @@ A:active { color : purple }
 
 
 
-
 <center><b><big><big>Example Using Verbatim Inclusion of a Text File</big></big></b></center>
 
 <br><a href="start_verbatim.htm#verbatim" target="_top">verbatim</a>
-<br><a href="start_verbatim.htm#Execute The Following Steps" target="_top">Execute&nbsp;The&nbsp;Following&nbsp;Steps</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_verbatim.htm#Execute The Following Steps.verbatim_example.omh" target="_top">verbatim_example.omh</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_verbatim.htm#Execute The Following Steps.Example In This Web Site Context" target="_top">Example&nbsp;In&nbsp;This&nbsp;Web&nbsp;Site&nbsp;Context</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_verbatim.htm#Execute The Following Steps.Execute OMhelp" target="_top">Execute&nbsp;OMhelp</a>
-<br>&#160;&#160;&#160;&#160;&#160;<a href="start_verbatim.htm#Execute The Following Steps.Example by Itself" target="_top">Example&nbsp;by&nbsp;Itself</a>
+<br><a href="start_verbatim.htm#verbatim_example.omh" target="_top">verbatim_example.omh</a>
+<br><a href="start_verbatim.htm#verbatim_example.dat" target="_top">verbatim_example.dat</a>
+<br><a href="start_verbatim.htm#Execute Example" target="_top">Execute&nbsp;Example</a>
+<br><a href="start_verbatim.htm#Example In This Web Site" target="_top">Example&nbsp;In&nbsp;This&nbsp;Web&nbsp;Site</a>
 <br><br>
 <b><big><a name="verbatim" id="verbatim">verbatim</a></big></b>
 <br>
@@ -86,24 +84,18 @@ This avoids having to maintain a separate copy of
 the corresponding information in the documentation.
 (For example, the output of a program which might change over time.)
 
-<br>
-<br>
-<b><big><a name="Execute The Following Steps" id="Execute The Following Steps">Execute The Following Steps</a></big></b>
-
 
 <br>
 <br>
-<big><a name="Execute The Following Steps.verbatim_example.omh" id="Execute The Following Steps.verbatim_example.omh">verbatim_example.omh</a></big>
+<b><big><a name="verbatim_example.omh" id="verbatim_example.omh">verbatim_example.omh</a></big></b>
 <br>
-Use an editor of your choice to
-create the file <code><font color="blue"> verbatim_example.omh</font></code>
-in the
-<a href="start_simple.htm#Execute The Following Steps.Test Directory" target="_top"><span style='white-space: nowrap'>test&nbsp;directory</span></a>
+Use the editor of your choice to
+create the file <code><font color="blue">verbatim_example.omh</font></code> in the
+<a href="get_started.htm#xam Directory" target="_top"><span style='white-space: nowrap'>xam&nbsp;directory</span></a>
 
 with the following contents:
-<code><font color="blue">
-<code><span style='white-space: nowrap'><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></code>$begin <pre style='display:inline'>verbatim_example$$
+<pre style='display:inline'> 
+     $begin verbatim_example$$
      $spell
      	dat
      $$
@@ -111,62 +103,60 @@ with the following contents:
      $section Example Inclusion of Text File Information$$
      
      $head Contents of verbatim_example.dat$$
-     $verbatim%verbatim_example.dat%5%$$
+     $verbatim%omh/getstarted/verbatim_example.dat%5%$$
      
      $head Just Program Output$$
      $fixed
-     $verbatim%verbatim_example.dat%5%PROGRAM OUTPUT%$$
+     $verbatim%omh/getstarted/verbatim_example.dat%5%PROGRAM OUTPUT%$$
      $$
      
      $head Just Input Parameters$$
-     $code
-     $verbatim%verbatim_example.dat%5%INPUT PARAMETERS%PROGRAM OUTPUT%$$
-     $$
+     $verbatim%omh/getstarted/verbatim_example.dat%
+     	5%INPUT PARAMETERS%PROGRAM OUTPUT%0
+     %$$
      
      
      $end
 </pre>
 
-</font></code>
-Note that you can copy and paste the commands above
-to your editor window.
-You may just copy the file with the same name from the
-<a href="get_started.htm#Getting Started Directory" target="_top"><span style='white-space: nowrap'>getting&nbsp;started&nbsp;directory</span></a>
+You can also just copy <code><font color="blue">verbatim_example.omh</font></code> from the
+<a href="get_started.htm#omh/getstarted Directory" target="_top"><span style='white-space: nowrap'>omh/getstarted&nbsp;directory</span></a>
 .
 
 <br>
 <br>
-<big><a name="Execute The Following Steps.Example In This Web Site Context" id="Execute The Following Steps.Example In This Web Site Context">Example In This Web Site Context</a></big>
+<b><big><a name="verbatim_example.dat" id="verbatim_example.dat">verbatim_example.dat</a></big></b>
 <br>
-You can view the
-result of making <code><font color="blue">verbatim_example.omh</font></code>
-part of the OMhelp help web site
-by selecting
-<a href="verbatim_example.htm" target="_top"><span style='white-space: nowrap'>verbatim_example</span></a>
+Copy <code><font color="blue">omh/getstarted/verbatim_example.dat</font></code> from the
+<a href="get_started.htm#omh/getstarted Directory" target="_top"><span style='white-space: nowrap'>omh/getstarted&nbsp;Directory</span></a>
+
+to the
+<a href="get_started.htm#xam Directory" target="_top"><span style='white-space: nowrap'>xam&nbsp;directory</span></a>
+.
+In the copy of <code><font color="blue">verbatim_example.omh</font></code>, change
+<code><font color="blue">omh/getstarted/verbatim_example.dat</font></code> to <code><font color="blue">verbatim_example.dat</font></code>.
+
+<br>
+<br>
+<b><big><a name="Execute Example" id="Execute Example">Execute Example</a></big></b>
+<br>
+Once you have copied the files mentioned above, you can
+<a href="get_started.htm#Execute OMhelp" target="_top"><span style='white-space: nowrap'>execute&nbsp;omhelp</span></a>
+ with
+<a href="get_started.htm#example_name" target="_top"><span style='white-space: nowrap'>example_name</span></a>
+ equal to
+<code><font color="blue">verbatim_example</font></code>.
+
+<br>
+<br>
+<b><big><a name="Example In This Web Site" id="Example In This Web Site">Example In This Web Site</a></big></b>
+<br>
+You can view the result of making <code><font color="blue">verbatim_example.omh</font></code>
+part of the OMhelp help web site by selecting <a href="verbatim_example.htm" target="_top"><span style='white-space: nowrap'>verbatim_example</span></a>
 .
 
-<br>
-<br>
-<big><a name="Execute The Following Steps.Execute OMhelp" id="Execute The Following Steps.Execute OMhelp">Execute OMhelp</a></big>
-<br>
-In a command window and
-in the
-<a href="start_simple.htm#Execute The Following Steps.Htm Directory" target="_top"><span style='white-space: nowrap'>htm&nbsp;directory</span></a>
 
-execute the following command
-<code><font color='blue'><pre style='display:inline'> 
-     omhelp ../verbatim_example.omh -noframe
-</pre></font></code>
-<br>
-<big><a name="Execute The Following Steps.Example by Itself" id="Execute The Following Steps.Example by Itself">Example by Itself</a></big>
-<br>
-Use a web browser of your choosing to view the file
-
-<code><i><font color="black"><span style='white-space: nowrap'>test</span></font></i><font color="blue"><span style='white-space: nowrap'>/htm/verbatim_example.htm</span></font></code>
-.
-
-
-<hr>Input File: getstarted/start_verbatim.omh
+<hr>Input File: omh/getstarted/start_verbatim.omh
 
 </body>
 </html>

@@ -29,7 +29,7 @@ A:active { color : purple }
 <body>
 <table><tr>
 <td>
-<a href="https://github.com/bradbell/omhelp" target="_top"><img border="0" src="_image.gif"></a>
+<a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
 </td>
 <td><a href="previous.htm" target="_top">Prev</a>
 </td><td><a href="include.htm" target="_top">Next</a>
@@ -46,14 +46,14 @@ A:active { color : purple }
 <td>
 <select onchange='choose_up0(this)'>
 <option>Up-&gt;</option>
-<option>overview</option>
+<option>omhelp</option>
 <option>files</option>
 <option>children</option>
 <option>stdout</option>
 </select>
 </td>
 <td>
-<script type='text/javascript' language='JavaScript' src='_childtable_overview_htm.js'></script>
+<script type='text/javascript' language='JavaScript' src='_childtable_omhelp_htm.js'></script>
 </td>
 <td>
 <script type='text/javascript' language='JavaScript' src='_childtable_files_htm.js'></script>
@@ -165,86 +165,19 @@ file to be printed on standard output.
 <br>
 <b><big><a name="Example" id="Example">Example</a></big></b>
 <br>
-The Build Documentation instructions for
-<a href="installunix.htm#OMhelp Documentation" target="_top"><span style='white-space: nowrap'>unix</span></a>
- and
-<a href="installwindows.htm#OMhelp Documentation" target="_top"><span style='white-space: nowrap'>unix</span></a>
-
-store the example output file in <code><font color="blue">omhelp.dev.log</font></code>
-which is listed below
+The file <code><font color="blue">omhelp.xam.log</font></code> contains the output corresponding to
+one of the <a href="get_started.htm" target="_top"><span style='white-space: nowrap'>get_started</span></a>
+ examples and is included below:
 <code><font color="blue">
 <br>
-<pre style='display:inline'>OMhelp: Version=20190829, ndebug=false, win32=false
+<pre style='display:inline'>OMhelp: Version=20190929, ndebug=false, win32=false
 
-omhelp.omh: OMhelp:
- ../../omh/license.omh: License:
- ../convert.h: convert:
-  ../convert.c: ConvertNewline: ConvertOutput: ConvertAddColumn: ConvertSetTabSize: ConvertPreviousNewline: ConvertInternalString:
- cross.omh: cross:
-  automatic.omh: automatic:
-   ../automatic.c: AutomaticAppendSection: IsAutomaticSection: AutomaticTag:
-   ../AutomaticLink.c: AutomaticLink:
-   ../content.c: content:
-  ../cross.h: CrossReference:
-   ../cross.c: CreateCrossReference: FindCrossReference: DefineCrossReference: NextCrossReference: FreeCrossReference:
-  ../href.h: href:
-   ../href.c: HrefOutputPass1: HrefOutputPass2: HrefPrintablePass2: HrefEnd: HrefAddList: HrefOutputList: HrefFreeMemory:
-  ../index.c: KeywordIndex:
-  ../relative.c: relative:
-   ../links.c: links:
-  ../select_childtable.cpp: select_childtable:
-  ../jump_table.c: jump_table:
-  ../search.c: search:
-  ../url.c: Url:
- ../execute.h: execute:
-  ../execute.c: ExecuteNextFile: ExecuteSetFile: ExecuteWriteFile: ExecuteFree:
- ../input.h: input:
-  ../input.c: InputGet: InputInit: InputPush: InputPop: InputName: InputLine: InputAddPath: InputSearch: InputSplitName: InputFree:
- output.omh: output:
-  ../FrameSet.c: FrameSet:
-  ../HtmlHead.c: HtmlHead:
-  ../output.c: PushOutput: FormatOutput: OutputString: OutputChar: PopOutput: OutputName:
-  ../output_text.c: output_text:
- ../section.h: SectionInfo:
-  ../section.c: SectionInfoNew: SectionDefaultStyle: SectionFreeTree: SectionFind: SectionSetTag: SectionNumber: SectionTagNotDefined: SectionReadOrder: SectionNavigate:
- string.omh: string:
-  ../StrLowCase.c: StrLowCase:
-  ../SplitText.c: SplitText:
-  ../StrCat.c: StrCat:
-  ../StrLowAlloc.h: StrLowAlloc:
-  ../str_alloc.h: str_alloc:
-  ../strjoin.h: strjoin:
-  ../StrRemove.c: StrRemove:
-  ../ClipWhiteSpace.c: ClipWhiteSpace:
-  ../UniformWhiteSpace.c: UniformWhiteSpace:
-  ../int2str.c: int2str:
-  ../FileEqual.c: FileEqual:
- ../../build/src/omh/misc.omh: misc:
-  ../allocmem.c: AllocMem: c_alloc:
-  ../BinarySearch.c: BinarySearch:
-  ../children.c: children:
-  ../Color.c: Color:
-  ../copyfile.c: copyfile:
-  ../fatalerr.c: fatalerr:
-  ../funref.c: FunRef:
-  ../head.c: heading:
-  ../highlight.cpp: highlight: file_ext2lang:
-  ../Internal2Out.c: Internal2Out:
-  ../LatexAtomic.c: LatexAtomic:
-  ../latex.l: LatexLexPut: LatexLexHistory:
-  ../LatexMacro.h: LatexMacro:
-   ../LatexMacro.c: LatexMacroUserInput: LatexMacroFree: LatexMacroGetCh: LatexMacroInputLine: LatexMacroInputFile: LatexMacroExpandInput: LatexMacroExpandLine: LatexMacroExpandFile: LatexMacroExpandName: LatexMacroKeep: LatexMacroPopFullyExpandedInput:
-  ../lexomh.c: CommandKeyCharacter: TokenCode2String:
-  ../math.c: math:
-  ../pending.c: pending:
-  ../spell.c: spell:
-  ../style.c: style:
-  ../trace_exit.c: trace_exit:
- glossary.omh: glossary:
+index_example.omh: index_example:
+ index_children.omh: index_child_1: index_child_2:
 Begin Second Pass
 </pre><br>
 </font></code>
-<hr>Input File: stdout.omh
+<hr>Input File: omh/stdout.omh
 
 </body>
 </html>

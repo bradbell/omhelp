@@ -8,6 +8,7 @@ document.write('\
 <option>syntax</option>\
 <option>math</option>\
 <option>number</option>\
+<option>path</option>\
 </select>\
 ');
 function deprecated_child(item)
@@ -17,7 +18,8 @@ function deprecated_child(item)
 		'fend.htm',
 		'syntax.htm',
 		'math.htm',
-		'number.htm'
+		'number.htm',
+		'path.htm'
 	];
 	var index = item.selectedIndex;
 	item.selectedIndex = 0;
