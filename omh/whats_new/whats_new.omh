@@ -81,7 +81,6 @@ see $cref/previous years/whats_new/Previous Years/$$ above
 and remove the corresponding $cref wish_list$$ item.
 $lend
 
-
 $head 19-08-29$$
 It is not longer necessary to specify the $icode boost_prefix$$ for the
 $cref/CMake command/InstallUnix/CMake Command/$$ because if is determined

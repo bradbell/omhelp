@@ -788,6 +788,7 @@ char *SearchGetKeywords()
 ----------------------------------------------------------------------------
 $begin search_end$$
 $spell
+    Javascript
 $$
 
 $section Outputs the Search Information for this Section$$
@@ -822,7 +823,7 @@ and on one line:
 $codei%
 	{ tag:'%Tag%', title:'%Title%', other:'%other%' }
 %$$
-If this is not the first such line, a comma $code ,$$ is placed infront
+If this is not the first such line, a comma $code ,$$ is placed in front
 of the left brace $code {$$.
 
 $end
