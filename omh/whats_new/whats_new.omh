@@ -20,6 +20,7 @@ $spell
 	gh
 	omhelp
 	xml
+	Goto
 $$
 
 $index readme, whats new$$
@@ -37,42 +38,34 @@ A historical record of the changes to OMhelp can be found in
 the following sections:
 
 $children%
-	omh/whats_new/18.omh%
-	omh/whats_new/17.omh%
-	omh/whats_new/16.omh%
-	omh/whats_new/15.omh%
-	omh/whats_new/14.omh%
-	omh/whats_new/13.omh%
-	omh/whats_new/12.omh%
-	omh/whats_new/10.omh%
-	omh/whats_new/09.omh%
-	omh/whats_new/08.omh%
-	omh/whats_new/07.omh%
-	omh/whats_new/06.omh%
-	omh/whats_new/05.omh%
-	omh/whats_new/04.omh%
-	omh/whats_new/03.omh%
-	omh/whats_new/02.omh%
+	omh/whats_new/18.omh% omh/whats_new/17.omh%
+	omh/whats_new/16.omh% omh/whats_new/15.omh%
+	omh/whats_new/14.omh% omh/whats_new/13.omh%
+	omh/whats_new/12.omh% omh/whats_new/10.omh%
+	omh/whats_new/09.omh% omh/whats_new/08.omh%
+	omh/whats_new/07.omh% omh/whats_new/06.omh%
+	omh/whats_new/05.omh% omh/whats_new/04.omh%
+	omh/whats_new/03.omh% omh/whats_new/02.omh%
 	omh/whats_new/01.omh%$$
 
 $head Previous Years$$
-$cref whats_new_18$$,
-$cref whats_new_17$$,
-$cref whats_new_16$$,
-$cref whats_new_15$$,
-$cref whats_new_14$$,
-$cref whats_new_13$$,
-$cref whats_new_12$$,
-$cref whats_new_10$$,
-$cref whats_new_09$$,
-$cref whats_new_08$$,
-$cref whats_new_07$$,
-$cref whats_new_06$$,
-$cref whats_new_05$$,
-$cref whats_new_04$$,
-$cref whats_new_03$$,
-$cref whats_new_02$$,
+$cref whats_new_18$$, $cref whats_new_17$$,
+$cref whats_new_16$$, $cref whats_new_15$$,
+$cref whats_new_14$$, $cref whats_new_13$$,
+$cref whats_new_12$$, $cref whats_new_10$$,
+$cref whats_new_09$$, $cref whats_new_08$$,
+$cref whats_new_07$$, $cref whats_new_06$$,
+$cref whats_new_05$$, $cref whats_new_04$$,
+$cref whats_new_03$$, $cref whats_new_02$$,
 $cref whats_new_01$$.
+
+$head 19-09-30$$
+Improve the $cref _search$$ utility.
+To be specific, it shows the title and section tag in separate
+areas and hides the other keywords.
+In addition, hitting return or double clicking in the title area,
+in addition to choosing the $code Goto$$ button, will go to
+the selected section.
 
 $head 19-09-29$$
 The $code cend$$ and $code rend$$ commands have been
