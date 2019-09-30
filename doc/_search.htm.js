@@ -171,17 +171,8 @@ function Initialize()
 	UpdateList();
 	document.search.keywords.focus();
 }
-function UpdateList(event)
+function UpdateList()
 {
-	key = 0;
-	if( window.event )
-		key = window.event.keyCode;
-	else if( event )
-		key = event.which;
-	if( key == 13 )
-	{	Goto();
-		return;
-	}
 	var string  = document.search.keywords.value;
 	if( Nstring == string.length )
 		return;
@@ -229,7 +220,7 @@ function UpdateList(event)
 }
 function Choose(textarea)
 {	var start_select = textarea.value.substring(0, textarea.selectionStart);
-	var start_pos    = Math.max(0, start_select.lastIndexOf('\n') );
+	var start_pos    = Math.max(0, start_select.lastIndexOf('\n') + 1);
 	var length       = textarea.value.length;
 	var end_select   = 
 		textarea.value.substring(textarea.selectionEnd, length);
@@ -245,8 +236,9 @@ function Choose(textarea)
 	return true;
 }
 function Goto()
-{
-	parent.location = document.search.selection.value + '.htm';
+{  selection       = document.search.selection.value;
+   if( selection != '' )
+	    parent.location = selection + '.htm';
 }
 function CheckForReturn()
 {
