@@ -68,7 +68,15 @@ for test_case in highlight_no highlight_yes
 do
 	if [ "$test_case" == 'highlight_no' ]
 	then
-		echo_eval mv $highlight_prefix $highlight_prefix.no
+		if [ -e $highlight_prefix ]
+		then
+			echo_eval mv $highlight_prefix $highlight_prefix.no
+		fi
+	else
+		if [ -e $highlight_prefix.no ]
+		then
+			echo_eval mv $highlight_prefix.no $highlight_prefix
+		fi
 	fi
 	# -------------------------------------------------------------------------
 	echo_log_eval bin/run_cmake.sh debug
@@ -110,9 +118,15 @@ do
 	# check omhelp documentation
 	if [ "$test_case" == 'highlight_yes' ]
 	then
-		echo_log_eval run_omhelp.sh -clean dev
+		echo_log_eval rm -rf dev; mkdir dev; cd dev
+		echo_log_eval ../build/src/omhelp ../dev.omh \
+			-noframe -debug -omhelp_dir ../omhelp_data
+		cd ..
 	fi
-	echo_log_eval run_omhelp.sh -clean doc
+	echo_log_eval rm -rf doc; mkdir doc; cd doc
+	echo_log_eval ../build/src/omhelp ../doc.omh \
+		-noframe -debug -omhelp_dir ../omhelp_data
+	cd ..
 	# ------------------------------------------------------------------------
 	if [ "$test_case" == 'highlight_no' ]
 	then

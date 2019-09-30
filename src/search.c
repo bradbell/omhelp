@@ -87,38 +87,52 @@ static char *FrameOne =
 "<h2>SiteTitle</h2>\n"
 "<form name='search'>\n"
 "<p><table>\n"
-"<tr><td>\n"
-"	1: Enter keywords separated by spaces\n"
+"	<tr><td>\n"
+"		Enter keywords separated by spaces below\n"
 "	</td><td>\n"
-"	3: <input\n"
-"	type='button'\n"
-"	value='Goto'\n"
-"	onclick='Goto()'\n"
-"	/>\n"
-"	section\n"
-"</td><tr><td>\n"
-"	<input\n"
-"	type='text'\n"
-"	name='keywords'\n"
-"	onkeydown='UpdateList(event)'\n"
-"	size='50'\n"
-"	/></td>\n"
+"		<input\n"
+"			type='button'\n"
+"			value='Goto'\n"
+"			onclick='Goto()'\n"
+"		/>\n"
+"		Selection\n"
+"	</td><tr><td>\n"
+"		<input\n"
+"			type='text'\n"
+"			name='keywords'\n"
+"			onkeydown='UpdateList(event)'\n"
+"			size='50'\n"
+"		></input>\n"
 "	</td><td>\n"
-"	<input\n"
-"	type='text'\n"
-"	name='choice'\n"
-"	size='20'\n"
-"	/>\n"
-"</td></tr>\n"
+"		<input\n"
+"			type='text'\n"
+"			name='selection'\n"
+"			size='15'\n"
+"		></input>\n"
+"	</td></tr>\n"
 "</table></p>\n"
 "<p><table>\n"
-"<tr><td>2: Select from following list of keyword matches</td></tr>\n"
-"<tr><td><textarea\n"
-"	name='list'\n"
-"	rows='20'\n"
-"	cols='80'\n"
-"	onclick='Choose(this)'"
-"	></textarea></td></tr>\n"
+"	<tr><td>\n"
+"		Select from list of matching sections below \n"
+"	</td><td>\n"
+"		Section Tag\n"
+"	</td></tr>\n"
+"	<tr><td>\n"
+"		<textarea\n"
+"			name='title_list'\n"
+"			rows='20'\n"
+"			cols='70'\n"
+"			onclick='Choose(this)'\n"
+"			ondblclick='Goto()'\n"
+"			onkeydown='CheckForReturn(event)'\n"
+"		></textarea>\n"
+"	</td><td>\n"
+"		<textarea\n"
+"			name='tag_list'\n"
+"			rows='20'\n"
+"			cols='20'\n"
+"		></textarea>\n"
+"	</td></tr>\n"
 "</table></p>\n"
 "</form>\n"
 "<script type='text/javascript' src='_search.htm.js'>\n"
@@ -128,13 +142,15 @@ static char *FrameOne =
 MaxList  = Maximum number entries to display
 Nstring  = number of characters in string
 Nkeyword = number topics; i.e., number of keyword list
+Row2Tag  = mapping form selection row to tag
 */
 
 static char *Javascript =
 "\n"
 "var MaxList = 100;\n"
 "var Nstring = -1;\n"
-"var Nkeyword = Keyword.length / 2;\n"
+"var Nkeyword = Keyword.length;\n"
+"var Row2Tag  = [];\n"
 "Initialize();\n"
 "\n"
 "function Initialize()\n"
@@ -182,28 +198,40 @@ static char *Javascript =
 "		pattern[j] = new RegExp(word[j], 'i');\n"
 "\n"
 	// list of keyword lines that match
-"	var nlist = 0;\n"
-"	var list  = '';\n"
+"	var nlist       = 0;\n"
+"	var title_list  = '';\n"
+"	var tag_list    = '';\n"
 "	for(i = 0; (i < Nkeyword) && (nlist < MaxList) ; i++)\n"
 "	{\n"
 		// does this line match the search string
 "		var match = true;\n"
 "		for(j = 0; j < nword; j++)\n"
-"		{	var flag = pattern[j].test(Keyword[2*i]);\n"
-"			flag     = flag || pattern[j].test(Keyword[2*i+1]);\n"
+"		{	var flag = pattern[j].test(Keyword[i].tag);\n"
+"			flag     = flag || pattern[j].test(Keyword[i].title);\n"
+"			flag     = flag || pattern[j].test(Keyword[i].other);\n"
 "			match    = match && flag;\n"
 "		}\n"
-"\n"
 "		if( match )\n"
 "		{\n"
 			// store first match as choice
-"			line  = Keyword[2*i].split(/\\s+/);\n"
-"			line  = line.join(' ');\n"
-"			list  = list + line + '\\n';\n"
+"			var tag    = Keyword[i].tag;\n"
+"			var title  = Keyword[i].title\n"
+"			title      = title.split(/\\s+/);\n"
+"			title      = title.join(' ');\n"
+"			title_list = title_list + title + '\\n';\n"
+"			tag_list   = tag_list + tag + '\\n'\n"
+"			Row2Tag[nlist] = tag;\n"
 "			nlist = nlist + 1;\n"
 "		}\n"
 "	}\n"
-"	document.search.list.value    = list;\n"
+	// title_list
+"	document.search.title_list.value = title_list;\n"
+"	document.search.title_list.setAttribute('wrap', 'off');;\n"
+"	document.search.title_list.readOnly = true;\n"
+	// tag_list
+"	document.search.tag_list.value = tag_list;\n"
+"	document.search.tag_list.setAttribute('wrap', 'off');;\n"
+"	document.search.tag_list.readOnly = true;\n"
 "}\n"
 "function Choose(textarea)\n"
 "{	var start_select = textarea.value.substring(0, textarea.selectionStart);\n"
@@ -211,28 +239,27 @@ static char *Javascript =
 "	var length       = textarea.value.length;\n"
 "	var end_select   = \n"
 "		textarea.value.substring(textarea.selectionEnd, length);\n"
-"	var end_pos      = end_select.indexOf('\\n');\n"
-"	if( end_pos >= 0 ) \n"
-"	{	end_pos = textarea.selectionEnd + end_pos;\n"
-"	} else \n"
-"	{	end_pos = length;\n"
-"	}\n"
-"	// highlight the selected line\n"
+"	var end_pos  = end_select.indexOf('\\n');\n"
+"	end_pos      = textarea.selectionEnd + end_pos;\n"
+	// highlight the selected line
 "	textarea.selectionStart = start_pos;\n"
 "	textarea.selectionEnd   = end_pos;\n"
-"	// get the choice from the beginning of the line\n"
-"	var line = textarea.value.substring(start_pos, length);\n"
-"	var end_choice = line.indexOf(' ');\n"
-"	if( end_choice >= 0 )\n"
-"	{	var choice = line.substring(0, end_choice);\n"
-"		document.search.choice.value = choice.toLowerCase();\n"
-"	}\n"
+	// get row number this selection corresponds to
+"	var row = start_select.split('\\n').length - 1;\n"
+"	var tag = Row2Tag[row];\n"
+"	document.search.selection.value    = tag.toLowerCase();\n"
+"	document.search.selection.readOnly = true;\n"
 "	\n"
 "	return true;\n"
 "}\n"
 "function Goto()\n"
 "{\n"
-"parent.location = document.search.choice.value + '.htm';\n"
+"	parent.location = document.search.selection.value + '.htm';\n"
+"}\n"
+"function CheckForReturn()\n"
+"{\n"
+"	var key = event.which;\n"
+"	if( key == 13 ) Goto();\n"
 "}\n"
 ;
 
@@ -789,6 +816,15 @@ A lower case version of keywords for this section are written to
 the output file. Entire that are equal to the tag, or in the title,
 are not included. In addition, duplicates are not included
 
+$head Output Format$$
+This information is output as a Javascript object in the following format
+and on one line:
+$codei%
+	{ tag:'%Tag%', title:'%Title%', other:'%other%' }
+%$$
+If this is not the first such line, a comma $code ,$$ is placed infront
+of the left brace $code {$$.
+
 $end
 */
 // BEGIN_SEARCH_END
@@ -806,11 +842,11 @@ void SearchEnd()
 	assert( Title != NULL);
 	assert( Fp != NULL );
 
-	fprintf(Fp, "\n'");
-	Output(Tag, "  ");
-	Output(Title, "  ','");
+	fprintf(Fp, "\n{ tag: '");
+	Output(Tag, "', title:'");
+	Output(Title, "', other:'");
 	MakeKeywordList();
-	Output(KeywordList, " '");
+	Output(KeywordList, "' }");
 
 	FreeMem(Tag);
 	FreeMem(TagLower);
