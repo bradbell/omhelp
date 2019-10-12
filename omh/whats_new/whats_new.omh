@@ -21,8 +21,8 @@ $spell
 	omhelp
 	xml
 	Goto
-    cref
-    noframe
+	cref
+	noframe
 $$
 
 $index readme, whats new$$

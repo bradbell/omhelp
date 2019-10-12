@@ -21,12 +21,12 @@ $spell
 	github gh-pages
 	noframe
 	srcfile
-    srccode
+	srccode
 	xml
 	javascript
-    Ubuntu
-    usr
-    cref
+	Ubuntu
+	usr
+	cref
 $$
 
 $section OMhelp Wish List$$
