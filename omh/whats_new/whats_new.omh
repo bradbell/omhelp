@@ -21,6 +21,8 @@ $spell
 	omhelp
 	xml
 	Goto
+    cref
+    noframe
 $$
 
 $index readme, whats new$$
@@ -58,6 +60,15 @@ $cref whats_new_07$$, $cref whats_new_06$$,
 $cref whats_new_05$$, $cref whats_new_04$$,
 $cref whats_new_03$$, $cref whats_new_02$$,
 $cref whats_new_01$$.
+
+$head 19-10-12$$
+$list number$$
+Add the $cref/cref/wish_list/cref/$$ wish list item.
+$lnext
+Deprecate not using the $cref/-noframe/running/noframe/$$
+command line argument.
+Date this deprecation the same day that frames were deprecated.
+$lend
 
 $head 19-09-30$$
 Improve the $cref _search$$ utility.

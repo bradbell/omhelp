@@ -6,6 +6,7 @@ OMhelp is distributed under the terms of the
 -------------------------------------------------------------------------------
 $begin deprecated$$
 $spell
+    noframe
 	OMhelp
 	cend
 $$
@@ -46,6 +47,10 @@ $head -i, Deprecated 2006-09-12$$
 The OMhelp command line argument $code -i$$ has been deprecated.
 It has been replaced by (and has the same effect as) the
 $cref%-image_file%running%image_file%$$ command line argument.
+
+$head -noframe, 2006-07-07$$
+Using frames has been deprecated so it is now suggest that the
+$cref/-noframe/running/noframe/$$ command line argument always be present.
 
 $head cend and rend$$
 see $cref/cend and rend/table/cend and rend Deprecated 2019-09-29/$$

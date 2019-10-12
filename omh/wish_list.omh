@@ -26,9 +26,16 @@ $spell
 	javascript
     Ubuntu
     usr
+    cref
 $$
 
 $section OMhelp Wish List$$
+
+$head cref$$
+Have a way for the $cref cref$$ to refer to current file
+(so works automatically when one moves or copies the file).
+Automatically include text used for linking, e.g., cross reference tag,
+heading, and subheading, in spelling list for this section.
 
 $head verbatim, srcfile, srccode$$
 Have a way for the $cref verbatim$$, and $cref srcfile$$ commands
@@ -63,7 +70,7 @@ Put $cref/_jump_table/navigate/Label/_jump_table/$$ just before
 first heading (after text that comes before first heading).
 
 $head Deprecate Features$$
-Mark certain features as deprecated and produce warnings when then are used.
+Output a warnings the first time a $cref deprecated$$ feature is used.
 For example, it should produce a warning when OMhelp is used without the
 $cref/noframe/running/noframe/$$ option.
 This is in preparation for removing deprecated features.

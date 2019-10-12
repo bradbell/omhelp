@@ -50,10 +50,10 @@ $index option, command line$$
 $head Syntax$$
 $code omhelp$$
 $icode root_file$$
+$code -noframe$$
 [ $code -debug$$ ]
 [ $code -xml$$ ]
 [ $code -printable$$ ]
-[ $code -noframe$$ ]
 [ $code -nowarn$$ ]
 [ $code -image_link$$ $icode image_link$$ ]
 [ $code -image_file$$ $icode image_file$$ ]
@@ -123,6 +123,15 @@ than the location of the starting input file (see Program Execution above).
 If you insist on running OMhelp in the directory containing the file
 specified by $icode root_file$$,
 place $code ./$$ or $code .\$$ at the beginning of $icode root_file$$.
+
+$head noframe$$
+$index frame$$
+Using frames has been deprecated and so it is now suggested that the
+$code -noframe$$ argument always be present (not be optional).
+This overrides the normal behavior of the $cref fend$$ command.
+If it is not present, OMhelp puts the automatically generated navigation links
+in a frame to the left of the user generated information.
+In addition, the user can divide the right side into separate frames.
 
 $head debug$$
 If the command line argument $code -debug$$ is present,
@@ -207,15 +216,6 @@ $pre
 $$
 The $code -printable$$ command overrides the normal behavior of the
 $cref fend$$ command.
-
-$head noframe$$
-$index frame$$
-By default, OMhelp puts the automatically generated navigation links
-in a frame to the left of the user generated information.
-In addition, the user can divide the right side into separate frames.
-If the command line option $code -noframe$$ is present,
-all of the information for a section is displayed in one frame.
-This overrides the normal behavior of the $cref fend$$ command.
 
 $head nowarn$$
 OMhelp warnings are printed as messages on
