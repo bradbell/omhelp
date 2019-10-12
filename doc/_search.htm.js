@@ -3,7 +3,7 @@
 // ------------------------------------------------------------ 
 Keyword = 
 [
-{ tag: 'omhelp', title:'omhelp-20190930: Language Independent Embedded Documentation', other:' home page alert introduction' },
+{ tag: 'omhelp', title:'omhelp-20191012: Language Independent Embedded Documentation', other:' home page alert introduction' },
 { tag: 'License', title:'Your License for the OMhelp Software', other:' short copyright notice complete' },
 { tag: 'why', title:'The Purpose and Motivation for OMhelp', other:' introduction same time documentation version control language independent user oriented world wide web single source searching cross referencing aids platform latex support mathematics code examples spell checking' },
 { tag: 'Install', title:'Installing and Testing OMhelp', other:'' },
@@ -45,7 +45,7 @@ Keyword =
 { tag: 'index_example', title:'Parent Section For Indexing Examples', other:' viewing index_children.omh' },
 { tag: 'index_child_1', title:'An Example Using Mindex Command', other:'' },
 { tag: 'index_child_2', title:'An Example Using The Aindex Command', other:'' },
-{ tag: 'running', title:'Running The OMhelp program', other:' start command line option syntax purpose output file names index.html exit status error return root_file input debug files external links spelling errors error.wrd dictionary xml displaying mathml printable noframe nowarn image_link image_file favicon site web omhelp_dir example' },
+{ tag: 'running', title:'Running The OMhelp program', other:' start command line option syntax purpose output file names index.html exit status error return root_file input noframe debug files external links spelling errors error.wrd dictionary xml displaying mathml printable nowarn image_link image_file favicon site web omhelp_dir example' },
 { tag: 'files', title:'Reading Input Files', other:' introduction' },
 { tag: 'children', title:'Specifying Children in Contents Tree', other:' childtable read input file subsection document structure syntax see also description command' },
 { tag: 'next', title:'Link to Next Section', other:' description' },
@@ -126,7 +126,7 @@ Keyword =
 { tag: 'other', title:'Other Miscellaneous Commands', other:'' },
 { tag: 'comment', title:'The OMhelp Comment Command', other:' syntax description example' },
 { tag: 'date', title:'Marking Output With Current Date', other:' version syntax description example' },
-{ tag: 'deprecated', title:'OMhelp Commands that Have been Deprecated', other:' purpose -l 2006-09-12 -i cend rend' },
+{ tag: 'deprecated', title:'OMhelp Commands that Have been Deprecated', other:' purpose -l 2006-09-12 -i -noframe 2006-07-07 cend rend' },
 { tag: 'wspace', title:'Processing a Special Input Character as White Space', other:' syntax see also deprecated 2006-07-07 description example reference' },
 { tag: 'xref', title:'Specifying a General Cross Reference With in Web Site', other:' head subhead frame syntax see also deprecated 2006-07-07 description tag heading linkingtext subheading example headings frames subheadings' },
 { tag: 'fend', title:'Dividing A Section Into Frames', other:' split syntax deprecated 2006-07-07 description example effect links' },
@@ -139,8 +139,8 @@ Keyword =
 { tag: 'NegativeSpace', title:'Mozilla Bug Report For Negative Width in Mspace Command', other:' claim reason spaces examples incorrect display' },
 { tag: 'Explorer', title:'Problems Using MS Internet Explorer 6 To Display OMhelp Output', other:' bug browser error format description favicon xhtml line wrapping mathml operator sizes symbols' },
 { tag: 'glossary', title:'Glossary', other:' children complete path specification cross reference tag delimiter sequence directory separator character dollar sign file extension input searching parent pre-formatted font section siblings uniformly spaced white' },
-{ tag: 'wish_list', title:'OMhelp Wish List', other:' verbatim srcfile srccode xml drop down menus not working home page jump table deprecate features image tables parent section source-highlight comment character spell th $$' },
-{ tag: 'whats_new', title:'Changes and Additions to OMhelp', other:' readme news introduction previous years 19-09-30 19-09-29 19-09-28 19-08-29 19-08-28 19-06-27 19-02-02 19-02-01 19-01-30 19-01-29 19-01-26 19-01-18' },
+{ tag: 'wish_list', title:'OMhelp Wish List', other:' cref verbatim srcfile srccode xml drop down menus not working home page jump table deprecate features image tables parent section source-highlight comment character spell th $$' },
+{ tag: 'whats_new', title:'Changes and Additions to OMhelp', other:' readme news introduction previous years 19-10-12 19-09-30 19-09-29 19-09-28 19-08-29 19-08-28 19-06-27 19-02-02 19-02-01 19-01-30 19-01-29 19-01-26 19-01-18' },
 { tag: 'whats_new_18', title:'Changes and Additions to OMhelp During 2018', other:' description 11-16 11-15 10-31 05-13 03-13 03-11' },
 { tag: 'whats_new_17', title:'Changes and Additions to OMhelp During 2017', other:' description 06-28 01-08' },
 { tag: 'whats_new_16', title:'Changes and Additions to OMhelp During 2016', other:' description 10-04 09-26 06-25 04-19 02-14 02-06 02-04 02-01' },

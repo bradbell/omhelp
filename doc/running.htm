@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Running The OMhelp program</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Running The OMhelp program">
-<meta name="keywords" id="keywords" content=" running the omhelp program start command line option syntax purpose output file names index.html exit status error return root_file input debug files external links spelling errors error.wrd dictionary xml html displaying mathml printable noframe frame nowarn image_link link image_file favicon icon site web name omhelp_dir example ">
+<meta name="keywords" id="keywords" content=" running the omhelp program start command line option syntax purpose output file names index.html exit status error return root_file input noframe frame debug files external links spelling errors error.wrd dictionary xml html displaying mathml printable nowarn image_link link image_file favicon icon site web name omhelp_dir example ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -63,6 +63,7 @@ A:active { color : purple }
 <br>&#160;&#160;&#160;&#160;&#160;<a href="running.htm#Output File Names.index.html" target="_top">index.html</a>
 <br><a href="running.htm#Exit Status" target="_top">Exit&nbsp;Status</a>
 <br><a href="running.htm#root_file" target="_top">root_file</a>
+<br><a href="running.htm#noframe" target="_top">noframe</a>
 <br><a href="running.htm#debug" target="_top">debug</a>
 <br>&#160;&#160;&#160;&#160;&#160;<a href="running.htm#debug.Input Files" target="_top">Input&nbsp;Files</a>
 <br>&#160;&#160;&#160;&#160;&#160;<a href="running.htm#debug.External Links" target="_top">External&nbsp;Links</a>
@@ -70,7 +71,6 @@ A:active { color : purple }
 <br><a href="running.htm#xml" target="_top">xml</a>
 <br>&#160;&#160;&#160;&#160;&#160;<a href="running.htm#xml.Displaying MathML" target="_top">Displaying&nbsp;MathML</a>
 <br><a href="running.htm#printable" target="_top">printable</a>
-<br><a href="running.htm#noframe" target="_top">noframe</a>
 <br><a href="running.htm#nowarn" target="_top">nowarn</a>
 <br><a href="running.htm#image_link" target="_top">image_link</a>
 <br><a href="running.htm#image_file" target="_top">image_file</a>
@@ -86,10 +86,10 @@ omhelp</font></code>
 
 <code><i><font color="black"><span style='white-space: nowrap'>root_file</span></font></i></code>
 
+<code><font color="blue">-noframe</font></code>
 [ <code><font color="blue">-debug</font></code> ]
 [ <code><font color="blue">-xml</font></code> ]
 [ <code><font color="blue">-printable</font></code> ]
-[ <code><font color="blue">-noframe</font></code> ]
 [ <code><font color="blue">-nowarn</font></code> ]
 [ <code><font color="blue">-image_link</font></code> 
 <code><i><font color="black"><span style='white-space: nowrap'>image_link</span></font></i></code>
@@ -199,6 +199,19 @@ specified by
 place <code><font color="blue">./</font></code> or <code><font color="blue">.\</font></code> at the beginning of 
 <code><i><font color="black"><span style='white-space: nowrap'>root_file</span></font></i></code>
 .
+
+<br>
+<br>
+<b><big><a name="noframe" id="noframe">noframe</a></big></b>
+
+<br>
+Using frames has been deprecated and so it is now suggested that the
+<code><font color="blue">-noframe</font></code> argument always be present (not be optional).
+This overrides the normal behavior of the <a href="fend.htm" target="_top"><span style='white-space: nowrap'>fend</span></a>
+ command.
+If it is not present, OMhelp puts the automatically generated navigation links
+in a frame to the left of the user generated information.
+In addition, the user can divide the right side into separate frames.
 
 <br>
 <br>
@@ -319,19 +332,6 @@ by selecting <a href="_printable.htm" target="_top"><span style='white-space: no
 <br>
 </span></code>The <code><font color="blue">-printable</font></code> command overrides the normal behavior of the
 <a href="fend.htm" target="_top"><span style='white-space: nowrap'>fend</span></a>
- command.
-
-<br>
-<br>
-<b><big><a name="noframe" id="noframe">noframe</a></big></b>
-
-<br>
-By default, OMhelp puts the automatically generated navigation links
-in a frame to the left of the user generated information.
-In addition, the user can divide the right side into separate frames.
-If the command line option <code><font color="blue">-noframe</font></code> is present,
-all of the information for a section is displayed in one frame.
-This overrides the normal behavior of the <a href="fend.htm" target="_top"><span style='white-space: nowrap'>fend</span></a>
  command.
 
 <br>
