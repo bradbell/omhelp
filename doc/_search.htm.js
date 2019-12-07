@@ -3,7 +3,7 @@
 // ------------------------------------------------------------ 
 Keyword = 
 [
-{ tag: 'omhelp', title:'omhelp-20191012: Language Independent Embedded Documentation', other:' home page alert introduction' },
+{ tag: 'omhelp', title:'omhelp-20191207: Language Independent Embedded Documentation', other:' home page alert introduction' },
 { tag: 'License', title:'Your License for the OMhelp Software', other:' short copyright notice complete' },
 { tag: 'why', title:'The Purpose and Motivation for OMhelp', other:' introduction same time documentation version control language independent user oriented world wide web single source searching cross referencing aids platform latex support mathematics code examples spell checking' },
 { tag: 'Install', title:'Installing and Testing OMhelp', other:'' },
@@ -140,7 +140,7 @@ Keyword =
 { tag: 'Explorer', title:'Problems Using MS Internet Explorer 6 To Display OMhelp Output', other:' bug browser error format description favicon xhtml line wrapping mathml operator sizes symbols' },
 { tag: 'glossary', title:'Glossary', other:' children complete path specification cross reference tag delimiter sequence directory separator character dollar sign file extension input searching parent pre-formatted font section siblings uniformly spaced white' },
 { tag: 'wish_list', title:'OMhelp Wish List', other:' cref verbatim srcfile srccode xml drop down menus not working home page jump table deprecate features image tables parent section source-highlight comment character spell th $$' },
-{ tag: 'whats_new', title:'Changes and Additions to OMhelp', other:' readme news introduction previous years 19-10-12 19-09-30 19-09-29 19-09-28 19-08-29 19-08-28 19-06-27 19-02-02 19-02-01 19-01-30 19-01-29 19-01-26 19-01-18' },
+{ tag: 'whats_new', title:'Changes and Additions to OMhelp', other:' readme news introduction previous years 19-12-07 19-10-12 19-09-30 19-09-29 19-09-28 19-08-29 19-08-28 19-06-27 19-02-02 19-02-01 19-01-30 19-01-29 19-01-26 19-01-18' },
 { tag: 'whats_new_18', title:'Changes and Additions to OMhelp During 2018', other:' description 11-16 11-15 10-31 05-13 03-13 03-11' },
 { tag: 'whats_new_17', title:'Changes and Additions to OMhelp During 2017', other:' description 06-28 01-08' },
 { tag: 'whats_new_16', title:'Changes and Additions to OMhelp During 2016', other:' description 10-04 09-26 06-25 04-19 02-14 02-06 02-04 02-01' },
