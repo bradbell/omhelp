@@ -1,8 +1,9 @@
-/* A Bison parser, made by GNU Bison 3.0.5.  */
+/* A Bison parser, made by GNU Bison 3.4.1.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2019 Free Software Foundation,
+   Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -40,11 +41,14 @@
    define necessary library symbols; they are noted "INFRINGES ON
    USER NAME SPACE" below.  */
 
+/* Undocumented macros, especially those whose name start with YY_,
+   are private implementation details.  Do not rely on them.  */
+
 /* Identify Bison output.  */
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.0.5"
+#define YYBISON_VERSION "3.4.1"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -69,8 +73,8 @@
 #define yylval          omhlval
 #define yychar          omhchar
 
-/* Copy the first part of user declarations.  */
-#line 7 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:339  */
+/* First part of user prologue.  */
+#line 7 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
 
 /*
 
@@ -1121,13 +1125,17 @@ void InitParser(const char *StartingInputFile)
 }
 
 
-#line 1125 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:339  */
+#line 1129 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
 
 # ifndef YY_NULLPTR
-#  if defined __cplusplus && 201103L <= __cplusplus
-#   define YY_NULLPTR nullptr
+#  if defined __cplusplus
+#   if 201103L <= __cplusplus
+#    define YY_NULLPTR nullptr
+#   else
+#    define YY_NULLPTR 0
+#   endif
 #  else
-#   define YY_NULLPTR 0
+#   define YY_NULLPTR ((void*)0)
 #  endif
 # endif
 
@@ -1139,8 +1147,8 @@ void InitParser(const char *StartingInputFile)
 # define YYERROR_VERBOSE 0
 #endif
 
-/* In a future release of Bison, this section will be replaced
-   by #include "omhelp.h".  */
+/* Use api.header.include to #include this header
+   instead of duplicating it here.  */
 #ifndef YY_OMH_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_OMHELP_H_INCLUDED
 # define YY_OMH_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_OMHELP_H_INCLUDED
 /* Debug traces.  */
@@ -1255,9 +1263,7 @@ int omhparse (void);
 
 #endif /* !YY_OMH_HOME_BRADBELL_REPO_OMHELP_GIT_SRC_OMHELP_H_INCLUDED  */
 
-/* Copy the second part of user declarations.  */
 
-#line 1261 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1278,13 +1284,13 @@ typedef signed char yytype_int8;
 #ifdef YYTYPE_UINT16
 typedef YYTYPE_UINT16 yytype_uint16;
 #else
-typedef unsigned short int yytype_uint16;
+typedef unsigned short yytype_uint16;
 #endif
 
 #ifdef YYTYPE_INT16
 typedef YYTYPE_INT16 yytype_int16;
 #else
-typedef short int yytype_int16;
+typedef short yytype_int16;
 #endif
 
 #ifndef YYSIZE_T
@@ -1296,7 +1302,7 @@ typedef short int yytype_int16;
 #  include <stddef.h> /* INFRINGES ON USER NAME SPACE */
 #  define YYSIZE_T size_t
 # else
-#  define YYSIZE_T unsigned int
+#  define YYSIZE_T unsigned
 # endif
 #endif
 
@@ -1332,15 +1338,6 @@ typedef short int yytype_int16;
 # define YY_ATTRIBUTE_UNUSED YY_ATTRIBUTE ((__unused__))
 #endif
 
-#if !defined _Noreturn \
-     && (!defined __STDC_VERSION__ || __STDC_VERSION__ < 201112)
-# if defined _MSC_VER && 1200 <= _MSC_VER
-#  define _Noreturn __declspec (noreturn)
-# else
-#  define _Noreturn YY_ATTRIBUTE ((__noreturn__))
-# endif
-#endif
-
 /* Suppress unused-variable warnings by "using" E.  */
 #if ! defined lint || defined __GNUC__
 # define YYUSE(E) ((void) (E))
@@ -1348,7 +1345,7 @@ typedef short int yytype_int16;
 # define YYUSE(E) /* empty */
 #endif
 
-#if defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
+#if defined __GNUC__ && ! defined __ICC && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
 /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
 # define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN \
     _Pragma ("GCC diagnostic push") \
@@ -1367,6 +1364,8 @@ typedef short int yytype_int16;
 # define YY_INITIAL_VALUE(Value) /* Nothing. */
 #endif
 
+
+#define YY_ASSERT(E) ((void) (0 && (E)))
 
 #if ! defined yyoverflow || YYERROR_VERBOSE
 
@@ -1510,16 +1509,16 @@ union yyalloc
 /* YYNSTATES -- Number of states.  */
 #define YYNSTATES  458
 
-/* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
-   by yylex, with out-of-bounds checking.  */
 #define YYUNDEFTOK  2
 #define YYMAXUTOK   339
 
+/* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
+   as returned by yylex, with out-of-bounds checking.  */
 #define YYTRANSLATE(YYX)                                                \
-  ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
+  ((unsigned) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
 
 /* YYTRANSLATE[TOKEN-NUM] -- Symbol number corresponding to TOKEN-NUM
-   as returned by yylex, without out-of-bounds checking.  */
+   as returned by yylex.  */
 static const yytype_uint8 yytranslate[] =
 {
        0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -2621,22 +2620,22 @@ static const yytype_uint8 yyr2[] =
 
 #define YYRECOVERING()  (!!yyerrstatus)
 
-#define YYBACKUP(Token, Value)                                  \
-do                                                              \
-  if (yychar == YYEMPTY)                                        \
-    {                                                           \
-      yychar = (Token);                                         \
-      yylval = (Value);                                         \
-      YYPOPSTACK (yylen);                                       \
-      yystate = *yyssp;                                         \
-      goto yybackup;                                            \
-    }                                                           \
-  else                                                          \
-    {                                                           \
-      yyerror (YY_("syntax error: cannot back up")); \
-      YYERROR;                                                  \
-    }                                                           \
-while (0)
+#define YYBACKUP(Token, Value)                                    \
+  do                                                              \
+    if (yychar == YYEMPTY)                                        \
+      {                                                           \
+        yychar = (Token);                                         \
+        yylval = (Value);                                         \
+        YYPOPSTACK (yylen);                                       \
+        yystate = *yyssp;                                         \
+        goto yybackup;                                            \
+      }                                                           \
+    else                                                          \
+      {                                                           \
+        yyerror (YY_("syntax error: cannot back up")); \
+        YYERROR;                                                  \
+      }                                                           \
+  while (0)
 
 /* Error token number */
 #define YYTERROR        1
@@ -2676,37 +2675,37 @@ do {                                                                      \
 } while (0)
 
 
-/*----------------------------------------.
-| Print this symbol's value on YYOUTPUT.  |
-`----------------------------------------*/
+/*-----------------------------------.
+| Print this symbol's value on YYO.  |
+`-----------------------------------*/
 
 static void
-yy_symbol_value_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)
+yy_symbol_value_print (FILE *yyo, int yytype, YYSTYPE const * const yyvaluep)
 {
-  FILE *yyo = yyoutput;
-  YYUSE (yyo);
+  FILE *yyoutput = yyo;
+  YYUSE (yyoutput);
   if (!yyvaluep)
     return;
 # ifdef YYPRINT
   if (yytype < YYNTOKENS)
-    YYPRINT (yyoutput, yytoknum[yytype], *yyvaluep);
+    YYPRINT (yyo, yytoknum[yytype], *yyvaluep);
 # endif
   YYUSE (yytype);
 }
 
 
-/*--------------------------------.
-| Print this symbol on YYOUTPUT.  |
-`--------------------------------*/
+/*---------------------------.
+| Print this symbol on YYO.  |
+`---------------------------*/
 
 static void
-yy_symbol_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)
+yy_symbol_print (FILE *yyo, int yytype, YYSTYPE const * const yyvaluep)
 {
-  YYFPRINTF (yyoutput, "%s %s (",
+  YYFPRINTF (yyo, "%s %s (",
              yytype < YYNTOKENS ? "token" : "nterm", yytname[yytype]);
 
-  yy_symbol_value_print (yyoutput, yytype, yyvaluep);
-  YYFPRINTF (yyoutput, ")");
+  yy_symbol_value_print (yyo, yytype, yyvaluep);
+  YYFPRINTF (yyo, ")");
 }
 
 /*------------------------------------------------------------------.
@@ -2740,7 +2739,7 @@ do {                                                            \
 static void
 yy_reduce_print (yytype_int16 *yyssp, YYSTYPE *yyvsp, int yyrule)
 {
-  unsigned long int yylno = yyrline[yyrule];
+  unsigned long yylno = yyrline[yyrule];
   int yynrhs = yyr2[yyrule];
   int yyi;
   YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
@@ -2751,7 +2750,7 @@ yy_reduce_print (yytype_int16 *yyssp, YYSTYPE *yyvsp, int yyrule)
       YYFPRINTF (stderr, "   $%d = ", yyi + 1);
       yy_symbol_print (stderr,
                        yystos[yyssp[yyi + 1 - yynrhs]],
-                       &(yyvsp[(yyi + 1) - (yynrhs)])
+                       &yyvsp[(yyi + 1) - (yynrhs)]
                                               );
       YYFPRINTF (stderr, "\n");
     }
@@ -2855,7 +2854,10 @@ yytnamerr (char *yyres, const char *yystr)
           case '\\':
             if (*++yyp != '\\')
               goto do_not_strip_quotes;
-            /* Fall through.  */
+            else
+              goto append;
+
+          append:
           default:
             if (yyres)
               yyres[yyn] = *yyp;
@@ -2873,7 +2875,7 @@ yytnamerr (char *yyres, const char *yystr)
   if (! yyres)
     return yystrlen (yystr);
 
-  return yystpcpy (yyres, yystr) - yyres;
+  return (YYSIZE_T) (yystpcpy (yyres, yystr) - yyres);
 }
 # endif
 
@@ -2951,10 +2953,10 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
                 yyarg[yycount++] = yytname[yyx];
                 {
                   YYSIZE_T yysize1 = yysize + yytnamerr (YY_NULLPTR, yytname[yyx]);
-                  if (! (yysize <= yysize1
-                         && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
+                  if (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM)
+                    yysize = yysize1;
+                  else
                     return 2;
-                  yysize = yysize1;
                 }
               }
         }
@@ -2978,9 +2980,10 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
 
   {
     YYSIZE_T yysize1 = yysize + yystrlen (yyformat);
-    if (! (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
+    if (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM)
+      yysize = yysize1;
+    else
       return 2;
-    yysize = yysize1;
   }
 
   if (*yymsg_alloc < yysize)
@@ -3106,23 +3109,33 @@ yyparse (void)
   yychar = YYEMPTY; /* Cause a token to be read.  */
   goto yysetstate;
 
+
 /*------------------------------------------------------------.
-| yynewstate -- Push a new state, which is found in yystate.  |
+| yynewstate -- push a new state, which is found in yystate.  |
 `------------------------------------------------------------*/
- yynewstate:
+yynewstate:
   /* In all cases, when you get here, the value and location stacks
      have just been pushed.  So pushing a state here evens the stacks.  */
   yyssp++;
 
- yysetstate:
-  *yyssp = yystate;
+
+/*--------------------------------------------------------------------.
+| yynewstate -- set current state (the top of the stack) to yystate.  |
+`--------------------------------------------------------------------*/
+yysetstate:
+  YYDPRINTF ((stderr, "Entering state %d\n", yystate));
+  YY_ASSERT (0 <= yystate && yystate < YYNSTATES);
+  *yyssp = (yytype_int16) yystate;
 
   if (yyss + yystacksize - 1 <= yyssp)
+#if !defined yyoverflow && !defined YYSTACK_RELOCATE
+    goto yyexhaustedlab;
+#else
     {
       /* Get the current used size of the three stacks, in elements.  */
-      YYSIZE_T yysize = yyssp - yyss + 1;
+      YYSIZE_T yysize = (YYSIZE_T) (yyssp - yyss + 1);
 
-#ifdef yyoverflow
+# if defined yyoverflow
       {
         /* Give user a chance to reallocate the stack.  Use copies of
            these so that the &'s don't force the real ones into
@@ -3138,14 +3151,10 @@ yyparse (void)
                     &yyss1, yysize * sizeof (*yyssp),
                     &yyvs1, yysize * sizeof (*yyvsp),
                     &yystacksize);
-
         yyss = yyss1;
         yyvs = yyvs1;
       }
-#else /* no yyoverflow */
-# ifndef YYSTACK_RELOCATE
-      goto yyexhaustedlab;
-# else
+# else /* defined YYSTACK_RELOCATE */
       /* Extend the stack our own way.  */
       if (YYMAXDEPTH <= yystacksize)
         goto yyexhaustedlab;
@@ -3161,35 +3170,33 @@ yyparse (void)
           goto yyexhaustedlab;
         YYSTACK_RELOCATE (yyss_alloc, yyss);
         YYSTACK_RELOCATE (yyvs_alloc, yyvs);
-#  undef YYSTACK_RELOCATE
+# undef YYSTACK_RELOCATE
         if (yyss1 != yyssa)
           YYSTACK_FREE (yyss1);
       }
 # endif
-#endif /* no yyoverflow */
 
       yyssp = yyss + yysize - 1;
       yyvsp = yyvs + yysize - 1;
 
       YYDPRINTF ((stderr, "Stack size increased to %lu\n",
-                  (unsigned long int) yystacksize));
+                  (unsigned long) yystacksize));
 
       if (yyss + yystacksize - 1 <= yyssp)
         YYABORT;
     }
-
-  YYDPRINTF ((stderr, "Entering state %d\n", yystate));
+#endif /* !defined yyoverflow && !defined YYSTACK_RELOCATE */
 
   if (yystate == YYFINAL)
     YYACCEPT;
 
   goto yybackup;
 
+
 /*-----------.
 | yybackup.  |
 `-----------*/
 yybackup:
-
   /* Do appropriate processing given the current state.  Read a
      lookahead token if we need one and don't already have one.  */
 
@@ -3247,7 +3254,6 @@ yybackup:
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   *++yyvsp = yylval;
   YY_IGNORE_MAYBE_UNINITIALIZED_END
-
   goto yynewstate;
 
 
@@ -3262,7 +3268,7 @@ yydefault:
 
 
 /*-----------------------------.
-| yyreduce -- Do a reduction.  |
+| yyreduce -- do a reduction.  |
 `-----------------------------*/
 yyreduce:
   /* yyn is the number of a rule to reduce with.  */
@@ -3282,31 +3288,31 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-        case 2:
-#line 1145 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+  case 2:
+#line 1145 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		fatalomh(
 			"Unexpected $$",
 			NULL
 		);
 	}
-#line 3294 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3300 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 3:
-#line 1155 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 1155 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	yydebug = 0;
 	}
-#line 3301 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3307 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 67:
-#line 1224 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str != NULL );
+#line 1224 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str != NULL );
 
 		if( PreviousOutputWasHeading )
 		{
-			char *s = (yyvsp[0]).str;
+			char *s = yyvsp[0].str;
 			char ch = *s++;
 
 			while( isspace((int) ch) )
@@ -3322,43 +3328,43 @@ yyreduce:
 			// otherwise suspend judgement on the extra new line
 		}
 
-		output_text((yyvsp[0]).line,(yyvsp[0]).str,0,'\0',CheckSpell,ErrorColor);
-		FreeMem((yyvsp[0]).str);
+		output_text(yyvsp[0].line,yyvsp[0].str,0,'\0',CheckSpell,ErrorColor);
+		FreeMem(yyvsp[0].str);
 
-		(yyval).str  = NULL;
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str  = NULL;
+		yyval.line = yyvsp[0].line;
 	}
-#line 3332 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3338 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 78:
-#line 1264 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
-		(yyval) = (yyvsp[0]);
+#line 1264 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
+		yyval = yyvsp[0];
 	}
-#line 3340 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3346 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 79:
-#line 1268 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-1]).str == NULL );
-		(yyval) = (yyvsp[-1]);
+#line 1268 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-1].str == NULL );
+		yyval = yyvsp[-1];
 	}
-#line 3348 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3354 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 80:
-#line 1275 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 1275 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char ch;
 
 		// initlaize to avoid warning
 		// (compiler does not know fatalomh does not return)
 		char *code = NULL;
 
-		assert( (yyvsp[0]).str != NULL );
-		assert( strlen((yyvsp[0]).str) == 1 );
+		assert( yyvsp[0].str != NULL );
+		assert( strlen(yyvsp[0].str) == 1 );
 
-		ch = *((yyvsp[0]).str);
+		ch = *(yyvsp[0].str);
 		switch(ch)
 		{	case 'A':
 			code = "193";
@@ -3411,35 +3417,35 @@ yyreduce:
 			default:
 			fatalomh(
 			"The character following a $' command in line ",
-			int2str( (yyvsp[0]).line ),
+			int2str( yyvsp[0].line ),
 			" is not a vowel.",
 			NULL
 			);
 		}
 		FormatOutput("&#%s;", code);
 
-		FreeMem((yyvsp[0]).str);
+		FreeMem(yyvsp[0].str);
 	}
-#line 3424 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3430 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 81:
-#line 1350 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 1350 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 3431 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3437 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 82:
-#line 1353 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 1353 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *s;
 		int i;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		s = StrCat(__FILE__, __LINE__, " ", (yyvsp[-1]).str, " ", NULL);
+		s = StrCat(__FILE__, __LINE__, " ", yyvsp[-1].str, " ", NULL);
 
 		for(i = 0; s[i] != '\0'; i++)
 			if( isspace((int) s[i]) )
@@ -3456,29 +3462,29 @@ yyreduce:
 		}
 
 		FreeMem(s);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 3464 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3470 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 83:
-#line 1385 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 1385 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 3471 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3477 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 84:
-#line 1388 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 1388 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *s;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		s = (yyvsp[-1]).str;
+		s = yyvsp[-1].str;
 		if( strcmp(s, "left") == 0 )
 			HorizontalAlign = "left";
 		else if( strcmp(s, "center") == 0 )
@@ -3493,35 +3499,35 @@ yyreduce:
 			VerticalAlign = "bottom";
 		else fatalomh(
 			"The $align command argument in line ",
-			int2str((yyvsp[-1]).line),
+			int2str(yyvsp[-1].line),
 			" is not one of following:\n",
 			"left, center, right, top, middle, bottom",
 			NULL
 		);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 	}
-#line 3505 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3511 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 85:
-#line 1421 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str != NULL );
-		ClipWhiteSpace((yyvsp[0]).str);
-		(yyval) = (yyvsp[0]);
+#line 1421 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str != NULL );
+		ClipWhiteSpace(yyvsp[0].str);
+		yyval = yyvsp[0];
 	}
-#line 3514 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3520 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 86:
-#line 1429 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 1429 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 3521 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3527 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 87:
-#line 1432 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 1432 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag;
 		char *tag_lower;
 		char *number = NULL;
@@ -3530,13 +3536,13 @@ yyreduce:
 		CrossReference *C;
 # endif
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( BeginCount != EndCount ) fatalomh(
 			"The $begin command on line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\noccurs before the previous $begin ",
 			"was terminated by a $end",
 			NULL
@@ -3554,7 +3560,7 @@ yyreduce:
 			SectionInfo *F;
 			if( CurrentSection == SectionTree ) fatalomh(
 				"The $begin command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				" is the second one in the starting file\n",
 				"There can only be one section at the root ",
 				"of the web site tree.",
@@ -3579,7 +3585,7 @@ yyreduce:
 		}
 
 		// set the current section tag (and lower case version)
-		tag = (yyvsp[-1]).str;
+		tag = yyvsp[-1].str;
 		SectionSetTag(CurrentSection, tag);
 		tag_lower = CurrentSection->tagLower;
 
@@ -3588,7 +3594,7 @@ yyreduce:
 		*/
 		if( strlen(tag) > MAX_TAG ) fatalomh(
 			"In the $begin command on line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nthe section tag is more than ",
 			int2str(MAX_TAG),
 			" characters long",
@@ -3596,31 +3602,31 @@ yyreduce:
 		);
 		if( strstr(tag_lower, "_frame") != NULL ) fatalomh(
 			"In the $begin command on line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nthe section tag contains the substring \"_frame\"",
 			NULL
 		);
 		if( strstr(tag_lower, "_links") != NULL ) fatalomh(
 			"In the $begin command on line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nthe section tag contains the substring \"_links\"",
 			NULL
 		);
 		if( strstr(tag_lower, "__") != NULL ) fatalomh(
 			"In the $begin command on line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nthe section tag contains the substring of two underbars \"__\"",
 			NULL
 		);
 		if( tag_lower[0] == '_' ) fatalomh(
 			"In the $begin command on line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\n\"_\" is the first character in the section tag",
 			NULL
 		);
 		if( strcmp(tag_lower, "index") == 0 ) fatalomh(
 			"In the $begin command on line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nyou cannot use \"index\" as a section tag",
 			"\nbecause \"index\" automatically links ",
 			"to the starting file",
@@ -3629,7 +3635,7 @@ yyreduce:
 		for(i = 0; tag[i] != '\0'; ++i)
 		if( isspace( tag[i] ) )	fatalomh(
 			"In the $begin command on line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nthe section tag contains white space characters",
 			NULL
 		);
@@ -3730,30 +3736,30 @@ yyreduce:
 		printf(" %s:", tag);
 
 		// cleanup
-		FreeMem((yyvsp[-1]).str);
-		(yyval) = (yyvsp[-2]);
+		FreeMem(yyvsp[-1].str);
+		yyval = yyvsp[-2];
 	}
-#line 3737 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3743 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 88:
-#line 1647 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 1647 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 3744 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3750 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 89:
-#line 1650 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 1650 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// only one $bgcolor per section
 		if( CurrentSection->style.bgcolor != NULL ) fatalomh(
 			"At $bgcolor comamnd in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nThere is more than one $bgcolor command ",
 			"in this section.",
 			NULL
@@ -3761,102 +3767,102 @@ yyreduce:
 
 
 		CurrentSection->style.bgcolor = Color(
-			(yyvsp[-2]).line, "$bgcolor", (yyvsp[-1]).str
+			yyvsp[-2].line, "$bgcolor", yyvsp[-1].str
 		);
 
-		FreeMem((yyvsp[-1]).str);
-		(yyval) = (yyvsp[-2]);
+		FreeMem(yyvsp[-1].str);
+		yyval = yyvsp[-2];
 	}
-#line 3771 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3777 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 90:
-#line 1676 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 1676 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<big>");
-		PushPending((yyvsp[0]).line, "$big");
+		PushPending(yyvsp[0].line, "$big");
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 3783 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3789 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 91:
-#line 1687 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str == NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 1687 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str == NULL );
+		assert( yyvsp[0].str == NULL );
 
 		OutputString("</big>");
-		PopPending((yyvsp[0]).line, "$big");
+		PopPending(yyvsp[0].line, "$big");
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 3797 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3803 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 92:
-#line 1701 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 1701 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<b>");
-		PushPending((yyvsp[0]).line, "$bold");
+		PushPending(yyvsp[0].line, "$bold");
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 3809 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3815 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 93:
-#line 1712 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str == NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 1712 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str == NULL );
+		assert( yyvsp[0].str == NULL );
 
 		OutputString("</b>");
-		PopPending((yyvsp[0]).line, "$bold");
+		PopPending(yyvsp[0].line, "$bold");
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 3823 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3829 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 94:
-#line 1725 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 1725 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 3830 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3836 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 95:
-#line 1728 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 1728 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
 			PreviousOutputWasHeading = 0;
 		}
 
-		color_switch((yyvsp[-1]).str, "blue", "black", Escape,
-			(yyvsp[-2]).line, "codei", CheckSpell, ErrorColor);
+		color_switch(yyvsp[-1].str, "blue", "black", Escape,
+			yyvsp[-2].line, "codei", CheckSpell, ErrorColor);
 
-		FreeMem((yyvsp[-1]).str);
-		(yyval) = (yyvsp[-2]);
+		FreeMem(yyvsp[-1].str);
+		yyval = yyvsp[-2];
 	}
-#line 3851 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3857 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 96:
-#line 1749 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 1749 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		if( TableLevel == 0 ) fatalomh(
 			"$cnext or $cend command in line ",
-			int2str((yyvsp[0]).line),
+			int2str(yyvsp[0].line),
 			"\nis not between a $table command ",
 			"and its corresponding $tend command",
 			NULL
@@ -3867,84 +3873,84 @@ yyreduce:
 		FormatOutput("<td align='%s' ", HorizontalAlign);
 		FormatOutput(" valign='%s'>\n", VerticalAlign);
 
-		PopPending( (yyvsp[0]).line, "$cnext");
-		PushPending((yyvsp[0]).line, "$cnext");
+		PopPending( yyvsp[0].line, "$cnext");
+		PushPending(yyvsp[0].line, "$cnext");
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 3876 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3882 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 97:
-#line 1773 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
-		(yyval) = (yyvsp[0]);
+#line 1773 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
+		yyval = yyvsp[0];
 	}
-#line 3884 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3890 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 98:
-#line 1777 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
-		(yyval) = (yyvsp[0]);
+#line 1777 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
+		yyval = yyvsp[0];
 	}
-#line 3892 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3898 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 99:
-#line 1784 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 1784 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		// do not need extra new line after previous heading
 		if( PreviousOutputWasHeading )
 			PreviousOutputWasHeading = 0;
 
 		OutputString("<center>");
-		PushPending((yyvsp[0]).line, "$center");
+		PushPending(yyvsp[0].line, "$center");
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 3908 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3914 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 100:
-#line 1799 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-1]).str == NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 1799 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-1].str == NULL );
+		assert( yyvsp[0].str == NULL );
 
 		OutputString("</center>");
-		PopPending((yyvsp[0]).line, "$center");
+		PopPending(yyvsp[0].line, "$center");
 
 		// the end of centering starts a new line
 		ConvertAddPrevious(1);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 3924 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3930 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 101:
-#line 1814 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 1814 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
-		(yyval).str  = str_alloc("$contents");
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str  = str_alloc("$contents");
+		yyval.line = yyvsp[0].line;
 	}
-#line 3934 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3940 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 102:
-#line 1820 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 1820 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
-		(yyval).str  = str_alloc("$childtable");
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str  = str_alloc("$childtable");
+		yyval.line = yyvsp[0].line;
 	}
-#line 3944 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 3950 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 103:
-#line 1829 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 1829 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 # ifndef NDEBUG
 		CrossReference *C;
@@ -3953,7 +3959,7 @@ yyreduce:
 		char           *printid = NULL;
 		char           *converted;
 
-		assert( (yyvsp[0]).str != NULL );
+		assert( yyvsp[0].str != NULL );
 
 		// do not need extra new line after previous heading
 		if( PreviousOutputWasHeading )
@@ -3994,7 +4000,7 @@ yyreduce:
 			FreeMem(converted);
 		}
 
-		output_text((yyvsp[0]).line,"Contents",0,'\0',CheckSpell,ErrorColor);
+		output_text(yyvsp[0].line,"Contents",0,'\0',CheckSpell,ErrorColor);
 		OutputString("</a></big></b>\n");
 		ConvertForcedNewline(1);
 
@@ -4013,13 +4019,13 @@ yyreduce:
 		FreeMem(number);
 		FreeMem(printid);
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 4019 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4025 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 104:
-#line 1903 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 1903 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		char       *p;
 		char       *name;
@@ -4027,18 +4033,18 @@ yyreduce:
 		SectionInfo *F;
 		SectionInfo *list;
 
-		assert( (yyvsp[-2]).str != NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str != NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		F = CurrentSection->children;
 		while( IsAutomaticSection(F) )
 			F = F->next;
 		if( F != NULL ) fatalomh(
 			"Invalid ",
-			(yyvsp[-2]).str,
+			yyvsp[-2].str,
 			" command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nThere was a previous ",
 			"$contents, $children, or $childtable",
 			"\ncommannd in this section",
@@ -4046,22 +4052,22 @@ yyreduce:
 		);
 
 		// delimiter is first character in text;
-		del        = *((yyvsp[-1]).str);
+		del        = *(yyvsp[-1].str);
 
 		// last character in text
-		p          = (yyvsp[-1]).str + strlen((yyvsp[-1]).str) - 1;
+		p          = yyvsp[-1].str + strlen(yyvsp[-1].str) - 1;
 		if( *p != del ) fatalomh(
 			"In delimiter sequence following ",
-			(yyvsp[-2]).str,
+			yyvsp[-2].str,
 			" command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			NULL
 		);
 
 		// add the files to the list in reverse order
 		// because we add at the front of the list
 		list       = NULL;
-		while(p - 1 > (yyvsp[-1]).str)
+		while(p - 1 > yyvsp[-1].str)
 		{	// end of this file name
 			*p = '\0';
 
@@ -4076,9 +4082,9 @@ yyreduce:
 			if( *name == '\0' ) fatalomh(
 				"There is only white space between two\n",
 				"of the delimiters in the\n",
-				(yyvsp[-2]).str,
+				yyvsp[-2].str,
 				" command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				NULL
 			);
 
@@ -4110,161 +4116,161 @@ yyreduce:
 			list->previous = F;
 		}
 
-		if( strcmp((yyvsp[-2]).str, "$children") == 0 )
+		if( strcmp(yyvsp[-2].str, "$children") == 0 )
 			OutputString("<CHILDREN>");
-		else if( strcmp((yyvsp[-2]).str, "$contents") == 0 )
+		else if( strcmp(yyvsp[-2].str, "$contents") == 0 )
 			OutputString("<CONTENTS>");
-		else if( strcmp((yyvsp[-2]).str, "$childtable") == 0 )
+		else if( strcmp(yyvsp[-2].str, "$childtable") == 0 )
 			OutputString("<CHILDTABLE>");
 		else	assert(0);
 
 
-		FreeMem((yyvsp[-2]).str);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-2].str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval).str  = NULL;
-		(yyval).line = (yyvsp[-2]).line;
+		yyval.str  = NULL;
+		yyval.line = yyvsp[-2].line;
 	}
-#line 4129 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4135 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 105:
-#line 2012 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 2012 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		RootHasChildren = 1;
 
-		(yyval).str  = str_alloc("$children");
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str  = str_alloc("$children");
+		yyval.line = yyvsp[0].line;
 	}
-#line 4141 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4147 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 106:
-#line 2020 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str != NULL );
+#line 2020 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str != NULL );
 
 		RootHasChildren = 1;
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 4152 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4158 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 107:
-#line 2029 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 2029 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
-		(yyval).str  = str_alloc("$cindex");
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str  = str_alloc("$cindex");
+		yyval.line = yyvsp[0].line;
 	}
-#line 4162 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4168 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 108:
-#line 2035 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 2035 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
-		(yyval).str  = str_alloc("$mindex");
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str  = str_alloc("$mindex");
+		yyval.line = yyvsp[0].line;
 	}
-#line 4172 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4178 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 109:
-#line 2041 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 2041 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
-		(yyval).str  = str_alloc("$index");
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str  = str_alloc("$index");
+		yyval.line = yyvsp[0].line;
 	}
-#line 4182 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4188 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 110:
-#line 2050 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2050 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4189 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4195 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 111:
-#line 2053 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2053 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		Cmark  = *((yyvsp[-1]).str);
+		Cmark  = *(yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 4204 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4210 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 112:
-#line 2067 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 2067 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<code><font color=\"");
 		OutputString(CodeColor);
 		OutputString("\">");
-		PushPending((yyvsp[0]).line, "$code");
+		PushPending(yyvsp[0].line, "$code");
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 4218 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4224 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 113:
-#line 2080 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str == NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2080 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str == NULL );
+		assert( yyvsp[0].str == NULL );
 
 		OutputString("</font></code>");
-		PopPending((yyvsp[0]).line, "$code");
+		PopPending(yyvsp[0].line, "$code");
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 4232 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4238 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 114:
-#line 2093 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2093 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4239 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4245 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 115:
-#line 2096 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2096 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		FreeMem(CodeColor);
-		CodeColor = Color((yyvsp[-2]).line, "$codecolor", (yyvsp[-1]).str);
+		CodeColor = Color(yyvsp[-2].line, "$codecolor", yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
-		(yyval) = (yyvsp[-2]);
+		FreeMem(yyvsp[-1].str);
+		yyval = yyvsp[-2];
 	}
-#line 4254 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4260 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 116:
-#line 2111 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2111 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4261 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4267 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 117:
-#line 2114 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2114 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// do not need extra new line after previous heading
 		if( PreviousOutputWasHeading )
@@ -4272,7 +4278,7 @@ yyreduce:
 
 		// $2 is called text in documentation
 		SkipBeforeFirstAndAfterLastNewline(
-			(yyvsp[-1]).line, (yyvsp[-1]).str, "$codep", "text"
+			yyvsp[-1].line, yyvsp[-1].str, "$codep", "text"
 		);
 
 		if( ExecuteFile != NULL )
@@ -4282,7 +4288,7 @@ yyreduce:
 			FreeMem(ExecuteFile);
 			ExecuteFile = NULL;
 
-			text = str_alloc((yyvsp[-1]).str);
+			text = str_alloc(yyvsp[-1].str);
 			len  = strlen(text);
 
 			assert( len > 1 );
@@ -4305,52 +4311,52 @@ yyreduce:
 		{	int pre  = 2;
 			hilite_out(
 				"codep",
-				(yyvsp[-1]).line,
+				yyvsp[-1].line,
 				CheckSpell,
 				ErrorColor,
 				HiliteColor,
 				pre,
-				(yyvsp[-1]).str
+				yyvsp[-1].str
 			);
 		}
 		OutputString("</pre></font></code>\n");
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 4323 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4329 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 118:
-#line 2175 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2175 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4330 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4336 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 119:
-#line 2178 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2178 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 4343 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4349 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 120:
-#line 2190 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2190 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4350 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4356 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 121:
-#line 2193 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 2193 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *text;
 		char *tag;
 		char *head;
@@ -4363,9 +4369,9 @@ yyreduce:
 		int ntoken;
 		int i, j;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
@@ -4374,21 +4380,21 @@ yyreduce:
 
 
 		// split text into tokens
-		ntoken = SplitText((yyvsp[-2]).line, "$cref", (yyvsp[-1]).str);
+		ntoken = SplitText(yyvsp[-2].line, "$cref", yyvsp[-1].str);
 		if( ntoken > 4 ) fatalomh(
 			"At $cref command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nMore than 5 delimiters in $cref command",
 			NULL
 		);
 
 		// text for reference
-		text = (yyvsp[-1]).str + 1;
+		text = yyvsp[-1].str + 1;
 		tag  = text + strlen(text) + 1;
 		UniformWhiteSpace(text);
 		if( text[0] == '\0' ) fatalomh(
 			"At $cref command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nthe text portion is only white space",
 			NULL
 		);
@@ -4399,7 +4405,7 @@ yyreduce:
 			UniformWhiteSpace(tag);
 			if( tag[0] == '\0' ) fatalomh(
 				"At $cref command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nthe tag portion is only white space",
 				NULL
 			);
@@ -4415,7 +4421,7 @@ yyreduce:
 			UniformWhiteSpace(head);
 			if( head[0] == '\0' ) fatalomh(
 				"At $cref command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nthe head portion is only white space",
 				NULL
 			);
@@ -4430,7 +4436,7 @@ yyreduce:
 		{	UniformWhiteSpace(subhead);
 			if( subhead[0] == '\0' ) fatalomh(
 				"At $cref command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nthe subhead portion is only white space",
 				NULL
 			);
@@ -4463,7 +4469,7 @@ yyreduce:
 		if( ntoken >= 2 )
 			CheckSpell = checkspell;
 
-		OutPre((yyvsp[-1]).line, text);
+		OutPre(yyvsp[-1].line, text);
 		HrefEnd("\n");
 
 		// search for this cross reference
@@ -4475,22 +4481,22 @@ yyreduce:
 		// restore spell checking to initial setting
 		CheckSpell = checkspell;
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 4483 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4489 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 122:
-#line 2325 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 2325 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	time_t     time_t_time;
 		struct tm     *tm_time;
 		char        *char_time;
 		char          date[13];
 		int                  i;
 
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
@@ -4514,36 +4520,36 @@ yyreduce:
 
 		OutputString(date);
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 4520 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4526 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 123:
-#line 2362 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2362 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4527 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4533 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 124:
-#line 2365 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2365 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		Dollar = *((yyvsp[-1]).str);
+		Dollar = *(yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 4542 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4548 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 125:
-#line 2379 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 2379 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		// do not need extra new line after previous heading
 		if( PreviousOutputWasHeading )
@@ -4553,7 +4559,7 @@ yyreduce:
 		if( CurrentSection->title == NULL ) fatalomh(
 			"There was no $section command\n",
 			"between the $end command on line ",
-			int2str((yyvsp[0]).line),
+			int2str(yyvsp[0].line),
 			" and the previous $begin command",
 			NULL
 		);
@@ -4587,7 +4593,7 @@ yyreduce:
 
 		// check there are no pending commands
 		if( NumberPending() > 0 )
-			OmhPendingError((yyvsp[0]).line, "$end");
+			OmhPendingError(yyvsp[0].line, "$end");
 
 		// the check above should have asserted the following
 		assert( TableLevel == 0);
@@ -4639,13 +4645,13 @@ yyreduce:
 
 		PopOutput();
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 4645 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4651 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 126:
-#line 2482 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 2482 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	// end of an input file
 
 		SectionInfo *S;
@@ -4655,7 +4661,7 @@ yyreduce:
 		// (compiler does not know it will be reset before used)
 		SectionInfo *I = NULL;
 
-		assert( (yyvsp[0]).str != NULL );
+		assert( yyvsp[0].str != NULL );
 
 		if( IncludeFrom != NULL )
 		{	// not much to do in include file case
@@ -4665,8 +4671,8 @@ yyreduce:
 			IncludeFrom = NULL;
 
 			// no need for the previous command key character
-			FreeMem((yyvsp[0]).str);
-			(yyvsp[0]).str = NULL;
+			FreeMem(yyvsp[0].str);
+			yyvsp[0].str = NULL;
 		}
 		else
 		{
@@ -4674,7 +4680,7 @@ yyreduce:
 
 		if( BeginCount == 0 ) fatalomh(
 			"No ",
-			(yyvsp[0]).str,
+			yyvsp[0].str,
 			"begin commands in current input file",
 			NULL
 		);
@@ -4684,9 +4690,9 @@ yyreduce:
 
 		if( BeginCount > EndCount ) fatalomh(
 			"There are more ",
-			(yyvsp[0]).str,
+			yyvsp[0].str,
 			"begin than ",
-			(yyvsp[0]).str,
+			yyvsp[0].str,
 			"end commmands\n",
 			"in the current input file",
 			NULL
@@ -4694,8 +4700,8 @@ yyreduce:
 		assert( PreviousOutputWasHeading == 0 );
 
 		// done with the previous command key character
-		FreeMem((yyvsp[0]).str);
-		(yyvsp[0]).str = NULL;
+		FreeMem(yyvsp[0].str);
+		yyvsp[0].str = NULL;
 
 		// done with this input file
 		InputPop();
@@ -4765,70 +4771,70 @@ yyreduce:
 		// end of not include file case *****************************
 		}
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 4771 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4777 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 127:
-#line 2607 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2607 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4778 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4784 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 128:
-#line 2610 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2610 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		FreeMem(ErrorColor);
-		ErrorColor = Color((yyvsp[-2]).line, "$errorcolor", (yyvsp[-1]).str);
+		ErrorColor = Color(yyvsp[-2].line, "$errorcolor", yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
-		(yyval) = (yyvsp[-2]);
+		FreeMem(yyvsp[-1].str);
+		yyval = yyvsp[-2];
 	}
-#line 4793 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4799 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 129:
-#line 2624 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2624 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4800 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4806 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 130:
-#line 2627 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2627 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		Escape = *((yyvsp[-1]).str);
+		Escape = *(yyvsp[-1].str);
 
 		if( CurrentSection->parent == NULL )
 			EscapeRoot = Escape;
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 4818 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4824 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 131:
-#line 2645 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2645 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4825 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4831 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 132:
-#line 2648 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2648 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
@@ -4843,7 +4849,7 @@ yyreduce:
 			" of file ",
 			ExecuteFile,
 			"\nand the $execute command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			" of file ",
 			InputName(),
 			NULL
@@ -4851,38 +4857,38 @@ yyreduce:
 
 		// file name for error reporting
 		ExecuteFile = str_alloc(InputName());
-		ExecuteLine = (yyvsp[-2]).line;
+		ExecuteLine = yyvsp[-2].line;
 
 		// file name to write to
 		assert( CurrentSection->tag != NULL );
-		ExecuteSetFile((yyvsp[-1]).str, CurrentSection->tag);
+		ExecuteSetFile(yyvsp[-1].str, CurrentSection->tag);
 
 		// insert link to execute
-		FormatOutput("<EXECUTE=\"%s\">", (yyvsp[-1]).str);
+		FormatOutput("<EXECUTE=\"%s\">", yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 4868 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4874 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 133:
-#line 2691 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2691 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4875 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4881 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 134:
-#line 2694 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 2694 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		int above;
 		int below;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// do not need extra new line after previous heading
 		if( PreviousOutputWasHeading )
@@ -4890,7 +4896,7 @@ yyreduce:
 
 		// check there are no pending commands
 		if( NumberPending() > 0 )
-			OmhPendingError((yyvsp[-2]).line, "$fend");
+			OmhPendingError(yyvsp[-2].line, "$fend");
 
 		if( ! (PrintableOmhelp() | NoFrame() ) )
 		{
@@ -4900,14 +4906,14 @@ yyreduce:
 				" frames requested for this section\n",
 				"OMhelp Cannot satisfy the $fend request in ",
 				"line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				NULL
 			);
 
-			above   = atoi((yyvsp[-1]).str);
+			above   = atoi(yyvsp[-1].str);
 			if( above < 5 ) fatalomh(
 				"In the $fend command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nthe requested frame size ",
 				"is less than 5 percent\n",
 				NULL
@@ -4916,7 +4922,7 @@ yyreduce:
 			below = CurrentSection->Frame[iFrame - 1] - above;
 			if( below < 5 ) fatalomh(
 				"At the $fend command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nThe sum of the frame sizes in this ",
 				"$fend command and in the previous\n",
 				"$fend commands in this section ",
@@ -4939,48 +4945,48 @@ yyreduce:
 		{	// use two newlines to separate in printable version
 			ConvertForcedNewline( 2 - ConvertPreviousNewline() );
 		}
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 4947 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4953 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 135:
-#line 2765 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 2765 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<code>");
-		PushPending((yyvsp[0]).line, "$fixed");
+		PushPending(yyvsp[0].line, "$fixed");
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 4959 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4965 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 136:
-#line 2776 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str == NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2776 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str == NULL );
+		assert( yyvsp[0].str == NULL );
 
 		OutputString("</code>");
-		PopPending((yyvsp[0]).line, "$fixed");
+		PopPending(yyvsp[0].line, "$fixed");
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 4973 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4979 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 137:
-#line 2789 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2789 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4980 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 4986 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 138:
-#line 2792 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 2792 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 # ifndef NDEBUG
 		CrossReference *C;
@@ -4990,9 +4996,9 @@ yyreduce:
 		char           *number = NULL;
 		char           *printid = NULL;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// do not need extra new line after previous heading
 		if( PreviousOutputWasHeading )
@@ -5000,23 +5006,23 @@ yyreduce:
 
 		if( TableLevel > 0 ) fatalomh(
 			"The $head command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			" is inside a table; i.e.,\n",
 			"between a $table and the corresponding $tend",
 			NULL
 		);
 		// make sure no # characters in heading
-		if( strchr((yyvsp[-1]).str, '#') != NULL ) fatalomh(
+		if( strchr(yyvsp[-1].str, '#') != NULL ) fatalomh(
 			"$head command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			" has heading\n",
-			(yyvsp[-1]).str,
+			yyvsp[-1].str,
 			"\nThe character '#' is not allowed in headings",
 			NULL
 		);
 
 		// version of heading without escape characters
-		noEscape = str_alloc((yyvsp[-1]).str);
+		noEscape = str_alloc(yyvsp[-1].str);
 		if( MindexHead )
 			StrRemove(noEscape, Escape);
 
@@ -5057,7 +5063,7 @@ yyreduce:
 			FreeMem(converted);
 		}
 
-		output_text((yyvsp[-1]).line,noEscape,0,'\0',CheckSpell,ErrorColor);
+		output_text(yyvsp[-1].line,noEscape,0,'\0',CheckSpell,ErrorColor);
 		OutputString("</a></big></b>\n");
 
 		// defined cross reference point
@@ -5076,7 +5082,7 @@ yyreduce:
 		FreeMem(printid);
 
 		if( MindexHead )
-		{	char *lower = StrLowAlloc((yyvsp[-1]).str);
+		{	char *lower = StrLowAlloc(yyvsp[-1].str);
 
 			// add keywords to search for this section
 			SearchKeywords(lower, Escape, AutomaticIndexIgnore);
@@ -5093,82 +5099,82 @@ yyreduce:
 		}
 
 		FreeMem(noEscape);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 
 		PreviousOutputWasHeading = 1;
 	}
-#line 5103 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5109 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 139:
-#line 2915 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2915 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5110 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5116 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 140:
-#line 2918 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 2918 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int n_command;
-		n_command = SplitText((yyvsp[-2]).line, "hilitecmd", (yyvsp[-1]).str);
-		hilite_command((yyvsp[-2]).line, n_command, (yyvsp[-1]).str);
+		n_command = SplitText(yyvsp[-2].line, "hilitecmd", yyvsp[-1].str);
+		hilite_command(yyvsp[-2].line, n_command, yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 	}
-#line 5121 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5127 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 141:
-#line 2928 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2928 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5128 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5134 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 142:
-#line 2931 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 2931 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		FreeMem(HiliteColor);
-		HiliteColor = Color((yyvsp[-2]).line, "$hilitecolor", (yyvsp[-1]).str);
+		HiliteColor = Color(yyvsp[-2].line, "$hilitecolor", yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
-		(yyval) = (yyvsp[-2]);
+		FreeMem(yyvsp[-1].str);
+		yyval = yyvsp[-2];
 	}
-#line 5143 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5149 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 143:
-#line 2946 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2946 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5150 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5156 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 144:
-#line 2949 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 2949 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int n_token;
-		n_token = SplitText((yyvsp[-2]).line, "hiliteseq", (yyvsp[-1]).str);
-		hilite_seq((yyvsp[-2]).line, n_token, (yyvsp[-1]).str);
+		n_token = SplitText(yyvsp[-2].line, "hiliteseq", yyvsp[-1].str);
+		hilite_seq(yyvsp[-2].line, n_token, yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 	}
-#line 5161 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5167 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 145:
-#line 2958 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 2958 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5168 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5174 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 146:
-#line 2961 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 2961 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *url;
 		char *frame;
 		char *link;
@@ -5178,9 +5184,9 @@ yyreduce:
 		int checkspell;
 		int ntoken;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
@@ -5191,21 +5197,21 @@ yyreduce:
 		checkspell = CheckSpell;
 
 		// split text into tokens
-		ntoken = SplitText((yyvsp[-2]).line, "$href", (yyvsp[-1]).str);
+		ntoken = SplitText(yyvsp[-2].line, "$href", yyvsp[-1].str);
 		if( ntoken > 3 ) fatalomh(
 			"In the $href command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nTo many delimiters in the delimiter sequence",
 			NULL
 		);
 
 		// internet address for reference
-		url = (yyvsp[-1]).str + 1;
+		url = yyvsp[-1].str + 1;
 
 		// make sure url is not empty
 		if( WhiteSpace(url) ) fatalomh(
 			"In the $href command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nOnly white space between first 2 delimiters",
 			NULL
 		);
@@ -5214,7 +5220,7 @@ yyreduce:
 		// because they do not work when displaying on Unix
 		if( strchr(url, '\\') != NULL ) fatalomh(
 			"In the $href command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nMust use \"/\" in place of \"\\\" in uri",
 			NULL
 		);
@@ -5226,7 +5232,7 @@ yyreduce:
 		{	link = url + strlen(url) + 1;
 			if( WhiteSpace(link) ) fatalomh(
 			"In the $href command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nlinking text specified as empty",
 			NULL
 			);
@@ -5253,7 +5259,7 @@ yyreduce:
 			heading++;
 			if( strchr(heading, '#') != NULL ) fatalomh(
 				"In the $href command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nlinking text has more than one '#' character",
 				"\nPerhaps missing $newlinech #$$ at top of this section",
 				NULL
@@ -5273,76 +5279,76 @@ yyreduce:
 		);
 
 		if( ntoken < 2 )
-			OutPre((yyvsp[-1]).line, url);
-		else	OutPre((yyvsp[-1]).line, link);
+			OutPre(yyvsp[-1].line, url);
+		else	OutPre(yyvsp[-1].line, link);
 		HrefEnd("\n");
 
 		if( ntoken >= 2 && PrintableOmhelp() )
 		{	OutputString(" (");
-			output_text((yyvsp[-1]).line,url,0,'\0',CheckSpell,ErrorColor);
+			output_text(yyvsp[-1].line,url,0,'\0',CheckSpell,ErrorColor);
 			OutputString(") ");
 		}
 
 		CheckSpell = checkspell;
 		FreeMem(tag);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 5293 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5299 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 147:
-#line 3085 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3085 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5300 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5306 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 148:
-#line 3088 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3088 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
 			PreviousOutputWasHeading = 0;
 		}
 
-		color_switch((yyvsp[-1]).str, "black", "blue", Escape,
-			(yyvsp[-2]).line, "icode", CheckSpell, ErrorColor);
+		color_switch(yyvsp[-1].str, "black", "blue", Escape,
+			yyvsp[-2].line, "icode", CheckSpell, ErrorColor);
 
-		FreeMem((yyvsp[-1]).str);
-		(yyval) = (yyvsp[-2]);
+		FreeMem(yyvsp[-1].str);
+		yyval = yyvsp[-2];
 	}
-#line 5321 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5327 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 149:
-#line 3108 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 3108 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
-		(yyval).str  = str_alloc("$icon");
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str  = str_alloc("$icon");
+		yyval.line = yyvsp[0].line;
 
 	}
-#line 5332 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5338 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 150:
-#line 3115 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 3115 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
-		(yyval).str  = str_alloc("$image");
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str  = str_alloc("$image");
+		yyval.line = yyvsp[0].line;
 	}
-#line 5342 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5348 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 151:
-#line 3125 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3125 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 
 		char *root;
@@ -5354,22 +5360,22 @@ yyreduce:
 
 		int  i;
 
-		assert( (yyvsp[-2]).str != NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str != NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// split text into tokens
-		int ntoken = SplitText((yyvsp[-2]).line, (yyvsp[-2]).str, (yyvsp[-1]).str);
+		int ntoken = SplitText(yyvsp[-2].line, yyvsp[-2].str, yyvsp[-1].str);
 		if( ntoken > 2 ) fatalomh(
-			(yyvsp[-2]).str,
+			yyvsp[-2].str,
 			" command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nMore than 3 delimiters in command",
 			NULL
 		);
 
 		// first token
-		char* file_in  = (yyvsp[-1]).str + 1;
+		char* file_in  = yyvsp[-1].str + 1;
 		char* file_out = NULL;
 		if( ntoken == 2 )
 		{	file_out = file_in + strlen(file_in) + 1;
@@ -5391,9 +5397,9 @@ yyreduce:
 			"The file ",
 			file_in,
 			" following command ",
-			(yyvsp[-2]).str,
+			yyvsp[-2].str,
 			" at line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nuses ",
 			Internal2Out("OutputExtension"),
 			" for its file extension",
@@ -5420,9 +5426,9 @@ yyreduce:
 				"The file ",
 				file_out,
 				" in command ",
-				(yyvsp[-2]).str,
+				yyvsp[-2].str,
 				" at line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nuses either the / or \\ character",
 				NULL
 			);
@@ -5436,9 +5442,9 @@ yyreduce:
 			}
 			if( ! ok ) fatalomh(
 				"In command ",
-				(yyvsp[-2]).str,
+				yyvsp[-2].str,
 				" at line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nFile extensions do not match between\n",
 				file_in,
 				"\n",
@@ -5461,7 +5467,7 @@ yyreduce:
 		FreeMem(root);
 
 
-		if( strcmp( (yyvsp[-2]).str, "$icon" ) == 0 )
+		if( strcmp( yyvsp[-2].str, "$icon" ) == 0 )
 		{
 
 			if( PreviousOutputWasHeading )
@@ -5475,7 +5481,7 @@ yyreduce:
 				Internal2Out("SelfTerminateCmd")
 			);
 		}
-		else if( strcmp( (yyvsp[-2]).str, "$image" ) == 0 )
+		else if( strcmp( yyvsp[-2].str, "$image" ) == 0 )
 		{
 
 			// do not need extra new line after previous heading
@@ -5495,36 +5501,36 @@ yyreduce:
 		}
 		else	assert(0);
 
-		FreeMem((yyvsp[-2]).str);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-2].str);
+		FreeMem(yyvsp[-1].str);
 		FreeMem(localname);
 
-		(yyval).str  = NULL;
-		(yyval).line = (yyvsp[-2]).line;
+		yyval.str  = NULL;
+		yyval.line = yyvsp[-2].line;
 	}
-#line 5506 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5512 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 152:
-#line 3288 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3288 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5513 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5519 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 153:
-#line 3291 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3291 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char  *root;
 		char  *ext;
 		char  cmd_key_char;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( IncludeFrom != NULL ) fatalomh(
 			"Cannot use $include command on line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			" because\n",
 			InputName(),
 			" was included by $include \n",
@@ -5535,9 +5541,9 @@ yyreduce:
 			NULL
 		);
 		IncludeFrom = str_alloc(InputName());
-		IncludeLine = (yyvsp[-2]).line;
+		IncludeLine = yyvsp[-2].line;
 
-		root = str_alloc((yyvsp[-1]).str);
+		root = str_alloc(yyvsp[-1].str);
 
 		// determine the start of the extension
 		ext = root + strlen(root) - 1;
@@ -5563,22 +5569,22 @@ yyreduce:
 		FreeMem(ext);
 		FreeMem(root);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 5571 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5577 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 154:
-#line 3349 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	char *text = (yyvsp[-1]).str;
-		int line   = (yyvsp[-2]).line;
+#line 3349 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	char *text = yyvsp[-1].str;
+		int line   = yyvsp[-2].line;
 
 
-		assert( (yyvsp[-2]).str != NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str != NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// add keywords to search for this section
 		SearchKeywords(text, Escape, "");
@@ -5586,7 +5592,7 @@ yyreduce:
 		// check for seplling error
 		if( CheckSpell )
 		{
-			const char *s = (yyvsp[-1]).str;
+			const char *s = yyvsp[-1].str;
 			int i, j;
 			int nchar;
 			const char* next_error = SpellingError(s, &nchar);
@@ -5645,19 +5651,19 @@ yyreduce:
 
 
 		// new entry
-		if( strcmp((yyvsp[-2]).str, "$index") == 0 ) InsertInIndex(
+		if( strcmp(yyvsp[-2].str, "$index") == 0 ) InsertInIndex(
 			text,
 			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			Escape
 		);
-		else if( strcmp((yyvsp[-2]).str, "$cindex") == 0 ) CycleIntoIndex(
+		else if( strcmp(yyvsp[-2].str, "$cindex") == 0 ) CycleIntoIndex(
 			text,
 			CurrentSection->tag,
 			HeadingAndSubHeading(),
 			Escape
 		);
-		else if( strcmp((yyvsp[-2]).str, "$mindex") == 0 ) MultipleIntoIndex(
+		else if( strcmp(yyvsp[-2].str, "$mindex") == 0 ) MultipleIntoIndex(
 			text,
 			CurrentSection->tag,
 			HeadingAndSubHeading(),
@@ -5666,69 +5672,69 @@ yyreduce:
 		);
 		else	assert(0);
 
-		FreeMem((yyvsp[-2]).str);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-2].str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval).str  = NULL;
-		(yyval).line = (yyvsp[-2]).line;
+		yyval.str  = NULL;
+		yyval.line = yyvsp[-2].line;
 	}
-#line 5676 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5682 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 155:
-#line 3453 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 3453 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<i>");
-		PushPending((yyvsp[0]).line, "$italic");
+		PushPending(yyvsp[0].line, "$italic");
 		ItalicCount++;
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 5689 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5695 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 156:
-#line 3465 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3465 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str == NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str == NULL );
+		assert( yyvsp[0].str == NULL );
 
 		OutputString("</i>");
-		PopPending((yyvsp[0]).line, "$italic");
+		PopPending(yyvsp[0].line, "$italic");
 		ItalicCount--;
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 5705 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5711 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 231:
-#line 3554 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	(yyval) = (yyvsp[0]);
+#line 3554 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	yyval = yyvsp[0];
 	}
-#line 5712 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5718 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 232:
-#line 3560 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3560 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5719 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5725 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 233:
-#line 3563 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3563 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( strcmp(".xml", Internal2Out("OutputExtension") ) == 0 )
 		{	int BlockDisplay;
 
-			LatexLexPut((yyvsp[-1]).line, (yyvsp[-1]).str);
+			LatexLexPut(yyvsp[-1].line, yyvsp[-1].str);
 			BlockDisplay = texparse();
 
 			ConvertAddPrevious( - ConvertPreviousNewline() );
@@ -5749,7 +5755,7 @@ yyreduce:
 			// if output begins with a preformatted new line
 			// do not need an extra one to for previous heading
 			if( PreviousOutputWasHeading )
-			{	char *s = (yyvsp[-1]).str;
+			{	char *s = yyvsp[-1].str;
 				char ch = *s++;
 
 				int newline = 0;
@@ -5768,27 +5774,27 @@ yyreduce:
 			const char* macro_cmd  = "ignore";
 			if( CurrentSection == SectionTree )
 				macro_cmd = "add";
-			const char* latex_cmds = (yyvsp[-1]).str;
+			const char* latex_cmds = yyvsp[-1].str;
 			math_jax(macro_cmd, latex_cmds);
 
 			CheckSpell = checkspell;
 		}
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 5782 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5788 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 234:
-#line 3626 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 3626 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		if( ListLevel <= 0 ) fatalomh(
 			"There is no matching $list command preceeding\n",
 			"the $lend command in line ",
-			int2str((yyvsp[0]).line),
+			int2str(yyvsp[0].line),
 			NULL
 		);
 		assert( PreviousOutputWasHeading == 0 );
@@ -5798,30 +5804,30 @@ yyreduce:
 			OutputString("</li></ol>\n");
 		else	OutputString("</li></ul>\n");
 
-		PopPending((yyvsp[0]).line, "$list");
-		(yyval) = (yyvsp[0]);
+		PopPending(yyvsp[0].line, "$list");
+		yyval = yyvsp[0];
 	}
-#line 5805 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5811 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 235:
-#line 3648 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3648 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5812 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5818 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 236:
-#line 3651 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3651 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// only one $linkcolor per section
 		if( CurrentSection->style.linkcolor != NULL ) fatalomh(
 			"At $linkcolor comamnd in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nThere is more than one $linkcolor command ",
 			"in this section.",
 			NULL
@@ -5829,31 +5835,31 @@ yyreduce:
 
 
 		CurrentSection->style.linkcolor = Color(
-			(yyvsp[-2]).line, "$linkcolor", (yyvsp[-1]).str
+			yyvsp[-2].line, "$linkcolor", yyvsp[-1].str
 		);
 
-		FreeMem((yyvsp[-1]).str);
-		(yyval) = (yyvsp[-2]);
+		FreeMem(yyvsp[-1].str);
+		yyval = yyvsp[-2];
 	}
-#line 5839 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5845 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 237:
-#line 3677 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3677 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5846 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5852 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 238:
-#line 3680 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3680 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	// initalize cmd to avoid warning
 		// (compiler does not know fatalerr will not return)
 		char *cmd = NULL;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 
 		// do not need extra new line after previous heading
@@ -5862,7 +5868,7 @@ yyreduce:
 
 		if( ListLevel == MAX_LIST_LEVEL ) fatalomh(
 			"At $list command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nMore than ",
 			int2str(MAX_LIST_LEVEL),
 			" levels of nested lists requested",
@@ -5871,33 +5877,33 @@ yyreduce:
 
 		ListOrdered[ListLevel]= 1;
 
-		if( strcmp((yyvsp[-1]).str, "disk") == 0 )
+		if( strcmp(yyvsp[-1].str, "disk") == 0 )
 		{	cmd  = "<ul type=\"disk\"><li>";
 			ListOrdered[ListLevel] = 0;
 		}
-		else if( strcmp((yyvsp[-1]).str, "circle") == 0 )
+		else if( strcmp(yyvsp[-1].str, "circle") == 0 )
 		{	cmd  = "<ul type=\"circle\"><li>";
 			ListOrdered[ListLevel] = 0;
 		}
-		else if( strcmp((yyvsp[-1]).str, "square") == 0 )
+		else if( strcmp(yyvsp[-1].str, "square") == 0 )
 		{	cmd  = "<ul type=\"square\"><li>";
 			ListOrdered[ListLevel] = 0;
 		}
-		else if( strcmp((yyvsp[-1]).str, "number") == 0 )
+		else if( strcmp(yyvsp[-1].str, "number") == 0 )
 			cmd  = "<ol type=\"1\"><li>";
-		else if( strcmp((yyvsp[-1]).str, "alpha") == 0 )
+		else if( strcmp(yyvsp[-1].str, "alpha") == 0 )
 			cmd  = "<ol type=\"a\"><li>";
-		else if( strcmp((yyvsp[-1]).str, "Alpha") == 0 )
+		else if( strcmp(yyvsp[-1].str, "Alpha") == 0 )
 			cmd  = "<ol type=\"A\"><li>";
-		else if( strcmp((yyvsp[-1]).str, "roman") == 0 )
+		else if( strcmp(yyvsp[-1].str, "roman") == 0 )
 			cmd  = "<ol type=\"i\"><li>";
-		else if( strcmp((yyvsp[-1]).str, "Roman") == 0 )
+		else if( strcmp(yyvsp[-1].str, "Roman") == 0 )
 			cmd  = "<ol type=\"I\"><li>";
 		else fatalomh(
 			"At $list command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\n",
-			(yyvsp[-1]).str,
+			yyvsp[-1].str,
 			" is not a valid marker for a $list command",
 			NULL
 		);
@@ -5906,22 +5912,22 @@ yyreduce:
 
 		OutputString(cmd);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		PushPending((yyvsp[-2]).line, "$list");
+		PushPending(yyvsp[-2].line, "$list");
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 5916 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5922 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 239:
-#line 3749 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 3749 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		if( ListLevel == 0 ) fatalomh(
 			"The $lnext command in line ",
-			int2str((yyvsp[0]).line),
+			int2str(yyvsp[0].line),
 			"\nis not inside of a list; i.e.,\n",
 			"not between a $list and the corresponding $lend",
 			NULL
@@ -5930,34 +5936,34 @@ yyreduce:
 
 		OutputString("</li><li>\n");
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 5936 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5942 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 240:
-#line 3768 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3768 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5943 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5949 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 241:
-#line 3771 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3771 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int   ntoken;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// split text into tokens
-		ntoken = SplitText((yyvsp[-2]).line, "$math", (yyvsp[-1]).str);
+		ntoken = SplitText(yyvsp[-2].line, "$math", yyvsp[-1].str);
 
 
 		// if output begins with a preformatted new line
 		// do not need an extra one to for previous heading
 		if( PreviousOutputWasHeading )
-		{	char *s = (yyvsp[-1]).str + 1;
+		{	char *s = yyvsp[-1].str + 1;
 			char ch = *s++;
 
 			int newline = 0;
@@ -5973,33 +5979,33 @@ yyreduce:
 			PreviousOutputWasHeading = 0;
 		}
 
-		OutputMath(ntoken, (yyvsp[-1]).str + 1, Escape, ItalicCount > 0);
+		OutputMath(ntoken, yyvsp[-1].str + 1, Escape, ItalicCount > 0);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 5983 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5989 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 242:
-#line 3811 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3811 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5990 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 5996 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 243:
-#line 3814 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3814 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag;
 		char *next;
 		CrossReference *C;
 		int nref;
 		int checkspell;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
@@ -6011,10 +6017,10 @@ yyreduce:
 		CheckSpell = 0;
 
 		// split text into tokens
-		nref = SplitText((yyvsp[-2]).line, "$mref", (yyvsp[-1]).str);
+		nref = SplitText(yyvsp[-2].line, "$mref", yyvsp[-1].str);
 
 		// tag for reference
-		tag = (yyvsp[-1]).str + 1;
+		tag = yyvsp[-1].str + 1;
 
 		// output the cross reference jump
 		while(nref--)
@@ -6027,7 +6033,7 @@ yyreduce:
 			// make sure take is not empty
 			if( tag[0] == '\0' ) fatalomh(
 				"At $mref command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"only white space between two delimiters ",
 				"following $mref command",
 				NULL
@@ -6036,7 +6042,7 @@ yyreduce:
 			// output the cross reference
 			OutputString(" ");
 			HrefOutputPass1(tag, "", "false", "", "true");
-			OutPre((yyvsp[-1]).line, tag);
+			OutPre(yyvsp[-1].line, tag);
 			HrefEnd("\n");
 
 			// search for this cross reference
@@ -6056,170 +6062,170 @@ yyreduce:
 		// restore spell checking to original state
 		CheckSpell = checkspell;
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6064 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6070 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 244:
-#line 3888 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {       fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3888 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {       fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
         }
-#line 6071 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6077 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 245:
-#line 3891 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3891 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int ntoken;
 
 		// split text into tokens
-		ntoken = SplitText((yyvsp[-2]).line, "$navigate", (yyvsp[-1]).str);
+		ntoken = SplitText(yyvsp[-2].line, "$navigate", yyvsp[-1].str);
 
 		// set the current navigation sequence
-		SectionNavigate(CurrentSection, ntoken, (yyvsp[-1]).str + 1, (yyvsp[-2]).line);
+		SectionNavigate(CurrentSection, ntoken, yyvsp[-1].str + 1, yyvsp[-2].line);
 
 		// done with the delimiter sequence
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 	}
-#line 6087 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6093 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 246:
-#line 3907 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3907 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6094 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6100 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 247:
-#line 3910 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3910 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		if( strlen((yyvsp[-1]).str)  > 1 ) fatalomh(
+		if( strlen(yyvsp[-1].str)  > 1 ) fatalomh(
 			"More that one character is specified by the\n",
 			"$newlinech comamnd in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			NULL
 		);
 
-		NewlineCh = *((yyvsp[-1]).str);
+		NewlineCh = *(yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6117 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6123 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 248:
-#line 3932 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3932 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6124 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6130 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 249:
-#line 3935 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 3935 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int pre = 0;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		OutputString("<span style='white-space: nowrap'>");
-		output_text((yyvsp[-1]).line,(yyvsp[-1]).str,pre,'\0',CheckSpell,ErrorColor);
+		output_text(yyvsp[-1].line,yyvsp[-1].str,pre,'\0',CheckSpell,ErrorColor);
 		OutputString("</span>\n");
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6143 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6149 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 250:
-#line 3953 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 3953 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		CheckSpell = 0;
-		PushPending((yyvsp[0]).line, "$nospell");
+		PushPending(yyvsp[0].line, "$nospell");
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 6155 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6161 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 251:
-#line 3964 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str == NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 3964 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str == NULL );
+		assert( yyvsp[0].str == NULL );
 
 		CheckSpell = 1;
-		PopPending((yyvsp[0]).line, "$nospell");
+		PopPending(yyvsp[0].line, "$nospell");
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6169 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6175 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 256:
-#line 3984 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 3984 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6176 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6182 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 257:
-#line 3987 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 3987 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
 			PreviousOutputWasHeading = 0;
 		}
 
-		OutputMath(1, (yyvsp[-1]).str, '\0', ItalicCount > 0);
+		OutputMath(1, yyvsp[-1].str, '\0', ItalicCount > 0);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval).str  = NULL;
-		(yyval).line = (yyvsp[-1]).line;
+		yyval.str  = NULL;
+		yyval.line = yyvsp[-1].line;
 	}
-#line 6196 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6202 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 258:
-#line 4006 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4006 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		char *path;
 		char *ext;
 		int ntoken;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// only use path command at root level
 		if( CurrentSection == SectionTree )
 		{
 			// split text into tokens
-			ntoken = SplitText((yyvsp[-2]).line, "$path", (yyvsp[-1]).str);
+			ntoken = SplitText(yyvsp[-2].line, "$path", yyvsp[-1].str);
 			if( ntoken != 2 ) fatalomh(
 				"At $path comamnd in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\n$path command expects three delimiters",
 				NULL
 			);
 
 			// path token
-			path = (yyvsp[-1]).str + 1;
+			path = yyvsp[-1].str + 1;
 
 			// extension token
 			ext  = path + strlen(path) + 1;
@@ -6228,31 +6234,31 @@ yyreduce:
 		}
 
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6236 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6242 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 259:
-#line 4045 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4045 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6243 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6249 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 260:
-#line 4048 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4048 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// if output begins with a preformatted new line
 		// do not need an extra one to for previous heading
 		if( PreviousOutputWasHeading )
-		{	char *s = (yyvsp[-1]).str;
+		{	char *s = yyvsp[-1].str;
 			char ch = *s++;
 
 			int newline = 0;
@@ -6271,25 +6277,25 @@ yyreduce:
 		// do not put any white space before or after $pre command
 		// to aid in text placement on page
 		OutputString("<code>");
-		OutPre((yyvsp[-1]).line, (yyvsp[-1]).str);
+		OutPre(yyvsp[-1].line, yyvsp[-1].str);
 		OutputString("</code>");
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6282 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6288 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 261:
-#line 4086 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str != NULL );
+#line 4086 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str != NULL );
 
 		if( TableLevel == 0 ) fatalomh(
 			"The ",
-			(yyvsp[0]).str,
+			yyvsp[0].str,
 			" command in line ",
-			int2str((yyvsp[0]).line),
+			int2str(yyvsp[0].line),
 			"\nis not inside of a table; i.e.,\n",
 			"not between a $table and the corresponding $tend",
 			NULL
@@ -6300,83 +6306,83 @@ yyreduce:
 		FormatOutput("<td align='%s' ", HorizontalAlign);
 		FormatOutput(" valign='%s'>\n", VerticalAlign);
 
-		PopPending( (yyvsp[0]).line, "$cnext");
-		PopPending( (yyvsp[0]).line, "$rnext");
-		PushPending((yyvsp[0]).line, "$rnext");
-		PushPending((yyvsp[0]).line, "$cnext");
+		PopPending( yyvsp[0].line, "$cnext");
+		PopPending( yyvsp[0].line, "$rnext");
+		PushPending(yyvsp[0].line, "$rnext");
+		PushPending(yyvsp[0].line, "$cnext");
 
-		FreeMem((yyvsp[0]).str);
+		FreeMem(yyvsp[0].str);
 
-		(yyval).str   = NULL;
-		(yyval).line  = (yyvsp[0]).line;
+		yyval.str   = NULL;
+		yyval.line  = yyvsp[0].line;
 	}
-#line 6314 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6320 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 262:
-#line 4117 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 4117 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 		assert( PreviousOutputWasHeading == 0 );
 
-		(yyval).str = str_alloc("$rend");
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str = str_alloc("$rend");
+		yyval.line = yyvsp[0].line;
 	}
-#line 6325 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6331 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 263:
-#line 4124 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 4124 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 		assert( PreviousOutputWasHeading == 0 );
 
-		(yyval).str = str_alloc("$rnext");
-		(yyval).line = (yyvsp[0]).line;
+		yyval.str = str_alloc("$rnext");
+		yyval.line = yyvsp[0].line;
 	}
-#line 6336 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6342 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 264:
-#line 4134 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4134 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6343 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6349 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 265:
-#line 4137 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+#line 4137 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		Rmark  = *((yyvsp[-1]).str);
+		Rmark  = *(yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6358 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6364 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 266:
-#line 4151 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4151 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6365 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6371 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 267:
-#line 4154 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4154 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag;
 		CrossReference *C;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// this command must be inside of a table
 		if( TableLevel == 0 ) fatalomh(
 			"The $rref command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nis not inside of a table; i.e.,\n",
 			"not between a $table and the corresponding $tend",
 			NULL
@@ -6384,7 +6390,7 @@ yyreduce:
 		assert( PreviousOutputWasHeading == 0 );
 
 		// cross reference tag
-		tag = (yyvsp[-1]).str;
+		tag = yyvsp[-1].str;
 
 		// convert to uniform white space format
 		UniformWhiteSpace(tag);
@@ -6398,27 +6404,27 @@ yyreduce:
 			C = CreateCrossReference(tag, "", InputName());
 		assert( C != NULL );
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6406 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6412 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 268:
-#line 4194 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4194 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6413 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6419 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 269:
-#line 4197 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4197 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *noEscape;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// I guess some one might put a paragraph heading
 		// for an empty paragraph directly before the section title
@@ -6428,14 +6434,14 @@ yyreduce:
 		// remember the title
 		if( CurrentSection->title != NULL ) fatalomh(
 			"At $section command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nMore than one $section command between\n",
 			"the $begin and $end for the current section",
 			NULL
 		);
 
 		// version of title without escape characters
-		noEscape = str_alloc((yyvsp[-1]).str);
+		noEscape = str_alloc(yyvsp[-1].str);
 		if( MindexSection )
 			StrRemove(noEscape, Escape);
 		CurrentSection->title = str_alloc(noEscape);
@@ -6466,16 +6472,16 @@ yyreduce:
 				);
 				OutputString(printid);
 				OutputString(": ");
-				output_text((yyvsp[-1]).line,noEscape,0,'\0',
+				output_text(yyvsp[-1].line,noEscape,0,'\0',
 					CheckSpell,ErrorColor);
 				OutputString("</a>\n");
 			}
-			else	output_text((yyvsp[-1]).line,noEscape,0,'\0',
+			else	output_text(yyvsp[-1].line,noEscape,0,'\0',
 					CheckSpell,ErrorColor);
 
 			FreeMem(printid);
 		}
-		else	output_text((yyvsp[-1]).line,noEscape,0,'\0',
+		else	output_text(yyvsp[-1].line,noEscape,0,'\0',
 					CheckSpell,ErrorColor);
 		OutputString("</big></big></b></center>\n");
 
@@ -6486,7 +6492,7 @@ yyreduce:
 		ConvertAddPrevious(1);
 
 		if( MindexSection )
-		{	char *lower = StrLowAlloc((yyvsp[-1]).str);
+		{	char *lower = StrLowAlloc(yyvsp[-1].str);
 
 			// add keywords to search for this section
 			SearchKeywords(lower, Escape, AutomaticIndexIgnore);
@@ -6503,116 +6509,116 @@ yyreduce:
 		}
 
 		FreeMem(noEscape);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6511 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6517 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 270:
-#line 4294 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4294 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6518 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6524 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 271:
-#line 4297 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4297 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatalomh(
 			"At $skipnl in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nThe $skipnl command has been removed from\n",
 			"the OMhelp language",
 			NULL
 		);
 	}
-#line 6531 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6537 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 272:
-#line 4309 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 4309 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<small>");
-		PushPending((yyvsp[0]).line, "$small");
+		PushPending(yyvsp[0].line, "$small");
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 6543 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6549 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 273:
-#line 4320 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4320 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str == NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str == NULL );
+		assert( yyvsp[0].str == NULL );
 
 		OutputString("</small>");
-		PopPending((yyvsp[0]).line, "$small");
+		PopPending(yyvsp[0].line, "$small");
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6558 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6564 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 274:
-#line 4334 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4334 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6565 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6571 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 275:
-#line 4337 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4337 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		if( (yyvsp[-1]).str[0] != '\0' )
-			SpellingOkList((yyvsp[-1]).str);
+		if( yyvsp[-1].str[0] != '\0' )
+			SpellingOkList(yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6582 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6588 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 276:
-#line 4352 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4352 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6589 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6595 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 277:
-#line 4355 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4355 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int ntoken;
 		char *ext, *source, *input_lang, *output_lang, *data, *tmp;
 		int   indent, tabsize;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// do not need extra new line after previous heading
 		if( PreviousOutputWasHeading )
 			PreviousOutputWasHeading = 0;
 
 		// split delimiter sequence into tokens
-		ntoken = SplitText((yyvsp[-2]).line, "$srccode", (yyvsp[-1]).str);
+		ntoken = SplitText(yyvsp[-2].line, "$srccode", yyvsp[-1].str);
 		if( ntoken != 2 ) fatalomh(
 			"At $srccode command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nExpected 3 delimiters in the $srccode command",
 			NULL
 		);
 
 		// get the file extension token
-		ext  = (yyvsp[-1]).str + 1;
+		ext  = yyvsp[-1].str + 1;
 
 		// get the source token
 		source  = ext + strlen(ext) + 1;
@@ -6621,7 +6627,7 @@ yyreduce:
 		input_lang  = file_ext2lang(ext);
 		if( input_lang == NULL ) fatalomh(
 			"At $srccode command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nCannot use the $srccode command becasue the",
 			"\nsource-highlight or boost_regex library is not avaiable.",
 			NULL
@@ -6629,7 +6635,7 @@ yyreduce:
 		if( input_lang[0] == '\0' )
 		{	fatalomh(
 				"At $srccode command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nCannot determine language for the file extension ",
 				ext,
 				NULL
@@ -6644,7 +6650,7 @@ yyreduce:
 
 		// skip characters before first and after last newline in source
 		SkipBeforeFirstAndAfterLastNewline(
-			(yyvsp[-1]).line, source, "$srccode", "source"
+			yyvsp[-1].line, source, "$srccode", "source"
 		);
 
 		// number of newliness there will be at end of soruce
@@ -6671,22 +6677,22 @@ yyreduce:
 
 		FreeMem(input_lang);
 		FreeMem(data);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 6679 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6685 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 278:
-#line 4444 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4444 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6686 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 6692 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 279:
-#line 4447 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4447 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	// command parameters
 		char *filename, indent, *start, *stop, *token;
 		int  skip;
@@ -6703,34 +6709,34 @@ yyreduce:
 		char *data;
 		char *tmp;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		delimiter = (yyvsp[-1]).str[0];
-		ntoken = SplitText((yyvsp[-2]).line, "$srcfile", (yyvsp[-1]).str);
+		delimiter = yyvsp[-1].str[0];
+		ntoken = SplitText(yyvsp[-2].line, "$srcfile", yyvsp[-1].str);
 		if( ntoken < 1 ) fatalomh(
 			"At $srcfile command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nExpected at least 2 delimiters in $srcfile command",
 			NULL
 		);
 		if( ntoken == 3 ) fatalomh(
 			"At $srcfile command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nMust also specify stop when start is present",
 			NULL
 		);
 		if( ntoken > 6 ) fatalomh(
 			"At $srcfile command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nExpected at most 6 delimiters in $srcfile command",
 			NULL
 		);
 		assert( delimiter != '\0' );
 
 		// filename
-		filename = (yyvsp[-1]).str + 1;
+		filename = yyvsp[-1].str + 1;
 
 		// indent
 		if( ntoken < 2 )
@@ -6769,7 +6775,7 @@ yyreduce:
 		// make sure has an extension
 		if( ext[0] == '\0' ) fatalomh(
 			"At $srcfile command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nThe file name '",
 			filename,
 			"'\ndoes not have a '.' followed by an extension",
@@ -6782,7 +6788,7 @@ yyreduce:
 		input_lang = file_ext2lang( ext + 1 );
 		if( input_lang == NULL ) fatalomh(
 			"At $srcfile command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nCannot use the $srcfile command becasue the",
 			"\nsource-highlight or boost_regex library is not avaiable.",
 			NULL
@@ -6790,7 +6796,7 @@ yyreduce:
 		if( input_lang[0] == '\0' )
 		{	fatalomh(
 				"At $srcfile command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nCannot determine language for the file extension ",
 				ext,
 				NULL
@@ -6815,7 +6821,7 @@ yyreduce:
 		{	InputPop();
 			fatalomh(
 				"At $srcfile command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nToo many characters in start pattern",
 				NULL
 			);
@@ -6824,7 +6830,7 @@ yyreduce:
 		{	InputPop();
 			fatalomh(
 				"At $srcfile command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the start pattern",
 				NULL
@@ -6849,7 +6855,7 @@ yyreduce:
 			{	InputPop();
 				fatalomh(
 					"At $srcfile command in line ",
-					int2str((yyvsp[-2]).line),
+					int2str(yyvsp[-2].line),
 					"\nCould not find the start pattern \"",
 					start,
 					"\"\nin the file ",
@@ -6865,7 +6871,7 @@ yyreduce:
 		{	InputPop();
 			fatalomh(
 				"At $srcfile command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nToo many characters in stop pattern",
 				NULL
 			);
@@ -6874,7 +6880,7 @@ yyreduce:
 		{	InputPop();
 			fatalomh(
 				"At $srcfile command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the stop pattern",
 				NULL
@@ -6897,7 +6903,7 @@ yyreduce:
 					line_buffer[column_index]   = '\0';
 					fatalomh(
 						"At $srcfile command in line ",
-						int2str((yyvsp[-2]).line),
+						int2str(yyvsp[-2].line),
 						"\nIn the file ",
 						filename,
 						"\nThe following input line ",
@@ -6945,7 +6951,7 @@ yyreduce:
 			tmp++;
 		if( *tmp == '\0' ) fatalomh(
 			"At $srcfile command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			" of file ",
 			filename,
 			"\nNo text between start and stop patterns.",
@@ -6956,7 +6962,7 @@ yyreduce:
 		// check for no match
 		if( len > 0 && ! match ) fatalomh(
 			"At $srcfile command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nCould not find the stop pattern \"",
 			stop,
 			"\"\nin the file ",
@@ -6994,22 +7000,22 @@ yyreduce:
 		FreeMem(data);
 		FreeMem(root);
 		FreeMem(ext);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 7002 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7008 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 280:
-#line 4762 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4762 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7009 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7015 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 281:
-#line 4765 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4765 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 # ifndef NDEBUG
 		CrossReference *C;
@@ -7019,34 +7025,34 @@ yyreduce:
 		char           *noEscape;
 		char           *converted;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( TableLevel > 0 ) fatalomh(
 			"The $subhead command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			" is inside a table; i.e.,\n",
 			"between a $table and the corresponding $tend",
 			NULL
 		);
 
 		// make sure no # characters in subheading
-		if( strchr((yyvsp[-1]).str, '#') != NULL ) fatalomh(
+		if( strchr(yyvsp[-1].str, '#') != NULL ) fatalomh(
 			"$head command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			" has heading\n",
-			(yyvsp[-1]).str,
+			yyvsp[-1].str,
 			"\nThe character '#' is not allowed in headings",
 			NULL
 		);
 
 		// make sure no # characters in heading
-		if( strchr((yyvsp[-1]).str, '#') != NULL ) fatalomh(
+		if( strchr(yyvsp[-1].str, '#') != NULL ) fatalomh(
 			"$subhead command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			" has subheading\n",
-			(yyvsp[-1]).str,
+			yyvsp[-1].str,
 			"\nThe character '#' is not allowed in headings",
 			NULL
 		);
@@ -7055,7 +7061,7 @@ yyreduce:
 			ConvertForcedNewline(2 - ConvertPreviousNewline() );
 
 		// version of heading without escape characters
-		noEscape = str_alloc((yyvsp[-1]).str);
+		noEscape = str_alloc(yyvsp[-1].str);
 		if( MindexSubhead )
 			StrRemove(noEscape, Escape);
 
@@ -7093,7 +7099,7 @@ yyreduce:
 			FreeMem(converted);
 		}
 
-		output_text((yyvsp[-1]).line,noEscape,0,'\0',CheckSpell,ErrorColor);
+		output_text(yyvsp[-1].line,noEscape,0,'\0',CheckSpell,ErrorColor);
 		OutputString("</a></big>\n");
 
 		// defined cross reference point
@@ -7112,7 +7118,7 @@ yyreduce:
 		FreeMem(printid);
 
 		if( MindexSubhead )
-		{	char *lower = StrLowAlloc((yyvsp[-1]).str);
+		{	char *lower = StrLowAlloc(yyvsp[-1].str);
 
 			// add keywords to search for this section
 			SearchKeywords(lower, Escape, AutomaticIndexIgnore);
@@ -7129,38 +7135,38 @@ yyreduce:
 		}
 
 		FreeMem(noEscape);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 
 		PreviousOutputWasHeading = 1;
 	}
-#line 7139 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7145 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 282:
-#line 4894 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4894 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7146 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7152 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 283:
-#line 4897 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4897 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *token;
 		char *next;
 		int  count;
 		int  ntoken;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// split text into tokens
-		ntoken = SplitText((yyvsp[-2]).line, "$syntax", (yyvsp[-1]).str);
+		ntoken = SplitText(yyvsp[-2].line, "$syntax", yyvsp[-1].str);
 
 		// first token
-		token = (yyvsp[-1]).str + 1;
+		token = yyvsp[-1].str + 1;
 
 		// initialize delimter count flag
 		count  = 1;
@@ -7191,7 +7197,7 @@ yyreduce:
 			if( count % 2 == 0 )
 			{	OutputString("<i>");
 				ClipWhiteSpace(token);
-				output_text((yyvsp[-1]).line,token,1,'\0',
+				output_text(yyvsp[-1].line,token,1,'\0',
 					CheckSpell,ErrorColor);
 				OutputString("</i>");
 			}
@@ -7200,7 +7206,7 @@ yyreduce:
 				OutputString("<code><font color=\"");
 				OutputString(CodeColor);
 				OutputString("\">");
-				output_text((yyvsp[-1]).line,token,1,'\0',
+				output_text(yyvsp[-1].line,token,1,'\0',
 					CheckSpell,ErrorColor);
 				OutputString("</font></code>");
 			}
@@ -7208,16 +7214,16 @@ yyreduce:
 			token = next;
 		}
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 7216 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7222 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 284:
-#line 4966 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 4966 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		// do not need extra new line after previous heading
 		if( PreviousOutputWasHeading )
@@ -7229,41 +7235,41 @@ yyreduce:
 		FormatOutput("<td align='%s' ", HorizontalAlign);
 		FormatOutput(" valign='%s'>\n", VerticalAlign);
 
-		PushPending((yyvsp[0]).line, "$table");
-		PushPending((yyvsp[0]).line, "$rnext");
-		PushPending((yyvsp[0]).line, "$cnext");
+		PushPending(yyvsp[0].line, "$table");
+		PushPending(yyvsp[0].line, "$rnext");
+		PushPending(yyvsp[0].line, "$cnext");
 
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 7240 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7246 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 285:
-#line 4989 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 4989 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7247 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7253 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 286:
-#line 4992 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 4992 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int size;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		size = atoi((yyvsp[-1]).str);
+		size = atoi(yyvsp[-1].str);
 		if( size >= 100 ) fatalomh(
 			"In $tabsize command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nnumber of columns is greater than 99",
 			NULL
 		);
 		if( size < 0 ) fatalomh(
 			"In $tabsize command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nnumber of columns is less than zero",
 			NULL
 		);
@@ -7276,21 +7282,21 @@ yyreduce:
 		if( CurrentSection->parent == NULL )
 			TabSizeRoot = size;
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 7284 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7290 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 287:
-#line 5029 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert( (yyvsp[0]).str == NULL );
+#line 5029 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert( yyvsp[0].str == NULL );
 
 		if( TableLevel <= 0 ) fatalomh(
 			"There is no matching $table command preceeding\n",
 			"the $tend command in line ",
-			int2str((yyvsp[0]).line),
+			int2str(yyvsp[0].line),
 			NULL
 		);
 		assert( PreviousOutputWasHeading == 0 );
@@ -7303,29 +7309,29 @@ yyreduce:
 		if( TableLevel == 0 )
 			ConvertAddPrevious(1);
 
-		PopPending((yyvsp[0]).line, "$cnext");
-		PopPending((yyvsp[0]).line, "$rnext");
-		PopPending((yyvsp[0]).line, "$table");
+		PopPending(yyvsp[0].line, "$cnext");
+		PopPending(yyvsp[0].line, "$rnext");
+		PopPending(yyvsp[0].line, "$table");
 	}
-#line 7311 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7317 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 288:
-#line 5054 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	assert ( (yyvsp[0]).str != NULL );
+#line 5054 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	assert ( yyvsp[0].str != NULL );
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 7320 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7326 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 289:
-#line 5062 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	int line = (yyvsp[0]).line;
-		char *p = (yyvsp[0]).str;
-		char *q = (yyvsp[0]).str;
+#line 5062 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	int line = yyvsp[0].line;
+		char *p = yyvsp[0].str;
+		char *q = yyvsp[0].str;
 
-		assert( (yyvsp[0]).str != NULL );
+		assert( yyvsp[0].str != NULL );
 		assert( REGISTERED_TRADE_MARK_CHARACTER < 5 );
 		assert( COPYRIGHT_CHARACTER < 5 );
 
@@ -7376,29 +7382,29 @@ yyreduce:
 			}
 		}
 
-		(yyval) = (yyvsp[0]);
+		yyval = yyvsp[0];
 	}
-#line 7382 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7388 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 290:
-#line 5122 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 5122 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7389 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7395 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 291:
-#line 5125 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 5125 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// only one $textcolor per section
 		if( CurrentSection->style.textcolor != NULL ) fatalomh(
 			"At $textcolor comamnd in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nThere is more than one $textcolor command ",
 			"in this section.",
 			NULL
@@ -7406,28 +7412,28 @@ yyreduce:
 
 
 		CurrentSection->style.textcolor = Color(
-			(yyvsp[-2]).line, "$textcolor", (yyvsp[-1]).str
+			yyvsp[-2].line, "$textcolor", yyvsp[-1].str
 		);
 
-		FreeMem((yyvsp[-1]).str);
-		(yyval) = (yyvsp[-2]);
+		FreeMem(yyvsp[-1].str);
+		yyval = yyvsp[-2];
 	}
-#line 7416 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7422 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 292:
-#line 5151 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 5151 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7423 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7429 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 293:
-#line 5154 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 5154 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
@@ -7436,54 +7442,54 @@ yyreduce:
 
 		// output the index in italic followed by "-th"
 		OutputString("<code><i>");
-		output_text((yyvsp[-1]).line,(yyvsp[-1]).str,0,'\0',CheckSpell,ErrorColor);
+		output_text(yyvsp[-1].line,yyvsp[-1].str,0,'\0',CheckSpell,ErrorColor);
 		OutputString("</i></code>");
 		OutputString("-th");
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 7448 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7454 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 294:
-#line 5179 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 5179 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7455 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7461 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 295:
-#line 5182 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 5182 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		printf("%s", (yyvsp[-1]).str);
-		FreeMem((yyvsp[-1]).str);
+		printf("%s", yyvsp[-1].str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 7470 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7476 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 296:
-#line 5195 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 5195 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7477 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7483 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 297:
-#line 5198 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	char *tag = (yyvsp[-1]).str;
+#line 5198 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	char *tag = yyvsp[-1].str;
 		CrossReference *C;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
@@ -7499,28 +7505,28 @@ yyreduce:
 			C = CreateCrossReference(tag, "", InputName());
 		assert( C != NULL );
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 7507 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7513 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 298:
-#line 5227 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 5227 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7514 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7520 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 299:
-#line 5230 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 5230 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag;
 		CrossReference *C;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	// place a new line after heading and before title
@@ -7535,7 +7541,7 @@ yyreduce:
 		}
 
 		// cross reference tag
-		tag = (yyvsp[-1]).str;
+		tag = yyvsp[-1].str;
 
 		// convert to uniform white space format
 		UniformWhiteSpace(tag);
@@ -7549,22 +7555,22 @@ yyreduce:
 			C = CreateCrossReference(tag, "", InputName());
 		assert( C != NULL );
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 7557 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7563 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 300:
-#line 5273 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 5273 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7564 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7570 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 301:
-#line 5276 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 5276 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *root, *ext, *filename, *start, *stop;
 		char ch, previous;
 		int  skip, ntoken, indent, match, len;
@@ -7577,19 +7583,19 @@ yyreduce:
 		// (compiler does not know fatalerr will not return)
 		char *token = NULL;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		ntoken = SplitText((yyvsp[-2]).line, "$verbatim", (yyvsp[-1]).str);
+		ntoken = SplitText(yyvsp[-2].line, "$verbatim", yyvsp[-1].str);
 		if( 5 < ntoken ) fatalomh(
 			"At $verbatim command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nMore than 6 delimiters in $verbatim command",
 			NULL
 		);
 
-		filename = (yyvsp[-1]).str + 1;
+		filename = yyvsp[-1].str + 1;
 		if( ntoken < 2 )
 			indent = 0;
 		else
@@ -7640,7 +7646,7 @@ yyreduce:
 		{	InputPop();
 			fatalomh(
 				"At $verbatim command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nToo many characters in start pattern",
 				NULL
 			);
@@ -7649,7 +7655,7 @@ yyreduce:
 		{	InputPop();
 			fatalomh(
 				"At $verbatim command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the start pattern",
 				NULL
@@ -7672,7 +7678,7 @@ yyreduce:
 			{	InputPop();
 				fatalomh(
 					"At $verbatim command in line ",
-					int2str((yyvsp[-2]).line),
+					int2str(yyvsp[-2].line),
 					"\nCould not find the start pattern \"",
 					start,
 					"\"\nin the file ",
@@ -7687,7 +7693,7 @@ yyreduce:
 		{	InputPop();
 			fatalomh(
 				"At $verbatim command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nToo many characters in stop pattern",
 				NULL
 			);
@@ -7696,7 +7702,7 @@ yyreduce:
 		{	InputPop();
 			fatalomh(
 				"At $verbatim command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the stop pattern",
 				NULL
@@ -7735,7 +7741,7 @@ yyreduce:
 					line_buffer[line_max]   = '\0';
 					fatalomh(
 					"At $verbatim command in line ",
-					int2str((yyvsp[-2]).line),
+					int2str(yyvsp[-2].line),
 					"\nIn the file ",
 					filename,
 					"\nThe following input line ",
@@ -7760,7 +7766,7 @@ yyreduce:
 				line_buffer[line_index] = '\0';
 				hilite_out(
 					"verbatim",
-					(yyvsp[-1]).line,
+					yyvsp[-1].line,
 					spell_check,
 					ErrorColor,
 					HiliteColor,
@@ -7792,7 +7798,7 @@ yyreduce:
 
 		if( len > 0 && ! match ) fatalomh(
 			"At $verbatim command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nCould not find the stop pattern \"",
 			stop,
 			"\"\nin the file ",
@@ -7802,31 +7808,31 @@ yyreduce:
 
 		FreeMem(root);
 		FreeMem(ext);
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 7810 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7816 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 302:
-#line 5521 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 5521 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7817 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7823 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 303:
-#line 5524 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 5524 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		// only one $visitcolor per section
 		if( CurrentSection->style.visitcolor != NULL ) fatalomh(
 			"At $visitcolor comamnd in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nThere is more than one $visitcolor command ",
 			"in this section.",
 			NULL
@@ -7834,47 +7840,47 @@ yyreduce:
 
 
 		CurrentSection->style.visitcolor = Color(
-			(yyvsp[-2]).line, "$visitcolor", (yyvsp[-1]).str
+			yyvsp[-2].line, "$visitcolor", yyvsp[-1].str
 		);
 
-		FreeMem((yyvsp[-1]).str);
-		(yyval) = (yyvsp[-2]);
+		FreeMem(yyvsp[-1].str);
+		yyval = yyvsp[-2];
 	}
-#line 7844 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7850 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 304:
-#line 5549 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 5549 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7851 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7857 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 305:
-#line 5552 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 5552 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
-		Wspace = *((yyvsp[-1]).str);
+		Wspace = *(yyvsp[-1].str);
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 7867 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7873 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 306:
-#line 5567 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
-    {	fatal_not_2_dollar_or_text((yyvsp[-2]).code, (yyvsp[-2]).line, (yyvsp[0]).code);
+#line 5567 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+    {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7874 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 7880 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 307:
-#line 5570 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1648  */
+#line 5570 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag;
 		char *head;
 		char *subhead;
@@ -7886,9 +7892,9 @@ yyreduce:
 		int ntoken;
 		int i, j;
 
-		assert( (yyvsp[-2]).str == NULL );
-		assert( (yyvsp[-1]).str != NULL );
-		assert( (yyvsp[0]).str == NULL );
+		assert( yyvsp[-2].str == NULL );
+		assert( yyvsp[-1].str != NULL );
+		assert( yyvsp[0].str == NULL );
 
 		if( PreviousOutputWasHeading )
 		{	ConvertForcedNewline(1);
@@ -7899,16 +7905,16 @@ yyreduce:
 		checkspell = CheckSpell;
 
 		// split text into tokens
-		ntoken = SplitText((yyvsp[-2]).line, "$xref", (yyvsp[-1]).str);
+		ntoken = SplitText(yyvsp[-2].line, "$xref", yyvsp[-1].str);
 		if( ntoken > 5 ) fatalomh(
 			"At $xref command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nMore than 6 delimiters in $xref command",
 			NULL
 		);
 
 		// tag for reference
-		tag = (yyvsp[-1]).str + 1;
+		tag = yyvsp[-1].str + 1;
 
 		// determine which arguments are present
 		head    = "";
@@ -7939,7 +7945,7 @@ yyreduce:
 		// make sure tag is not empty
 		if( tag[0] == '\0' ) fatalomh(
 			"At $xref command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nOnly white space between first 2 delimiters",
 			NULL
 		);
@@ -7950,7 +7956,7 @@ yyreduce:
 		{
 			if( frame[0] == '\0' ) fatalomh(
 				"At $xref command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nFrame number in $xref command is empty; ",
 				"i.e., just white space.",
 				NULL
@@ -7959,7 +7965,7 @@ yyreduce:
 			i     = atoi(frame);
 			if( i < 1 ) fatalomh(
 				"At $xref command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nFrame number in $xref command is ",
 				"less than 1",
 				NULL
@@ -7968,13 +7974,13 @@ yyreduce:
 			if( i > MaxFrame )
 			{	FreeMem( MaxFrameFile );
 				MaxFrame = i;
-				MaxFrameLine = (yyvsp[-2]).line;
+				MaxFrameLine = yyvsp[-2].line;
 				MaxFrameFile = str_alloc(InputName());
 			}
 
 			if( head[0] == '\0' ) fatalomh(
 				"At $xref command in line ",
-				int2str((yyvsp[-2]).line),
+				int2str(yyvsp[-2].line),
 				"\nCannot have an empty heading",
 				"\nwhen a particular frame is specified.",
 				NULL
@@ -7984,7 +7990,7 @@ yyreduce:
 		// if subheading is specified, check that heading is not empty
 		if( subhead[0] != '\0' && head[0] == '\0' ) fatalomh(
 			"At $xref command in line ",
-			int2str((yyvsp[-2]).line),
+			int2str(yyvsp[-2].line),
 			"\nCannot have an empty heading with ",
 			"a non-empty subheading.",
 			NULL
@@ -8025,7 +8031,7 @@ yyreduce:
 		if( ntoken > 2 )
 			CheckSpell = checkspell;
 
-		OutPre((yyvsp[-1]).line, link);
+		OutPre(yyvsp[-1].line, link);
 		HrefEnd("\n");
 
 		// search for this cross reference
@@ -8037,15 +8043,16 @@ yyreduce:
 		// restore spell checking to initial setting
 		CheckSpell = checkspell;
 
-		FreeMem((yyvsp[-1]).str);
+		FreeMem(yyvsp[-1].str);
 
-		(yyval) = (yyvsp[-2]);
+		yyval = yyvsp[-2];
 	}
-#line 8045 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 8051 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
 
-#line 8049 "/home/bradbell/repo/omhelp.git/src/omhelp.c" /* yacc.c:1648  */
+#line 8055 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -8070,14 +8077,13 @@ yyreduce:
   /* Now 'shift' the result of the reduction.  Determine what state
      that goes to, based on the state we popped back to and the rule
      number reduced by.  */
-
-  yyn = yyr1[yyn];
-
-  yystate = yypgoto[yyn - YYNTOKENS] + *yyssp;
-  if (0 <= yystate && yystate <= YYLAST && yycheck[yystate] == *yyssp)
-    yystate = yytable[yystate];
-  else
-    yystate = yydefgoto[yyn - YYNTOKENS];
+  {
+    const int yylhs = yyr1[yyn] - YYNTOKENS;
+    const int yyi = yypgoto[yylhs] + *yyssp;
+    yystate = (0 <= yyi && yyi <= YYLAST && yycheck[yyi] == *yyssp
+               ? yytable[yyi]
+               : yydefgoto[yylhs]);
+  }
 
   goto yynewstate;
 
@@ -8160,12 +8166,10 @@ yyerrlab:
 | yyerrorlab -- error raised explicitly by YYERROR.  |
 `---------------------------------------------------*/
 yyerrorlab:
-
-  /* Pacify compilers like GCC when the user code never invokes
-     YYERROR and the label yyerrorlab therefore never appears in user
-     code.  */
-  if (/*CONSTCOND*/ 0)
-     goto yyerrorlab;
+  /* Pacify compilers when the user code never invokes YYERROR and the
+     label yyerrorlab therefore never appears in user code.  */
+  if (0)
+    YYERROR;
 
   /* Do not reclaim the symbols of the rule whose action triggered
      this YYERROR.  */
@@ -8227,12 +8231,14 @@ yyacceptlab:
   yyresult = 0;
   goto yyreturn;
 
+
 /*-----------------------------------.
 | yyabortlab -- YYABORT comes here.  |
 `-----------------------------------*/
 yyabortlab:
   yyresult = 1;
   goto yyreturn;
+
 
 #if !defined yyoverflow || YYERROR_VERBOSE
 /*-------------------------------------------------.
@@ -8244,6 +8250,10 @@ yyexhaustedlab:
   /* Fall through.  */
 #endif
 
+
+/*-----------------------------------------------------.
+| yyreturn -- parsing is finished, return the result.  |
+`-----------------------------------------------------*/
 yyreturn:
   if (yychar != YYEMPTY)
     {
@@ -8273,5 +8283,5 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 5737 "/home/bradbell/repo/omhelp.git/src/omhelp.y" /* yacc.c:1907  */
+#line 5737 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
 
