@@ -1,7 +1,7 @@
 $comment
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2019 Bradley M. Bell
+          Copyright (C) 1998-2020 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -15,7 +15,7 @@ $spell
 	xml
 $$
 
-$section omhelp-20191207: Language Independent Embedded Documentation$$
+$section omhelp-20200129: Language Independent Embedded Documentation$$
 
 
 $comment The defualt escape character used by OMhelp documentation$$
