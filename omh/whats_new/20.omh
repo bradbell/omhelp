@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2020 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+#
+$begin whats_new_20$$
+$dollar @$$
+$spell
+    OMhelp
+$$
+
+$section Changes and Additions to OMhelp During 2020$$
+
+$head Description$$
+This section contains a list of changes to
+OMhelp during 2020 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+$head 01-29$$
+The error message when a requested version of a
+$cref/start/srcfile/start/$$ pattern can not be found
+has been improved.
+To be specific, the version of the patter is reported;
+see $cref/skip/srcfile/skip/$$.
+
+$end

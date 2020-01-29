@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2019 Bradley M. Bell
+          Copyright (C) 1998-2020 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -4447,6 +4447,7 @@ srcfile
 	{	// command parameters
 		char *filename, indent, *start, *stop, *token;
 		int  skip;
+        int  count = 0;
 
 		// local variables
 		char *input_lang, *output_lang, *root, *ext;
@@ -4595,8 +4596,8 @@ srcfile
 			match = 0;
 			while( (! match)  & (ch != '\001') )
 			{	match = PatternMatchCh(&ch);
-				if( match && skip > 0 )
-				{	--skip;
+				if( match && count < skip)
+				{	++count;
 					match = 0;
 				}
 				ch = InputGet();
@@ -4607,7 +4608,9 @@ srcfile
 				fatalomh(
 					"At $srcfile command in line ",
 					int2str($1.line),
-					"\nCould not find the start pattern \"",
+					"\nCould not find the ",
+                    int2str(skip + 1),
+                    "-th copy of start pattern \"",
 					start,
 					"\"\nin the file ",
 					filename,

@@ -1,0 +1,167 @@
+-------------------------------------------------------------------------------
+OMhelp: Language Independent Embedded Documentation
+          Copyright (C) 1998-2020 Bradley M. Bell
+OMhelp is distributed under the terms of the
+            GNU General Public License Version 2.
+-------------------------------------------------------------------------------
+#
+$begin whats_new_19$$
+$dollar @$$
+$spell
+	cend
+	readme
+	OMhelp
+	Ubuntu
+	usr
+	linux
+	libboost
+	regex
+	underbars
+	gh
+	omhelp
+	xml
+	Goto
+	cref
+	noframe
+$$
+
+$section Changes and Additions to OMhelp During 2019$$
+
+$head Description$$
+This section contains a list of changes to
+OMhelp during 2019 (in reverse order by date).
+Its purpose is to assist you in learning about
+changes between versions.
+
+$head 19-12-07$$
+Add another improvement to the $cref _search$$ utility.
+To be specific, hitting return or double clicking in the section tag area
+will also go to the selected section.
+
+$head 19-10-12$$
+$list number$$
+Add the $cref/cref/wish_list/cref/$$ wish list item.
+$lnext
+Deprecate not using the $cref/-noframe/running/noframe/$$
+command line argument.
+Date this deprecation the same day that frames were deprecated.
+$lend
+
+$head 19-09-30$$
+Improve the $cref _search$$ utility.
+To be specific, it shows the title and section tag in separate
+areas and hides the other keywords.
+In addition, hitting return or double clicking in the title area,
+in addition to choosing the $code Goto$$ button, will go to
+the selected section.
+
+$head 19-09-29$$
+The $code cend$$ and $code rend$$ commands have been
+$cref/deprecated/table/cend and rend Deprecated 2019-09-29/$$.
+
+$head 19-09-28$$
+$list number$$
+The $code path$$ command has been
+$cref/deprecated/path/Deprecated 2019-09-28/$$.
+$lnext
+Put the whats new for 2005 through 2018 in separate files;
+see $cref/previous years/whats_new/Previous Years/$$ above
+and remove the corresponding $cref wish_list$$ item.
+$lend
+
+$head 19-08-29$$
+It is not longer necessary to specify the $icode boost_prefix$$ for the
+$cref/CMake command/InstallUnix/CMake Command/$$ because if is determined
+automatically using the CMake $code find_package$$ command.
+This change fixed the install on Ubuntu which was broken because
+Ubuntu-18 puts the boost libraries in a sub directory corresponding to the
+architecture; e.g,
+$codep
+    /usr/lib/x86_64-linux-gnu/libboost_regex.so
+$$
+
+$head 19-08-28$$
+There is a problem installing on Ubuntu that needs to be fixed.
+
+$head 19-06-27$$
+$list number$$
+There was a problem with the drop down navigation menus when a section
+$cref/tag/begin/tag/$$ had a character that could not be used as
+a Java script identifier; e.g., the period.
+This has been fixed.
+$lnext
+An extra restriction was added for the value of a section
+$cref/tag/begin/tag/$$.
+To be specific, it cannot contain the sub-string $code __$$
+(two underbars).
+$lend
+
+$head 19-02-02$$
+Add some items to the $cref wish_list$$.
+
+$head 19-02-01$$
+Fix bug whereby some shared navigation drop down menus were missing
+(see change on 19-01-29).
+
+$head 19-01-30$$
+$list number$$
+A default $cref/default/navigate/Label/Default/$$ label
+was added for each navigation type.
+$lnext
+The OMhelp documentation now uses
+$cref/jump tables/navigate/Label/_jump_table/$$
+and the $cref/example/navigate/Example/$$
+navigation links were changed.
+$lnext
+The jump tables were missing at the top of the
+$cref _index$$ and $cref _reference$$.
+This has been fixed.
+$lend
+
+$head 19-01-29$$
+$list number$$
+The drop down navigate links of
+$cref/type/navigate/Type/$$ $codei%Down_up_%i%$$, with label
+$cref/label/navigate/Label/$$ $codei%_up_%i%$$ were identical
+for every child section.
+This has been replace by a single Java script file for
+the identical cases.
+This reduces the size of the files
+and the number of difference in $code gh-pages$$ branches
+used to display omhelp documentation.
+(The corresponding 19-01-26 wish list item was removed).
+$lnext
+White space is now forbidden in the cross reference
+$cref/tag/begin/tag/$$ specified by the $code begin$$ command.
+In addition, the restriction that $code _links$$ and $code _frame$$
+cannot be part of the tag was added to the documentation.
+$lnext
+A special case where the navigation label is empty was added.
+This was later changed to a default label for each navigation type.
+This encourages a more efficient representation.
+$lend
+
+$head 19-01-26$$
+Add a navigation wish list item.
+
+$head 19-01-18$$
+$list number$$
+There were two bugs in the optional
+$cref/jump_table/navigate/Label/_jump_table/$$ at the top of a section.
+The first bug caused an $code xml$$ format error when
+using jump tables with $cref/xml/running/xml/$$.
+The other bug did not indent sub headers below
+headers that started with the character '0'.
+These bugs have been fixed.
+$lnext
+There was an error message bug related to the $cref verbatim$$ command,
+when a new line was placed directly after the command.
+To be more specific,
+the new line was counted twice and the line number in subsequent
+error messages was larger than it should have been.
+This was also true for other commands that read from a different file; e.g.,
+$cref srcfile$$.
+This bug has been fixed.
+$lend
+
+$end
