@@ -228,8 +228,8 @@ static int   MatchLen[]   = {8, 7, 10, 10, 6,  8, 7, 7, 7, 10, 12, 8};
 static int   MatchState[] = {0, 0,  0,  0, 0,  0, 0, 0, 0,  0,  0, 0};
 static int   MatchNumber  = sizeof(MatchText) / sizeof(MatchText[0]);
 
-// ***************** Static Functions ************************
-
+// ************************ Static Functions *******************************
+//
 static void fatal_not_2_dollar_or_text(int code_cmd1, int line1, int code_cmd2)
 {	fatalomh(
 		"Error in the ",
@@ -242,7 +242,7 @@ static void fatal_not_2_dollar_or_text(int code_cmd1, int line1, int code_cmd2)
 		NULL
 	);
 }
-
+// ----------------------------------------------------------------------------
 static int WhiteSpace(char *s)
 {	int c;
 
@@ -254,14 +254,10 @@ static int WhiteSpace(char *s)
 	}
 	return 1;
 }
-
-
+// ----------------------------------------------------------------------------
 static void OutPre(int line, const char *s)
 {	output_text(line,s,1,'\0',CheckSpell,ErrorColor); }
-
-
-
-
+// ----------------------------------------------------------------------------
 static void PushOmhInput(SectionInfo *S)
 {	SectionInfo *P;
 
@@ -282,14 +278,14 @@ static void PushOmhInput(SectionInfo *S)
 	BeginCount = 0;
 	EndCount     = 0;
 }
-
+// ----------------------------------------------------------------------------
 static void PushTmpOutput(const char *root)
 {	char *file;
 	file = strjoin(root, ".tmp");
 	PushOutput(file);
 	FreeMem(file);
 }
-
+// ----------------------------------------------------------------------------
 static char MatchBuffer[10];
 static int  MatchIndex = 0;
 static enum MatchType MatchOrOutput(int ch)
@@ -334,8 +330,7 @@ static enum MatchType MatchOrOutput(int ch)
 	//
 	return result;
 }
-
-
+// ----------------------------------------------------------------------------
 static void SecondPass(SectionInfo *F)
 {
 	char *tagLower;
@@ -785,7 +780,7 @@ static void SecondPass(SectionInfo *F)
 	}
 	return;
 }
-
+// ----------------------------------------------------------------------------
 static void Appendices()
 {	// appendices used only if root has children
 
@@ -841,7 +836,7 @@ static void Appendices()
 
 	ContentPass1( SectionFind(SectionTree, CONTENTS_TAG) );
 }
-
+// ----------------------------------------------------------------------------
 static void FinishUp()
 {	char *root_file_name = NULL;
 	FILE *fp = NULL;
@@ -927,7 +922,7 @@ static void FinishUp()
 	copyfileFreeMemory();
 
 }
-
+// ----------------------------------------------------------------------------
 static void SkipBeforeFirstAndAfterLastNewline(
 	int line, char *s, const char *cmd, const char *name
 )
@@ -979,9 +974,7 @@ static void SkipBeforeFirstAndAfterLastNewline(
 	// new termination point
 	*s = '\0';
 }
-
-/**********************************************************************/
-
+// ************************ Global Functions **********************************
 char newline_ch(void)
 {	return NewlineCh; }
 
@@ -1052,7 +1045,7 @@ void InitParser(const char *StartingInputFile)
 	FreeMem(LocalDirectory);
 	FreeMem(LocalName);
 }
-
+// ************************* End Preamble ************************************
 %}
 
 %token ACCENT_lex
