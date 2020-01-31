@@ -1368,6 +1368,7 @@ void InitParser(const char *StartingInputFile)
 %token SPELL_lex
 %token SRCCODE_lex
 %token SRCFILE_lex
+%token SRCTHISFILE_lex
 %token SUBHEAD_lex
 %token SYNTAX_lex
 %token TABLE_lex
@@ -1461,6 +1462,7 @@ element
 	| spell
 	| srccode
 	| srcfile
+	| srcthisfile
 	| subhead
 	| syntax
 	| table
@@ -4706,7 +4708,7 @@ srcfile
 		if( ntoken < 1 ) fatalomh(
 			"$srcfile command in line ",
 			int2str($1.line),
-			"\nExpected at least 2 delimiters in $srcfile command",
+			"\nExpected at least 2 delimiters in command",
 			NULL
 		);
 		if( ntoken == 3 ) fatalomh(
@@ -4721,7 +4723,6 @@ srcfile
 			"\nExpected at most 6 delimiters in $srcfile command",
 			NULL
 		);
-		assert( delimiter != '\0' );
 
 		// filename
 		filename = $2.str + 1;
@@ -4767,6 +4768,94 @@ srcfile
 			$1.line,
 			newline_at_start,
 			filename,
+			indent,
+			start,
+			stop,
+			skip
+		);
+		//
+		// no longer need flag for previous heading
+		PreviousOutputWasHeading = 0;
+
+
+		FreeMem($2.str);
+		$$ = $1;
+	}
+	;
+
+srcthisfile
+	: SRCTHISFILE_lex text not_2_dollar_or_text
+	{	fatal_not_2_dollar_or_text($1.code, $1.line, $3.code);
+	}
+	| SRCTHISFILE_lex text DOUBLE_DOLLAR_lex
+	{	// command parameters
+		char *start, *stop, *token;
+		int  skip, indent;
+
+		// local variables
+		int  ntoken;
+		int  newline_at_start;
+
+		assert( $1.str == NULL );
+		assert( $2.str != NULL );
+		assert( $3.str == NULL );
+
+		ntoken = SplitText($1.line, "$srcfile", $2.str);
+		if( ntoken < 1 ) fatalomh(
+			"$srcthisfile command in line ",
+			int2str($1.line),
+			"\nExpected at least 2 delimiters in command",
+			NULL
+		);
+		if( ntoken == 2 ) fatalomh(
+			"$srcthisfile command in line ",
+			int2str($1.line),
+			"\nMust also specify stop when start is present",
+			NULL
+		);
+		if( ntoken > 5 ) fatalomh(
+			"$srcthisfile command in line ",
+			int2str($1.line),
+			"\nExpected at most 5 delimiters in $srcfile command",
+			NULL
+		);
+		// delimiter != '\0'
+		assert( $2.str[0] != '\0' );
+
+		// indent
+		token  = $2.str + 1;
+		indent = atoi(token);
+
+		// start
+		if( ntoken < 2 )
+			start = "";
+		else
+			start = token + strlen(token) + 1;
+
+		// stop
+		if( ntoken < 3 )
+			stop = "";
+		else
+			stop = start + strlen(start) + 1;
+
+		// skip
+		if( ntoken < 4 )
+			skip = 0;
+		else
+		{	token = stop + strlen(stop) + 1;
+			skip = atoi(token);
+		}
+
+		// if start is not present, start with a newline for beginning of file
+		// if previous output was a heading, start with a newline
+		newline_at_start = ntoken < 3 && ConvertPreviousNewline() < 1;
+		newline_at_start = newline_at_start || PreviousOutputWasHeading;
+		//
+		srcfile(
+			"$srcthisfile",
+			$1.line,
+			newline_at_start,
+			InputName(),
 			indent,
 			start,
 			stop,

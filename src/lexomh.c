@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2019 Bradley M. Bell
+          Copyright (C) 1998-2020 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 ---------------------------------------------------------------------------- */
@@ -230,6 +230,7 @@ keyword_table[] =
 	{ "spell",      SPELL_lex       },
 	{ "srccode",    SRCCODE_lex     },
 	{ "srcfile",    SRCFILE_lex     },
+	{ "srcthisfile",SRCTHISFILE_lex },
 	{ "subhead",    SUBHEAD_lex     },
 	{ "syntax",     SYNTAX_lex      },
 	{ "table",      TABLE_lex       },
