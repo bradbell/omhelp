@@ -977,7 +977,8 @@ static void SkipBeforeFirstAndAfterLastNewline(
 // --------------------------------------------------------------------------
 static void srcfile(
 	const char* command_name     ,
-	int         line_number      ,
+	int         command_line     ,
+	int         start_line       ,
 	int         newline_at_start ,
 	const char* file_name        ,
 	int         indent           ,
@@ -1001,7 +1002,7 @@ static void srcfile(
 		if( ext[0] == '\0' ) fatalomh(
 			command_name,
 			" command in line ",
-			int2str(line_number),
+			int2str(command_line),
 			"\nThe file '",
 			file_name,
 			"'\ndoes not have a '.' followed by an extension",
@@ -1014,7 +1015,7 @@ static void srcfile(
 		if( input_lang == NULL ) fatalomh(
 			command_name,
 			" command in line ",
-			int2str(line_number),
+			int2str(command_line),
 			"\nCannot use this command becasue the",
 			"\nsource-highlight or boost_regex library is not avaiable.",
 			NULL
@@ -1023,7 +1024,7 @@ static void srcfile(
 		{	fatalomh(
 				command_name,
 				" command in line ",
-				int2str(line_number),
+				int2str(command_line),
 				"\nCannot determine language for the file extension ",
 				ext,
 				NULL
@@ -1040,7 +1041,7 @@ static void srcfile(
 			fatalomh(
 				command_name,
 				" command in line ",
-				int2str(line_number),
+				int2str(command_line),
 				"\nToo many characters in start pattern",
 				NULL
 			);
@@ -1050,7 +1051,7 @@ static void srcfile(
 			fatalomh(
 				command_name,
 				" command in line ",
-				int2str(line_number),
+				int2str(command_line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the start pattern",
 				NULL
@@ -1074,13 +1075,27 @@ static void srcfile(
 				fatalomh(
 					command_name,
 					" command in line ",
-					int2str(line_number),
+					int2str(command_line),
 					"\nCould not find the ",
 					int2str(skip + 1),
 					"-th copy of start pattern \"",
 					start,
 					"\"\nin file ",
 					file_name,
+					NULL
+				);
+			}
+			if( InputLine() == start_line )
+			{	InputPop();
+				fatalomh(
+					command_name,
+					" command in line ",
+					int2str(command_line),
+					"\nThe ",
+					int2str(skip + 1),
+					"-th copy of start pattern \"",
+					start,
+					"\"\nis in the comand. Need a different skip value.",
 					NULL
 				);
 			}
@@ -1093,7 +1108,7 @@ static void srcfile(
 			fatalomh(
 				command_name,
 				" command in line ",
-				int2str(line_number),
+				int2str(command_line),
 				"\nToo many characters in stop pattern",
 				NULL
 			);
@@ -1103,7 +1118,7 @@ static void srcfile(
 			fatalomh(
 				command_name,
 				" command in line ",
-				int2str(line_number),
+				int2str(command_line),
 				"\nThree decimal digits must follow the ",
 				"escape character in the stop pattern",
 				NULL
@@ -1126,7 +1141,7 @@ static void srcfile(
 					fatalomh(
 						command_name,
 						" command in line ",
-						int2str(line_number),
+						int2str(command_line),
 						"\nin file ",
 						file_name,
 						"\nThe following input line ",
@@ -1175,7 +1190,7 @@ static void srcfile(
 		if( *tmp == '\0' ) fatalomh(
 			command_name,
 			" command in line ",
-			int2str(line_number),
+			int2str(command_line),
 			" of file ",
 			file_name,
 			"\nNo text between start and stop patterns.",
@@ -1187,7 +1202,7 @@ static void srcfile(
 		if( len > 0 && ! match ) fatalomh(
 			command_name,
 			" command in line ",
-			int2str(line_number),
+			int2str(command_line),
 			"\nCould not find the stop pattern \"",
 			stop,
 			"\"\nin ",
@@ -4767,7 +4782,8 @@ srcfile
 		//
 		srcfile(
 			"$srcfile",
-			$1.line,
+			$1.line,     // command_line
+			-1,          // start_line
 			newline_at_start,
 			filename,
 			indent,
@@ -4791,8 +4807,9 @@ srcthisfile
 	}
 	| SRCTHISFILE_lex text DOUBLE_DOLLAR_lex
 	{	// command parameters
-		char *start, *stop, *token;
-		int  skip, indent;
+		char *start, *stop, *token, delimiter;
+		int  skip, indent, start_line;
+		int command_line = $1.line;
 
 		// local variables
 		int  ntoken;
@@ -4803,23 +4820,34 @@ srcthisfile
 		assert( $3.str == NULL );
 
 		// delimiter != '\0'
-		assert( $2.str[0] != '\0' );
-		ntoken = SplitText($1.line, "$srcthisfile", $2.str);
+		delimiter = $2.str[0];
+		assert( delimiter != '\0' );
+
+		// determine line where start pattern is located
+		start_line = command_line;
+		start      = $2.str + 1;
+		while( (*start != '\0') & (*start != delimiter) )
+		{	if( *start == '\n' )
+				++start_line;
+			++start;
+		}
+		//
+		ntoken = SplitText(command_line, "$srcthisfile", $2.str);
 		if( ntoken < 1 ) fatalomh(
 			"$srcthisfile command in line ",
-			int2str($1.line),
+			int2str(command_line),
 			"\nExpected at least 2 delimiters in command",
 			NULL
 		);
 		if( ntoken == 2 ) fatalomh(
 			"$srcthisfile command in line ",
-			int2str($1.line),
+			int2str(command_line),
 			"\nMust also specify stop when start is present",
 			NULL
 		);
 		if( ntoken > 5 ) fatalomh(
 			"$srcthisfile command in line ",
-			int2str($1.line),
+			int2str(command_line),
 			"\nExpected at most 5 delimiters in command",
 			NULL
 		);
@@ -4855,7 +4883,8 @@ srcthisfile
 		//
 		srcfile(
 			"$srcthisfile",
-			$1.line,
+			command_line,
+			start_line,
 			newline_at_start,
 			InputName(),
 			indent,

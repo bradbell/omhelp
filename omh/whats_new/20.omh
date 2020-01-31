@@ -20,7 +20,13 @@ OMhelp during 2020 (in reverse order by date).
 Its purpose is to assist you in learning about
 changes between versions.
 
-$head 01-20$$
+$head 01-31$$
+Add detection and error message when a
+$cref/srcthisfile/srcfile/Syntax/srcthisfile/$$ start pattern
+matches the start pattern itself
+(instead of skipping to another copy of the pattern).
+
+$head 01-30$$
 Add the $cref/srcthisfile/srcfile/Syntax/srcthisfile/$$ command.
 
 $head 01-29$$
