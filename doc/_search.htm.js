@@ -140,7 +140,7 @@ Keyword =
 { tag: 'NegativeSpace', title:'Mozilla Bug Report For Negative Width in Mspace Command', other:' claim reason spaces examples incorrect display' },
 { tag: 'Explorer', title:'Problems Using MS Internet Explorer 6 To Display OMhelp Output', other:' bug browser error format description favicon xhtml line wrapping mathml operator sizes symbols' },
 { tag: 'glossary', title:'Glossary', other:' children complete path specification cross reference tag delimiter sequence directory separator character dollar sign file extension input searching parent pre-formatted font section siblings uniformly spaced white' },
-{ tag: 'wish_list', title:'OMhelp Wish List', other:' cref verbatim srcfile srccode xml drop down menus not working home page jump table deprecate features image tables parent section source-highlight comment character spell th $$' },
+{ tag: 'wish_list', title:'OMhelp Wish List', other:' cref xml drop down menus not working home page jump table deprecate features image tables parent section source-highlight comment character spell th $$' },
 { tag: 'whats_new', title:'Changes and Additions to OMhelp', other:' introduction this year previous years' },
 { tag: 'whats_new_20', title:'Changes and Additions to OMhelp During 2020', other:' description 01-31 01-30 01-29' },
 { tag: 'whats_new_19', title:'Changes and Additions to OMhelp During 2019', other:' description 19-12-07 19-10-12 19-09-30 19-09-29 19-09-28 19-08-29 19-08-28 19-06-27 19-02-02 19-02-01 19-01-30 19-01-29 19-01-26 19-01-18' },
