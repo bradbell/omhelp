@@ -1045,6 +1045,259 @@ static void SkipBeforeFirstAndAfterLastNewline(
 	// new termination point
 	*s = '\0';
 }
+// --------------------------------------------------------------------------
+static void srcfile(
+	const char* command_name     ,
+	int         line_number      ,
+	int         newline_at_start ,
+	const char* file_name        ,
+	int         indent           ,
+	const char* start            ,
+	const char* stop             ,
+	int         skip             )
+{
+	{	// will count how many matches for start pattern
+		int  count = 0;
+
+		// other local variables
+		char *input_lang, *output_lang, *root, *ext, *data, *tmp;
+		char ch, line_buffer[300];
+		int  len, match, tabsize, column_index, column_max = 299; 
+
+		// split name for opening file and check extension
+		// root and ext must be freed before returning
+		InputSplitName(&root, &ext, file_name);
+
+		// make sure file_name has an extension
+		if( ext[0] == '\0' ) fatalomh(
+			command_name,
+			" command in line ",
+			int2str(line_number),
+			"\nThe file '",
+			file_name,
+			"'\ndoes not have a '.' followed by an extension",
+			"\nso cannot determine its language.",
+			NULL
+		);
+		// determine what language this file is in
+		assert( ext[0] == '.' );
+		input_lang = file_ext2lang( ext + 1 );
+		if( input_lang == NULL ) fatalomh(
+			command_name,
+			" command in line ",
+			int2str(line_number),
+			"\nCannot use this command becasue the",
+			"\nsource-highlight or boost_regex library is not avaiable.",
+			NULL
+		);
+		if( input_lang[0] == '\0' )
+		{	fatalomh(
+				command_name,
+				" command in line ",
+				int2str(line_number),
+				"\nCannot determine language for the file extension ",
+				ext,
+				NULL
+			);
+		}
+		// initialize with input first character
+		InputPush(root, ext, -1);
+		ch       = InputGet();
+		//
+		// set start pattern
+		len = PatternMatchLen(start, Escape);
+		if( len == -1 )
+		{	InputPop();
+			fatalomh(
+				command_name,
+				" command in line ",
+				int2str(line_number),
+				"\nToo many characters in start pattern",
+				NULL
+			);
+		}
+		if( len == -2 )
+		{	InputPop();
+			fatalomh(
+				command_name,
+				" command in line ",
+				int2str(line_number),
+				"\nThree decimal digits must follow the ",
+				"escape character in the start pattern",
+				NULL
+			);
+		}
+		assert( len >= 0 );
+		//
+		// skip to the starting pattern
+		if( len > 0 )
+		{	match = 0;
+			while( (! match)  & (ch != '\001') )
+			{	match = PatternMatchCh(&ch);
+				if( match && count < skip)
+				{	++count;
+					match = 0;
+				}
+				ch = InputGet();
+			}
+			if( ch == '\001' )
+			{	InputPop();
+				fatalomh(
+					command_name,
+					" command in line ",
+					int2str(line_number),
+					"\nCould not find the ",
+					int2str(skip + 1),
+					"-th copy of start pattern \"",
+					start,
+					"\"\nin file ",
+					file_name,
+					NULL
+				);
+			}
+		}
+		//
+		// set stopping pattern
+		len     = PatternMatchLen(stop, Escape);
+		if( len == -1 )
+		{	InputPop();
+			fatalomh(
+				command_name,
+				" command in line ",
+				int2str(line_number),
+				"\nToo many characters in stop pattern",
+				NULL
+			);
+		}
+		if( len == -2 )
+		{	InputPop();
+			fatalomh(
+				command_name,
+				" command in line ",
+				int2str(line_number),
+				"\nThree decimal digits must follow the ",
+				"escape character in the stop pattern",
+				NULL
+			);
+		}
+		// 
+		// get the data
+		match        = 0;
+		column_index = 0;
+		data         = NULL;
+		while(ch != '\001' )
+		{	if( len > 0 )
+				match = PatternMatchCh(&ch);
+			//
+			// add this character to the output line buffer
+			if( (ch != '\001') & (ch != '\0') )
+			{	if( column_index >= column_max )
+				{	line_buffer[column_index-1] = '\n';
+					line_buffer[column_index]   = '\0';
+					fatalomh(
+						command_name,
+						" command in line ",
+						int2str(line_number),
+						"\nin file ",
+						file_name,
+						"\nThe following input line ",
+						"is too long",
+						line_buffer,
+						NULL
+					);
+				}
+				line_buffer[column_index++] = ch;
+			}
+			if( (ch == '\001') | (ch == '\n') | match )
+			{	line_buffer[column_index] = '\0';
+				if( data == NULL )
+				{	int i = 0;
+					while( line_buffer[i] == ' ' || line_buffer[i] == '\n' )
+						i++;
+					if( newline_at_start && line_buffer[i] != '\n' )
+						data = strjoin( "\n", line_buffer );
+					else
+						data = str_alloc( line_buffer );
+				}
+				else
+				{	tmp   = data;
+					data  = strjoin(data, line_buffer);
+					FreeMem(tmp);
+				}
+			}
+			// check for stopping at ch
+			if( match )
+				ch = '\001';
+			// check for starting a newline
+			if( ch == '\n' )
+				column_index = 0;
+			//
+			if( ch != '\001' )
+				ch = InputGet();
+		}
+		//
+		// done with this input file
+		InputPop();
+		//
+		// check for no data
+		tmp = data;
+		while( isspace(*tmp) )
+			tmp++;
+		if( *tmp == '\0' ) fatalomh(
+			command_name,
+			" command in line ",
+			int2str(line_number),
+			" of file ",
+			file_name,
+			"\nNo text between start and stop patterns.",
+			"\nPerhaps you need to skip the first start pattern.",
+			NULL
+		);
+		//
+		// check for no match
+		if( len > 0 && ! match ) fatalomh(
+			command_name,
+			" command in line ",
+			int2str(line_number),
+			"\nCould not find the stop pattern \"",
+			stop,
+			"\"\nin ",
+			file_name,
+			NULL
+		);
+		//
+		// determine what language the output file is in
+		if( strcmp( Internal2Out("OutputExtension"), ".htm") == 0 )
+			output_lang = "html.outlang";
+        else
+            output_lang = "xhtml.outlang";
+		//
+		// number of newliness there will be at end of soruce
+		tmp = data + strlen(data) - 1;
+		while( isspace(*tmp) && data < tmp )
+		{	if( *tmp == '\n' )
+				ConvertAddPrevious(1);
+			tmp--;
+		}
+		//
+		// convert data to the output language with highlighting
+		tabsize = TabSizeCurrent;
+		tmp     = data;
+		data = highlight(data, input_lang, output_lang, indent, tabsize);
+		FreeMem(tmp);
+		assert( data != NULL );
+		tmp = data;
+		//
+		// output data
+		while( *tmp != '\0' )
+			OutputChar( *tmp++ );
+		//
+		FreeMem(input_lang);
+		FreeMem(data);
+		FreeMem(root);
+		FreeMem(ext);
+	}
+}
 // ************************ Global Functions **********************************
 char newline_ch(void)
 {	return NewlineCh; }
@@ -1118,7 +1371,7 @@ void InitParser(const char *StartingInputFile)
 }
 // ************************* End Preamble ************************************
 
-#line 1122 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 1375 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus
@@ -1554,37 +1807,37 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,  1137,  1137,  1148,  1153,  1154,  1155,  1156,  1157,  1158,
-    1159,  1160,  1161,  1162,  1163,  1164,  1165,  1166,  1167,  1168,
-    1169,  1170,  1171,  1172,  1173,  1174,  1175,  1176,  1177,  1178,
-    1179,  1180,  1181,  1182,  1183,  1184,  1185,  1186,  1187,  1188,
-    1189,  1190,  1191,  1192,  1193,  1194,  1195,  1196,  1197,  1198,
-    1199,  1200,  1201,  1202,  1203,  1204,  1205,  1206,  1207,  1208,
-    1209,  1210,  1211,  1212,  1213,  1214,  1215,  1216,  1243,  1244,
-    1245,  1246,  1247,  1248,  1249,  1250,  1251,  1252,  1256,  1260,
-    1267,  1342,  1345,  1377,  1380,  1413,  1421,  1424,  1639,  1642,
-    1668,  1679,  1693,  1704,  1717,  1720,  1741,  1765,  1769,  1776,
-    1791,  1806,  1812,  1821,  1895,  2004,  2012,  2021,  2027,  2033,
-    2042,  2045,  2059,  2072,  2085,  2088,  2103,  2106,  2167,  2170,
-    2182,  2185,  2317,  2354,  2357,  2371,  2474,  2599,  2602,  2616,
-    2619,  2637,  2640,  2683,  2686,  2757,  2768,  2781,  2784,  2907,
-    2910,  2920,  2923,  2938,  2941,  2950,  2953,  3077,  3080,  3100,
-    3107,  3117,  3280,  3283,  3341,  3445,  3457,  3472,  3473,  3474,
-    3475,  3476,  3477,  3478,  3479,  3480,  3481,  3482,  3483,  3484,
-    3485,  3486,  3487,  3488,  3489,  3490,  3491,  3492,  3493,  3494,
-    3495,  3496,  3497,  3498,  3499,  3500,  3501,  3502,  3503,  3504,
-    3505,  3506,  3507,  3508,  3509,  3510,  3511,  3512,  3513,  3514,
-    3515,  3516,  3517,  3518,  3519,  3520,  3521,  3522,  3523,  3524,
-    3525,  3526,  3527,  3528,  3529,  3530,  3531,  3532,  3533,  3534,
-    3535,  3536,  3537,  3538,  3539,  3540,  3541,  3542,  3543,  3544,
-    3545,  3546,  3552,  3555,  3618,  3640,  3643,  3669,  3672,  3741,
-    3760,  3763,  3803,  3806,  3880,  3883,  3899,  3902,  3924,  3927,
-    3945,  3956,  3969,  3970,  3971,  3972,  3976,  3979,  3998,  4037,
-    4040,  4078,  4109,  4116,  4126,  4129,  4143,  4146,  4186,  4189,
-    4286,  4289,  4301,  4312,  4326,  4329,  4344,  4347,  4436,  4439,
-    4757,  4760,  4889,  4892,  4961,  4984,  4987,  5024,  5049,  5057,
-    5117,  5120,  5146,  5149,  5174,  5177,  5190,  5193,  5222,  5225,
-    5268,  5271,  5516,  5519,  5544,  5547,  5562,  5565
+       0,  1390,  1390,  1401,  1406,  1407,  1408,  1409,  1410,  1411,
+    1412,  1413,  1414,  1415,  1416,  1417,  1418,  1419,  1420,  1421,
+    1422,  1423,  1424,  1425,  1426,  1427,  1428,  1429,  1430,  1431,
+    1432,  1433,  1434,  1435,  1436,  1437,  1438,  1439,  1440,  1441,
+    1442,  1443,  1444,  1445,  1446,  1447,  1448,  1449,  1450,  1451,
+    1452,  1453,  1454,  1455,  1456,  1457,  1458,  1459,  1460,  1461,
+    1462,  1463,  1464,  1465,  1466,  1467,  1468,  1469,  1496,  1497,
+    1498,  1499,  1500,  1501,  1502,  1503,  1504,  1505,  1509,  1513,
+    1520,  1595,  1598,  1630,  1633,  1666,  1674,  1677,  1892,  1895,
+    1921,  1932,  1946,  1957,  1970,  1973,  1994,  2018,  2022,  2029,
+    2044,  2059,  2065,  2074,  2148,  2257,  2265,  2274,  2280,  2286,
+    2295,  2298,  2312,  2325,  2338,  2341,  2356,  2359,  2420,  2423,
+    2435,  2438,  2570,  2607,  2610,  2624,  2727,  2852,  2855,  2869,
+    2872,  2890,  2893,  2936,  2939,  3010,  3021,  3034,  3037,  3160,
+    3163,  3173,  3176,  3191,  3194,  3203,  3206,  3330,  3333,  3353,
+    3360,  3370,  3533,  3536,  3594,  3698,  3710,  3725,  3726,  3727,
+    3728,  3729,  3730,  3731,  3732,  3733,  3734,  3735,  3736,  3737,
+    3738,  3739,  3740,  3741,  3742,  3743,  3744,  3745,  3746,  3747,
+    3748,  3749,  3750,  3751,  3752,  3753,  3754,  3755,  3756,  3757,
+    3758,  3759,  3760,  3761,  3762,  3763,  3764,  3765,  3766,  3767,
+    3768,  3769,  3770,  3771,  3772,  3773,  3774,  3775,  3776,  3777,
+    3778,  3779,  3780,  3781,  3782,  3783,  3784,  3785,  3786,  3787,
+    3788,  3789,  3790,  3791,  3792,  3793,  3794,  3795,  3796,  3797,
+    3798,  3799,  3805,  3808,  3871,  3893,  3896,  3922,  3925,  3994,
+    4013,  4016,  4056,  4059,  4133,  4136,  4152,  4155,  4177,  4180,
+    4198,  4209,  4222,  4223,  4224,  4225,  4229,  4232,  4251,  4290,
+    4293,  4331,  4362,  4369,  4379,  4382,  4396,  4399,  4439,  4442,
+    4539,  4542,  4554,  4565,  4579,  4582,  4597,  4600,  4689,  4692,
+    4786,  4789,  4918,  4921,  4990,  5013,  5016,  5053,  5078,  5086,
+    5146,  5149,  5175,  5178,  5203,  5206,  5219,  5222,  5251,  5254,
+    5297,  5300,  5545,  5548,  5573,  5576,  5591,  5594
 };
 #endif
 
@@ -3282,25 +3535,25 @@ yyreduce:
   switch (yyn)
     {
   case 2:
-#line 1138 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1391 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		fatalomh(
 			"Unexpected $$",
 			NULL
 		);
 	}
-#line 3293 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3546 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 3:
-#line 1148 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1401 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	yydebug = 0;
 	}
-#line 3300 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3553 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 67:
-#line 1217 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1470 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str != NULL );
 
 		if( PreviousOutputWasHeading )
@@ -3327,27 +3580,27 @@ yyreduce:
 		yyval.str  = NULL;
 		yyval.line = yyvsp[0].line;
 	}
-#line 3331 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3584 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 78:
-#line 1257 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1510 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 		yyval = yyvsp[0];
 	}
-#line 3339 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3592 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 79:
-#line 1261 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1514 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-1].str == NULL );
 		yyval = yyvsp[-1];
 	}
-#line 3347 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3600 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 80:
-#line 1268 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1521 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char ch;
 
 		// initlaize to avoid warning
@@ -3419,18 +3672,18 @@ yyreduce:
 
 		FreeMem(yyvsp[0].str);
 	}
-#line 3423 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3676 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 81:
-#line 1343 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1596 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 3430 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3683 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 82:
-#line 1346 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1599 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *s;
 		int i;
 
@@ -3459,18 +3712,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 3463 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3716 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 83:
-#line 1378 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1631 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 3470 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3723 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 84:
-#line 1381 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1634 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *s;
 
 		assert( yyvsp[-2].str == NULL );
@@ -3500,27 +3753,27 @@ yyreduce:
 
 		FreeMem(yyvsp[-1].str);
 	}
-#line 3504 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3757 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 85:
-#line 1414 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1667 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str != NULL );
 		ClipWhiteSpace(yyvsp[0].str);
 		yyval = yyvsp[0];
 	}
-#line 3513 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3766 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 86:
-#line 1422 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1675 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 3520 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3773 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 87:
-#line 1425 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1678 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag;
 		char *tag_lower;
 		char *number = NULL;
@@ -3732,18 +3985,18 @@ yyreduce:
 		FreeMem(yyvsp[-1].str);
 		yyval = yyvsp[-2];
 	}
-#line 3736 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3989 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 88:
-#line 1640 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1893 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 3743 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 3996 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 89:
-#line 1643 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1896 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -3766,11 +4019,11 @@ yyreduce:
 		FreeMem(yyvsp[-1].str);
 		yyval = yyvsp[-2];
 	}
-#line 3770 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4023 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 90:
-#line 1669 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1922 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<big>");
@@ -3778,11 +4031,11 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 3782 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4035 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 91:
-#line 1680 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1933 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str == NULL );
 		assert( yyvsp[0].str == NULL );
@@ -3792,11 +4045,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 3796 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4049 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 92:
-#line 1694 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1947 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<b>");
@@ -3804,11 +4057,11 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 3808 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4061 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 93:
-#line 1705 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1958 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str == NULL );
 		assert( yyvsp[0].str == NULL );
@@ -3818,18 +4071,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 3822 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4075 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 94:
-#line 1718 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1971 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 3829 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4082 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 95:
-#line 1721 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1974 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -3846,11 +4099,11 @@ yyreduce:
 		FreeMem(yyvsp[-1].str);
 		yyval = yyvsp[-2];
 	}
-#line 3850 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4103 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 96:
-#line 1742 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 1995 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		if( TableLevel == 0 ) fatalomh(
@@ -3871,27 +4124,27 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 3875 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4128 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 97:
-#line 1766 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2019 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 		yyval = yyvsp[0];
 	}
-#line 3883 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4136 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 98:
-#line 1770 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2023 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 		yyval = yyvsp[0];
 	}
-#line 3891 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4144 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 99:
-#line 1777 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2030 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		// do not need extra new line after previous heading
@@ -3903,11 +4156,11 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 3907 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4160 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 100:
-#line 1792 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2045 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-1].str == NULL );
 		assert( yyvsp[0].str == NULL );
 
@@ -3919,31 +4172,31 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 3923 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4176 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 101:
-#line 1807 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2060 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		yyval.str  = str_alloc("$contents");
 		yyval.line = yyvsp[0].line;
 	}
-#line 3933 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4186 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 102:
-#line 1813 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2066 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		yyval.str  = str_alloc("$childtable");
 		yyval.line = yyvsp[0].line;
 	}
-#line 3943 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4196 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 103:
-#line 1822 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2075 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 # ifndef NDEBUG
 		CrossReference *C;
@@ -4014,11 +4267,11 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 4018 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4271 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 104:
-#line 1896 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2149 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		char       *p;
 		char       *name;
@@ -4124,11 +4377,11 @@ yyreduce:
 		yyval.str  = NULL;
 		yyval.line = yyvsp[-2].line;
 	}
-#line 4128 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4381 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 105:
-#line 2005 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2258 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		RootHasChildren = 1;
@@ -4136,59 +4389,59 @@ yyreduce:
 		yyval.str  = str_alloc("$children");
 		yyval.line = yyvsp[0].line;
 	}
-#line 4140 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4393 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 106:
-#line 2013 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2266 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str != NULL );
 
 		RootHasChildren = 1;
 
 		yyval = yyvsp[0];
 	}
-#line 4151 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4404 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 107:
-#line 2022 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2275 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		yyval.str  = str_alloc("$cindex");
 		yyval.line = yyvsp[0].line;
 	}
-#line 4161 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4414 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 108:
-#line 2028 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2281 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		yyval.str  = str_alloc("$mindex");
 		yyval.line = yyvsp[0].line;
 	}
-#line 4171 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4424 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 109:
-#line 2034 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2287 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		yyval.str  = str_alloc("$index");
 		yyval.line = yyvsp[0].line;
 	}
-#line 4181 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4434 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 110:
-#line 2043 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2296 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4188 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4441 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 111:
-#line 2046 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2299 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
@@ -4199,11 +4452,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 4203 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4456 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 112:
-#line 2060 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2313 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<code><font color=\"");
@@ -4213,11 +4466,11 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 4217 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4470 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 113:
-#line 2073 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2326 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str == NULL );
 		assert( yyvsp[0].str == NULL );
@@ -4227,18 +4480,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 4231 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4484 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 114:
-#line 2086 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2339 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4238 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4491 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 115:
-#line 2089 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2342 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
@@ -4249,18 +4502,18 @@ yyreduce:
 		FreeMem(yyvsp[-1].str);
 		yyval = yyvsp[-2];
 	}
-#line 4253 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4506 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 116:
-#line 2104 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2357 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4260 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4513 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 117:
-#line 2107 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2360 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
@@ -4318,18 +4571,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 4322 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4575 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 118:
-#line 2168 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2421 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4329 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4582 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 119:
-#line 2171 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2424 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
@@ -4338,18 +4591,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 4342 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4595 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 120:
-#line 2183 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2436 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4349 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4602 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 121:
-#line 2186 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2439 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *text;
 		char *tag;
 		char *head;
@@ -4478,11 +4731,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 4482 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4735 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 122:
-#line 2318 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2571 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	time_t     time_t_time;
 		struct tm     *tm_time;
 		char        *char_time;
@@ -4515,18 +4768,18 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 4519 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4772 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 123:
-#line 2355 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2608 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4526 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4779 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 124:
-#line 2358 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2611 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
@@ -4537,11 +4790,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 4541 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4794 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 125:
-#line 2372 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2625 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		// do not need extra new line after previous heading
@@ -4640,11 +4893,11 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 4644 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 4897 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 126:
-#line 2475 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2728 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	// end of an input file
 
 		SectionInfo *S;
@@ -4766,18 +5019,18 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 4770 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5023 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 127:
-#line 2600 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2853 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4777 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5030 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 128:
-#line 2603 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2856 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
@@ -4788,18 +5041,18 @@ yyreduce:
 		FreeMem(yyvsp[-1].str);
 		yyval = yyvsp[-2];
 	}
-#line 4792 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5045 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 129:
-#line 2617 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2870 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4799 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5052 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 130:
-#line 2620 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2873 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
@@ -4813,18 +5066,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 4817 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5070 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 131:
-#line 2638 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2891 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4824 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5077 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 132:
-#line 2641 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2894 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
@@ -4863,18 +5116,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 4867 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5120 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 133:
-#line 2684 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2937 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4874 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5127 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 134:
-#line 2687 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 2940 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		int above;
 		int below;
@@ -4942,11 +5195,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 4946 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5199 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 135:
-#line 2758 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3011 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<code>");
@@ -4954,11 +5207,11 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 4958 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5211 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 136:
-#line 2769 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3022 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str == NULL );
 		assert( yyvsp[0].str == NULL );
@@ -4968,18 +5221,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 4972 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5225 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 137:
-#line 2782 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3035 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 4979 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5232 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 138:
-#line 2785 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3038 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 # ifndef NDEBUG
 		CrossReference *C;
@@ -5098,36 +5351,36 @@ yyreduce:
 
 		PreviousOutputWasHeading = 1;
 	}
-#line 5102 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5355 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 139:
-#line 2908 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3161 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5109 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5362 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 140:
-#line 2911 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3164 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int n_command;
 		n_command = SplitText(yyvsp[-2].line, "hilitecmd", yyvsp[-1].str);
 		hilite_command(yyvsp[-2].line, n_command, yyvsp[-1].str);
 
 		FreeMem(yyvsp[-1].str);
 	}
-#line 5120 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5373 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 141:
-#line 2921 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3174 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5127 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5380 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 142:
-#line 2924 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3177 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
@@ -5138,36 +5391,36 @@ yyreduce:
 		FreeMem(yyvsp[-1].str);
 		yyval = yyvsp[-2];
 	}
-#line 5142 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5395 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 143:
-#line 2939 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3192 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5149 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5402 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 144:
-#line 2942 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3195 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int n_token;
 		n_token = SplitText(yyvsp[-2].line, "hiliteseq", yyvsp[-1].str);
 		hilite_seq(yyvsp[-2].line, n_token, yyvsp[-1].str);
 
 		FreeMem(yyvsp[-1].str);
 	}
-#line 5160 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5413 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 145:
-#line 2951 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3204 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5167 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5420 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 146:
-#line 2954 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3207 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *url;
 		char *frame;
 		char *link;
@@ -5288,18 +5541,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 5292 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5545 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 147:
-#line 3078 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3331 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5299 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5552 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 148:
-#line 3081 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3334 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -5316,32 +5569,32 @@ yyreduce:
 		FreeMem(yyvsp[-1].str);
 		yyval = yyvsp[-2];
 	}
-#line 5320 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5573 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 149:
-#line 3101 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3354 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		yyval.str  = str_alloc("$icon");
 		yyval.line = yyvsp[0].line;
 
 	}
-#line 5331 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5584 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 150:
-#line 3108 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3361 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		yyval.str  = str_alloc("$image");
 		yyval.line = yyvsp[0].line;
 	}
-#line 5341 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5594 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 151:
-#line 3118 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3371 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 
 		char *root;
@@ -5501,18 +5754,18 @@ yyreduce:
 		yyval.str  = NULL;
 		yyval.line = yyvsp[-2].line;
 	}
-#line 5505 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5758 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 152:
-#line 3281 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3534 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5512 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5765 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 153:
-#line 3284 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3537 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char  *root;
 		char  *ext;
 		char  cmd_key_char;
@@ -5566,11 +5819,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 5570 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5823 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 154:
-#line 3342 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3595 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *text = yyvsp[-1].str;
 		int line   = yyvsp[-2].line;
 
@@ -5671,11 +5924,11 @@ yyreduce:
 		yyval.str  = NULL;
 		yyval.line = yyvsp[-2].line;
 	}
-#line 5675 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5928 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 155:
-#line 3446 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3699 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<i>");
@@ -5684,11 +5937,11 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 5688 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5941 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 156:
-#line 3458 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3711 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str == NULL );
@@ -5700,25 +5953,25 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 5704 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5957 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 231:
-#line 3547 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3800 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	yyval = yyvsp[0];
 	}
-#line 5711 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5964 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 232:
-#line 3553 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3806 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5718 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 5971 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 233:
-#line 3556 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3809 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -5777,11 +6030,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 5781 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6034 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 234:
-#line 3619 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3872 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		if( ListLevel <= 0 ) fatalomh(
@@ -5800,18 +6053,18 @@ yyreduce:
 		PopPending(yyvsp[0].line, "$list");
 		yyval = yyvsp[0];
 	}
-#line 5804 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6057 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 235:
-#line 3641 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3894 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5811 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6064 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 236:
-#line 3644 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3897 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -5834,18 +6087,18 @@ yyreduce:
 		FreeMem(yyvsp[-1].str);
 		yyval = yyvsp[-2];
 	}
-#line 5838 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6091 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 237:
-#line 3670 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3923 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5845 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6098 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 238:
-#line 3673 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3926 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	// initalize cmd to avoid warning
 		// (compiler does not know fatalerr will not return)
 		char *cmd = NULL;
@@ -5911,11 +6164,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 5915 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6168 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 239:
-#line 3742 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 3995 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		if( ListLevel == 0 ) fatalomh(
@@ -5931,18 +6184,18 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 5935 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6188 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 240:
-#line 3761 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4014 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5942 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6195 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 241:
-#line 3764 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4017 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int   ntoken;
 
 		assert( yyvsp[-2].str == NULL );
@@ -5978,18 +6231,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 5982 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6235 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 242:
-#line 3804 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4057 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 5989 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6242 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 243:
-#line 3807 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4060 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag;
 		char *next;
 		CrossReference *C;
@@ -6059,18 +6312,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6063 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6316 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 244:
-#line 3881 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4134 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {       fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
         }
-#line 6070 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6323 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 245:
-#line 3884 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4137 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int ntoken;
 
 		// split text into tokens
@@ -6082,18 +6335,18 @@ yyreduce:
 		// done with the delimiter sequence
 		FreeMem(yyvsp[-1].str);
 	}
-#line 6086 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6339 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 246:
-#line 3900 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4153 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6093 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6346 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 247:
-#line 3903 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4156 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -6112,18 +6365,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6116 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6369 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 248:
-#line 3925 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4178 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6123 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6376 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 249:
-#line 3928 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4181 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int pre = 0;
 
 		assert( yyvsp[-2].str == NULL );
@@ -6138,11 +6391,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6142 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6395 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 250:
-#line 3946 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4199 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		CheckSpell = 0;
@@ -6150,11 +6403,11 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 6154 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6407 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 251:
-#line 3957 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4210 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str == NULL );
 		assert( yyvsp[0].str == NULL );
@@ -6164,18 +6417,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6168 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6421 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 256:
-#line 3977 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4230 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6175 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6428 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 257:
-#line 3980 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4233 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
 
@@ -6191,11 +6444,11 @@ yyreduce:
 		yyval.str  = NULL;
 		yyval.line = yyvsp[-1].line;
 	}
-#line 6195 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6448 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 258:
-#line 3999 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4252 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		char *path;
 		char *ext;
@@ -6231,18 +6484,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6235 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6488 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 259:
-#line 4038 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4291 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6242 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6495 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 260:
-#line 4041 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4294 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -6277,11 +6530,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6281 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6534 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 261:
-#line 4079 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4332 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str != NULL );
 
 		if( TableLevel == 0 ) fatalomh(
@@ -6309,40 +6562,40 @@ yyreduce:
 		yyval.str   = NULL;
 		yyval.line  = yyvsp[0].line;
 	}
-#line 6313 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6566 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 262:
-#line 4110 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4363 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 		assert( PreviousOutputWasHeading == 0 );
 
 		yyval.str = str_alloc("$rend");
 		yyval.line = yyvsp[0].line;
 	}
-#line 6324 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6577 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 263:
-#line 4117 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4370 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 		assert( PreviousOutputWasHeading == 0 );
 
 		yyval.str = str_alloc("$rnext");
 		yyval.line = yyvsp[0].line;
 	}
-#line 6335 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6588 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 264:
-#line 4127 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4380 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6342 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6595 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 265:
-#line 4130 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4383 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
@@ -6353,18 +6606,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6357 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6610 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 266:
-#line 4144 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4397 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6364 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6617 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 267:
-#line 4147 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4400 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag;
 		CrossReference *C;
 
@@ -6401,18 +6654,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6405 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6658 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 268:
-#line 4187 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4440 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6412 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6665 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 269:
-#line 4190 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4443 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *noEscape;
 
 		assert( yyvsp[-2].str == NULL );
@@ -6506,18 +6759,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6510 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6763 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 270:
-#line 4287 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4540 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6517 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6770 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 271:
-#line 4290 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4543 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatalomh(
 			"At $skipnl in line ",
 			int2str(yyvsp[-2].line),
@@ -6526,11 +6779,11 @@ yyreduce:
 			NULL
 		);
 	}
-#line 6530 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6783 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 272:
-#line 4302 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4555 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		OutputString("<small>");
@@ -6538,11 +6791,11 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 6542 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6795 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 273:
-#line 4313 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4566 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str == NULL );
@@ -6553,18 +6806,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6557 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6810 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 274:
-#line 4327 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4580 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6564 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6817 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 275:
-#line 4330 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4583 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -6577,18 +6830,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6581 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6834 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 276:
-#line 4345 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4598 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6588 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6841 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 277:
-#line 4348 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4601 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int ntoken;
 		char *ext, *source, *input_lang, *output_lang, *data, *tmp;
 		int   indent, tabsize;
@@ -6674,55 +6927,45 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 6678 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6931 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 278:
-#line 4437 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4690 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 6685 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 6938 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 279:
-#line 4440 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4693 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	// command parameters
-		char *filename, indent, *start, *stop, *token;
-		int  skip;
-        int  count = 0;
+		char *filename, *start, *stop, *token;
+		int  skip, indent;
 
 		// local variables
-		char *input_lang, *output_lang, *root, *ext;
-		char ch, delimiter;
-		int  ntoken, match, len, tabsize;
-		char line_buffer[300];
-		int  column_max = 299;
-		int  column_index;
+		int  ntoken;
 		int  newline_at_start;
-		//
-		char *data;
-		char *tmp;
 
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
 		assert( yyvsp[0].str == NULL );
 
-		delimiter = yyvsp[-1].str[0];
 		ntoken = SplitText(yyvsp[-2].line, "$srcfile", yyvsp[-1].str);
 		if( ntoken < 1 ) fatalomh(
-			"At $srcfile command in line ",
+			"$srcfile command in line ",
 			int2str(yyvsp[-2].line),
 			"\nExpected at least 2 delimiters in $srcfile command",
 			NULL
 		);
 		if( ntoken == 3 ) fatalomh(
-			"At $srcfile command in line ",
+			"$srcfile command in line ",
 			int2str(yyvsp[-2].line),
 			"\nMust also specify stop when start is present",
 			NULL
 		);
 		if( ntoken > 6 ) fatalomh(
-			"At $srcfile command in line ",
+			"$srcfile command in line ",
 			int2str(yyvsp[-2].line),
 			"\nExpected at most 6 delimiters in $srcfile command",
 			NULL
@@ -6763,255 +7006,41 @@ yyreduce:
 		// clean up input file name
 		ClipWhiteSpace(filename);
 
-		// split name for opening file and checking extension
-		InputSplitName(&root, &ext, filename);
-
-		// make sure has an extension
-		if( ext[0] == '\0' ) fatalomh(
-			"At $srcfile command in line ",
-			int2str(yyvsp[-2].line),
-			"\nThe file name '",
-			filename,
-			"'\ndoes not have a '.' followed by an extension",
-			"\nso cannot determine its language.",
-			NULL
-		);
-
-		// determine what language this file is in
-		assert( ext[0] == '.' );
-		input_lang = file_ext2lang( ext + 1 );
-		if( input_lang == NULL ) fatalomh(
-			"At $srcfile command in line ",
-			int2str(yyvsp[-2].line),
-			"\nCannot use the $srcfile command becasue the",
-			"\nsource-highlight or boost_regex library is not avaiable.",
-			NULL
-		);
-		if( input_lang[0] == '\0' )
-		{	fatalomh(
-				"At $srcfile command in line ",
-				int2str(yyvsp[-2].line),
-				"\nCannot determine language for the file extension ",
-				ext,
-				NULL
-			);
-		}
 		// if start is not present, start with a newline for beginning of file
-		newline_at_start = ntoken < 3 && ConvertPreviousNewline() < 1;
-
 		// if previous output was a heading, start with a newline
+		newline_at_start = ntoken < 3 && ConvertPreviousNewline() < 1;
 		newline_at_start = newline_at_start || PreviousOutputWasHeading;
-
+		//
+		srcfile(
+			"$srcfile",
+			yyvsp[-2].line,
+			newline_at_start,
+			filename,
+			indent,
+			start,
+			stop,
+			skip
+		);
+		//
 		// no longer need flag for previous heading
 		PreviousOutputWasHeading = 0;
+			 
 
-		// initialize with input first character
-		InputPush(root, ext, -1);
-		ch       = InputGet();
-
-		// set start pattern
-		len = PatternMatchLen(start, Escape);
-		if( len == -1 )
-		{	InputPop();
-			fatalomh(
-				"At $srcfile command in line ",
-				int2str(yyvsp[-2].line),
-				"\nToo many characters in start pattern",
-				NULL
-			);
-		}
-		if( len == -2 )
-		{	InputPop();
-			fatalomh(
-				"At $srcfile command in line ",
-				int2str(yyvsp[-2].line),
-				"\nThree decimal digits must follow the ",
-				"escape character in the start pattern",
-				NULL
-			);
-		}
-		assert( len >= 0 );
-
-		// skip to the starting pattern
-		if( len > 0 )
-		{
-			match = 0;
-			while( (! match)  & (ch != '\001') )
-			{	match = PatternMatchCh(&ch);
-				if( match && count < skip)
-				{	++count;
-					match = 0;
-				}
-				ch = InputGet();
-			}
-
-			if( ch == '\001' )
-			{	InputPop();
-				fatalomh(
-					"At $srcfile command in line ",
-					int2str(yyvsp[-2].line),
-					"\nCould not find the ",
-                    int2str(skip + 1),
-                    "-th copy of start pattern \"",
-					start,
-					"\"\nin the file ",
-					filename,
-					NULL
-				);
-			}
-		}
-
-		// set stopping pattern
-		len     = PatternMatchLen(stop, Escape);
-		if( len == -1 )
-		{	InputPop();
-			fatalomh(
-				"At $srcfile command in line ",
-				int2str(yyvsp[-2].line),
-				"\nToo many characters in stop pattern",
-				NULL
-			);
-		}
-		if( len == -2 )
-		{	InputPop();
-			fatalomh(
-				"At $srcfile command in line ",
-				int2str(yyvsp[-2].line),
-				"\nThree decimal digits must follow the ",
-				"escape character in the stop pattern",
-				NULL
-			);
-		}
-
-		// get the data
-		match        = 0;
-		column_index = 0;
-		data         = NULL;
-		while(ch != '\001' )
-		{
-			if( len > 0 )
-				match = PatternMatchCh(&ch);
-
-			// add this character to the output line buffer
-			if( (ch != '\001') & (ch != '\0') )
-			{	if( column_index >= column_max )
-				{	line_buffer[column_index-1] = '\n';
-					line_buffer[column_index]   = '\0';
-					fatalomh(
-						"At $srcfile command in line ",
-						int2str(yyvsp[-2].line),
-						"\nIn the file ",
-						filename,
-						"\nThe following input line ",
-						"is too long",
-						line_buffer,
-						NULL
-					);
-				}
-				line_buffer[column_index++] = ch;
-			}
-			if( (ch == '\001') | (ch == '\n') | match )
-			{	line_buffer[column_index] = '\0';
-				if( data == NULL )
-				{	int i = 0;
-					while( line_buffer[i] == ' ' || line_buffer[i] == '\n' )
-						i++;
-					if( newline_at_start && line_buffer[i] != '\n' )
-						data = strjoin( "\n", line_buffer );
-					else
-						data = str_alloc( line_buffer );
-				}
-				else
-				{	tmp   = data;
-					data  = strjoin(data, line_buffer);
-					FreeMem(tmp);
-				}
-			}
-			// check for stopping at ch
-			if( match )
-				ch = '\001';
-			// check for starting a newline
-			if( ch == '\n' )
-				column_index = 0;
-			//
-			if( ch != '\001' )
-				ch = InputGet();
-		}
-
-		// done with this input file
-		InputPop();
-
-		// check for no data
-		tmp = data;
-		while( isspace(*tmp) || *tmp == delimiter )
-			tmp++;
-		if( *tmp == '\0' ) fatalomh(
-			"At $srcfile command in line ",
-			int2str(yyvsp[-2].line),
-			" of file ",
-			filename,
-			"\nNo text between start and stop patterns.",
-			"\nPerhaps need to skip start pattern in $srcfile command.",
-			NULL
-		);
-
-		// check for no match
-		if( len > 0 && ! match ) fatalomh(
-			"At $srcfile command in line ",
-			int2str(yyvsp[-2].line),
-			"\nCould not find the stop pattern \"",
-			stop,
-			"\"\nin the file ",
-			filename,
-			NULL
-		);
-
-		// determine what language the output file is in
-		if( strcmp( Internal2Out("OutputExtension"), ".htm") == 0 )
-			output_lang = "html.outlang";
-        else
-            output_lang = "xhtml.outlang";
-
-		// number of newliness there will be at end of soruce
-		tmp = data + strlen(data) - 1;
-		while( isspace(*tmp) && data < tmp )
-		{	if( *tmp == '\n' )
-				ConvertAddPrevious(1);
-			tmp--;
-		}
-
-		// convert data to the output language with highlighting
-		tabsize = TabSizeCurrent;
-		tmp     = data;
-		data = highlight(data, input_lang, output_lang, indent, tabsize);
-		FreeMem(tmp);
-		assert( data != NULL );
-		tmp = data;
-
-		// output data
-		while( *tmp != '\0' )
-			OutputChar( *tmp++ );
-
-		FreeMem(input_lang);
-		FreeMem(data);
-		FreeMem(root);
-		FreeMem(ext);
 		FreeMem(yyvsp[-1].str);
-
 		yyval = yyvsp[-2];
 	}
-#line 7004 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7033 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 280:
-#line 4758 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4787 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7011 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7040 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 281:
-#line 4761 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4790 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 # ifndef NDEBUG
 		CrossReference *C;
@@ -7137,18 +7166,18 @@ yyreduce:
 
 		PreviousOutputWasHeading = 1;
 	}
-#line 7141 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7170 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 282:
-#line 4890 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4919 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7148 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7177 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 283:
-#line 4893 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4922 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *token;
 		char *next;
 		int  count;
@@ -7214,11 +7243,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 7218 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7247 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 284:
-#line 4962 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 4991 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		// do not need extra new line after previous heading
@@ -7238,18 +7267,18 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 7242 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7271 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 285:
-#line 4985 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5014 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7249 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7278 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 286:
-#line 4988 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5017 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int size;
 
 		assert( yyvsp[-2].str == NULL );
@@ -7282,11 +7311,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 7286 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7315 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 287:
-#line 5025 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5054 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert( yyvsp[0].str == NULL );
 
 		if( TableLevel <= 0 ) fatalomh(
@@ -7309,20 +7338,20 @@ yyreduce:
 		PopPending(yyvsp[0].line, "$rnext");
 		PopPending(yyvsp[0].line, "$table");
 	}
-#line 7313 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7342 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 288:
-#line 5050 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5079 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	assert ( yyvsp[0].str != NULL );
 
 		yyval = yyvsp[0];
 	}
-#line 7322 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7351 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 289:
-#line 5058 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5087 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	int line = yyvsp[0].line;
 		char *p = yyvsp[0].str;
 		char *q = yyvsp[0].str;
@@ -7380,18 +7409,18 @@ yyreduce:
 
 		yyval = yyvsp[0];
 	}
-#line 7384 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7413 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 290:
-#line 5118 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5147 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7391 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7420 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 291:
-#line 5121 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5150 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -7414,18 +7443,18 @@ yyreduce:
 		FreeMem(yyvsp[-1].str);
 		yyval = yyvsp[-2];
 	}
-#line 7418 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7447 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 292:
-#line 5147 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5176 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7425 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7454 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 293:
-#line 5150 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5179 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -7446,18 +7475,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 7450 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7479 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 294:
-#line 5175 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5204 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7457 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7486 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 295:
-#line 5178 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5207 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -7468,18 +7497,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 7472 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7501 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 296:
-#line 5191 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5220 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7479 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7508 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 297:
-#line 5194 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5223 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag = yyvsp[-1].str;
 		CrossReference *C;
 
@@ -7505,18 +7534,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 7509 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7538 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 298:
-#line 5223 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5252 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7516 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7545 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 299:
-#line 5226 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5255 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag;
 		CrossReference *C;
 
@@ -7555,18 +7584,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 7559 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7588 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 300:
-#line 5269 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5298 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7566 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7595 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 301:
-#line 5272 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5301 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *root, *ext, *filename, *start, *stop;
 		char ch, previous;
 		int  skip, ntoken, indent, match, len;
@@ -7808,18 +7837,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 7812 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7841 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 302:
-#line 5517 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5546 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7819 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7848 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 303:
-#line 5520 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5549 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -7842,18 +7871,18 @@ yyreduce:
 		FreeMem(yyvsp[-1].str);
 		yyval = yyvsp[-2];
 	}
-#line 7846 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7875 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 304:
-#line 5545 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5574 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7853 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7882 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 305:
-#line 5548 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5577 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {
 		assert( yyvsp[-2].str == NULL );
 		assert( yyvsp[-1].str != NULL );
@@ -7865,18 +7894,18 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 7869 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7898 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 306:
-#line 5563 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5592 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	fatal_not_2_dollar_or_text(yyvsp[-2].code, yyvsp[-2].line, yyvsp[0].code);
 	}
-#line 7876 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 7905 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
   case 307:
-#line 5566 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5595 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
     {	char *tag;
 		char *head;
 		char *subhead;
@@ -8043,11 +8072,11 @@ yyreduce:
 
 		yyval = yyvsp[-2];
 	}
-#line 8047 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 8076 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
     break;
 
 
-#line 8051 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
+#line 8080 "/home/bradbell/repo/omhelp.git/src/omhelp.c"
 
       default: break;
     }
@@ -8279,5 +8308,5 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 5733 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
+#line 5762 "/home/bradbell/repo/omhelp.git/src/omhelp.y"
 

@@ -974,6 +974,259 @@ static void SkipBeforeFirstAndAfterLastNewline(
 	// new termination point
 	*s = '\0';
 }
+// --------------------------------------------------------------------------
+static void srcfile(
+	const char* command_name     ,
+	int         line_number      ,
+	int         newline_at_start ,
+	const char* file_name        ,
+	int         indent           ,
+	const char* start            ,
+	const char* stop             ,
+	int         skip             )
+{
+	{	// will count how many matches for start pattern
+		int  count = 0;
+
+		// other local variables
+		char *input_lang, *output_lang, *root, *ext, *data, *tmp;
+		char ch, line_buffer[300];
+		int  len, match, tabsize, column_index, column_max = 299;
+
+		// split name for opening file and check extension
+		// root and ext must be freed before returning
+		InputSplitName(&root, &ext, file_name);
+
+		// make sure file_name has an extension
+		if( ext[0] == '\0' ) fatalomh(
+			command_name,
+			" command in line ",
+			int2str(line_number),
+			"\nThe file '",
+			file_name,
+			"'\ndoes not have a '.' followed by an extension",
+			"\nso cannot determine its language.",
+			NULL
+		);
+		// determine what language this file is in
+		assert( ext[0] == '.' );
+		input_lang = file_ext2lang( ext + 1 );
+		if( input_lang == NULL ) fatalomh(
+			command_name,
+			" command in line ",
+			int2str(line_number),
+			"\nCannot use this command becasue the",
+			"\nsource-highlight or boost_regex library is not avaiable.",
+			NULL
+		);
+		if( input_lang[0] == '\0' )
+		{	fatalomh(
+				command_name,
+				" command in line ",
+				int2str(line_number),
+				"\nCannot determine language for the file extension ",
+				ext,
+				NULL
+			);
+		}
+		// initialize with input first character
+		InputPush(root, ext, -1);
+		ch       = InputGet();
+		//
+		// set start pattern
+		len = PatternMatchLen(start, Escape);
+		if( len == -1 )
+		{	InputPop();
+			fatalomh(
+				command_name,
+				" command in line ",
+				int2str(line_number),
+				"\nToo many characters in start pattern",
+				NULL
+			);
+		}
+		if( len == -2 )
+		{	InputPop();
+			fatalomh(
+				command_name,
+				" command in line ",
+				int2str(line_number),
+				"\nThree decimal digits must follow the ",
+				"escape character in the start pattern",
+				NULL
+			);
+		}
+		assert( len >= 0 );
+		//
+		// skip to the starting pattern
+		if( len > 0 )
+		{	match = 0;
+			while( (! match)  & (ch != '\001') )
+			{	match = PatternMatchCh(&ch);
+				if( match && count < skip)
+				{	++count;
+					match = 0;
+				}
+				ch = InputGet();
+			}
+			if( ch == '\001' )
+			{	InputPop();
+				fatalomh(
+					command_name,
+					" command in line ",
+					int2str(line_number),
+					"\nCould not find the ",
+					int2str(skip + 1),
+					"-th copy of start pattern \"",
+					start,
+					"\"\nin file ",
+					file_name,
+					NULL
+				);
+			}
+		}
+		//
+		// set stopping pattern
+		len     = PatternMatchLen(stop, Escape);
+		if( len == -1 )
+		{	InputPop();
+			fatalomh(
+				command_name,
+				" command in line ",
+				int2str(line_number),
+				"\nToo many characters in stop pattern",
+				NULL
+			);
+		}
+		if( len == -2 )
+		{	InputPop();
+			fatalomh(
+				command_name,
+				" command in line ",
+				int2str(line_number),
+				"\nThree decimal digits must follow the ",
+				"escape character in the stop pattern",
+				NULL
+			);
+		}
+		//
+		// get the data
+		match        = 0;
+		column_index = 0;
+		data         = NULL;
+		while(ch != '\001' )
+		{	if( len > 0 )
+				match = PatternMatchCh(&ch);
+			//
+			// add this character to the output line buffer
+			if( (ch != '\001') & (ch != '\0') )
+			{	if( column_index >= column_max )
+				{	line_buffer[column_index-1] = '\n';
+					line_buffer[column_index]   = '\0';
+					fatalomh(
+						command_name,
+						" command in line ",
+						int2str(line_number),
+						"\nin file ",
+						file_name,
+						"\nThe following input line ",
+						"is too long",
+						line_buffer,
+						NULL
+					);
+				}
+				line_buffer[column_index++] = ch;
+			}
+			if( (ch == '\001') | (ch == '\n') | match )
+			{	line_buffer[column_index] = '\0';
+				if( data == NULL )
+				{	int i = 0;
+					while( line_buffer[i] == ' ' || line_buffer[i] == '\n' )
+						i++;
+					if( newline_at_start && line_buffer[i] != '\n' )
+						data = strjoin( "\n", line_buffer );
+					else
+						data = str_alloc( line_buffer );
+				}
+				else
+				{	tmp   = data;
+					data  = strjoin(data, line_buffer);
+					FreeMem(tmp);
+				}
+			}
+			// check for stopping at ch
+			if( match )
+				ch = '\001';
+			// check for starting a newline
+			if( ch == '\n' )
+				column_index = 0;
+			//
+			if( ch != '\001' )
+				ch = InputGet();
+		}
+		//
+		// done with this input file
+		InputPop();
+		//
+		// check for no data
+		tmp = data;
+		while( isspace(*tmp) )
+			tmp++;
+		if( *tmp == '\0' ) fatalomh(
+			command_name,
+			" command in line ",
+			int2str(line_number),
+			" of file ",
+			file_name,
+			"\nNo text between start and stop patterns.",
+			"\nPerhaps you need to skip the first start pattern.",
+			NULL
+		);
+		//
+		// check for no match
+		if( len > 0 && ! match ) fatalomh(
+			command_name,
+			" command in line ",
+			int2str(line_number),
+			"\nCould not find the stop pattern \"",
+			stop,
+			"\"\nin ",
+			file_name,
+			NULL
+		);
+		//
+		// determine what language the output file is in
+		if( strcmp( Internal2Out("OutputExtension"), ".htm") == 0 )
+			output_lang = "html.outlang";
+        else
+            output_lang = "xhtml.outlang";
+		//
+		// number of newliness there will be at end of soruce
+		tmp = data + strlen(data) - 1;
+		while( isspace(*tmp) && data < tmp )
+		{	if( *tmp == '\n' )
+				ConvertAddPrevious(1);
+			tmp--;
+		}
+		//
+		// convert data to the output language with highlighting
+		tabsize = TabSizeCurrent;
+		tmp     = data;
+		data = highlight(data, input_lang, output_lang, indent, tabsize);
+		FreeMem(tmp);
+		assert( data != NULL );
+		tmp = data;
+		//
+		// output data
+		while( *tmp != '\0' )
+			OutputChar( *tmp++ );
+		//
+		FreeMem(input_lang);
+		FreeMem(data);
+		FreeMem(root);
+		FreeMem(ext);
+	}
+}
 // ************************ Global Functions **********************************
 char newline_ch(void)
 {	return NewlineCh; }
@@ -4438,42 +4691,32 @@ srcfile
 	}
 	| SRCFILE_lex text DOUBLE_DOLLAR_lex
 	{	// command parameters
-		char *filename, indent, *start, *stop, *token;
-		int  skip;
-        int  count = 0;
+		char *filename, *start, *stop, *token;
+		int  skip, indent;
 
 		// local variables
-		char *input_lang, *output_lang, *root, *ext;
-		char ch, delimiter;
-		int  ntoken, match, len, tabsize;
-		char line_buffer[300];
-		int  column_max = 299;
-		int  column_index;
+		int  ntoken;
 		int  newline_at_start;
-		//
-		char *data;
-		char *tmp;
 
 		assert( $1.str == NULL );
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
 
-		delimiter = $2.str[0];
 		ntoken = SplitText($1.line, "$srcfile", $2.str);
 		if( ntoken < 1 ) fatalomh(
-			"At $srcfile command in line ",
+			"$srcfile command in line ",
 			int2str($1.line),
 			"\nExpected at least 2 delimiters in $srcfile command",
 			NULL
 		);
 		if( ntoken == 3 ) fatalomh(
-			"At $srcfile command in line ",
+			"$srcfile command in line ",
 			int2str($1.line),
 			"\nMust also specify stop when start is present",
 			NULL
 		);
 		if( ntoken > 6 ) fatalomh(
-			"At $srcfile command in line ",
+			"$srcfile command in line ",
 			int2str($1.line),
 			"\nExpected at most 6 delimiters in $srcfile command",
 			NULL
@@ -4514,241 +4757,27 @@ srcfile
 		// clean up input file name
 		ClipWhiteSpace(filename);
 
-		// split name for opening file and checking extension
-		InputSplitName(&root, &ext, filename);
-
-		// make sure has an extension
-		if( ext[0] == '\0' ) fatalomh(
-			"At $srcfile command in line ",
-			int2str($1.line),
-			"\nThe file name '",
-			filename,
-			"'\ndoes not have a '.' followed by an extension",
-			"\nso cannot determine its language.",
-			NULL
-		);
-
-		// determine what language this file is in
-		assert( ext[0] == '.' );
-		input_lang = file_ext2lang( ext + 1 );
-		if( input_lang == NULL ) fatalomh(
-			"At $srcfile command in line ",
-			int2str($1.line),
-			"\nCannot use the $srcfile command becasue the",
-			"\nsource-highlight or boost_regex library is not avaiable.",
-			NULL
-		);
-		if( input_lang[0] == '\0' )
-		{	fatalomh(
-				"At $srcfile command in line ",
-				int2str($1.line),
-				"\nCannot determine language for the file extension ",
-				ext,
-				NULL
-			);
-		}
 		// if start is not present, start with a newline for beginning of file
-		newline_at_start = ntoken < 3 && ConvertPreviousNewline() < 1;
-
 		// if previous output was a heading, start with a newline
+		newline_at_start = ntoken < 3 && ConvertPreviousNewline() < 1;
 		newline_at_start = newline_at_start || PreviousOutputWasHeading;
-
+		//
+		srcfile(
+			"$srcfile",
+			$1.line,
+			newline_at_start,
+			filename,
+			indent,
+			start,
+			stop,
+			skip
+		);
+		//
 		// no longer need flag for previous heading
 		PreviousOutputWasHeading = 0;
 
-		// initialize with input first character
-		InputPush(root, ext, -1);
-		ch       = InputGet();
 
-		// set start pattern
-		len = PatternMatchLen(start, Escape);
-		if( len == -1 )
-		{	InputPop();
-			fatalomh(
-				"At $srcfile command in line ",
-				int2str($1.line),
-				"\nToo many characters in start pattern",
-				NULL
-			);
-		}
-		if( len == -2 )
-		{	InputPop();
-			fatalomh(
-				"At $srcfile command in line ",
-				int2str($1.line),
-				"\nThree decimal digits must follow the ",
-				"escape character in the start pattern",
-				NULL
-			);
-		}
-		assert( len >= 0 );
-
-		// skip to the starting pattern
-		if( len > 0 )
-		{
-			match = 0;
-			while( (! match)  & (ch != '\001') )
-			{	match = PatternMatchCh(&ch);
-				if( match && count < skip)
-				{	++count;
-					match = 0;
-				}
-				ch = InputGet();
-			}
-
-			if( ch == '\001' )
-			{	InputPop();
-				fatalomh(
-					"At $srcfile command in line ",
-					int2str($1.line),
-					"\nCould not find the ",
-                    int2str(skip + 1),
-                    "-th copy of start pattern \"",
-					start,
-					"\"\nin the file ",
-					filename,
-					NULL
-				);
-			}
-		}
-
-		// set stopping pattern
-		len     = PatternMatchLen(stop, Escape);
-		if( len == -1 )
-		{	InputPop();
-			fatalomh(
-				"At $srcfile command in line ",
-				int2str($1.line),
-				"\nToo many characters in stop pattern",
-				NULL
-			);
-		}
-		if( len == -2 )
-		{	InputPop();
-			fatalomh(
-				"At $srcfile command in line ",
-				int2str($1.line),
-				"\nThree decimal digits must follow the ",
-				"escape character in the stop pattern",
-				NULL
-			);
-		}
-
-		// get the data
-		match        = 0;
-		column_index = 0;
-		data         = NULL;
-		while(ch != '\001' )
-		{
-			if( len > 0 )
-				match = PatternMatchCh(&ch);
-
-			// add this character to the output line buffer
-			if( (ch != '\001') & (ch != '\0') )
-			{	if( column_index >= column_max )
-				{	line_buffer[column_index-1] = '\n';
-					line_buffer[column_index]   = '\0';
-					fatalomh(
-						"At $srcfile command in line ",
-						int2str($1.line),
-						"\nIn the file ",
-						filename,
-						"\nThe following input line ",
-						"is too long",
-						line_buffer,
-						NULL
-					);
-				}
-				line_buffer[column_index++] = ch;
-			}
-			if( (ch == '\001') | (ch == '\n') | match )
-			{	line_buffer[column_index] = '\0';
-				if( data == NULL )
-				{	int i = 0;
-					while( line_buffer[i] == ' ' || line_buffer[i] == '\n' )
-						i++;
-					if( newline_at_start && line_buffer[i] != '\n' )
-						data = strjoin( "\n", line_buffer );
-					else
-						data = str_alloc( line_buffer );
-				}
-				else
-				{	tmp   = data;
-					data  = strjoin(data, line_buffer);
-					FreeMem(tmp);
-				}
-			}
-			// check for stopping at ch
-			if( match )
-				ch = '\001';
-			// check for starting a newline
-			if( ch == '\n' )
-				column_index = 0;
-			//
-			if( ch != '\001' )
-				ch = InputGet();
-		}
-
-		// done with this input file
-		InputPop();
-
-		// check for no data
-		tmp = data;
-		while( isspace(*tmp) || *tmp == delimiter )
-			tmp++;
-		if( *tmp == '\0' ) fatalomh(
-			"At $srcfile command in line ",
-			int2str($1.line),
-			" of file ",
-			filename,
-			"\nNo text between start and stop patterns.",
-			"\nPerhaps need to skip start pattern in $srcfile command.",
-			NULL
-		);
-
-		// check for no match
-		if( len > 0 && ! match ) fatalomh(
-			"At $srcfile command in line ",
-			int2str($1.line),
-			"\nCould not find the stop pattern \"",
-			stop,
-			"\"\nin the file ",
-			filename,
-			NULL
-		);
-
-		// determine what language the output file is in
-		if( strcmp( Internal2Out("OutputExtension"), ".htm") == 0 )
-			output_lang = "html.outlang";
-        else
-            output_lang = "xhtml.outlang";
-
-		// number of newliness there will be at end of soruce
-		tmp = data + strlen(data) - 1;
-		while( isspace(*tmp) && data < tmp )
-		{	if( *tmp == '\n' )
-				ConvertAddPrevious(1);
-			tmp--;
-		}
-
-		// convert data to the output language with highlighting
-		tabsize = TabSizeCurrent;
-		tmp     = data;
-		data = highlight(data, input_lang, output_lang, indent, tabsize);
-		FreeMem(tmp);
-		assert( data != NULL );
-		tmp = data;
-
-		// output data
-		while( *tmp != '\0' )
-			OutputChar( *tmp++ );
-
-		FreeMem(input_lang);
-		FreeMem(data);
-		FreeMem(root);
-		FreeMem(ext);
 		FreeMem($2.str);
-
 		$$ = $1;
 	}
 	;
