@@ -10,6 +10,8 @@ $dollar @$$
 $spell
     OMhelp
 	srcthisfile
+	srcfile
+	srccode
 $$
 
 $section Changes and Additions to OMhelp During 2020$$
@@ -21,10 +23,16 @@ Its purpose is to assist you in learning about
 changes between versions.
 
 $head 01-31$$
+$list number$$
 Add detection and error message when a
 $cref/srcthisfile/srcfile/Syntax/srcthisfile/$$ start pattern
 matches the start pattern itself
 (instead of skipping to another copy of the pattern).
+$lnext
+Remove the verbatim, srcfile, srccode wish list item
+because $code srcthisfile$$ contains the important features
+that were missing.
+$lend
 
 $head 01-30$$
 Add the $cref/srcthisfile/srcfile/Syntax/srcthisfile/$$ command.

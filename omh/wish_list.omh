@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2019 Bradley M. Bell
+          Copyright (C) 1998-2020 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -36,15 +36,6 @@ Have a way for the $cref cref$$ to refer to current file
 (so works automatically when one moves or copies the file).
 Automatically include text used for linking, e.g., cross reference tag,
 heading, and subheading, in spelling list for this section.
-
-$head verbatim, srcfile, srccode$$
-Have a way for the $cref verbatim$$, and $cref srcfile$$ commands
-to refer to current file
-(so works automatically when one moves or copies the file).
-Also, detect if start pattern matches the pattern itself and print an error
-suggesting a different skip for this case.
-In addition, if a space follows the $cref srccode$$ command
-(no delimiter), use the current file extension for the type of source code.
 
 $head XML Drop Down Menus Not Working$$
 The script $code bug/drop_down.sh$$ demonstrates this bug.
