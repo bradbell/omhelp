@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Displaying Source Code From a File</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Displaying Source Code From a File">
-<meta name="keywords" id="keywords" content=" displaying source code from file syntax see also optional purpose letter case delimiter sequence filename indent example start escape stop skip tab stops ">
+<meta name="keywords" id="keywords" content=" displaying source code from file syntax srcfile srcthisfile see also optional purpose letter case delimiter sequence filename indent example start escape stop skip tab stops ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -67,12 +67,16 @@ A:active { color : purple }
 <center><b><big><big>Displaying Source Code From a File</big></big></b></center>
 
 <br><a href="srcfile.htm#Syntax" target="_top">Syntax</a>
+<br>&#160;&#160;&#160;&#160;&#160;<a href="srcfile.htm#Syntax.srcfile" target="_top">srcfile</a>
+<br>&#160;&#160;&#160;&#160;&#160;<a href="srcfile.htm#Syntax.srcthisfile" target="_top">srcthisfile</a>
 <br><a href="srcfile.htm#See Also" target="_top">See&nbsp;Also</a>
 <br><a href="srcfile.htm#Optional" target="_top">Optional</a>
 <br><a href="srcfile.htm#Purpose" target="_top">Purpose</a>
 <br><a href="srcfile.htm#Letter Case" target="_top">Letter&nbsp;Case</a>
 <br><a href="srcfile.htm#Delimiter Sequence" target="_top">Delimiter&nbsp;Sequence</a>
 <br><a href="srcfile.htm#filename" target="_top">filename</a>
+<br>&#160;&#160;&#160;&#160;&#160;<a href="srcfile.htm#filename.srcfile" target="_top">srcfile</a>
+<br>&#160;&#160;&#160;&#160;&#160;<a href="srcfile.htm#filename.srcthisfile" target="_top">srcthisfile</a>
 <br><a href="srcfile.htm#indent" target="_top">indent</a>
 <br>&#160;&#160;&#160;&#160;&#160;<a href="srcfile.htm#indent.Example" target="_top">Example</a>
 <br><a href="srcfile.htm#start" target="_top">start</a>
@@ -84,6 +88,11 @@ A:active { color : purple }
 <br><a href="srcfile.htm#Tab Stops" target="_top">Tab&nbsp;Stops</a>
 <br><br>
 <b><big><a name="Syntax" id="Syntax">Syntax</a></big></b>
+
+
+<br>
+<br>
+<big><a name="Syntax.srcfile" id="Syntax.srcfile">srcfile</a></big>
 
 <br>
 
@@ -97,6 +106,19 @@ A:active { color : purple }
 </span></font></code>
 
 <code><font color="blue"><span style='white-space: nowrap'>$srcfile%</span></font><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>skip</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
+</span></font></code>
+<br>
+<big><a name="Syntax.srcthisfile" id="Syntax.srcthisfile">srcthisfile</a></big>
+
+<br>
+
+<code><font color="blue"><span style='white-space: nowrap'>$srcthisfile%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>$$<br>
+</span></font></i></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$srcthisfile%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i><font color="blue"><span style='white-space: nowrap'>%$$<br>
+</span></font></code>
+
+<code><font color="blue"><span style='white-space: nowrap'>$srcthisfile%</span></font><i><font color="black"><span style='white-space: nowrap'>indent</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>start</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>stop</span></font></i><font color="blue"><span style='white-space: nowrap'>%</span></font><i><font color="black"><span style='white-space: nowrap'>skip</span></font></i><font color="blue"><span style='white-space: nowrap'>$$<br>
 </span></font></code>
 <br>
 <b><big><a name="See Also" id="See Also">See Also</a></big></b>
@@ -113,7 +135,7 @@ A:active { color : purple }
 <br>
 <b><big><a name="Optional" id="Optional">Optional</a></big></b>
 <br>
-This command is optional and only supported when the
+These commands are optional and only supported when the
 <a href="installunix.htm#CMake Command.source_highlight_prefix" target="_top"><span style='white-space: nowrap'>source_highlight</span></a>
 
 library are successfully found; see the output printed by the
@@ -124,7 +146,7 @@ library are successfully found; see the output printed by the
 <br>
 <b><big><a name="Purpose" id="Purpose">Purpose</a></big></b>
 <br>
-This command will display the specified
+These commands will display the specified
 <a href="glossary.htm#Input File Searching" target="_top"><span style='white-space: nowrap'>input&nbsp;file</span></a>
 
 as program source code with highlighting.
@@ -155,6 +177,11 @@ where <code><font color="blue">%</font></code> can be any character that is not 
 <br>
 <br>
 <b><big><a name="filename" id="filename">filename</a></big></b>
+
+
+<br>
+<br>
+<big><a name="filename.srcfile" id="filename.srcfile">srcfile</a></big>
 <br>
 The value of 
 <code><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i></code>
@@ -170,6 +197,15 @@ The
 .
 The file extension, without the period <code><font color="blue">'.'</font></code>,
 is used to determine the source code language.
+
+<br>
+<br>
+<big><a name="filename.srcthisfile" id="filename.srcthisfile">srcthisfile</a></big>
+<br>
+The <code><font color="blue">$srcthisfile</font></code> command uses the input file,
+where the command occurs, for 
+<code><i><font color="black"><span style='white-space: nowrap'>filename</span></font></i></code>
+.
 
 <br>
 <br>
@@ -323,7 +359,8 @@ and go forward to the location that you wish to display.
 <br>
 The <a href="tabsize.htm" target="_top"><span style='white-space: nowrap'>tabsize</span></a>
  command
-enables you to match the indentation of the <code><font color="blue">src</font></code> command
+enables you to match the indentation of the
+<code><font color="blue">srcfile</font></code> and <code><font color="blue">srcthisfile</font></code> commands
 with one of the tabbing columns.
 
 

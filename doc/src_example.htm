@@ -32,7 +32,7 @@ A:active { color : purple }
 <a href="https://bradbell.github.io/omhelp" target="_top"><img border="0" src="_image.gif"></a>
 </td>
 <td><a href="start_src.htm" target="_top">Prev</a>
-</td><td><a href="start_block.htm" target="_top">Next</a>
+</td><td><a href="src_example.py.htm" target="_top">Next</a>
 </td><td>
 <select onchange='choose_across0(this)'>
 <option>Index-&gt;</option>
@@ -61,7 +61,9 @@ A:active { color : purple }
 <td>
 <script type='text/javascript' language='JavaScript' src='_childtable_start_src_htm.js'></script>
 </td>
-<td>src_example</td>
+<td>
+<script type='text/javascript' language='JavaScript' src='_childtable_src_example_htm.js'></script>
+</td>
 </tr></table><br>
 
 
@@ -72,6 +74,7 @@ A:active { color : purple }
 <br><a href="src_example.htm#Contents of src_example.py" target="_top">Contents&nbsp;of&nbsp;src_example.py</a>
 <br><a href="src_example.htm#Escape Character" target="_top">Escape&nbsp;Character</a>
 <br><a href="src_example.htm#Just Usage Message" target="_top">Just&nbsp;Usage&nbsp;Message</a>
+<br><a href="src_example.htm#Contents" target="_top">Contents</a>
 <br><br>
 <b><big><a name="Inline Source Code" id="Inline Source Code">Inline Source Code</a></big></b>
 <br>
@@ -85,6 +88,15 @@ The following is an example of in-line source code
 Note that a newline is automatically added at the beginning
 of a file:
 <pre><tt>     <i><font color="#9A1900">#! /usr/bin/python3</font></i>
+     <i><font color="#9A1900"># $begin src_example.py$$ $newlinech #$$ $escape $$</font></i>
+     <i><font color="#9A1900"># $spell srcthisfile src py$$</font></i>
+     <i><font color="#9A1900"># $section Example Python Source File$$</font></i>
+     <i><font color="#9A1900"># $head Usage$$</font></i>
+     <i><font color="#9A1900"># $srcthisfile%0%# BEGIN USAGE%# END USAGE%2%$$</font></i>
+     <i><font color="#9A1900"># $head Discussion$$</font></i>
+     <i><font color="#9A1900"># Note the $code srcthisfile$$ command skips the first two</font></i>
+     <i><font color="#9A1900"># $code # BEGIN USAGE$$ in $code src_example.py$$.</font></i>
+     <i><font color="#9A1900"># $end</font></i>
      <b><font color="#000080">import</font></b> sys
      <i><font color="#9A1900"># BEGIN USAGE</font></i>
      usage <font color="#990000">=</font> <font color="#FF0000">'src_example.py value'</font>
@@ -109,10 +121,16 @@ and stop sequences:
 <br>
 Note that the newline following
 <code><font color="blue"># BEGIN USAGE</font></code> is included:
-<pre style='display:inline'><tt>
-     usage <font color="#990000">=</font> <font color="#FF0000">'src_example.py value'</font>
-</tt></pre>
+<pre style='display:inline'><tt><font color="#990000">%</font></tt></pre>
 
+
+
+<br>
+<br>
+<b><big><a name="Contents" id="Contents">Contents</a></big></b>
+<br>
+<table>
+<tr><td><a href="src_example.py.htm" target="_top">src_example.py</a></td><td>Example&nbsp;Python&nbsp;Source&nbsp;File</td></tr></table>
 <hr>Input File: omh/getstarted/src_example.omh
 
 </body>

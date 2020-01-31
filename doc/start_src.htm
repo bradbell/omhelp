@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 <title>Example Including Source Code</title>
 <meta http-equiv='Content-Type' content='text/html' charset='utf-8'>
 <meta name="description" id="description" content="Example Including Source Code">
-<meta name="keywords" id="keywords" content=" example including source code srcfile srccode src_example.omh src_example.py execute this web site ">
+<meta name="keywords" id="keywords" content=" example including source code srcfile srcthisfile srccode src_example.omh src_example.py execute this web site ">
 <style type='text/css'>
 body { color : black }
 body { background-color : white }
@@ -71,6 +71,7 @@ A:active { color : purple }
 <center><b><big><big>Example Including Source Code</big></big></b></center>
 
 <br><a href="start_src.htm#srcfile" target="_top">srcfile</a>
+<br><a href="start_src.htm#srcthisfile" target="_top">srcthisfile</a>
 <br><a href="start_src.htm#srccode" target="_top">srccode</a>
 <br><a href="start_src.htm#src_example.omh" target="_top">src_example.omh</a>
 <br><a href="start_src.htm#src_example.py" target="_top">src_example.py</a>
@@ -87,13 +88,21 @@ with source code highlighting.
 
 <br>
 <br>
+<b><big><a name="srcthisfile" id="srcthisfile">srcthisfile</a></big></b>
+<br>
+The <a href="srcfile.htm#Syntax.srcthisfile" target="_top"><span style='white-space: nowrap'>srcthisfile</span></a>
+ command
+enables one to include all of part of the current input file.
+This can include part of the current input file,
+in the documentation, with source code highlighting.
+
+<br>
+<br>
 <b><big><a name="srccode" id="srccode">srccode</a></big></b>
 <br>
 The <a href="srccode.htm" target="_top"><span style='white-space: nowrap'>srccode</span></a>
  command
 enables one to include line text with source code highlighting.
-
-
 
 <br>
 <br>
@@ -135,6 +144,8 @@ with the following contents:
      $srcfile%omh/getstarted/src_example.py%
      	5%# BEGIN USAGE%# END USAGE%0
      %$$
+     
+     $childtable%omh/getstarted/src_example.py%$$
      
      $end
 </pre>

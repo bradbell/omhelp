@@ -3,7 +3,7 @@
 // ------------------------------------------------------------ 
 Keyword = 
 [
-{ tag: 'omhelp', title:'omhelp-20200129: Language Independent Embedded Documentation', other:' home page alert introduction' },
+{ tag: 'omhelp', title:'omhelp-20200130: Language Independent Embedded Documentation', other:' home page alert introduction' },
 { tag: 'License', title:'Your License for the OMhelp Software', other:' short copyright notice complete' },
 { tag: 'why', title:'The Purpose and Motivation for OMhelp', other:' introduction same time documentation version control language independent user oriented world wide web single source searching cross referencing aids platform latex support mathematics code examples spell checking' },
 { tag: 'Install', title:'Installing and Testing OMhelp', other:'' },
@@ -27,8 +27,9 @@ Keyword =
 { tag: 'image_example', title:'An Image Example', other:' discussion' },
 { tag: 'start_verbatim', title:'Example Using Verbatim Inclusion of a Text File', other:' verbatim_example.omh verbatim_example.dat execute this web site' },
 { tag: 'verbatim_example', title:'Example Inclusion of Text File Information', other:' contents verbatim_example.dat just program output input parameters' },
-{ tag: 'start_src', title:'Example Including Source Code', other:' srcfile srccode src_example.omh src_example.py execute this web site' },
+{ tag: 'start_src', title:'Example Including Source Code', other:' srcfile srcthisfile srccode src_example.omh src_example.py execute web site' },
 { tag: 'src_example', title:'Example Inclusion of Source Code', other:' inline contents src_example.py escape character just usage message' },
+{ tag: 'src_example.py', title:'Example Python Source File', other:' usage discussion' },
 { tag: 'start_block', title:'OMhelp in Source Code Using Block Comments', other:' begin end languages near_equal_c.c ok_near_equal_c.c execute example this web site' },
 { tag: 'near_equal_c', title:'Determine if Two Values Are Nearly Equal', other:' syntax purpose example' },
 { tag: 'start_oneline', title:'OMhelp in Source Code Using One Line Comments', other:' begin end languages newlinech near_equal_f.f ok_near_equal_f.f execute example this web site' },
@@ -54,7 +55,7 @@ Keyword =
 { tag: 'include', title:'The Include Command', other:' read input file syntax see also description example' },
 { tag: 'image', title:'Displaying Graphical Images', other:' picture icon gif jpg syntax see also purpose cmd file_in file_out example' },
 { tag: 'verbatim', title:'Verbatim Display of All or Part of a File', other:' source code example pre format syntax see also description new lines filename highlighting hilite indent start stop skip tab stops' },
-{ tag: 'srcfile', title:'Displaying Source Code From a File', other:' syntax see also optional purpose letter case delimiter sequence filename indent example start escape stop skip tab stops' },
+{ tag: 'srcfile', title:'Displaying Source Code From a File', other:' syntax srcthisfile see also optional purpose letter case delimiter sequence filename indent example start escape stop skip tab stops' },
 { tag: 'srccode', title:'Displaying In Line Source Code', other:' syntax see also optional purpose file_ext letter case delimiter sequence example factorial program' },
 { tag: 'execute', title:'Creating a File and Linking to its Execution', other:' syntax see also purpose target example' },
 { tag: 'KeyCharacter', title:'Changing the Command Key Character $', other:' omhelpkeycharacter special syntax purpose keycharexample.omh keycharinclude.omh' },
@@ -141,7 +142,7 @@ Keyword =
 { tag: 'glossary', title:'Glossary', other:' children complete path specification cross reference tag delimiter sequence directory separator character dollar sign file extension input searching parent pre-formatted font section siblings uniformly spaced white' },
 { tag: 'wish_list', title:'OMhelp Wish List', other:' cref verbatim srcfile srccode xml drop down menus not working home page jump table deprecate features image tables parent section source-highlight comment character spell th $$' },
 { tag: 'whats_new', title:'Changes and Additions to OMhelp', other:' introduction this year previous years' },
-{ tag: 'whats_new_20', title:'Changes and Additions to OMhelp During 2020', other:' description 01-29' },
+{ tag: 'whats_new_20', title:'Changes and Additions to OMhelp During 2020', other:' description 01-20 01-29' },
 { tag: 'whats_new_19', title:'Changes and Additions to OMhelp During 2019', other:' description 19-12-07 19-10-12 19-09-30 19-09-29 19-09-28 19-08-29 19-08-28 19-06-27 19-02-02 19-02-01 19-01-30 19-01-29 19-01-26 19-01-18' },
 { tag: 'whats_new_18', title:'Changes and Additions to OMhelp During 2018', other:' description 11-16 11-15 10-31 05-13 03-13 03-11' },
 { tag: 'whats_new_17', title:'Changes and Additions to OMhelp During 2017', other:' description 06-28 01-08' },
