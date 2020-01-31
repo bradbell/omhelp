@@ -7129,7 +7129,7 @@ yyreduce:
 		{	if( *start == '\n' )
 				++start_line;
 			++start;
-		}  
+		}
 		//
 		ntoken = SplitText(command_line, "$srcthisfile", yyvsp[-1].str);
 		if( ntoken < 1 ) fatalomh(
