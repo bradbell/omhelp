@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2019 Bradley M. Bell
+          Copyright (C) 1998-2020 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -10,6 +10,7 @@ $spell
 	tabsize
 	src
 	srcfile
+	srcthisfile
 	newline
 	regex
 	cmake
@@ -20,6 +21,8 @@ $dollar @$$
 $section Displaying Source Code From a File$$
 
 $head Syntax$$
+
+$subhead srcfile$$
 $codei/@srcfile%/filename/%@@
 /$$
 $codei/@srcfile%/filename/%/indent/%/@@
@@ -29,18 +32,26 @@ $codei/@srcfile%/filename/%/indent/%/start/%/stop/%@@
 $codei/@srcfile%/filename/%/indent/%/start/%/stop/%/skip/@@
 /$$
 
+$subhead srcthisfile$$
+$codei/@srcthisfile%/indent/%/@@
+/$$
+$codei/@srcthisfile%/indent/%/start/%/stop/%@@
+/$$
+$codei/@srcthisfile%/indent/%/start/%/stop/%/skip/@@
+/$$
+
 $head See Also$$
 $cref/getting started/start_src/$$,
 $mref/srccode/codep/verbatim/$$
 
 $head Optional$$
-This command is optional and only supported when the
+These commands are optional and only supported when the
 $cref/source_highlight/installunix/CMake Command/source_highlight_prefix/$$
 library are successfully found; see the output printed by the
 $cref/cmake command/InstallUnix/CMake Command/$$.
 
 $head Purpose$$
-This command will display the specified
+These commands will display the specified
 $cref/input file/glossary/Input File Searching/$$
 as program source code with highlighting.
 
@@ -57,6 +68,8 @@ is a $cref/delimiter sequence/glossary/Delimiter Sequence/$$
 where $code %$$ can be any character that is not a letter.
 
 $head filename$$
+
+$subhead srcfile$$
 The value of $icode filename$$ specifies the name
 of the file that is displayed.
 Leading and trailing white space in $icode filename$$ is ignored.
@@ -64,6 +77,10 @@ The $icode filename$$ must have a
 $cref/file extension/glossary/File Extension/$$.
 The file extension, without the period $code '.'$$,
 is used to determine the source code language.
+
+$subhead srcthisfile$$
+The $code @srcthisfile$$ command uses the input file,
+where the command occurs, for $icode filename$$.
 
 $head indent$$
 If $icode indent$$ is present,
@@ -135,7 +152,8 @@ and go forward to the location that you wish to display.
 
 $head Tab Stops$$
 The $cref tabsize$$ command
-enables you to match the indentation of the $code src$$ command
+enables you to match the indentation of the
+$code srcfile$$ and $code srcthisfile$$ commands
 with one of the tabbing columns.
 
 $end

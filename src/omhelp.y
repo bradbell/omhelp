@@ -4704,6 +4704,8 @@ srcfile
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
 
+		// delimiter != '\0'
+		assert( $2.str[0] != '\0' );
 		ntoken = SplitText($1.line, "$srcfile", $2.str);
 		if( ntoken < 1 ) fatalomh(
 			"$srcfile command in line ",
@@ -4800,7 +4802,9 @@ srcthisfile
 		assert( $2.str != NULL );
 		assert( $3.str == NULL );
 
-		ntoken = SplitText($1.line, "$srcfile", $2.str);
+		// delimiter != '\0'
+		assert( $2.str[0] != '\0' );
+		ntoken = SplitText($1.line, "$srcthisfile", $2.str);
 		if( ntoken < 1 ) fatalomh(
 			"$srcthisfile command in line ",
 			int2str($1.line),
@@ -4816,11 +4820,9 @@ srcthisfile
 		if( ntoken > 5 ) fatalomh(
 			"$srcthisfile command in line ",
 			int2str($1.line),
-			"\nExpected at most 5 delimiters in $srcfile command",
+			"\nExpected at most 5 delimiters in command",
 			NULL
 		);
-		// delimiter != '\0'
-		assert( $2.str[0] != '\0' );
 
 		// indent
 		token  = $2.str + 1;

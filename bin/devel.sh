@@ -27,6 +27,7 @@ ignore_files='
 	src/omhelp.h
 	src/latex.h
 	src/latex.c
+	omh/getstarted/src_example.py
 '
 # ----------------------------------------------------------------------------
 echo "copyright_owner=$copyright_owner"

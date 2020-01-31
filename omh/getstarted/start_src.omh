@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 OMhelp: Language Independent Embedded Documentation
-          Copyright (C) 1998-2019 Bradley M. Bell
+          Copyright (C) 1998-2020 Bradley M. Bell
 OMhelp is distributed under the terms of the
             GNU General Public License Version 2.
 -------------------------------------------------------------------------------
@@ -13,6 +13,7 @@ $spell
 	getstarted
 	src
 	srcfile
+	srcthisfile
 	srccode
 	omh
 	OMhelp
@@ -30,11 +31,15 @@ enables one to include all of part of a source code file.
 This is useful for including examples in the documentation
 with source code highlighting.
 
+$head srcthisfile$$
+The $cref/srcthisfile/srcfile/Syntax/srcthisfile/$$ command
+enables one to include all of part of the current input file.
+This can include part of the current input file,
+in the documentation, with source code highlighting.
+
 $head srccode$$
 The $cref srccode$$ command
 enables one to include line text with source code highlighting.
-
-
 
 $head src_example.omh$$
 Use the editor of your choice to

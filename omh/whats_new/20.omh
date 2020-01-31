@@ -9,6 +9,7 @@ $begin whats_new_20$$
 $dollar @$$
 $spell
     OMhelp
+	srcthisfile
 $$
 
 $section Changes and Additions to OMhelp During 2020$$
@@ -18,6 +19,9 @@ This section contains a list of changes to
 OMhelp during 2020 (in reverse order by date).
 Its purpose is to assist you in learning about
 changes between versions.
+
+$head 01-20$$
+Add the $cref/srcthisfile/srcfile/Syntax/srcthisfile/$$ command.
 
 $head 01-29$$
 The error message when a requested version of a
