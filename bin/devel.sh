@@ -21,6 +21,7 @@ version_files='
 # should also be in this list.
 ignore_files='
 	.gitignore
+    readme.md
 	batch_edit.sed
 	bin/devel.sh
 	src/omhelp.c
